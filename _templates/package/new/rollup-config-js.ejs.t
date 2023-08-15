@@ -1,3 +1,6 @@
+---
+to: packages/<%= h.changeCase.paramCase(name) %>/rollup.config.js
+---
 import typescript from '@rollup/plugin-typescript'
 
 /** @type import('rollup').RollupOptions */

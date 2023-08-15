@@ -1,5 +1,8 @@
+---
+to: packages/<%= h.changeCase.paramCase(name) %>/package.json
+---
 {
-  "name": "@paramanu/ioc",
+  "name": "@paramanu/<%= h.changeCase.paramCase(name) %>",
   "version": "1.0.0",
   "description": "Inversion of Control Containers",
   "type": "module",

@@ -1,5 +1,5 @@
 {
-  "name": "@paramanu/ioc",
+  "name": "@paramanu/wait-utils",
   "version": "1.0.0",
   "description": "Inversion of Control Containers",
   "type": "module",

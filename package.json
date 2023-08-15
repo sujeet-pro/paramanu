@@ -5,6 +5,9 @@
   "main": "index.js",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "=18.17"
+  },
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "build:ioc": "npm run build --workspace=packages/ioc",
@@ -17,17 +20,26 @@
   "author": "",
   "license": "ISC",
   "workspaces": [
-    "packages/ioc"
+    "packages/*"
   ],
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.2",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@typescript-eslint/parser": "^6.4.0",
     "eslint": "^8.47.0",
+    "hygen": "^6.2.11",
     "prettier": "^3.0.1",
     "rimraf": "^5.0.1",
     "rollup": "^3.28.0",
     "tslib": "^2.6.1",
     "typescript": "^5.1.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujeet-pro/paramanu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sujeet-pro/paramanu/issues"
+  },
+  "homepage": "https://github.com/sujeet-pro/paramanu#readme"
 }

@@ -1,3 +1,6 @@
+---
+to: packages/<%= h.changeCase.paramCase(name) %>/tsconfig.json
+---
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
