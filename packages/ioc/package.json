@@ -1,0 +1,15 @@
+{
+  "name": "@paramanu/ioc",
+  "version": "1.0.0",
+  "description": "Inversion of Control Containers",
+  "main": "index.js",
+  "type": "module",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "rimraf dist",
+    "build": "rollup -c"
+  },
+  "author": "Sujeet",
+  "license": "ISC"
+}

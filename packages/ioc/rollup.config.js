@@ -1,0 +1,17 @@
+import typescript from '@rollup/plugin-typescript'
+
+/** @type import('rollup').RollupOptions */
+const buildEsm = {
+  input: 'src/index.ts',
+  output: {
+    preserveModules: true,
+    dir: 'dist',
+    // file: 'dist/index.js',
+    format: 'esm'
+  },
+  plugins: [typescript()]
+}
+
+export default [
+  buildEsm
+]
