@@ -1,6 +1,6 @@
 {
   "name": "@paramanu/wait",
-  "version": "1.0.0",
+  "version": "1.0.1-alpha.0",
   "description": "Inversion of Control Containers",
   "type": "module",
   "exports": {
@@ -23,5 +23,5 @@
   "bugs": {
     "url": "https://github.com/sujeet-pro/paramanu/issues"
   },
-  "homepage": "https://github.com/sujeet-pro/paramanu#readme"
+  "homepage": "https://github.com/sujeet-pro/paramanu/tree/main/packages/wait#readme"
 }
