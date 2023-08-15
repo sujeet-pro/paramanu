@@ -1,5 +1,5 @@
 {
-  "name": "@paramanu/wait-utils",
+  "name": "@paramanu/wait",
   "version": "1.0.0",
   "description": "Inversion of Control Containers",
   "type": "module",
