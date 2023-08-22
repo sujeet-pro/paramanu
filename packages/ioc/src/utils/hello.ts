@@ -1,3 +1,3 @@
 export function hello(...args: string[]) {
-  return `hello, ${args.join(', ')}`
+  return `hello, ${args.join(", ")}`
 }

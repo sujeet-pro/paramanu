@@ -1,5 +1,5 @@
 ---
-to: packages/<%= h.changeCase.paramCase(name) %>/src/index.ts
+to: packages/<%= h.changeCase.paramCase(name) %>/src/index.spec.ts
 ---
 import {expect, test} from '@jest/globals';
 import { testFunction } from "./index";

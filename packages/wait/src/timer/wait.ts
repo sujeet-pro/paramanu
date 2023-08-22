@@ -1,11 +1,11 @@
 /**
- * 
+ *
  * @param delayInMs - time in millisecond
  * @returns resolved promise with null value after the `delay`
- * 
- * 
+ *
+ *
  * @example
- * // Wait for 1sec
+ * Wait for 1sec
  * ```ts
  * async function yourFunction() {
  *    await wait(1000)

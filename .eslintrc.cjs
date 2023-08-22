@@ -1,32 +1,38 @@
 // Eslint does not support esm configuration at this time
 module.exports = {
   env: {
-    browser: true,
+    browser: false,
+    node: false,
     es2021: true,
-    node: true,
   },
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
-  parser: '@typescript-eslint/parser',
+  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ["@typescript-eslint"],
   rules: {
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'never'],
+    // indent: ['error', 2],
+    // 'linebreak-style': ['error', 'unix'],
+    // quotes: ['error', ''],
+    // semi: ['error', 'never'],
   },
   overrides: [
     {
-      files: ['.eslintrc.{js,cjs}'],
+      files: [".eslintrc.{js,cjs}"],
       env: {
         node: true,
       },
-      
+
       parserOptions: {
-        sourceType: 'script',
+        sourceType: "script",
+      },
+    },
+    {
+      files: ["*.browser.{js,ts}"],
+      env: {
+        browser: false,
       },
     },
   ],

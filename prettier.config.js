@@ -1,10 +1,29 @@
 /** @type {import("prettier").Config} */
 const config = {
-  trailingComma: 'all',
+  endOfLine: "lf",
+  proseWrap: "preserve",
+
+  // Spacing
+  printWidth: 120,
   tabWidth: 2,
+  useTabs: false,
+  bracketSpacing: true,
+
+  // Commas
   semi: false,
-  singleQuote: true,
-  arrowParens: 'avoid',
+  trailingComma: "all",
+
+  // Quotes
+  singleQuote: false,
+  quoteProps: "as-needed",
+
+  // Funcitons
+  arrowParens: "avoid",
+
+  // JSX
+  jsxSingleQuote: false,
+  requirePragma: false,
+  insertPragma: false,
 }
 
 export default config

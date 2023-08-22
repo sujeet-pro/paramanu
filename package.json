@@ -12,6 +12,8 @@
     "test": "npm run test --workspaces --if-present",
     "build": "npm run build --workspaces --if-present",
     "build:ioc": "npm run build --workspace=packages/ioc",
+    "fix": "npm run lint:fix && npm run format:fix",
+    "check": "npm run lint:check && npm run format:check",
     "lint:fix": "eslint --ext .js,.ts . --fix",
     "lint:check": "eslint --ext .js,.ts .",
     "format:fix": "prettier . --write --ignore-unknown",
