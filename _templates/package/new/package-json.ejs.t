@@ -13,7 +13,7 @@ to: packages/<%= h.changeCase.paramCase(name) %>/package.json
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "prebuild": "rimraf dist",
     "build": "rollup -c"
   },
