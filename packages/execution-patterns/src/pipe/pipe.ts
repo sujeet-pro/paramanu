@@ -24,11 +24,4 @@ export class Pipe<T> {
     tapCallback(this.#value)
     return this
   }
-
-  // collect<CT extends CollectorInputBase<T>>(collectors: CT): CollectorResponse<T, CT> {
-  //   const obj = Object.fromEntries(
-  //     Object.entries(collectors).map(([key, valFunction]) => [key, valFunction(this.#value)])
-  //   )
-  //   return obj as CollectorResponse<T, CT>
-  // }
 }

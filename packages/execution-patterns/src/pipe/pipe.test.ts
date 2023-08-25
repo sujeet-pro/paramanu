@@ -1,7 +1,9 @@
-import { expect, test } from "@jest/globals"
+import { expect, test, describe } from "@jest/globals"
 import { Pipe } from "./pipe"
 
-test("check initialization", () => {
-  const val = new Pipe(1).value
-  expect(val).toBe(1)
+describe('Pipe: Sync', () => {
+  test("check initialization", () => {
+    const val = new Pipe(1).value
+    expect(val).toBe(1)
+  })
 })
