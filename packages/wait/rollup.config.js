@@ -8,7 +8,9 @@ const buildEsm = {
     dir: "dist",
     format: "esm",
   },
-  plugins: [typescript()],
+  plugins: [typescript({
+    exclude: ['src/**/*.test.ts']
+  })],
 }
 
 export default [buildEsm]

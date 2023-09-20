@@ -37,6 +37,15 @@ await waitForPolledCondition(() => document.body.classList.has("loaded"), { poll
 
 #### waitForPageLoad
 
+Wait for page load
+
+```ts
+await waitForPageLoad()
+```
+
+Wait for page load, or timeout whichever is first.
+Example use case - execute somthing on page load, but don't wait for  more than 1000 sec.
+
 ```ts
 await waitForPageLoad(1000)
 ```
