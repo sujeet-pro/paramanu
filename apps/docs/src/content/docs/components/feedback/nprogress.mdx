@@ -1,0 +1,99 @@
+---
+title: NProgress
+description: Slim progress bar at the top of the page for route transitions and async operations.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+NProgress displays a slim, animated progress bar at the top of the page, commonly used for route transitions.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-nprogress pm-nprogress--active">
+  <div class="pm-nprogress__bar" style="width: 30%;">
+    <div class="pm-nprogress__peg"></div>
+  </div>
+</div>`}
+  reactCode={`import { NProgress, useNProgress } from "@paramanu/feedback-react"
+
+export default function App() {
+  const { nprogressProps, start, done } = useNProgress()
+  return (
+    <div>
+      <NProgress {...nprogressProps} />
+      <button onClick={start}>Start</button>
+      <button onClick={done}>Done</button>
+    </div>
+  )
+}`}
+/>
+
+## Controlled
+
+<ComponentPreview
+  htmlCode={`<div class="pm-nprogress pm-nprogress--active">
+  <div class="pm-nprogress__bar" style="width: 50%;">
+    <div class="pm-nprogress__peg"></div>
+  </div>
+</div>`}
+  reactCode={`import { NProgress } from "@paramanu/feedback-react"
+
+export default function App() {
+  return <NProgress active value={0.5} />
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="progressbar"` with `aria-valuenow`, `aria-valuemin`, `aria-valuemax`
+- Value expressed as 0-100 for screen readers
+
+## Best Practices
+
+- Use for page-level navigation transitions
+- Use `useNProgress` hook for automatic trickle behavior
+- Call `start()` on navigation begin and `done()` on completion
+
+</TabItem>
+
+  <TabItem label="API">
+
+## NProgress Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `active` | `boolean` | `false` | Whether the bar is active |
+| `value` | `number` | `0` | Progress value (0 to 1) |
+
+## useNProgress Hook
+
+Returns an object with:
+
+| Property | Type | Description |
+|---|---|---|
+| `start` | `() => void` | Start the progress bar |
+| `done` | `() => void` | Complete and hide the bar |
+| `value` | `number` | Current progress value |
+| `active` | `boolean` | Whether active |
+| `nprogressProps` | `object` | Props to spread onto NProgress |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-nprogress` | Container base |
+| `pm-nprogress--active` | Active state |
+| `pm-nprogress__bar` | Progress bar |
+| `pm-nprogress__peg` | Glowing peg at bar end |
+
+</TabItem>
+</Tabs>

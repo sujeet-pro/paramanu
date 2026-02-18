@@ -1,0 +1,201 @@
+---
+title: Button
+description: A versatile button component with multiple variants, sizes, loading states, and icon support.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+A polymorphic button component supporting six visual variants, five sizes, loading state with spinner, and left/right icon slots.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button class="pm-button pm-button--primary pm-button--md">Click me</button>`}
+  reactCode={`import { Button } from "@paramanu/buttons-react"
+
+export default function App() {
+  return <Button variant="primary">Click me</Button>
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 8px; flex-wrap: wrap;">
+  <button class="pm-button pm-button--primary pm-button--md">Primary</button>
+  <button class="pm-button pm-button--secondary pm-button--md">Secondary</button>
+  <button class="pm-button pm-button--danger pm-button--md">Danger</button>
+  <button class="pm-button pm-button--ghost pm-button--md">Ghost</button>
+  <button class="pm-button pm-button--outline pm-button--md">Outline</button>
+  <button class="pm-button pm-button--link pm-button--md">Link</button>
+</div>`}
+  reactCode={`import { Button } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="danger">Danger</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="link">Link</Button>
+    </div>
+  )
+}`}
+/>
+
+## Sizes
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+  <button class="pm-button pm-button--primary pm-button--xs">Extra Small</button>
+  <button class="pm-button pm-button--primary pm-button--sm">Small</button>
+  <button class="pm-button pm-button--primary pm-button--md">Medium</button>
+  <button class="pm-button pm-button--primary pm-button--lg">Large</button>
+  <button class="pm-button pm-button--primary pm-button--xl">Extra Large</button>
+</div>`}
+  reactCode={`import { Button } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" }}>
+      <Button size="xs">Extra Small</Button>
+      <Button size="sm">Small</Button>
+      <Button size="md">Medium</Button>
+      <Button size="lg">Large</Button>
+      <Button size="xl">Extra Large</Button>
+    </div>
+  )
+}`}
+/>
+
+## Disabled
+
+<ComponentPreview
+  htmlCode={`<button class="pm-button pm-button--primary pm-button--md pm-button--disabled" disabled aria-disabled="true">Disabled</button>`}
+  reactCode={`import { Button } from "@paramanu/buttons-react"
+
+export default function App() {
+  return <Button disabled>Disabled</Button>
+}`}
+/>
+
+## Loading
+
+<ComponentPreview
+  htmlCode={`<button class="pm-button pm-button--primary pm-button--md pm-button--loading" aria-busy="true" disabled>Loading</button>`}
+  reactCode={`import { Button } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "8px" }}>
+      <Button loading>Save</Button>
+      <Button loading loadingText="Saving...">Save</Button>
+    </div>
+  )
+}`}
+/>
+
+## Full Width
+
+<ComponentPreview
+  htmlCode={`<button class="pm-button pm-button--primary pm-button--md pm-button--full-width">Full Width</button>`}
+  reactCode={`import { Button } from "@paramanu/buttons-react"
+
+export default function App() {
+  return <Button fullWidth>Full Width</Button>
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses semantic `<button>` element by default
+- Focus-visible ring for keyboard navigation (WCAG 2.2 AA compliant)
+- Disabled buttons set both `aria-disabled="true"` and the `disabled` attribute
+- Loading buttons set `aria-busy="true"` and are automatically disabled
+- Supports `aria-label` for icon-only usage
+
+## Best Practices
+
+- **Use the right variant** for the action's importance: `primary` for the main action, `secondary` for alternatives, `danger` for destructive actions, `ghost`/`outline` for low-emphasis actions, and `link` for inline text actions.
+- **One primary button per section** to avoid competing calls to action.
+- **Use clear, concise labels** with action verbs like "Save", "Delete", "Submit".
+- **Indicate loading states** for async actions to prevent double-clicks.
+- **Always include a `type` attribute** in forms.
+
+## Do's and Don'ts
+
+| Do | Don't |
+|---|---|
+| Use `variant="danger"` for destructive actions | Style primary buttons red with custom CSS |
+| Disable buttons when action is unavailable | Hide buttons and confuse users |
+| Use `fullWidth` for mobile or single-action layouts | Use `fullWidth` for every button |
+| Provide `aria-label` when using icon-only buttons | Leave icon-only buttons without accessible names |
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+The `Button` component extends all native `<button>` HTML attributes.
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"primary" \| "secondary" \| "danger" \| "ghost" \| "outline" \| "link"` | `"primary"` | Visual style variant |
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Size preset |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `fullWidth` | `boolean` | `false` | Stretch to container width |
+| `loading` | `boolean` | `false` | Loading state with spinner |
+| `active` | `boolean` | `false` | Active/pressed visual state |
+| `loadingText` | `string` | -- | Text shown alongside spinner |
+| `spinnerPlacement` | `"start" \| "end"` | `"start"` | Spinner position relative to text |
+| `type` | `"button" \| "submit" \| "reset"` | `"button"` | HTML button type |
+| `leftIcon` | `ReactNode` | -- | Icon before label |
+| `rightIcon` | `ReactNode` | -- | Icon after label |
+| `spinner` | `ReactNode` | -- | Custom spinner element |
+| `children` | `ReactNode` | -- | Button content |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-button` | Base button styles |
+| `pm-button--primary` | Primary variant |
+| `pm-button--secondary` | Secondary variant |
+| `pm-button--danger` | Danger variant |
+| `pm-button--ghost` | Ghost variant |
+| `pm-button--outline` | Outline variant |
+| `pm-button--link` | Link variant |
+| `pm-button--xs` | Extra small size |
+| `pm-button--sm` | Small size |
+| `pm-button--md` | Medium size |
+| `pm-button--lg` | Large size |
+| `pm-button--xl` | Extra large size |
+| `pm-button--disabled` | Disabled state |
+| `pm-button--full-width` | Full width |
+| `pm-button--loading` | Loading state |
+| `pm-button--active` | Active state |
+
+## CSS Custom Properties
+
+The button reads design tokens from `@paramanu/tokens`. Override at `:root` to customize:
+
+```css
+:root {
+  --pm-color-primary: #2563eb;
+  --pm-color-danger: #dc2626;
+}
+```
+
+</TabItem>
+</Tabs>

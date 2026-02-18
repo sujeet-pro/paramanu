@@ -1,0 +1,47 @@
+---
+title: Form Control
+description: A wrapper that groups a label, input, and helper or error text.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Form Control groups a label, input, and helper/error text into a single accessible unit.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-form-control pm-form-control--vertical" role="group">...</div>`}
+  reactCode={`import { FormControl } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <FormControl helperText="Enter your name">\n      <label>Name</label>\n      <input />\n    </FormControl>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="group"` | Groups label, input, and messages |
+| Error text | Shown only when `invalid` is true |
+| Helper text | Shown when not invalid |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `orientation` | `"vertical" \| "horizontal"` | `"vertical"` | Layout direction |
+| `invalid` | `boolean` | `false` | Invalid state |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `required` | `boolean` | `false` | Required state |
+| `helperText` | `ReactNode` | — | Helper text below input |
+| `errorText` | `ReactNode` | — | Error text shown when invalid |
+
+</TabItem>
+</Tabs>

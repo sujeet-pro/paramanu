@@ -1,0 +1,101 @@
+---
+title: Badge
+description: A small inline status indicator with color variants and pill shape support.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Badge is a small inline label used to display status, counts, or categories. Supports filled, outline, and subtle variants with multiple color palettes.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<span class="pm-badge pm-badge--filled pm-badge--md pm-badge--primary">New</span>`}
+  reactCode={`import { Badge } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Badge>New</Badge>
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<span class="pm-badge pm-badge--filled pm-badge--md pm-badge--primary">Filled</span>
+<span class="pm-badge pm-badge--outline pm-badge--md pm-badge--primary">Outline</span>
+<span class="pm-badge pm-badge--subtle pm-badge--md pm-badge--primary">Subtle</span>`}
+  reactCode={`import { Badge } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <>
+      <Badge variant="filled">Filled</Badge>
+      <Badge variant="outline">Outline</Badge>
+      <Badge variant="subtle">Subtle</Badge>
+    </>
+  )
+}`}
+/>
+
+## Colors
+
+<ComponentPreview
+  htmlCode={`<span class="pm-badge pm-badge--filled pm-badge--md pm-badge--primary">Primary</span>
+<span class="pm-badge pm-badge--filled pm-badge--md pm-badge--success">Success</span>
+<span class="pm-badge pm-badge--filled pm-badge--md pm-badge--danger">Danger</span>
+<span class="pm-badge pm-badge--filled pm-badge--md pm-badge--neutral">Neutral</span>`}
+  reactCode={`import { Badge } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <>
+      <Badge color="primary">Primary</Badge>
+      <Badge color="success">Success</Badge>
+      <Badge color="danger">Danger</Badge>
+      <Badge color="neutral">Neutral</Badge>
+    </>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Use descriptive text content for screen reader context.
+- Pair with nearby text that describes what the badge represents.
+
+## Best Practices
+
+- Use `pill` for numeric counters (e.g., notification counts).
+- Use semantic colors: `success` for positive, `danger` for errors.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"filled" \| "outline" \| "subtle"` | `"filled"` | Visual style |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Controls padding and font size |
+| `color` | `"primary" \| "neutral" \| "danger" \| "success"` | `"primary"` | Color palette |
+| `pill` | `boolean` | `false` | Fully rounded (pill) shape |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-badge` | Base badge class |
+| `pm-badge--{variant}` | Variant modifier |
+| `pm-badge--{size}` | Size modifier |
+| `pm-badge--{color}` | Color modifier |
+| `pm-badge--pill` | Pill shape |
+
+</TabItem>
+</Tabs>

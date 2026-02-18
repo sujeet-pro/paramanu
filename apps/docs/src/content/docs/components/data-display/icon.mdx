@@ -1,0 +1,52 @@
+---
+title: Icon
+description: A wrapper for SVG icons with size, color, and spin animation support.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Icon is a container for SVG icons with consistent sizing, color inheritance, and optional spin animation. Supports accessible and decorative modes.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<span class="pm-icon pm-icon--md pm-icon--inherit" role="img" aria-label="Star">
+  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" /></svg>
+</span>`}
+  reactCode={`import { Icon } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <Icon label="Star">
+      <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" /></svg>
+    </Icon>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Provide `label` for meaningful icons (sets `role="img"` and `aria-label`).
+- Omit `label` for decorative icons (sets `aria-hidden="true"`).
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Width and height |
+| `color` | `"inherit" \| "primary" \| "neutral" \| "danger" \| "success"` | `"inherit"` | Icon color |
+| `spin` | `boolean` | `false` | Continuous rotation animation |
+| `label` | `string` | - | Accessible label (omit for decorative) |
+
+</TabItem>
+</Tabs>

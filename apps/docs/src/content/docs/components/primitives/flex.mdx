@@ -1,0 +1,117 @@
+---
+title: Flex
+description: A flexbox layout component for arranging items in rows or columns with gap, alignment, and wrapping controls.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Flex provides a convenient wrapper around CSS flexbox with props for direction, alignment, justification, wrapping, and gap.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-flex pm-flex--gap-4">
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 1</div>
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 2</div>
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 3</div>
+</div>`}
+  reactCode={`import { Flex } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Flex gap="4">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </Flex>
+  )
+}`}
+/>
+
+## Column Direction
+
+<ComponentPreview
+  htmlCode={`<div class="pm-flex pm-flex--col pm-flex--gap-4">
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 1</div>
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 2</div>
+</div>`}
+  reactCode={`import { Flex } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Flex direction="column" gap="4">
+      <div>Item 1</div>
+      <div>Item 2</div>
+    </Flex>
+  )
+}`}
+/>
+
+## Alignment
+
+<ComponentPreview
+  htmlCode={`<div class="pm-flex pm-flex--align-center pm-flex--justify-between pm-flex--gap-4">
+  <div style="background: #e2e8f0; padding: 8px 16px;">Start</div>
+  <div style="background: #e2e8f0; padding: 8px 16px;">End</div>
+</div>`}
+  reactCode={`import { Flex } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Flex align="center" justify="between" gap="4">
+      <div>Start</div>
+      <div>End</div>
+    </Flex>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+Flex renders a `<div>` with no inherent semantic meaning. Use semantic child elements or ARIA roles as appropriate.
+
+## Best Practices
+
+- Use Flex for one-dimensional layouts. For two-dimensional grids, use Grid.
+- Prefer the `gap` prop over margin on children for consistent spacing.
+- Use Stack for simple vertical/horizontal stacking with optional dividers.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `direction` | `"row" \| "column" \| "row-reverse" \| "column-reverse"` | `"row"` | Flex direction |
+| `align` | `"start" \| "center" \| "end" \| "stretch" \| "baseline"` | -- | Align items |
+| `justify` | `"start" \| "center" \| "end" \| "between" \| "around" \| "evenly"` | -- | Justify content |
+| `wrap` | `"wrap" \| "nowrap" \| "wrap-reverse"` | -- | Flex wrap |
+| `gap` | `SpacingScale` | -- | Gap between children |
+| `inline` | `boolean` | `false` | Render as inline-flex |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-flex` | Base flex container |
+| `pm-flex--col` | Column direction |
+| `pm-flex--row-reverse` | Reversed row |
+| `pm-flex--col-reverse` | Reversed column |
+| `pm-flex--align-{value}` | Align items |
+| `pm-flex--justify-{value}` | Justify content |
+| `pm-flex--wrap` | Enable wrapping |
+| `pm-flex--gap-{scale}` | Gap |
+| `pm-flex--inline` | Inline flex |
+
+</TabItem>
+</Tabs>

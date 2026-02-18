@@ -1,0 +1,71 @@
+---
+title: Divider
+description: A horizontal or vertical line separator with optional label text and multiple line styles.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Divider renders a horizontal or vertical separator line. It supports solid, dashed, and dotted styles, and can include a label.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<hr class="pm-divider pm-divider--horizontal pm-divider--solid" />`}
+  reactCode={`import { Divider } from "@paramanu/primitives-react"
+
+export default function App() {
+  return <Divider />
+}`}
+/>
+
+## With Label
+
+<ComponentPreview
+  htmlCode={`<div class="pm-divider pm-divider--horizontal pm-divider--solid pm-divider--with-label" role="separator">OR</div>`}
+  reactCode={`import { Divider } from "@paramanu/primitives-react"
+
+export default function App() {
+  return <Divider label="OR" />
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+Divider renders with `role="separator"` and `aria-orientation` attributes.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Direction |
+| `variant` | `"solid" \| "dashed" \| "dotted"` | `"solid"` | Line style |
+| `label` | `ReactNode` | -- | Label text |
+| `labelPosition` | `"start" \| "center" \| "end"` | `"center"` | Label placement |
+| `my` | `SpacingScale` | -- | Vertical margin |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-divider` | Base |
+| `pm-divider--horizontal` | Horizontal |
+| `pm-divider--vertical` | Vertical |
+| `pm-divider--solid` | Solid line |
+| `pm-divider--dashed` | Dashed line |
+| `pm-divider--dotted` | Dotted line |
+| `pm-divider--with-label` | Has label |
+
+</TabItem>
+</Tabs>

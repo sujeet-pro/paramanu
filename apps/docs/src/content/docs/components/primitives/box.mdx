@@ -1,0 +1,138 @@
+---
+title: Box
+description: A foundational layout primitive that controls display, padding, margin, overflow, and position via CSS utility classes.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Box is the most basic layout building block. It maps common CSS layout properties to BEM modifier classes using the design token spacing scale.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-box pm-box--p-4" style="border: 1px dashed #ccc;">Box with padding</div>`}
+  reactCode={`import { Box } from "@paramanu/primitives-react"
+
+export default function App() {
+  return <Box p="4" style={{ border: "1px dashed #ccc" }}>Box with padding</Box>
+}`}
+/>
+
+## Padding
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 8px; flex-wrap: wrap;">
+  <div class="pm-box pm-box--p-2" style="border: 1px dashed #ccc;">p-2</div>
+  <div class="pm-box pm-box--p-4" style="border: 1px dashed #ccc;">p-4</div>
+  <div class="pm-box pm-box--p-6" style="border: 1px dashed #ccc;">p-6</div>
+</div>`}
+  reactCode={`import { Box } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+      <Box p="2" style={{ border: "1px dashed #ccc" }}>p-2</Box>
+      <Box p="4" style={{ border: "1px dashed #ccc" }}>p-4</Box>
+      <Box p="6" style={{ border: "1px dashed #ccc" }}>p-6</Box>
+    </div>
+  )
+}`}
+/>
+
+## Display
+
+<ComponentPreview
+  htmlCode={`<div class="pm-box pm-box--d-flex pm-box--p-4" style="border: 1px dashed #ccc; gap: 8px;">
+  <div style="background: #e2e8f0; padding: 8px;">Item 1</div>
+  <div style="background: #e2e8f0; padding: 8px;">Item 2</div>
+  <div style="background: #e2e8f0; padding: 8px;">Item 3</div>
+</div>`}
+  reactCode={`import { Box } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Box display="flex" p="4" style={{ border: "1px dashed #ccc", gap: "8px" }}>
+      <div style={{ background: "#e2e8f0", padding: "8px" }}>Item 1</div>
+      <div style={{ background: "#e2e8f0", padding: "8px" }}>Item 2</div>
+      <div style={{ background: "#e2e8f0", padding: "8px" }}>Item 3</div>
+    </Box>
+  )
+}`}
+/>
+
+## Overflow
+
+<ComponentPreview
+  htmlCode={`<div class="pm-box pm-box--p-4 pm-box--overflow-hidden" style="border: 1px dashed #ccc; width: 200px; height: 80px;">
+  This content will be clipped when it overflows.
+</div>`}
+  reactCode={`import { Box } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Box p="4" overflow="hidden" style={{ border: "1px dashed #ccc", width: 200, height: 80 }}>
+      This content will be clipped when it overflows.
+    </Box>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+Box renders a `<div>` by default which has no semantic meaning. Use the `as` prop to render a semantically appropriate element when needed (e.g., `section`, `article`).
+
+## Best Practices
+
+- Use Box as a generic wrapper when no more specific primitive (Flex, Stack, Grid) fits.
+- Prefer spacing props (`p`, `px`, `py`, `m`, `mx`, `my`) over custom CSS for consistent spacing.
+- Use the `as` prop to render semantic HTML elements where appropriate.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+The `Box` component extends all native `<div>` HTML attributes (or the chosen `as` element).
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `as` | `string` | `"div"` | The HTML element to render |
+| `display` | `"block" \| "inline-block" \| "inline" \| "flex" \| "inline-flex" \| "grid" \| "inline-grid" \| "none"` | -- | CSS display property |
+| `p` | `SpacingScale` | -- | Padding on all sides |
+| `px` | `SpacingScale` | -- | Horizontal (inline) padding |
+| `py` | `SpacingScale` | -- | Vertical (block) padding |
+| `m` | `SpacingScale` | -- | Margin on all sides |
+| `mx` | `SpacingScale` | -- | Horizontal (inline) margin |
+| `my` | `SpacingScale` | -- | Vertical (block) margin |
+| `overflow` | `"visible" \| "hidden" \| "scroll" \| "auto"` | -- | Overflow behavior |
+| `position` | `"static" \| "relative" \| "absolute" \| "fixed" \| "sticky"` | -- | CSS position property |
+| `className` | `string` | -- | Additional CSS class names |
+| `children` | `ReactNode` | -- | Child elements |
+| `ref` | `Ref<HTMLDivElement>` | -- | Forwarded ref |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-box` | Base box styles |
+| `pm-box--d-{value}` | Display modifier |
+| `pm-box--p-{scale}` | Padding all sides |
+| `pm-box--px-{scale}` | Padding inline |
+| `pm-box--py-{scale}` | Padding block |
+| `pm-box--m-{scale}` | Margin all sides |
+| `pm-box--mx-{scale}` | Margin inline |
+| `pm-box--my-{scale}` | Margin block |
+| `pm-box--overflow-{value}` | Overflow modifier |
+| `pm-box--pos-{value}` | Position modifier |
+
+</TabItem>
+</Tabs>

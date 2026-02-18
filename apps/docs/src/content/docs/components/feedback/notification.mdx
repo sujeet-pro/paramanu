@@ -1,0 +1,67 @@
+---
+title: Notification
+description: Rich notification with title, description, timestamp, and actions.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Notification displays a rich notification item with title, message, timestamp, and optional actions.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-notification pm-notification--neutral" role="article">
+  <div class="pm-notification__content">
+    <div class="pm-notification__title">New message</div>
+    <div class="pm-notification__message">You have a new message.</div>
+    <time class="pm-notification__timestamp">2 min ago</time>
+  </div>
+</div>`}
+  reactCode={`import { Notification } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <Notification title="New message" message="You have a new message." timestamp="2 min ago" />
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="article"` for semantic grouping
+- Close button has `aria-label="Dismiss notification"`
+
+## Best Practices
+
+- Use unread state to highlight new notifications
+- Include timestamps for context
+- Provide action buttons for actionable notifications
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"info" \| "success" \| "warning" \| "danger" \| "neutral"` | `"neutral"` | Color variant |
+| `unread` | `boolean` | `false` | Unread highlight |
+| `dismissible` | `boolean` | `false` | Show close button |
+| `icon` | `ReactNode` | -- | Icon element |
+| `title` | `ReactNode` | -- | Title text |
+| `message` | `ReactNode` | -- | Message body |
+| `timestamp` | `ReactNode` | -- | Time label |
+| `actions` | `ReactNode` | -- | Action buttons |
+| `onClose` | `() => void` | -- | Dismiss callback |
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,125 @@
+---
+title: Icon Button
+description: A square or circular button that renders only an icon with no visible text.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+A button that renders only an icon, requiring `aria-label` for accessibility. Supports square and circle shapes.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button class="pm-icon-button pm-icon-button--primary pm-icon-button--md pm-icon-button--square" aria-label="Search">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+</button>`}
+  reactCode={`import { IconButton } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <IconButton aria-label="Search">
+      <SearchIcon />
+    </IconButton>
+  )
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 8px;">
+  <button class="pm-icon-button pm-icon-button--primary pm-icon-button--md pm-icon-button--square" aria-label="Primary">+</button>
+  <button class="pm-icon-button pm-icon-button--secondary pm-icon-button--md pm-icon-button--square" aria-label="Secondary">+</button>
+  <button class="pm-icon-button pm-icon-button--danger pm-icon-button--md pm-icon-button--square" aria-label="Danger">+</button>
+  <button class="pm-icon-button pm-icon-button--ghost pm-icon-button--md pm-icon-button--square" aria-label="Ghost">+</button>
+  <button class="pm-icon-button pm-icon-button--outline pm-icon-button--md pm-icon-button--square" aria-label="Outline">+</button>
+</div>`}
+  reactCode={`import { IconButton } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "8px" }}>
+      <IconButton variant="primary" aria-label="Primary"><PlusIcon /></IconButton>
+      <IconButton variant="secondary" aria-label="Secondary"><PlusIcon /></IconButton>
+      <IconButton variant="danger" aria-label="Danger"><PlusIcon /></IconButton>
+      <IconButton variant="ghost" aria-label="Ghost"><PlusIcon /></IconButton>
+      <IconButton variant="outline" aria-label="Outline"><PlusIcon /></IconButton>
+    </div>
+  )
+}`}
+/>
+
+## Shape
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 8px;">
+  <button class="pm-icon-button pm-icon-button--primary pm-icon-button--md pm-icon-button--square" aria-label="Square">+</button>
+  <button class="pm-icon-button pm-icon-button--primary pm-icon-button--md pm-icon-button--circle" aria-label="Circle">+</button>
+</div>`}
+  reactCode={`import { IconButton } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "8px" }}>
+      <IconButton shape="square" aria-label="Square"><PlusIcon /></IconButton>
+      <IconButton shape="circle" aria-label="Circle"><PlusIcon /></IconButton>
+    </div>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Requires `aria-label` since there is no visible text
+- Uses semantic `<button>` element
+- Loading state sets `aria-busy="true"`
+
+## Best Practices
+
+- Always provide a descriptive `aria-label`
+- Use circle shape for floating or prominent actions
+- Pair with tooltips for discoverability
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+Extends all native `<button>` HTML attributes.
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"primary" \| "secondary" \| "danger" \| "ghost" \| "outline"` | `"primary"` | Visual style |
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Size preset |
+| `shape` | `"square" \| "circle"` | `"square"` | Button shape |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `loading` | `boolean` | `false` | Loading state |
+| `active` | `boolean` | `false` | Active state |
+| `aria-label` | `string` | **required** | Accessible label |
+| `children` | `ReactNode` | -- | Icon element |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-icon-button` | Base styles |
+| `pm-icon-button--primary` | Primary variant |
+| `pm-icon-button--secondary` | Secondary variant |
+| `pm-icon-button--danger` | Danger variant |
+| `pm-icon-button--ghost` | Ghost variant |
+| `pm-icon-button--outline` | Outline variant |
+| `pm-icon-button--square` | Square shape |
+| `pm-icon-button--circle` | Circle shape |
+| `pm-icon-button--xs` to `--xl` | Size modifiers |
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,120 @@
+---
+title: Alert
+description: Displays a prominent feedback message with variant colors, icons, and optional dismiss button.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Alert displays a prominent feedback message to the user with contextual color variants and optional dismiss functionality.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-alert pm-alert--info pm-alert--subtle" role="status">
+  <div class="pm-alert__content">
+    <div class="pm-alert__title">Information</div>
+    <div class="pm-alert__description">This is an informational alert.</div>
+  </div>
+</div>`}
+  reactCode={`import { Alert } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <Alert variant="info" title="Information" description="This is an informational alert." />
+  )
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; flex-direction: column; gap: 8px;">
+  <div class="pm-alert pm-alert--info pm-alert--subtle" role="status"><div class="pm-alert__content"><div class="pm-alert__title">Info</div></div></div>
+  <div class="pm-alert pm-alert--success pm-alert--subtle" role="status"><div class="pm-alert__content"><div class="pm-alert__title">Success</div></div></div>
+  <div class="pm-alert pm-alert--warning pm-alert--subtle" role="alert"><div class="pm-alert__content"><div class="pm-alert__title">Warning</div></div></div>
+  <div class="pm-alert pm-alert--danger pm-alert--subtle" role="alert"><div class="pm-alert__content"><div class="pm-alert__title">Danger</div></div></div>
+</div>`}
+  reactCode={`import { Alert } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+      <Alert variant="info" title="Info" />
+      <Alert variant="success" title="Success" />
+      <Alert variant="warning" title="Warning" />
+      <Alert variant="danger" title="Danger" />
+    </div>
+  )
+}`}
+/>
+
+## Dismissible
+
+<ComponentPreview
+  htmlCode={`<div class="pm-alert pm-alert--info pm-alert--subtle pm-alert--dismissible" role="status">
+  <div class="pm-alert__content"><div class="pm-alert__title">Dismissible</div></div>
+  <button class="pm-alert__close" aria-label="Close">&times;</button>
+</div>`}
+  reactCode={`import { Alert } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <Alert variant="info" title="Dismissible" dismissible onClose={() => console.log("closed")} />
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="alert"` for warning/danger variants (assertive announcements)
+- Uses `role="status"` for info/success variants (polite announcements)
+- Close button has `aria-label="Close"`
+
+## Best Practices
+
+- Use `info` for general information, `success` for confirmations, `warning` for caution, `danger` for errors
+- Provide both title and description for full context
+- Use `dismissible` for non-critical alerts users can close
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+Extends all native `<div>` HTML attributes.
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"info" \| "success" \| "warning" \| "danger"` | `"info"` | Status variant |
+| `alertStyle` | `"subtle" \| "solid" \| "outline"` | `"subtle"` | Visual style |
+| `dismissible` | `boolean` | `false` | Show close button |
+| `icon` | `ReactNode` | -- | Custom icon element |
+| `title` | `ReactNode` | -- | Alert title |
+| `description` | `ReactNode` | -- | Alert description |
+| `onClose` | `() => void` | -- | Close callback |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-alert` | Base styles |
+| `pm-alert--info/success/warning/danger` | Variant colors |
+| `pm-alert--subtle/solid/outline` | Visual style |
+| `pm-alert--dismissible` | With close button |
+| `pm-alert__icon` | Icon container |
+| `pm-alert__content` | Content wrapper |
+| `pm-alert__title` | Title text |
+| `pm-alert__description` | Description text |
+| `pm-alert__close` | Close button |
+
+</TabItem>
+</Tabs>

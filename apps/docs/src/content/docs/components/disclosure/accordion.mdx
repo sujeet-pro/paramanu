@@ -1,0 +1,92 @@
+---
+title: Accordion
+description: A vertically stacked set of interactive headings that each reveal a section of content.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Accordion allows users to expand and collapse content sections, supporting single and multiple open modes.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-accordion pm-accordion--default pm-accordion--md">
+  <div class="pm-accordion__item pm-accordion__item--default pm-accordion__item--open" data-state="open">
+    <button class="pm-accordion__trigger pm-accordion__trigger--md pm-accordion__trigger--open" type="button" aria-expanded="true">
+      Section 1
+      <span class="pm-accordion__icon pm-accordion__icon--open" aria-hidden="true"></span>
+    </button>
+    <div class="pm-accordion__content pm-accordion__content--md pm-accordion__content--open" role="region">
+      <div class="pm-accordion__content-inner">Content for section 1.</div>
+    </div>
+  </div>
+</div>`}
+  reactCode={`import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, AccordionIcon } from "@paramanu/disclosure-react"
+
+export default function App() {
+  return (
+    <Accordion defaultValue={["item-1"]}>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Section 1<AccordionIcon /></AccordionTrigger>
+        <AccordionContent>Content for section 1.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Key | Action |
+|-----|--------|
+| `Enter` / `Space` | Toggle section open/closed |
+| `ArrowDown` | Move to next trigger |
+| `ArrowUp` | Move to previous trigger |
+| `Home` | Move to first trigger |
+| `End` | Move to last trigger |
+
+- Triggers use `aria-expanded` and `aria-controls`.
+- Content panels use `role="region"` and `aria-labelledby`.
+
+</TabItem>
+  <TabItem label="API">
+
+## Accordion Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"default" \| "bordered" \| "separated" \| "filled"` | `"default"` | Visual variant |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+| `type` | `"single" \| "multiple"` | `"single"` | How many items open at once |
+| `collapsible` | `boolean` | `false` | Allow all items to close |
+| `value` | `string[]` | - | Controlled open items |
+| `defaultValue` | `string[]` | `[]` | Initial open items |
+| `onValueChange` | `(value: string[]) => void` | - | Change callback |
+
+## AccordionItem Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | Unique identifier |
+| `disabled` | `boolean` | `false` | Disabled state |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-accordion` | Root element |
+| `pm-accordion__item` | Item container |
+| `pm-accordion__item--open` | Open item |
+| `pm-accordion__trigger` | Toggle button |
+| `pm-accordion__content` | Content panel |
+| `pm-accordion__icon` | Expand/collapse icon |
+
+</TabItem>
+</Tabs>

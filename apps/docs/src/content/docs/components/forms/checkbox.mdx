@@ -1,0 +1,69 @@
+---
+title: Checkbox
+description: A checkbox input for toggling boolean values with support for indeterminate state.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Checkbox component provides a toggle input with support for checked, unchecked, and indeterminate states.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<label class="pm-checkbox pm-checkbox--md">\n  <input type="checkbox" class="pm-checkbox__input" />\n  <span class="pm-checkbox__indicator">&#10003;</span>\n  <span class="pm-checkbox__label">Accept terms</span>\n</label>`}
+  reactCode={`import { Checkbox } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Checkbox>Accept terms</Checkbox>\n}`}
+/>
+
+## States
+
+<ComponentPreview
+  htmlCode={`<label class="pm-checkbox pm-checkbox--md pm-checkbox--checked">\n  <input type="checkbox" class="pm-checkbox__input" checked />\n  <span class="pm-checkbox__indicator">&#10003;</span>\n  <span class="pm-checkbox__label">Checked</span>\n</label>\n<label class="pm-checkbox pm-checkbox--md pm-checkbox--disabled">\n  <input type="checkbox" class="pm-checkbox__input" disabled />\n  <span class="pm-checkbox__indicator">&#10003;</span>\n  <span class="pm-checkbox__label">Disabled</span>\n</label>`}
+  reactCode={`import { Checkbox } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <Checkbox checked>Checked</Checkbox>\n      <Checkbox disabled>Disabled</Checkbox>\n      <Checkbox indeterminate>Indeterminate</Checkbox>\n    </>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `aria-checked` | Set to `"mixed"` for indeterminate state |
+| `aria-invalid` | Applied when `invalid` is true |
+| Keyboard | Space toggles the checkbox |
+
+## Best Practices
+
+- Use checkboxes for independent boolean choices.
+- Use the indeterminate state for "select all" parent checkboxes.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Checkbox size |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `invalid` | `boolean` | `false` | Invalid state |
+| `checked` | `boolean` | `false` | Checked state |
+| `indeterminate` | `boolean` | `false` | Indeterminate state |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-checkbox` | Base class |
+| `pm-checkbox__input` | Hidden input |
+| `pm-checkbox__indicator` | Visual indicator |
+| `pm-checkbox__label` | Label text |
+| `pm-checkbox--checked` | Checked state |
+| `pm-checkbox--indeterminate` | Indeterminate state |
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,49 @@
+---
+title: Slider
+description: A range input for selecting numeric values along a track.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Slider provides a draggable thumb on a track for selecting numeric values.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-slider pm-slider--md pm-slider--horizontal" role="slider" aria-valuemin="0" aria-valuemax="100" tabindex="0"></div>`}
+  reactCode={`import { Slider } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Slider aria-label="Volume" />\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="slider"` | Slider role on root |
+| `aria-valuemin/max` | Range boundaries |
+| `aria-orientation` | Horizontal or vertical |
+| Keyboard | Arrow keys adjust value |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Slider size |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Track orientation |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `showMarks` | `boolean` | `false` | Show tick marks |
+| `min` | `number` | `0` | Minimum value |
+| `max` | `number` | `100` | Maximum value |
+| `step` | `number` | — | Step increment |
+
+</TabItem>
+</Tabs>

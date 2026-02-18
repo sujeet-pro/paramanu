@@ -1,0 +1,86 @@
+---
+title: Loading Overlay
+description: Full-area overlay with backdrop for loading states over content sections.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+LoadingOverlay covers a content area with a semi-transparent backdrop and centered loading indicator.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div style="position: relative; height: 200px;">
+  <p>Content underneath</p>
+  <div class="pm-loading-overlay pm-loading-overlay--visible">
+    <div class="pm-loading-overlay__backdrop"></div>
+    <div class="pm-loading-overlay__content">Loading...</div>
+  </div>
+</div>`}
+  reactCode={`import { LoadingOverlay } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ position: "relative", height: 200 }}>
+      <p>Content underneath</p>
+      <LoadingOverlay visible>Loading...</LoadingOverlay>
+    </div>
+  )
+}`}
+/>
+
+## With Blur
+
+<ComponentPreview
+  htmlCode={`<div style="position: relative; height: 200px;">
+  <p>Content underneath</p>
+  <div class="pm-loading-overlay pm-loading-overlay--visible pm-loading-overlay--blur">
+    <div class="pm-loading-overlay__backdrop"></div>
+    <div class="pm-loading-overlay__content">Loading...</div>
+  </div>
+</div>`}
+  reactCode={`import { LoadingOverlay } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ position: "relative", height: 200 }}>
+      <p>Content underneath</p>
+      <LoadingOverlay visible blur>Loading...</LoadingOverlay>
+    </div>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `aria-hidden` to toggle visibility for assistive technology
+- Content inside the overlay should contain a loading indicator or text
+
+## Best Practices
+
+- Use on positioned containers (`position: relative`)
+- Toggle `visible` prop instead of mounting/unmounting for animations
+- Use blur effect sparingly to maintain performance
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `visible` | `boolean` | `false` | Show the overlay |
+| `blur` | `boolean` | `false` | Apply blur to backdrop |
+| `children` | `ReactNode` | -- | Content centered in overlay |
+
+</TabItem>
+</Tabs>

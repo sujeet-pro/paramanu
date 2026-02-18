@@ -1,0 +1,72 @@
+---
+title: Container
+description: A centered, max-width container for constraining page content width.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Container centers content horizontally and constrains it to a maximum width. It supports named sizes and a fluid mode.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-container pm-container--lg">
+  <p>Content constrained to lg width</p>
+</div>`}
+  reactCode={`import { Container } from "@paramanu/primitives-react"
+
+export default function App() {
+  return <Container size="lg"><p>Content constrained to lg width</p></Container>
+}`}
+/>
+
+## Fluid
+
+<ComponentPreview
+  htmlCode={`<div class="pm-container pm-container--fluid">
+  <p>Full-width fluid container</p>
+</div>`}
+  reactCode={`import { Container } from "@paramanu/primitives-react"
+
+export default function App() {
+  return <Container fluid><p>Full-width fluid container</p></Container>
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Best Practices
+
+- Use Container as the outermost wrapper for page sections.
+- Use `fluid` when you need full-width content with padding.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "full"` | `"lg"` | Max width |
+| `fluid` | `boolean` | `false` | Full width, no max-width |
+| `px` | `SpacingScale` | -- | Horizontal padding |
+| `center` | `boolean` | `false` | Center content with flex |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-container` | Base |
+| `pm-container--{size}` | Max width size |
+| `pm-container--fluid` | Full width |
+| `pm-container--center` | Center content |
+
+</TabItem>
+</Tabs>

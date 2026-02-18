@@ -4,7 +4,7 @@ import type { ToastClassesOptions, ToastContainerClassesOptions } from "@paraman
 
 export interface ReactToastProps
   extends ToastClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+    Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
   /** Icon rendered before the content. */
   icon?: React.ReactNode
   /** Toast title rendered above the message. */

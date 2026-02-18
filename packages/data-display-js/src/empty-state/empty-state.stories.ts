@@ -1,0 +1,43 @@
+import type { Meta, StoryObj } from "@storybook/html"
+import { emptyStateClasses } from "./empty-state.classes.js"
+import type { EmptyStateClassesOptions } from "./empty-state.types.js"
+
+function createEmptyState(args: EmptyStateClassesOptions): HTMLElement {
+  const cls = emptyStateClasses(args)
+  const root = document.createElement("div")
+  root.className = cls.root
+  const heading = document.createElement("h3")
+  heading.className = cls.heading
+  heading.textContent = "No items found"
+  const desc = document.createElement("p")
+  desc.className = cls.description
+  desc.textContent = "Get started by creating your first item."
+  const actions = document.createElement("div")
+  actions.className = cls.actions
+  const btn = document.createElement("button")
+  btn.type = "button"
+  btn.textContent = "Create Item"
+  actions.appendChild(btn)
+  root.appendChild(heading)
+  root.appendChild(desc)
+  root.appendChild(actions)
+  return root
+}
+
+const meta = {
+  title: "Data Display/Empty State",
+  tags: ["autodocs"],
+  render: (args) => createEmptyState(args as EmptyStateClassesOptions),
+  argTypes: {
+    size: { control: "select", options: ["sm", "md", "lg"] },
+    bordered: { control: "boolean" },
+  },
+  args: { size: "md" },
+} satisfies Meta<EmptyStateClassesOptions>
+
+export default meta
+type Story = StoryObj<EmptyStateClassesOptions>
+
+export const Playground: Story = {}
+export const Bordered: Story = { args: { bordered: true } }
+export const Small: Story = { args: { size: "sm" } }

@@ -1,0 +1,65 @@
+---
+title: Checkbox Card
+description: A card-style checkbox for visually rich multi-select options.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Checkbox Card renders a checkbox inside a card layout, providing a more visual selection experience than a standard checkbox.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<label class="pm-checkbox-card pm-checkbox-card--md">\n  <input type="checkbox" class="pm-checkbox-card__input" />\n  <div class="pm-checkbox-card__content">Option A</div>\n</label>`}
+  reactCode={`import { CheckboxCard } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <CheckboxCard>Option A</CheckboxCard>\n}`}
+/>
+
+## Checked
+
+<ComponentPreview
+  htmlCode={`<label class="pm-checkbox-card pm-checkbox-card--md pm-checkbox-card--checked">\n  <input type="checkbox" class="pm-checkbox-card__input" checked />\n  <div class="pm-checkbox-card__content">Selected</div>\n</label>`}
+  reactCode={`import { CheckboxCard } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <CheckboxCard checked>Selected</CheckboxCard>\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| Keyboard | Space toggles the card |
+| Label | The entire card acts as a label |
+
+## Best Practices
+
+- Use checkbox cards for multi-select options with rich content.
+- Group related cards together visually.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Card size |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `checked` | `boolean` | `false` | Checked state |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-checkbox-card` | Base class |
+| `pm-checkbox-card__input` | Hidden input |
+| `pm-checkbox-card__content` | Card content |
+| `pm-checkbox-card--checked` | Checked state |
+| `pm-checkbox-card--disabled` | Disabled state |
+
+</TabItem>
+</Tabs>

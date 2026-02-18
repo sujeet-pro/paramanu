@@ -1,0 +1,51 @@
+---
+title: Image
+description: A styled image component with object-fit, border radius, fallback, and caption support.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Image renders a styled `<figure>` with an `<img>` element, optional `<figcaption>`, fallback placeholder, and loading skeleton.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<figure class="pm-image pm-image--cover pm-image--radius-none">
+  <img class="pm-image__img" src="https://picsum.photos/400/300" alt="Sample" />
+</figure>`}
+  reactCode={`import { Image } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Image src="https://picsum.photos/400/300" alt="Sample" />
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Always provide meaningful `alt` text.
+- Use empty `alt=""` for purely decorative images.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `fit` | `"cover" \| "contain" \| "fill" \| "none" \| "scale-down"` | `"cover"` | Object-fit value |
+| `radius` | `"none" \| "sm" \| "md" \| "lg" \| "xl" \| "full"` | `"none"` | Border radius |
+| `fallback` | `boolean` | `false` | Show fallback placeholder |
+| `loading` | `boolean` | `false` | Show loading skeleton |
+| `src` | `string` | - | Image source URL |
+| `alt` | `string` | - | Alt text |
+| `caption` | `string` | - | Caption text |
+
+</TabItem>
+</Tabs>

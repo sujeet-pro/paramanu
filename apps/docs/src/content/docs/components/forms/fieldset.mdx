@@ -1,0 +1,44 @@
+---
+title: Fieldset
+description: A grouping container for related form controls with an optional legend.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Fieldset groups related form controls with an optional legend.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<fieldset class="pm-fieldset pm-fieldset--default">\n  <legend class="pm-fieldset__legend">Personal Info</legend>\n  ...\n</fieldset>`}
+  reactCode={`import { Fieldset } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Fieldset legend="Personal Info">Fields here</Fieldset>\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `<fieldset>` | Semantic grouping element |
+| `<legend>` | Describes the group |
+| `disabled` | Disables all child controls |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"default" \| "card"` | `"default"` | Visual variant |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `legend` | `string` | — | Legend text |
+
+</TabItem>
+</Tabs>

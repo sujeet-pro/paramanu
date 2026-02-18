@@ -1,0 +1,43 @@
+---
+title: Show Hide
+description: A CSS-driven visibility toggle that preserves DOM state.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+ShowHide toggles element visibility using CSS `display: none` / `display: revert`. Unlike conditional rendering, the element stays in the DOM when hidden, preserving component state, form values, and scroll positions.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```html
+    <div class="pm-show">Visible content</div>
+    <div class="pm-hide">Hidden content (stays in DOM)</div>
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { ShowHide } from "@paramanu/utilities-react"
+
+    <ShowHide display={isVisible ? "show" : "hide"}>
+      <div>Content that toggles visibility</div>
+    </ShowHide>
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Use when you need to preserve internal state while hiding content
+- Use conditional rendering (`{show && <Child />}`) when you want to fully unmount
+- `pm-show` uses `display: revert` to preserve the element's original display type
+- `pm-hide` uses `display: none`
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `display` | `"show" \| "hide"` | `"show"` | The visibility state |

@@ -1,0 +1,65 @@
+---
+title: Simple Grid
+description: A responsive grid that auto-fills columns based on a minimum child width or fixed column count.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+SimpleGrid creates responsive grids using either a minimum child width (auto-fill) or a fixed number of columns.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-simple-grid pm-simple-grid--cols-3 pm-simple-grid--gap-4">
+  <div style="background: #e2e8f0; padding: 16px;">1</div>
+  <div style="background: #e2e8f0; padding: 16px;">2</div>
+  <div style="background: #e2e8f0; padding: 16px;">3</div>
+</div>`}
+  reactCode={`import { SimpleGrid } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <SimpleGrid columns={3} gap="4">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </SimpleGrid>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Best Practices
+
+- Use `minChildWidth` for responsive grids. Use `columns` for fixed layouts.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `minChildWidth` | `"2xs" \| "xs" \| "sm" \| "md" \| "lg" \| "xl"` | -- | Min child width |
+| `columns` | `1-6` | -- | Fixed columns |
+| `gap` | `SpacingScale` | -- | Gap |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-simple-grid` | Base |
+| `pm-simple-grid--min-{size}` | Auto-fill |
+| `pm-simple-grid--cols-{n}` | Fixed columns |
+| `pm-simple-grid--gap-{scale}` | Gap |
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,57 @@
+---
+title: Wrap
+description: A layout component that wraps children into multiple rows with consistent gap and alignment.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Wrap lays out children in a wrapping row with consistent gap. Useful for tag lists, chip groups, and responsive layouts.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-wrap pm-wrap--gap-3">
+  <span style="background: #e2e8f0; padding: 4px 12px; border-radius: 4px;">Tag 1</span>
+  <span style="background: #e2e8f0; padding: 4px 12px; border-radius: 4px;">Tag 2</span>
+  <span style="background: #e2e8f0; padding: 4px 12px; border-radius: 4px;">Tag 3</span>
+</div>`}
+  reactCode={`import { Wrap } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Wrap gap="3">
+      <span>Tag 1</span>
+      <span>Tag 2</span>
+      <span>Tag 3</span>
+    </Wrap>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `gap` | `SpacingScale` | -- | Gap between items |
+| `align` | `FlexAlign` | -- | Cross-axis alignment |
+| `justify` | `FlexJustify` | -- | Main-axis alignment |
+| `direction` | `"row" \| "row-reverse"` | `"row"` | Wrap direction |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-wrap` | Base |
+| `pm-wrap--gap-{scale}` | Gap |
+| `pm-wrap--row-reverse` | Reverse direction |
+
+</TabItem>
+</Tabs>

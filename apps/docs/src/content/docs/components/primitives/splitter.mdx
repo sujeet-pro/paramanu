@@ -1,0 +1,65 @@
+---
+title: Splitter
+description: A resizable split-pane layout with draggable handles for horizontal or vertical content division.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Splitter creates resizable panels with a draggable handle. Supports horizontal and vertical orientations.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-splitter pm-splitter--horizontal" style="height: 300px; border: 1px solid #e2e8f0;">
+  <div class="pm-splitter__panel" style="width: 50%;"><div style="padding: 16px;">Left</div></div>
+  <div class="pm-splitter__handle pm-splitter__handle--horizontal" role="separator" tabindex="0"></div>
+  <div class="pm-splitter__panel" style="width: 50%;"><div style="padding: 16px;">Right</div></div>
+</div>`}
+  reactCode={`import { Splitter, SplitterPanel, SplitterHandle } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Splitter style={{ height: 300 }}>
+      <SplitterPanel defaultSize={50}><div>Left</div></SplitterPanel>
+      <SplitterHandle />
+      <SplitterPanel defaultSize={50}><div>Right</div></SplitterPanel>
+    </Splitter>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+The handle uses `role="separator"` with `aria-valuenow`, `aria-valuemin`, and `aria-valuemax` for screen reader support. It is keyboard focusable.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props (Splitter)
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Split direction |
+| `disabled` | `boolean` | `false` | Disable resizing |
+| `onResize` | `(sizes: number[]) => void` | -- | Resize callback |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-splitter` | Container |
+| `pm-splitter__panel` | Panel |
+| `pm-splitter__handle` | Handle |
+| `pm-splitter--disabled` | Disabled |
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,44 @@
+---
+title: Date Range Picker
+description: A date range input for selecting start and end dates with a calendar popover.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Date Range Picker allows users to select a start and end date range.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-date-range-picker pm-date-range-picker--outline pm-date-range-picker--md">\n  <input type="text" placeholder="Start date" />\n  <span> - </span>\n  <input type="text" placeholder="End date" />\n</div>`}
+  reactCode={`import { DateRangePicker } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <DateRangePicker />\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| Keyboard | Tab between start/end inputs |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Size |
+| `invalid` | `boolean` | `false` | Invalid state |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `open` | `boolean` | `false` | Open state |
+
+</TabItem>
+</Tabs>

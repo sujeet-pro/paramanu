@@ -1,0 +1,63 @@
+---
+title: Scroll Area
+description: A scrollable container with configurable scrollbar visibility, direction, and styling.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+ScrollArea provides a scrollable region with customizable scrollbar visibility and thin/hidden scrollbar styles.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-scroll-area pm-scroll-area--vertical pm-scroll-area--scrollbar-auto" role="region" tabindex="0" aria-label="Content" style="height: 200px;">
+  <p>Long scrollable content...</p>
+</div>`}
+  reactCode={`import { ScrollArea } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <ScrollArea style={{ height: 200 }} aria-label="Content">
+      <p>Long scrollable content...</p>
+    </ScrollArea>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+ScrollArea renders with `role="region"` and `tabIndex={0}` for keyboard accessibility. Always provide an `aria-label`.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `direction` | `"vertical" \| "horizontal" \| "both"` | `"vertical"` | Scroll direction |
+| `scrollbar` | `"auto" \| "always" \| "hover" \| "hidden"` | `"auto"` | Scrollbar visibility |
+| `scrollbarSize` | `"thin" \| "none"` | -- | Scrollbar width |
+| `bordered` | `boolean` | `false` | Show border |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-scroll-area` | Base |
+| `pm-scroll-area--vertical` | Vertical scroll |
+| `pm-scroll-area--horizontal` | Horizontal scroll |
+| `pm-scroll-area--bordered` | Border |
+| `pm-scroll-area--scrollbar-hidden` | Hide scrollbar |
+
+</TabItem>
+</Tabs>

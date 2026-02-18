@@ -1,0 +1,75 @@
+---
+title: Skeleton
+description: Placeholder loading state for content that is being loaded.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Skeleton provides placeholder loading states with text, circular, and rectangular variants for content previews.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-skeleton pm-skeleton--text" aria-hidden="true" style="width: 60%;"></div>`}
+  reactCode={`import { Skeleton } from "@paramanu/feedback-react"
+
+export default function App() {
+  return <Skeleton variant="text" width="60%" />
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; flex-direction: column; gap: 16px;">
+  <div class="pm-skeleton pm-skeleton--text" aria-hidden="true" style="width: 60%;"></div>
+  <div class="pm-skeleton pm-skeleton--circular pm-skeleton--md" aria-hidden="true"></div>
+  <div class="pm-skeleton pm-skeleton--rectangular" aria-hidden="true" style="width: 200px; height: 100px;"></div>
+</div>`}
+  reactCode={`import { Skeleton } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <Skeleton variant="text" width="60%" />
+      <Skeleton variant="circular" size="md" />
+      <Skeleton variant="rectangular" width={200} height={100} />
+    </div>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `aria-hidden="true"` since it is a visual placeholder
+- Replaced with actual content once loaded
+
+## Best Practices
+
+- Match skeleton shapes to the content they replace
+- Use text variant for paragraphs, circular for avatars, rectangular for images
+- Maintain consistent layout to prevent layout shift
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"text" \| "circular" \| "rectangular"` | `"text"` | Shape variant |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size (circular only) |
+| `width` | `string \| number` | -- | Custom width |
+| `height` | `string \| number` | -- | Custom height |
+
+</TabItem>
+</Tabs>

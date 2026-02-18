@@ -1,0 +1,51 @@
+---
+title: Center
+description: A layout component that centers its child both horizontally and vertically using flexbox.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Center uses flexbox to center its child on both axes.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-center" style="height: 200px; border: 1px dashed #ccc;">
+  <div style="background: #e2e8f0; padding: 16px;">Centered</div>
+</div>`}
+  reactCode={`import { Center } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Center style={{ height: 200, border: "1px dashed #ccc" }}>
+      <div>Centered</div>
+    </Center>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `inline` | `boolean` | `false` | Render as inline-flex |
+| `textCenter` | `boolean` | `false` | Also center text |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-center` | Base |
+| `pm-center--inline` | Inline flex |
+| `pm-center--text` | Center text |
+
+</TabItem>
+</Tabs>

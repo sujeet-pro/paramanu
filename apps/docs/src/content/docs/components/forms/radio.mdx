@@ -1,0 +1,75 @@
+---
+title: Radio
+description: A radio button for selecting a single option from a group of choices.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Radio component provides single-selection radio buttons, typically used within a RadioGroup.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-radio-group pm-radio-group--vertical pm-radio-group--md" role="radiogroup">\n  <label class="pm-radio pm-radio--md">\n    <input type="radio" class="pm-radio__input" name="fruit" value="apple" />\n    <span class="pm-radio__indicator"></span>\n    <span class="pm-radio__label">Apple</span>\n  </label>\n  <label class="pm-radio pm-radio--md">\n    <input type="radio" class="pm-radio__input" name="fruit" value="banana" />\n    <span class="pm-radio__indicator"></span>\n    <span class="pm-radio__label">Banana</span>\n  </label>\n</div>`}
+  reactCode={`import { Radio, RadioGroup } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <RadioGroup name="fruit">\n      <Radio name="fruit" value="apple">Apple</Radio>\n      <Radio name="fruit" value="banana">Banana</Radio>\n    </RadioGroup>\n  )\n}`}
+/>
+
+## Horizontal Group
+
+<ComponentPreview
+  htmlCode={`<div class="pm-radio-group pm-radio-group--horizontal pm-radio-group--md" role="radiogroup">\n  <label class="pm-radio pm-radio--md"><input type="radio" class="pm-radio__input" name="color" value="red" /><span class="pm-radio__indicator"></span><span class="pm-radio__label">Red</span></label>\n  <label class="pm-radio pm-radio--md"><input type="radio" class="pm-radio__input" name="color" value="blue" /><span class="pm-radio__indicator"></span><span class="pm-radio__label">Blue</span></label>\n</div>`}
+  reactCode={`import { Radio, RadioGroup } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <RadioGroup name="color" orientation="horizontal">\n      <Radio name="color" value="red">Red</Radio>\n      <Radio name="color" value="blue">Blue</Radio>\n    </RadioGroup>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="radiogroup"` | Group container uses radiogroup role |
+| `aria-invalid` | Applied when `invalid` is true |
+| Keyboard | Arrow keys navigate between radios |
+
+## Best Practices
+
+- Always group radios using RadioGroup with a shared `name`.
+- Use radio buttons when only one option can be selected.
+
+</TabItem>
+  <TabItem label="API">
+
+## Radio Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Radio size |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `invalid` | `boolean` | `false` | Invalid state |
+| `checked` | `boolean` | `false` | Checked state |
+| `name` | `string` | - | Group name |
+| `value` | `string` | - | Radio value |
+
+## RadioGroup Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `orientation` | `"horizontal" \| "vertical"` | `"vertical"` | Layout direction |
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Group size |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-radio` | Base radio class |
+| `pm-radio-group` | Group container |
+| `pm-radio-group--horizontal` | Horizontal layout |
+| `pm-radio-group--vertical` | Vertical layout |
+
+</TabItem>
+</Tabs>

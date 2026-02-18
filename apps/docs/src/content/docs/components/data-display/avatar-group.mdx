@@ -1,0 +1,70 @@
+---
+title: Avatar Group
+description: A group of overlapping avatars with overflow count indicator.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Avatar Group displays a collection of avatars with optional max limit and overflow count indicator.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-avatar-group pm-avatar-group--md pm-avatar-group--normal" role="group" aria-label="Avatars">
+  <span class="pm-avatar pm-avatar--circle pm-avatar--md pm-avatar--primary" role="img"><span class="pm-avatar__fallback">AJ</span></span>
+  <span class="pm-avatar pm-avatar--circle pm-avatar--md pm-avatar--primary" role="img"><span class="pm-avatar__fallback">BS</span></span>
+  <span class="pm-avatar-group__overflow">+3</span>
+</div>`}
+  reactCode={`import { AvatarGroup } from "@paramanu/data-display-react"
+import { Avatar } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <AvatarGroup max={2}>
+      <Avatar name="Alice Johnson" />
+      <Avatar name="Bob Smith" />
+      <Avatar name="Carol White" />
+      <Avatar name="David Brown" />
+      <Avatar name="Eve Davis" />
+    </AvatarGroup>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="group"` with `aria-label="Avatars"`.
+- Overflow count is visible to screen readers.
+
+## Best Practices
+
+- Set `max` to limit visible avatars in tight spaces.
+- Use consistent sizes within a group.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"` | Size of child avatars |
+| `spacing` | `"tight" \| "normal"` | `"normal"` | Overlap spacing |
+| `max` | `number` | - | Maximum visible avatars before overflow |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-avatar-group` | Base group class |
+| `pm-avatar-group__overflow` | Overflow count indicator |
+
+</TabItem>
+</Tabs>

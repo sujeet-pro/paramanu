@@ -1,0 +1,60 @@
+import type { Meta, StoryObj } from "@storybook/html"
+import { imageClasses } from "./image.classes.js"
+import type { ImageClassesOptions } from "./image.types.js"
+
+interface ImageArgs extends ImageClassesOptions {
+  src: string
+  alt: string
+  captionText: string
+}
+
+function createImage(args: ImageArgs): HTMLElement {
+  const cls = imageClasses({ fit: args.fit, radius: args.radius, fallback: args.fallback, loading: args.loading })
+  const figure = document.createElement("figure")
+  figure.className = cls.root
+
+  if (args.fallback || args.loading) {
+    const fb = document.createElement("div")
+    fb.className = cls.fallback
+    figure.appendChild(fb)
+  } else {
+    const img = document.createElement("img")
+    img.className = cls.img
+    img.src = args.src
+    img.alt = args.alt
+    figure.appendChild(img)
+  }
+
+  if (args.captionText) {
+    const cap = document.createElement("figcaption")
+    cap.className = cls.caption
+    cap.textContent = args.captionText
+    figure.appendChild(cap)
+  }
+
+  return figure
+}
+
+const meta = {
+  title: "Data Display/Image",
+  tags: ["autodocs"],
+  render: (args) => createImage(args as ImageArgs),
+  argTypes: {
+    fit: { control: "select", options: ["cover", "contain", "fill", "none", "scale-down"] },
+    radius: { control: "select", options: ["none", "sm", "md", "lg", "xl", "full"] },
+    fallback: { control: "boolean" },
+    loading: { control: "boolean" },
+    src: { control: "text" },
+    alt: { control: "text" },
+    captionText: { control: "text" },
+  },
+  args: { fit: "cover", radius: "none", src: "https://picsum.photos/400/300", alt: "Sample", captionText: "" },
+} satisfies Meta<ImageArgs>
+
+export default meta
+type Story = StoryObj<ImageArgs>
+
+export const Playground: Story = {}
+export const Rounded: Story = { args: { radius: "lg" } }
+export const Fallback: Story = { args: { fallback: true, src: "" } }
+export const WithCaption: Story = { args: { captionText: "A sample image" } }

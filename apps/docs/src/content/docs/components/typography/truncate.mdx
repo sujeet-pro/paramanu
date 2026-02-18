@@ -1,0 +1,61 @@
+---
+title: Truncate
+description: A truncation component that clips overflowing text with ellipsis after a specified number of lines.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Truncate clips text overflow with an ellipsis. Supports single-line and multi-line truncation with configurable position.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-truncate pm-truncate--lines-1" style="width: 300px;">
+  This is a very long text that should be truncated with an ellipsis at the end.
+</div>`}
+  reactCode={`import { Truncate } from "@paramanu/typography-react"
+
+export default function App() {
+  return (
+    <Truncate style={{ width: 300 }}>
+      This is a very long text that should be truncated with an ellipsis at the end.
+    </Truncate>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+Ensure that truncated content is still accessible, for example via a tooltip or `title` attribute. The full text should be available to screen readers.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `as` | `"div" \| "span" \| "p"` | `"div"` | HTML element |
+| `lines` | `1-6` | `1` | Lines before truncation |
+| `position` | `"end" \| "start" \| "middle"` | `"end"` | Ellipsis position |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-truncate` | Base |
+| `pm-truncate--lines-{n}` | Line count |
+| `pm-truncate--start` | Start position |
+| `pm-truncate--middle` | Middle position |
+
+</TabItem>
+</Tabs>

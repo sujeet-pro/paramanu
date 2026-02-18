@@ -1,0 +1,56 @@
+---
+title: Drawer
+description: A slide-in panel from any edge of the viewport with header, body, and footer sections.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Drawer is a panel that slides in from any edge of the viewport. Useful for navigation menus, filters, and detail panels.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-drawer pm-drawer--end pm-drawer--md" role="dialog" aria-modal="true">
+  <div class="pm-drawer__header">Drawer Title</div>
+  <div class="pm-drawer__body">Content here.</div>
+  <div class="pm-drawer__footer"><button>Close</button></div>
+</div>`}
+  reactCode={`import { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from "@paramanu/overlays-react"
+
+export default function App() {
+  return (
+    <Drawer open placement="end" onClose={() => {}}>
+      <DrawerHeader>Drawer Title</DrawerHeader>
+      <DrawerBody>Content here.</DrawerBody>
+      <DrawerFooter><button>Close</button></DrawerFooter>
+    </Drawer>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="dialog"` with `aria-modal="true"`.
+- Focus is trapped within the drawer when open.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `open` | `boolean` | `false` | Visibility |
+| `onClose` | `() => void` | - | Close callback |
+| `placement` | `"start" \| "end" \| "top" \| "bottom"` | `"end"` | Slide-in edge |
+| `size` | `"sm" \| "md" \| "lg" \| "xl" \| "full"` | `"md"` | Panel size |
+
+</TabItem>
+</Tabs>

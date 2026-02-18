@@ -1,0 +1,79 @@
+---
+title: Spinner
+description: Animated loading spinner for indeterminate loading states.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Spinner displays an animated loading indicator with a visually hidden "Loading" label for accessibility.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-spinner pm-spinner--md pm-spinner--primary" role="status">
+  <span class="sr-only">Loading</span>
+</div>`}
+  reactCode={`import { Spinner } from "@paramanu/feedback-react"
+
+export default function App() {
+  return <Spinner />
+}`}
+/>
+
+## Sizes
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 16px; align-items: center;">
+  <div class="pm-spinner pm-spinner--xs pm-spinner--primary" role="status"></div>
+  <div class="pm-spinner pm-spinner--sm pm-spinner--primary" role="status"></div>
+  <div class="pm-spinner pm-spinner--md pm-spinner--primary" role="status"></div>
+  <div class="pm-spinner pm-spinner--lg pm-spinner--primary" role="status"></div>
+  <div class="pm-spinner pm-spinner--xl pm-spinner--primary" role="status"></div>
+</div>`}
+  reactCode={`import { Spinner } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+      <Spinner size="xs" />
+      <Spinner size="sm" />
+      <Spinner size="md" />
+      <Spinner size="lg" />
+      <Spinner size="xl" />
+    </div>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="status"` for live region announcements
+- Contains visually hidden "Loading" text for screen readers
+
+## Best Practices
+
+- Use inside buttons during loading states
+- Match spinner size with its context (xs for inline, lg for full-page)
+- Use neutral variant on colored backgrounds
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Spinner diameter |
+| `variant` | `"primary" \| "neutral"` | `"primary"` | Color variant |
+
+</TabItem>
+</Tabs>

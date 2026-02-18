@@ -1,0 +1,84 @@
+---
+title: Avatar
+description: A visual representation of a user or entity with image, initials, or icon fallback.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Avatar displays a user image with automatic fallback to initials or icons. Supports multiple sizes, shapes, and color palettes.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<span class="pm-avatar pm-avatar--circle pm-avatar--md pm-avatar--primary" role="img" aria-label="John Doe">
+  <span class="pm-avatar__fallback">JD</span>
+</span>`}
+  reactCode={`import { Avatar } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Avatar name="John Doe" />
+}`}
+/>
+
+## Sizes
+
+<ComponentPreview
+  htmlCode={`<span class="pm-avatar pm-avatar--circle pm-avatar--xs pm-avatar--primary" role="img"><span class="pm-avatar__fallback">XS</span></span>
+<span class="pm-avatar pm-avatar--circle pm-avatar--md pm-avatar--primary" role="img"><span class="pm-avatar__fallback">MD</span></span>
+<span class="pm-avatar pm-avatar--circle pm-avatar--xl pm-avatar--primary" role="img"><span class="pm-avatar__fallback">XL</span></span>`}
+  reactCode={`import { Avatar } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <>
+      <Avatar size="xs" name="XS" />
+      <Avatar size="md" name="MD" />
+      <Avatar size="xl" name="XL" />
+    </>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="img"` with `aria-label` for screen readers.
+- Image avatars include meaningful `alt` text.
+
+## Best Practices
+
+- Use `circle` for user profiles, `square` for organizations or apps.
+- Provide a `name` prop for automatic initials generation.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"` | Width, height, font size |
+| `variant` | `"circle" \| "square"` | `"circle"` | Shape |
+| `color` | `"primary" \| "neutral" \| "danger" \| "success"` | `"primary"` | Fallback background color |
+| `src` | `string` | - | Image URL |
+| `alt` | `string` | - | Image alt text |
+| `name` | `string` | - | Name for initials fallback |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-avatar` | Base avatar class |
+| `pm-avatar--{size}` | Size modifier |
+| `pm-avatar--{variant}` | Shape modifier |
+| `pm-avatar__image` | Image element |
+| `pm-avatar__fallback` | Fallback element |
+
+</TabItem>
+</Tabs>

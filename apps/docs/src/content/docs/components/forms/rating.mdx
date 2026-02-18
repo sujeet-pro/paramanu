@@ -1,0 +1,44 @@
+---
+title: Rating
+description: A star-based input for selecting a rating value.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Rating component provides a group of selectable icons for rating input.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-rating pm-rating--md" role="radiogroup" aria-label="Rating">...</div>`}
+  reactCode={`import { Rating } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Rating aria-label="Product rating" />\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="radiogroup"` | Group role for rating items |
+| Keyboard | Arrow keys navigate items |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Rating size |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `readOnly` | `boolean` | `false` | Read-only state |
+| `count` | `number` | — | Number of rating items |
+
+</TabItem>
+</Tabs>

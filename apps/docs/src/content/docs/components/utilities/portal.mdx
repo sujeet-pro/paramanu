@@ -1,0 +1,51 @@
+---
+title: Portal
+description: Renders content into a separate DOM node outside the parent hierarchy.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+Portal renders content into a DOM node that exists outside the parent component's DOM hierarchy. Useful for overlays, modals, tooltips, and toasts that need to break out of overflow or stacking context constraints.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```js
+    import { createPortal } from "@paramanu/utilities-js"
+
+    const portal = createPortal({ target: "#modal-root" })
+    portal.mount(myDialogElement)
+    // Later: portal.destroy()
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { Portal } from "@paramanu/utilities-react"
+
+    <Portal>
+      <div className="modal">Modal content</div>
+    </Portal>
+
+    <Portal target="#modal-root">
+      <div className="modal">Custom target</div>
+    </Portal>
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Use portals to escape overflow hidden or stacking context issues
+- Set `disabled` to render in-place for SSR or testing
+- The portal container gets a `data-pm-portal` attribute for identification
+- Default target is `document.body`
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `target` | `string \| HTMLElement` | `"body"` | Target element or selector |
+| `disabled` | `boolean` | `false` | Renders in-place without portalling |

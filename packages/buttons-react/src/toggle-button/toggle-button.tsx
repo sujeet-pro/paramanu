@@ -4,7 +4,7 @@ import type { ToggleButtonProps } from "@paramanu/buttons-js"
 
 export interface ReactToggleButtonProps
   extends ToggleButtonProps,
-    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type" | "value"> {
+    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type" | "value" | "onChange"> {
   /** Content to render inside the toggle button. */
   children?: React.ReactNode
   /** Callback fired when the toggle state changes. */

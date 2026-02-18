@@ -1,0 +1,92 @@
+---
+title: Input
+description: A text input field for single-line data entry with support for variants, sizes, and validation states.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Input component provides a styled text input field with multiple visual variants, sizes, and states for form data entry.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<input class="pm-input pm-input--outline pm-input--md" type="text" placeholder="Enter text..." />`}
+  reactCode={`import { Input } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Input placeholder="Enter text..." />\n}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<input class="pm-input pm-input--outline pm-input--md" placeholder="Outline" />\n<input class="pm-input pm-input--filled pm-input--md" placeholder="Filled" />\n<input class="pm-input pm-input--unstyled pm-input--md" placeholder="Unstyled" />`}
+  reactCode={`import { Input } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <Input variant="outline" placeholder="Outline" />\n      <Input variant="filled" placeholder="Filled" />\n      <Input variant="unstyled" placeholder="Unstyled" />\n    </>\n  )\n}`}
+/>
+
+## Sizes
+
+<ComponentPreview
+  htmlCode={`<input class="pm-input pm-input--outline pm-input--xs" placeholder="Extra small" />\n<input class="pm-input pm-input--outline pm-input--sm" placeholder="Small" />\n<input class="pm-input pm-input--outline pm-input--md" placeholder="Medium" />\n<input class="pm-input pm-input--outline pm-input--lg" placeholder="Large" />`}
+  reactCode={`import { Input } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <Input size="xs" placeholder="Extra small" />\n      <Input size="sm" placeholder="Small" />\n      <Input size="md" placeholder="Medium" />\n      <Input size="lg" placeholder="Large" />\n    </>\n  )\n}`}
+/>
+
+## States
+
+<ComponentPreview
+  htmlCode={`<input class="pm-input pm-input--outline pm-input--md pm-input--disabled" placeholder="Disabled" disabled aria-disabled="true" />\n<input class="pm-input pm-input--outline pm-input--md pm-input--invalid" placeholder="Invalid" aria-invalid="true" />\n<input class="pm-input pm-input--outline pm-input--md pm-input--read-only" value="Read only" readonly />`}
+  reactCode={`import { Input } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <Input disabled placeholder="Disabled" />\n      <Input invalid placeholder="Invalid" />\n      <Input readOnly defaultValue="Read only" />\n    </>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| Keyboard navigation | Standard input keyboard behavior |
+| `aria-invalid` | Applied when `invalid` is true |
+| `aria-disabled` | Applied when `disabled` is true |
+| Focus ring | Visible via `:focus-visible` |
+
+## Best Practices
+
+- Always pair inputs with a visible `<label>` or `aria-label`.
+- Use the `invalid` prop with an error message for validation feedback.
+- Prefer `readOnly` over `disabled` when the value should be copyable.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Input size |
+| `invalid` | `boolean` | `false` | Invalid state |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `readOnly` | `boolean` | `false` | Read-only state |
+| `fullWidth` | `boolean` | `false` | Full-width layout |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-input` | Base class |
+| `pm-input--outline` | Outline variant |
+| `pm-input--filled` | Filled variant |
+| `pm-input--unstyled` | Unstyled variant |
+| `pm-input--xs` | Extra small size |
+| `pm-input--sm` | Small size |
+| `pm-input--md` | Medium size |
+| `pm-input--lg` | Large size |
+| `pm-input--invalid` | Invalid state |
+| `pm-input--disabled` | Disabled state |
+| `pm-input--read-only` | Read-only state |
+| `pm-input--full-width` | Full-width layout |
+
+</TabItem>
+</Tabs>

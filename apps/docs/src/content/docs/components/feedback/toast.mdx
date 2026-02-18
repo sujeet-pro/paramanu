@@ -1,0 +1,94 @@
+---
+title: Toast
+description: Brief, temporary notification that appears and auto-dismisses.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Toast displays a brief, temporary notification with optional auto-dismiss and manual close support.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-toast pm-toast--success" role="status">
+  <div class="pm-toast__content">
+    <div class="pm-toast__title">Saved</div>
+    <div class="pm-toast__message">Your changes have been saved.</div>
+  </div>
+</div>`}
+  reactCode={`import { Toast } from "@paramanu/feedback-react"
+
+export default function App() {
+  return <Toast variant="success" title="Saved" message="Your changes have been saved." />
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; flex-direction: column; gap: 8px;">
+  <div class="pm-toast pm-toast--info" role="status"><div class="pm-toast__content"><div class="pm-toast__title">Info</div></div></div>
+  <div class="pm-toast pm-toast--success" role="status"><div class="pm-toast__content"><div class="pm-toast__title">Success</div></div></div>
+  <div class="pm-toast pm-toast--warning" role="alert"><div class="pm-toast__content"><div class="pm-toast__title">Warning</div></div></div>
+  <div class="pm-toast pm-toast--danger" role="alert"><div class="pm-toast__content"><div class="pm-toast__title">Danger</div></div></div>
+</div>`}
+  reactCode={`import { Toast } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+      <Toast variant="info" title="Info" />
+      <Toast variant="success" title="Success" />
+      <Toast variant="warning" title="Warning" />
+      <Toast variant="danger" title="Danger" />
+    </div>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="alert"` for warning/danger, `role="status"` for info/success
+- ToastContainer uses `aria-live="polite"` for screen reader announcements
+- Close button has `aria-label="Close"`
+
+## Best Practices
+
+- Use auto-dismiss (`duration`) for non-critical notifications
+- Keep toast messages brief and actionable
+- Position toasts consistently (top-right is most common)
+
+</TabItem>
+
+  <TabItem label="API">
+
+## Toast Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"info" \| "success" \| "warning" \| "danger"` | `"info"` | Status variant |
+| `dismissible` | `boolean` | `false` | Show close button |
+| `entering` | `boolean` | `false` | Enter animation state |
+| `exiting` | `boolean` | `false` | Exit animation state |
+| `icon` | `ReactNode` | -- | Custom icon |
+| `title` | `ReactNode` | -- | Toast title |
+| `message` | `ReactNode` | -- | Toast message |
+| `duration` | `number` | -- | Auto-dismiss in ms |
+| `onClose` | `() => void` | -- | Close callback |
+
+## ToastContainer Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `placement` | `ToastPlacement` | `"top-right"` | Screen position |
+
+</TabItem>
+</Tabs>

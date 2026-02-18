@@ -4,7 +4,7 @@ import type { ClipboardProps } from "@paramanu/data-display-js"
 
 export interface ReactClipboardProps
   extends ClipboardProps,
-    React.ButtonHTMLAttributes<HTMLButtonElement> {
+    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "value"> {
   children?: React.ReactNode
 }
 

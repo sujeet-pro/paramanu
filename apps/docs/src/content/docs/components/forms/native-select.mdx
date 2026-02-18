@@ -1,0 +1,54 @@
+---
+title: Native Select
+description: A styled wrapper around the native HTML select element with custom arrow indicator.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Native Select wraps the browser's native `<select>` element with consistent styling and a custom dropdown arrow.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-native-select pm-native-select--outline pm-native-select--md">\n  <select class="pm-native-select__field">\n    <option value="">Select...</option>\n    <option value="apple">Apple</option>\n    <option value="banana">Banana</option>\n  </select>\n  <span class="pm-native-select__arrow" aria-hidden="true">&#9662;</span>\n</div>`}
+  reactCode={`import { NativeSelect } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <NativeSelect>\n      <option value="">Select...</option>\n      <option value="apple">Apple</option>\n      <option value="banana">Banana</option>\n    </NativeSelect>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| Native `<select>` | Full browser accessibility support |
+| Arrow indicator | Decorative, `aria-hidden="true"` |
+| Keyboard | Standard select keyboard behavior |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Select size |
+| `invalid` | `boolean` | `false` | Invalid state |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `fullWidth` | `boolean` | `false` | Full-width layout |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-native-select` | Wrapper base class |
+| `pm-native-select__field` | Native select element |
+| `pm-native-select__arrow` | Custom arrow indicator |
+
+</TabItem>
+</Tabs>

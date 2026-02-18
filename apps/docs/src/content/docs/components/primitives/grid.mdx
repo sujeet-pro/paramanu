@@ -1,0 +1,79 @@
+---
+title: Grid
+description: A CSS grid layout component with controls for columns, rows, gap, alignment, and flow.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Grid provides a declarative CSS grid container with props for columns, rows, gap, alignment, and auto-flow.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-grid pm-grid--cols-3 pm-grid--gap-4">
+  <div style="background: #e2e8f0; padding: 16px; text-align: center;">1</div>
+  <div style="background: #e2e8f0; padding: 16px; text-align: center;">2</div>
+  <div style="background: #e2e8f0; padding: 16px; text-align: center;">3</div>
+  <div style="background: #e2e8f0; padding: 16px; text-align: center;">4</div>
+  <div style="background: #e2e8f0; padding: 16px; text-align: center;">5</div>
+  <div style="background: #e2e8f0; padding: 16px; text-align: center;">6</div>
+</div>`}
+  reactCode={`import { Grid } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Grid columns={3} gap="4">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </Grid>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Best Practices
+
+- Use Grid for two-dimensional layouts. For one-dimensional, use Flex or Stack.
+- Use SimpleGrid for auto-fill responsive grids.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `columns` | `1-12 \| "none"` | -- | Grid columns |
+| `rows` | `1-6 \| "none"` | -- | Grid rows |
+| `gap` | `SpacingScale` | -- | Gap |
+| `rowGap` | `SpacingScale` | -- | Row gap |
+| `columnGap` | `SpacingScale` | -- | Column gap |
+| `align` | `FlexAlign` | -- | Align items |
+| `justify` | `FlexJustify` | -- | Justify content |
+| `inline` | `boolean` | `false` | Inline grid |
+| `flow` | `GridFlow` | -- | Auto-flow |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-grid` | Base |
+| `pm-grid--cols-{n}` | Columns |
+| `pm-grid--rows-{n}` | Rows |
+| `pm-grid--gap-{scale}` | Gap |
+| `pm-grid--inline` | Inline grid |
+
+</TabItem>
+</Tabs>

@@ -3,8 +3,11 @@ import { passwordInputClasses, inputClasses } from "@paramanu/forms-js"
 import type { PasswordInputProps } from "@paramanu/forms-js"
 
 export interface ReactPasswordInputProps
-  extends PasswordInputProps,
-    Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type"> {
+  extends Omit<PasswordInputProps, "onChange">,
+    Omit<
+      React.InputHTMLAttributes<HTMLInputElement>,
+      "size" | "type" | "value" | "defaultValue"
+    > {
   children?: React.ReactNode
 }
 

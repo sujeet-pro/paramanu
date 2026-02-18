@@ -1,0 +1,92 @@
+---
+title: Close Button
+description: A small dismiss button for alerts, dialogs, toasts, and other dismissible containers.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+A compact dismiss button with a close icon, intended for use inside alerts, dialogs, toasts, and banners.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button class="pm-close-button pm-close-button--md" aria-label="Close">
+  <svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+</button>`}
+  reactCode={`import { CloseButton } from "@paramanu/buttons-react"
+
+export default function App() {
+  return <CloseButton onClick={() => console.log("closed")} />
+}`}
+/>
+
+## Sizes
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 8px; align-items: center;">
+  <button class="pm-close-button pm-close-button--xs" aria-label="Close">x</button>
+  <button class="pm-close-button pm-close-button--sm" aria-label="Close">x</button>
+  <button class="pm-close-button pm-close-button--md" aria-label="Close">x</button>
+  <button class="pm-close-button pm-close-button--lg" aria-label="Close">x</button>
+</div>`}
+  reactCode={`import { CloseButton } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+      <CloseButton size="xs" />
+      <CloseButton size="sm" />
+      <CloseButton size="md" />
+      <CloseButton size="lg" />
+    </div>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Default `aria-label` is "Close"
+- Uses semantic `<button>` element
+- Icon is `aria-hidden` to avoid duplicate announcements
+
+## Best Practices
+
+- Provide a custom `aria-label` that describes what will be closed (e.g., "Close dialog")
+- Match the close button size with the parent component's size
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+Extends all native `<button>` HTML attributes.
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Size preset |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `aria-label` | `string` | `"Close"` | Accessible label |
+| `children` | `ReactNode` | -- | Custom icon override |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-close-button` | Base styles |
+| `pm-close-button--xs` | Extra small size |
+| `pm-close-button--sm` | Small size |
+| `pm-close-button--md` | Medium size |
+| `pm-close-button--lg` | Large size |
+| `pm-close-button--disabled` | Disabled state |
+
+</TabItem>
+</Tabs>

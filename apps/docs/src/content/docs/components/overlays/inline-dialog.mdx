@@ -1,0 +1,49 @@
+---
+title: Inline Dialog
+description: A dialog that appears inline near its trigger, without a backdrop overlay.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+InlineDialog renders a dialog panel inline within the page flow, positioned near its trigger element. Unlike modal dialogs, it does not use a backdrop or trap focus.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```html
+    <button type="button">Edit</button>
+    <div class="pm-inline-dialog pm-inline-dialog--visible" role="dialog">
+      <div class="pm-inline-dialog__body">
+        <p>Edit your settings here.</p>
+      </div>
+    </div>
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { InlineDialog, InlineDialogBody } from "@paramanu/overlays-react"
+
+    <InlineDialog visible>
+      <InlineDialogBody>
+        <p>Edit your settings here.</p>
+      </InlineDialogBody>
+    </InlineDialog>
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Use for non-modal interactions like inline editing or quick actions
+- Keep content focused and concise
+- Provide a clear way to dismiss (click outside or explicit close)
+- Consider using a modal Dialog for complex or critical interactions
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `visible` | `boolean` | `false` | Whether the inline dialog is visible |

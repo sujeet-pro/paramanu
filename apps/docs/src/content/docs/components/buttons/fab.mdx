@@ -1,0 +1,110 @@
+---
+title: FAB
+description: A floating action button for primary actions that hovers above the content.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+A floating action button (FAB) that positions itself at the bottom of the viewport for primary actions.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button class="pm-fab pm-fab--md pm-fab--bottom-right" aria-label="Add item">+</button>`}
+  reactCode={`import { Fab } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <Fab aria-label="Add item">
+      <PlusIcon />
+    </Fab>
+  )
+}`}
+/>
+
+## Sizes
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 16px; align-items: center;">
+  <button class="pm-fab pm-fab--sm pm-fab--bottom-right" style="position: static;" aria-label="Small">+</button>
+  <button class="pm-fab pm-fab--md pm-fab--bottom-right" style="position: static;" aria-label="Medium">+</button>
+  <button class="pm-fab pm-fab--lg pm-fab--bottom-right" style="position: static;" aria-label="Large">+</button>
+</div>`}
+  reactCode={`import { Fab } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+      <Fab size="sm" aria-label="Small"><PlusIcon /></Fab>
+      <Fab size="md" aria-label="Medium"><PlusIcon /></Fab>
+      <Fab size="lg" aria-label="Large"><PlusIcon /></Fab>
+    </div>
+  )
+}`}
+/>
+
+## Extended
+
+<ComponentPreview
+  htmlCode={`<button class="pm-fab pm-fab--md pm-fab--bottom-right pm-fab--extended" aria-label="Add item">+ Add Item</button>`}
+  reactCode={`import { Fab } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <Fab extended aria-label="Add item">
+      <PlusIcon /> Add Item
+    </Fab>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Requires `aria-label` since icon-only FABs have no visible text
+- Uses semantic `<button>` element
+- Extended FABs with visible text are preferred for accessibility
+
+## Best Practices
+
+- Use one FAB per screen for the most important action
+- Place at bottom-right by default (most common convention)
+- Use extended variant with text for clarity when space allows
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+Extends all native `<button>` HTML attributes.
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+| `position` | `"bottom-right" \| "bottom-left" \| "bottom-center"` | `"bottom-right"` | Viewport position |
+| `extended` | `boolean` | `false` | Extended style with text |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `children` | `ReactNode` | -- | Icon and/or text content |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-fab` | Base styles |
+| `pm-fab--sm/md/lg` | Size modifiers |
+| `pm-fab--bottom-right` | Bottom-right position |
+| `pm-fab--bottom-left` | Bottom-left position |
+| `pm-fab--bottom-center` | Bottom-center position |
+| `pm-fab--extended` | Extended pill shape |
+| `pm-fab--disabled` | Disabled state |
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,43 @@
+---
+title: Tooltip
+description: A small text label that appears on hover or focus to describe an element.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+Tooltip provides a brief, informative message that appears when a user hovers over or focuses on an element. Follows WAI-ARIA tooltip pattern with `role="tooltip"`.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```html
+    <button aria-describedby="tip-1">Hover me</button>
+    <div id="tip-1" role="tooltip" class="pm-tooltip pm-tooltip--top">
+      Helpful description
+    </div>
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { Tooltip } from "@paramanu/overlays-react"
+
+    <Tooltip placement="top">Helpful description</Tooltip>
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Keep tooltip content short (1-2 sentences max)
+- Never put essential information in tooltips
+- Use `aria-describedby` to associate the tooltip with its trigger
+- Tooltips should not contain interactive content
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `placement` | `TooltipPlacement` | `"top"` | Position relative to the trigger |

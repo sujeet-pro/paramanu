@@ -1,0 +1,48 @@
+---
+title: QR Code
+description: A styled container for QR code SVGs with configurable size presets.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+QR Code provides a styled container and SVG wrapper for QR codes. The actual QR code generation is left to the consumer.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-qr-code pm-qr-code--md" role="img" aria-label="QR Code">
+  <svg class="pm-qr-code__svg" viewBox="0 0 100 100"><!-- QR code SVG --></svg>
+</div>`}
+  reactCode={`import { QrCode } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <QrCode size="md">
+      <svg viewBox="0 0 100 100">{/* QR code paths */}</svg>
+    </QrCode>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="img"` with `aria-label` describing the QR code content.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"sm" \| "md" \| "lg" \| "xl"` | `"md"` | Container size |
+
+</TabItem>
+</Tabs>

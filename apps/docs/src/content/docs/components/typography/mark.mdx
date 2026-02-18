@@ -1,0 +1,53 @@
+---
+title: Mark
+description: A mark component for annotating text with highlight, underline, circle, or filled styles.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Mark annotates text with various visual styles: translucent highlight, underline, circle outline, or solid fill.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<p>This has a <mark class="pm-mark pm-mark--default">marked word</mark> in it.</p>`}
+  reactCode={`import { Mark } from "@paramanu/typography-react"
+
+export default function App() {
+  return <p>This has a <Mark>marked word</Mark> in it.</p>
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+Renders as a `<mark>` element. Screen readers may announce the content as marked or highlighted.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"default" \| "underline" \| "circle" \| "filled"` | `"default"` | Visual variant |
+| `color` | `"yellow" \| "primary" \| "danger" \| "success" \| "info"` | -- | Color |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-mark` | Base |
+| `pm-mark--{variant}` | Visual variant |
+| `pm-mark--color-{c}` | Color |
+
+</TabItem>
+</Tabs>

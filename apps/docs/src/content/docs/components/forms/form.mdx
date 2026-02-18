@@ -1,0 +1,42 @@
+---
+title: Form
+description: A layout wrapper for organizing form controls with consistent spacing.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Form component provides layout and spacing for groups of form controls.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<form class="pm-form pm-form--vertical pm-form--gap-md">...</form>`}
+  reactCode={`import { Form } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Form layout="vertical">Form content</Form>\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `<form>` | Semantic form element |
+| Keyboard | Tab navigates between controls |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `layout` | `"vertical" \| "horizontal" \| "inline"` | `"vertical"` | Form layout |
+| `gap` | `"sm" \| "md" \| "lg"` | `"md"` | Spacing between controls |
+
+</TabItem>
+</Tabs>

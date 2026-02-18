@@ -1,0 +1,42 @@
+---
+title: Dropzone
+description: A drag-and-drop area for uploading files.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Dropzone provides a drag-and-drop target area for file uploads.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-dropzone" role="button" tabindex="0">Drop files here or click to browse</div>`}
+  reactCode={`import { Dropzone } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Dropzone>Drop files here or click to browse</Dropzone>\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="button"` | Activatable drop target |
+| Keyboard | Enter/Space activates file picker |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `disabled` | `boolean` | `false` | Disabled state |
+| `dragging` | `boolean` | `false` | Active drag-over state |
+
+</TabItem>
+</Tabs>

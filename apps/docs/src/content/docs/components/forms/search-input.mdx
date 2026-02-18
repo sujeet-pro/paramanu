@@ -1,0 +1,67 @@
+---
+title: Search Input
+description: A search input field with a search icon and optional clear button for search queries.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Search Input component provides a search-specific text field with a leading search icon and an optional clear button.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-search-input pm-search-input--outline pm-search-input--md" role="search">\n  <span class="pm-search-input__icon" aria-hidden="true">&#128269;</span>\n  <input class="pm-input pm-input--outline pm-input--md" type="search" placeholder="Search..." />\n</div>`}
+  reactCode={`import { SearchInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <SearchInput placeholder="Search..." />\n}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div class="pm-search-input pm-search-input--filled pm-search-input--md" role="search">\n  <span class="pm-search-input__icon" aria-hidden="true">&#128269;</span>\n  <input class="pm-input pm-input--filled pm-input--md" type="search" placeholder="Filled search..." />\n</div>`}
+  reactCode={`import { SearchInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <SearchInput variant="outline" placeholder="Outline" />\n      <SearchInput variant="filled" placeholder="Filled" />\n    </>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="search"` | Wrapper uses search landmark |
+| `type="search"` | Input uses semantic search type |
+| Clear button | Labeled with `aria-label="Clear search"` |
+
+## Best Practices
+
+- Use `role="search"` on the wrapper for screen reader navigation.
+- Provide a clear button when the input has a value.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Input size |
+| `invalid` | `boolean` | `false` | Invalid state |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `fullWidth` | `boolean` | `false` | Full-width layout |
+| `onClear` | `() => void` | - | Clear button callback |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-search-input` | Wrapper base class |
+| `pm-search-input__icon` | Search icon |
+| `pm-search-input__clear` | Clear button |
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,71 @@
+---
+title: Collapsible
+description: A single expandable/collapsible section with trigger and content.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Collapsible provides a single toggle to show or hide a content section with controlled and uncontrolled modes.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-collapsible pm-collapsible--md pm-collapsible--open">
+  <button class="pm-collapsible__trigger pm-collapsible__trigger--md pm-collapsible__trigger--open" type="button" aria-expanded="true" aria-controls="content">Toggle</button>
+  <div class="pm-collapsible__content pm-collapsible__content--md pm-collapsible__content--open" id="content" role="region">
+    <div class="pm-collapsible__content-inner">Collapsible content.</div>
+  </div>
+</div>`}
+  reactCode={`import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@paramanu/disclosure-react"
+
+export default function App() {
+  return (
+    <Collapsible defaultOpen>
+      <CollapsibleTrigger>Toggle</CollapsibleTrigger>
+      <CollapsibleContent>Collapsible content.</CollapsibleContent>
+    </Collapsible>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Key | Action |
+|-----|--------|
+| `Enter` / `Space` | Toggle open/closed |
+
+- Trigger uses `aria-expanded` and `aria-controls`.
+- Content uses `role="region"` and `aria-labelledby`.
+
+</TabItem>
+  <TabItem label="API">
+
+## Collapsible Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `open` | `boolean` | - | Controlled open state |
+| `defaultOpen` | `boolean` | `false` | Initial open state |
+| `onOpenChange` | `(open: boolean) => void` | - | Change callback |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-collapsible` | Root element |
+| `pm-collapsible--open` | Open state |
+| `pm-collapsible--disabled` | Disabled state |
+| `pm-collapsible__trigger` | Toggle button |
+| `pm-collapsible__content` | Content panel |
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,65 @@
+---
+title: Skip Nav Link
+description: A visually hidden link that becomes visible on focus, allowing keyboard users to skip navigation.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Skip Nav Link is an accessibility component that lets keyboard users bypass repetitive navigation to reach main content.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<a href="#main-content" class="pm-skip-nav-link">Skip to main content</a>
+<nav><!-- navigation --></nav>
+<main id="main-content">Main content</main>`}
+  reactCode={`import { SkipNavLink } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <>
+      <SkipNavLink />
+      <nav>{/* navigation */}</nav>
+      <main id="main-content">Main content</main>
+    </>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Visually hidden by default, becomes visible on keyboard focus.
+- Should be the first focusable element on the page.
+- Links to the main content area via `href="#main-content"`.
+- WCAG 2.4.1: Bypass Blocks requirement.
+
+## Best Practices
+
+- Place at the very top of the page body.
+- Use a meaningful target ID matching the main content landmark.
+
+</TabItem>
+  <TabItem label="API">
+
+## SkipNavLink Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `href` | `string` | `"#main-content"` | Target element ID |
+| `children` | `ReactNode` | `"Skip to main content"` | Link text |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-skip-nav-link` | Root element (visually hidden, visible on focus) |
+
+</TabItem>
+</Tabs>

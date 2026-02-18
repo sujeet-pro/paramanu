@@ -1,0 +1,56 @@
+---
+title: Sheet
+description: A bottom sheet overlay that slides up from the bottom of the viewport.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Sheet is a bottom panel overlay that slides up from the viewport bottom. Includes a drag handle for swipe-to-dismiss support.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-sheet pm-sheet--md" role="dialog">
+  <div class="pm-sheet__handle"></div>
+  <div class="pm-sheet__header">Sheet Title</div>
+  <div class="pm-sheet__body">Content here.</div>
+</div>`}
+  reactCode={`import { Sheet, SheetHandle, SheetHeader, SheetBody } from "@paramanu/overlays-react"
+
+export default function App() {
+  return (
+    <Sheet open onClose={() => {}}>
+      <SheetHandle />
+      <SheetHeader>Sheet Title</SheetHeader>
+      <SheetBody>Content here.</SheetBody>
+    </Sheet>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="dialog"` for screen reader support.
+- Dismissible via swipe gesture, backdrop click, or Escape key.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `open` | `boolean` | `false` | Visibility |
+| `onClose` | `() => void` | - | Close callback |
+| `size` | `"sm" \| "md" \| "lg" \| "full"` | `"md"` | Max-height |
+| `dismissible` | `boolean` | `true` | Swipe-to-dismiss |
+
+</TabItem>
+</Tabs>

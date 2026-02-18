@@ -1,0 +1,73 @@
+---
+title: Structured List
+description: A column-aligned list using display table layout for structured key-value data.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Structured List uses `display: table` for column alignment without a real `<table>` element. Useful for settings panels and configuration displays.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-structured-list pm-structured-list--md" role="table">
+  <div class="pm-structured-list__head">
+    <div class="pm-structured-list__row" role="row">
+      <div class="pm-structured-list__header-cell" role="columnheader">Name</div>
+      <div class="pm-structured-list__header-cell" role="columnheader">Value</div>
+    </div>
+  </div>
+  <div class="pm-structured-list__body">
+    <div class="pm-structured-list__row" role="row">
+      <div class="pm-structured-list__cell" role="cell">CPU</div>
+      <div class="pm-structured-list__cell" role="cell">85%</div>
+    </div>
+  </div>
+</div>`}
+  reactCode={`import { StructuredList, StructuredListHead, StructuredListBody, StructuredListRow, StructuredListCell, StructuredListHeaderCell } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <StructuredList>
+      <StructuredListHead>
+        <StructuredListRow>
+          <StructuredListHeaderCell>Name</StructuredListHeaderCell>
+          <StructuredListHeaderCell>Value</StructuredListHeaderCell>
+        </StructuredListRow>
+      </StructuredListHead>
+      <StructuredListBody>
+        <StructuredListRow>
+          <StructuredListCell>CPU</StructuredListCell>
+          <StructuredListCell>85%</StructuredListCell>
+        </StructuredListRow>
+      </StructuredListBody>
+    </StructuredList>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses ARIA table roles for screen reader support.
+- Selectable rows should have focus and keyboard interaction support.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"sm" \| "md"` | `"md"` | Cell padding and font size |
+| `selectable` | `boolean` | `false` | Enables row selection with hover/focus states |
+| `bordered` | `boolean` | `false` | Adds borders around cells |
+
+</TabItem>
+</Tabs>

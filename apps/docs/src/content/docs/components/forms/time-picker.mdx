@@ -1,0 +1,44 @@
+---
+title: Time Picker
+description: A time input with a dropdown for selecting hours and minutes.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Time Picker provides an input for selecting time values.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-time-picker pm-time-picker--outline pm-time-picker--md">\n  <input type="text" class="pm-time-picker__input" placeholder="Select time..." />\n</div>`}
+  reactCode={`import { TimePicker } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <TimePicker />\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| Keyboard | Arrow keys adjust time |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Size |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `invalid` | `boolean` | `false` | Invalid state |
+| `open` | `boolean` | `false` | Open state |
+
+</TabItem>
+</Tabs>

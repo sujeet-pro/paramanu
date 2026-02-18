@@ -1,0 +1,60 @@
+---
+title: Mentions
+description: A text input that supports @-mentioning users or entities from a suggestion list.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Mentions component provides a text area that triggers a suggestion dropdown when the user types a mention trigger character like `@`.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-mentions pm-mentions--outline pm-mentions--md">\n  <textarea class="pm-input pm-input--outline pm-input--md" placeholder="Type @ to mention someone..." rows="3"></textarea>\n</div>`}
+  reactCode={`import { Mentions } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <Mentions>\n      <textarea placeholder="Type @ to mention someone..." rows={3} />\n    </Mentions>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `aria-disabled` | Applied when `disabled` is true |
+| Keyboard | Arrow keys navigate suggestions, Enter selects |
+| Suggestion list | Should use `role="listbox"` with `role="option"` items |
+
+## Best Practices
+
+- Show a suggestion dropdown when the trigger character is typed.
+- Allow keyboard navigation through suggestions.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Input size |
+| `invalid` | `boolean` | `false` | Invalid state |
+| `disabled` | `boolean` | `false` | Disabled state |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-mentions` | Base class |
+| `pm-mentions--outline` | Outline variant |
+| `pm-mentions--filled` | Filled variant |
+| `pm-mentions--disabled` | Disabled state |
+| `pm-mentions--invalid` | Invalid state |
+
+</TabItem>
+</Tabs>

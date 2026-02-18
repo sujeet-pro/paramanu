@@ -1,0 +1,55 @@
+---
+title: Multi Select
+description: A dropdown that allows selecting multiple items from a list of options.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Multi Select component allows users to choose multiple values from a dropdown list.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-multi-select pm-multi-select--outline pm-multi-select--md">\n  <div class="pm-multi-select__trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0">Select items...</div>\n  <div class="pm-multi-select__listbox" role="listbox" aria-multiselectable="true">\n    <div role="option">React</div>\n    <div role="option">Vue</div>\n  </div>\n</div>`}
+  reactCode={`import { MultiSelect } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <MultiSelect placeholder="Select items...">\n      <div role="option">React</div>\n      <div role="option">Vue</div>\n    </MultiSelect>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `aria-multiselectable` | Listbox supports multiple selection |
+| `role="combobox"` | Trigger role |
+| Keyboard | Space/Enter toggles selection |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Size |
+| `invalid` | `boolean` | `false` | Invalid state |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `open` | `boolean` | `false` | Open state |
+| `fullWidth` | `boolean` | `false` | Full-width layout |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-multi-select` | Base class |
+| `pm-multi-select__trigger` | Trigger element |
+| `pm-multi-select__listbox` | Options container |
+
+</TabItem>
+</Tabs>

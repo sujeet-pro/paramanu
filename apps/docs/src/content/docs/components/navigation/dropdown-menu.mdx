@@ -1,0 +1,74 @@
+---
+title: Dropdown Menu
+description: A trigger-activated menu that appears below or beside the trigger element.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Dropdown Menu displays a list of actions revealed by clicking a trigger button.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-dropdown-menu pm-dropdown-menu--md pm-dropdown-menu--open">
+  <button class="pm-dropdown-menu__trigger" aria-haspopup="true" aria-expanded="true">Options</button>
+  <div class="pm-dropdown-menu__content" role="menu">
+    <div role="menuitem">Edit</div>
+    <div role="menuitem">Delete</div>
+  </div>
+</div>`}
+  reactCode={`import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <DropdownMenu open>
+      <DropdownMenuTrigger expanded>Options</DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <div>Edit</div>
+        <div>Delete</div>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Key | Action |
+|-----|--------|
+| `Enter` / `Space` | Open menu / activate item |
+| `ArrowDown` | Move to next item |
+| `ArrowUp` | Move to previous item |
+| `Escape` | Close menu |
+
+- Trigger uses `aria-haspopup="true"` and `aria-expanded`.
+- Content uses `role="menu"`.
+
+</TabItem>
+  <TabItem label="API">
+
+## DropdownMenu Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+| `open` | `boolean` | `false` | Visibility state |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-dropdown-menu` | Root element |
+| `pm-dropdown-menu--open` | Open state |
+| `pm-dropdown-menu__trigger` | Trigger button |
+| `pm-dropdown-menu__content` | Content panel |
+
+</TabItem>
+</Tabs>

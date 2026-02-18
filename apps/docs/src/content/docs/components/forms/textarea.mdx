@@ -1,0 +1,82 @@
+---
+title: Textarea
+description: A multi-line text input field with support for resize control, variants, and validation states.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Textarea component provides a multi-line text input with configurable resize behavior, variants, and sizes.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<textarea class="pm-textarea pm-textarea--outline pm-textarea--md pm-textarea--resize-vertical" rows="3" placeholder="Enter text..."></textarea>`}
+  reactCode={`import { Textarea } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Textarea placeholder="Enter text..." rows={3} />\n}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<textarea class="pm-textarea pm-textarea--outline pm-textarea--md pm-textarea--resize-vertical" placeholder="Outline"></textarea>\n<textarea class="pm-textarea pm-textarea--filled pm-textarea--md pm-textarea--resize-vertical" placeholder="Filled"></textarea>`}
+  reactCode={`import { Textarea } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <Textarea variant="outline" placeholder="Outline" />\n      <Textarea variant="filled" placeholder="Filled" />\n      <Textarea variant="unstyled" placeholder="Unstyled" />\n    </>\n  )\n}`}
+/>
+
+## Resize Options
+
+<ComponentPreview
+  htmlCode={`<textarea class="pm-textarea pm-textarea--outline pm-textarea--md pm-textarea--resize-none" placeholder="No resize"></textarea>\n<textarea class="pm-textarea pm-textarea--outline pm-textarea--md pm-textarea--resize-vertical" placeholder="Vertical"></textarea>\n<textarea class="pm-textarea pm-textarea--outline pm-textarea--md pm-textarea--resize-both" placeholder="Both"></textarea>`}
+  reactCode={`import { Textarea } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <Textarea resize="none" placeholder="No resize" />\n      <Textarea resize="vertical" placeholder="Vertical" />\n      <Textarea resize="both" placeholder="Both" />\n    </>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| Keyboard | Standard textarea keyboard behavior |
+| `aria-invalid` | Applied when `invalid` is true |
+| `aria-disabled` | Applied when `disabled` is true |
+| Focus ring | Visible via `:focus-visible` |
+
+## Best Practices
+
+- Always pair with a visible `<label>` or `aria-label`.
+- Use `resize="none"` only when the layout requires fixed dimensions.
+- Set appropriate `rows` for expected content length.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Textarea size |
+| `resize` | `"none" \| "vertical" \| "horizontal" \| "both"` | `"vertical"` | Resize behavior |
+| `invalid` | `boolean` | `false` | Invalid state |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `readOnly` | `boolean` | `false` | Read-only state |
+| `fullWidth` | `boolean` | `false` | Full-width layout |
+| `rows` | `number` | - | Visible text lines |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-textarea` | Base class |
+| `pm-textarea--outline` | Outline variant |
+| `pm-textarea--filled` | Filled variant |
+| `pm-textarea--unstyled` | Unstyled variant |
+| `pm-textarea--resize-none` | No resize |
+| `pm-textarea--resize-vertical` | Vertical resize |
+| `pm-textarea--resize-both` | Both directions |
+
+</TabItem>
+</Tabs>

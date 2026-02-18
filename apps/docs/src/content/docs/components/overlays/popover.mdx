@@ -1,0 +1,50 @@
+---
+title: Popover
+description: A floating panel anchored to a trigger element for contextual content.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+Popover displays a floating panel positioned relative to a trigger element. Useful for additional context, forms, or actions without navigating away.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```html
+    <button type="button" id="trigger">Open Popover</button>
+    <div class="pm-popover pm-popover--bottom">
+      <p>Popover content goes here.</p>
+      <div class="pm-popover__arrow"></div>
+    </div>
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { Popover, PopoverArrow } from "@paramanu/overlays-react"
+
+    <Popover open={isOpen} onClose={handleClose} placement="bottom" hasArrow>
+      <p>Popover content goes here.</p>
+      <PopoverArrow />
+    </Popover>
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Use popovers for non-essential supplementary content
+- Keep content concise and focused
+- Include a close mechanism (Escape key, outside click)
+- Ensure popover does not obscure the trigger element
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `placement` | `PopoverPlacement` | `"bottom"` | Positioning relative to trigger |
+| `hasArrow` | `boolean` | `false` | Whether to show a directional arrow |
+| `open` | `boolean` | `false` | Whether the popover is visible |
+| `onClose` | `() => void` | - | Callback when the popover should close |

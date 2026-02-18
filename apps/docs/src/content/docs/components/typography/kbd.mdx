@@ -1,0 +1,54 @@
+---
+title: Kbd
+description: Keyboard key indicator for displaying keyboard shortcuts and key combinations.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Kbd renders a styled keyboard key indicator. Use it to display keyboard shortcuts and key combinations.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<p>Press <kbd class="pm-kbd pm-kbd--md">Ctrl</kbd> + <kbd class="pm-kbd pm-kbd--md">C</kbd> to copy.</p>`}
+  reactCode={`import { Kbd } from "@paramanu/typography-react"
+
+export default function App() {
+  return <p>Press <Kbd>Ctrl</Kbd> + <Kbd>C</Kbd> to copy.</p>
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+Uses the semantic `<kbd>` HTML element for keyboard input. Screen readers will identify the content as keyboard input.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Size |
+| `variant` | `"default" \| "outline" \| "subtle"` | `"default"` | Visual variant |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-kbd` | Base |
+| `pm-kbd--{size}` | Size |
+| `pm-kbd--outline` | Outline variant |
+| `pm-kbd--subtle` | Subtle variant |
+
+</TabItem>
+</Tabs>

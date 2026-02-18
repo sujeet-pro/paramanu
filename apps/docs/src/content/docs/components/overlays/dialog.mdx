@@ -1,0 +1,61 @@
+---
+title: Dialog
+description: A modal overlay with focus trapping, backdrop click, and escape key handling.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Dialog renders a modal overlay with `role="dialog"`, `aria-modal="true"`, focus trapping, backdrop click, and escape key handling.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-dialog pm-dialog--md" role="dialog" aria-modal="true">
+  <div class="pm-dialog__header">Dialog Title</div>
+  <div class="pm-dialog__body">Content here.</div>
+  <div class="pm-dialog__footer"><button>Close</button></div>
+</div>`}
+  reactCode={`import { Dialog, DialogHeader, DialogBody, DialogFooter } from "@paramanu/overlays-react"
+
+export default function App() {
+  return (
+    <Dialog open onClose={() => {}} size="md">
+      <DialogHeader>Dialog Title</DialogHeader>
+      <DialogBody>Content here.</DialogBody>
+      <DialogFooter><button>Close</button></DialogFooter>
+    </Dialog>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="dialog"` and `aria-modal="true"`.
+- Focus is trapped within the dialog when open.
+- Pressing Escape closes the dialog by default.
+- Title is linked via `aria-labelledby`.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `open` | `boolean` | `false` | Whether the dialog is visible |
+| `onClose` | `() => void` | - | Close callback |
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "full"` | `"md"` | Panel max-width |
+| `centered` | `boolean` | `false` | Vertically center |
+| `scrollBehavior` | `"inside" \| "outside"` | `"outside"` | Scroll position |
+| `closeOnBackdropClick` | `boolean` | `true` | Close on backdrop click |
+| `closeOnEscape` | `boolean` | `true` | Close on Escape key |
+
+</TabItem>
+</Tabs>

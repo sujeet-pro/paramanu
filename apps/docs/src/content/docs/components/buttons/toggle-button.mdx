@@ -1,0 +1,94 @@
+---
+title: Toggle Button
+description: A two-state toggle button (on/off) using aria-pressed for accessibility.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+A two-state button that toggles between pressed (on) and unpressed (off), using `aria-pressed` for accessibility.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button class="pm-toggle-button pm-toggle-button--default pm-toggle-button--md" aria-pressed="false">Bold</button>`}
+  reactCode={`import { useState } from "react"
+import { ToggleButton } from "@paramanu/buttons-react"
+
+export default function App() {
+  const [bold, setBold] = useState(false)
+  return <ToggleButton pressed={bold} onChange={setBold}>Bold</ToggleButton>
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 8px;">
+  <button class="pm-toggle-button pm-toggle-button--default pm-toggle-button--md pm-toggle-button--pressed" aria-pressed="true">Default</button>
+  <button class="pm-toggle-button pm-toggle-button--outline pm-toggle-button--md pm-toggle-button--pressed" aria-pressed="true">Outline</button>
+</div>`}
+  reactCode={`import { ToggleButton } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "8px" }}>
+      <ToggleButton variant="default" pressed>Default</ToggleButton>
+      <ToggleButton variant="outline" pressed>Outline</ToggleButton>
+    </div>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `aria-pressed` to communicate toggle state to assistive technology
+- Label must remain the same regardless of pressed state (WAI-ARIA best practice)
+- Keyboard accessible with Enter and Space
+
+## Best Practices
+
+- Use for binary on/off actions (e.g., Bold, Italic, Mute)
+- Keep labels unchanged between states; the state is communicated via `aria-pressed`
+- Use ToggleGroup for mutually exclusive or multi-select groups
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+Extends all native `<button>` HTML attributes.
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"default" \| "outline"` | `"default"` | Visual style |
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Size preset |
+| `pressed` | `boolean` | `false` | Whether the button is in the on state |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `fullWidth` | `boolean` | `false` | Stretch to container width |
+| `value` | `string` | -- | Value for use with ToggleGroup |
+| `onChange` | `(pressed: boolean) => void` | -- | Callback when toggle state changes |
+| `children` | `ReactNode` | -- | Button content |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-toggle-button` | Base styles |
+| `pm-toggle-button--default` | Default variant |
+| `pm-toggle-button--outline` | Outline variant |
+| `pm-toggle-button--pressed` | Pressed/on state |
+| `pm-toggle-button--disabled` | Disabled state |
+| `pm-toggle-button--full-width` | Full width |
+| `pm-toggle-button--xs` to `--xl` | Size modifiers |
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,54 @@
+---
+title: Empty State
+description: A placeholder display for empty lists, search results, or views with no data.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Empty State displays a centered placeholder when a list or view has no content, with optional icon, heading, description, and action buttons.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-empty-state pm-empty-state--md">
+  <h3 class="pm-empty-state__heading">No items found</h3>
+  <p class="pm-empty-state__description">Get started by creating your first item.</p>
+  <div class="pm-empty-state__actions"><button type="button">Create Item</button></div>
+</div>`}
+  reactCode={`import { EmptyState, EmptyStateHeading, EmptyStateDescription, EmptyStateActions } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <EmptyState>
+      <EmptyStateHeading>No items found</EmptyStateHeading>
+      <EmptyStateDescription>Get started by creating your first item.</EmptyStateDescription>
+      <EmptyStateActions><button>Create Item</button></EmptyStateActions>
+    </EmptyState>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Best Practices
+
+- Always provide a clear action to help users resolve the empty state.
+- Use bordered style in card-like containers for visual definition.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Padding, spacing, font sizes |
+| `bordered` | `boolean` | `false` | Dashed border around container |
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,53 @@
+---
+title: Format Number
+description: Locale-aware number formatting using the Intl.NumberFormat API.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+FormatNumber provides locale-aware number formatting powered by the browser's `Intl.NumberFormat` API. Supports decimal, currency, percent, and compact notation styles.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```js
+    import { formatNumber } from "@paramanu/utilities-js"
+
+    formatNumber(1234.56, { style: "currency", currency: "EUR", locale: "de-DE" })
+    // => "1.234,56 EUR"
+
+    formatNumber(1500000, { notation: "compact" })
+    // => "1.5M"
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { FormatNumber } from "@paramanu/utilities-react"
+
+    <FormatNumber value={1234.56} style="currency" currency="USD" />
+    <FormatNumber value={0.85} style="percent" />
+    <FormatNumber value={1500000} notation="compact" />
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Always specify a `currency` when using `style="currency"`
+- Use `notation="compact"` for large numbers in space-constrained UIs
+- The locale defaults to `"en-US"` but inherits from LocaleProvider context
+- Renders as a `<span>` by default; use the `as` prop to change the element
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `number` | - | The number to format |
+| `locale` | `string` | `"en-US"` | BCP 47 language tag |
+| `style` | `"decimal" \| "currency" \| "percent"` | `"decimal"` | Formatting style |
+| `currency` | `string` | - | ISO 4217 currency code |
+| `notation` | `"standard" \| "compact" \| "scientific"` | `"standard"` | Notation style |
+| `as` | `ElementType` | `"span"` | HTML element to render |

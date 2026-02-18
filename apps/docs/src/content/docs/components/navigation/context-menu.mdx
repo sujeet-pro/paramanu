@@ -1,0 +1,68 @@
+---
+title: Context Menu
+description: A right-click activated menu for contextual actions on elements.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Context Menu appears on right-click and provides contextual actions for the target element.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-context-menu pm-context-menu--md pm-context-menu--open" role="menu">
+  <div role="menuitem">Cut</div>
+  <div role="menuitem">Copy</div>
+  <div role="menuitem">Paste</div>
+</div>`}
+  reactCode={`import { ContextMenu } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <ContextMenu open>
+      <div role="menuitem">Cut</div>
+      <div role="menuitem">Copy</div>
+      <div role="menuitem">Paste</div>
+    </ContextMenu>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Key | Action |
+|-----|--------|
+| `ArrowDown` | Move to next item |
+| `ArrowUp` | Move to previous item |
+| `Enter` | Activate focused item |
+| `Escape` | Close menu |
+
+- Uses `role="menu"` on the container.
+- Triggered via right-click (contextmenu event).
+
+</TabItem>
+  <TabItem label="API">
+
+## ContextMenu Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+| `open` | `boolean` | `false` | Visibility state |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-context-menu` | Root element |
+| `pm-context-menu--open` | Open state |
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,50 @@
+---
+title: Format Byte
+description: Converts raw byte values into human-readable strings with appropriate unit suffixes.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+FormatByte converts raw byte values into human-readable strings with appropriate unit suffixes (B, KB, MB, GB, TB, PB). Uses SI decimal prefixes (powers of 1000) by default.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```js
+    import { formatByte } from "@paramanu/utilities-js"
+
+    formatByte(1500)       // => "1.5 KB"
+    formatByte(1500000000) // => "1.5 GB"
+    formatByte(1000, { unit: "bit" }) // => "8 Kb"
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { FormatByte } from "@paramanu/utilities-react"
+
+    <FormatByte value={1500} />
+    <FormatByte value={1500000000} />
+    <FormatByte value={1000} unit="bit" />
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Use for displaying file sizes, upload limits, and storage quotas
+- Set `unit="bit"` for network bandwidth display
+- The locale affects decimal separator formatting
+- Renders as a `<span>` by default; use the `as` prop to change the element
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `number` | - | The byte value to format |
+| `locale` | `string` | `"en-US"` | BCP 47 language tag |
+| `decimals` | `number` | `2` | Maximum decimal places |
+| `unit` | `"byte" \| "bit"` | `"byte"` | Output unit system |
+| `as` | `ElementType` | `"span"` | HTML element to render |

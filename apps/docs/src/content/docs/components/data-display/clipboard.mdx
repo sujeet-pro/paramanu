@@ -1,0 +1,44 @@
+---
+title: Clipboard
+description: A copy-to-clipboard button with visual feedback for the copied state.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Clipboard provides a copy-to-clipboard button that shows visual feedback when the text has been copied.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button type="button" class="pm-clipboard pm-clipboard--md" aria-label="Copy to clipboard">Copy</button>`}
+  reactCode={`import { Clipboard } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Clipboard value="npm install @paramanu/data-display-react" />
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Button has appropriate `aria-label` that changes to indicate the copied state.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Padding and icon size |
+| `value` | `string` | - | Text to copy |
+| `timeout` | `number` | `2000` | Duration of the copied state in ms |
+
+</TabItem>
+</Tabs>

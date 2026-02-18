@@ -1,0 +1,41 @@
+---
+title: Calendar
+description: A calendar grid for displaying and selecting dates.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Calendar component renders a date grid for navigating and selecting dates.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-calendar pm-calendar--md" role="grid" aria-label="Calendar">...</div>`}
+  reactCode={`import { Calendar } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Calendar />\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="grid"` | Calendar uses grid role |
+| Keyboard | Arrow keys navigate dates |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Calendar size |
+
+</TabItem>
+</Tabs>

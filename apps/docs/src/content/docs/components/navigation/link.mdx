@@ -1,0 +1,78 @@
+---
+title: Link
+description: A styled anchor element for navigation between pages or external resources.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Link component provides styled anchor elements with variants for inline, subtle, and navigation links.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<a href="#" class="pm-link pm-link--default">Default Link</a>
+<a href="#" class="pm-link pm-link--subtle">Subtle Link</a>
+<a href="#" class="pm-link pm-link--nav">Nav Link</a>`}
+  reactCode={`import { Link } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <>
+      <Link href="#">Default Link</Link>
+      <Link href="#" variant="subtle">Subtle Link</Link>
+      <Link href="#" variant="nav">Nav Link</Link>
+    </>
+  )
+}`}
+/>
+
+## External Link
+
+<ComponentPreview
+  htmlCode={`<a href="https://example.com" class="pm-link pm-link--default pm-link--external" target="_blank" rel="noopener noreferrer">External</a>`}
+  reactCode={`import { Link } from "@paramanu/navigation-react"
+
+export default function App() {
+  return <Link href="https://example.com" external>External</Link>
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- External links get `target="_blank"` and `rel="noopener noreferrer"`.
+- Disabled links use `aria-disabled="true"` and `tabIndex={-1}`.
+- Active links use `aria-current="page"`.
+
+</TabItem>
+  <TabItem label="API">
+
+## Link Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"default" \| "subtle" \| "nav"` | `"default"` | Visual variant |
+| `active` | `boolean` | `false` | Current page |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `external` | `boolean` | `false` | External URL |
+| `underline` | `"auto" \| "always" \| "hover" \| "never"` | `"auto"` | Underline style |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-link` | Root element |
+| `pm-link--subtle` | Subtle variant |
+| `pm-link--nav` | Navigation variant |
+| `pm-link--active` | Active state |
+| `pm-link--disabled` | Disabled state |
+| `pm-link--external` | External link |
+
+</TabItem>
+</Tabs>

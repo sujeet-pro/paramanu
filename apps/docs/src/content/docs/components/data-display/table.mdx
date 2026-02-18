@@ -1,0 +1,97 @@
+---
+title: Table
+description: A styled HTML table with variants, sizes, and features like striped rows and sticky headers.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Table wraps standard HTML table elements with styling for variants, sizes, hoverable rows, bordered cells, and sticky headers.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-table__container">
+  <table class="pm-table pm-table--simple pm-table--md pm-table--layout-auto">
+    <thead class="pm-table__head">
+      <tr class="pm-table__row">
+        <th class="pm-table__header-cell">Name</th>
+        <th class="pm-table__header-cell">Role</th>
+      </tr>
+    </thead>
+    <tbody class="pm-table__body">
+      <tr class="pm-table__row">
+        <td class="pm-table__cell">Alice</td>
+        <td class="pm-table__cell">Engineer</td>
+      </tr>
+    </tbody>
+  </table>
+</div>`}
+  reactCode={`import { Table, TableContainer, TableHead, TableBody, TableRow, TableHeaderCell, TableCell } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <TableContainer>
+      <Table variant="simple">
+        <TableHead>
+          <TableRow>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Role</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableCell>Alice</TableCell>
+            <TableCell>Engineer</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </TableContainer>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Use proper `<thead>`, `<tbody>`, `<th>` elements for screen reader navigation.
+- Add `<caption>` for table descriptions.
+
+## Best Practices
+
+- Use `striped` variant for tables with many rows to improve readability.
+- Enable `hoverable` for interactive tables with row selection.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"simple" \| "striped"` | `"simple"` | Visual style |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Cell padding and font size |
+| `layout` | `"auto" \| "fixed"` | `"auto"` | Column width algorithm |
+| `hoverable` | `boolean` | `false` | Row hover highlight |
+| `bordered` | `boolean` | `false` | Cell borders |
+| `stickyHeader` | `boolean` | `false` | Sticky header row |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-table` | Base table class |
+| `pm-table__container` | Scrollable wrapper |
+| `pm-table__head` | `<thead>` element |
+| `pm-table__body` | `<tbody>` element |
+| `pm-table__row` | `<tr>` element |
+| `pm-table__header-cell` | `<th>` element |
+| `pm-table__cell` | `<td>` element |
+
+</TabItem>
+</Tabs>

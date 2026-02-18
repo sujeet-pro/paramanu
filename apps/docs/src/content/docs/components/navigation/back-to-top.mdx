@@ -1,0 +1,61 @@
+---
+title: Back to Top
+description: A fixed-position button that scrolls the page back to the top.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Back to Top button provides a quick way to scroll to the top of the page, appearing after the user scrolls down.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button class="pm-back-to-top pm-back-to-top--md pm-back-to-top--bottom-right pm-back-to-top--visible" type="button" aria-label="Back to top">&uarr;</button>`}
+  reactCode={`import { BackToTop } from "@paramanu/navigation-react"
+
+export default function App() {
+  return <BackToTop visible />
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `aria-label="Back to top"` for screen readers.
+- Rendered as a `<button type="button">`.
+- Show only after the user has scrolled past a threshold.
+
+## Best Practices
+
+- Position in the bottom-right corner by default.
+- Toggle visibility based on scroll position.
+
+</TabItem>
+  <TabItem label="API">
+
+## BackToTop Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+| `position` | `"bottom-right" \| "bottom-left" \| "bottom-center"` | `"bottom-right"` | Screen position |
+| `visible` | `boolean` | `true` | Visibility state |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-back-to-top` | Root element |
+| `pm-back-to-top--visible` | Visible state |
+| `pm-back-to-top--bottom-right` | Bottom-right position |
+| `pm-back-to-top--sm` | Small size |
+| `pm-back-to-top--lg` | Large size |
+
+</TabItem>
+</Tabs>

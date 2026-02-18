@@ -1,0 +1,82 @@
+---
+title: Banner
+description: Full-width message banner for announcements at the top or bottom of the page.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Banner displays a full-width message with optional icon, actions, and dismiss button. Can be sticky-positioned.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-banner pm-banner--info pm-banner--top" role="status">
+  <div class="pm-banner__content">This is a banner message.</div>
+</div>`}
+  reactCode={`import { Banner } from "@paramanu/feedback-react"
+
+export default function App() {
+  return <Banner variant="info">This is a banner message.</Banner>
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; flex-direction: column; gap: 8px;">
+  <div class="pm-banner pm-banner--info pm-banner--top" role="status"><div class="pm-banner__content">Info</div></div>
+  <div class="pm-banner pm-banner--success pm-banner--top" role="status"><div class="pm-banner__content">Success</div></div>
+  <div class="pm-banner pm-banner--warning pm-banner--top" role="status"><div class="pm-banner__content">Warning</div></div>
+  <div class="pm-banner pm-banner--danger pm-banner--top" role="status"><div class="pm-banner__content">Danger</div></div>
+</div>`}
+  reactCode={`import { Banner } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+      <Banner variant="info">Info</Banner>
+      <Banner variant="success">Success</Banner>
+      <Banner variant="warning">Warning</Banner>
+      <Banner variant="danger">Danger</Banner>
+    </div>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="status"` for polite announcements
+- Close button has `aria-label="Close"`
+
+## Best Practices
+
+- Use for site-wide announcements (maintenance, updates)
+- Keep content concise and actionable
+- Use sticky for persistent important messages
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"info" \| "success" \| "warning" \| "danger"` | `"info"` | Color variant |
+| `sticky` | `boolean` | `false` | Stick to viewport edge |
+| `dismissible` | `boolean` | `false` | Show close button |
+| `position` | `"top" \| "bottom"` | `"top"` | Viewport position |
+| `icon` | `ReactNode` | -- | Icon element |
+| `actions` | `ReactNode` | -- | Action buttons |
+| `onClose` | `() => void` | -- | Dismiss callback |
+
+</TabItem>
+</Tabs>

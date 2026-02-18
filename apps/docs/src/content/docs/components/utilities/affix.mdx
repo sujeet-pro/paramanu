@@ -1,0 +1,43 @@
+---
+title: Affix
+description: A sticky positioning utility for headers, toolbars, and floating elements.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+Affix applies `position: sticky` with configurable top/bottom offset using Paramanu spacing tokens. Useful for sticky headers, toolbars, table headers, and floating action buttons.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```html
+    <div class="pm-affix pm-affix--top">Sticky header</div>
+    <div class="pm-affix pm-affix--bottom pm-affix--offset-4">Sticky footer with offset</div>
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { Affix } from "@paramanu/utilities-react"
+
+    <Affix position="top">Sticky header</Affix>
+    <Affix position="bottom" offset="4">Sticky footer</Affix>
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Use for elements that should remain visible during scrolling
+- The offset maps to Paramanu spacing tokens (`--pm-spacing-*`)
+- The element sticks within its parent's scroll context
+- Combine with `z-index` utilities if needed for stacking
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `position` | `"top" \| "bottom"` | `"top"` | Which edge to stick to |
+| `offset` | `SpacingScale` | - | Distance from the sticky edge |

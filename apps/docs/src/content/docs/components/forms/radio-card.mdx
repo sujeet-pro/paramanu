@@ -1,0 +1,60 @@
+---
+title: Radio Card
+description: A card-style radio button for visually rich single-select options.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Radio Card renders a radio button inside a card layout for visually rich single-selection experiences.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<label class="pm-radio-card pm-radio-card--md">\n  <input type="radio" class="pm-radio-card__input" name="plan" value="basic" />\n  <div class="pm-radio-card__content">Basic</div>\n</label>\n<label class="pm-radio-card pm-radio-card--md">\n  <input type="radio" class="pm-radio-card__input" name="plan" value="pro" />\n  <div class="pm-radio-card__content">Pro</div>\n</label>`}
+  reactCode={`import { RadioCard } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <RadioCard name="plan" value="basic">Basic</RadioCard>\n      <RadioCard name="plan" value="pro">Pro</RadioCard>\n    </>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| Keyboard | Arrow keys navigate between cards in a group |
+| Label | The entire card acts as a label |
+
+## Best Practices
+
+- Group radio cards sharing the same `name` attribute.
+- Use for pricing plans, option selection, or similar exclusive choices.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Card size |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `checked` | `boolean` | `false` | Checked state |
+| `name` | `string` | - | Group name |
+| `value` | `string` | - | Radio value |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-radio-card` | Base class |
+| `pm-radio-card__input` | Hidden input |
+| `pm-radio-card__content` | Card content |
+| `pm-radio-card--checked` | Checked state |
+| `pm-radio-card--disabled` | Disabled state |
+
+</TabItem>
+</Tabs>

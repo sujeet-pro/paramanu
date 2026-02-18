@@ -1,0 +1,59 @@
+---
+title: Bleed
+description: A layout utility that extends content beyond its parent padding using negative margins.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Bleed applies negative margins so content can extend into its parent's padding area.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div style="padding: 32px; border: 1px dashed #ccc;">
+  <div class="pm-bleed pm-bleed--inline-4">
+    <div style="background: #e2e8f0; padding: 16px;">Bleeds into parent padding</div>
+  </div>
+</div>`}
+  reactCode={`import { Bleed } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <div style={{ padding: 32, border: "1px dashed #ccc" }}>
+      <Bleed inline="4">
+        <div>Bleeds into parent padding</div>
+      </Bleed>
+    </div>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `inline` | `SpacingScale` | -- | Inline (horizontal) bleed |
+| `block` | `SpacingScale` | -- | Block (vertical) bleed |
+| `inlineStart` | `SpacingScale` | -- | Start side bleed |
+| `inlineEnd` | `SpacingScale` | -- | End side bleed |
+| `blockStart` | `SpacingScale` | -- | Top bleed |
+| `blockEnd` | `SpacingScale` | -- | Bottom bleed |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-bleed` | Base |
+| `pm-bleed--inline-{scale}` | Inline bleed |
+| `pm-bleed--block-{scale}` | Block bleed |
+
+</TabItem>
+</Tabs>

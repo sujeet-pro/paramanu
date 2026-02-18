@@ -3,8 +3,11 @@ import { inputClasses } from "@paramanu/forms-js"
 import type { InputProps } from "@paramanu/forms-js"
 
 export interface ReactInputProps
-  extends InputProps,
-    Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type"> {
+  extends Omit<InputProps, "onChange" | "onFocus" | "onBlur">,
+    Omit<
+      React.InputHTMLAttributes<HTMLInputElement>,
+      "size" | "type" | "value" | "defaultValue"
+    > {
   children?: React.ReactNode
 }
 

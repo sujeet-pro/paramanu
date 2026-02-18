@@ -1,0 +1,64 @@
+---
+title: Editable Text
+description: An inline text element that can be clicked to switch into an editing input field.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Editable Text component displays text that can be clicked to switch into edit mode, allowing inline editing.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-editable-text pm-editable-text--md" role="group">\n  <span>Click to edit</span>\n</div>`}
+  reactCode={`import { EditableText } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <EditableText>\n      <span>Click to edit</span>\n    </EditableText>\n  )\n}`}
+/>
+
+## Editing Mode
+
+<ComponentPreview
+  htmlCode={`<div class="pm-editable-text pm-editable-text--md pm-editable-text--editing" role="group">\n  <input class="pm-input pm-input--outline pm-input--md" value="Editing mode" />\n</div>`}
+  reactCode={`import { EditableText } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <EditableText editing>\n      <input defaultValue="Editing mode" />\n    </EditableText>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="group"` | Container groups display and edit states |
+| `aria-disabled` | Applied when `disabled` is true |
+| Keyboard | Enter confirms, Escape cancels edit |
+
+## Best Practices
+
+- Provide visual indication of editability (underline, hover effect).
+- Confirm or cancel edits with keyboard shortcuts.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Text size |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `editing` | `boolean` | `false` | Whether in edit mode |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-editable-text` | Base class |
+| `pm-editable-text--editing` | Editing state |
+| `pm-editable-text--disabled` | Disabled state |
+
+</TabItem>
+</Tabs>

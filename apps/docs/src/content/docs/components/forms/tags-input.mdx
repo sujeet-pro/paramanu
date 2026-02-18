@@ -1,0 +1,60 @@
+---
+title: Tags Input
+description: An input that allows adding and removing tags or tokens from a collection.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Tags Input component provides a text field for adding and managing a collection of tags or tokens.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-tags-input pm-tags-input--outline pm-tags-input--md" role="group">\n  <span class="pm-tag">React</span>\n  <span class="pm-tag">Vue</span>\n  <input class="pm-input pm-input--outline pm-input--md" placeholder="Add tag..." />\n</div>`}
+  reactCode={`import { TagsInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <TagsInput>\n      <span className="pm-tag">React</span>\n      <span className="pm-tag">Vue</span>\n      <input placeholder="Add tag..." />\n    </TagsInput>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="group"` | Container groups the tags and input |
+| Keyboard | Enter adds a tag, Backspace removes the last |
+| `aria-disabled` | Applied when `disabled` is true |
+
+## Best Practices
+
+- Use clear labels to indicate what tags represent.
+- Allow removing individual tags with a close button.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Input size |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `invalid` | `boolean` | `false` | Invalid state |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-tags-input` | Wrapper base class |
+| `pm-tags-input--outline` | Outline variant |
+| `pm-tags-input--filled` | Filled variant |
+| `pm-tags-input--disabled` | Disabled state |
+| `pm-tags-input--invalid` | Invalid state |
+
+</TabItem>
+</Tabs>

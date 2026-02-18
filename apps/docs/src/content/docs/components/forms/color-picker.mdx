@@ -1,0 +1,43 @@
+---
+title: Color Picker
+description: A color selection input with a swatch trigger and color palette popover.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Color Picker provides a swatch button that opens a color palette for selection.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-color-picker pm-color-picker--md">\n  <button type="button" class="pm-color-picker__swatch" aria-label="Choose color" style="background-color:#3b82f6"></button>\n</div>`}
+  reactCode={`import { ColorPicker } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <ColorPicker />\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| Swatch | Labeled with `aria-label` |
+| Keyboard | Enter/Space opens picker |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Picker size |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `open` | `boolean` | `false` | Open state |
+
+</TabItem>
+</Tabs>

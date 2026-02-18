@@ -1,0 +1,93 @@
+---
+title: Carousel
+description: A slideshow component for cycling through a series of content panels.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Carousel displays content in a series of slides with navigation controls and indicator dots.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-carousel pm-carousel--horizontal pm-carousel--md" role="region" aria-roledescription="carousel" aria-label="Example">
+  <button class="pm-carousel__control pm-carousel__control--prev" aria-label="Previous slide">&lsaquo;</button>
+  <div class="pm-carousel__slide pm-carousel__slide--active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 2">Slide 1</div>
+  <div class="pm-carousel__slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 2">Slide 2</div>
+  <button class="pm-carousel__control pm-carousel__control--next" aria-label="Next slide">&rsaquo;</button>
+</div>`}
+  reactCode={`import { Carousel, CarouselSlide, CarouselControl } from "@paramanu/disclosure-react"
+
+export default function App() {
+  return (
+    <Carousel aria-label="Example">
+      <CarouselControl direction="prev" />
+      <CarouselSlide active index={0} total={2}>Slide 1</CarouselSlide>
+      <CarouselSlide index={1} total={2}>Slide 2</CarouselSlide>
+      <CarouselControl direction="next" />
+    </Carousel>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Key | Action |
+|-----|--------|
+| `ArrowLeft` | Previous slide |
+| `ArrowRight` | Next slide |
+
+- Root uses `role="region"` with `aria-roledescription="carousel"`.
+- Slides use `role="group"` with `aria-roledescription="slide"`.
+- Controls use descriptive `aria-label`.
+- Indicators use `role="tab"` with `aria-selected`.
+
+## Best Practices
+
+- Pause autoplay when the carousel has focus.
+- Provide both arrow controls and indicator dots.
+
+</TabItem>
+  <TabItem label="API">
+
+## Carousel Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Scroll direction |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+
+## CarouselSlide Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `active` | `boolean` | `false` | Active slide |
+| `index` | `number` | - | Slide index |
+| `total` | `number` | - | Total slides |
+
+## CarouselControl Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `direction` | `"prev" \| "next"` | - | Navigation direction |
+| `disabled` | `boolean` | `false` | Disabled state |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-carousel` | Root element |
+| `pm-carousel__slide` | Slide container |
+| `pm-carousel__slide--active` | Active slide |
+| `pm-carousel__control` | Navigation button |
+| `pm-carousel__indicator` | Dot indicator |
+
+</TabItem>
+</Tabs>

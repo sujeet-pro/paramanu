@@ -1,0 +1,66 @@
+---
+title: Prose
+description: A container that applies typographic styles to child HTML elements for rich text content.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Prose applies consistent typographic styling to nested HTML content such as headings, paragraphs, lists, and code blocks.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-prose pm-prose--md">
+  <h2>Article Title</h2>
+  <p>This content is styled by the prose container.</p>
+  <ul><li>First item</li><li>Second item</li></ul>
+</div>`}
+  reactCode={`import { Prose } from "@paramanu/typography-react"
+
+export default function App() {
+  return (
+    <Prose>
+      <h2>Article Title</h2>
+      <p>This content is styled by the prose container.</p>
+      <ul><li>First item</li><li>Second item</li></ul>
+    </Prose>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+Use `as="article"` for standalone content. Prose applies readable line heights and spacing that meet accessibility guidelines.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `as` | `"div" \| "article" \| "section"` | `"div"` | HTML element |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Base font size scale |
+| `color` | `"default" \| "muted"` | -- | Color scheme |
+| `trimMargins` | `boolean` | `false` | Remove first/last child margins |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-prose` | Base |
+| `pm-prose--{size}` | Size |
+| `pm-prose--color-{c}` | Color scheme |
+| `pm-prose--trim` | Trim margins |
+
+</TabItem>
+</Tabs>

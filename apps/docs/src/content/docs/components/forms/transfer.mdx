@@ -1,0 +1,42 @@
+---
+title: Transfer
+description: A dual-list component for moving items between two panels.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Transfer component provides a dual-list interface for moving items between source and target panels.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-transfer pm-transfer--md" role="group" aria-label="Transfer">...</div>`}
+  reactCode={`import { Transfer } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Transfer>Transfer content</Transfer>\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="group"` | Groups the two panels |
+| Keyboard | Tab navigates between panels and controls |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Transfer size |
+| `disabled` | `boolean` | `false` | Disabled state |
+
+</TabItem>
+</Tabs>

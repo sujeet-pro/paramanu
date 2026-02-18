@@ -1,0 +1,65 @@
+---
+title: Code
+description: Inline and block code display with syntax highlighting support, line numbers, and copy button.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Code renders inline code snippets or block-level code with optional line numbers and copy button.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<p>Use <code class="pm-code">npm install</code> to install.</p>
+<pre class="pm-code-block"><code>const x = 42</code></pre>`}
+  reactCode={`import { Code } from "@paramanu/typography-react"
+
+export default function App() {
+  return (
+    <>
+      <p>Use <Code>npm install</Code> to install.</p>
+      <Code block>{"const x = 42"}</Code>
+    </>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+Inline code renders as `<code>`. Block code renders as `<pre><code>`. Use the `language` prop for syntax-highlighting CSS hooks.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `block` | `boolean` | `false` | Block mode (`<pre><code>`) |
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | -- | Font size |
+| `variant` | `"default" \| "outline"` | `"default"` | Visual variant |
+| `color` | `"neutral" \| "primary" \| "danger" \| "success" \| "warning" \| "info"` | -- | Color |
+| `withLineNumbers` | `boolean` | `false` | Line numbers (block) |
+| `withCopyButton` | `boolean` | `false` | Copy button (block) |
+| `language` | `string` | -- | Language hint |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-code` | Inline code |
+| `pm-code-block` | Block code |
+| `pm-code-block--line-numbers` | Line numbers |
+| `pm-code-block--copy` | Copy button |
+
+</TabItem>
+</Tabs>

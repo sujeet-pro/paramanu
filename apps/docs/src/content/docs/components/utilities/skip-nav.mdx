@@ -1,0 +1,55 @@
+---
+title: Skip Nav
+description: An accessibility skip navigation link for bypassing repetitive content.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+SkipNav provides a keyboard-accessible link that allows users to bypass navigation blocks and jump directly to the main content. Required by WCAG 2.4.1 (Bypass Blocks).
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```html
+    <a href="#main-content" class="pm-skip-nav">Skip to content</a>
+    <nav>...</nav>
+    <main id="main-content" class="pm-skip-nav-target" tabindex="-1">
+      Main content
+    </main>
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { SkipNav, SkipNavTarget } from "@paramanu/utilities-react"
+
+    <SkipNav />
+    <nav>...</nav>
+    <SkipNavTarget>
+      <main>Main content</main>
+    </SkipNavTarget>
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Place the skip link as the first focusable element on the page
+- The link is visually hidden until it receives keyboard focus
+- Use with `SkipNavTarget` to mark the destination landmark
+
+## API
+
+### SkipNav
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `targetId` | `string` | `"main-content"` | The `id` of the element to skip to |
+
+### SkipNavTarget
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `id` | `string` | `"main-content"` | The `id` the skip link points to |

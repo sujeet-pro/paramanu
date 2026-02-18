@@ -1,0 +1,57 @@
+---
+title: Select
+description: A custom dropdown select component with keyboard navigation and ARIA support.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Select component provides a custom dropdown with a trigger button and a listbox of options.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-select pm-select--outline pm-select--md">\n  <button type="button" class="pm-select__trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox">Select...</button>\n  <div class="pm-select__listbox" role="listbox">\n    <div role="option">Apple</div>\n    <div role="option">Banana</div>\n  </div>\n</div>`}
+  reactCode={`import { Select } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <Select placeholder="Select...">\n      <div role="option">Apple</div>\n      <div role="option">Banana</div>\n    </Select>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="combobox"` | Trigger button role |
+| `aria-expanded` | Reflects open state |
+| `aria-haspopup="listbox"` | Indicates dropdown type |
+| Keyboard | Enter/Space opens, Arrow keys navigate |
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Select size |
+| `invalid` | `boolean` | `false` | Invalid state |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `open` | `boolean` | `false` | Open state |
+| `fullWidth` | `boolean` | `false` | Full-width layout |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-select` | Base class |
+| `pm-select__trigger` | Trigger button |
+| `pm-select__listbox` | Options container |
+| `pm-select--open` | Open state |
+
+</TabItem>
+</Tabs>

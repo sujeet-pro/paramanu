@@ -1,0 +1,153 @@
+---
+title: Card
+description: A container for grouping related content with optional header, body, footer, and media sections.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+A Card groups related information in a visually distinct container. It supports multiple visual variants, sizes, and layouts including horizontal orientation and media areas.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-card pm-card--elevated pm-card--md">
+  <div class="pm-card__header">Card Header</div>
+  <div class="pm-card__body">Card body content goes here.</div>
+  <div class="pm-card__footer">Card Footer</div>
+</div>`}
+  reactCode={`import { Card, CardHeader, CardBody, CardFooter } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <Card variant="elevated" size="md">
+      <CardHeader>Card Header</CardHeader>
+      <CardBody>Card body content goes here.</CardBody>
+      <CardFooter>Card Footer</CardFooter>
+    </Card>
+  )
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div class="pm-card pm-card--outline pm-card--md">
+  <div class="pm-card__body">Outline card</div>
+</div>
+<div class="pm-card pm-card--filled pm-card--md">
+  <div class="pm-card__body">Filled card</div>
+</div>
+<div class="pm-card pm-card--ghost pm-card--md">
+  <div class="pm-card__body">Ghost card</div>
+</div>`}
+  reactCode={`import { Card, CardBody } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <>
+      <Card variant="outline"><CardBody>Outline card</CardBody></Card>
+      <Card variant="filled"><CardBody>Filled card</CardBody></Card>
+      <Card variant="ghost"><CardBody>Ghost card</CardBody></Card>
+    </>
+  )
+}`}
+/>
+
+## Sizes
+
+<ComponentPreview
+  htmlCode={`<div class="pm-card pm-card--elevated pm-card--sm">
+  <div class="pm-card__body">Small</div>
+</div>
+<div class="pm-card pm-card--elevated pm-card--md">
+  <div class="pm-card__body">Medium</div>
+</div>
+<div class="pm-card pm-card--elevated pm-card--lg">
+  <div class="pm-card__body">Large</div>
+</div>`}
+  reactCode={`import { Card, CardBody } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <>
+      <Card size="sm"><CardBody>Small</CardBody></Card>
+      <Card size="md"><CardBody>Medium</CardBody></Card>
+      <Card size="lg"><CardBody>Large</CardBody></Card>
+    </>
+  )
+}`}
+/>
+
+## Interactive
+
+<ComponentPreview
+  htmlCode={`<div class="pm-card pm-card--elevated pm-card--md pm-card--interactive">
+  <div class="pm-card__body">Hover or focus this card.</div>
+</div>`}
+  reactCode={`import { Card, CardBody } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <Card interactive>
+      <CardBody>Hover or focus this card.</CardBody>
+    </Card>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Use `<article>` semantics when the card represents a standalone piece of content.
+- Interactive cards should be focusable and respond to keyboard activation.
+- Ensure sufficient color contrast between card content and background.
+
+## Best Practices
+
+- Use `elevated` for primary content and `outline` for secondary groupings.
+- Keep card content concise and scannable.
+- Use the `interactive` prop only when the entire card is clickable.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"elevated" \| "outline" \| "filled" \| "ghost"` | `"elevated"` | Visual style variant |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Controls internal padding |
+| `interactive` | `boolean` | `false` | Enables hover/focus interactions |
+| `fullWidth` | `boolean` | `false` | Stretches to fill parent width |
+| `horizontal` | `boolean` | `false` | Horizontal (row) layout |
+
+## Sub-components
+
+- `CardHeader` - Header section
+- `CardBody` - Main content area
+- `CardFooter` - Footer section
+- `CardMedia` - Media container (accepts `position` prop)
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-card` | Base card class |
+| `pm-card--{variant}` | Variant modifier |
+| `pm-card--{size}` | Size modifier |
+| `pm-card--interactive` | Interactive state |
+| `pm-card--full-width` | Full width modifier |
+| `pm-card--horizontal` | Horizontal layout |
+| `pm-card__header` | Header element |
+| `pm-card__body` | Body element |
+| `pm-card__footer` | Footer element |
+| `pm-card__media` | Media element |
+
+</TabItem>
+</Tabs>

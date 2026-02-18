@@ -1,0 +1,48 @@
+---
+title: Hover Card
+description: A floating card that previews content when hovering over a trigger.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+HoverCard displays a floating preview panel when hovering over a trigger, commonly used for user profiles, link previews, or supplemental content.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```html
+    <a href="/user/jane">@jane</a>
+    <div class="pm-hover-card pm-hover-card--bottom">
+      <img src="avatar.jpg" alt="Jane" />
+      <p>Jane Doe - Software Engineer</p>
+    </div>
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { HoverCard } from "@paramanu/overlays-react"
+
+    <HoverCard open={isHovering} placement="bottom">
+      <img src="avatar.jpg" alt="Jane" />
+      <p>Jane Doe - Software Engineer</p>
+    </HoverCard>
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Use hover cards for non-essential preview content
+- Include a delay before showing to avoid accidental triggers
+- Content should be read-only (no interactive elements)
+- Provide keyboard-accessible alternatives for the same content
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `placement` | `HoverCardPlacement` | `"bottom"` | Position relative to the trigger |
+| `open` | `boolean` | `false` | Whether the hover card is visible |

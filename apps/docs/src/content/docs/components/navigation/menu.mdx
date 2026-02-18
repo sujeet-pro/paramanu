@@ -1,0 +1,83 @@
+---
+title: Menu
+description: A list of actions or options presented in a vertical layout.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Menu component displays a vertical list of actions with support for groups, separators, and destructive items.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<ul class="pm-menu pm-menu--md" role="menu">
+  <li class="pm-menu__item" role="menuitem">Cut</li>
+  <li class="pm-menu__item" role="menuitem">Copy</li>
+  <li class="pm-menu__item" role="menuitem">Paste</li>
+  <li class="pm-menu__separator" role="separator"></li>
+  <li class="pm-menu__item pm-menu__item--destructive" role="menuitem">Delete</li>
+</ul>`}
+  reactCode={`import { Menu, MenuItem, MenuSeparator } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <Menu>
+      <MenuItem>Cut</MenuItem>
+      <MenuItem>Copy</MenuItem>
+      <MenuItem>Paste</MenuItem>
+      <MenuSeparator />
+      <MenuItem destructive>Delete</MenuItem>
+    </Menu>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Key | Action |
+|-----|--------|
+| `ArrowDown` | Move to next item |
+| `ArrowUp` | Move to previous item |
+| `Enter` | Activate focused item |
+| `Escape` | Close menu |
+
+- Uses `role="menu"` on the container and `role="menuitem"` on items.
+- Disabled items use `aria-disabled="true"`.
+
+</TabItem>
+  <TabItem label="API">
+
+## Menu Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+
+## MenuItem Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `active` | `boolean` | `false` | Active state |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `destructive` | `boolean` | `false` | Destructive action style |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-menu` | Root element |
+| `pm-menu__item` | Menu item |
+| `pm-menu__item--destructive` | Destructive item |
+| `pm-menu__separator` | Visual separator |
+| `pm-menu__group` | Group container |
+| `pm-menu__group-label` | Group label |
+
+</TabItem>
+</Tabs>

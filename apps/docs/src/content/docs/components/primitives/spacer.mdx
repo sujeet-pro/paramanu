@@ -1,0 +1,56 @@
+---
+title: Spacer
+description: An invisible spacing element that fills available space or adds a fixed gap between items.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Spacer creates space between elements. Without a `size`, it grows to fill available flex space. With a `size`, it adds a fixed gap.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; border: 1px dashed #ccc; height: 50px; align-items: center;">
+  <div>Left</div>
+  <div class="pm-spacer" aria-hidden="true"></div>
+  <div>Right</div>
+</div>`}
+  reactCode={`import { Spacer } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex" }}>
+      <div>Left</div>
+      <Spacer />
+      <div>Right</div>
+    </div>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `SpacingScale` | -- | Fixed size. Without this, spacer grows. |
+| `axis` | `"horizontal" \| "vertical"` | -- | Direction |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-spacer` | Base (flex: 1) |
+| `pm-spacer--size-{scale}` | Fixed size |
+| `pm-spacer--horizontal` | Horizontal |
+| `pm-spacer--vertical` | Vertical |
+
+</TabItem>
+</Tabs>

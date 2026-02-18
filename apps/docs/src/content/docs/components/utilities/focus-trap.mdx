@@ -1,0 +1,54 @@
+---
+title: Focus Trap
+description: Constrains keyboard focus within a container for accessible modal interactions.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+FocusTrap constrains keyboard Tab/Shift+Tab navigation within a container element. Essential for accessible modal dialogs, drawers, and other overlays that require focus management per WAI-ARIA dialog pattern.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```js
+    import { createFocusTrap } from "@paramanu/utilities-js"
+
+    const trap = createFocusTrap(dialogElement, {
+      onEscapeKey: () => closeDialog(),
+      returnFocusOnDeactivate: true,
+    })
+    trap.activate()
+    // Later: trap.deactivate()
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { FocusTrap } from "@paramanu/utilities-react"
+
+    <FocusTrap active={isOpen} onEscapeKey={handleClose}>
+      <div role="dialog" aria-modal="true">
+        <button>Focusable</button>
+      </div>
+    </FocusTrap>
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Always use focus trapping with modal dialogs and overlays
+- Set `returnFocusOnDeactivate` to restore focus to the trigger element
+- Use `onEscapeKey` to handle Escape key dismissal
+- The `useFocusTrap` hook provides more granular control for custom use cases
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `active` | `boolean` | `true` | Whether the focus trap is active |
+| `initialFocus` | `HTMLElement \| string` | - | Element or selector to receive initial focus |
+| `returnFocusOnDeactivate` | `boolean` | `true` | Restore focus on deactivation |
+| `onEscapeKey` | `() => void` | - | Callback when Escape is pressed |

@@ -1,0 +1,67 @@
+---
+title: Data Grid
+description: A CSS Grid-based data display with column headers, resizable columns, and virtualization support.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Data Grid uses CSS Grid with `display: contents` rows for high-performance data display with column headers, resizable columns, and virtualization support.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-data-grid pm-data-grid--md" role="grid" style="grid-template-columns: 1fr 1fr">
+  <div class="pm-data-grid__row" role="row">
+    <div class="pm-data-grid__column-header" role="columnheader">Name</div>
+    <div class="pm-data-grid__column-header" role="columnheader">Role</div>
+  </div>
+  <div class="pm-data-grid__row" role="row">
+    <div class="pm-data-grid__cell" role="gridcell">Alice</div>
+    <div class="pm-data-grid__cell" role="gridcell">Engineer</div>
+  </div>
+</div>`}
+  reactCode={`import { DataGrid, DataGridRow, DataGridCell, DataGridColumnHeader } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <DataGrid style={{ gridTemplateColumns: "1fr 1fr" }}>
+      <DataGridRow>
+        <DataGridColumnHeader>Name</DataGridColumnHeader>
+        <DataGridColumnHeader>Role</DataGridColumnHeader>
+      </DataGridRow>
+      <DataGridRow>
+        <DataGridCell>Alice</DataGridCell>
+        <DataGridCell>Engineer</DataGridCell>
+      </DataGridRow>
+    </DataGrid>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="grid"`, `role="row"`, `role="gridcell"`, and `role="columnheader"`.
+- Arrow key navigation is expected for grid patterns.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"sm" \| "md"` | `"md"` | Cell padding and font size |
+| `bordered` | `boolean` | `false` | Cell borders |
+| `hoverable` | `boolean` | `false` | Row hover highlight |
+| `stickyHeader` | `boolean` | `false` | Sticky column headers |
+| `resizable` | `boolean` | `false` | Column resize handles |
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,42 @@
+---
+title: Backdrop
+description: A fixed overlay behind modal content to dim or blur the background.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+Backdrop renders a full-screen overlay behind modal content. It is used internally by Dialog, AlertDialog, Drawer, Sheet, and CommandPalette to dim or blur the page background.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```html
+    <div class="pm-backdrop pm-backdrop--default pm-backdrop--visible" aria-hidden="true"></div>
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { Backdrop } from "@paramanu/overlays-react"
+
+    <Backdrop variant="default" visible onClick={handleClose} />
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Always set `aria-hidden="true"` since the backdrop is decorative
+- Use the `onClick` handler to close the parent overlay
+- Choose the `blur` variant for a frosted glass effect
+- Use `transparent` when you need click-outside behavior without visual dimming
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"default" \| "transparent" \| "blur"` | `"default"` | Visual style of the backdrop |
+| `visible` | `boolean` | `false` | Whether the backdrop is visible |
+| `onClick` | `() => void` | - | Click handler for dismissing overlays |

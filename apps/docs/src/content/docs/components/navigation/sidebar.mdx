@@ -1,0 +1,90 @@
+---
+title: Sidebar
+description: A vertical navigation panel for app-level or section-level navigation.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Sidebar provides vertical navigation with sections, labels, and indented items for hierarchical structures.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<nav class="pm-sidebar pm-sidebar--default pm-sidebar--left">
+  <div class="pm-sidebar__section">
+    <div class="pm-sidebar__section-label">Main</div>
+    <a href="#" class="pm-sidebar__item pm-sidebar__item--active" aria-current="page">Dashboard</a>
+    <a href="#" class="pm-sidebar__item">Settings</a>
+  </div>
+</nav>`}
+  reactCode={`import { Sidebar, SidebarSection, SidebarSectionLabel, SidebarItem } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <Sidebar>
+      <SidebarSection>
+        <SidebarSectionLabel>Main</SidebarSectionLabel>
+        <SidebarItem href="#" active>Dashboard</SidebarItem>
+        <SidebarItem href="#">Settings</SidebarItem>
+      </SidebarSection>
+    </Sidebar>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Key | Action |
+|-----|--------|
+| `Tab` | Move focus between items |
+| `Enter` | Activate focused item |
+
+- Uses `<nav>` for semantic navigation.
+- Active item uses `aria-current="page"`.
+- Disabled items use `aria-disabled="true"`.
+
+## Best Practices
+
+- Group related items into sections with descriptive labels.
+- Highlight the active page with the `active` prop.
+
+</TabItem>
+  <TabItem label="API">
+
+## Sidebar Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `width` | `"narrow" \| "default" \| "wide"` | `"default"` | Width preset |
+| `position` | `"left" \| "right"` | `"left"` | Side of the viewport |
+| `collapsed` | `boolean` | `false` | Collapsed state |
+
+## SidebarItem Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `active` | `boolean` | `false` | Active state |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `indent` | `0 \| 1 \| 2 \| 3` | `0` | Indentation level |
+| `as` | `"a" \| "button"` | `"a"` | Render element |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-sidebar` | Root element |
+| `pm-sidebar--collapsed` | Collapsed state |
+| `pm-sidebar__section` | Section container |
+| `pm-sidebar__section-label` | Section label |
+| `pm-sidebar__item` | Navigation item |
+| `pm-sidebar__item--active` | Active item |
+
+</TabItem>
+</Tabs>

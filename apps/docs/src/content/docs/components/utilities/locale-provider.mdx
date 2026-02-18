@@ -1,0 +1,48 @@
+---
+title: Locale Provider
+description: Manages the application locale for internationalization and number formatting.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+LocaleProvider manages the `lang` HTML attribute which affects browser behavior for hyphenation, spell-checking, and `Intl` API defaults. It is used by `FormatNumber` and `FormatByte` components to determine the number formatting locale.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```js
+    import { setLocale, getLocale } from "@paramanu/utilities-js"
+
+    setLocale("fr-FR")
+    console.log(getLocale()) // "fr-FR"
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { LocaleProvider, useLocale } from "@paramanu/utilities-react"
+
+    <LocaleProvider defaultLocale="en-US">
+      <App />
+    </LocaleProvider>
+
+    // Inside a component:
+    const { locale, setLocale } = useLocale()
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Use BCP 47 language tags (e.g., `"en-US"`, `"de-DE"`, `"ja"`)
+- Sets the `lang` attribute on `document.documentElement` by default
+- FormatNumber and FormatByte inherit the locale from context
+- The `useLocale` hook provides read/write access to the current locale
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `defaultLocale` | `string` | `"en"` | Initial BCP 47 language tag |

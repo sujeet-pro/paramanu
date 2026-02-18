@@ -1,0 +1,139 @@
+---
+title: Navbar
+description: A responsive navigation bar for site-wide navigation with brand, links, and toggle support.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Navbar component provides a horizontal navigation bar with support for brand elements, link sections, and a mobile toggle button.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<nav class="pm-navbar pm-navbar--default pm-navbar--static">
+  <div class="pm-navbar__inner">
+    <div class="pm-navbar__section pm-navbar__section--start">
+      <div class="pm-navbar__brand">Brand</div>
+    </div>
+    <div class="pm-navbar__section pm-navbar__section--end">
+      <a href="#">Link</a>
+    </div>
+  </div>
+</nav>`}
+  reactCode={`import { Navbar, NavbarInner, NavbarSection, NavbarBrand } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <Navbar>
+      <NavbarInner>
+        <NavbarSection align="start">
+          <NavbarBrand>Brand</NavbarBrand>
+        </NavbarSection>
+        <NavbarSection align="end">
+          <a href="#">Link</a>
+        </NavbarSection>
+      </NavbarInner>
+    </Navbar>
+  )
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<nav class="pm-navbar pm-navbar--floating pm-navbar--static">
+  <div class="pm-navbar__inner">
+    <div class="pm-navbar__section pm-navbar__section--start">
+      <div class="pm-navbar__brand">Floating</div>
+    </div>
+  </div>
+</nav>
+
+<nav class="pm-navbar pm-navbar--bordered pm-navbar--static">
+  <div class="pm-navbar__inner">
+    <div class="pm-navbar__section pm-navbar__section--start">
+      <div class="pm-navbar__brand">Bordered</div>
+    </div>
+  </div>
+</nav>`}
+  reactCode={`import { Navbar, NavbarInner, NavbarSection, NavbarBrand } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <>
+      <Navbar variant="floating">
+        <NavbarInner>
+          <NavbarSection align="start">
+            <NavbarBrand>Floating</NavbarBrand>
+          </NavbarSection>
+        </NavbarInner>
+      </Navbar>
+      <Navbar variant="bordered">
+        <NavbarInner>
+          <NavbarSection align="start">
+            <NavbarBrand>Bordered</NavbarBrand>
+          </NavbarSection>
+        </NavbarInner>
+      </Navbar>
+    </>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Key | Action |
+|-----|--------|
+| `Tab` | Move focus between interactive elements |
+
+### ARIA
+
+- The navbar uses `<nav>` for semantic navigation landmark.
+- The toggle button should have an `aria-label` describing its purpose.
+
+## Best Practices
+
+- Use a single Navbar per page for primary navigation.
+- Place the brand/logo in the start section for consistent positioning.
+- Provide a toggle button for mobile-responsive navigation.
+
+</TabItem>
+  <TabItem label="API">
+
+## Navbar Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"default" \| "floating" \| "bordered"` | `"default"` | Visual style variant |
+| `position` | `"static" \| "sticky" \| "fixed"` | `"static"` | CSS position behavior |
+
+## Sub-components
+
+- `NavbarInner` - Content wrapper for max-width constraint
+- `NavbarSection` - Flex section with `align` prop (`"start" \| "center" \| "end"`)
+- `NavbarBrand` - Brand/logo container
+- `NavbarToggle` - Mobile toggle button
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-navbar` | Root element |
+| `pm-navbar--floating` | Floating variant |
+| `pm-navbar--bordered` | Bordered variant |
+| `pm-navbar--sticky` | Sticky position |
+| `pm-navbar--fixed` | Fixed position |
+| `pm-navbar__inner` | Inner content wrapper |
+| `pm-navbar__section` | Section container |
+| `pm-navbar__brand` | Brand element |
+| `pm-navbar__toggle` | Toggle button |
+
+</TabItem>
+</Tabs>

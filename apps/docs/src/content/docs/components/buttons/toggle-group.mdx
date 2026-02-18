@@ -1,0 +1,114 @@
+---
+title: Toggle Group
+description: A group of toggle buttons supporting single or multiple selection.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+A group of toggle buttons where one or more can be active, supporting single-select and multi-select modes.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-toggle-group pm-toggle-group--horizontal pm-toggle-group--md" role="group" aria-label="Alignment">
+  <button class="pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md" aria-pressed="false">Left</button>
+  <button class="pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md pm-toggle-group__item--pressed" aria-pressed="true">Center</button>
+  <button class="pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md" aria-pressed="false">Right</button>
+</div>`}
+  reactCode={`import { useState } from "react"
+import { ToggleGroup, ToggleGroupItem } from "@paramanu/buttons-react"
+
+export default function App() {
+  const [value, setValue] = useState("center")
+  return (
+    <ToggleGroup type="single" value={value} onChange={setValue}>
+      <ToggleGroupItem value="left">Left</ToggleGroupItem>
+      <ToggleGroupItem value="center">Center</ToggleGroupItem>
+      <ToggleGroupItem value="right">Right</ToggleGroupItem>
+    </ToggleGroup>
+  )
+}`}
+/>
+
+## Multiple Selection
+
+<ComponentPreview
+  htmlCode={`<div class="pm-toggle-group pm-toggle-group--horizontal pm-toggle-group--md" role="group" aria-label="Formatting" data-type="multiple">
+  <button class="pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md pm-toggle-group__item--pressed" aria-pressed="true">B</button>
+  <button class="pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md" aria-pressed="false">I</button>
+  <button class="pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md" aria-pressed="false">U</button>
+</div>`}
+  reactCode={`import { useState } from "react"
+import { ToggleGroup, ToggleGroupItem } from "@paramanu/buttons-react"
+
+export default function App() {
+  const [value, setValue] = useState(["bold"])
+  return (
+    <ToggleGroup type="multiple" value={value} onChange={setValue}>
+      <ToggleGroupItem value="bold">B</ToggleGroupItem>
+      <ToggleGroupItem value="italic">I</ToggleGroupItem>
+      <ToggleGroupItem value="underline">U</ToggleGroupItem>
+    </ToggleGroup>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="group"` with `aria-label`
+- Each item uses `aria-pressed` for toggle state
+- Keyboard accessible via tab + Enter/Space
+
+## Best Practices
+
+- Use `type="single"` for mutually exclusive options (e.g., text alignment)
+- Use `type="multiple"` for independent toggles (e.g., text formatting)
+- Always provide an `aria-label` for the group
+
+</TabItem>
+
+  <TabItem label="API">
+
+## ToggleGroup Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `type` | `"single" \| "multiple"` | `"single"` | Selection mode |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout direction |
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Shared size for items |
+| `attached` | `boolean` | `false` | Merge item borders |
+| `fullWidth` | `boolean` | `false` | Stretch to container |
+| `value` | `string \| string[]` | -- | Current selection |
+| `onChange` | `(value) => void` | -- | Selection change callback |
+
+## ToggleGroupItem Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | -- | Item value for tracking |
+| `variant` | `"default" \| "outline"` | `"default"` | Visual style |
+| `size` | `ToggleGroupSize` | Inherited | Size override |
+| `pressed` | `boolean` | Managed | Toggle state |
+| `disabled` | `boolean` | `false` | Disabled state |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-toggle-group` | Container base |
+| `pm-toggle-group--horizontal/vertical` | Layout direction |
+| `pm-toggle-group--attached` | Merged borders |
+| `pm-toggle-group__item` | Item base |
+| `pm-toggle-group__item--pressed` | Active item |
+| `pm-toggle-group__item--disabled` | Disabled item |
+
+</TabItem>
+</Tabs>

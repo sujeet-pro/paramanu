@@ -1,0 +1,49 @@
+---
+title: Theme Provider
+description: Manages light/dark/system color scheme with localStorage persistence.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+ThemeProvider manages the application color scheme (light, dark, or system) by setting `data-pm-theme` on the document root and persisting the preference in `localStorage`. All Paramanu components use `light-dark()` CSS function for automatic adaptation.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```js
+    import { setTheme, getTheme } from "@paramanu/utilities-js"
+
+    setTheme("dark")
+    console.log(getTheme()) // "dark"
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { ThemeProvider, useTheme } from "@paramanu/utilities-react"
+
+    <ThemeProvider defaultMode="system">
+      <App />
+    </ThemeProvider>
+
+    // Inside a component:
+    const { mode, setMode } = useTheme()
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Wrap your app root with `ThemeProvider` for consistent theming
+- Use `"system"` as default to respect user OS preference
+- The `useTheme` hook provides read/write access to the current mode
+- Theme preference persists across page reloads via `localStorage`
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `defaultMode` | `"light" \| "dark" \| "system"` | `"system"` | Initial color scheme |
+| `storageKey` | `string` | `"pm-theme"` | localStorage key for persistence |

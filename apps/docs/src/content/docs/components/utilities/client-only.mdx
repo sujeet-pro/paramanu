@@ -1,0 +1,48 @@
+---
+title: Client Only
+description: Renders content only on the client side after React hydration.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+ClientOnly renders its children only on the client side, after React hydration completes. During SSR, the optional `fallback` is rendered instead. This prevents hydration mismatches when using browser-only APIs.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```js
+    import { isClient } from "@paramanu/utilities-js"
+
+    if (isClient()) {
+      // Safe to use browser APIs
+      document.title = "Updated"
+    }
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { ClientOnly } from "@paramanu/utilities-react"
+
+    <ClientOnly fallback={<Skeleton />}>
+      <BrowserOnlyWidget />
+    </ClientOnly>
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Use to wrap components that depend on `window`, `document`, or `localStorage`
+- Provide a `fallback` for loading states during SSR
+- The `useIsClient()` hook provides the same functionality as a hook
+- Useful for wrapping Portals in SSR frameworks
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `fallback` | `ReactNode` | `null` | Content shown during SSR |
+| `children` | `ReactNode` | - | Client-only content |

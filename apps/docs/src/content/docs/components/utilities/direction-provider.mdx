@@ -1,0 +1,48 @@
+---
+title: Direction Provider
+description: Manages text direction (LTR/RTL) for bidirectional layout support.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+
+## Overview
+
+DirectionProvider manages the `dir` HTML attribute which controls CSS logical properties and layout direction. All Paramanu CSS uses logical properties so components automatically adapt to the configured direction.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```js
+    import { setDirection, getDirection } from "@paramanu/utilities-js"
+
+    setDirection("rtl")
+    console.log(getDirection()) // "rtl"
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { DirectionProvider, useDirection } from "@paramanu/utilities-react"
+
+    <DirectionProvider defaultDir="ltr">
+      <App />
+    </DirectionProvider>
+
+    // Inside a component:
+    const { dir, setDir } = useDirection()
+    ```
+</TabItem>
+</Tabs>
+
+## Guidelines
+
+- Use for applications that support Arabic, Hebrew, or other RTL languages
+- All Paramanu components use CSS logical properties for automatic adaptation
+- The `useDirection` hook provides read/write access to the current direction
+- Sets the `dir` attribute on `document.documentElement` by default
+
+## API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `defaultDir` | `"ltr" \| "rtl"` | `"ltr"` | Initial text direction |

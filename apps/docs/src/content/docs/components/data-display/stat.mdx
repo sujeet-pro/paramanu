@@ -1,0 +1,74 @@
+---
+title: Stat
+description: A display component for key metrics with optional trend indicators.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Stat displays key metrics with a label, value, and optional trend indicator. Useful for dashboards and summary views.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-stat pm-stat--md pm-stat--start">
+  <div class="pm-stat__label">Total Revenue</div>
+  <div class="pm-stat__value">$45,231</div>
+  <div class="pm-stat__help-text">+12.5% from last month</div>
+</div>`}
+  reactCode={`import { Stat, StatLabel, StatValue, StatHelpText } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <Stat>
+      <StatLabel>Total Revenue</StatLabel>
+      <StatValue>$45,231</StatValue>
+      <StatHelpText trend="up">+12.5% from last month</StatHelpText>
+    </Stat>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Use meaningful label text for screen readers.
+- Trend indicators should have text alternatives.
+
+## Best Practices
+
+- Group related stats together in a dashboard layout.
+- Use trend colors consistently: green for positive, red for negative.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Font sizes and spacing |
+| `align` | `"start" \| "center" \| "end"` | `"start"` | Text alignment |
+
+### StatHelpText Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `trend` | `"up" \| "down"` | - | Colors the text green (up) or red (down) |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-stat` | Base stat class |
+| `pm-stat__label` | Label text |
+| `pm-stat__value` | Primary value |
+| `pm-stat__help-text` | Help/trend text |
+
+</TabItem>
+</Tabs>

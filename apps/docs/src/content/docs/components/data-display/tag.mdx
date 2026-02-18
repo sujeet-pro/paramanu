@@ -1,0 +1,78 @@
+---
+title: Tag
+description: A labeled element that can be removed, clicked, or disabled.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Tags (chips) are labeled elements for categorization, filtering, or selection. They can be removable, interactive, or disabled.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<span class="pm-tag pm-tag--filled pm-tag--md pm-tag--primary">React</span>`}
+  reactCode={`import { Tag } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Tag>React</Tag>
+}`}
+/>
+
+## Removable
+
+<ComponentPreview
+  htmlCode={`<span class="pm-tag pm-tag--filled pm-tag--md pm-tag--primary pm-tag--removable">
+  React
+  <button type="button" class="pm-tag__remove" aria-label="Remove"></button>
+</span>`}
+  reactCode={`import { Tag } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Tag removable onRemove={() => console.log("removed")}>React</Tag>
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Removable tags include an accessible remove button with `aria-label="Remove"`.
+- Disabled tags use `aria-disabled` and `disabled` on interactive elements.
+
+## Best Practices
+
+- Use tags for filtering, categorization, or multi-select inputs.
+- Provide visual feedback when tags are interactive.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"filled" \| "outline" \| "subtle"` | `"filled"` | Visual style |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Controls padding and font size |
+| `color` | `"primary" \| "neutral" \| "danger" \| "success"` | `"primary"` | Color palette |
+| `removable` | `boolean` | `false` | Shows remove button |
+| `interactive` | `boolean` | `false` | Enables hover/focus states |
+| `disabled` | `boolean` | `false` | Disables interaction |
+| `onRemove` | `() => void` | - | Called when remove button is clicked (React only) |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-tag` | Base tag class |
+| `pm-tag--{variant}` | Variant modifier |
+| `pm-tag--{color}` | Color modifier |
+| `pm-tag--removable` | Removable state |
+| `pm-tag__remove` | Remove button element |
+
+</TabItem>
+</Tabs>

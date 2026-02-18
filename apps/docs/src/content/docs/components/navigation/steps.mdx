@@ -1,0 +1,90 @@
+---
+title: Steps
+description: A stepper component showing progress through a multi-step process.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Steps display progress through a sequence of numbered stages with visual indicators and connectors.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-steps pm-steps--md pm-steps--horizontal" role="list" aria-label="Progress">
+  <div class="pm-steps__step pm-steps__step--complete">
+    <div class="pm-steps__indicator pm-steps__indicator--complete" aria-hidden="true">1</div>
+    <div class="pm-steps__content">Account</div>
+  </div>
+  <div class="pm-steps__connector pm-steps__connector--complete" role="presentation"></div>
+  <div class="pm-steps__step pm-steps__step--active" aria-current="step">
+    <div class="pm-steps__indicator pm-steps__indicator--active" aria-hidden="true">2</div>
+    <div class="pm-steps__content">Details</div>
+  </div>
+</div>`}
+  reactCode={`import { Steps, Step, StepIndicator, StepConnector, StepContent } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <Steps>
+      <Step status="complete">
+        <StepIndicator status="complete">1</StepIndicator>
+        <StepContent>Account</StepContent>
+      </Step>
+      <StepConnector status="complete" />
+      <Step status="active">
+        <StepIndicator status="active">2</StepIndicator>
+        <StepContent>Details</StepContent>
+      </Step>
+    </Steps>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Uses `role="list"` with `aria-label="Progress"`.
+- Active step uses `aria-current="step"`.
+- Step indicators are `aria-hidden="true"` (decorative).
+
+## Best Practices
+
+- Show 3-7 steps for optimal usability.
+- Use vertical orientation for longer step sequences.
+
+</TabItem>
+  <TabItem label="API">
+
+## Steps Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout direction |
+
+## Step Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `status` | `"incomplete" \| "active" \| "complete"` | `"incomplete"` | Step status |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-steps` | Root element |
+| `pm-steps__step` | Step container |
+| `pm-steps__step--active` | Active step |
+| `pm-steps__step--complete` | Completed step |
+| `pm-steps__indicator` | Number indicator |
+| `pm-steps__connector` | Line between steps |
+| `pm-steps__content` | Label/description area |
+
+</TabItem>
+</Tabs>

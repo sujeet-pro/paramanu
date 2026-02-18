@@ -1,0 +1,54 @@
+---
+title: Highlight
+description: Highlight text with a colored background, outline, or text-only style for emphasis.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Highlight applies visual emphasis to text with filled, outline, or text-only color styles.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<p>This has a <mark class="pm-highlight pm-highlight--primary">highlighted word</mark> in it.</p>`}
+  reactCode={`import { Highlight } from "@paramanu/typography-react"
+
+export default function App() {
+  return <p>This has a <Highlight>highlighted word</Highlight> in it.</p>
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+Renders as a `<mark>` element, which screen readers may announce as highlighted content. Use meaningful colors that convey purpose.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `color` | `"primary" \| "danger" \| "success" \| "warning" \| "info" \| "neutral"` | `"primary"` | Color |
+| `variant` | `"filled" \| "outline" \| "text"` | `"filled"` | Visual variant |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-highlight` | Base |
+| `pm-highlight--{color}` | Color |
+| `pm-highlight--outline` | Outline variant |
+| `pm-highlight--text` | Text-only variant |
+
+</TabItem>
+</Tabs>

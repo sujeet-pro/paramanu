@@ -1,0 +1,99 @@
+import type { Meta, StoryObj } from "@storybook/html"
+import { progressBarClasses } from "./progress-bar.classes.js"
+import type { ProgressBarClassesOptions, ProgressBarVariant, ProgressBarSize } from "./progress-bar.types.js"
+
+interface ProgressBarArgs extends ProgressBarClassesOptions {}
+
+function createProgressBar(args: ProgressBarArgs): HTMLDivElement {
+  const classes = progressBarClasses(args)
+  const value = args.value ?? 0
+  const min = args.min ?? 0
+  const max = args.max ?? 100
+  const percentage = max > min ? ((value - min) / (max - min)) * 100 : 0
+
+  const el = document.createElement("div")
+  el.className = classes.root
+  el.setAttribute("role", "progressbar")
+  if (!args.indeterminate) {
+    el.setAttribute("aria-valuenow", String(value))
+  }
+  el.setAttribute("aria-valuemin", String(min))
+  el.setAttribute("aria-valuemax", String(max))
+  el.setAttribute("aria-label", "Progress")
+
+  if (args.showLabel) {
+    const label = document.createElement("div")
+    label.className = classes.label
+    label.textContent = `${Math.round(percentage)}%`
+    el.appendChild(label)
+  }
+
+  const track = document.createElement("div")
+  track.className = classes.track
+  const fill = document.createElement("div")
+  fill.className = classes.fill
+  if (!args.indeterminate) {
+    fill.style.width = `${percentage}%`
+  }
+  track.appendChild(fill)
+  el.appendChild(track)
+
+  return el
+}
+
+const meta = {
+  title: "Feedback/Progress Bar",
+  tags: ["autodocs"],
+  render: (args) => createProgressBar(args as ProgressBarArgs),
+  argTypes: {
+    size: { control: "select", options: ["xs", "sm", "md", "lg"] },
+    variant: { control: "select", options: ["primary", "success", "warning", "danger"] },
+    value: { control: { type: "range", min: 0, max: 100, step: 1 } },
+    striped: { control: "boolean" },
+    animated: { control: "boolean" },
+    indeterminate: { control: "boolean" },
+    showLabel: { control: "boolean" },
+  },
+  args: {
+    variant: "primary",
+    size: "md",
+    value: 60,
+  },
+} satisfies Meta<ProgressBarArgs>
+
+export default meta
+type Story = StoryObj<ProgressBarArgs>
+
+export const Playground: Story = {}
+
+export const AllVariants: Story = {
+  render: () => {
+    const container = document.createElement("div")
+    container.style.display = "flex"
+    container.style.flexDirection = "column"
+    container.style.gap = "12px"
+    const variants: ProgressBarVariant[] = ["primary", "success", "warning", "danger"]
+    for (const variant of variants) {
+      container.appendChild(createProgressBar({ variant, value: 65 }))
+    }
+    return container
+  },
+}
+
+export const AllSizes: Story = {
+  render: () => {
+    const container = document.createElement("div")
+    container.style.display = "flex"
+    container.style.flexDirection = "column"
+    container.style.gap = "12px"
+    const sizes: ProgressBarSize[] = ["xs", "sm", "md", "lg"]
+    for (const size of sizes) {
+      container.appendChild(createProgressBar({ size, value: 50 }))
+    }
+    return container
+  },
+}
+
+export const WithLabel: Story = { args: { showLabel: true, value: 65 } }
+export const Striped: Story = { args: { striped: true, value: 60 } }
+export const Indeterminate: Story = { args: { indeterminate: true } }

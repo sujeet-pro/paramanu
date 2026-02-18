@@ -1,0 +1,63 @@
+---
+title: Segmented Control
+description: A group of mutually exclusive buttons for selecting between related views or values.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Segmented Control provides a set of mutually exclusive options in a button-group layout.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-segmented-control pm-segmented-control--md" role="radiogroup">\n  <button type="button" class="pm-segmented-control__item" aria-pressed="true">Day</button>\n  <button type="button" class="pm-segmented-control__item">Week</button>\n  <button type="button" class="pm-segmented-control__item">Month</button>\n</div>`}
+  reactCode={`import { SegmentedControl } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <SegmentedControl>\n      <button aria-pressed="true">Day</button>\n      <button>Week</button>\n      <button>Month</button>\n    </SegmentedControl>\n  )\n}`}
+/>
+
+## Full Width
+
+<ComponentPreview
+  htmlCode={`<div class="pm-segmented-control pm-segmented-control--md pm-segmented-control--full-width" role="radiogroup">\n  <button type="button" class="pm-segmented-control__item" aria-pressed="true">Tab 1</button>\n  <button type="button" class="pm-segmented-control__item">Tab 2</button>\n</div>`}
+  reactCode={`import { SegmentedControl } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <SegmentedControl fullWidth>\n      <button aria-pressed="true">Tab 1</button>\n      <button>Tab 2</button>\n    </SegmentedControl>\n  )\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="radiogroup"` | Container uses radiogroup role |
+| `aria-pressed` | Active segment has `aria-pressed="true"` |
+| Keyboard | Arrow keys navigate between segments |
+
+## Best Practices
+
+- Use for 2-5 mutually exclusive options.
+- Prefer segmented controls over tabs for filtering or view switching.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Control size |
+| `fullWidth` | `boolean` | `false` | Full-width layout |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-segmented-control` | Base class |
+| `pm-segmented-control__item` | Segment button |
+| `pm-segmented-control--full-width` | Full-width modifier |
+
+</TabItem>
+</Tabs>

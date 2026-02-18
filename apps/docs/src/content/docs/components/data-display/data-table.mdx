@@ -1,0 +1,78 @@
+---
+title: Data Table
+description: A feature-rich table with toolbar, sorting, pagination, and row selection.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Data Table extends the basic Table with toolbar, sorting headers, pagination, and row selection capabilities.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-data-table pm-data-table--simple pm-data-table--md">
+  <div class="pm-data-table__toolbar">Search</div>
+  <table class="pm-data-table__table">
+    <thead>
+      <tr class="pm-data-table__row">
+        <th class="pm-data-table__header-cell">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="pm-data-table__row">
+        <td class="pm-data-table__cell">Alice</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pm-data-table__pagination">Page 1</div>
+</div>`}
+  reactCode={`import { DataTable, DataTableToolbar, DataTableHeaderCell, DataTableRow, DataTableCell, DataTablePagination } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <DataTable>
+      <DataTableToolbar>Search</DataTableToolbar>
+      <table>
+        <thead>
+          <DataTableRow>
+            <DataTableHeaderCell sortable sortDirection="asc">Name</DataTableHeaderCell>
+          </DataTableRow>
+        </thead>
+        <tbody>
+          <DataTableRow><DataTableCell>Alice</DataTableCell></DataTableRow>
+        </tbody>
+      </table>
+      <DataTablePagination>Page 1</DataTablePagination>
+    </DataTable>
+  )
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Sortable headers use `aria-sort` attribute.
+- Pagination controls should be keyboard accessible.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"simple" \| "striped"` | `"simple"` | Visual style |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Cell padding and font size |
+| `hoverable` | `boolean` | `false` | Row hover highlight |
+| `bordered` | `boolean` | `false` | Cell borders |
+| `stickyHeader` | `boolean` | `false` | Sticky header |
+| `selectable` | `boolean` | `false` | Row selection |
+
+</TabItem>
+</Tabs>

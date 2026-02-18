@@ -1,0 +1,92 @@
+---
+title: Tile
+description: An interactive, clickable card-like surface used for selection or navigation.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Tiles are interactive, clickable surfaces rendered as buttons. Use them for selection grids, dashboard widgets, or navigation cards.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button type="button" class="pm-tile pm-tile--outline pm-tile--md">Select this option</button>`}
+  reactCode={`import { Tile } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Tile variant="outline">Select this option</Tile>
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<button type="button" class="pm-tile pm-tile--outline pm-tile--md">Outline</button>
+<button type="button" class="pm-tile pm-tile--filled pm-tile--md">Filled</button>
+<button type="button" class="pm-tile pm-tile--ghost pm-tile--md">Ghost</button>`}
+  reactCode={`import { Tile } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <>
+      <Tile variant="outline">Outline</Tile>
+      <Tile variant="filled">Filled</Tile>
+      <Tile variant="ghost">Ghost</Tile>
+    </>
+  )
+}`}
+/>
+
+## Selected State
+
+<ComponentPreview
+  htmlCode={`<button type="button" class="pm-tile pm-tile--outline pm-tile--md pm-tile--selected" aria-selected="true">Selected</button>`}
+  reactCode={`import { Tile } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Tile selected>Selected</Tile>
+}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+- Tiles render as `<button>` elements for keyboard accessibility.
+- Use `aria-selected` to indicate the selected state.
+- Disabled tiles use both `disabled` and `aria-disabled`.
+
+## Best Practices
+
+- Use tiles for selection patterns where users pick one or more options.
+- Group tiles visually in a grid layout for clear scanning.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"outline" \| "filled" \| "ghost"` | `"outline"` | Visual style variant |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Controls padding and font size |
+| `selected` | `boolean` | `false` | Selected/active state |
+| `disabled` | `boolean` | `false` | Disables interaction |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-tile` | Base tile class |
+| `pm-tile--{variant}` | Variant modifier |
+| `pm-tile--{size}` | Size modifier |
+| `pm-tile--selected` | Selected state |
+| `pm-tile--disabled` | Disabled state |
+
+</TabItem>
+</Tabs>

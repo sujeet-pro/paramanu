@@ -1,0 +1,82 @@
+---
+title: App Shell
+description: A full-page application layout with header, sidebar, main content, and footer regions.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+App Shell provides a structured page layout with header, sidebar, main, and footer areas. Supports collapsible sidebars.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-app-shell pm-app-shell--sidebar-start" style="height: 400px; border: 1px solid #e2e8f0;">
+  <header class="pm-app-shell__header pm-app-shell__header--sticky" style="padding: 12px; background: #f8fafc;">Header</header>
+  <aside class="pm-app-shell__sidebar pm-app-shell__sidebar--md" style="padding: 12px; background: #f1f5f9;">Sidebar</aside>
+  <main class="pm-app-shell__main" style="padding: 12px;">Main Content</main>
+  <footer class="pm-app-shell__footer" style="padding: 12px; background: #f8fafc;">Footer</footer>
+</div>`}
+  reactCode={`import { AppShell, AppShellHeader, AppShellSidebar, AppShellMain, AppShellFooter } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <AppShell style={{ height: 400 }}>
+      <AppShellHeader sticky>Header</AppShellHeader>
+      <AppShellSidebar width="md">Sidebar</AppShellSidebar>
+      <AppShellMain>Main Content</AppShellMain>
+      <AppShellFooter>Footer</AppShellFooter>
+    </AppShell>
+  )
+}`}
+/>
+
+</TabItem>
+
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+Use semantic landmarks: `<header>`, `<aside>`, `<main>`, and `<footer>`. The sidebar toggle should be keyboard accessible.
+
+</TabItem>
+
+  <TabItem label="API">
+
+## React Props (AppShell)
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `sidebarCollapsed` | `boolean` | -- | Controlled collapsed state |
+| `sidebarPosition` | `"start" \| "end"` | `"start"` | Sidebar position |
+| `defaultSidebarCollapsed` | `boolean` | `false` | Initial collapsed state |
+
+## React Props (AppShellHeader)
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `sticky` | `boolean` | `false` | Sticky positioning |
+
+## React Props (AppShellSidebar)
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `width` | `"sm" \| "md" \| "lg"` | `"md"` | Sidebar width |
+| `collapsed` | `boolean` | -- | Override collapsed state |
+
+## CSS Classes
+
+| Class | Purpose |
+|---|---|
+| `pm-app-shell` | Container |
+| `pm-app-shell__header` | Header |
+| `pm-app-shell__sidebar` | Sidebar |
+| `pm-app-shell__main` | Main content |
+| `pm-app-shell__footer` | Footer |
+| `pm-app-shell--sidebar-collapsed` | Collapsed sidebar |
+
+</TabItem>
+</Tabs>

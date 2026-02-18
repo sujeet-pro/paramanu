@@ -1,0 +1,79 @@
+---
+title: Breadcrumbs
+description: A wayfinding component showing the user's location within a hierarchical structure.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+Breadcrumbs help users understand their location within a site hierarchy and navigate back to parent pages.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<nav class="pm-breadcrumbs pm-breadcrumbs--slash" aria-label="Breadcrumb">
+  <ol>
+    <li class="pm-breadcrumbs__item"><a class="pm-breadcrumbs__link" href="#">Home</a></li>
+    <li class="pm-breadcrumbs__item pm-breadcrumbs__item--active"><span aria-current="page">Page</span></li>
+  </ol>
+</nav>`}
+  reactCode={`import { Breadcrumbs, BreadcrumbsItem, BreadcrumbsLink } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <Breadcrumbs>
+      <BreadcrumbsItem>
+        <BreadcrumbsLink href="#">Home</BreadcrumbsLink>
+      </BreadcrumbsItem>
+      <BreadcrumbsItem active>Page</BreadcrumbsItem>
+    </Breadcrumbs>
+  )
+}`}
+/>
+
+## Separator Styles
+
+Use `separator` to choose between `"slash"`, `"chevron"`, `"dot"`, or `"arrow"`.
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Key | Action |
+|-----|--------|
+| `Tab` | Move between breadcrumb links |
+
+- Wrapped in `<nav aria-label="Breadcrumb">`.
+- Active/current item uses `aria-current="page"`.
+
+</TabItem>
+  <TabItem label="API">
+
+## Breadcrumbs Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `separator` | `"slash" \| "chevron" \| "dot" \| "arrow"` | `"slash"` | Separator style |
+
+## BreadcrumbsItem Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `active` | `boolean` | `false` | Current page |
+
+## CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| `pm-breadcrumbs` | Root element |
+| `pm-breadcrumbs--chevron` | Chevron separator |
+| `pm-breadcrumbs__item` | Item element |
+| `pm-breadcrumbs__item--active` | Active/current item |
+| `pm-breadcrumbs__link` | Link element |
+
+</TabItem>
+</Tabs>

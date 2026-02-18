@@ -1,0 +1,69 @@
+---
+title: Switch
+description: A toggle switch for binary on/off settings with label placement options.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+The Switch component provides a toggle control for binary on/off settings, using `role="switch"` for proper semantics.
+
+<Tabs syncKey="component-tab">
+  <TabItem label="Usage">
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<label class="pm-switch pm-switch--md pm-switch--label-end">\n  <input type="checkbox" role="switch" class="pm-switch__input" />\n  <span class="pm-switch__track"><span class="pm-switch__thumb"></span></span>\n  <span class="pm-switch__label">Dark mode</span>\n</label>`}
+  reactCode={`import { Switch } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Switch>Dark mode</Switch>\n}`}
+/>
+
+## Label Placement
+
+<ComponentPreview
+  htmlCode={`<label class="pm-switch pm-switch--md pm-switch--label-start">\n  <input type="checkbox" role="switch" class="pm-switch__input" />\n  <span class="pm-switch__track"><span class="pm-switch__thumb"></span></span>\n  <span class="pm-switch__label">Label start</span>\n</label>`}
+  reactCode={`import { Switch } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Switch labelPlacement="start">Label start</Switch>\n}`}
+/>
+
+</TabItem>
+  <TabItem label="Guidelines">
+
+## Accessibility
+
+| Feature | Detail |
+|---|---|
+| `role="switch"` | Input uses switch role |
+| `aria-checked` | Reflects checked state |
+| Keyboard | Space toggles the switch |
+
+## Best Practices
+
+- Use switches for immediate binary settings (e.g., enable/disable).
+- Prefer checkboxes for form submission choices.
+
+</TabItem>
+  <TabItem label="API">
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Switch size |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `checked` | `boolean` | `false` | Checked state |
+| `labelPlacement` | `"start" \| "end"` | `"end"` | Label position |
+
+## CSS Classes
+
+| Class | Description |
+|---|---|
+| `pm-switch` | Base class |
+| `pm-switch__input` | Hidden input |
+| `pm-switch__track` | Track element |
+| `pm-switch__thumb` | Thumb element |
+| `pm-switch__label` | Label text |
+| `pm-switch--checked` | Checked state |
+| `pm-switch--label-start` | Label before switch |
+
+</TabItem>
+</Tabs>
