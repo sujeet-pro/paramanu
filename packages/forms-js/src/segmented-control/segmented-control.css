@@ -1,0 +1,85 @@
+@layer pm.components {
+  .pm-segmented-control {
+    display: inline-flex;
+    align-items: center;
+    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    border-radius: var(--pm-radius-md);
+    padding: 2px;
+    position: relative;
+
+    &.pm-segmented-control--full-width {
+      width: 100%;
+    }
+
+    &.pm-segmented-control--sm {
+      height: calc(var(--pm-spacing-8));
+    }
+
+    &.pm-segmented-control--md {
+      height: calc(var(--pm-spacing-10));
+    }
+
+    &.pm-segmented-control--lg {
+      height: calc(var(--pm-spacing-12));
+    }
+  }
+
+  .pm-segmented-control__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 0 var(--pm-spacing-3);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: var(--pm-font-family-sans);
+    font-weight: var(--pm-font-weight-medium);
+    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    border-radius: calc(var(--pm-radius-md) - 2px);
+    transition-property: background-color, color, box-shadow;
+    transition-duration: var(--pm-transition-fast);
+    height: 100%;
+    z-index: 1;
+    position: relative;
+
+    &:focus-visible {
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: var(--pm-focus-ring-offset);
+    }
+
+    &:hover:not(.pm-segmented-control__item--active) {
+      color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    }
+  }
+
+  .pm-segmented-control--sm .pm-segmented-control__item {
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-segmented-control--md .pm-segmented-control__item {
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-segmented-control--lg .pm-segmented-control__item {
+    font-size: var(--pm-font-size-lg);
+  }
+
+  .pm-segmented-control__item--active {
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-700));
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    box-shadow: var(--pm-shadow-sm);
+  }
+
+  .pm-segmented-control__indicator {
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    border-radius: calc(var(--pm-radius-md) - 2px);
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-700));
+    box-shadow: var(--pm-shadow-sm);
+    transition-property: left, width;
+    transition-duration: var(--pm-transition-normal);
+    transition-timing-function: ease-in-out;
+  }
+}

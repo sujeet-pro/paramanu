@@ -1,0 +1,5 @@
+@layer pm.components {
+  .pm-box {
+    display: block;
+  }
+}

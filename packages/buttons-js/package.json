@@ -1,0 +1,59 @@
+{
+  "name": "@paramanu/buttons-js",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/js/index.d.ts",
+      "import": "./dist/js/index.js"
+    },
+    "./css": "./dist/css/buttons.css",
+    "./css/layers": "./dist/css/buttons.layers.css",
+    "./modules/button/map": {
+      "types": "./dist/css/button.module.d.ts",
+      "import": "./dist/css/button.module.js"
+    },
+    "./modules/button-group/map": {
+      "types": "./dist/css/button-group.module.d.ts",
+      "import": "./dist/css/button-group.module.js"
+    },
+    "./modules/close-button/map": {
+      "types": "./dist/css/close-button.module.d.ts",
+      "import": "./dist/css/close-button.module.js"
+    },
+    "./modules/icon-button/map": {
+      "types": "./dist/css/icon-button.module.d.ts",
+      "import": "./dist/css/icon-button.module.js"
+    },
+    "./modules/toggle-button/map": {
+      "types": "./dist/css/toggle-button.module.d.ts",
+      "import": "./dist/css/toggle-button.module.js"
+    },
+    "./modules/toggle-group/map": {
+      "types": "./dist/css/toggle-group.module.d.ts",
+      "import": "./dist/css/toggle-group.module.js"
+    },
+    "./modules/fab/map": {
+      "types": "./dist/css/fab.module.d.ts",
+      "import": "./dist/css/fab.module.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsx css.build.ts && tsup",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@paramanu/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@paramanu/tsconfig": "workspace:*",
+    "lightningcss": "^1.28.0",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0",
+    "vitest": "^2.1.0",
+    "jsdom": "^25.0.0"
+  }
+}

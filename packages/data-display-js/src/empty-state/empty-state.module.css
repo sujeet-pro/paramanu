@@ -1,0 +1,96 @@
+@layer pm.components {
+  .pm-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--pm-font-family-sans);
+  }
+
+  /* Sizes */
+  .pm-empty-state--sm {
+    padding: var(--pm-spacing-4);
+    gap: var(--pm-spacing-2);
+  }
+
+  .pm-empty-state--md {
+    padding: var(--pm-spacing-6);
+    gap: var(--pm-spacing-3);
+  }
+
+  .pm-empty-state--lg {
+    padding: var(--pm-spacing-8);
+    gap: var(--pm-spacing-4);
+  }
+
+  /* Bordered */
+  .pm-empty-state--bordered {
+    border: 1px dashed light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border-radius: var(--pm-radius-lg);
+  }
+
+  /* Icon */
+  .pm-empty-state__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+  }
+
+  .pm-empty-state--sm .pm-empty-state__icon {
+    font-size: var(--pm-font-size-xl);
+  }
+
+  .pm-empty-state--md .pm-empty-state__icon {
+    font-size: 2rem;
+  }
+
+  .pm-empty-state--lg .pm-empty-state__icon {
+    font-size: 2.5rem;
+  }
+
+  /* Heading */
+  .pm-empty-state__heading {
+    font-weight: var(--pm-font-weight-semibold);
+    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+  }
+
+  .pm-empty-state--sm .pm-empty-state__heading {
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-empty-state--md .pm-empty-state__heading {
+    font-size: var(--pm-font-size-lg);
+  }
+
+  .pm-empty-state--lg .pm-empty-state__heading {
+    font-size: var(--pm-font-size-xl);
+  }
+
+  /* Description */
+  .pm-empty-state__description {
+    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    max-width: 36ch;
+  }
+
+  .pm-empty-state--sm .pm-empty-state__description {
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-empty-state--md .pm-empty-state__description {
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-empty-state--lg .pm-empty-state__description {
+    font-size: var(--pm-font-size-lg);
+  }
+
+  /* Actions */
+  .pm-empty-state__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--pm-spacing-2);
+    margin-top: var(--pm-spacing-1);
+  }
+}

@@ -1,0 +1,52 @@
+@layer pm.components {
+  .pm-presence {
+    &[data-pm-presence="entering"] {
+      opacity: 0;
+      animation: pm-presence-enter var(--pm-transition-normal) ease-out forwards;
+    }
+
+    &[data-pm-presence="entered"] {
+      opacity: 1;
+    }
+
+    &[data-pm-presence="exiting"] {
+      opacity: 1;
+      animation: pm-presence-exit var(--pm-transition-normal) ease-in forwards;
+    }
+  }
+
+  @keyframes pm-presence-enter {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes pm-presence-exit {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pm-presence {
+      &[data-pm-presence="entering"],
+      &[data-pm-presence="exiting"] {
+        animation: none;
+      }
+
+      &[data-pm-presence="entering"] {
+        opacity: 1;
+      }
+
+      &[data-pm-presence="exiting"] {
+        opacity: 0;
+      }
+    }
+  }
+}

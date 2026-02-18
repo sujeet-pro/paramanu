@@ -1,0 +1,27 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/tokens" },
+    { "path": "packages/primitives-js" },
+    { "path": "packages/primitives-react" },
+    { "path": "packages/typography-js" },
+    { "path": "packages/typography-react" },
+    { "path": "packages/buttons-js" },
+    { "path": "packages/buttons-react" },
+    { "path": "packages/forms-js" },
+    { "path": "packages/forms-react" },
+    { "path": "packages/navigation-js" },
+    { "path": "packages/navigation-react" },
+    { "path": "packages/data-display-js" },
+    { "path": "packages/data-display-react" },
+    { "path": "packages/feedback-js" },
+    { "path": "packages/feedback-react" },
+    { "path": "packages/overlays-js" },
+    { "path": "packages/overlays-react" },
+    { "path": "packages/disclosure-js" },
+    { "path": "packages/disclosure-react" },
+    { "path": "packages/utilities-js" },
+    { "path": "packages/utilities-react" },
+    { "path": "packages/cdn" }
+  ]
+}

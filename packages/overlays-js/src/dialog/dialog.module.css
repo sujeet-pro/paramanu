@@ -1,0 +1,101 @@
+@layer pm.components {
+  .pm-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: var(--pm-overlay-z, 1000);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: var(--pm-spacing-8) var(--pm-spacing-4);
+    overflow-y: auto;
+  }
+
+  .pm-dialog--centered {
+    align-items: center;
+  }
+
+  .pm-dialog--sm > .pm-dialog__panel {
+    max-width: 24rem;
+  }
+
+  .pm-dialog--md > .pm-dialog__panel {
+    max-width: 32rem;
+  }
+
+  .pm-dialog--lg > .pm-dialog__panel {
+    max-width: 48rem;
+  }
+
+  .pm-dialog--xl > .pm-dialog__panel {
+    max-width: 64rem;
+  }
+
+  .pm-dialog--full > .pm-dialog__panel {
+    max-width: 100%;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .pm-dialog__panel {
+    position: relative;
+    width: 100%;
+    max-width: 32rem;
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    border-radius: var(--pm-radius-lg);
+    box-shadow: var(--pm-shadow-xl);
+    transform: scale(0.95);
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: var(--pm-transition-normal, 200ms);
+    transition-timing-function: ease-out;
+  }
+
+  [data-pm-presence="entering"] .pm-dialog__panel,
+  [data-pm-presence="entered"] .pm-dialog__panel {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  [data-pm-presence="exiting"] .pm-dialog__panel {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pm-dialog__panel {
+      transition-duration: 0ms;
+    }
+  }
+
+  .pm-dialog__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--pm-spacing-4) var(--pm-spacing-6);
+    border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    font-family: var(--pm-font-family-sans);
+    font-weight: var(--pm-font-weight-semibold);
+    font-size: var(--pm-font-size-lg);
+  }
+
+  .pm-dialog__body {
+    padding: var(--pm-spacing-6);
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-md);
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+  }
+
+  .pm-dialog__body--scroll-inside {
+    overflow-y: auto;
+    max-height: 60vh;
+  }
+
+  .pm-dialog__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--pm-spacing-3);
+    padding: var(--pm-spacing-4) var(--pm-spacing-6);
+    border-top: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+  }
+}

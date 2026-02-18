@@ -1,0 +1,90 @@
+{
+  "name": "@paramanu/navigation-js",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/js/index.d.ts",
+      "import": "./dist/js/index.js"
+    },
+    "./css": "./dist/css/navigation.css",
+    "./css/layers": "./dist/css/navigation.layers.css",
+    "./modules/link/map": {
+      "types": "./dist/css/link.module.d.ts",
+      "import": "./dist/css/link.module.js"
+    },
+    "./modules/skip-nav-link/map": {
+      "types": "./dist/css/skip-nav-link.module.d.ts",
+      "import": "./dist/css/skip-nav-link.module.js"
+    },
+    "./modules/back-to-top/map": {
+      "types": "./dist/css/back-to-top.module.d.ts",
+      "import": "./dist/css/back-to-top.module.js"
+    },
+    "./modules/breadcrumbs/map": {
+      "types": "./dist/css/breadcrumbs.module.d.ts",
+      "import": "./dist/css/breadcrumbs.module.js"
+    },
+    "./modules/tabs/map": {
+      "types": "./dist/css/tabs.module.d.ts",
+      "import": "./dist/css/tabs.module.js"
+    },
+    "./modules/pagination/map": {
+      "types": "./dist/css/pagination.module.d.ts",
+      "import": "./dist/css/pagination.module.js"
+    },
+    "./modules/steps/map": {
+      "types": "./dist/css/steps.module.d.ts",
+      "import": "./dist/css/steps.module.js"
+    },
+    "./modules/menu/map": {
+      "types": "./dist/css/menu.module.d.ts",
+      "import": "./dist/css/menu.module.js"
+    },
+    "./modules/menubar/map": {
+      "types": "./dist/css/menubar.module.d.ts",
+      "import": "./dist/css/menubar.module.js"
+    },
+    "./modules/dropdown-menu/map": {
+      "types": "./dist/css/dropdown-menu.module.d.ts",
+      "import": "./dist/css/dropdown-menu.module.js"
+    },
+    "./modules/context-menu/map": {
+      "types": "./dist/css/context-menu.module.d.ts",
+      "import": "./dist/css/context-menu.module.js"
+    },
+    "./modules/navbar/map": {
+      "types": "./dist/css/navbar.module.d.ts",
+      "import": "./dist/css/navbar.module.js"
+    },
+    "./modules/sidebar/map": {
+      "types": "./dist/css/sidebar.module.d.ts",
+      "import": "./dist/css/sidebar.module.js"
+    },
+    "./modules/tree-view/map": {
+      "types": "./dist/css/tree-view.module.d.ts",
+      "import": "./dist/css/tree-view.module.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsx css.build.ts && tsup",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@paramanu/tokens": "workspace:*",
+    "@paramanu/primitives-js": "workspace:*",
+    "@paramanu/typography-js": "workspace:*",
+    "@paramanu/buttons-js": "workspace:*"
+  },
+  "devDependencies": {
+    "@paramanu/tsconfig": "workspace:*",
+    "lightningcss": "^1.28.0",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0",
+    "vitest": "^2.1.0",
+    "jsdom": "^25.0.0"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "name": "@paramanu/data-display-js",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/js/index.d.ts",
+      "import": "./dist/js/index.js"
+    },
+    "./css": "./dist/css/data-display.css",
+    "./css/layers": "./dist/css/data-display.layers.css",
+    "./modules/badge/map": {
+      "types": "./dist/css/badge.module.d.ts",
+      "import": "./dist/css/badge.module.js"
+    },
+    "./modules/avatar/map": {
+      "types": "./dist/css/avatar.module.d.ts",
+      "import": "./dist/css/avatar.module.js"
+    },
+    "./modules/avatar-group/map": {
+      "types": "./dist/css/avatar-group.module.d.ts",
+      "import": "./dist/css/avatar-group.module.js"
+    },
+    "./modules/icon/map": {
+      "types": "./dist/css/icon.module.d.ts",
+      "import": "./dist/css/icon.module.js"
+    },
+    "./modules/image/map": {
+      "types": "./dist/css/image.module.d.ts",
+      "import": "./dist/css/image.module.js"
+    },
+    "./modules/card/map": {
+      "types": "./dist/css/card.module.d.ts",
+      "import": "./dist/css/card.module.js"
+    },
+    "./modules/tile/map": {
+      "types": "./dist/css/tile.module.d.ts",
+      "import": "./dist/css/tile.module.js"
+    },
+    "./modules/table/map": {
+      "types": "./dist/css/table.module.d.ts",
+      "import": "./dist/css/table.module.js"
+    },
+    "./modules/data-table/map": {
+      "types": "./dist/css/data-table.module.d.ts",
+      "import": "./dist/css/data-table.module.js"
+    },
+    "./modules/data-grid/map": {
+      "types": "./dist/css/data-grid.module.d.ts",
+      "import": "./dist/css/data-grid.module.js"
+    },
+    "./modules/data-list/map": {
+      "types": "./dist/css/data-list.module.d.ts",
+      "import": "./dist/css/data-list.module.js"
+    },
+    "./modules/structured-list/map": {
+      "types": "./dist/css/structured-list.module.d.ts",
+      "import": "./dist/css/structured-list.module.js"
+    },
+    "./modules/timeline/map": {
+      "types": "./dist/css/timeline.module.d.ts",
+      "import": "./dist/css/timeline.module.js"
+    },
+    "./modules/tag/map": {
+      "types": "./dist/css/tag.module.d.ts",
+      "import": "./dist/css/tag.module.js"
+    },
+    "./modules/stat/map": {
+      "types": "./dist/css/stat.module.d.ts",
+      "import": "./dist/css/stat.module.js"
+    },
+    "./modules/empty-state/map": {
+      "types": "./dist/css/empty-state.module.d.ts",
+      "import": "./dist/css/empty-state.module.js"
+    },
+    "./modules/clipboard/map": {
+      "types": "./dist/css/clipboard.module.d.ts",
+      "import": "./dist/css/clipboard.module.js"
+    },
+    "./modules/qr-code/map": {
+      "types": "./dist/css/qr-code.module.d.ts",
+      "import": "./dist/css/qr-code.module.js"
+    },
+    "./modules/embed/map": {
+      "types": "./dist/css/embed.module.d.ts",
+      "import": "./dist/css/embed.module.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsx css.build.ts && tsup",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@paramanu/tokens": "workspace:*",
+    "@paramanu/primitives-js": "workspace:*",
+    "@paramanu/typography-js": "workspace:*"
+  },
+  "devDependencies": {
+    "@paramanu/tsconfig": "workspace:*",
+    "lightningcss": "^1.28.0",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0",
+    "vitest": "^2.1.0",
+    "jsdom": "^25.0.0"
+  }
+}

@@ -1,0 +1,85 @@
+@layer pm.components {
+  .pm-alert-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: var(--pm-overlay-z, 1000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--pm-spacing-8) var(--pm-spacing-4);
+  }
+
+  .pm-alert-dialog__panel {
+    position: relative;
+    width: 100%;
+    max-width: 28rem;
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    border-radius: var(--pm-radius-lg);
+    box-shadow: var(--pm-shadow-xl);
+    transform: scale(0.95);
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: var(--pm-transition-normal, 200ms);
+    transition-timing-function: ease-out;
+
+    [data-pm-presence="entering"] &,
+    [data-pm-presence="entered"] & {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    [data-pm-presence="exiting"] & {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition-duration: 0ms;
+    }
+  }
+
+  .pm-alert-dialog--info {
+    & .pm-alert-dialog__panel {
+      border-left: 4px solid light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+    }
+  }
+
+  .pm-alert-dialog--danger {
+    & .pm-alert-dialog__panel {
+      border-left: 4px solid light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+    }
+  }
+
+  .pm-alert-dialog--warning {
+    & .pm-alert-dialog__panel {
+      border-left: 4px solid light-dark(var(--pm-color-warning-500), var(--pm-color-warning-400));
+    }
+  }
+
+  .pm-alert-dialog__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--pm-spacing-4) var(--pm-spacing-6);
+    border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    font-family: var(--pm-font-family-sans);
+    font-weight: var(--pm-font-weight-semibold);
+    font-size: var(--pm-font-size-lg);
+  }
+
+  .pm-alert-dialog__body {
+    padding: var(--pm-spacing-6);
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-md);
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+  }
+
+  .pm-alert-dialog__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--pm-spacing-3);
+    padding: var(--pm-spacing-4) var(--pm-spacing-6);
+    border-top: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+  }
+}

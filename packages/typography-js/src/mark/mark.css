@@ -1,0 +1,32 @@
+@layer pm.components {
+  .pm-mark {
+    /* Variants */
+    &.pm-mark--default {
+      background-color: light-dark(
+        oklch(from yellow l c h / 0.35),
+        oklch(from yellow l c h / 0.25)
+      );
+      padding: 0.0625em 0.125em;
+      border-radius: var(--pm-radius-sm);
+    }
+
+    &.pm-mark--underline {
+      background-color: transparent;
+      border-bottom: 3px solid light-dark(
+        var(--pm-color-primary-500),
+        var(--pm-color-primary-400)
+      );
+      padding-bottom: 0.0625em;
+    }
+
+    &.pm-mark--circle {
+      background-color: transparent;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px light-dark(
+        var(--pm-color-primary-300),
+        var(--pm-color-primary-600)
+      );
+      padding: 0.0625em 0.25em;
+    }
+  }
+}

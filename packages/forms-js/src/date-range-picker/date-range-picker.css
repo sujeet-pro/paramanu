@@ -1,0 +1,99 @@
+@layer pm.components {
+  .pm-date-range-picker {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    width: auto;
+    font-family: var(--pm-font-family-sans);
+  }
+
+  .pm-date-range-picker__trigger {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    border-radius: var(--pm-radius-md);
+    transition-property: border-color, box-shadow;
+    transition-duration: var(--pm-transition-fast);
+    font-family: inherit;
+    gap: var(--pm-spacing-2);
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: var(--pm-focus-ring-offset);
+    }
+  }
+
+  .pm-date-range-picker--outline .pm-date-range-picker__trigger {
+    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    background-color: transparent;
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+  }
+
+  .pm-date-range-picker--filled .pm-date-range-picker__trigger {
+    border: 1px solid transparent;
+    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+  }
+
+  .pm-date-range-picker--unstyled .pm-date-range-picker__trigger {
+    border: none;
+    background-color: transparent;
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+  }
+
+  .pm-date-range-picker--sm .pm-date-range-picker__trigger {
+    padding: var(--pm-spacing-1) var(--pm-spacing-2);
+    font-size: var(--pm-font-size-sm);
+    height: calc(var(--pm-spacing-8));
+  }
+
+  .pm-date-range-picker--md .pm-date-range-picker__trigger {
+    padding: var(--pm-spacing-2) var(--pm-spacing-3);
+    font-size: var(--pm-font-size-md);
+    height: calc(var(--pm-spacing-10));
+  }
+
+  .pm-date-range-picker--lg .pm-date-range-picker__trigger {
+    padding: var(--pm-spacing-3) var(--pm-spacing-4);
+    font-size: var(--pm-font-size-lg);
+    height: calc(var(--pm-spacing-12));
+  }
+
+  .pm-date-range-picker--invalid .pm-date-range-picker__trigger {
+    border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+  }
+
+  .pm-date-range-picker--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .pm-date-range-picker--disabled .pm-date-range-picker__trigger {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .pm-date-range-picker__popover {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    margin-top: var(--pm-spacing-1);
+    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-radius: var(--pm-radius-md);
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    box-shadow: var(--pm-shadow-lg);
+    padding: var(--pm-spacing-2);
+  }
+
+  .pm-date-range-picker--open .pm-date-range-picker__popover {
+    display: block;
+  }
+
+  .pm-date-range-picker__panels {
+    display: flex;
+    gap: var(--pm-spacing-4);
+  }
+}

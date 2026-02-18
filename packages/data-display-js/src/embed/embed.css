@@ -1,0 +1,38 @@
+@layer pm.components {
+  .pm-embed {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--pm-radius-md);
+    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+
+    /* Ratios */
+    &.pm-embed--ratio-1-1 {
+      aspect-ratio: 1 / 1;
+    }
+
+    &.pm-embed--ratio-4-3 {
+      aspect-ratio: 4 / 3;
+    }
+
+    &.pm-embed--ratio-16-9 {
+      aspect-ratio: 16 / 9;
+    }
+
+    &.pm-embed--ratio-21-9 {
+      aspect-ratio: 21 / 9;
+    }
+
+    /* Full width */
+    &.pm-embed--full-width {
+      width: 100%;
+    }
+  }
+
+  .pm-embed__iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}

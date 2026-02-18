@@ -1,0 +1,34 @@
+@layer pm.components {
+  .pm-loading-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: none;
+    box-sizing: border-box;
+
+    &.pm-loading-overlay--visible {
+      display: block;
+    }
+
+    &.pm-loading-overlay--blur .pm-loading-overlay__backdrop {
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  .pm-loading-overlay__backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: light-dark(
+      rgba(255, 255, 255, 0.7),
+      rgba(0, 0, 0, 0.5)
+    );
+  }
+
+  .pm-loading-overlay__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

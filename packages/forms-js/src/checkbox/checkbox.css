@@ -1,0 +1,88 @@
+@layer pm.components {
+  .pm-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pm-spacing-2);
+    cursor: pointer;
+    position: relative;
+
+    &.pm-checkbox--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .pm-checkbox__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+
+  .pm-checkbox__indicator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 2px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border-radius: var(--pm-radius-sm);
+    background-color: transparent;
+    transition-property: background-color, border-color;
+    transition-duration: var(--pm-transition-fast);
+    color: var(--pm-color-neutral-0);
+  }
+
+  /* Sizes for indicator */
+  .pm-checkbox--sm .pm-checkbox__indicator {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+
+  .pm-checkbox--md .pm-checkbox__indicator {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+
+  .pm-checkbox--lg .pm-checkbox__indicator {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .pm-checkbox--checked .pm-checkbox__indicator,
+  .pm-checkbox--indeterminate .pm-checkbox__indicator {
+    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    border-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+  }
+
+  .pm-checkbox--invalid .pm-checkbox__indicator {
+    border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+  }
+
+  /* Focus on hidden input shows ring on indicator */
+  .pm-checkbox__input:focus-visible + .pm-checkbox__indicator {
+    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline-offset: var(--pm-focus-ring-offset);
+  }
+
+  .pm-checkbox__label {
+    font-family: var(--pm-font-family-sans);
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    user-select: none;
+  }
+
+  .pm-checkbox--sm .pm-checkbox__label {
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-checkbox--md .pm-checkbox__label {
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-checkbox--lg .pm-checkbox__label {
+    font-size: var(--pm-font-size-lg);
+  }
+}

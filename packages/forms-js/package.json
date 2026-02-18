@@ -1,0 +1,170 @@
+{
+  "name": "@paramanu/forms-js",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/js/index.d.ts",
+      "import": "./dist/js/index.js"
+    },
+    "./css": "./dist/css/forms.css",
+    "./css/layers": "./dist/css/forms.layers.css",
+    "./modules/label/map": {
+      "types": "./dist/css/label.module.d.ts",
+      "import": "./dist/css/label.module.js"
+    },
+    "./modules/form-control/map": {
+      "types": "./dist/css/form-control.module.d.ts",
+      "import": "./dist/css/form-control.module.js"
+    },
+    "./modules/fieldset/map": {
+      "types": "./dist/css/fieldset.module.d.ts",
+      "import": "./dist/css/fieldset.module.js"
+    },
+    "./modules/form/map": {
+      "types": "./dist/css/form.module.d.ts",
+      "import": "./dist/css/form.module.js"
+    },
+    "./modules/input/map": {
+      "types": "./dist/css/input.module.d.ts",
+      "import": "./dist/css/input.module.js"
+    },
+    "./modules/textarea/map": {
+      "types": "./dist/css/textarea.module.d.ts",
+      "import": "./dist/css/textarea.module.js"
+    },
+    "./modules/password-input/map": {
+      "types": "./dist/css/password-input.module.d.ts",
+      "import": "./dist/css/password-input.module.js"
+    },
+    "./modules/number-input/map": {
+      "types": "./dist/css/number-input.module.d.ts",
+      "import": "./dist/css/number-input.module.js"
+    },
+    "./modules/search-input/map": {
+      "types": "./dist/css/search-input.module.d.ts",
+      "import": "./dist/css/search-input.module.js"
+    },
+    "./modules/checkbox/map": {
+      "types": "./dist/css/checkbox.module.d.ts",
+      "import": "./dist/css/checkbox.module.js"
+    },
+    "./modules/checkbox-card/map": {
+      "types": "./dist/css/checkbox-card.module.d.ts",
+      "import": "./dist/css/checkbox-card.module.js"
+    },
+    "./modules/radio/map": {
+      "types": "./dist/css/radio.module.d.ts",
+      "import": "./dist/css/radio.module.js"
+    },
+    "./modules/radio-card/map": {
+      "types": "./dist/css/radio-card.module.d.ts",
+      "import": "./dist/css/radio-card.module.js"
+    },
+    "./modules/switch/map": {
+      "types": "./dist/css/switch.module.d.ts",
+      "import": "./dist/css/switch.module.js"
+    },
+    "./modules/segmented-control/map": {
+      "types": "./dist/css/segmented-control.module.d.ts",
+      "import": "./dist/css/segmented-control.module.js"
+    },
+    "./modules/native-select/map": {
+      "types": "./dist/css/native-select.module.d.ts",
+      "import": "./dist/css/native-select.module.js"
+    },
+    "./modules/select/map": {
+      "types": "./dist/css/select.module.d.ts",
+      "import": "./dist/css/select.module.js"
+    },
+    "./modules/multi-select/map": {
+      "types": "./dist/css/multi-select.module.d.ts",
+      "import": "./dist/css/multi-select.module.js"
+    },
+    "./modules/combobox/map": {
+      "types": "./dist/css/combobox.module.d.ts",
+      "import": "./dist/css/combobox.module.js"
+    },
+    "./modules/calendar/map": {
+      "types": "./dist/css/calendar.module.d.ts",
+      "import": "./dist/css/calendar.module.js"
+    },
+    "./modules/date-picker/map": {
+      "types": "./dist/css/date-picker.module.d.ts",
+      "import": "./dist/css/date-picker.module.js"
+    },
+    "./modules/date-range-picker/map": {
+      "types": "./dist/css/date-range-picker.module.d.ts",
+      "import": "./dist/css/date-range-picker.module.js"
+    },
+    "./modules/time-picker/map": {
+      "types": "./dist/css/time-picker.module.d.ts",
+      "import": "./dist/css/time-picker.module.js"
+    },
+    "./modules/color-picker/map": {
+      "types": "./dist/css/color-picker.module.d.ts",
+      "import": "./dist/css/color-picker.module.js"
+    },
+    "./modules/cascader/map": {
+      "types": "./dist/css/cascader.module.d.ts",
+      "import": "./dist/css/cascader.module.js"
+    },
+    "./modules/slider/map": {
+      "types": "./dist/css/slider.module.d.ts",
+      "import": "./dist/css/slider.module.js"
+    },
+    "./modules/rating/map": {
+      "types": "./dist/css/rating.module.d.ts",
+      "import": "./dist/css/rating.module.js"
+    },
+    "./modules/pin-input/map": {
+      "types": "./dist/css/pin-input.module.d.ts",
+      "import": "./dist/css/pin-input.module.js"
+    },
+    "./modules/tags-input/map": {
+      "types": "./dist/css/tags-input.module.d.ts",
+      "import": "./dist/css/tags-input.module.js"
+    },
+    "./modules/editable-text/map": {
+      "types": "./dist/css/editable-text.module.d.ts",
+      "import": "./dist/css/editable-text.module.js"
+    },
+    "./modules/mentions/map": {
+      "types": "./dist/css/mentions.module.d.ts",
+      "import": "./dist/css/mentions.module.js"
+    },
+    "./modules/file-upload/map": {
+      "types": "./dist/css/file-upload.module.d.ts",
+      "import": "./dist/css/file-upload.module.js"
+    },
+    "./modules/dropzone/map": {
+      "types": "./dist/css/dropzone.module.d.ts",
+      "import": "./dist/css/dropzone.module.js"
+    },
+    "./modules/transfer/map": {
+      "types": "./dist/css/transfer.module.d.ts",
+      "import": "./dist/css/transfer.module.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsx css.build.ts && tsup",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@paramanu/tokens": "workspace:*",
+    "@paramanu/primitives-js": "workspace:*",
+    "@paramanu/typography-js": "workspace:*",
+    "@paramanu/buttons-js": "workspace:*"
+  },
+  "devDependencies": {
+    "@paramanu/tsconfig": "workspace:*",
+    "lightningcss": "^1.28.0",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0",
+    "vitest": "^2.1.0",
+    "jsdom": "^25.0.0"
+  }
+}

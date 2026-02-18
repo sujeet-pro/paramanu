@@ -1,0 +1,9 @@
+@layer pm.components {
+  [data-pm-theme="light"] {
+    color-scheme: light;
+  }
+
+  [data-pm-theme="dark"] {
+    color-scheme: dark;
+  }
+}

@@ -1,0 +1,5 @@
+@layer pm.components {
+  .pm-spacer {
+    flex: 1 1 0%;
+  }
+}

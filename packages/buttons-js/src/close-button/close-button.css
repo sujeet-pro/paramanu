@@ -1,0 +1,56 @@
+@layer pm.components {
+  .pm-close-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: var(--pm-radius-sm);
+    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    transition-property: background-color, color;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+    padding: 0;
+    line-height: 1;
+
+    &:hover:not(.pm-close-button--disabled) {
+      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    }
+
+    &:active:not(.pm-close-button--disabled) {
+      background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    }
+
+    &:focus-visible {
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: var(--pm-focus-ring-offset);
+    }
+
+    /* Sizes */
+    &.pm-close-button--sm {
+      width: 24px;
+      height: 24px;
+      font-size: var(--pm-font-size-xs);
+    }
+
+    &.pm-close-button--md {
+      width: 32px;
+      height: 32px;
+      font-size: var(--pm-font-size-sm);
+    }
+
+    &.pm-close-button--lg {
+      width: 40px;
+      height: 40px;
+      font-size: var(--pm-font-size-md);
+    }
+
+    /* States */
+    &.pm-close-button--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

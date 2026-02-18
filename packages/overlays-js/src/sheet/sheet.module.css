@@ -1,0 +1,88 @@
+@layer pm.components {
+  .pm-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--pm-overlay-z, 1000);
+    display: flex;
+    flex-direction: column;
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    border-radius: var(--pm-radius-lg) var(--pm-radius-lg) 0 0;
+    box-shadow: var(--pm-shadow-xl);
+    transform: translateY(100%);
+    transition-property: transform;
+    transition-duration: var(--pm-transition-normal, 200ms);
+    transition-timing-function: ease-out;
+  }
+
+  /* Sizes */
+  .pm-sheet--sm {
+    max-height: 25vh;
+  }
+
+  .pm-sheet--md {
+    max-height: 50vh;
+  }
+
+  .pm-sheet--lg {
+    max-height: 75vh;
+  }
+
+  .pm-sheet--full {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  /* Presence animation - entering/entered */
+  .pm-sheet[data-pm-presence="entering"],
+  .pm-sheet[data-pm-presence="entered"] {
+    transform: translateY(0);
+  }
+
+  /* Presence animation - exiting */
+  .pm-sheet[data-pm-presence="exiting"] {
+    transform: translateY(100%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pm-sheet {
+      transition-duration: 0ms;
+    }
+  }
+
+  .pm-sheet__handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--pm-spacing-2) 0;
+    cursor: grab;
+  }
+
+  .pm-sheet__handle::after {
+    content: "";
+    width: 2rem;
+    height: 0.25rem;
+    border-radius: var(--pm-radius-full);
+    background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+  }
+
+  .pm-sheet__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--pm-spacing-3) var(--pm-spacing-6);
+    font-family: var(--pm-font-family-sans);
+    font-weight: var(--pm-font-weight-semibold);
+    font-size: var(--pm-font-size-lg);
+  }
+
+  .pm-sheet__body {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--pm-spacing-4) var(--pm-spacing-6);
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-md);
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+  }
+}

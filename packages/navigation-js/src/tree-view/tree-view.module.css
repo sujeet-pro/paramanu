@@ -1,0 +1,98 @@
+@layer pm.components {
+  .pm-tree-view {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: var(--pm-font-family-sans);
+  }
+
+  /* Size variants */
+  .pm-tree-view--sm {
+    font-size: var(--pm-font-size-xs);
+  }
+
+  .pm-tree-view--md {
+    font-size: var(--pm-font-size-sm);
+  }
+
+  /* Branch */
+  .pm-tree-view__branch {
+    list-style: none;
+  }
+
+  /* Item (leaf or clickable row) */
+  .pm-tree-view__item {
+    list-style: none;
+  }
+
+  /* Item content wrapper */
+  .pm-tree-view__item-content {
+    display: flex;
+    align-items: center;
+    gap: var(--pm-spacing-1);
+    padding-inline: var(--pm-spacing-2);
+    padding-block: var(--pm-spacing-1);
+    border-radius: var(--pm-radius-sm);
+    cursor: pointer;
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    transition-property: color, background-color;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+  }
+
+  .pm-tree-view__item-content:hover {
+    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+  }
+
+  .pm-tree-view__item-content:focus-visible {
+    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline-offset: var(--pm-focus-ring-offset);
+  }
+
+  .pm-tree-view__item--selected > .pm-tree-view__item-content {
+    color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+    background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-950));
+    font-weight: var(--pm-font-weight-medium);
+  }
+
+  .pm-tree-view__item--disabled > .pm-tree-view__item-content {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  /* Indicator (expand/collapse arrow) */
+  .pm-tree-view__indicator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    transition-property: transform;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+  }
+
+  .pm-tree-view__indicator::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0.3em 0 0.3em 0.4em;
+    border-color: transparent transparent transparent currentColor;
+  }
+
+  .pm-tree-view__indicator--expanded {
+    transform: rotate(90deg);
+  }
+
+  /* Nested group */
+  .pm-tree-view__group {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-inline-start: var(--pm-spacing-4);
+  }
+}

@@ -1,0 +1,71 @@
+@layer pm.components {
+  .pm-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--pm-spacing-3);
+    padding: var(--pm-spacing-3) var(--pm-spacing-4);
+    border: 1px solid transparent;
+    border-radius: var(--pm-radius-md);
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-md);
+    line-height: var(--pm-font-lineHeight-normal);
+
+    /* Variants */
+    &.pm-alert--info {
+      background-color: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
+      border-color: light-dark(var(--pm-color-info-200), var(--pm-color-info-700));
+      color: light-dark(var(--pm-color-info-800), var(--pm-color-info-100));
+    }
+
+    &.pm-alert--success {
+      background-color: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
+      border-color: light-dark(var(--pm-color-success-200), var(--pm-color-success-700));
+      color: light-dark(var(--pm-color-success-800), var(--pm-color-success-100));
+    }
+
+    &.pm-alert--warning {
+      background-color: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
+      border-color: light-dark(var(--pm-color-warning-200), var(--pm-color-warning-700));
+      color: light-dark(var(--pm-color-warning-800), var(--pm-color-warning-100));
+    }
+
+    &.pm-alert--danger {
+      background-color: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
+      border-color: light-dark(var(--pm-color-danger-200), var(--pm-color-danger-700));
+      color: light-dark(var(--pm-color-danger-800), var(--pm-color-danger-100));
+    }
+
+    /* Dismissible */
+    &.pm-alert--dismissible {
+      padding-right: var(--pm-spacing-2);
+    }
+  }
+
+  /* Sub-elements */
+  .pm-alert__icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+  }
+
+  .pm-alert__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pm-alert__title {
+    font-weight: var(--pm-font-weight-semibold);
+    margin-bottom: var(--pm-spacing-1);
+  }
+
+  .pm-alert__description {
+    color: inherit;
+    opacity: 0.9;
+  }
+
+  .pm-alert__close {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,33 @@
+@layer pm.components {
+  .pm-form {
+    display: flex;
+    width: 100%;
+
+    &.pm-form--vertical {
+      flex-direction: column;
+    }
+
+    &.pm-form--horizontal {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &.pm-form--inline {
+      flex-direction: row;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
+    &.pm-form--gap-sm {
+      gap: var(--pm-spacing-2);
+    }
+
+    &.pm-form--gap-md {
+      gap: var(--pm-spacing-4);
+    }
+
+    &.pm-form--gap-lg {
+      gap: var(--pm-spacing-6);
+    }
+  }
+}

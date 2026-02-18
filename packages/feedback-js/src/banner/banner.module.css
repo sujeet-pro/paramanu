@@ -1,0 +1,55 @@
+@layer pm.components {
+  .pm-banner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: var(--pm-spacing-3) var(--pm-spacing-4);
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-md);
+    line-height: var(--pm-font-lineHeight-normal);
+  }
+
+  /* Variants */
+  .pm-banner--info {
+    background-color: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
+    color: light-dark(var(--pm-color-info-800), var(--pm-color-info-100));
+  }
+
+  .pm-banner--success {
+    background-color: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
+    color: light-dark(var(--pm-color-success-800), var(--pm-color-success-100));
+  }
+
+  .pm-banner--warning {
+    background-color: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
+    color: light-dark(var(--pm-color-warning-800), var(--pm-color-warning-100));
+  }
+
+  .pm-banner--danger {
+    background-color: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
+    color: light-dark(var(--pm-color-danger-800), var(--pm-color-danger-100));
+  }
+
+  /* Sticky */
+  .pm-banner--sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  /* Dismissible */
+  .pm-banner--dismissible {
+    padding-right: var(--pm-spacing-2);
+  }
+
+  /* Sub-elements */
+  .pm-banner__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pm-banner__close {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,45 @@
+---
+title: "Usage: Templated"
+description: Using Paramanu with CSS modules for hashed class names in bundled apps.
+---
+
+The templated mode uses CSS modules with hashed class names, ideal for bundled applications.
+
+## Setup
+
+```ts
+import "@paramanu/buttons-js/css"
+```
+
+## Using CSS Modules
+
+```ts
+import { buttonModuleClasses } from "@paramanu/buttons-js"
+import classMap from "@paramanu/buttons-js/modules/button/map"
+
+const className = buttonModuleClasses(classMap, {
+  variant: "primary",
+  size: "md",
+})
+// Returns hashed class names like "pm_a1b2_pm-button pm_c3d4_pm-button--primary ..."
+```
+
+## Using Human-Readable Classes
+
+You can also use the readable class builder in any template:
+
+```ts
+import { buttonClasses } from "@paramanu/buttons-js"
+
+const className = buttonClasses({ variant: "primary", size: "md" })
+// "pm-button pm-button--primary pm-button--md"
+```
+
+## Example with a Template Engine
+
+```html
+<!-- EJS / Handlebars / Nunjucks -->
+<button class="<%= buttonClasses({ variant: 'primary', size: 'md' }) %>">
+  Click me
+</button>
+```

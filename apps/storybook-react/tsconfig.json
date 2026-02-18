@@ -1,0 +1,4 @@
+{
+  "extends": "@paramanu/tsconfig/react.json",
+  "include": ["src", ".storybook"]
+}

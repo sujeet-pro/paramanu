@@ -1,0 +1,4 @@
+{
+  "extends": "@paramanu/tsconfig/base.json",
+  "include": ["src", ".storybook"]
+}

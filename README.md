@@ -1,17 +1,20 @@
-# paramāṇu
+# paramanu
 
-paramāṇu (borrowed from Sanskrit परमाणु) is defined as the smallest and indivisible particle of matter. This is a collection of small and individual utilities for the web in general.
+A modern, accessible design system built with CSS-first principles.
 
-## Geneate a new package
+## Packages
+
+| Package | Description |
+|---|---|
+| `@paramanu/tokens` | Design tokens (colors, spacing, typography) |
+| `@paramanu/core` | CSS components + class builder utilities |
+| `@paramanu/react` | React component wrappers |
+| `@paramanu/cdn` | CDN-ready IIFE bundle |
+
+## Development
 
 ```sh
-npx hygen package new package-name
+pnpm install
+pnpm build
+pnpm test
 ```
-
-## Resources
-
-- [Compatibility Table for 2016+ Browser Support](https://kangax.github.io/compat-table/es2016plus/)
-
-## Todo
-
-- [ ] Move to [new configuration](https://eslint.org/docs/latest/use/configure/configuration-files-new) for eslint.

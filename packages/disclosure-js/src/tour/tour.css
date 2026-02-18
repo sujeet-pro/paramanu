@@ -1,0 +1,159 @@
+@layer pm.components {
+  .pm-tour {
+    position: relative;
+
+    &.pm-tour--open {
+      z-index: 1000;
+    }
+  }
+
+  .pm-tour__overlay {
+    position: fixed;
+    inset: 0;
+    background-color: light-dark(
+      rgb(0 0 0 / 0.5),
+      rgb(0 0 0 / 0.7)
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition-property: opacity;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+    z-index: 999;
+
+    &.pm-tour__overlay--visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  .pm-tour__step {
+    position: absolute;
+    z-index: 1001;
+    display: none;
+    width: max-content;
+    max-width: 320px;
+    padding: var(--pm-spacing-4);
+    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-radius: var(--pm-radius-lg);
+    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-900));
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    box-shadow: 0 4px 12px light-dark(rgb(0 0 0 / 0.15), rgb(0 0 0 / 0.4));
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-sm);
+    line-height: var(--pm-font-lineHeight-normal);
+
+    &.pm-tour__step--active {
+      display: block;
+    }
+
+    /* Arrow base */
+    &::before {
+      content: "";
+      position: absolute;
+      width: var(--pm-spacing-3);
+      height: var(--pm-spacing-3);
+      background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-900));
+      border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+      transform: rotate(45deg);
+    }
+
+    /* Placement: top — step above target, arrow points down */
+    &.pm-tour__step--top {
+      &::before {
+        bottom: calc(-1 * var(--pm-spacing-1-5));
+        left: 50%;
+        margin-left: calc(-1 * var(--pm-spacing-1-5));
+        border-top: none;
+        border-left: none;
+      }
+    }
+
+    /* Placement: bottom — step below target, arrow points up */
+    &.pm-tour__step--bottom {
+      &::before {
+        top: calc(-1 * var(--pm-spacing-1-5));
+        left: 50%;
+        margin-left: calc(-1 * var(--pm-spacing-1-5));
+        border-bottom: none;
+        border-right: none;
+      }
+    }
+
+    /* Placement: left — step to left of target, arrow points right */
+    &.pm-tour__step--left {
+      &::before {
+        right: calc(-1 * var(--pm-spacing-1-5));
+        top: 50%;
+        margin-top: calc(-1 * var(--pm-spacing-1-5));
+        border-bottom: none;
+        border-left: none;
+      }
+    }
+
+    /* Placement: right — step to right of target, arrow points left */
+    &.pm-tour__step--right {
+      &::before {
+        left: calc(-1 * var(--pm-spacing-1-5));
+        top: 50%;
+        margin-top: calc(-1 * var(--pm-spacing-1-5));
+        border-top: none;
+        border-right: none;
+      }
+    }
+  }
+
+  .pm-tour__step-title {
+    margin: 0 0 var(--pm-spacing-1) 0;
+    font-size: var(--pm-font-size-md);
+    font-weight: var(--pm-font-weight-semibold);
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+  }
+
+  .pm-tour__step-description {
+    margin: 0 0 var(--pm-spacing-3) 0;
+    font-size: var(--pm-font-size-sm);
+    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+  }
+
+  .pm-tour__step-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--pm-spacing-2);
+  }
+
+  .pm-tour__step-close {
+    position: absolute;
+    top: var(--pm-spacing-2);
+    right: var(--pm-spacing-2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--pm-spacing-6);
+    height: var(--pm-spacing-6);
+    border: none;
+    border-radius: var(--pm-radius-sm);
+    background-color: transparent;
+    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    cursor: pointer;
+    transition-property: background-color, color;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+
+    &:hover {
+      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    }
+
+    &:focus-visible {
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: var(--pm-focus-ring-offset);
+    }
+  }
+
+  .pm-tour__step-counter {
+    font-size: var(--pm-font-size-xs);
+    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+  }
+}

@@ -1,0 +1,51 @@
+@layer pm.components {
+  .pm-pin-input {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pm-spacing-2);
+
+    &.pm-pin-input--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  .pm-pin-input__field {
+    text-align: center;
+    font-family: var(--pm-font-family-sans);
+    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border-radius: var(--pm-radius-md);
+    background-color: transparent;
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    transition-property: border-color, box-shadow;
+    transition-duration: var(--pm-transition-fast);
+
+    &:focus-visible {
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: var(--pm-focus-ring-offset);
+    }
+  }
+
+  .pm-pin-input--sm .pm-pin-input__field {
+    width: 32px;
+    height: 32px;
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-pin-input--md .pm-pin-input__field {
+    width: 40px;
+    height: 40px;
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-pin-input--lg .pm-pin-input__field {
+    width: 48px;
+    height: 48px;
+    font-size: var(--pm-font-size-lg);
+  }
+
+  .pm-pin-input--invalid .pm-pin-input__field {
+    border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+  }
+}

@@ -1,0 +1,111 @@
+@layer pm.components {
+  .pm-stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pm-spacing-1);
+    font-family: var(--pm-font-family-sans);
+
+    /* Alignment */
+    &.pm-stat--align-start {
+      align-items: flex-start;
+      text-align: start;
+    }
+
+    &.pm-stat--align-center {
+      align-items: center;
+      text-align: center;
+    }
+
+    &.pm-stat--align-end {
+      align-items: flex-end;
+      text-align: end;
+    }
+
+    /* Sizes */
+    &.pm-stat--sm {
+      gap: var(--pm-spacing-0-5);
+    }
+
+    &.pm-stat--md {
+      gap: var(--pm-spacing-1);
+    }
+
+    &.pm-stat--lg {
+      gap: var(--pm-spacing-2);
+    }
+  }
+
+  .pm-stat__label {
+    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    font-weight: var(--pm-font-weight-medium);
+
+    .pm-stat--sm & {
+      font-size: var(--pm-font-size-xs);
+    }
+
+    .pm-stat--md & {
+      font-size: var(--pm-font-size-sm);
+    }
+
+    .pm-stat--lg & {
+      font-size: var(--pm-font-size-md);
+    }
+  }
+
+  .pm-stat__value {
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-50));
+    font-weight: var(--pm-font-weight-bold);
+    line-height: var(--pm-font-lineHeight-tight);
+
+    .pm-stat--sm & {
+      font-size: var(--pm-font-size-xl);
+    }
+
+    .pm-stat--md & {
+      font-size: var(--pm-font-size-2xl);
+    }
+
+    .pm-stat--lg & {
+      font-size: var(--pm-font-size-3xl);
+    }
+  }
+
+  .pm-stat__help-text {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pm-spacing-1);
+    font-weight: var(--pm-font-weight-medium);
+
+    .pm-stat--sm & {
+      font-size: var(--pm-font-size-xs);
+    }
+
+    .pm-stat--md & {
+      font-size: var(--pm-font-size-sm);
+    }
+
+    .pm-stat--lg & {
+      font-size: var(--pm-font-size-md);
+    }
+
+    &.pm-stat__help-text--up {
+      color: light-dark(var(--pm-color-success-600), var(--pm-color-success-400));
+    }
+
+    &.pm-stat__help-text--down {
+      color: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-400));
+    }
+  }
+
+  .pm-stat__arrow {
+    display: inline-block;
+
+    &.pm-stat__arrow--up::before {
+      content: "\2191";
+    }
+
+    &.pm-stat__arrow--down::before {
+      content: "\2193";
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@layer pm.components {
+  .pm-context-menu {
+    position: absolute;
+    z-index: 50;
+    min-width: 12rem;
+    padding: var(--pm-spacing-1) 0;
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-radius: var(--pm-radius-md);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    font-family: var(--pm-font-family-sans);
+    display: none;
+  }
+
+  .pm-context-menu--open {
+    display: block;
+  }
+
+  .pm-context-menu--sm {
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-context-menu--md {
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-context-menu--lg {
+    font-size: var(--pm-font-size-lg);
+  }
+}

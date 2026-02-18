@@ -1,0 +1,66 @@
+@layer pm.components {
+  .pm-app-shell {
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+
+    &.pm-app-shell--sidebar-end {
+      grid-template-areas:
+        "header header"
+        "main sidebar"
+        "footer footer";
+    }
+
+    &.pm-app-shell--sidebar-collapsed {
+      grid-template-columns: 0 1fr;
+    }
+  }
+
+  .pm-app-shell__header {
+    grid-area: header;
+
+    &.pm-app-shell__header--sticky {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    }
+  }
+
+  .pm-app-shell__sidebar {
+    grid-area: sidebar;
+    overflow-y: auto;
+    transition: width var(--pm-transition-normal) ease-in-out;
+
+    &.pm-app-shell__sidebar--sm {
+      width: 200px;
+    }
+
+    &.pm-app-shell__sidebar--md {
+      width: 260px;
+    }
+
+    &.pm-app-shell__sidebar--lg {
+      width: 320px;
+    }
+
+    &.pm-app-shell__sidebar--collapsed {
+      width: 0;
+      overflow: hidden;
+    }
+  }
+
+  .pm-app-shell__main {
+    grid-area: main;
+    overflow-y: auto;
+  }
+
+  .pm-app-shell__footer {
+    grid-area: footer;
+  }
+}

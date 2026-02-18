@@ -1,0 +1,28 @@
+@layer pm.components {
+  .pm-divider {
+    border: 0;
+    border-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+  }
+
+  .pm-divider--horizontal {
+    border-bottom-width: 1px;
+    width: 100%;
+  }
+
+  .pm-divider--vertical {
+    border-left-width: 1px;
+    height: 100%;
+  }
+
+  .pm-divider--solid {
+    border-style: solid;
+  }
+
+  .pm-divider--dashed {
+    border-style: dashed;
+  }
+
+  .pm-divider--dotted {
+    border-style: dotted;
+  }
+}

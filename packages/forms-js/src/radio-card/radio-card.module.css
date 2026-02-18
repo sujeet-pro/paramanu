@@ -1,0 +1,48 @@
+@layer pm.components {
+  .pm-radio-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--pm-spacing-3);
+    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-radius: var(--pm-radius-md);
+    cursor: pointer;
+    transition-property: border-color, box-shadow, background-color;
+    transition-duration: var(--pm-transition-fast);
+  }
+
+  .pm-radio-card--sm {
+    padding: var(--pm-spacing-2) var(--pm-spacing-3);
+  }
+
+  .pm-radio-card--md {
+    padding: var(--pm-spacing-3) var(--pm-spacing-4);
+  }
+
+  .pm-radio-card--lg {
+    padding: var(--pm-spacing-4) var(--pm-spacing-5);
+  }
+
+  .pm-radio-card--checked {
+    border-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+    background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-950));
+  }
+
+  .pm-radio-card--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .pm-radio-card__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+
+  .pm-radio-card__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}

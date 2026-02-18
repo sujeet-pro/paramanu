@@ -1,0 +1,116 @@
+@layer pm.components {
+  .pm-editable-text {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pm-spacing-2);
+    font-family: var(--pm-font-family-sans);
+
+    &.pm-editable-text--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  .pm-editable-text__preview {
+    display: inline-block;
+    cursor: pointer;
+    border-bottom: 1px dashed transparent;
+    padding: var(--pm-spacing-0-5) 0;
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    transition-property: border-color;
+    transition-duration: var(--pm-transition-fast);
+
+    &:hover {
+      border-bottom-color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    }
+
+    &:focus-visible {
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: var(--pm-focus-ring-offset);
+      border-radius: var(--pm-radius-sm);
+    }
+  }
+
+  .pm-editable-text__input {
+    font-family: inherit;
+    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border-radius: var(--pm-radius-md);
+    background-color: transparent;
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    transition-property: border-color, box-shadow;
+    transition-duration: var(--pm-transition-fast);
+
+    &:focus-visible {
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: var(--pm-focus-ring-offset);
+    }
+  }
+
+  .pm-editable-text__controls {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pm-spacing-1);
+  }
+
+  .pm-editable-text__controls button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border-radius: var(--pm-radius-md);
+    cursor: pointer;
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+    transition-property: background-color, border-color;
+    transition-duration: var(--pm-transition-fast);
+
+    &:hover {
+      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    }
+
+    &:focus-visible {
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: var(--pm-focus-ring-offset);
+    }
+  }
+
+  .pm-editable-text--sm .pm-editable-text__preview,
+  .pm-editable-text--sm .pm-editable-text__input {
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-editable-text--sm .pm-editable-text__input {
+    padding: var(--pm-spacing-1) var(--pm-spacing-2);
+  }
+
+  .pm-editable-text--sm .pm-editable-text__controls button {
+    padding: var(--pm-spacing-0-5);
+  }
+
+  .pm-editable-text--md .pm-editable-text__preview,
+  .pm-editable-text--md .pm-editable-text__input {
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-editable-text--md .pm-editable-text__input {
+    padding: var(--pm-spacing-2) var(--pm-spacing-3);
+  }
+
+  .pm-editable-text--md .pm-editable-text__controls button {
+    padding: var(--pm-spacing-1);
+  }
+
+  .pm-editable-text--lg .pm-editable-text__preview,
+  .pm-editable-text--lg .pm-editable-text__input {
+    font-size: var(--pm-font-size-lg);
+  }
+
+  .pm-editable-text--lg .pm-editable-text__input {
+    padding: var(--pm-spacing-3) var(--pm-spacing-4);
+  }
+
+  .pm-editable-text--lg .pm-editable-text__controls button {
+    padding: var(--pm-spacing-1-5);
+  }
+}

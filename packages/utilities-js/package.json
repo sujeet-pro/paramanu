@@ -1,0 +1,55 @@
+{
+  "name": "@paramanu/utilities-js",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/js/index.d.ts",
+      "import": "./dist/js/index.js"
+    },
+    "./css": "./dist/css/utilities.css",
+    "./css/layers": "./dist/css/utilities.layers.css",
+    "./modules/visually-hidden/map": {
+      "types": "./dist/css/visually-hidden.module.d.ts",
+      "import": "./dist/css/visually-hidden.module.js"
+    },
+    "./modules/skip-nav/map": {
+      "types": "./dist/css/skip-nav.module.d.ts",
+      "import": "./dist/css/skip-nav.module.js"
+    },
+    "./modules/show-hide/map": {
+      "types": "./dist/css/show-hide.module.d.ts",
+      "import": "./dist/css/show-hide.module.js"
+    },
+    "./modules/affix/map": {
+      "types": "./dist/css/affix.module.d.ts",
+      "import": "./dist/css/affix.module.js"
+    },
+    "./modules/presence/map": {
+      "types": "./dist/css/presence.module.d.ts",
+      "import": "./dist/css/presence.module.js"
+    },
+    "./modules/theme-provider/map": {
+      "types": "./dist/css/theme-provider.module.d.ts",
+      "import": "./dist/css/theme-provider.module.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsx css.build.ts && tsup",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@paramanu/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@paramanu/tsconfig": "workspace:*",
+    "lightningcss": "^1.28.0",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0",
+    "vitest": "^2.1.0",
+    "jsdom": "^25.0.0"
+  }
+}

@@ -1,0 +1,168 @@
+@layer pm.components {
+  .pm-steps {
+    display: flex;
+    font-family: var(--pm-font-family-sans);
+
+    &.pm-steps--horizontal {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    &.pm-steps--vertical {
+      flex-direction: column;
+    }
+  }
+
+  .pm-steps__step {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+
+    .pm-steps--horizontal & {
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .pm-steps--vertical & {
+      flex-direction: row;
+    }
+  }
+
+  .pm-steps__indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--pm-radius-full);
+    font-weight: var(--pm-font-weight-semibold);
+    flex-shrink: 0;
+    transition-property: background-color, border-color, color;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+
+    &.pm-steps__indicator--incomplete {
+      background-color: transparent;
+      border: 2px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+      color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    }
+
+    &.pm-steps__indicator--active {
+      background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+      border: 2px solid light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+      color: var(--pm-color-neutral-0);
+    }
+
+    &.pm-steps__indicator--complete {
+      background-color: light-dark(var(--pm-color-success-600), var(--pm-color-success-500));
+      border: 2px solid light-dark(var(--pm-color-success-600), var(--pm-color-success-500));
+      color: var(--pm-color-neutral-0);
+    }
+  }
+
+  .pm-steps__connector {
+    flex: 1;
+    transition-property: background-color;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+
+    &.pm-steps__connector--incomplete {
+      background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    }
+
+    &.pm-steps__connector--active {
+      background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    }
+
+    &.pm-steps__connector--complete {
+      background-color: light-dark(var(--pm-color-success-600), var(--pm-color-success-500));
+    }
+
+    .pm-steps--horizontal & {
+      height: 2px;
+      margin-top: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      right: -50%;
+      transform: translateY(-50%);
+    }
+
+    .pm-steps--vertical & {
+      width: 2px;
+      min-height: var(--pm-spacing-6);
+      margin-inline-start: 0;
+    }
+  }
+
+  .pm-steps__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pm-spacing-1);
+
+    .pm-steps--horizontal & {
+      align-items: center;
+      text-align: center;
+      margin-top: var(--pm-spacing-2);
+    }
+
+    .pm-steps--vertical & {
+      margin-inline-start: var(--pm-spacing-3);
+      padding-bottom: var(--pm-spacing-4);
+    }
+  }
+
+  /* Sizes */
+  .pm-steps--sm .pm-steps__indicator {
+    width: var(--pm-spacing-6);
+    height: var(--pm-spacing-6);
+    font-size: var(--pm-font-size-xs);
+  }
+
+  .pm-steps--sm .pm-steps__content {
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-steps--sm.pm-steps--horizontal .pm-steps__connector {
+    top: calc(var(--pm-spacing-6) / 2);
+  }
+
+  .pm-steps--sm.pm-steps--vertical .pm-steps__connector {
+    margin-inline-start: calc(var(--pm-spacing-6) / 2 - 1px);
+  }
+
+  .pm-steps--md .pm-steps__indicator {
+    width: var(--pm-spacing-8);
+    height: var(--pm-spacing-8);
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-steps--md .pm-steps__content {
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-steps--md.pm-steps--horizontal .pm-steps__connector {
+    top: calc(var(--pm-spacing-8) / 2);
+  }
+
+  .pm-steps--md.pm-steps--vertical .pm-steps__connector {
+    margin-inline-start: calc(var(--pm-spacing-8) / 2 - 1px);
+  }
+
+  .pm-steps--lg .pm-steps__indicator {
+    width: var(--pm-spacing-10);
+    height: var(--pm-spacing-10);
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-steps--lg .pm-steps__content {
+    font-size: var(--pm-font-size-lg);
+  }
+
+  .pm-steps--lg.pm-steps--horizontal .pm-steps__connector {
+    top: calc(var(--pm-spacing-10) / 2);
+  }
+
+  .pm-steps--lg.pm-steps--vertical .pm-steps__connector {
+    margin-inline-start: calc(var(--pm-spacing-10) / 2 - 1px);
+  }
+}

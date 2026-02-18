@@ -1,0 +1,52 @@
+@layer pm.components {
+  .pm-clipboard {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border-radius: var(--pm-radius-md);
+    background-color: transparent;
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    font-family: var(--pm-font-family-sans);
+    cursor: pointer;
+    transition-property: background-color, border-color, color;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+  }
+
+  .pm-clipboard:hover:not(.pm-clipboard--copied) {
+    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+  }
+
+  .pm-clipboard:active:not(.pm-clipboard--copied) {
+    background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+  }
+
+  .pm-clipboard:focus-visible {
+    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline-offset: var(--pm-focus-ring-offset);
+  }
+
+  /* Sizes */
+  .pm-clipboard--sm {
+    padding: var(--pm-spacing-1);
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-clipboard--md {
+    padding: var(--pm-spacing-2);
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-clipboard--lg {
+    padding: var(--pm-spacing-3);
+    font-size: var(--pm-font-size-lg);
+  }
+
+  /* Copied state */
+  .pm-clipboard--copied {
+    border-color: light-dark(var(--pm-color-success-500), var(--pm-color-success-400));
+    color: light-dark(var(--pm-color-success-600), var(--pm-color-success-400));
+    background-color: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
+  }
+}

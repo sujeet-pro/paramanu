@@ -1,0 +1,13 @@
+@layer pm.components {
+  .pm-theme-provider {
+    /* base wrapper */
+  }
+
+  .pm-theme-provider--light {
+    color-scheme: light;
+  }
+
+  .pm-theme-provider--dark {
+    color-scheme: dark;
+  }
+}

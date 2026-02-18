@@ -1,0 +1,26 @@
+@layer pm.components {
+  .pm-fieldset {
+    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-radius: var(--pm-radius-md);
+    padding: var(--pm-spacing-4);
+    margin: 0;
+    min-width: 0;
+
+    &.pm-fieldset--card {
+      background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
+      box-shadow: var(--pm-shadow-sm);
+    }
+
+    &.pm-fieldset--disabled {
+      opacity: 0.5;
+    }
+  }
+
+  .pm-fieldset__legend {
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-md);
+    font-weight: var(--pm-font-weight-semibold);
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    padding: 0 var(--pm-spacing-1);
+  }
+}

@@ -1,0 +1,40 @@
+@layer pm.components {
+  .pm-tooltip {
+    position: absolute;
+    z-index: var(--pm-overlay-z, 1000);
+    max-width: 20rem;
+    padding: var(--pm-spacing-1) var(--pm-spacing-2);
+    background-color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    border-radius: var(--pm-radius-sm);
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-sm);
+    line-height: var(--pm-font-lineHeight-tight);
+    pointer-events: none;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: var(--pm-transition-fast, 150ms);
+    transition-timing-function: ease-out;
+
+    &[data-pm-presence="entering"],
+    &[data-pm-presence="entered"] {
+      opacity: 1;
+    }
+
+    &[data-pm-presence="exiting"] {
+      opacity: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition-duration: 0ms;
+    }
+  }
+
+  .pm-tooltip__arrow {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    transform: rotate(45deg);
+  }
+}

@@ -1,0 +1,84 @@
+@layer pm.components {
+  .pm-collapsible {
+    width: 100%;
+
+    &.pm-collapsible--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .pm-collapsible__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    font-family: var(--pm-font-family-sans);
+    font-weight: var(--pm-font-weight-medium);
+    line-height: var(--pm-font-lineHeight-normal);
+    cursor: pointer;
+    transition-property: background-color, color;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+
+    &:hover:not(.pm-collapsible__trigger--disabled) {
+      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    }
+
+    &:focus-visible {
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: var(--pm-focus-ring-offset);
+    }
+
+    &.pm-collapsible__trigger--disabled {
+      cursor: not-allowed;
+    }
+
+    /* Sizes */
+    &.pm-collapsible__trigger--sm {
+      padding: var(--pm-spacing-1) var(--pm-spacing-2);
+      font-size: var(--pm-font-size-sm);
+    }
+
+    &.pm-collapsible__trigger--md {
+      padding: var(--pm-spacing-2) var(--pm-spacing-3);
+      font-size: var(--pm-font-size-md);
+    }
+
+    &.pm-collapsible__trigger--lg {
+      padding: var(--pm-spacing-3) var(--pm-spacing-4);
+      font-size: var(--pm-font-size-lg);
+    }
+  }
+
+  .pm-collapsible__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--pm-transition-normal) ease-in-out;
+
+    &.pm-collapsible__content--open {
+      grid-template-rows: 1fr;
+    }
+
+    /* Sizes */
+    &.pm-collapsible__content--sm > .pm-collapsible__content-inner {
+      padding: var(--pm-spacing-1) var(--pm-spacing-2);
+    }
+
+    &.pm-collapsible__content--md > .pm-collapsible__content-inner {
+      padding: var(--pm-spacing-2) var(--pm-spacing-3);
+    }
+
+    &.pm-collapsible__content--lg > .pm-collapsible__content-inner {
+      padding: var(--pm-spacing-3) var(--pm-spacing-4);
+    }
+  }
+
+  .pm-collapsible__content-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+}

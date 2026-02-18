@@ -1,0 +1,75 @@
+{
+  "name": "@paramanu/overlays-js",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/js/index.d.ts",
+      "import": "./dist/js/index.js"
+    },
+    "./css": "./dist/css/overlays.css",
+    "./css/layers": "./dist/css/overlays.layers.css",
+    "./modules/backdrop/map": {
+      "types": "./dist/css/backdrop.module.d.ts",
+      "import": "./dist/css/backdrop.module.js"
+    },
+    "./modules/dialog/map": {
+      "types": "./dist/css/dialog.module.d.ts",
+      "import": "./dist/css/dialog.module.js"
+    },
+    "./modules/alert-dialog/map": {
+      "types": "./dist/css/alert-dialog.module.d.ts",
+      "import": "./dist/css/alert-dialog.module.js"
+    },
+    "./modules/inline-dialog/map": {
+      "types": "./dist/css/inline-dialog.module.d.ts",
+      "import": "./dist/css/inline-dialog.module.js"
+    },
+    "./modules/drawer/map": {
+      "types": "./dist/css/drawer.module.d.ts",
+      "import": "./dist/css/drawer.module.js"
+    },
+    "./modules/sheet/map": {
+      "types": "./dist/css/sheet.module.d.ts",
+      "import": "./dist/css/sheet.module.js"
+    },
+    "./modules/popover/map": {
+      "types": "./dist/css/popover.module.d.ts",
+      "import": "./dist/css/popover.module.js"
+    },
+    "./modules/tooltip/map": {
+      "types": "./dist/css/tooltip.module.d.ts",
+      "import": "./dist/css/tooltip.module.js"
+    },
+    "./modules/hover-card/map": {
+      "types": "./dist/css/hover-card.module.d.ts",
+      "import": "./dist/css/hover-card.module.js"
+    },
+    "./modules/command-palette/map": {
+      "types": "./dist/css/command-palette.module.d.ts",
+      "import": "./dist/css/command-palette.module.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsx css.build.ts && tsup",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@paramanu/tokens": "workspace:*",
+    "@paramanu/primitives-js": "workspace:*",
+    "@paramanu/typography-js": "workspace:*",
+    "@paramanu/buttons-js": "workspace:*",
+    "@paramanu/utilities-js": "workspace:*"
+  },
+  "devDependencies": {
+    "@paramanu/tsconfig": "workspace:*",
+    "lightningcss": "^1.28.0",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0",
+    "vitest": "^2.1.0",
+    "jsdom": "^25.0.0"
+  }
+}

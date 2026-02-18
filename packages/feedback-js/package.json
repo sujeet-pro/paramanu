@@ -1,0 +1,78 @@
+{
+  "name": "@paramanu/feedback-js",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/js/index.d.ts",
+      "import": "./dist/js/index.js"
+    },
+    "./css": "./dist/css/feedback.css",
+    "./css/layers": "./dist/css/feedback.layers.css",
+    "./modules/spinner/map": {
+      "types": "./dist/css/spinner.module.d.ts",
+      "import": "./dist/css/spinner.module.js"
+    },
+    "./modules/skeleton/map": {
+      "types": "./dist/css/skeleton.module.d.ts",
+      "import": "./dist/css/skeleton.module.js"
+    },
+    "./modules/progress-bar/map": {
+      "types": "./dist/css/progress-bar.module.d.ts",
+      "import": "./dist/css/progress-bar.module.js"
+    },
+    "./modules/circular-progress/map": {
+      "types": "./dist/css/circular-progress.module.d.ts",
+      "import": "./dist/css/circular-progress.module.js"
+    },
+    "./modules/loading-overlay/map": {
+      "types": "./dist/css/loading-overlay.module.d.ts",
+      "import": "./dist/css/loading-overlay.module.js"
+    },
+    "./modules/nprogress/map": {
+      "types": "./dist/css/nprogress.module.d.ts",
+      "import": "./dist/css/nprogress.module.js"
+    },
+    "./modules/inline-message/map": {
+      "types": "./dist/css/inline-message.module.d.ts",
+      "import": "./dist/css/inline-message.module.js"
+    },
+    "./modules/alert/map": {
+      "types": "./dist/css/alert.module.d.ts",
+      "import": "./dist/css/alert.module.js"
+    },
+    "./modules/banner/map": {
+      "types": "./dist/css/banner.module.d.ts",
+      "import": "./dist/css/banner.module.js"
+    },
+    "./modules/notification/map": {
+      "types": "./dist/css/notification.module.d.ts",
+      "import": "./dist/css/notification.module.js"
+    },
+    "./modules/toast/map": {
+      "types": "./dist/css/toast.module.d.ts",
+      "import": "./dist/css/toast.module.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsx css.build.ts && tsup",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@paramanu/tokens": "workspace:*",
+    "@paramanu/primitives-js": "workspace:*",
+    "@paramanu/typography-js": "workspace:*",
+    "@paramanu/buttons-js": "workspace:*"
+  },
+  "devDependencies": {
+    "@paramanu/tsconfig": "workspace:*",
+    "lightningcss": "^1.28.0",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0",
+    "vitest": "^2.1.0",
+    "jsdom": "^25.0.0"
+  }
+}

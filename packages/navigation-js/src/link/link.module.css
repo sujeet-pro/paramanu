@@ -1,0 +1,71 @@
+@layer pm.components {
+  .pm-link {
+    font-family: var(--pm-font-family-sans);
+    color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+    cursor: pointer;
+    transition-property: color, background-color, text-decoration-color;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+  }
+
+  .pm-link:focus-visible {
+    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline-offset: var(--pm-focus-ring-offset);
+    border-radius: var(--pm-radius-sm);
+  }
+
+  /* Variants */
+  .pm-link--default {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .pm-link--default:hover:not(.pm-link--disabled) {
+    color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+  }
+
+  .pm-link--subtle {
+    text-decoration: none;
+  }
+
+  .pm-link--subtle:hover:not(.pm-link--disabled) {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+  }
+
+  .pm-link--nav {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--pm-spacing-1) var(--pm-spacing-3);
+    border-radius: var(--pm-radius-md);
+    text-decoration: none;
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+  }
+
+  .pm-link--nav:hover:not(.pm-link--disabled) {
+    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+  }
+
+  /* States */
+  .pm-link--active {
+    font-weight: var(--pm-font-weight-semibold);
+  }
+
+  .pm-link--active.pm-link--nav {
+    background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-950));
+    color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+  }
+
+  .pm-link--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .pm-link--external::after {
+    content: "\2197";
+    margin-inline-start: var(--pm-spacing-1);
+    font-size: 0.75em;
+  }
+}

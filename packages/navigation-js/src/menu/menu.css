@@ -1,0 +1,85 @@
+@layer pm.components {
+  .pm-menu {
+    list-style: none;
+    margin: 0;
+    padding: var(--pm-spacing-1) 0;
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-radius: var(--pm-radius-md);
+    font-family: var(--pm-font-family-sans);
+    min-width: 12rem;
+
+    /* Sizes */
+    &.pm-menu--sm {
+      font-size: var(--pm-font-size-sm);
+    }
+
+    &.pm-menu--md {
+      font-size: var(--pm-font-size-md);
+    }
+
+    &.pm-menu--lg {
+      font-size: var(--pm-font-size-lg);
+    }
+  }
+
+  .pm-menu__item {
+    display: flex;
+    align-items: center;
+    gap: var(--pm-spacing-2);
+    padding: var(--pm-spacing-2) var(--pm-spacing-3);
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    cursor: pointer;
+    transition-property: background-color, color;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+
+    &:hover:not(.pm-menu__item--disabled) {
+      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    }
+
+    &:focus-visible {
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: calc(-1 * var(--pm-focus-ring-width));
+    }
+
+    &.pm-menu__item--active {
+      background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
+      color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-200));
+    }
+
+    &.pm-menu__item--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &.pm-menu__item--destructive {
+      color: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-400));
+
+      &:hover:not(.pm-menu__item--disabled) {
+        background-color: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
+      }
+    }
+  }
+
+  .pm-menu__group {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pm-menu__group-label {
+    padding: var(--pm-spacing-2) var(--pm-spacing-3);
+    font-size: var(--pm-font-size-xs);
+    font-weight: var(--pm-font-weight-semibold);
+    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pm-menu__separator {
+    height: 1px;
+    margin: var(--pm-spacing-1) 0;
+    background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+  }
+}

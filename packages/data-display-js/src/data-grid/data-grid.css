@@ -1,0 +1,85 @@
+@layer pm.components {
+  .pm-data-grid {
+    display: grid;
+    width: 100%;
+    font-family: var(--pm-font-family-sans);
+    overflow: auto;
+
+    /* Sizes */
+    &.pm-data-grid--sm {
+      font-size: var(--pm-font-size-sm);
+    }
+
+    &.pm-data-grid--md {
+      font-size: var(--pm-font-size-md);
+    }
+
+    /* Bordered */
+    &.pm-data-grid--bordered {
+      border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+      border-radius: var(--pm-radius-md);
+    }
+
+    /* Hoverable */
+    &.pm-data-grid--hoverable .pm-data-grid__row:hover {
+      background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
+    }
+
+    /* Sticky header */
+    &.pm-data-grid--sticky-header .pm-data-grid__column-header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    }
+
+    /* Resizable */
+    &.pm-data-grid--resizable .pm-data-grid__column-header {
+      position: relative;
+      overflow: hidden;
+      resize: horizontal;
+    }
+  }
+
+  .pm-data-grid__row {
+    display: contents;
+    transition: background-color var(--pm-transition-fast) ease-in-out;
+  }
+
+  .pm-data-grid__column-header {
+    font-weight: var(--pm-font-weight-semibold);
+    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    text-align: start;
+    white-space: nowrap;
+    border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+
+    .pm-data-grid--sm & {
+      padding: var(--pm-spacing-2) var(--pm-spacing-3);
+    }
+
+    .pm-data-grid--md & {
+      padding: var(--pm-spacing-3) var(--pm-spacing-4);
+    }
+  }
+
+  .pm-data-grid__cell {
+    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    border-bottom: 1px solid light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+
+    .pm-data-grid--sm & {
+      padding: var(--pm-spacing-2) var(--pm-spacing-3);
+    }
+
+    .pm-data-grid--md & {
+      padding: var(--pm-spacing-3) var(--pm-spacing-4);
+    }
+
+    .pm-data-grid--bordered & {
+      border-right: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}

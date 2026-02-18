@@ -1,0 +1,143 @@
+@layer pm.components {
+  .pm-tabs {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--pm-font-family-sans);
+
+    &.pm-tabs--vertical {
+      flex-direction: row;
+    }
+  }
+
+  .pm-tabs__list {
+    display: flex;
+    gap: var(--pm-spacing-0);
+
+    .pm-tabs--vertical & {
+      flex-direction: column;
+    }
+  }
+
+  .pm-tabs__tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: var(--pm-font-weight-medium);
+    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    transition-property: color, background-color, border-color, box-shadow;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+    white-space: nowrap;
+
+    &:hover:not(.pm-tabs__tab--disabled) {
+      color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    }
+
+    &:focus-visible {
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: calc(-1 * var(--pm-focus-ring-width));
+      border-radius: var(--pm-radius-sm);
+    }
+
+    &.pm-tabs__tab--active {
+      color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+    }
+
+    &.pm-tabs__tab--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  /* Sizes */
+  .pm-tabs--sm .pm-tabs__tab {
+    padding: var(--pm-spacing-1) var(--pm-spacing-3);
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-tabs--md .pm-tabs__tab {
+    padding: var(--pm-spacing-2) var(--pm-spacing-4);
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-tabs--lg .pm-tabs__tab {
+    padding: var(--pm-spacing-3) var(--pm-spacing-5);
+    font-size: var(--pm-font-size-lg);
+  }
+
+  /* Fitted */
+  .pm-tabs--fitted .pm-tabs__tab {
+    flex: 1;
+  }
+
+  /* Line variant */
+  .pm-tabs--line .pm-tabs__list {
+    border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+  }
+
+  .pm-tabs--line.pm-tabs--vertical .pm-tabs__list {
+    border-bottom: none;
+    border-inline-end: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+  }
+
+  .pm-tabs--line .pm-tabs__tab {
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+
+  .pm-tabs--line.pm-tabs--vertical .pm-tabs__tab {
+    border-bottom: none;
+    border-inline-end: 2px solid transparent;
+    margin-inline-end: -1px;
+  }
+
+  .pm-tabs--line .pm-tabs__tab.pm-tabs__tab--active {
+    border-bottom-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+  }
+
+  .pm-tabs--line.pm-tabs--vertical .pm-tabs__tab.pm-tabs__tab--active {
+    border-bottom-color: transparent;
+    border-inline-end-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+  }
+
+  /* Enclosed variant */
+  .pm-tabs--enclosed .pm-tabs__list {
+    border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+  }
+
+  .pm-tabs--enclosed .pm-tabs__tab {
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: var(--pm-radius-md) var(--pm-radius-md) 0 0;
+    margin-bottom: -1px;
+  }
+
+  .pm-tabs--enclosed .pm-tabs__tab.pm-tabs__tab--active {
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    border-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-bottom-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+  }
+
+  /* Pill variant */
+  .pm-tabs--pill .pm-tabs__list {
+    gap: var(--pm-spacing-1);
+  }
+
+  .pm-tabs--pill .pm-tabs__tab {
+    border-radius: var(--pm-radius-full);
+  }
+
+  .pm-tabs--pill .pm-tabs__tab.pm-tabs__tab--active {
+    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    color: var(--pm-color-neutral-0);
+  }
+
+  /* Panel */
+  .pm-tabs__panel {
+    padding: var(--pm-spacing-4);
+  }
+}

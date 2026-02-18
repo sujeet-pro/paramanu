@@ -1,0 +1,316 @@
+---
+import SandpackEditor from "./SandpackEditor"
+import { Code } from "@astrojs/starlight/components"
+
+interface Props {
+  reactCode: string
+  htmlCode: string
+}
+
+const { reactCode, htmlCode } = Astro.props
+const previewId = `cp-${Math.random().toString(36).slice(2, 8)}`
+---
+
+<div class="cp not-content" id={previewId}>
+  <div class="cp__render">
+    <div class="cp__canvas" set:html={htmlCode} />
+  </div>
+
+  <div class="cp__toolbar">
+    <div class="cp__tabs" role="tablist" aria-label="Code language">
+      <button
+        role="tab"
+        class="cp__tab cp__tab--active"
+        data-tab="react"
+        aria-selected="true"
+      >
+        React
+      </button>
+      <button
+        role="tab"
+        class="cp__tab"
+        data-tab="html"
+        aria-selected="false"
+      >
+        HTML / JS
+      </button>
+    </div>
+    <button class="cp__action" data-action="editor" aria-expanded="false">
+      <svg
+        class="cp__action-icon cp__action-icon--open"
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+      <svg
+        class="cp__action-icon cp__action-icon--close"
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+      <span class="cp__action-label">Open Editor</span>
+    </button>
+  </div>
+
+  <div class="cp__panels">
+    <div class="cp__panel" data-panel="react" data-active>
+      <Code code={reactCode} lang="tsx" frame="none" />
+    </div>
+    <div class="cp__panel" data-panel="html">
+      <Code code={htmlCode} lang="html" frame="none" />
+    </div>
+  </div>
+
+  <div class="cp__editor" data-editor hidden>
+    <SandpackEditor
+      client:only="react"
+      reactCode={reactCode}
+      htmlCode={htmlCode}
+      previewId={previewId}
+    />
+  </div>
+</div>
+
+<style is:global>
+  .cp {
+    border: 1px solid var(--sl-color-gray-5, #d1d5db);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .cp__render {
+    padding: 1.5rem 2rem;
+    background: #ffffff;
+    color-scheme: light;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .cp__canvas {
+    display: contents;
+  }
+
+  /* ── Toolbar ── */
+  .cp__toolbar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+    border-top: 1px solid var(--sl-color-gray-5, #d1d5db);
+    background: var(--sl-color-gray-6, #f3f4f6);
+  }
+
+  /* ── Tabs ── */
+  .cp__tabs {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .cp__tab {
+    padding: 0.5rem 0.625rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    color: var(--sl-color-gray-2, #6b7280);
+    cursor: pointer;
+    transition:
+      color 0.15s,
+      border-color 0.15s;
+    line-height: 1;
+  }
+
+  .cp__tab:hover {
+    color: var(--sl-color-gray-1, #374151);
+  }
+
+  .cp__tab--active {
+    color: var(--sl-color-text-accent, #2563eb);
+    border-bottom-color: var(--sl-color-text-accent, #2563eb);
+  }
+
+  /* ── Editor toggle button ── */
+  .cp__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    margin: 0.375rem 0;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid var(--sl-color-gray-5, #d1d5db);
+    border-radius: 0.25rem;
+    background: transparent;
+    color: var(--sl-color-gray-2, #6b7280);
+    cursor: pointer;
+    transition:
+      background 0.15s,
+      color 0.15s,
+      border-color 0.15s;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .cp__action:hover {
+    background: var(--sl-color-gray-5, #e5e7eb);
+    color: var(--sl-color-gray-1, #374151);
+  }
+
+  .cp__action .cp__action-icon--close {
+    display: none;
+  }
+
+  .cp__action[aria-expanded="true"] {
+    background: var(--sl-color-gray-5, #e5e7eb);
+    color: var(--sl-color-gray-1, #374151);
+    border-color: var(--sl-color-gray-4, #9ca3af);
+  }
+
+  .cp__action[aria-expanded="true"] .cp__action-icon--open {
+    display: none;
+  }
+
+  .cp__action[aria-expanded="true"] .cp__action-icon--close {
+    display: block;
+  }
+
+  @media (max-width: 480px) {
+    .cp__action-label {
+      display: none;
+    }
+  }
+
+  /* ── Panels ── */
+  .cp__panels[hidden] {
+    display: none !important;
+  }
+
+  .cp__panel {
+    display: none;
+  }
+
+  .cp__panel[data-active] {
+    display: block;
+  }
+
+  /* Override Expressive Code styles within panels */
+  .cp__panel .expressive-code {
+    margin: 0;
+  }
+
+  .cp__panel .expressive-code figure,
+  .cp__panel .expressive-code .frame {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .cp__panel .expressive-code pre {
+    border: none;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  /* ── Editor ── */
+  .cp__editor[hidden] {
+    display: none !important;
+  }
+
+  .cp__editor {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Remove Sandpack's default border-radius and border so it sits flush */
+  .cp__editor .sp-wrapper {
+    border-radius: 0 !important;
+    border: none !important;
+  }
+
+  .cp__editor .sp-layout {
+    border: none !important;
+    border-radius: 0 !important;
+  }
+</style>
+
+<script is:inline>
+  function initComponentPreviews() {
+    document.querySelectorAll(".cp").forEach(function (container) {
+      if (container.dataset.cpInit) return
+      container.dataset.cpInit = "true"
+
+      var tabs = container.querySelectorAll(".cp__tab")
+      var panels = container.querySelectorAll(".cp__panel")
+      var editorBtn = container.querySelector('[data-action="editor"]')
+      var editorEl = container.querySelector("[data-editor]")
+      var panelsEl = container.querySelector(".cp__panels")
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          var lang = tab.dataset.tab
+
+          tabs.forEach(function (t) {
+            var isActive = t === tab
+            t.classList.toggle("cp__tab--active", isActive)
+            t.setAttribute("aria-selected", String(isActive))
+          })
+
+          panels.forEach(function (p) {
+            if (p.dataset.panel === lang) {
+              p.setAttribute("data-active", "")
+            } else {
+              p.removeAttribute("data-active")
+            }
+          })
+
+          container.dispatchEvent(
+            new CustomEvent("cp:tab", {
+              detail: { tab: lang },
+              bubbles: true,
+            }),
+          )
+        })
+      })
+
+      if (editorBtn) {
+        editorBtn.addEventListener("click", function () {
+          if (!editorEl || !panelsEl) return
+          var opening = editorEl.hidden
+
+          editorEl.hidden = !opening
+          panelsEl.hidden = opening
+
+          editorBtn.setAttribute("aria-expanded", String(opening))
+          var label = editorBtn.querySelector(".cp__action-label")
+          if (label) label.textContent = opening ? "Close Editor" : "Open Editor"
+        })
+      }
+    })
+  }
+
+  initComponentPreviews()
+  document.addEventListener("astro:page-load", initComponentPreviews)
+</script>

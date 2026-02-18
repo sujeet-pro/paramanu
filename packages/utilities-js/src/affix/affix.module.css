@@ -1,0 +1,58 @@
+@layer pm.components {
+  .pm-affix {
+    position: sticky;
+    z-index: 100;
+  }
+
+  .pm-affix--top {
+    top: 0;
+  }
+
+  .pm-affix--bottom {
+    bottom: 0;
+  }
+
+  .pm-affix--offset-0 {
+    --pm-affix-offset: var(--pm-spacing-0);
+  }
+
+  .pm-affix--offset-1 {
+    --pm-affix-offset: var(--pm-spacing-1);
+  }
+
+  .pm-affix--offset-2 {
+    --pm-affix-offset: var(--pm-spacing-2);
+  }
+
+  .pm-affix--offset-3 {
+    --pm-affix-offset: var(--pm-spacing-3);
+  }
+
+  .pm-affix--offset-4 {
+    --pm-affix-offset: var(--pm-spacing-4);
+  }
+
+  .pm-affix--offset-5 {
+    --pm-affix-offset: var(--pm-spacing-5);
+  }
+
+  .pm-affix--offset-6 {
+    --pm-affix-offset: var(--pm-spacing-6);
+  }
+
+  .pm-affix--offset-8 {
+    --pm-affix-offset: var(--pm-spacing-8);
+  }
+
+  .pm-affix--offset-10 {
+    --pm-affix-offset: var(--pm-spacing-10);
+  }
+
+  .pm-affix--offset-12 {
+    --pm-affix-offset: var(--pm-spacing-12);
+  }
+
+  .pm-affix--offset-16 {
+    --pm-affix-offset: var(--pm-spacing-16);
+  }
+}

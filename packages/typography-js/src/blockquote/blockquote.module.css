@@ -1,0 +1,34 @@
+@layer pm.components {
+  .pm-blockquote {
+    font-family: var(--pm-font-family-sans);
+    font-style: italic;
+    margin: 0;
+    border-left: 3px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+  }
+
+  /* Variants */
+  .pm-blockquote--default {
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+  }
+
+  .pm-blockquote--accent {
+    border-left-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+  }
+
+  /* Sizes */
+  .pm-blockquote--sm {
+    padding: var(--pm-spacing-2) var(--pm-spacing-3);
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-blockquote--md {
+    padding: var(--pm-spacing-3) var(--pm-spacing-4);
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-blockquote--lg {
+    padding: var(--pm-spacing-4) var(--pm-spacing-6);
+    font-size: var(--pm-font-size-lg);
+  }
+}

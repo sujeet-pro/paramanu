@@ -1,0 +1,40 @@
+---
+title: Installation
+description: How to install Paramanu in your project.
+---
+
+## Package Manager
+
+Install the group packages you need. Each component group is a separate package:
+
+```bash
+# Design tokens (always needed)
+pnpm add @paramanu/tokens
+
+# Buttons (JS class builders + CSS)
+pnpm add @paramanu/buttons-js
+
+# Buttons (React wrappers, optional)
+pnpm add @paramanu/buttons-react
+```
+
+Available groups: `primitives`, `typography`, `buttons`, `forms`, `navigation`, `data-display`, `feedback`, `overlays`, `disclosure`, `utilities`.
+
+Each group follows the pattern `@paramanu/<group>-js` and `@paramanu/<group>-react`.
+
+## CDN
+
+For quick prototyping or static sites, use the CDN bundle:
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@paramanu/cdn/dist/paramanu.min.css">
+<script src="https://unpkg.com/@paramanu/cdn/dist/paramanu.min.js"></script>
+```
+
+## Next Steps
+
+Choose your consumption mode:
+
+- [CDN (human-readable classes)](/getting-started/usage-cdn/)
+- [Templated (CSS modules)](/getting-started/usage-templated/)
+- [React components](/getting-started/usage-react/)

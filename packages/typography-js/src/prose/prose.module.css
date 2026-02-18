@@ -1,0 +1,20 @@
+@layer pm.components {
+  .pm-prose {
+    font-family: var(--pm-font-family-sans);
+    line-height: var(--pm-font-lineHeight-relaxed);
+    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+  }
+
+  /* Sizes */
+  .pm-prose--sm {
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-prose--md {
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-prose--lg {
+    font-size: var(--pm-font-size-lg);
+  }
+}

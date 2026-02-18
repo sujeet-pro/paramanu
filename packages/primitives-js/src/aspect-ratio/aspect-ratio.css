@@ -1,0 +1,38 @@
+@layer pm.components {
+  .pm-aspect-ratio {
+    position: relative;
+    overflow: hidden;
+
+    & > * {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &.pm-aspect-ratio--1-1 {
+      aspect-ratio: 1 / 1;
+    }
+
+    &.pm-aspect-ratio--4-3 {
+      aspect-ratio: 4 / 3;
+    }
+
+    &.pm-aspect-ratio--16-9 {
+      aspect-ratio: 16 / 9;
+    }
+
+    &.pm-aspect-ratio--21-9 {
+      aspect-ratio: 21 / 9;
+    }
+
+    &.pm-aspect-ratio--3-4 {
+      aspect-ratio: 3 / 4;
+    }
+
+    &.pm-aspect-ratio--9-16 {
+      aspect-ratio: 9 / 16;
+    }
+  }
+}

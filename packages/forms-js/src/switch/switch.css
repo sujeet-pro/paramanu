@@ -1,0 +1,121 @@
+@layer pm.components {
+  .pm-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pm-spacing-2);
+    cursor: pointer;
+    position: relative;
+
+    &.pm-switch--label-start {
+      flex-direction: row-reverse;
+    }
+
+    &.pm-switch--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .pm-switch__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+
+  .pm-switch__track {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: var(--pm-radius-full);
+    background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    transition-property: background-color;
+    transition-duration: var(--pm-transition-fast);
+    position: relative;
+  }
+
+  .pm-switch--sm .pm-switch__track {
+    width: 32px;
+    height: 18px;
+  }
+
+  .pm-switch--md .pm-switch__track {
+    width: 40px;
+    height: 22px;
+  }
+
+  .pm-switch--lg .pm-switch__track {
+    width: 48px;
+    height: 26px;
+  }
+
+  .pm-switch--checked .pm-switch__track {
+    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+  }
+
+  .pm-switch__thumb {
+    position: absolute;
+    border-radius: var(--pm-radius-full);
+    background-color: var(--pm-color-neutral-0);
+    box-shadow: var(--pm-shadow-sm);
+    transition-property: transform;
+    transition-duration: var(--pm-transition-fast);
+  }
+
+  .pm-switch--sm .pm-switch__thumb {
+    width: 14px;
+    height: 14px;
+    top: 2px;
+    left: 2px;
+  }
+
+  .pm-switch--md .pm-switch__thumb {
+    width: 18px;
+    height: 18px;
+    top: 2px;
+    left: 2px;
+  }
+
+  .pm-switch--lg .pm-switch__thumb {
+    width: 22px;
+    height: 22px;
+    top: 2px;
+    left: 2px;
+  }
+
+  .pm-switch--sm.pm-switch--checked .pm-switch__thumb {
+    transform: translateX(14px);
+  }
+
+  .pm-switch--md.pm-switch--checked .pm-switch__thumb {
+    transform: translateX(18px);
+  }
+
+  .pm-switch--lg.pm-switch--checked .pm-switch__thumb {
+    transform: translateX(22px);
+  }
+
+  .pm-switch__input:focus-visible + .pm-switch__track {
+    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline-offset: var(--pm-focus-ring-offset);
+  }
+
+  .pm-switch__label {
+    font-family: var(--pm-font-family-sans);
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    user-select: none;
+  }
+
+  .pm-switch--sm .pm-switch__label {
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-switch--md .pm-switch__label {
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-switch--lg .pm-switch__label {
+    font-size: var(--pm-font-size-lg);
+  }
+}

@@ -1,0 +1,57 @@
+@layer pm.components {
+  .pm-button-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+
+  .pm-button-group--horizontal {
+    flex-direction: row;
+    gap: var(--pm-spacing-2);
+  }
+
+  .pm-button-group--vertical {
+    flex-direction: column;
+    gap: var(--pm-spacing-2);
+  }
+
+  /* Attached: buttons share borders with no gap */
+  .pm-button-group--attached {
+    gap: 0;
+  }
+
+  .pm-button-group--attached > .pm-button {
+    border-radius: 0;
+  }
+
+  .pm-button-group--attached.pm-button-group--horizontal > .pm-button:first-child {
+    border-top-left-radius: var(--pm-radius-md);
+    border-bottom-left-radius: var(--pm-radius-md);
+  }
+
+  .pm-button-group--attached.pm-button-group--horizontal > .pm-button:last-child {
+    border-top-right-radius: var(--pm-radius-md);
+    border-bottom-right-radius: var(--pm-radius-md);
+  }
+
+  .pm-button-group--attached.pm-button-group--horizontal > .pm-button + .pm-button {
+    margin-left: -1px;
+  }
+
+  .pm-button-group--attached.pm-button-group--vertical > .pm-button:first-child {
+    border-top-left-radius: var(--pm-radius-md);
+    border-top-right-radius: var(--pm-radius-md);
+  }
+
+  .pm-button-group--attached.pm-button-group--vertical > .pm-button:last-child {
+    border-bottom-left-radius: var(--pm-radius-md);
+    border-bottom-right-radius: var(--pm-radius-md);
+  }
+
+  .pm-button-group--attached.pm-button-group--vertical > .pm-button + .pm-button {
+    margin-top: -1px;
+  }
+
+  .pm-button-group--attached > .pm-button:focus-visible {
+    z-index: 1;
+  }
+}

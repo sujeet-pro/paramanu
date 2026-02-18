@@ -1,0 +1,147 @@
+@layer pm.components {
+  .pm-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pm-spacing-1);
+    border: 1px solid transparent;
+    border-radius: var(--pm-radius-md);
+    font-family: var(--pm-font-family-sans);
+    font-weight: var(--pm-font-weight-medium);
+    line-height: var(--pm-font-lineHeight-tight);
+    white-space: nowrap;
+    vertical-align: middle;
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+
+    /* Sizes */
+    &.pm-tag--sm {
+      padding: var(--pm-spacing-0-5) var(--pm-spacing-2);
+      font-size: var(--pm-font-size-xs);
+    }
+
+    &.pm-tag--md {
+      padding: var(--pm-spacing-1) var(--pm-spacing-2);
+      font-size: var(--pm-font-size-sm);
+    }
+
+    &.pm-tag--lg {
+      padding: var(--pm-spacing-1) var(--pm-spacing-3);
+      font-size: var(--pm-font-size-md);
+    }
+
+    /* Filled variants */
+    &.pm-tag--filled {
+      &.pm-tag--primary {
+        background-color: light-dark(var(--pm-color-primary-100), var(--pm-color-primary-900));
+        color: light-dark(var(--pm-color-primary-800), var(--pm-color-primary-200));
+      }
+
+      &.pm-tag--neutral {
+        background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+        color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+      }
+
+      &.pm-tag--danger {
+        background-color: light-dark(var(--pm-color-danger-100), var(--pm-color-danger-900));
+        color: light-dark(var(--pm-color-danger-800), var(--pm-color-danger-200));
+      }
+
+      &.pm-tag--success {
+        background-color: light-dark(var(--pm-color-success-100), var(--pm-color-success-900));
+        color: light-dark(var(--pm-color-success-800), var(--pm-color-success-200));
+      }
+    }
+
+    /* Outline variants */
+    &.pm-tag--outline {
+      background-color: transparent;
+
+      &.pm-tag--primary {
+        border-color: light-dark(var(--pm-color-primary-300), var(--pm-color-primary-700));
+        color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+      }
+
+      &.pm-tag--neutral {
+        border-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+        color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+      }
+
+      &.pm-tag--danger {
+        border-color: light-dark(var(--pm-color-danger-300), var(--pm-color-danger-700));
+        color: light-dark(var(--pm-color-danger-700), var(--pm-color-danger-300));
+      }
+
+      &.pm-tag--success {
+        border-color: light-dark(var(--pm-color-success-300), var(--pm-color-success-700));
+        color: light-dark(var(--pm-color-success-700), var(--pm-color-success-300));
+      }
+    }
+
+    /* Subtle variants */
+    &.pm-tag--subtle {
+      background-color: transparent;
+      border-color: transparent;
+
+      &.pm-tag--primary {
+        color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+      }
+
+      &.pm-tag--neutral {
+        color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+      }
+
+      &.pm-tag--danger {
+        color: light-dark(var(--pm-color-danger-700), var(--pm-color-danger-300));
+      }
+
+      &.pm-tag--success {
+        color: light-dark(var(--pm-color-success-700), var(--pm-color-success-300));
+      }
+    }
+
+    /* Interactive */
+    &.pm-tag--interactive {
+      cursor: pointer;
+
+      &:hover:not(.pm-tag--disabled) {
+        filter: brightness(0.95);
+      }
+
+      &:focus-visible {
+        outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+        outline-offset: var(--pm-focus-ring-offset);
+      }
+    }
+
+    /* Disabled */
+    &.pm-tag--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .pm-tag__remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    border-radius: var(--pm-radius-full);
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity var(--pm-transition-fast) ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: var(--pm-focus-ring-offset);
+    }
+  }
+}

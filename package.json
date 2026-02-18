@@ -1,46 +1,25 @@
 {
   "name": "paramanu",
-  "version": "1.0.0",
-  "description": "A collection of low-level utilities",
-  "main": "index.js",
   "private": true,
   "type": "module",
   "engines": {
-    "node": "=18.17"
+    "node": ">=20",
+    "pnpm": ">=9"
   },
+  "packageManager": "pnpm@9.15.4",
   "scripts": {
-    "docs": "typedoc",
-    "test": "npm run test --workspaces --if-present",
-    "build": "npm run build --workspaces --if-present",
-    "build:ioc": "npm run build --workspace=packages/ioc",
-    "fix": "npm run lint:fix && npm run format:fix",
-    "check": "npm run lint:check && npm run format:check",
-    "lint:fix": "eslint --ext .js,.ts . --fix",
-    "lint:check": "eslint --ext .js,.ts .",
-    "format:fix": "prettier . --write --ignore-unknown",
-    "format:check": "prettier . --check --ignore-unknown"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "turbo run clean && rm -rf node_modules"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "workspaces": [
-    "packages/*"
-  ],
   "devDependencies": {
-    "@rollup/plugin-typescript": "^11.1.2",
-    "@types/jest": "^29.5.3",
-    "@types/node": "^20.5.1",
-    "@typescript-eslint/eslint-plugin": "^6.4.0",
-    "@typescript-eslint/parser": "^6.4.0",
-    "eslint": "^8.47.0",
-    "hygen": "^6.2.11",
-    "prettier": "^3.0.1",
-    "rimraf": "^5.0.1",
-    "rollup": "^3.28.0",
-    "ts-jest": "^29.1.1",
-    "tslib": "^2.6.1",
-    "typedoc": "^0.25.1",
-    "typescript": "^5.1.6"
+    "prettier": "^3.4.2",
+    "turbo": "^2.3.3"
   },
   "repository": {
     "type": "git",

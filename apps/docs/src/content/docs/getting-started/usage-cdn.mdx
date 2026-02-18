@@ -1,0 +1,58 @@
+---
+title: "Usage: CDN"
+description: Using Paramanu with human-readable CSS classes via CDN.
+---
+
+The CDN bundle provides human-readable BEM-like class names. No build step required.
+
+## Setup
+
+```html
+<link rel="stylesheet" href="paramanu.min.css">
+<script src="paramanu.min.js"></script>
+```
+
+## Button
+
+```html
+<button class="pm-button pm-button--primary pm-button--md">
+  Click me
+</button>
+```
+
+### Variants
+
+```html
+<button class="pm-button pm-button--primary pm-button--md">Primary</button>
+<button class="pm-button pm-button--secondary pm-button--md">Secondary</button>
+<button class="pm-button pm-button--danger pm-button--md">Danger</button>
+<button class="pm-button pm-button--ghost pm-button--md">Ghost</button>
+```
+
+### Sizes
+
+```html
+<button class="pm-button pm-button--primary pm-button--sm">Small</button>
+<button class="pm-button pm-button--primary pm-button--md">Medium</button>
+<button class="pm-button pm-button--primary pm-button--lg">Large</button>
+```
+
+### Disabled
+
+```html
+<button class="pm-button pm-button--primary pm-button--md pm-button--disabled"
+        disabled aria-disabled="true">
+  Disabled
+</button>
+```
+
+## Using the JS Helper
+
+The CDN bundle also exposes `window.Paramanu` with class builder functions:
+
+```html
+<script>
+  const classes = Paramanu.buttonClasses({ variant: 'danger', size: 'lg' })
+  // "pm-button pm-button--danger pm-button--lg"
+</script>
+```

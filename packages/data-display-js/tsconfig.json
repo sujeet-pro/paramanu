@@ -1,0 +1,8 @@
+{
+  "extends": "@paramanu/tsconfig/base.json",
+  "compilerOptions": {
+    "outDir": "dist/js",
+    "rootDir": "src"
+  },
+  "include": ["src"]
+}

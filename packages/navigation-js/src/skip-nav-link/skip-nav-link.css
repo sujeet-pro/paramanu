@@ -1,0 +1,24 @@
+@layer pm.components {
+  .pm-skip-nav-link {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    padding: var(--pm-spacing-2) var(--pm-spacing-4);
+    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    color: var(--pm-color-neutral-0);
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-md);
+    font-weight: var(--pm-font-weight-medium);
+    text-decoration: none;
+    border-radius: 0 0 var(--pm-radius-md) 0;
+    transform: translateY(-100%);
+    transition: transform var(--pm-transition-fast) ease-in-out;
+
+    &:focus-visible {
+      transform: translateY(0);
+      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline-offset: var(--pm-focus-ring-offset);
+    }
+  }
+}

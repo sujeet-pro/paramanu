@@ -1,0 +1,76 @@
+@layer pm.components {
+  .pm-back-to-top {
+    position: fixed;
+    z-index: 100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border-radius: var(--pm-radius-full);
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    font-family: var(--pm-font-family-sans);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition-property: opacity, visibility, background-color, border-color;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+  }
+
+  .pm-back-to-top:hover {
+    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+  }
+
+  .pm-back-to-top:active {
+    background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+  }
+
+  .pm-back-to-top:focus-visible {
+    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline-offset: var(--pm-focus-ring-offset);
+  }
+
+  /* Sizes */
+  .pm-back-to-top--sm {
+    width: 32px;
+    height: 32px;
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-back-to-top--md {
+    width: 40px;
+    height: 40px;
+    font-size: var(--pm-font-size-md);
+  }
+
+  .pm-back-to-top--lg {
+    width: 48px;
+    height: 48px;
+    font-size: var(--pm-font-size-lg);
+  }
+
+  /* Positions */
+  .pm-back-to-top--bottom-right {
+    bottom: var(--pm-spacing-6);
+    right: var(--pm-spacing-6);
+  }
+
+  .pm-back-to-top--bottom-left {
+    bottom: var(--pm-spacing-6);
+    left: var(--pm-spacing-6);
+  }
+
+  .pm-back-to-top--bottom-center {
+    bottom: var(--pm-spacing-6);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Visible state */
+  .pm-back-to-top--visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}

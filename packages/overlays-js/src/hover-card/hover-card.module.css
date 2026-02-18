@@ -1,0 +1,46 @@
+@layer pm.components {
+  .pm-hover-card {
+    position: absolute;
+    z-index: var(--pm-overlay-z, 1000);
+    min-width: 16rem;
+    max-width: 24rem;
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-radius: var(--pm-radius-md);
+    box-shadow: var(--pm-shadow-lg);
+    padding: var(--pm-spacing-4);
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-md);
+    opacity: 0;
+    transform: translateY(4px);
+    transition-property: opacity, transform;
+    transition-duration: var(--pm-transition-fast, 150ms);
+    transition-timing-function: ease-out;
+  }
+
+  .pm-hover-card[data-pm-presence="entering"],
+  .pm-hover-card[data-pm-presence="entered"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pm-hover-card[data-pm-presence="exiting"] {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pm-hover-card {
+      transition-duration: 0ms;
+    }
+  }
+
+  .pm-hover-card__arrow {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    transform: rotate(45deg);
+  }
+}

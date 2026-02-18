@@ -1,0 +1,19 @@
+@layer pm.components {
+  .pm-scroll-area {
+    scrollbar-width: thin;
+    scrollbar-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600)) transparent;
+  }
+
+  .pm-scroll-area:focus-visible {
+    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline-offset: var(--pm-focus-ring-offset);
+  }
+
+  .pm-scroll-area--vertical { overflow-x: hidden; overflow-y: auto; }
+  .pm-scroll-area--horizontal { overflow-x: auto; overflow-y: hidden; }
+  .pm-scroll-area--both { overflow: auto; }
+
+  .pm-scroll-area--scrollbar-always { overflow: scroll; }
+  .pm-scroll-area--scrollbar-hover { overflow: hidden; }
+  .pm-scroll-area--scrollbar-hover:hover { overflow: auto; }
+}

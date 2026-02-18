@@ -1,0 +1,71 @@
+{
+  "name": "@paramanu/typography-js",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/js/index.d.ts",
+      "import": "./dist/js/index.js"
+    },
+    "./css": "./dist/css/typography.css",
+    "./css/layers": "./dist/css/typography.layers.css",
+    "./modules/text/map": {
+      "types": "./dist/css/text.module.d.ts",
+      "import": "./dist/css/text.module.js"
+    },
+    "./modules/heading/map": {
+      "types": "./dist/css/heading.module.d.ts",
+      "import": "./dist/css/heading.module.js"
+    },
+    "./modules/blockquote/map": {
+      "types": "./dist/css/blockquote.module.d.ts",
+      "import": "./dist/css/blockquote.module.js"
+    },
+    "./modules/prose/map": {
+      "types": "./dist/css/prose.module.d.ts",
+      "import": "./dist/css/prose.module.js"
+    },
+    "./modules/code/map": {
+      "types": "./dist/css/code.module.d.ts",
+      "import": "./dist/css/code.module.js"
+    },
+    "./modules/kbd/map": {
+      "types": "./dist/css/kbd.module.d.ts",
+      "import": "./dist/css/kbd.module.js"
+    },
+    "./modules/highlight/map": {
+      "types": "./dist/css/highlight.module.d.ts",
+      "import": "./dist/css/highlight.module.js"
+    },
+    "./modules/mark/map": {
+      "types": "./dist/css/mark.module.d.ts",
+      "import": "./dist/css/mark.module.js"
+    },
+    "./modules/truncate/map": {
+      "types": "./dist/css/truncate.module.d.ts",
+      "import": "./dist/css/truncate.module.js"
+    },
+    "./modules/list/map": {
+      "types": "./dist/css/list.module.d.ts",
+      "import": "./dist/css/list.module.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsx css.build.ts && tsup",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@paramanu/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@paramanu/tsconfig": "workspace:*",
+    "lightningcss": "^1.28.0",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0",
+    "vitest": "^2.1.0",
+    "jsdom": "^25.0.0"
+  }
+}

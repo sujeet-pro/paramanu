@@ -1,0 +1,157 @@
+---
+title: Paramanu Design System
+description: The smallest building blocks for modern, accessible web interfaces — CSS-first, zero runtime, three ways to consume.
+template: splash
+hero:
+  tagline: The smallest building blocks for modern web interfaces. CSS-first, accessible by default, three ways to consume.
+  actions:
+    - text: Get Started
+      link: /getting-started/installation/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/sujeet-pro/paramanu
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, Tabs, TabItem, LinkCard } from "@astrojs/starlight/components"
+
+<div class="pm-landing">
+
+<section class="pm-section pm-meaning">
+
+## What does Paramanu mean?
+
+**Paramanu** (परमाणु) is a Sanskrit term meaning **atom** — the smallest, indivisible particle of matter. In the ancient Indian Vaisheshika school of philosophy, paramanu represented the fundamental building blocks from which all physical reality is composed.
+
+This design system carries the same idea: **the smallest, composable building blocks for crafting web interfaces**. Each token, style, and component is a paramanu — minimal, purposeful, and designed to combine into something greater.
+
+</section>
+
+<section class="pm-section">
+
+## Why Paramanu?
+
+<CardGrid>
+  <Card title="CSS-First, Zero Runtime" icon="seti:css">
+    Built entirely on CSS custom properties and `@layer` cascade ordering. No JavaScript is needed for styling — your buttons, inputs, and layouts work without a framework.
+  </Card>
+  <Card title="Three Consumption Modes" icon="puzzle">
+    Drop in via **CDN** with human-readable classes, use as **CSS Modules** in bundled apps for scoped styles, or import **React components** with full type safety.
+  </Card>
+  <Card title="Accessible by Default" icon="heart">
+    Every component ships WCAG 2.2 AA compliant. Focus-visible indicators, semantic HTML, `aria` attributes, and automated testing with axe-core — accessibility isn't an afterthought.
+  </Card>
+  <Card title="Modern CSS" icon="star">
+    CSS nesting, `light-dark()` for automatic dark mode, `@layer` for predictable cascade, container queries, and `@scope` — built for how CSS works today.
+  </Card>
+</CardGrid>
+
+</section>
+
+<section class="pm-section">
+
+## Three Ways to Use
+
+Choose the integration that fits your project:
+
+<Tabs syncKey="consumption-mode">
+  <TabItem label="CDN">
+    Link the stylesheet and start using classes immediately. No build tools needed.
+
+    ```html
+    <link rel="stylesheet" href="https://unpkg.com/@paramanu/cdn/dist/paramanu.css">
+
+    <button class="pm-button pm-button--primary pm-button--md">
+      Get Started
+    </button>
+    ```
+  </TabItem>
+  <TabItem label="CSS Modules">
+    Import as CSS Modules for scoped class names in bundled applications.
+
+    ```js
+    import classes from "@paramanu/buttons-js/modules/button/map"
+
+    const btn = document.createElement("button")
+    btn.className = classes["pm-button"] + " " + classes["pm-button--primary"]
+    btn.textContent = "Get Started"
+    ```
+  </TabItem>
+  <TabItem label="React">
+    Import typed React components with full prop autocompletion.
+
+    ```tsx
+    import { Button } from "@paramanu/buttons-react"
+
+    export default function App() {
+      return <Button variant="primary" size="md">Get Started</Button>
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+</section>
+
+<section class="pm-section">
+
+## Design Principles
+
+<CardGrid>
+  <Card title="Minimal by Design">
+    Every component does one thing well. No bloated bundles, no hidden dependencies, no surprise side effects. Ship only what you use.
+  </Card>
+  <Card title="Composable">
+    Tokens feed into components, components combine into patterns. Override any layer without fighting specificity wars.
+  </Card>
+  <Card title="Progressive Enhancement">
+    Starts with semantic HTML and CSS. Layer on JavaScript interactivity only when needed. Works without JS, shines with it.
+  </Card>
+  <Card title="Themeable">
+    Swap design tokens at the root level to re-skin everything. Built-in `light-dark()` support means dark mode with one CSS property.
+  </Card>
+</CardGrid>
+
+</section>
+
+<section class="pm-section pm-cta">
+
+## Start Building
+
+<CardGrid>
+  <LinkCard title="Installation" href="/getting-started/installation/" description="Set up Paramanu in your project in under a minute." />
+  <LinkCard title="Button Component" href="/components/button/" description="Explore the Button — variants, sizes, accessibility, and live editor." />
+  <LinkCard title="Design Tokens" href="/tokens/colors/" description="Colors, spacing, and typography tokens that power every component." />
+  <LinkCard title="React Storybook" href="/storybook/react/" description="Interactive component playground with all variants and states." />
+</CardGrid>
+
+</section>
+
+</div>
+
+<style>{`
+  .pm-landing {
+    max-width: 65rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .pm-section {
+    margin-bottom: 3rem;
+  }
+
+  .pm-meaning {
+    text-align: center;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pm-cta {
+    text-align: center;
+  }
+
+  .pm-cta h2 {
+    margin-bottom: 1.5rem;
+  }
+`}</style>

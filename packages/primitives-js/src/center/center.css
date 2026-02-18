@@ -1,0 +1,11 @@
+@layer pm.components {
+  .pm-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.pm-center--inline {
+      display: inline-flex;
+    }
+  }
+}
