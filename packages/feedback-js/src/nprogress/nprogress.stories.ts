@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { nprogressClasses } from "./nprogress.classes.js"
 import type { NProgressClassesOptions } from "./nprogress.types.js"
 
@@ -31,7 +31,7 @@ function createNProgress(args: NProgressArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/NProgress",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createNProgress(args as NProgressArgs),
   argTypes: {
     active: { control: "boolean" },
@@ -69,4 +69,16 @@ export const States: Story = {
     }
     return container
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActivePseudo: Story = {
+  parameters: { pseudo: { active: true } },
 }

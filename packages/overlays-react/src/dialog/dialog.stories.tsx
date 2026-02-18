@@ -1,12 +1,11 @@
-import { useState } from "react"
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, fn, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Dialog, DialogHeader, DialogBody, DialogFooter } from "./dialog.js"
 
 const meta = {
   title: "Overlays/Dialog",
   component: Dialog,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "full"] },
     centered: { control: "boolean" },
@@ -45,12 +44,32 @@ export const Centered: Story = {
   ),
 }
 
+export const Small: Story = {
+  args: { size: "sm", onClose: fn() },
+  render: (args) => (
+    <Dialog {...args}>
+      <DialogHeader>Small Dialog</DialogHeader>
+      <DialogBody>A compact dialog panel.</DialogBody>
+    </Dialog>
+  ),
+}
+
 export const Large: Story = {
   args: { size: "lg", onClose: fn() },
   render: (args) => (
     <Dialog {...args}>
       <DialogHeader>Large Dialog</DialogHeader>
       <DialogBody>A wider dialog panel.</DialogBody>
+    </Dialog>
+  ),
+}
+
+export const ExtraLarge: Story = {
+  args: { size: "xl", onClose: fn() },
+  render: (args) => (
+    <Dialog {...args}>
+      <DialogHeader>Extra Large Dialog</DialogHeader>
+      <DialogBody>An extra wide dialog panel.</DialogBody>
     </Dialog>
   ),
 }
@@ -77,4 +96,61 @@ export const ScrollInside: Story = {
       </DialogBody>
     </Dialog>
   ),
+}
+
+export const CloseButton: Story = {
+  args: { onClose: fn() },
+  render: (args) => (
+    <Dialog {...args}>
+      <DialogHeader>Dialog</DialogHeader>
+      <DialogBody>Content</DialogBody>
+      <DialogFooter>
+        <button type="button" onClick={args.onClose}>
+          Close
+        </button>
+      </DialogFooter>
+    </Dialog>
+  ),
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement)
+    const closeBtn = canvas.getByRole("button", { name: "Close" })
+    await userEvent.click(closeBtn)
+    await expect(args.onClose).toHaveBeenCalledTimes(1)
+  },
+}
+
+export const Accessibility: Story = {
+  args: { onClose: fn() },
+  render: (args) => (
+    <Dialog {...args}>
+      <DialogHeader>Dialog</DialogHeader>
+      <DialogBody>Content</DialogBody>
+    </Dialog>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+  },
+}
+
+export const Hover: Story = {
+  args: { onClose: fn() },
+  render: (args) => (
+    <Dialog {...args}>
+      <DialogHeader>Dialog</DialogHeader>
+      <DialogBody>Content</DialogBody>
+    </Dialog>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: { onClose: fn() },
+  render: (args) => (
+    <Dialog {...args}>
+      <DialogHeader>Dialog</DialogHeader>
+      <DialogBody>Content</DialogBody>
+    </Dialog>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
 }

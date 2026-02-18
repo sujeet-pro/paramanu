@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Prose } from "./prose.js"
 
 const meta = {
   title: "Typography/Prose",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Prose,
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },
@@ -64,4 +65,28 @@ export const TrimmedMargins: Story = {
 export const AsArticle: Story = {
   args: { as: "article" },
   render: (args) => <Prose {...args}>{sampleContent}</Prose>,
+}
+
+export const RenderTest: Story = {
+  render: () => (
+    <Prose>
+      <p>Test content</p>
+    </Prose>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText("Test content")).toBeInTheDocument()
+  },
+}
+
+export const SemanticHTML: Story = {
+  render: () => (
+    <Prose as="article">
+      <p>Article content</p>
+    </Prose>
+  ),
+  play: async ({ canvasElement }) => {
+    const article = canvasElement.querySelector("article")
+    await expect(article).toBeTruthy()
+  },
 }

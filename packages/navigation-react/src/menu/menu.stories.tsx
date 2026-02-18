@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Menu, MenuItem, MenuGroup, MenuGroupLabel, MenuSeparator } from "./menu.js"
 
 const meta = {
   title: "Navigation/Menu",
   component: Menu,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: {
       control: "select",
@@ -93,4 +93,70 @@ export const WithStates: Story = {
     const disabledItem = canvas.getByText("Disabled Item")
     await expect(disabledItem.closest("[aria-disabled]")).toBeTruthy()
   },
+}
+
+export const SelectItem: Story = {
+  render: () => {
+    const onSelect = fn()
+    return (
+      <Menu>
+        <MenuItem onClick={onSelect}>Clickable Item</MenuItem>
+        <MenuItem>Other Item</MenuItem>
+      </Menu>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const item = canvas.getByRole("menuitem", { name: "Clickable Item" })
+    await userEvent.click(item)
+  },
+}
+
+export const KeyboardNavigation: Story = {
+  render: () => (
+    <Menu>
+      <MenuItem>First</MenuItem>
+      <MenuItem>Second</MenuItem>
+      <MenuItem>Third</MenuItem>
+    </Menu>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const first = canvas.getByRole("menuitem", { name: "First" })
+    first.focus()
+    await expect(first).toHaveFocus()
+  },
+}
+
+export const Accessibility: Story = {
+  render: () => (
+    <Menu>
+      <MenuItem>Item 1</MenuItem>
+      <MenuItem>Item 2</MenuItem>
+    </Menu>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole("menu")).toBeInTheDocument()
+  },
+}
+
+export const Hover: Story = {
+  render: (args) => (
+    <Menu {...args}>
+      <MenuItem>Item 1</MenuItem>
+      <MenuItem>Item 2</MenuItem>
+    </Menu>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: (args) => (
+    <Menu {...args}>
+      <MenuItem>Item 1</MenuItem>
+      <MenuItem>Item 2</MenuItem>
+    </Menu>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
 }

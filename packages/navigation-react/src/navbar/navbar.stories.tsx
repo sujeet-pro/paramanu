@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Navbar, NavbarInner, NavbarSection, NavbarBrand, NavbarToggle } from "./navbar.js"
 
 const meta = {
   title: "Navigation/Navbar",
   component: Navbar,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: {
       control: "select",
@@ -123,4 +123,71 @@ export const WithToggle: Story = {
     const toggle = canvas.getByRole("button", { name: "Toggle navigation" })
     await expect(toggle).toBeInTheDocument()
   },
+}
+
+export const MobileToggle: Story = {
+  render: () => {
+    const onClick = fn()
+    return (
+      <Navbar>
+        <NavbarInner>
+          <NavbarSection align="start">
+            <NavbarBrand>Brand</NavbarBrand>
+          </NavbarSection>
+          <NavbarSection align="end">
+            <NavbarToggle aria-label="Toggle menu" onClick={onClick}>
+              Menu
+            </NavbarToggle>
+          </NavbarSection>
+        </NavbarInner>
+      </Navbar>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const toggle = canvas.getByRole("button", { name: "Toggle menu" })
+    await userEvent.click(toggle)
+  },
+}
+
+export const Accessibility: Story = {
+  render: () => (
+    <Navbar>
+      <NavbarInner>
+        <NavbarSection align="start">
+          <NavbarBrand>Brand</NavbarBrand>
+        </NavbarSection>
+      </NavbarInner>
+    </Navbar>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole("navigation")).toBeInTheDocument()
+  },
+}
+
+export const Hover: Story = {
+  render: (args) => (
+    <Navbar {...args}>
+      <NavbarInner>
+        <NavbarSection align="start">
+          <NavbarBrand>Brand</NavbarBrand>
+        </NavbarSection>
+      </NavbarInner>
+    </Navbar>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: (args) => (
+    <Navbar {...args}>
+      <NavbarInner>
+        <NavbarSection align="start">
+          <NavbarBrand>Brand</NavbarBrand>
+        </NavbarSection>
+      </NavbarInner>
+    </Navbar>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
 }

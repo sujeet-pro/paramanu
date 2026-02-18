@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { paginationClasses, paginationItemClasses } from "./pagination.classes.js"
 import type { PaginationClassesOptions } from "./pagination.types.js"
 
@@ -42,7 +42,7 @@ function createPagination(args: PaginationArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Pagination",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createPagination(args as PaginationArgs),
   argTypes: {
     size: {
@@ -75,4 +75,12 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: { size: "lg" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

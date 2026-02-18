@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { badgeClasses } from "./badge.classes.js"
 import type { BadgeClassesOptions } from "./badge.types.js"
 
@@ -20,7 +20,7 @@ function createBadge(args: BadgeArgs): HTMLSpanElement {
 
 const meta = {
   title: "Data Display/Badge",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createBadge(args as BadgeArgs),
   argTypes: {
     variant: { control: "select", options: ["filled", "outline", "subtle"] },
@@ -46,4 +46,15 @@ export const Outline: Story = { args: { variant: "outline", label: "Outline" } }
 export const Subtle: Story = { args: { variant: "subtle", label: "Subtle" } }
 export const Danger: Story = { args: { color: "danger", label: "Error" } }
 export const Success: Story = { args: { color: "success", label: "Active" } }
+export const Neutral: Story = { args: { color: "neutral", label: "Neutral" } }
 export const Pill: Story = { args: { pill: true, label: "99+" } }
+export const Small: Story = { args: { size: "sm", label: "SM" } }
+export const Large: Story = { args: { size: "lg", label: "LG" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

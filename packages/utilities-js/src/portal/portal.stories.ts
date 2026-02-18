@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 
 function createPortalDemo(): HTMLElement {
   const wrapper = document.createElement("div")
@@ -20,7 +20,7 @@ function createPortalDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/Portal",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
 } satisfies Meta
 
 export default meta

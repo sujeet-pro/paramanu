@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Bleed } from "./bleed.js"
 
 const meta = {
   title: "Primitives/Bleed",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Bleed,
   argTypes: {
     inline: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8"] },
@@ -57,4 +58,47 @@ export const BlockBleed: Story = {
       </Bleed>
     </div>
   ),
+}
+
+/** Bleed on inline-start side only. */
+export const InlineStartBleed: Story = {
+  args: { inlineStart: "4" },
+  render: Playground.render,
+}
+
+/** Bleed on inline-end side only. */
+export const InlineEndBleed: Story = {
+  args: { inlineEnd: "4" },
+  render: Playground.render,
+}
+
+/** Bleed on block-start side only. */
+export const BlockStartBleed: Story = {
+  args: { blockStart: "4" },
+  render: Playground.render,
+}
+
+/** Bleed on block-end side only. */
+export const BlockEndBleed: Story = {
+  args: { blockEnd: "4" },
+  render: Playground.render,
+}
+
+export const Hover: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const RenderTest: Story = {
+  args: { inline: "4" },
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-bleed")
+    await expect(el).toBeTruthy()
+  },
 }

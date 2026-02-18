@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { accordionClasses, accordionItemClasses, accordionTriggerClasses, accordionContentClasses, accordionIconClasses } from "./accordion.classes.js"
 import type { AccordionClassesOptions } from "./accordion.types.js"
 
@@ -54,7 +54,7 @@ function createAccordion(args: AccordionArgs): HTMLElement {
 
 const meta = {
   title: "Disclosure/Accordion",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createAccordion(args as AccordionArgs),
   argTypes: {
     variant: {
@@ -95,4 +95,43 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: { size: "lg" },
+}
+
+export const Default: Story = {
+  args: { variant: "default" },
+}
+
+export const Medium: Story = {
+  args: { size: "md" },
+}
+
+export const AllVariantsAndSizes: Story = {
+  render: () => {
+    const container = document.createElement("div")
+    container.style.display = "flex"
+    container.style.flexDirection = "column"
+    container.style.gap = "24px"
+
+    const variants = ["default", "bordered", "separated", "filled"] as const
+    for (const variant of variants) {
+      const label = document.createElement("p")
+      label.textContent = variant
+      label.style.fontWeight = "bold"
+      container.appendChild(label)
+      container.appendChild(createAccordion({ variant, size: "md" }))
+    }
+    return container
+  },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

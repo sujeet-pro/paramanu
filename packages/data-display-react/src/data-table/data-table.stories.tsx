@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect } from "storybook/test"
 import {
   DataTable,
   DataTableToolbar,
@@ -11,7 +12,7 @@ import {
 const meta = {
   title: "Data Display/Data Table",
   component: DataTable,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: { control: "select", options: ["simple", "striped"] },
     size: { control: "select", options: ["sm", "md", "lg"] },
@@ -33,7 +34,9 @@ export const Playground: Story = {
       <table>
         <thead>
           <DataTableRow>
-            <DataTableHeaderCell sortable sortDirection="asc">Name</DataTableHeaderCell>
+            <DataTableHeaderCell sortable sortDirection="asc">
+              Name
+            </DataTableHeaderCell>
             <DataTableHeaderCell>Email</DataTableHeaderCell>
             <DataTableHeaderCell align="end">Actions</DataTableHeaderCell>
           </DataTableRow>
@@ -68,8 +71,14 @@ export const Striped: Story = {
           </DataTableRow>
         </thead>
         <tbody>
-          <DataTableRow><DataTableCell>Alice</DataTableCell><DataTableCell>Engineer</DataTableCell></DataTableRow>
-          <DataTableRow><DataTableCell>Bob</DataTableCell><DataTableCell>Designer</DataTableCell></DataTableRow>
+          <DataTableRow>
+            <DataTableCell>Alice</DataTableCell>
+            <DataTableCell>Engineer</DataTableCell>
+          </DataTableRow>
+          <DataTableRow>
+            <DataTableCell>Bob</DataTableCell>
+            <DataTableCell>Designer</DataTableCell>
+          </DataTableRow>
         </tbody>
       </table>
     </DataTable>
@@ -87,10 +96,155 @@ export const Selectable: Story = {
           </DataTableRow>
         </thead>
         <tbody>
-          <DataTableRow><DataTableCell>Alice</DataTableCell></DataTableRow>
-          <DataTableRow><DataTableCell>Bob</DataTableCell></DataTableRow>
+          <DataTableRow>
+            <DataTableCell>Alice</DataTableCell>
+          </DataTableRow>
+          <DataTableRow>
+            <DataTableCell>Bob</DataTableCell>
+          </DataTableRow>
         </tbody>
       </table>
     </DataTable>
   ),
+}
+
+export const Bordered: Story = {
+  args: { bordered: true },
+  render: (args) => (
+    <DataTable {...args}>
+      <table>
+        <thead>
+          <DataTableRow>
+            <DataTableHeaderCell>Name</DataTableHeaderCell>
+            <DataTableHeaderCell>Role</DataTableHeaderCell>
+          </DataTableRow>
+        </thead>
+        <tbody>
+          <DataTableRow>
+            <DataTableCell>Alice</DataTableCell>
+            <DataTableCell>Engineer</DataTableCell>
+          </DataTableRow>
+        </tbody>
+      </table>
+    </DataTable>
+  ),
+}
+
+export const Small: Story = {
+  args: { size: "sm" },
+  render: (args) => (
+    <DataTable {...args}>
+      <table>
+        <thead>
+          <DataTableRow>
+            <DataTableHeaderCell>Name</DataTableHeaderCell>
+          </DataTableRow>
+        </thead>
+        <tbody>
+          <DataTableRow>
+            <DataTableCell>Alice</DataTableCell>
+          </DataTableRow>
+        </tbody>
+      </table>
+    </DataTable>
+  ),
+}
+
+export const Large: Story = {
+  args: { size: "lg" },
+  render: (args) => (
+    <DataTable {...args}>
+      <table>
+        <thead>
+          <DataTableRow>
+            <DataTableHeaderCell>Name</DataTableHeaderCell>
+          </DataTableRow>
+        </thead>
+        <tbody>
+          <DataTableRow>
+            <DataTableCell>Alice</DataTableCell>
+          </DataTableRow>
+        </tbody>
+      </table>
+    </DataTable>
+  ),
+}
+
+export const StickyHeader: Story = {
+  args: { stickyHeader: true },
+  render: (args) => (
+    <DataTable {...args}>
+      <table>
+        <thead>
+          <DataTableRow>
+            <DataTableHeaderCell>Name</DataTableHeaderCell>
+          </DataTableRow>
+        </thead>
+        <tbody>
+          <DataTableRow>
+            <DataTableCell>Alice</DataTableCell>
+          </DataTableRow>
+        </tbody>
+      </table>
+    </DataTable>
+  ),
+}
+
+export const Hover: Story = {
+  args: { hoverable: true },
+  parameters: { pseudo: { hover: true } },
+  render: (args) => (
+    <DataTable {...args}>
+      <table>
+        <thead>
+          <DataTableRow>
+            <DataTableHeaderCell>Name</DataTableHeaderCell>
+          </DataTableRow>
+        </thead>
+        <tbody>
+          <DataTableRow>
+            <DataTableCell>Hover</DataTableCell>
+          </DataTableRow>
+        </tbody>
+      </table>
+    </DataTable>
+  ),
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+  render: (args) => (
+    <DataTable {...args}>
+      <table>
+        <thead>
+          <DataTableRow>
+            <DataTableHeaderCell>Name</DataTableHeaderCell>
+          </DataTableRow>
+        </thead>
+        <tbody>
+          <DataTableRow>
+            <DataTableCell>Focus</DataTableCell>
+          </DataTableRow>
+        </tbody>
+      </table>
+    </DataTable>
+  ),
+}
+
+export const RenderTest: Story = {
+  render: () => (
+    <DataTable>
+      <table>
+        <tbody>
+          <DataTableRow>
+            <DataTableCell>Test</DataTableCell>
+          </DataTableRow>
+        </tbody>
+      </table>
+    </DataTable>
+  ),
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-data-table")
+    await expect(el).toBeTruthy()
+  },
 }

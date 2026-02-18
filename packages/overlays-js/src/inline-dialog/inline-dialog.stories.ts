@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { inlineDialogClasses, inlineDialogBodyClasses } from "./inline-dialog.classes.js"
 import type { InlineDialogClassesOptions } from "./inline-dialog.types.js"
 
@@ -26,7 +26,7 @@ function createInlineDialog(args: InlineDialogClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/InlineDialog",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createInlineDialog(args as InlineDialogClassesOptions),
   argTypes: {
     visible: { control: "boolean" },
@@ -39,3 +39,11 @@ type Story = StoryObj<InlineDialogClassesOptions>
 
 export const Playground: Story = {}
 export const Hidden: Story = { args: { visible: false } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

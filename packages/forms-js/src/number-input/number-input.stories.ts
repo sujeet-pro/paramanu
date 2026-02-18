@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { numberInputClasses } from "./number-input.classes.js"
 import { inputClasses } from "../input/input.classes.js"
 import type { NumberInputClassesOptions } from "./number-input.types.js"
@@ -61,7 +61,7 @@ function createNumberInput(args: NumberInputArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Number Input",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createNumberInput(args as NumberInputArgs),
   argTypes: {
     variant: {
@@ -97,6 +97,22 @@ export const Filled: Story = {
   args: { variant: "filled" },
 }
 
+export const Unstyled: Story = {
+  args: { variant: "unstyled" },
+}
+
+export const Small: Story = {
+  args: { size: "sm" },
+}
+
+export const Large: Story = {
+  args: { size: "lg" },
+}
+
+export const ExtraSmall: Story = {
+  args: { size: "xs" },
+}
+
 export const WithMinMax: Story = {
   args: { min: 0, max: 100, step: 5 },
 }
@@ -107,4 +123,16 @@ export const Disabled: Story = {
 
 export const Invalid: Story = {
   args: { invalid: true },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

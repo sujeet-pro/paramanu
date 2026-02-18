@@ -17,18 +17,24 @@
     "@paramanu/navigation-js": "workspace:*",
     "@paramanu/overlays-js": "workspace:*",
     "@paramanu/primitives-js": "workspace:*",
+    "@paramanu/tokens": "workspace:*",
     "@paramanu/typography-js": "workspace:*",
     "@paramanu/utilities-js": "workspace:*"
   },
   "devDependencies": {
     "@paramanu/tsconfig": "workspace:*",
-    "@storybook/addon-a11y": "^8.4.0",
-    "@storybook/addon-essentials": "^8.4.0",
-    "@storybook/addon-interactions": "^8.4.0",
-    "@storybook/html": "^8.4.0",
-    "@storybook/html-vite": "^8.4.0",
-    "@storybook/test": "^8.4.0",
-    "storybook": "^8.4.0",
-    "vite": "^6.0.0"
+    "@storybook/addon-a11y": "10.2.10",
+    "@storybook/addon-docs": "10.2.10",
+    "@storybook/addon-vitest": "10.2.10",
+    "@storybook/html-vite": "10.2.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "storybook": "10.2.10",
+    "storybook-addon-pseudo-states": "10.2.10",
+    "storybook-addon-tag-badges": "^3.0.6",
+    "vite": "^6.0.0",
+    "vitest": "^4.0.0",
+    "@vitest/browser": "^4.0.0",
+    "@vitest/browser-playwright": "^4.0.0"
   }
 }

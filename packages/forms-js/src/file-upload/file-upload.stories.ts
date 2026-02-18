@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { fileUploadClasses } from "./file-upload.classes.js"
 import type { FileUploadClassesOptions } from "./file-upload.types.js"
 
@@ -18,7 +18,7 @@ function createFileUpload(args: FileUploadArgs): HTMLElement {
 
 const meta = {
   title: "Forms/File Upload",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createFileUpload(args as FileUploadArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -32,3 +32,17 @@ type Story = StoryObj<FileUploadArgs>
 
 export const Playground: Story = {}
 export const Disabled: Story = { args: { disabled: true } }
+export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

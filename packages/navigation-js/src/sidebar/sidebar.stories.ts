@@ -1,5 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/html"
-import { sidebarClasses, sidebarSectionClasses, sidebarSectionLabelClasses, sidebarItemClasses } from "./sidebar.classes.js"
+import type { Meta, StoryObj } from "@storybook/html-vite"
+import {
+  sidebarClasses,
+  sidebarSectionClasses,
+  sidebarSectionLabelClasses,
+  sidebarItemClasses,
+} from "./sidebar.classes.js"
 import type { SidebarClassesOptions } from "./sidebar.types.js"
 
 interface SidebarArgs extends SidebarClassesOptions {}
@@ -41,7 +46,7 @@ function createSidebar(args: SidebarArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Sidebar",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createSidebar(args as SidebarArgs),
   argTypes: {
     width: {
@@ -80,4 +85,12 @@ export const Collapsed: Story = {
 
 export const RightPosition: Story = {
   args: { position: "right" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

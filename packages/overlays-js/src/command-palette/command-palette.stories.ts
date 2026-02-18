@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import {
   commandPaletteClasses,
   commandPaletteInputClasses,
@@ -73,7 +73,7 @@ function createEmptyPalette(): HTMLElement {
 
 const meta = {
   title: "Overlays/CommandPalette",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
 } satisfies Meta
 
 export default meta
@@ -85,4 +85,14 @@ export const Playground: Story = {
 
 export const Empty: Story = {
   render: () => createEmptyPalette(),
+}
+
+export const Hover: Story = {
+  render: () => createCommandPalette(),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: () => createCommandPalette(),
+  parameters: { pseudo: { focusVisible: true } },
 }

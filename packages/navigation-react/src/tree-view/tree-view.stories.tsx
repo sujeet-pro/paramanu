@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import {
   TreeView,
   TreeViewBranch,
@@ -12,7 +12,7 @@ import {
 const meta = {
   title: "Navigation/Tree View",
   component: TreeView,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: {
       control: "select",
@@ -108,4 +108,69 @@ export const WithSelection: Story = {
     await expect(canvas.getByRole("tree")).toBeInTheDocument()
     await expect(canvas.getByText("Selected Item")).toBeInTheDocument()
   },
+}
+
+export const ExpandCollapse: Story = {
+  render: () => {
+    const onClick = fn()
+    return (
+      <TreeView>
+        <TreeViewBranch expanded onClick={onClick}>
+          <TreeViewItemContent>
+            <TreeViewIndicator expanded />
+            Expandable
+          </TreeViewItemContent>
+          <TreeViewGroup>
+            <TreeViewItem>Child</TreeViewItem>
+          </TreeViewGroup>
+        </TreeViewBranch>
+      </TreeView>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const branch = canvas.getByText("Expandable")
+    await userEvent.click(branch)
+  },
+}
+
+export const Accessibility: Story = {
+  render: () => (
+    <TreeView>
+      <TreeViewBranch expanded>
+        <TreeViewItemContent>
+          <TreeViewIndicator expanded />
+          Folder
+        </TreeViewItemContent>
+        <TreeViewGroup>
+          <TreeViewItem>File</TreeViewItem>
+        </TreeViewGroup>
+      </TreeViewBranch>
+    </TreeView>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole("tree")).toBeInTheDocument()
+    await expect(canvas.getByRole("treeitem", { name: /Folder/i })).toBeInTheDocument()
+  },
+}
+
+export const Hover: Story = {
+  render: (args) => (
+    <TreeView {...args}>
+      <TreeViewItem>Item 1</TreeViewItem>
+      <TreeViewItem>Item 2</TreeViewItem>
+    </TreeView>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: (args) => (
+    <TreeView {...args}>
+      <TreeViewItem>Item 1</TreeViewItem>
+      <TreeViewItem>Item 2</TreeViewItem>
+    </TreeView>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
 }

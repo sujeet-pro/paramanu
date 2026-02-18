@@ -1,5 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/html"
-import { drawerClasses, drawerHeaderClasses, drawerBodyClasses, drawerFooterClasses } from "./drawer.classes.js"
+import type { Meta, StoryObj } from "@storybook/html-vite"
+import {
+  drawerClasses,
+  drawerHeaderClasses,
+  drawerBodyClasses,
+  drawerFooterClasses,
+} from "./drawer.classes.js"
 import type { DrawerClassesOptions } from "./drawer.types.js"
 
 function createDrawer(args: DrawerClassesOptions): HTMLElement {
@@ -32,7 +37,7 @@ function createDrawer(args: DrawerClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Drawer",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createDrawer(args as DrawerClassesOptions),
   argTypes: {
     placement: { control: "select", options: ["start", "end", "top", "bottom"] },
@@ -46,4 +51,15 @@ type Story = StoryObj<DrawerClassesOptions>
 
 export const Playground: Story = {}
 export const StartPlacement: Story = { args: { placement: "start" } }
+export const TopPlacement: Story = { args: { placement: "top" } }
+export const BottomPlacement: Story = { args: { placement: "bottom" } }
 export const Large: Story = { args: { size: "lg" } }
+export const Full: Story = { args: { size: "full" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

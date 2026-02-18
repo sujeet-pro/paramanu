@@ -1,21 +1,24 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, within } from "storybook/test"
 import { Label } from "./label.js"
 
 const meta = {
   title: "Forms/Label",
   component: Label,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
     disabled: { control: "boolean" },
     required: { control: "boolean" },
   },
-  args: { size: "md" },
+  args: {
+    size: "md",
+    onClick: fn(),
+  },
 } satisfies Meta<typeof Label>
 
 export default meta
-type Story = StoryObj<typeof Label>
+type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   args: { children: "Email address" },
@@ -30,6 +33,14 @@ export const Sizes: Story = {
       <Label size="lg">Large label</Label>
     </div>
   ),
+}
+
+export const Small: Story = {
+  args: { size: "sm", children: "Small label" },
+}
+
+export const Large: Story = {
+  args: { size: "lg", children: "Large label" },
 }
 
 export const Required: Story = {
@@ -47,4 +58,28 @@ export const Disabled: Story = {
 
 export const WithHtmlFor: Story = {
   args: { htmlFor: "email-input", children: "Email" },
+}
+
+export const Accessibility: Story = {
+  args: { htmlFor: "name-input", children: "Full name" },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const el = canvas.getByText("Full name")
+    await expect(el).toHaveAttribute("for", "name-input")
+  },
+}
+
+export const Hover: Story = {
+  args: { children: "Email address" },
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: { children: "Email address" },
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  args: { children: "Email address" },
+  parameters: { pseudo: { active: true } },
 }

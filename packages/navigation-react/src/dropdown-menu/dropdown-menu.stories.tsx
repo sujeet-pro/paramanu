@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from "./dropdown-menu.js"
 
 const meta = {
   title: "Navigation/Dropdown Menu",
   component: DropdownMenu,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: {
       control: "select",
@@ -85,6 +85,27 @@ export const Large: Story = {
   ),
 }
 
+export const TriggerClick: Story = {
+  render: () => {
+    const onClick = fn()
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger expanded={false} onClick={onClick}>
+          Menu
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <div>Content</div>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const trigger = canvas.getByRole("button", { name: "Menu" })
+    await userEvent.click(trigger)
+  },
+}
+
 export const TriggerAccessibility: Story = {
   render: () => (
     <DropdownMenu>
@@ -100,4 +121,29 @@ export const TriggerAccessibility: Story = {
     await expect(trigger).toHaveAttribute("aria-haspopup", "true")
     await expect(trigger).toHaveAttribute("aria-expanded", "false")
   },
+}
+
+export const Hover: Story = {
+  args: { open: true },
+  render: (args) => (
+    <DropdownMenu {...args}>
+      <DropdownMenuTrigger expanded>Options</DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <div>Item</div>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: () => (
+    <DropdownMenu>
+      <DropdownMenuTrigger>Options</DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <div>Item</div>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
 }

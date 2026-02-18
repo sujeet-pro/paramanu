@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { tagsInputClasses } from "./tags-input.classes.js"
 import type { TagsInputClassesOptions } from "./tags-input.types.js"
 
@@ -37,7 +37,7 @@ function createTagsInput(args: TagsInputArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Tags Input",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createTagsInput(args as TagsInputArgs),
   argTypes: {
     variant: {
@@ -71,8 +71,20 @@ export const Filled: Story = {
   args: { variant: "filled", tags: ["Tag 1"] },
 }
 
+export const Unstyled: Story = {
+  args: { variant: "unstyled", tags: ["Tag 1"] },
+}
+
 export const Small: Story = {
   args: { size: "sm", tags: ["Small"] },
+}
+
+export const Large: Story = {
+  args: { size: "lg", tags: ["Large"] },
+}
+
+export const ExtraSmall: Story = {
+  args: { size: "xs", tags: ["XS"] },
 }
 
 export const Disabled: Story = {
@@ -81,4 +93,16 @@ export const Disabled: Story = {
 
 export const Invalid: Story = {
   args: { invalid: true, tags: ["Invalid"] },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

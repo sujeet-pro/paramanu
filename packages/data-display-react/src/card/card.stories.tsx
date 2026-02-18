@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Card, CardHeader, CardBody, CardFooter, CardMedia } from "./card.js"
 
 const meta = {
   title: "Data Display/Card",
   component: Card,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: {
       control: "select",
@@ -133,4 +134,51 @@ export const FullWidth: Story = {
       <CardBody>Full width card stretches to fill its parent.</CardBody>
     </Card>
   ),
+}
+
+export const Hover: Story = {
+  args: { interactive: true },
+  parameters: { pseudo: { hover: true } },
+  render: (args) => (
+    <Card {...args}>
+      <CardBody>Hover state.</CardBody>
+    </Card>
+  ),
+}
+
+export const FocusVisible: Story = {
+  args: { interactive: true },
+  parameters: { pseudo: { focusVisible: true } },
+  render: (args) => (
+    <Card {...args}>
+      <CardBody>Focus state.</CardBody>
+    </Card>
+  ),
+}
+
+export const ClickInteraction: Story = {
+  args: { interactive: true, onClick: fn() },
+  render: (args) => (
+    <Card {...args}>
+      <CardBody>Click this card.</CardBody>
+    </Card>
+  ),
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement)
+    const card = canvasElement.querySelector(".pm-card")!
+    await userEvent.click(card)
+    await expect(args.onClick).toHaveBeenCalledTimes(1)
+  },
+}
+
+export const RenderTest: Story = {
+  render: () => (
+    <Card>
+      <CardBody>Test</CardBody>
+    </Card>
+  ),
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-card")
+    await expect(el).toBeTruthy()
+  },
 }

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { tableClasses } from "./table.classes.js"
 import type { TableClassesOptions } from "./table.types.js"
 
@@ -50,7 +50,7 @@ function createTable(args: TableArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Table",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createTable(args as TableArgs),
   argTypes: {
     variant: { control: "select", options: ["simple", "striped"] },
@@ -74,3 +74,15 @@ export const Striped: Story = { args: { variant: "striped" } }
 export const Bordered: Story = { args: { bordered: true } }
 export const Hoverable: Story = { args: { hoverable: true } }
 export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+export const FixedLayout: Story = { args: { layout: "fixed" } }
+export const StickyHeader: Story = { args: { stickyHeader: true } }
+
+export const Hover: Story = {
+  args: { hoverable: true },
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

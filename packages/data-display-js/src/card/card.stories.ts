@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { cardClasses } from "./card.classes.js"
 import type { CardClassesOptions } from "./card.types.js"
 
@@ -44,7 +44,7 @@ function createCard(args: CardArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Card",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createCard(args as CardArgs),
   argTypes: {
     variant: {
@@ -106,4 +106,18 @@ export const Interactive: Story = {
 
 export const FullWidth: Story = {
   args: { fullWidth: true },
+}
+
+export const Horizontal: Story = {
+  args: { horizontal: true },
+}
+
+export const Hover: Story = {
+  args: { interactive: true },
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: { interactive: true },
+  parameters: { pseudo: { focusVisible: true } },
 }

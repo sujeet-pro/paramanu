@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { dataGridClasses } from "./data-grid.classes.js"
 import type { DataGridClassesOptions } from "./data-grid.types.js"
 
@@ -40,7 +40,7 @@ function createDataGrid(args: DataGridClassesOptions): HTMLElement {
 
 const meta = {
   title: "Data Display/Data Grid",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createDataGrid(args as DataGridClassesOptions),
   argTypes: {
     size: { control: "select", options: ["sm", "md"] },
@@ -57,3 +57,15 @@ type Story = StoryObj<DataGridClassesOptions>
 export const Playground: Story = {}
 export const Bordered: Story = { args: { bordered: true } }
 export const Small: Story = { args: { size: "sm" } }
+export const Hoverable: Story = { args: { hoverable: true } }
+export const Resizable: Story = { args: { resizable: true } }
+export const StickyHeader: Story = { args: { stickyHeader: true } }
+
+export const Hover: Story = {
+  args: { hoverable: true },
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

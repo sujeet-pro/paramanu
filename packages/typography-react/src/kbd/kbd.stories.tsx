@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Kbd } from "./kbd.js"
 
 const meta = {
   title: "Typography/Kbd",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Kbd,
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -47,4 +48,35 @@ export const Outline: Story = {
 export const Subtle: Story = {
   args: { variant: "subtle" },
   render: (args) => <Kbd {...args}>Esc</Kbd>,
+}
+
+export const SizeXs: Story = {
+  args: { size: "xs" },
+  render: (args) => <Kbd {...args}>Tab</Kbd>,
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+  render: (args) => <Kbd {...args}>Shift</Kbd>,
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+  render: (args) => <Kbd {...args}>Alt</Kbd>,
+}
+
+export const RenderTest: Story = {
+  args: { children: "Test content" },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText("Test content")).toBeInTheDocument()
+  },
+}
+
+export const SemanticHTML: Story = {
+  render: () => <Kbd>Enter</Kbd>,
+  play: async ({ canvasElement }) => {
+    const kbd = canvasElement.querySelector("kbd")
+    await expect(kbd).toBeTruthy()
+  },
 }

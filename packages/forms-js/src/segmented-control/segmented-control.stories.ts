@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { segmentedControlClasses } from "./segmented-control.classes.js"
 import type { SegmentedControlClassesOptions } from "./segmented-control.types.js"
 
@@ -29,7 +29,7 @@ function createSegmentedControl(args: SegmentedControlArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Segmented Control",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createSegmentedControl(args as SegmentedControlArgs),
   argTypes: {
     size: {
@@ -57,6 +57,22 @@ export const Large: Story = {
   args: { size: "lg", items: ["All", "Active", "Completed"] },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs", items: ["A", "B"] },
+}
+
 export const FullWidth: Story = {
   args: { fullWidth: true, items: ["Tab 1", "Tab 2", "Tab 3"] },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

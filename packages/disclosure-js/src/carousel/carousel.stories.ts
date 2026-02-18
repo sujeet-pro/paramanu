@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { carouselClasses, carouselSlideClasses, carouselControlClasses, carouselIndicatorClasses } from "./carousel.classes.js"
 import type { CarouselClassesOptions } from "./carousel.types.js"
 
@@ -55,7 +55,7 @@ function createCarousel(args: CarouselArgs): HTMLElement {
 
 const meta = {
   title: "Disclosure/Carousel",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createCarousel(args as CarouselArgs),
   argTypes: {
     orientation: {
@@ -88,4 +88,20 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: { size: "lg" },
+}
+
+export const Medium: Story = {
+  args: { size: "md" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

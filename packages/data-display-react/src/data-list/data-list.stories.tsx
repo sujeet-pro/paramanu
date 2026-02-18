@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect } from "storybook/test"
 import { DataList, DataListItem, DataListTerm, DataListDetail } from "./data-list.js"
 
 const meta = {
   title: "Data Display/Data List",
   component: DataList,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     orientation: { control: "select", options: ["vertical", "horizontal"] },
     size: { control: "select", options: ["sm", "md", "lg"] },
@@ -65,4 +66,67 @@ export const WithDividers: Story = {
       </DataListItem>
     </DataList>
   ),
+}
+
+export const Small: Story = {
+  args: { size: "sm" },
+  render: (args) => (
+    <DataList {...args}>
+      <DataListItem>
+        <DataListTerm>Key</DataListTerm>
+        <DataListDetail>Value</DataListDetail>
+      </DataListItem>
+    </DataList>
+  ),
+}
+
+export const Large: Story = {
+  args: { size: "lg" },
+  render: (args) => (
+    <DataList {...args}>
+      <DataListItem>
+        <DataListTerm>Key</DataListTerm>
+        <DataListDetail>Value</DataListDetail>
+      </DataListItem>
+    </DataList>
+  ),
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+  render: (args) => (
+    <DataList {...args}>
+      <DataListItem>
+        <DataListTerm>Hover</DataListTerm>
+        <DataListDetail>State</DataListDetail>
+      </DataListItem>
+    </DataList>
+  ),
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+  render: (args) => (
+    <DataList {...args}>
+      <DataListItem>
+        <DataListTerm>Focus</DataListTerm>
+        <DataListDetail>State</DataListDetail>
+      </DataListItem>
+    </DataList>
+  ),
+}
+
+export const RenderTest: Story = {
+  render: () => (
+    <DataList>
+      <DataListItem>
+        <DataListTerm>Test</DataListTerm>
+        <DataListDetail>Value</DataListDetail>
+      </DataListItem>
+    </DataList>
+  ),
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-data-list")
+    await expect(el).toBeTruthy()
+  },
 }

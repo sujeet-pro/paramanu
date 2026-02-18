@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { skipNavClasses, skipNavTargetClasses } from "./skip-nav.classes.js"
 
 function createSkipNav(): HTMLElement {
@@ -29,7 +29,7 @@ function createSkipNav(): HTMLElement {
 
 const meta = {
   title: "Utilities/SkipNav",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
 } satisfies Meta
 
 export default meta

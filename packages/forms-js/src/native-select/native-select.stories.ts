@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { nativeSelectClasses } from "./native-select.classes.js"
 import type { NativeSelectClassesOptions } from "./native-select.types.js"
 
@@ -33,7 +33,7 @@ function createNativeSelect(args: NativeSelectArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Native Select",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createNativeSelect(args as NativeSelectArgs),
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
@@ -50,7 +50,22 @@ type Story = StoryObj<NativeSelectArgs>
 
 export const Playground: Story = {}
 export const Filled: Story = { args: { variant: "filled" } }
+export const Unstyled: Story = { args: { variant: "unstyled" } }
 export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+export const ExtraSmall: Story = { args: { size: "xs" } }
 export const Disabled: Story = { args: { disabled: true } }
 export const Invalid: Story = { args: { invalid: true } }
 export const FullWidth: Story = { args: { fullWidth: true } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

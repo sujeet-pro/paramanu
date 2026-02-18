@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { spinnerClasses } from "./spinner.classes.js"
 import type { SpinnerClassesOptions, SpinnerSize, SpinnerVariant } from "./spinner.types.js"
 
@@ -18,7 +18,7 @@ function createSpinner(args: SpinnerClassesOptions): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Spinner",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createSpinner(args as SpinnerClassesOptions),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl"] },
@@ -68,4 +68,16 @@ export const AllVariantsAndSizes: Story = {
     }
     return container
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

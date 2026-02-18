@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Link } from "./link.js"
 
 const meta = {
   title: "Navigation/Link",
   component: Link,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: {
       control: "select",
@@ -63,8 +63,32 @@ export const UnderlineAlways: Story = {
   args: { underline: "always", children: "Always Underlined", href: "#" },
 }
 
+export const UnderlineHover: Story = {
+  args: { underline: "hover", children: "Hover Underlined", href: "#" },
+}
+
 export const UnderlineNever: Story = {
   args: { underline: "never", children: "Never Underlined", href: "#" },
+}
+
+export const ClickHandler: Story = {
+  args: { children: "Clickable Link", href: "#", onClick: fn() },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement)
+    const link = canvas.getByRole("link", { name: "Clickable Link" })
+    await userEvent.click(link)
+    await expect(args.onClick).toHaveBeenCalledTimes(1)
+  },
+}
+
+export const KeyboardActivation: Story = {
+  args: { children: "Keyboard Link", href: "#", onClick: fn() },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const link = canvas.getByRole("link", { name: "Keyboard Link" })
+    link.focus()
+    await userEvent.keyboard("{Enter}")
+  },
 }
 
 export const ExternalAccessibility: Story = {
@@ -85,4 +109,12 @@ export const DisabledAccessibility: Story = {
     await expect(link).toHaveAttribute("aria-disabled", "true")
     await expect(link).toHaveAttribute("tabindex", "-1")
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

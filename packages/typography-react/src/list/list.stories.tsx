@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { List } from "./list.js"
 
 const meta = {
   title: "Typography/List",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: List,
   argTypes: {
     type: { control: "select", options: ["ordered", "unordered"] },
@@ -56,4 +57,60 @@ export const Unstyled: Story = {
 export const LowerRoman: Story = {
   args: { type: "ordered", styleType: "lower-roman" },
   render: (args) => <List {...args}>{items}</List>,
+}
+
+export const UpperRoman: Story = {
+  args: { type: "ordered", styleType: "upper-roman" },
+  render: (args) => <List {...args}>{items}</List>,
+}
+
+export const LowerAlpha: Story = {
+  args: { type: "ordered", styleType: "lower-alpha" },
+  render: (args) => <List {...args}>{items}</List>,
+}
+
+export const UpperAlpha: Story = {
+  args: { type: "ordered", styleType: "upper-alpha" },
+  render: (args) => <List {...args}>{items}</List>,
+}
+
+export const SmallSpacing: Story = {
+  args: { spacing: "sm" },
+  render: (args) => <List {...args}>{items}</List>,
+}
+
+export const RenderTest: Story = {
+  render: () => (
+    <List>
+      <li>Test content</li>
+    </List>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText("Test content")).toBeInTheDocument()
+  },
+}
+
+export const SemanticHTML: Story = {
+  render: () => (
+    <List>
+      <li>Item</li>
+    </List>
+  ),
+  play: async ({ canvasElement }) => {
+    const ul = canvasElement.querySelector("ul")
+    await expect(ul).toBeTruthy()
+  },
+}
+
+export const SemanticOrderedHTML: Story = {
+  render: () => (
+    <List type="ordered">
+      <li>Item</li>
+    </List>
+  ),
+  play: async ({ canvasElement }) => {
+    const ol = canvasElement.querySelector("ol")
+    await expect(ol).toBeTruthy()
+  },
 }

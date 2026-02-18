@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { progressBarClasses } from "./progress-bar.classes.js"
 import type { ProgressBarClassesOptions, ProgressBarVariant, ProgressBarSize } from "./progress-bar.types.js"
 
@@ -43,7 +43,7 @@ function createProgressBar(args: ProgressBarArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Progress Bar",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createProgressBar(args as ProgressBarArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -97,3 +97,18 @@ export const AllSizes: Story = {
 export const WithLabel: Story = { args: { showLabel: true, value: 65 } }
 export const Striped: Story = { args: { striped: true, value: 60 } }
 export const Indeterminate: Story = { args: { indeterminate: true } }
+export const StripedAnimated: Story = { args: { striped: true, animated: true, value: 60 } }
+export const Zero: Story = { args: { value: 0 } }
+export const Complete: Story = { args: { value: 100, variant: "success" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

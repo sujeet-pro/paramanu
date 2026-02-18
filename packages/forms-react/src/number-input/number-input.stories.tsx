@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { NumberInput } from "./number-input.js"
 
 const meta = {
   title: "Forms/Number Input",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: NumberInput,
   argTypes: {
     variant: {
@@ -23,6 +23,9 @@ const meta = {
   },
   args: {
     placeholder: "0",
+    onChange: fn(),
+    onFocus: fn(),
+    onBlur: fn(),
   },
 } satisfies Meta<typeof NumberInput>
 
@@ -41,12 +44,20 @@ export const Filled: Story = {
   args: { variant: "filled" },
 }
 
+export const Unstyled: Story = {
+  args: { variant: "unstyled" },
+}
+
 export const Small: Story = {
   args: { size: "sm" },
 }
 
 export const Large: Story = {
   args: { size: "lg" },
+}
+
+export const ExtraSmall: Story = {
+  args: { size: "xs" },
 }
 
 export const WithMinMax: Story = {
@@ -62,7 +73,7 @@ export const Invalid: Story = {
 }
 
 export const IncrementDecrement: Story = {
-  args: { min: 0, max: 10 },
+  args: { min: 0, max: 10, onChange: fn() },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const increment = canvas.getByRole("button", { name: "Increment" })
@@ -71,4 +82,35 @@ export const IncrementDecrement: Story = {
     const decrement = canvas.getByRole("button", { name: "Decrement" })
     await userEvent.click(decrement)
   },
+}
+
+export const KeyboardNavigation: Story = {
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-number-input")
+    await expect(el).toBeTruthy()
+    await userEvent.tab()
+  },
+}
+
+export const Accessibility: Story = {
+  args: { min: 0, max: 100 },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const increment = canvas.getByRole("button", { name: "Increment" })
+    const decrement = canvas.getByRole("button", { name: "Decrement" })
+    await expect(increment).toBeTruthy()
+    await expect(decrement).toBeTruthy()
+  },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

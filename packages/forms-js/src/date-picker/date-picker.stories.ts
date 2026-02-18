@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { datePickerClasses } from "./date-picker.classes.js"
 import type { DatePickerClassesOptions } from "./date-picker.types.js"
 
@@ -30,7 +30,7 @@ function createDatePicker(args: DatePickerArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Date Picker",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createDatePicker(args as DatePickerArgs),
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
@@ -51,3 +51,18 @@ export const Open: Story = { args: { open: true } }
 export const Disabled: Story = { args: { disabled: true } }
 export const Invalid: Story = { args: { invalid: true } }
 export const Filled: Story = { args: { variant: "filled" } }
+export const Unstyled: Story = { args: { variant: "unstyled" } }
+export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

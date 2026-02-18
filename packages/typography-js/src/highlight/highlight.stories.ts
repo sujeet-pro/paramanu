@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { highlightClasses } from "./highlight.classes.js"
 import type { HighlightClassesOptions } from "./highlight.types.js"
 
@@ -11,7 +11,7 @@ function createHighlight(args: HighlightClassesOptions): HTMLElement {
 
 const meta = {
   title: "Typography/Highlight",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createHighlight(args as HighlightClassesOptions),
   argTypes: {
     color: { control: "select", options: ["primary", "danger", "success", "warning", "info", "neutral"] },
@@ -24,7 +24,20 @@ export default meta
 type Story = StoryObj<HighlightClassesOptions>
 
 export const Playground: Story = {}
+export const ColorPrimary: Story = { args: { color: "primary" } }
 export const Danger: Story = { args: { color: "danger" } }
 export const Success: Story = { args: { color: "success" } }
+export const Warning: Story = { args: { color: "warning" } }
+export const Info: Story = { args: { color: "info" } }
+export const Neutral: Story = { args: { color: "neutral" } }
+export const Filled: Story = { args: { variant: "filled" } }
 export const Outline: Story = { args: { variant: "outline" } }
 export const TextVariant: Story = { args: { variant: "text", color: "danger" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { calendarClasses } from "./calendar.classes.js"
 import type { CalendarClassesOptions } from "./calendar.types.js"
 
@@ -15,7 +15,7 @@ function createCalendar(args: CalendarArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Calendar",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createCalendar(args as CalendarArgs),
   argTypes: { size: { control: "select", options: ["xs", "sm", "md", "lg"] } },
   args: { size: "md" },
@@ -25,5 +25,18 @@ export default meta
 type Story = StoryObj<CalendarArgs>
 
 export const Playground: Story = {}
+export const ExtraSmall: Story = { args: { size: "xs" } }
 export const Small: Story = { args: { size: "sm" } }
 export const Large: Story = { args: { size: "lg" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

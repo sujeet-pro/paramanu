@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 
 function createFocusTrapDemo(): HTMLElement {
   const wrapper = document.createElement("div")
@@ -31,7 +31,7 @@ function createFocusTrapDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/FocusTrap",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
 } satisfies Meta
 
 export default meta

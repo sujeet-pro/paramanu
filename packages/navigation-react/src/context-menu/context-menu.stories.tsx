@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { ContextMenu } from "./context-menu.js"
 
 const meta = {
   title: "Navigation/Context Menu",
   component: ContextMenu,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: {
       control: "select",
@@ -73,4 +73,83 @@ export const Closed: Story = {
     const canvas = within(canvasElement)
     await expect(canvas.getByRole("menu")).toBeInTheDocument()
   },
+}
+
+export const SelectItem: Story = {
+  args: { open: true },
+  render: (args) => {
+    const onSelect = fn()
+    return (
+      <ContextMenu {...args}>
+        <div role="menuitem" onClick={onSelect}>
+          Cut
+        </div>
+        <div role="menuitem">Copy</div>
+      </ContextMenu>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const item = canvas.getByRole("menuitem", { name: "Cut" })
+    await userEvent.click(item)
+  },
+}
+
+export const KeyboardNavigation: Story = {
+  args: { open: true },
+  render: (args) => (
+    <ContextMenu {...args}>
+      <div role="menuitem" tabIndex={0}>
+        Cut
+      </div>
+      <div role="menuitem" tabIndex={0}>
+        Copy
+      </div>
+      <div role="menuitem" tabIndex={0}>
+        Paste
+      </div>
+    </ContextMenu>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const firstItem = canvas.getByRole("menuitem", { name: "Cut" })
+    firstItem.focus()
+    await expect(firstItem).toHaveFocus()
+  },
+}
+
+export const Accessibility: Story = {
+  args: { open: true },
+  render: (args) => (
+    <ContextMenu {...args}>
+      <div role="menuitem">Cut</div>
+      <div role="menuitem">Copy</div>
+    </ContextMenu>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole("menu")).toBeInTheDocument()
+  },
+}
+
+export const Hover: Story = {
+  args: { open: true },
+  render: (args) => (
+    <ContextMenu {...args}>
+      <div role="menuitem">Cut</div>
+      <div role="menuitem">Copy</div>
+    </ContextMenu>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: { open: true },
+  render: (args) => (
+    <ContextMenu {...args}>
+      <div role="menuitem">Cut</div>
+      <div role="menuitem">Copy</div>
+    </ContextMenu>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
 }

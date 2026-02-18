@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect } from "storybook/test"
 import { Embed } from "./embed.js"
 
 const meta = {
   title: "Data Display/Embed",
   component: Embed,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     ratio: { control: "select", options: ["1/1", "4/3", "16/9", "21/9"] },
     fullWidth: { control: "boolean" },
@@ -33,4 +34,22 @@ export const UltraWide: Story = {
 
 export const FullWidth: Story = {
   args: { fullWidth: true, src: "https://www.example.com", title: "Full width embed" },
+}
+
+export const Hover: Story = {
+  args: { src: "https://www.example.com", title: "Hover embed" },
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: { src: "https://www.example.com", title: "Focus embed" },
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const RenderTest: Story = {
+  args: { src: "https://www.example.com", title: "Test embed" },
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-embed")
+    await expect(el).toBeTruthy()
+  },
 }

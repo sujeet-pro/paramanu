@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { proseClasses } from "./prose.classes.js"
 import type { ProseClassesOptions } from "./prose.types.js"
 
@@ -16,7 +16,7 @@ function createProse(args: ProseClassesOptions): HTMLElement {
 
 const meta = {
   title: "Typography/Prose",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createProse(args as ProseClassesOptions),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },

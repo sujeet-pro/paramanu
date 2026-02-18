@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { notificationClasses } from "./notification.classes.js"
 import type { NotificationClassesOptions, NotificationVariant } from "./notification.types.js"
 
@@ -55,7 +55,7 @@ function createNotification(args: NotificationArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Notification",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createNotification(args as NotificationArgs),
   argTypes: {
     variant: { control: "select", options: ["info", "success", "warning", "danger", "neutral"] },
@@ -94,3 +94,20 @@ export const AllVariants: Story = {
 
 export const Unread: Story = { args: { unread: true } }
 export const Dismissible: Story = { args: { dismissible: true } }
+
+export const Info: Story = { args: { variant: "info", title: "Info" } }
+export const Success: Story = { args: { variant: "success", title: "Success" } }
+export const Warning: Story = { args: { variant: "warning", title: "Warning" } }
+export const Danger: Story = { args: { variant: "danger", title: "Danger" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

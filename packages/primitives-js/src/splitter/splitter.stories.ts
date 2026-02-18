@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { splitterClasses, splitterPanelClasses, splitterHandleClasses } from "./splitter.classes.js"
 import type { SplitterClassesOptions } from "./splitter.types.js"
 
@@ -31,7 +31,7 @@ function createSplitter(args: SplitterClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Splitter",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createSplitter(args as SplitterClassesOptions),
   argTypes: {
     orientation: { control: "select", options: ["horizontal", "vertical"] },
@@ -44,5 +44,14 @@ export default meta
 type Story = StoryObj<SplitterClassesOptions>
 
 export const Playground: Story = {}
+export const Horizontal: Story = { args: { orientation: "horizontal" } }
 export const Vertical: Story = { args: { orientation: "vertical" } }
 export const Disabled: Story = { args: { disabled: true } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

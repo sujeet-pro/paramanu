@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { passwordInputClasses } from "./password-input.classes.js"
 import { inputClasses } from "../input/input.classes.js"
 import type { PasswordInputClassesOptions } from "./password-input.types.js"
@@ -46,7 +46,7 @@ function createPasswordInput(args: PasswordInputArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Password Input",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createPasswordInput(args as PasswordInputArgs),
   argTypes: {
     variant: {
@@ -82,6 +82,10 @@ export const Filled: Story = {
   args: { variant: "filled", placeholder: "Filled password" },
 }
 
+export const Unstyled: Story = {
+  args: { variant: "unstyled", placeholder: "Unstyled password" },
+}
+
 export const Small: Story = {
   args: { size: "sm", placeholder: "Small password" },
 }
@@ -90,10 +94,30 @@ export const Large: Story = {
   args: { size: "lg", placeholder: "Large password" },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs", placeholder: "Extra small password" },
+}
+
 export const Disabled: Story = {
   args: { disabled: true, placeholder: "Disabled password" },
 }
 
 export const Invalid: Story = {
   args: { invalid: true, placeholder: "Invalid password" },
+}
+
+export const FullWidth: Story = {
+  args: { fullWidth: true, placeholder: "Full width password" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

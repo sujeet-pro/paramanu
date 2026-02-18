@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { iconButtonClasses } from "./icon-button.classes.js"
 import type { IconButtonClassesOptions, IconButtonVariant, IconButtonSize } from "./icon-button.types.js"
 
@@ -54,7 +54,7 @@ function createIconButton(args: IconButtonArgs): HTMLButtonElement {
 
 const meta = {
   title: "Buttons/Icon Button",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createIconButton(args as IconButtonArgs),
   argTypes: {
     variant: {
@@ -148,4 +148,36 @@ export const Disabled: Story = {
 
 export const Loading: Story = {
   args: { loading: true, ariaLabel: "Loading" },
+}
+
+export const Active: Story = {
+  args: { active: true, ariaLabel: "Active" },
+}
+
+export const Danger: Story = {
+  args: { variant: "danger", ariaLabel: "Delete" },
+}
+
+export const Outline: Story = {
+  args: { variant: "outline", ariaLabel: "Search" },
+}
+
+export const SquareShape: Story = {
+  args: { shape: "square", ariaLabel: "Search" },
+}
+
+export const CircleShape: Story = {
+  args: { shape: "circle", ariaLabel: "Search" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActivePseudo: Story = {
+  parameters: { pseudo: { active: true } },
 }

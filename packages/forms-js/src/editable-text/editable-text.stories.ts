@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { editableTextClasses } from "./editable-text.classes.js"
 import type { EditableTextClassesOptions } from "./editable-text.types.js"
 
@@ -32,7 +32,7 @@ function createEditableText(args: EditableTextArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Editable Text",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createEditableText(args as EditableTextArgs),
   argTypes: {
     size: {
@@ -58,6 +58,10 @@ export const Editing: Story = {
   args: { editing: true, text: "Editing mode" },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs", text: "Extra small editable" },
+}
+
 export const Small: Story = {
   args: { size: "sm", text: "Small editable" },
 }
@@ -68,4 +72,16 @@ export const Large: Story = {
 
 export const Disabled: Story = {
   args: { disabled: true, text: "Cannot edit" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

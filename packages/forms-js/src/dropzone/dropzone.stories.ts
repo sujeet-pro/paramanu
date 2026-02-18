@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { dropzoneClasses } from "./dropzone.classes.js"
 import type { DropzoneClassesOptions } from "./dropzone.types.js"
 
@@ -16,7 +16,7 @@ function createDropzone(args: DropzoneArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Dropzone",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createDropzone(args as DropzoneArgs),
   argTypes: {
     disabled: { control: "boolean" },
@@ -30,3 +30,15 @@ type Story = StoryObj<DropzoneArgs>
 export const Playground: Story = {}
 export const Dragging: Story = { args: { dragging: true } }
 export const Disabled: Story = { args: { disabled: true } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

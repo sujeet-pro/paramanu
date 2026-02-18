@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Mentions } from "./mentions.js"
 
 const meta = {
   title: "Forms/Mentions",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Mentions,
   argTypes: {
     variant: {
@@ -17,7 +18,11 @@ const meta = {
     disabled: { control: "boolean" },
     invalid: { control: "boolean" },
   },
-  args: {},
+  args: {
+    onChange: fn(),
+    onFocus: fn(),
+    onBlur: fn(),
+  },
 } satisfies Meta<typeof Mentions>
 
 export default meta
@@ -61,6 +66,19 @@ export const Filled: Story = {
   },
 }
 
+export const Unstyled: Story = {
+  args: {
+    variant: "unstyled",
+    children: (
+      <textarea
+        className="pm-input pm-input--unstyled pm-input--md"
+        placeholder="Unstyled mentions..."
+        rows={3}
+      />
+    ),
+  },
+}
+
 export const Small: Story = {
   args: {
     size: "sm",
@@ -68,6 +86,19 @@ export const Small: Story = {
       <textarea
         className="pm-input pm-input--outline pm-input--sm"
         placeholder="Small mentions..."
+        rows={3}
+      />
+    ),
+  },
+}
+
+export const Large: Story = {
+  args: {
+    size: "lg",
+    children: (
+      <textarea
+        className="pm-input pm-input--outline pm-input--lg"
+        placeholder="Large mentions..."
         rows={3}
       />
     ),
@@ -99,4 +130,98 @@ export const Invalid: Story = {
       />
     ),
   },
+}
+
+export const TypeInteraction: Story = {
+  args: {
+    children: (
+      <textarea
+        className="pm-input pm-input--outline pm-input--md"
+        placeholder="Type @ to mention..."
+        rows={3}
+      />
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const textarea = canvas.getByPlaceholderText("Type @ to mention...")
+    await userEvent.type(textarea, "@john hello")
+    await expect(textarea).toHaveValue("@john hello")
+  },
+}
+
+export const KeyboardInteraction: Story = {
+  args: {
+    children: (
+      <textarea
+        className="pm-input pm-input--outline pm-input--md"
+        placeholder="Tab to focus..."
+        rows={3}
+      />
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const textarea = canvas.getByPlaceholderText("Tab to focus...")
+    await userEvent.tab()
+    await expect(textarea).toHaveFocus()
+  },
+}
+
+export const Accessibility: Story = {
+  args: {
+    "aria-label": "Mention teammates",
+    children: (
+      <textarea
+        className="pm-input pm-input--outline pm-input--md"
+        placeholder="Type @ to mention..."
+        rows={3}
+        aria-label="Mention teammates"
+      />
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const el = canvas.getByRole("textbox", { name: "Mention teammates" })
+    await expect(el).toBeInTheDocument()
+  },
+}
+
+export const Hover: Story = {
+  args: {
+    children: (
+      <textarea
+        className="pm-input pm-input--outline pm-input--md"
+        placeholder="Type @ to mention someone..."
+        rows={3}
+      />
+    ),
+  },
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: {
+    children: (
+      <textarea
+        className="pm-input pm-input--outline pm-input--md"
+        placeholder="Type @ to mention someone..."
+        rows={3}
+      />
+    ),
+  },
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  args: {
+    children: (
+      <textarea
+        className="pm-input pm-input--outline pm-input--md"
+        placeholder="Type @ to mention someone..."
+        rows={3}
+      />
+    ),
+  },
+  parameters: { pseudo: { active: true } },
 }

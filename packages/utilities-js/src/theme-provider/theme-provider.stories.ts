@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { themeProviderClasses } from "./theme-provider.classes.js"
 
 function createThemeProviderDemo(): HTMLElement {
@@ -23,7 +23,7 @@ function createThemeProviderDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/ThemeProvider",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
 } satisfies Meta
 
 export default meta

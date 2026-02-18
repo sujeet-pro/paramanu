@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { showHideClasses } from "./show-hide.classes.js"
 import type { ShowHideClassesOptions } from "./show-hide.types.js"
 
@@ -17,7 +17,7 @@ function createShowHide(args: ShowHideClassesOptions): HTMLElement {
 
 const meta = {
   title: "Utilities/ShowHide",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createShowHide(args as ShowHideClassesOptions),
   argTypes: {
     display: { control: "select", options: ["show", "hide"] },

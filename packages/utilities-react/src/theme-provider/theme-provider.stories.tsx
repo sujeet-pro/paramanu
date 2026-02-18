@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { ThemeProvider, useTheme } from "./theme-provider.js"
 
 function ThemeDisplay() {
@@ -22,7 +23,7 @@ function ThemeDisplay() {
 const meta = {
   title: "Utilities/ThemeProvider",
   component: ThemeProvider,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     defaultMode: {
       control: "select",
@@ -42,4 +43,23 @@ export const Playground: Story = {}
 
 export const DarkDefault: Story = {
   args: { defaultMode: "dark" },
+}
+
+export const LightDefault: Story = {
+  args: { defaultMode: "light" },
+}
+
+export const SystemDefault: Story = {
+  args: { defaultMode: "system" },
+}
+
+export const RenderTest: Story = {
+  args: {
+    defaultMode: "light",
+    children: <div>Test content</div>,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText("Test content")).toBeInTheDocument()
+  },
 }

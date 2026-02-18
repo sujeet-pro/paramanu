@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { collapsibleClasses, collapsibleTriggerClasses, collapsibleContentClasses } from "./collapsible.classes.js"
 import type { CollapsibleClassesOptions } from "./collapsible.types.js"
 
@@ -36,7 +36,7 @@ function createCollapsible(args: CollapsibleArgs): HTMLElement {
 
 const meta = {
   title: "Disclosure/Collapsible",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createCollapsible(args as CollapsibleArgs),
   argTypes: {
     open: { control: "boolean" },
@@ -72,4 +72,16 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: { size: "lg", open: true },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { emptyStateClasses } from "./empty-state.classes.js"
 import type { EmptyStateClassesOptions } from "./empty-state.types.js"
 
@@ -26,7 +26,7 @@ function createEmptyState(args: EmptyStateClassesOptions): HTMLElement {
 
 const meta = {
   title: "Data Display/Empty State",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createEmptyState(args as EmptyStateClassesOptions),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },
@@ -41,3 +41,12 @@ type Story = StoryObj<EmptyStateClassesOptions>
 export const Playground: Story = {}
 export const Bordered: Story = { args: { bordered: true } }
 export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

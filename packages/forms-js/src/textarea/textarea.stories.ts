@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { textareaClasses } from "./textarea.classes.js"
 import type { TextareaClassesOptions } from "./textarea.types.js"
 
@@ -31,7 +31,7 @@ function createTextarea(args: TextareaArgs): HTMLTextAreaElement {
 
 const meta = {
   title: "Forms/Textarea",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createTextarea(args as TextareaArgs),
   argTypes: {
     variant: {
@@ -50,6 +50,7 @@ const meta = {
     invalid: { control: "boolean" },
     readOnly: { control: "boolean" },
     fullWidth: { control: "boolean" },
+    autosize: { control: "boolean" },
     placeholder: { control: "text" },
     rows: { control: "number" },
   },
@@ -74,12 +75,20 @@ export const Filled: Story = {
   args: { variant: "filled", placeholder: "Filled textarea" },
 }
 
+export const Unstyled: Story = {
+  args: { variant: "unstyled", placeholder: "Unstyled textarea" },
+}
+
 export const Small: Story = {
   args: { size: "sm", placeholder: "Small textarea" },
 }
 
 export const Large: Story = {
   args: { size: "lg", placeholder: "Large textarea" },
+}
+
+export const ExtraSmall: Story = {
+  args: { size: "xs", placeholder: "Extra small textarea" },
 }
 
 export const Disabled: Story = {
@@ -90,6 +99,34 @@ export const Invalid: Story = {
   args: { invalid: true, placeholder: "Invalid textarea" },
 }
 
+export const ReadOnly: Story = {
+  args: { readOnly: true, placeholder: "Read-only textarea" },
+}
+
+export const FullWidth: Story = {
+  args: { fullWidth: true, placeholder: "Full width textarea" },
+}
+
 export const NoResize: Story = {
   args: { resize: "none", placeholder: "Cannot resize" },
+}
+
+export const HorizontalResize: Story = {
+  args: { resize: "horizontal", placeholder: "Horizontal resize" },
+}
+
+export const BothResize: Story = {
+  args: { resize: "both", placeholder: "Both directions resize" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

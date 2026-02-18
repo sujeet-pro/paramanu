@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Radio, RadioGroup } from "./radio.js"
 
 const meta = {
   title: "Forms/Radio",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Radio,
   argTypes: {
     size: {
@@ -19,6 +19,9 @@ const meta = {
     children: "Option",
     name: "demo",
     value: "1",
+    onChange: fn(),
+    onFocus: fn(),
+    onBlur: fn(),
   },
 } satisfies Meta<typeof Radio>
 
@@ -39,6 +42,10 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: { size: "lg", children: "Large radio" },
+}
+
+export const ExtraSmall: Story = {
+  args: { size: "xs", children: "Extra small radio" },
 }
 
 export const Disabled: Story = {
@@ -82,4 +89,46 @@ export const ClickToSelect: Story = {
     await userEvent.click(radios[1])
     await expect(radios[1]).toBeChecked()
   },
+}
+
+export const KeyboardNavigation: Story = {
+  render: () => (
+    <RadioGroup name="kbd-test">
+      <Radio name="kbd-test" value="a">Option A</Radio>
+      <Radio name="kbd-test" value="b">Option B</Radio>
+    </RadioGroup>
+  ),
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-radio")
+    await expect(el).toBeTruthy()
+    await userEvent.tab()
+  },
+}
+
+export const Accessibility: Story = {
+  render: () => (
+    <RadioGroup name="a11y-test">
+      <Radio name="a11y-test" value="a">Option A</Radio>
+      <Radio name="a11y-test" value="b">Option B</Radio>
+    </RadioGroup>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const group = canvas.getByRole("radiogroup")
+    await expect(group).toBeTruthy()
+    const radios = canvas.getAllByRole("radio")
+    await expect(radios).toHaveLength(2)
+  },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

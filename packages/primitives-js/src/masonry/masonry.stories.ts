@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { masonryClasses } from "./masonry.classes.js"
 import type { MasonryClassesOptions } from "./masonry.types.js"
 
@@ -21,7 +21,7 @@ function createMasonry(args: MasonryClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Masonry",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createMasonry(args as MasonryClassesOptions),
   argTypes: {
     columns: { control: "select", options: [2, 3, 4, 5, 6] },
@@ -35,4 +35,15 @@ type Story = StoryObj<MasonryClassesOptions>
 
 export const Playground: Story = {}
 export const TwoColumns: Story = { args: { columns: 2 } }
+export const ThreeColumns: Story = { args: { columns: 3 } }
 export const FourColumns: Story = { args: { columns: 4 } }
+export const FiveColumns: Story = { args: { columns: 5 } }
+export const SixColumns: Story = { args: { columns: 6 } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

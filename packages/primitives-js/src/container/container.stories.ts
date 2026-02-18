@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { containerClasses } from "./container.classes.js"
 import type { ContainerClassesOptions } from "./container.types.js"
 
@@ -16,7 +16,7 @@ function createContainer(args: ContainerClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Container",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createContainer(args as ContainerClassesOptions),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl", "full"] },
@@ -31,5 +31,20 @@ export default meta
 type Story = StoryObj<ContainerClassesOptions>
 
 export const Playground: Story = {}
+export const ExtraSmall: Story = { args: { size: "xs" } }
 export const Small: Story = { args: { size: "sm" } }
+export const Medium: Story = { args: { size: "md" } }
+export const Large: Story = { args: { size: "lg" } }
+export const ExtraLarge: Story = { args: { size: "xl" } }
+export const TwoXL: Story = { args: { size: "2xl" } }
+export const Full: Story = { args: { size: "full" } }
 export const Fluid: Story = { args: { fluid: true } }
+export const Centered: Story = { args: { center: true } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

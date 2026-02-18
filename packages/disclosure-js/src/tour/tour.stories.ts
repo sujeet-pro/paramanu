@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { tourClasses, tourStepClasses, tourOverlayClasses } from "./tour.classes.js"
 import type { TourClassesOptions } from "./tour.types.js"
 
@@ -34,7 +34,7 @@ function createTour(args: TourArgs): HTMLElement {
 
 const meta = {
   title: "Disclosure/Tour",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createTour(args as TourArgs),
   argTypes: {
     open: { control: "boolean" },
@@ -51,4 +51,16 @@ export const Playground: Story = {}
 
 export const Closed: Story = {
   args: { open: false },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

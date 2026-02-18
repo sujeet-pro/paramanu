@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Splitter, SplitterPanel, SplitterHandle } from "./splitter.js"
 
 const meta = {
   title: "Primitives/Splitter",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Splitter,
   argTypes: {
     orientation: { control: "select", options: ["horizontal", "vertical"] },
@@ -56,4 +57,30 @@ export const Vertical: Story = {
 export const Disabled: Story = {
   args: { disabled: true },
   render: Playground.render,
+}
+
+export const Hover: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const RenderTest: Story = {
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-splitter")
+    await expect(el).toBeTruthy()
+  },
+}
+
+export const Accessibility: Story = {
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector("[role='separator']")
+    await expect(el).toBeTruthy()
+  },
 }

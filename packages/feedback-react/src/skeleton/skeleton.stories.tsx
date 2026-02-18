@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Skeleton } from "./skeleton.js"
 
 const meta = {
   title: "Feedback/Skeleton",
   component: Skeleton,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: { control: "select", options: ["text", "circular", "rectangular"] },
     size: { control: "select", options: ["sm", "md", "lg"] },
@@ -76,4 +76,16 @@ export const CardPlaceholder: Story = {
 
 export const CustomDimensions: Story = {
   args: { variant: "rectangular", width: 300, height: 200 },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { AlertDialog, AlertDialogHeader, AlertDialogBody, AlertDialogFooter } from "./alert-dialog.js"
 
 const meta = {
   title: "Overlays/Alert Dialog",
   component: AlertDialog,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: { control: "select", options: ["info", "danger", "warning"] },
     open: { control: "boolean" },
@@ -56,4 +56,69 @@ export const Warning: Story = {
       </AlertDialogFooter>
     </AlertDialog>
   ),
+}
+
+export const ClickCancel: Story = {
+  args: { onClose: fn() },
+  render: (args) => (
+    <AlertDialog {...args}>
+      <AlertDialogHeader>Confirm</AlertDialogHeader>
+      <AlertDialogBody>Proceed?</AlertDialogBody>
+      <AlertDialogFooter>
+        <button type="button" onClick={args.onClose}>Cancel</button>
+        <button type="button">OK</button>
+      </AlertDialogFooter>
+    </AlertDialog>
+  ),
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement)
+    const cancelBtn = canvas.getByRole("button", { name: "Cancel" })
+    await userEvent.click(cancelBtn)
+    await expect(args.onClose).toHaveBeenCalledTimes(1)
+  },
+}
+
+export const Accessibility: Story = {
+  args: { onClose: fn() },
+  render: (args) => (
+    <AlertDialog {...args}>
+      <AlertDialogHeader>Alert</AlertDialogHeader>
+      <AlertDialogBody>Content</AlertDialogBody>
+      <AlertDialogFooter>
+        <button type="button">OK</button>
+      </AlertDialogFooter>
+    </AlertDialog>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole("alertdialog")).toBeInTheDocument()
+  },
+}
+
+export const Hover: Story = {
+  args: { onClose: fn() },
+  render: (args) => (
+    <AlertDialog {...args}>
+      <AlertDialogHeader>Alert</AlertDialogHeader>
+      <AlertDialogBody>Content</AlertDialogBody>
+      <AlertDialogFooter>
+        <button type="button">OK</button>
+      </AlertDialogFooter>
+    </AlertDialog>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: { onClose: fn() },
+  render: (args) => (
+    <AlertDialog {...args}>
+      <AlertDialogHeader>Alert</AlertDialogHeader>
+      <AlertDialogBody>Content</AlertDialogBody>
+      <AlertDialogFooter>
+        <button type="button">OK</button>
+      </AlertDialogFooter>
+    </AlertDialog>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
 }

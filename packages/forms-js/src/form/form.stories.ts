@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { formClasses } from "./form.classes.js"
 import type { FormClassesOptions } from "./form.types.js"
 
@@ -13,7 +13,7 @@ function createForm(args: FormArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Form",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createForm(args as FormArgs),
   argTypes: {
     layout: { control: "select", options: ["vertical", "horizontal", "inline"] },
@@ -28,4 +28,17 @@ type Story = StoryObj<FormArgs>
 export const Playground: Story = {}
 export const Horizontal: Story = { args: { layout: "horizontal" } }
 export const Inline: Story = { args: { layout: "inline" } }
+export const SmallGap: Story = { args: { gap: "sm" } }
 export const LargeGap: Story = { args: { gap: "lg" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

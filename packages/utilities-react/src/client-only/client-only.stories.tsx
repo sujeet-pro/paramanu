@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { ClientOnly } from "./client-only.js"
 
 const meta = {
   title: "Utilities/ClientOnly",
   component: ClientOnly,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   args: {
     fallback: <div style={{ padding: "16px", background: "#f0f0f0" }}>Loading...</div>,
     children: (
@@ -24,5 +25,15 @@ export const WithoutFallback: Story = {
   args: {
     fallback: undefined,
     children: <div style={{ padding: "16px" }}>Client content (no fallback)</div>,
+  },
+}
+
+export const RenderTest: Story = {
+  args: {
+    children: <div>Test content</div>,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText("Test content")).toBeInTheDocument()
   },
 }

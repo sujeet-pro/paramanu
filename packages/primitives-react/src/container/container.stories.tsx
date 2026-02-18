@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Container } from "./container.js"
 
 const meta = {
   title: "Primitives/Container",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Container,
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl", "full"] },
@@ -55,4 +56,53 @@ export const Centered: Story = {
       <div style={{ background: "#e2e8f0", padding: "16px" }}>Centered content</div>
     </Container>
   ),
+}
+
+/** Extra small container. */
+export const ExtraSmall: Story = {
+  args: { size: "xs" },
+  render: Playground.render,
+}
+
+/** Medium container. */
+export const Medium: Story = {
+  args: { size: "md" },
+  render: Playground.render,
+}
+
+/** Extra large container. */
+export const ExtraLarge: Story = {
+  args: { size: "xl" },
+  render: Playground.render,
+}
+
+/** 2XL container. */
+export const TwoXL: Story = {
+  args: { size: "2xl" },
+  render: Playground.render,
+}
+
+/** Full width container. */
+export const Full: Story = {
+  args: { size: "full" },
+  render: Playground.render,
+}
+
+export const Hover: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const RenderTest: Story = {
+  args: { size: "lg" },
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-container")
+    await expect(el).toBeTruthy()
+  },
 }

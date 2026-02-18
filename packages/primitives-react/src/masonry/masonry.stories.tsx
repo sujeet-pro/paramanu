@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Masonry } from "./masonry.js"
 
 const meta = {
   title: "Primitives/Masonry",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Masonry,
   argTypes: {
     columns: { control: "select", options: [2, 3, 4, 5, 6] },
@@ -37,4 +38,34 @@ export const TwoColumns: Story = {
 export const FourColumns: Story = {
   args: { columns: 4 },
   render: (args) => <Masonry {...args}>{items}</Masonry>,
+}
+
+/** Five columns. */
+export const FiveColumns: Story = {
+  args: { columns: 5 },
+  render: (args) => <Masonry {...args}>{items}</Masonry>,
+}
+
+/** Six columns. */
+export const SixColumns: Story = {
+  args: { columns: 6 },
+  render: (args) => <Masonry {...args}>{items}</Masonry>,
+}
+
+export const Hover: Story = {
+  render: (args) => <Masonry {...args}>{items}</Masonry>,
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: (args) => <Masonry {...args}>{items}</Masonry>,
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const RenderTest: Story = {
+  render: (args) => <Masonry {...args}>{items}</Masonry>,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-masonry")
+    await expect(el).toBeTruthy()
+  },
 }

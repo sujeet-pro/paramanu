@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { clipboardClasses } from "./clipboard.classes.js"
 import type { ClipboardClassesOptions } from "./clipboard.types.js"
 
@@ -21,7 +21,7 @@ function createClipboard(args: ClipboardArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Clipboard",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createClipboard(args as ClipboardArgs),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },
@@ -37,3 +37,12 @@ type Story = StoryObj<ClipboardArgs>
 export const Playground: Story = {}
 export const CopiedState: Story = { args: { copied: true } }
 export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

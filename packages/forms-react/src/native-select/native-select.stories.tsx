@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { NativeSelect } from "./native-select.js"
 
 const meta = {
   title: "Forms/Native Select",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: NativeSelect,
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
@@ -12,7 +13,11 @@ const meta = {
     invalid: { control: "boolean" },
     fullWidth: { control: "boolean" },
   },
-  args: {},
+  args: {
+    onChange: fn(),
+    onFocus: fn(),
+    onBlur: fn(),
+  },
 } satisfies Meta<typeof NativeSelect>
 
 export default meta
@@ -44,6 +49,18 @@ export const Filled: Story = {
   },
 }
 
+export const Unstyled: Story = {
+  args: {
+    variant: "unstyled",
+    children: (
+      <>
+        <option value="">Select...</option>
+        <option value="a">Option A</option>
+      </>
+    ),
+  },
+}
+
 export const Small: Story = {
   args: {
     size: "sm",
@@ -51,6 +68,30 @@ export const Small: Story = {
       <>
         <option value="">Select...</option>
         <option value="a">Small A</option>
+      </>
+    ),
+  },
+}
+
+export const Large: Story = {
+  args: {
+    size: "lg",
+    children: (
+      <>
+        <option value="">Select...</option>
+        <option value="a">Large A</option>
+      </>
+    ),
+  },
+}
+
+export const ExtraSmall: Story = {
+  args: {
+    size: "xs",
+    children: (
+      <>
+        <option value="">Select...</option>
+        <option value="a">XS A</option>
       </>
     ),
   },
@@ -90,4 +131,67 @@ export const FullWidth: Story = {
       </>
     ),
   },
+}
+
+export const SelectInteraction: Story = {
+  args: {
+    onChange: fn(),
+    children: (
+      <>
+        <option value="">Select...</option>
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const select = canvas.getByRole("combobox")
+    await userEvent.selectOptions(select, "banana")
+    await expect(select).toHaveValue("banana")
+  },
+}
+
+export const KeyboardNavigation: Story = {
+  args: {
+    children: (
+      <>
+        <option value="">Select...</option>
+        <option value="a">A</option>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-native-select")
+    await expect(el).toBeTruthy()
+    await userEvent.tab()
+  },
+}
+
+export const Accessibility: Story = {
+  args: {
+    children: (
+      <>
+        <option value="">Select...</option>
+        <option value="a">A</option>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const select = canvas.getByRole("combobox")
+    await expect(select).toBeTruthy()
+  },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

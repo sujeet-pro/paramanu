@@ -1,5 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/html"
-import { menuClasses, menuItemClasses, menuSeparatorClasses, menuGroupClasses, menuGroupLabelClasses } from "./menu.classes.js"
+import type { Meta, StoryObj } from "@storybook/html-vite"
+import {
+  menuClasses,
+  menuItemClasses,
+  menuSeparatorClasses,
+  menuGroupClasses,
+  menuGroupLabelClasses,
+} from "./menu.classes.js"
 import type { MenuClassesOptions } from "./menu.types.js"
 
 interface MenuArgs extends MenuClassesOptions {}
@@ -34,7 +40,7 @@ function createMenu(args: MenuArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Menu",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createMenu(args as MenuArgs),
   argTypes: {
     size: {
@@ -58,4 +64,12 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: { size: "lg" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

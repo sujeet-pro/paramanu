@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { mentionsClasses } from "./mentions.classes.js"
 import type { MentionsClassesOptions } from "./mentions.types.js"
 
@@ -30,7 +30,7 @@ function createMentions(args: MentionsArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Mentions",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createMentions(args as MentionsArgs),
   argTypes: {
     variant: {
@@ -63,8 +63,16 @@ export const Filled: Story = {
   args: { variant: "filled" },
 }
 
+export const Unstyled: Story = {
+  args: { variant: "unstyled" },
+}
+
 export const Small: Story = {
   args: { size: "sm" },
+}
+
+export const Large: Story = {
+  args: { size: "lg" },
 }
 
 export const Disabled: Story = {
@@ -73,4 +81,16 @@ export const Disabled: Story = {
 
 export const Invalid: Story = {
   args: { invalid: true },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

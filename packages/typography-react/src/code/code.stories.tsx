@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Code } from "./code.js"
 
 const meta = {
   title: "Typography/Code",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Code,
   argTypes: {
     block: { control: "boolean" },
@@ -56,4 +57,73 @@ export const Outline: Story = {
 export const DangerColor: Story = {
   args: { color: "danger" },
   render: (args) => <Code {...args}>error: something went wrong</Code>,
+}
+
+export const ColorPrimary: Story = {
+  args: { color: "primary" },
+  render: (args) => <Code {...args}>primary color code</Code>,
+}
+
+export const ColorSuccess: Story = {
+  args: { color: "success" },
+  render: (args) => <Code {...args}>success: operation complete</Code>,
+}
+
+export const ColorWarning: Story = {
+  args: { color: "warning" },
+  render: (args) => <Code {...args}>warning: check input</Code>,
+}
+
+export const ColorInfo: Story = {
+  args: { color: "info" },
+  render: (args) => <Code {...args}>info: processing request</Code>,
+}
+
+export const SizeXs: Story = {
+  args: { size: "xs" },
+  render: (args) => <Code {...args}>extra small code</Code>,
+}
+
+export const SizeSm: Story = {
+  args: { size: "sm" },
+  render: (args) => <Code {...args}>small code</Code>,
+}
+
+export const SizeLg: Story = {
+  args: { size: "lg" },
+  render: (args) => <Code {...args}>large code</Code>,
+}
+
+export const BlockWithCopyButton: Story = {
+  render: () => (
+    <Code block withCopyButton>
+      {`const greeting = "Hello, World!"`}
+    </Code>
+  ),
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+  render: (args) => <Code {...args}>hover state</Code>,
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+  render: (args) => <Code {...args}>focus visible state</Code>,
+}
+
+export const RenderTest: Story = {
+  args: { children: "Test content" },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText("Test content")).toBeInTheDocument()
+  },
+}
+
+export const SemanticHTML: Story = {
+  render: () => <Code>semantic code element</Code>,
+  play: async ({ canvasElement }) => {
+    const code = canvasElement.querySelector("code")
+    await expect(code).toBeTruthy()
+  },
 }

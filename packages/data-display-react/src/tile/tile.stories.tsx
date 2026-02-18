@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Tile } from "./tile.js"
 
 const meta = {
   title: "Data Display/Tile",
   component: Tile,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: {
       control: "select",
@@ -55,4 +56,32 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: { size: "lg", children: "Large" },
+}
+
+export const Hover: Story = {
+  args: { children: "Hover" },
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: { children: "Focus" },
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ClickInteraction: Story = {
+  args: { children: "Click me", onClick: fn() },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement)
+    const tile = canvas.getByRole("button")
+    await userEvent.click(tile)
+    await expect(args.onClick).toHaveBeenCalledTimes(1)
+  },
+}
+
+export const RenderTest: Story = {
+  args: { children: "Test Tile" },
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-tile")
+    await expect(el).toBeTruthy()
+  },
 }

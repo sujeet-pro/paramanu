@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { visuallyHiddenClasses } from "./visually-hidden.classes.js"
 import type { VisuallyHiddenClassesOptions } from "./visually-hidden.types.js"
 
@@ -19,7 +19,7 @@ function createVisuallyHidden(args: VisuallyHiddenClassesOptions): HTMLElement {
 
 const meta = {
   title: "Utilities/VisuallyHidden",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createVisuallyHidden(args as VisuallyHiddenClassesOptions),
   argTypes: {
     focusable: { control: "boolean" },

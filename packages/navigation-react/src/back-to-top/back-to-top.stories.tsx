@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { BackToTop } from "./back-to-top.js"
 
 const meta = {
   title: "Navigation/Back to Top",
   component: BackToTop,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: {
       control: "select",
@@ -21,6 +21,7 @@ const meta = {
     size: "md",
     position: "bottom-right",
     visible: true,
+    onClick: fn(),
   },
 } satisfies Meta<typeof BackToTop>
 
@@ -53,6 +54,16 @@ export const Hidden: Story = {
   args: { visible: false },
 }
 
+export const ClickAction: Story = {
+  args: { visible: true, onClick: fn() },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement)
+    const btn = canvas.getByRole("button", { name: "Back to top" })
+    await userEvent.click(btn)
+    await expect(args.onClick).toHaveBeenCalledTimes(1)
+  },
+}
+
 export const Accessibility: Story = {
   args: { visible: true },
   play: async ({ canvasElement }) => {
@@ -61,4 +72,12 @@ export const Accessibility: Story = {
     await expect(btn).toBeInTheDocument()
     await expect(btn).toHaveAttribute("type", "button")
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

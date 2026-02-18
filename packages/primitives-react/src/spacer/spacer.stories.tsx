@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Spacer } from "./spacer.js"
 
 const meta = {
   title: "Primitives/Spacer",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Spacer,
   argTypes: {
     size: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"] },
@@ -48,4 +49,28 @@ export const VerticalSpacer: Story = {
       <div style={{ background: "#e2e8f0", padding: "8px 16px" }}>Below</div>
     </div>
   ),
+}
+
+/** Horizontal axis spacer. */
+export const AxisHorizontal: Story = {
+  args: { axis: "horizontal" },
+  render: Playground.render,
+}
+
+export const Hover: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const RenderTest: Story = {
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-spacer")
+    await expect(el).toBeTruthy()
+  },
 }

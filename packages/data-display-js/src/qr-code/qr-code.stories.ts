@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { qrCodeClasses } from "./qr-code.classes.js"
 import type { QrCodeClassesOptions } from "./qr-code.types.js"
 
@@ -14,7 +14,7 @@ function createQrCode(args: QrCodeClassesOptions): HTMLElement {
 
 const meta = {
   title: "Data Display/QR Code",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createQrCode(args as QrCodeClassesOptions),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg", "xl"] },
@@ -28,3 +28,12 @@ type Story = StoryObj<QrCodeClassesOptions>
 export const Playground: Story = {}
 export const Small: Story = { args: { size: "sm" } }
 export const Large: Story = { args: { size: "lg" } }
+export const ExtraLarge: Story = { args: { size: "xl" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

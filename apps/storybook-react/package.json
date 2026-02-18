@@ -9,6 +9,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
+    "@paramanu/tokens": "workspace:*",
     "@paramanu/buttons-js": "workspace:*",
     "@paramanu/buttons-react": "workspace:*",
     "@paramanu/data-display-js": "workspace:*",
@@ -34,13 +35,16 @@
   },
   "devDependencies": {
     "@paramanu/tsconfig": "workspace:*",
-    "@storybook/addon-a11y": "^8.4.0",
-    "@storybook/addon-essentials": "^8.4.0",
-    "@storybook/addon-interactions": "^8.4.0",
-    "@storybook/react": "^8.4.0",
-    "@storybook/react-vite": "^8.4.0",
-    "@storybook/test": "^8.4.0",
-    "storybook": "^8.4.0",
-    "vite": "^6.0.0"
+    "@storybook/addon-a11y": "10.2.10",
+    "@storybook/addon-docs": "10.2.10",
+    "@storybook/addon-vitest": "10.2.10",
+    "@storybook/react-vite": "10.2.10",
+    "storybook": "10.2.10",
+    "storybook-addon-pseudo-states": "10.2.10",
+    "storybook-addon-tag-badges": "^3.0.6",
+    "vite": "^6.0.0",
+    "vitest": "^4.0.0",
+    "@vitest/browser": "^4.0.0",
+    "@vitest/browser-playwright": "^4.0.0"
   }
 }

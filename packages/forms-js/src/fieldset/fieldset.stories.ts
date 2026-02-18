@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { fieldsetClasses } from "./fieldset.classes.js"
 import type { FieldsetClassesOptions } from "./fieldset.types.js"
 
@@ -22,7 +22,7 @@ function createFieldset(args: FieldsetArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Fieldset",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createFieldset(args as FieldsetArgs),
   argTypes: {
     variant: { control: "select", options: ["default", "card"] },
@@ -38,3 +38,16 @@ type Story = StoryObj<FieldsetArgs>
 export const Playground: Story = {}
 export const CardVariant: Story = { args: { variant: "card" } }
 export const Disabled: Story = { args: { disabled: true } }
+export const WithoutLegend: Story = { args: { legend: undefined } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

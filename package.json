@@ -11,11 +11,12 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "dev:docs": "pnpm --filter @paramanu/docs dev",
-    "dev:storybook-react": "pnpm --filter @paramanu/storybook-react dev",
-    "dev:storybook-vanilla": "pnpm --filter @paramanu/storybook-vanilla dev",
+    "dev:sb-react": "pnpm --filter @paramanu/storybook-react dev",
+    "dev:sb-js": "pnpm --filter @paramanu/storybook-vanilla dev",
     "build:site": "turbo run build --filter='./packages/*' && pnpm run build:site:apps && pnpm run build:site:compose",
     "build:site:apps": "pnpm --filter @paramanu/docs build && STORYBOOK_BASE=/storybook/react/ pnpm --filter @paramanu/storybook-react build && STORYBOOK_BASE=/storybook/vanilla/ pnpm --filter @paramanu/storybook-vanilla build",
     "build:site:compose": "mkdir -p apps/docs/dist/storybook && cp -r apps/storybook-react/dist apps/docs/dist/storybook/react && cp -r apps/storybook-vanilla/dist apps/docs/dist/storybook/vanilla",
+    "preview": "pnpm --filter @paramanu/docs preview",
     "test": "turbo run test",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
@@ -24,8 +25,12 @@
     "clean": "turbo run clean && rm -rf node_modules"
   },
   "devDependencies": {
+    "@storybook/addon-vitest": "10.2.10",
+    "@vitest/browser": "^4.0.0",
+    "@vitest/browser-playwright": "^4.0.0",
     "prettier": "^3.4.2",
-    "turbo": "^2.3.3"
+    "turbo": "^2.3.3",
+    "vitest": "^4.0.0"
   },
   "repository": {
     "type": "git",

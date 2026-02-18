@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { stackClasses } from "./stack.classes.js"
 import type { StackClassesOptions } from "./stack.types.js"
 
@@ -27,7 +27,7 @@ function createStack(args: StackArgs): HTMLElement {
 
 const meta = {
   title: "Primitives/Stack",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createStack(args as StackArgs),
   argTypes: {
     direction: { control: "select", options: ["vertical", "horizontal"] },
@@ -57,4 +57,24 @@ export const Horizontal: Story = {
 /** Stack with separator dividers. */
 export const WithSeparator: Story = {
   args: { separator: true },
+}
+
+export const AlignStart: Story = { args: { align: "start" } }
+export const AlignCenter: Story = { args: { align: "center" } }
+export const AlignEnd: Story = { args: { align: "end" } }
+export const AlignStretch: Story = { args: { align: "stretch" } }
+export const AlignBaseline: Story = { args: { align: "baseline" } }
+export const JustifyStart: Story = { args: { justify: "start" } }
+export const JustifyCenter: Story = { args: { justify: "center" } }
+export const JustifyEnd: Story = { args: { justify: "end" } }
+export const JustifyBetween: Story = { args: { justify: "between" } }
+export const JustifyAround: Story = { args: { justify: "around" } }
+export const JustifyEvenly: Story = { args: { justify: "evenly" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

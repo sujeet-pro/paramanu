@@ -1,5 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/html"
-import { dialogClasses, dialogHeaderClasses, dialogBodyClasses, dialogFooterClasses } from "./dialog.classes.js"
+import type { Meta, StoryObj } from "@storybook/html-vite"
+import {
+  dialogClasses,
+  dialogHeaderClasses,
+  dialogBodyClasses,
+  dialogFooterClasses,
+} from "./dialog.classes.js"
 import type { DialogClassesOptions } from "./dialog.types.js"
 
 function createDialog(args: DialogClassesOptions): HTMLElement {
@@ -32,7 +37,7 @@ function createDialog(args: DialogClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Dialog",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createDialog(args as DialogClassesOptions),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "full"] },
@@ -47,5 +52,16 @@ type Story = StoryObj<DialogClassesOptions>
 
 export const Playground: Story = {}
 export const Centered: Story = { args: { centered: true } }
+export const Small: Story = { args: { size: "sm" } }
 export const Large: Story = { args: { size: "lg" } }
+export const ExtraLarge: Story = { args: { size: "xl" } }
 export const Full: Story = { args: { size: "full" } }
+export const ScrollInside: Story = { args: { scrollBehavior: "inside" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

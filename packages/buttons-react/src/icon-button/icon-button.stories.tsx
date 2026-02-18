@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, fn, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { IconButton } from "./icon-button.js"
 
 const SearchIcon = () => (
@@ -18,7 +18,7 @@ const HeartIcon = () => (
 const meta = {
   title: "Buttons/Icon Button",
   component: IconButton,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: {
       control: "select",
@@ -39,6 +39,7 @@ const meta = {
   args: {
     "aria-label": "Search",
     children: <SearchIcon />,
+    onClick: fn(),
   },
 } satisfies Meta<typeof IconButton>
 
@@ -159,6 +160,20 @@ export const ClickHandler: Story = {
   },
 }
 
+export const KeyboardInteraction: Story = {
+  args: {
+    "aria-label": "Press Enter",
+    onClick: fn(),
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole("button")
+    button.focus()
+    await userEvent.keyboard("{Enter}")
+    await expect(args.onClick).toHaveBeenCalledTimes(1)
+  },
+}
+
 export const Accessibility: Story = {
   args: {
     "aria-label": "Favorite item",
@@ -169,4 +184,16 @@ export const Accessibility: Story = {
     const button = canvas.getByRole("button", { name: "Favorite item" })
     await expect(button).toBeInTheDocument()
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActivePseudo: Story = {
+  parameters: { pseudo: { active: true } },
 }

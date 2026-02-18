@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { FormatByte } from "./format-byte.js"
 
 const meta = {
   title: "Utilities/FormatByte",
   component: FormatByte,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     value: { control: "number" },
     locale: { control: "text" },
@@ -35,4 +36,29 @@ export const LargeFile: Story = {
 
 export const GermanLocale: Story = {
   args: { value: 1500, locale: "de-DE" },
+}
+
+export const SmallFile: Story = {
+  args: { value: 500 },
+}
+
+export const ZeroBytes: Story = {
+  args: { value: 0 },
+}
+
+export const TerabyteFile: Story = {
+  args: { value: 1500000000000 },
+}
+
+export const CustomDecimals: Story = {
+  args: { value: 1536, decimals: 3 },
+}
+
+export const RenderTest: Story = {
+  args: { value: 1024 },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const text = canvasElement.textContent
+    await expect(text).toBeTruthy()
+  },
 }

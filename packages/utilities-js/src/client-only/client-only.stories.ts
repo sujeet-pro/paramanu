@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 
 function createClientOnlyDemo(): HTMLElement {
   const wrapper = document.createElement("div")
@@ -19,7 +19,7 @@ function createClientOnlyDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/ClientOnly",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
 } satisfies Meta
 
 export default meta

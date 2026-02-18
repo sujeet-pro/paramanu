@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { colorPickerClasses } from "./color-picker.classes.js"
 import type { ColorPickerClassesOptions } from "./color-picker.types.js"
 
@@ -19,7 +19,7 @@ function createColorPicker(args: ColorPickerArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Color Picker",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createColorPicker(args as ColorPickerArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -35,3 +35,17 @@ type Story = StoryObj<ColorPickerArgs>
 export const Playground: Story = {}
 export const Disabled: Story = { args: { disabled: true } }
 export const Open: Story = { args: { open: true } }
+export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

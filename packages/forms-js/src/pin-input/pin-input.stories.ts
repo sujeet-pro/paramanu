@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { pinInputClasses } from "./pin-input.classes.js"
 import type { PinInputClassesOptions } from "./pin-input.types.js"
 
@@ -40,7 +40,7 @@ function createPinInput(args: PinInputArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Pin Input",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createPinInput(args as PinInputArgs),
   argTypes: {
     size: {
@@ -74,10 +74,26 @@ export const Large: Story = {
   args: { size: "lg" },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs" },
+}
+
 export const Disabled: Story = {
   args: { disabled: true },
 }
 
 export const Invalid: Story = {
   args: { invalid: true },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

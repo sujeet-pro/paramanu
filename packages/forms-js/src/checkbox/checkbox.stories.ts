@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { checkboxClasses } from "./checkbox.classes.js"
 import type { CheckboxClassesOptions } from "./checkbox.types.js"
 
@@ -40,7 +40,7 @@ function createCheckbox(args: CheckboxArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Checkbox",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createCheckbox(args as CheckboxArgs),
   argTypes: {
     size: {
@@ -72,6 +72,10 @@ export const Indeterminate: Story = {
   args: { indeterminate: true, label: "Indeterminate" },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs", label: "Extra small checkbox" },
+}
+
 export const Small: Story = {
   args: { size: "sm", label: "Small checkbox" },
 }
@@ -84,6 +88,22 @@ export const Disabled: Story = {
   args: { disabled: true, label: "Disabled checkbox" },
 }
 
+export const DisabledChecked: Story = {
+  args: { disabled: true, checked: true, label: "Disabled checked" },
+}
+
 export const Invalid: Story = {
   args: { invalid: true, label: "Invalid checkbox" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

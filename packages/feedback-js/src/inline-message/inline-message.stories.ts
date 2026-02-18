@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { inlineMessageClasses } from "./inline-message.classes.js"
 import type { InlineMessageClassesOptions, InlineMessageVariant, InlineMessageSize } from "./inline-message.types.js"
 
@@ -25,7 +25,7 @@ function createInlineMessage(args: InlineMessageArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Inline Message",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createInlineMessage(args as InlineMessageArgs),
   argTypes: {
     variant: { control: "select", options: ["info", "success", "warning", "danger"] },
@@ -66,3 +66,17 @@ export const AllVariantsAndSizes: Story = {
 export const Info: Story = { args: { variant: "info" } }
 export const Danger: Story = { args: { variant: "danger", text: "Error message." } }
 export const Small: Story = { args: { size: "sm", text: "Small message." } }
+export const Success: Story = { args: { variant: "success", text: "Success message." } }
+export const Warning: Story = { args: { variant: "warning", text: "Warning message." } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

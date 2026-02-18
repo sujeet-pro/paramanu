@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { tooltipClasses } from "./tooltip.classes.js"
 import type { TooltipClassesOptions } from "./tooltip.types.js"
 
@@ -22,7 +22,7 @@ function createTooltip(args: TooltipClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Tooltip",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createTooltip(args as TooltipClassesOptions),
   argTypes: {
     placement: { control: "select", options: ["top", "bottom", "left", "right"] },
@@ -35,3 +35,13 @@ type Story = StoryObj<TooltipClassesOptions>
 
 export const Playground: Story = {}
 export const BottomPlacement: Story = { args: { placement: "bottom" } }
+export const LeftPlacement: Story = { args: { placement: "left" } }
+export const RightPlacement: Story = { args: { placement: "right" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

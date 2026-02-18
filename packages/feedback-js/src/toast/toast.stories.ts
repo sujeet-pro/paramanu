@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { toastClasses } from "./toast.classes.js"
 import type { ToastClassesOptions, ToastVariant } from "./toast.types.js"
 
@@ -55,7 +55,7 @@ function createToast(args: ToastArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Toast",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createToast(args as ToastArgs),
   argTypes: {
     variant: { control: "select", options: ["info", "success", "warning", "danger"] },
@@ -97,3 +97,18 @@ export const AllVariants: Story = {
 }
 
 export const Dismissible: Story = { args: { dismissible: true, title: "Dismissible" } }
+
+export const Entering: Story = { args: { entering: true, title: "Entering" } }
+export const Exiting: Story = { args: { exiting: true, title: "Exiting" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { tileClasses } from "./tile.classes.js"
 import type { TileClassesOptions } from "./tile.types.js"
 
@@ -28,7 +28,7 @@ function createTile(args: TileArgs): HTMLButtonElement {
 
 const meta = {
   title: "Data Display/Tile",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createTile(args as TileArgs),
   argTypes: {
     variant: {
@@ -60,3 +60,13 @@ export const Filled: Story = { args: { variant: "filled", label: "Filled Tile" }
 export const Ghost: Story = { args: { variant: "ghost", label: "Ghost Tile" } }
 export const Selected: Story = { args: { selected: true, label: "Selected" } }
 export const Disabled: Story = { args: { disabled: true, label: "Disabled" } }
+export const Small: Story = { args: { size: "sm", label: "Small" } }
+export const Large: Story = { args: { size: "lg", label: "Large" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

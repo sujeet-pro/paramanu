@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { searchInputClasses } from "./search-input.classes.js"
 import { inputClasses } from "../input/input.classes.js"
 import type { SearchInputClassesOptions } from "./search-input.types.js"
@@ -41,7 +41,7 @@ function createSearchInput(args: SearchInputArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Search Input",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createSearchInput(args as SearchInputArgs),
   argTypes: {
     variant: {
@@ -77,6 +77,10 @@ export const Filled: Story = {
   args: { variant: "filled", placeholder: "Search filled..." },
 }
 
+export const Unstyled: Story = {
+  args: { variant: "unstyled", placeholder: "Search unstyled..." },
+}
+
 export const Small: Story = {
   args: { size: "sm", placeholder: "Search small..." },
 }
@@ -85,10 +89,30 @@ export const Large: Story = {
   args: { size: "lg", placeholder: "Search large..." },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs", placeholder: "Search extra small..." },
+}
+
 export const Disabled: Story = {
   args: { disabled: true, placeholder: "Search disabled..." },
 }
 
+export const Invalid: Story = {
+  args: { invalid: true, placeholder: "Search invalid..." },
+}
+
 export const FullWidth: Story = {
   args: { fullWidth: true, placeholder: "Search full width..." },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

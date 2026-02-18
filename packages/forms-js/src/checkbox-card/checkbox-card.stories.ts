@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { checkboxCardClasses } from "./checkbox-card.classes.js"
 import type { CheckboxCardClassesOptions } from "./checkbox-card.types.js"
 
@@ -31,7 +31,7 @@ function createCheckboxCard(args: CheckboxCardArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Checkbox Card",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createCheckboxCard(args as CheckboxCardArgs),
   argTypes: {
     size: {
@@ -57,6 +57,10 @@ export const Checked: Story = {
   args: { checked: true, label: "Checked card" },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs", label: "Extra small card" },
+}
+
 export const Small: Story = {
   args: { size: "sm", label: "Small card" },
 }
@@ -67,4 +71,20 @@ export const Large: Story = {
 
 export const Disabled: Story = {
   args: { disabled: true, label: "Disabled card" },
+}
+
+export const DisabledChecked: Story = {
+  args: { disabled: true, checked: true, label: "Disabled checked card" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

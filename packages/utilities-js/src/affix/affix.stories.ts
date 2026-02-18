@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { affixClasses } from "./affix.classes.js"
 import type { AffixClassesOptions } from "./affix.types.js"
 
@@ -23,7 +23,7 @@ function createAffix(args: AffixClassesOptions): HTMLElement {
 
 const meta = {
   title: "Utilities/Affix",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createAffix(args as AffixClassesOptions),
   argTypes: {
     position: { control: "select", options: ["top", "bottom"] },
@@ -38,3 +38,6 @@ type Story = StoryObj<AffixClassesOptions>
 export const Playground: Story = {}
 export const BottomPosition: Story = { args: { position: "bottom" } }
 export const WithOffset: Story = { args: { position: "top", offset: "4" } }
+export const OffsetSmall: Story = { args: { position: "top", offset: "1" } }
+export const OffsetLarge: Story = { args: { position: "top", offset: "12" } }
+export const BottomWithOffset: Story = { args: { position: "bottom", offset: "4" } }

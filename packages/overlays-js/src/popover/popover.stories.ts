@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { popoverClasses } from "./popover.classes.js"
 import type { PopoverClassesOptions } from "./popover.types.js"
 
@@ -21,7 +21,7 @@ function createPopover(args: PopoverClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Popover",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createPopover(args as PopoverClassesOptions),
   argTypes: {
     placement: { control: "select", options: ["top", "bottom", "left", "right"] },
@@ -36,3 +36,13 @@ type Story = StoryObj<PopoverClassesOptions>
 export const Playground: Story = {}
 export const WithArrow: Story = { args: { hasArrow: true } }
 export const TopPlacement: Story = { args: { placement: "top" } }
+export const LeftPlacement: Story = { args: { placement: "left" } }
+export const RightPlacement: Story = { args: { placement: "right" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

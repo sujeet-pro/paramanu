@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { backdropClasses } from "./backdrop.classes.js"
 import type { BackdropClassesOptions } from "./backdrop.types.js"
 
@@ -18,7 +18,7 @@ function createBackdrop(args: BackdropClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Backdrop",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createBackdrop(args as BackdropClassesOptions),
   argTypes: {
     variant: { control: "select", options: ["default", "transparent", "blur"] },
@@ -33,3 +33,12 @@ type Story = StoryObj<BackdropClassesOptions>
 export const Playground: Story = {}
 export const Blur: Story = { args: { variant: "blur" } }
 export const Transparent: Story = { args: { variant: "transparent" } }
+export const Hidden: Story = { args: { visible: false } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

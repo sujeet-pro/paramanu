@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Spinner } from "./spinner.js"
 
 const meta = {
   title: "Feedback/Spinner",
   component: Spinner,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl"] },
     variant: { control: "select", options: ["primary", "neutral"] },
@@ -52,4 +52,16 @@ export const Accessibility: Story = {
     await expect(spinner).toBeInTheDocument()
     await expect(canvas.getByText("Loading")).toBeInTheDocument()
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

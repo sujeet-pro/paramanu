@@ -1,5 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/html"
-import { stepsClasses, stepClasses, stepIndicatorClasses, stepConnectorClasses, stepContentClasses } from "./steps.classes.js"
+import type { Meta, StoryObj } from "@storybook/html-vite"
+import {
+  stepsClasses,
+  stepClasses,
+  stepIndicatorClasses,
+  stepConnectorClasses,
+  stepContentClasses,
+} from "./steps.classes.js"
 import type { StepsClassesOptions } from "./steps.types.js"
 
 interface StepsArgs extends StepsClassesOptions {}
@@ -47,7 +53,7 @@ function createSteps(args: StepsArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Steps",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createSteps(args as StepsArgs),
   argTypes: {
     size: {
@@ -80,4 +86,12 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: { size: "lg" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

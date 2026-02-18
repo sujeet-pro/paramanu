@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect } from "storybook/test"
 import {
   Table,
   TableContainer,
@@ -13,7 +14,7 @@ import {
 const meta = {
   title: "Data Display/Table",
   component: Table,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: {
       control: "select",
@@ -179,4 +180,123 @@ export const Small: Story = {
       </TableBody>
     </Table>
   ),
+}
+
+export const Large: Story = {
+  args: { size: "lg" },
+  render: (args) => (
+    <Table {...args}>
+      <TableHead>
+        <TableRow>
+          <TableHeaderCell>Name</TableHeaderCell>
+          <TableHeaderCell>Role</TableHeaderCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {sampleRows.map((row) => (
+          <TableRow key={row.name}>
+            <TableCell>{row.name}</TableCell>
+            <TableCell>{row.role}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  ),
+}
+
+export const FixedLayout: Story = {
+  args: { layout: "fixed" },
+  render: (args) => (
+    <Table {...args}>
+      <TableHead>
+        <TableRow>
+          <TableHeaderCell>Name</TableHeaderCell>
+          <TableHeaderCell>Role</TableHeaderCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {sampleRows.map((row) => (
+          <TableRow key={row.name}>
+            <TableCell>{row.name}</TableCell>
+            <TableCell>{row.role}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  ),
+}
+
+export const StickyHeader: Story = {
+  args: { stickyHeader: true },
+  render: (args) => (
+    <Table {...args}>
+      <TableHead>
+        <TableRow>
+          <TableHeaderCell>Name</TableHeaderCell>
+          <TableHeaderCell>Role</TableHeaderCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {sampleRows.map((row) => (
+          <TableRow key={row.name}>
+            <TableCell>{row.name}</TableCell>
+            <TableCell>{row.role}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  ),
+}
+
+export const Hover: Story = {
+  args: { hoverable: true },
+  parameters: { pseudo: { hover: true } },
+  render: (args) => (
+    <Table {...args}>
+      <TableHead>
+        <TableRow>
+          <TableHeaderCell>Name</TableHeaderCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        <TableRow>
+          <TableCell>Alice</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  ),
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+  render: (args) => (
+    <Table {...args}>
+      <TableHead>
+        <TableRow>
+          <TableHeaderCell>Name</TableHeaderCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        <TableRow>
+          <TableCell>Alice</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  ),
+}
+
+export const RenderTest: Story = {
+  render: () => (
+    <Table>
+      <TableBody>
+        <TableRow>
+          <TableCell>Test</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  ),
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-table")
+    await expect(el).toBeTruthy()
+  },
 }

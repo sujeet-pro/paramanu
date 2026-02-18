@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { backToTopClasses } from "./back-to-top.classes.js"
 import type { BackToTopClassesOptions } from "./back-to-top.types.js"
 
@@ -15,7 +15,7 @@ function createBackToTop(args: BackToTopArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Back to Top",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createBackToTop(args as BackToTopArgs),
   argTypes: {
     size: {
@@ -52,6 +52,18 @@ export const BottomLeft: Story = {
   args: { position: "bottom-left" },
 }
 
+export const BottomCenter: Story = {
+  args: { position: "bottom-center" },
+}
+
 export const Hidden: Story = {
   args: { visible: false },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

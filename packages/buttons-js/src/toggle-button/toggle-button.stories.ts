@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { toggleButtonClasses } from "./toggle-button.classes.js"
 import type {
   ToggleButtonClassesOptions,
@@ -35,7 +35,7 @@ function createToggleButton(args: ToggleButtonArgs): HTMLButtonElement {
 
 const meta = {
   title: "Buttons/Toggle Button",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createToggleButton(args as ToggleButtonArgs),
   argTypes: {
     variant: {
@@ -121,4 +121,20 @@ export const States: Story = {
     )
     return container
   },
+}
+
+export const FullWidth: Story = {
+  args: { fullWidth: true, label: "Full Width Toggle" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

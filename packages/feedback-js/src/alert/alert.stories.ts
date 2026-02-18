@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { alertClasses } from "./alert.classes.js"
 import type { AlertClassesOptions, AlertVariant, AlertStyle } from "./alert.types.js"
 
@@ -54,7 +54,7 @@ function createAlert(args: AlertArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Alert",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createAlert(args as AlertArgs),
   argTypes: {
     variant: {
@@ -134,4 +134,20 @@ export const AllVariantsAndStyles: Story = {
 
 export const Dismissible: Story = {
   args: { dismissible: true, title: "Dismissible Alert" },
+}
+
+export const Subtle: Story = {
+  args: { alertStyle: "subtle", title: "Subtle Alert" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

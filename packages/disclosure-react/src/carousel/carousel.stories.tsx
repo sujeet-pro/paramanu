@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Carousel, CarouselSlide, CarouselControl, CarouselIndicator } from "./carousel.js"
 
 const meta = {
   title: "Disclosure/Carousel",
   component: Carousel,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     orientation: {
       control: "select",
@@ -19,6 +19,7 @@ const meta = {
   args: {
     orientation: "horizontal",
     size: "md",
+    onSlideChange: fn(),
   },
 } satisfies Meta<typeof Carousel>
 
@@ -96,6 +97,23 @@ export const Large: Story = {
   ),
 }
 
+export const NavigationInteraction: Story = {
+  render: () => (
+    <Carousel aria-label="Nav carousel">
+      <CarouselControl direction="prev" disabled>Prev</CarouselControl>
+      <CarouselSlide active index={0} total={2}>Slide 1</CarouselSlide>
+      <CarouselSlide index={1} total={2}>Slide 2</CarouselSlide>
+      <CarouselControl direction="next">Next</CarouselControl>
+    </Carousel>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const nextBtn = canvas.getByRole("button", { name: "Next" })
+    await userEvent.click(nextBtn)
+    await expect(nextBtn).toHaveFocus()
+  },
+}
+
 export const Accessibility: Story = {
   render: () => (
     <Carousel aria-label="Accessible carousel">
@@ -112,4 +130,37 @@ export const Accessibility: Story = {
     const prevBtn = canvas.getByRole("button", { name: "Previous slide" })
     await expect(prevBtn).toBeInTheDocument()
   },
+}
+
+export const Hover: Story = {
+  render: () => (
+    <Carousel aria-label="Hover carousel">
+      <CarouselControl direction="prev">Prev</CarouselControl>
+      <CarouselSlide active>Slide</CarouselSlide>
+      <CarouselControl direction="next">Next</CarouselControl>
+    </Carousel>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: () => (
+    <Carousel aria-label="Focus carousel">
+      <CarouselControl direction="prev">Prev</CarouselControl>
+      <CarouselSlide active>Slide</CarouselSlide>
+      <CarouselControl direction="next">Next</CarouselControl>
+    </Carousel>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  render: () => (
+    <Carousel aria-label="Active carousel">
+      <CarouselControl direction="prev">Prev</CarouselControl>
+      <CarouselSlide active>Slide</CarouselSlide>
+      <CarouselControl direction="next">Next</CarouselControl>
+    </Carousel>
+  ),
+  parameters: { pseudo: { active: true } },
 }

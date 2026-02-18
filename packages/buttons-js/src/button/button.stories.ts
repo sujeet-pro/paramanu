@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { buttonClasses } from "./button.classes.js"
 import type { ButtonClassesOptions, ButtonVariant, ButtonSize } from "./button.types.js"
 
@@ -30,7 +30,7 @@ function createButton(args: ButtonArgs): HTMLButtonElement {
 
 const meta = {
   title: "Buttons/Button",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createButton(args as ButtonArgs),
   argTypes: {
     variant: {
@@ -139,6 +139,38 @@ export const Active: Story = {
   args: { active: true, label: "Active" },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs", label: "Extra Small" },
+}
+
+export const Small: Story = {
+  args: { size: "sm", label: "Small" },
+}
+
+export const Medium: Story = {
+  args: { size: "md", label: "Medium" },
+}
+
+export const Large: Story = {
+  args: { size: "lg", label: "Large" },
+}
+
+export const ExtraLarge: Story = {
+  args: { size: "xl", label: "Extra Large" },
+}
+
 export const LongLabel: Story = {
   args: { label: "This is a button with a very long label that might wrap" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

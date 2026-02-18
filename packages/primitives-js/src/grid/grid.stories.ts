@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { gridClasses } from "./grid.classes.js"
 import type { GridClassesOptions } from "./grid.types.js"
 
@@ -32,7 +32,7 @@ function createGrid(args: GridArgs): HTMLElement {
 
 const meta = {
   title: "Primitives/Grid",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createGrid(args as GridArgs),
   argTypes: {
     columns: { control: "select", options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, "none"] },
@@ -52,6 +52,25 @@ type Story = StoryObj<GridArgs>
 
 export const Playground: Story = {}
 
-export const FourColumns: Story = {
-  args: { columns: 4 },
+export const TwoColumns: Story = { args: { columns: 2 } }
+export const ThreeColumns: Story = { args: { columns: 3 } }
+export const FourColumns: Story = { args: { columns: 4 } }
+export const SixColumns: Story = { args: { columns: 6 } }
+export const TwelveColumns: Story = { args: { columns: 12, itemCount: 12 } }
+
+export const TwoRows: Story = { args: { rows: 2, columns: 3 } }
+export const FlowColumn: Story = { args: { flow: "column", rows: 3 } }
+export const FlowDense: Story = { args: { flow: "dense", columns: 3 } }
+
+export const MixedGap: Story = { args: { columns: 3, rowGap: "6", columnGap: "2" } }
+export const InlineGrid: Story = { args: { inline: true, columns: 2 } }
+export const AlignCenter: Story = { args: { columns: 3, align: "center" } }
+export const JustifyCenter: Story = { args: { columns: 3, justify: "center" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

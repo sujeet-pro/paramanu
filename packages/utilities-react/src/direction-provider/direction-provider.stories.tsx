@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { DirectionProvider, useDirection } from "./direction-provider.js"
 
 function DirectionDisplay() {
@@ -19,7 +20,7 @@ function DirectionDisplay() {
 const meta = {
   title: "Utilities/DirectionProvider",
   component: DirectionProvider,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     defaultDir: {
       control: "select",
@@ -39,4 +40,15 @@ export const Playground: Story = {}
 
 export const RTL: Story = {
   args: { defaultDir: "rtl" },
+}
+
+export const RenderTest: Story = {
+  args: {
+    defaultDir: "ltr",
+    children: <div>Test content</div>,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText("Test content")).toBeInTheDocument()
+  },
 }

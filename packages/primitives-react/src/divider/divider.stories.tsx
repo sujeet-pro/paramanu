@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Divider } from "./divider.js"
 
 const meta = {
   title: "Primitives/Divider",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Divider,
   argTypes: {
     orientation: { control: "select", options: ["horizontal", "vertical"] },
@@ -79,4 +80,40 @@ export const Vertical: Story = {
       <span>Right</span>
     </div>
   ),
+}
+
+/** Label at start position. */
+export const LabelStart: Story = {
+  render: () => <Divider label="OR" labelPosition="start" />,
+}
+
+/** Label at end position. */
+export const LabelEnd: Story = {
+  render: () => <Divider label="OR" labelPosition="end" />,
+}
+
+export const Hover: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Accessibility: Story = {
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector("[role='separator']") || canvasElement.querySelector("hr")
+    await expect(el).toBeTruthy()
+  },
+}
+
+export const RenderTest: Story = {
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-divider")
+    await expect(el).toBeTruthy()
+  },
 }

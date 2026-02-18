@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { menubarClasses, menubarItemClasses } from "./menubar.classes.js"
 
 interface MenubarArgs {
@@ -32,7 +32,7 @@ function createMenubar(args: MenubarArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Menubar",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createMenubar(args as MenubarArgs),
   args: {
     items: [
@@ -67,4 +67,12 @@ export const WithDisabled: Story = {
       { text: "View" },
     ],
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

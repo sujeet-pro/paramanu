@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Button } from "../button/button.js"
 import { ButtonGroup } from "./button-group.js"
 
 const meta = {
   title: "Buttons/Button Group",
   component: ButtonGroup,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     orientation: {
       control: "select",
@@ -156,4 +156,78 @@ export const GroupRole: Story = {
     const group = canvas.getByRole("group", { name: "Formatting options" })
     await expect(group).toBeInTheDocument()
   },
+}
+
+export const ClickInteraction: Story = {
+  render: () => {
+    const handleClick = fn()
+    return (
+      <ButtonGroup aria-label="Actions">
+        <Button variant="secondary" onClick={handleClick}>
+          First
+        </Button>
+        <Button variant="secondary">Second</Button>
+      </ButtonGroup>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const buttons = canvas.getAllByRole("button")
+    await userEvent.click(buttons[0])
+    await expect(buttons[0]).toHaveFocus()
+  },
+}
+
+export const KeyboardNavigation: Story = {
+  render: () => (
+    <ButtonGroup aria-label="Navigation">
+      <Button variant="secondary">One</Button>
+      <Button variant="secondary">Two</Button>
+      <Button variant="secondary">Three</Button>
+    </ButtonGroup>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const buttons = canvas.getAllByRole("button")
+    buttons[0].focus()
+    await expect(buttons[0]).toHaveFocus()
+    await userEvent.tab()
+    await expect(buttons[1]).toHaveFocus()
+  },
+}
+
+export const Hover: Story = {
+  args: { attached: true },
+  render: (args) => (
+    <ButtonGroup {...args}>
+      <Button variant="secondary">Left</Button>
+      <Button variant="secondary">Center</Button>
+      <Button variant="secondary">Right</Button>
+    </ButtonGroup>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: { attached: true },
+  render: (args) => (
+    <ButtonGroup {...args}>
+      <Button variant="secondary">Left</Button>
+      <Button variant="secondary">Center</Button>
+      <Button variant="secondary">Right</Button>
+    </ButtonGroup>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  args: { attached: true },
+  render: (args) => (
+    <ButtonGroup {...args}>
+      <Button variant="secondary">Left</Button>
+      <Button variant="secondary">Center</Button>
+      <Button variant="secondary">Right</Button>
+    </ButtonGroup>
+  ),
+  parameters: { pseudo: { active: true } },
 }

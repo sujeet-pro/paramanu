@@ -1,5 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/html"
-import { sheetClasses, sheetHeaderClasses, sheetBodyClasses, sheetHandleClasses } from "./sheet.classes.js"
+import type { Meta, StoryObj } from "@storybook/html-vite"
+import {
+  sheetClasses,
+  sheetHeaderClasses,
+  sheetBodyClasses,
+  sheetHandleClasses,
+} from "./sheet.classes.js"
 import type { SheetClassesOptions } from "./sheet.types.js"
 
 function createSheet(args: SheetClassesOptions): HTMLElement {
@@ -27,7 +32,7 @@ function createSheet(args: SheetClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Sheet",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createSheet(args as SheetClassesOptions),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg", "full"] },
@@ -40,5 +45,15 @@ export default meta
 type Story = StoryObj<SheetClassesOptions>
 
 export const Playground: Story = {}
+export const Small: Story = { args: { size: "sm" } }
 export const Large: Story = { args: { size: "lg" } }
 export const Full: Story = { args: { size: "full" } }
+export const NonDismissible: Story = { args: { dismissible: false } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

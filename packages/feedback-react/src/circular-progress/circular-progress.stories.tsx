@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { CircularProgress } from "./circular-progress.js"
 
 const meta = {
   title: "Feedback/Circular Progress",
   component: CircularProgress,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg", "xl"] },
     variant: { control: "select", options: ["primary", "success", "warning", "danger"] },
@@ -71,4 +71,16 @@ export const Accessibility: Story = {
     const bar = canvas.getByRole("progressbar")
     await expect(bar).toHaveAttribute("aria-valuenow", "42")
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

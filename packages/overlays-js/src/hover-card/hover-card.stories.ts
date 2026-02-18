@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { hoverCardClasses } from "./hover-card.classes.js"
 import type { HoverCardClassesOptions } from "./hover-card.types.js"
 
@@ -22,7 +22,7 @@ function createHoverCard(args: HoverCardClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/HoverCard",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createHoverCard(args as HoverCardClassesOptions),
   argTypes: {
     placement: { control: "select", options: ["top", "bottom", "left", "right"] },
@@ -35,3 +35,13 @@ type Story = StoryObj<HoverCardClassesOptions>
 
 export const Playground: Story = {}
 export const TopPlacement: Story = { args: { placement: "top" } }
+export const LeftPlacement: Story = { args: { placement: "left" } }
+export const RightPlacement: Story = { args: { placement: "right" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

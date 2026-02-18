@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Truncate } from "./truncate.js"
 
 const meta = {
   title: "Typography/Truncate",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Truncate,
   argTypes: {
     lines: { control: "select", options: [1, 2, 3, 4, 5, 6] },
@@ -59,4 +60,48 @@ export const MiddlePosition: Story = {
       <Truncate {...args}>{longText}</Truncate>
     </div>
   ),
+}
+
+export const TwoLines: Story = {
+  render: () => (
+    <div style={{ width: 300 }}>
+      <Truncate lines={2}>{longText}</Truncate>
+    </div>
+  ),
+}
+
+export const FourLines: Story = {
+  render: () => (
+    <div style={{ width: 300 }}>
+      <Truncate lines={4}>{longText}</Truncate>
+    </div>
+  ),
+}
+
+export const FiveLines: Story = {
+  render: () => (
+    <div style={{ width: 300 }}>
+      <Truncate lines={5}>{longText}</Truncate>
+    </div>
+  ),
+}
+
+export const SixLines: Story = {
+  render: () => (
+    <div style={{ width: 300 }}>
+      <Truncate lines={6}>{longText}</Truncate>
+    </div>
+  ),
+}
+
+export const RenderTest: Story = {
+  render: () => (
+    <div style={{ width: 300 }}>
+      <Truncate>Test content</Truncate>
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText("Test content")).toBeInTheDocument()
+  },
 }

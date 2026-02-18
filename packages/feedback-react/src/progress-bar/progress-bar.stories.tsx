@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { ProgressBar } from "./progress-bar.js"
 
 const meta = {
   title: "Feedback/Progress Bar",
   component: ProgressBar,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
     variant: { control: "select", options: ["primary", "success", "warning", "danger"] },
@@ -87,4 +87,16 @@ export const Accessibility: Story = {
     await expect(bar).toHaveAttribute("aria-valuemin", "0")
     await expect(bar).toHaveAttribute("aria-valuemax", "100")
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

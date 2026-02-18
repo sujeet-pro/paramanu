@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { sliderClasses } from "./slider.classes.js"
 import type { SliderClassesOptions } from "./slider.types.js"
 
@@ -18,7 +18,7 @@ function createSlider(args: SliderArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Slider",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createSlider(args as SliderArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -36,3 +36,18 @@ export const Playground: Story = {}
 export const Vertical: Story = { args: { orientation: "vertical" } }
 export const WithMarks: Story = { args: { showMarks: true } }
 export const Disabled: Story = { args: { disabled: true } }
+export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+export const ExtraSmall: Story = { args: { size: "xs" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

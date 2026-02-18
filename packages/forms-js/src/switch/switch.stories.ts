@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { switchClasses } from "./switch.classes.js"
 import type { SwitchClassesOptions } from "./switch.types.js"
 
@@ -41,7 +41,7 @@ function createSwitch(args: SwitchArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Switch",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createSwitch(args as SwitchArgs),
   argTypes: {
     size: {
@@ -79,10 +79,30 @@ export const Large: Story = {
   args: { size: "lg", label: "Large switch" },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs", label: "Extra small switch" },
+}
+
 export const Disabled: Story = {
   args: { disabled: true, label: "Disabled switch" },
 }
 
 export const LabelStart: Story = {
   args: { labelPlacement: "start", label: "Label start" },
+}
+
+export const LabelEnd: Story = {
+  args: { labelPlacement: "end", label: "Label end" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, AccordionIcon } from "./accordion.js"
 
 const meta = {
   title: "Disclosure/Accordion",
   component: Accordion,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: {
       control: "select",
@@ -26,6 +26,7 @@ const meta = {
     size: "md",
     type: "single",
     collapsible: false,
+    onValueChange: fn(),
   },
 } satisfies Meta<typeof Accordion>
 
@@ -181,4 +182,100 @@ export const KeyboardNavigation: Story = {
     await expect(firstTrigger).toHaveAttribute("aria-expanded", "true")
     await userEvent.click(canvas.getByRole("button", { name: /Second/ }))
   },
+}
+
+export const ExpandCollapse: Story = {
+  render: () => (
+    <Accordion collapsible defaultValue={[]}>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Click to expand<AccordionIcon /></AccordionTrigger>
+        <AccordionContent>Expanded content.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const trigger = canvas.getByRole("button", { name: /Click to expand/ })
+    await expect(trigger).toHaveAttribute("aria-expanded", "false")
+    await userEvent.click(trigger)
+    await expect(trigger).toHaveAttribute("aria-expanded", "true")
+  },
+}
+
+export const Accessibility: Story = {
+  render: () => (
+    <Accordion defaultValue={["item-1"]}>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Accessible Section<AccordionIcon /></AccordionTrigger>
+        <AccordionContent>Content region.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const trigger = canvas.getByRole("button", { name: /Accessible Section/ })
+    await expect(trigger).toHaveAttribute("aria-expanded", "true")
+    const region = canvas.getByRole("region")
+    await expect(region).toBeInTheDocument()
+  },
+}
+
+export const SmallSize: Story = {
+  args: { size: "sm" },
+  render: (args) => (
+    <Accordion {...args} defaultValue={["item-1"]}>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Small<AccordionIcon /></AccordionTrigger>
+        <AccordionContent>Small content.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  ),
+}
+
+export const LargeSize: Story = {
+  args: { size: "lg" },
+  render: (args) => (
+    <Accordion {...args} defaultValue={["item-1"]}>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Large<AccordionIcon /></AccordionTrigger>
+        <AccordionContent>Large content.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  ),
+}
+
+export const Hover: Story = {
+  render: () => (
+    <Accordion defaultValue={["item-1"]}>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Hover test<AccordionIcon /></AccordionTrigger>
+        <AccordionContent>Content.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: () => (
+    <Accordion defaultValue={["item-1"]}>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Focus test<AccordionIcon /></AccordionTrigger>
+        <AccordionContent>Content.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  render: () => (
+    <Accordion defaultValue={["item-1"]}>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Active test<AccordionIcon /></AccordionTrigger>
+        <AccordionContent>Content.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  ),
+  parameters: { pseudo: { active: true } },
 }

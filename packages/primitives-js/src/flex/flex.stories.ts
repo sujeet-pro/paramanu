@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { flexClasses } from "./flex.classes.js"
 import type { FlexClassesOptions } from "./flex.types.js"
 
@@ -28,7 +28,7 @@ function createFlex(args: FlexArgs): HTMLElement {
 
 const meta = {
   title: "Primitives/Flex",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createFlex(args as FlexArgs),
   argTypes: {
     direction: { control: "select", options: ["row", "column", "row-reverse", "column-reverse"] },
@@ -81,4 +81,31 @@ export const Wrapping: Story = {
     el.style.border = "1px dashed #ccc"
     return el
   },
+}
+
+export const RowReverse: Story = { args: { direction: "row-reverse" } }
+export const ColumnReverse: Story = { args: { direction: "column-reverse" } }
+export const AlignStart: Story = { args: { align: "start" } }
+export const AlignEnd: Story = { args: { align: "end" } }
+export const AlignBaseline: Story = { args: { align: "baseline" } }
+export const AlignStretch: Story = { args: { align: "stretch" } }
+export const JustifyAround: Story = { args: { justify: "around" } }
+export const JustifyEvenly: Story = { args: { justify: "evenly" } }
+export const WrapReverse: Story = {
+  args: { wrap: "wrap-reverse", itemCount: 8 },
+  render: (args) => {
+    const el = createFlex(args as FlexArgs)
+    el.style.width = "300px"
+    el.style.border = "1px dashed #ccc"
+    return el
+  },
+}
+export const InlineFlex: Story = { args: { inline: true } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

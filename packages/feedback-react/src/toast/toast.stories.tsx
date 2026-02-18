@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, fn, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Toast, ToastContainer } from "./toast.js"
 
 const meta = {
   title: "Feedback/Toast",
   component: Toast,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: {
       control: "select",
@@ -18,6 +18,7 @@ const meta = {
   args: {
     title: "Toast Title",
     message: "This is a toast message.",
+    onClose: fn(),
   },
 } satisfies Meta<typeof Toast>
 
@@ -119,4 +120,16 @@ export const AccessibilityRoles: Story = {
     await expect(canvas.getByRole("status")).toBeInTheDocument()
     await expect(canvas.getByRole("alert")).toBeInTheDocument()
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

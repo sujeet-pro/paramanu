@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { timelineClasses } from "./timeline.classes.js"
 import type { TimelineClassesOptions } from "./timeline.types.js"
 
@@ -28,7 +28,7 @@ function createTimeline(args: TimelineClassesOptions): HTMLElement {
 
 const meta = {
   title: "Data Display/Timeline",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createTimeline(args as TimelineClassesOptions),
   argTypes: {
     orientation: { control: "select", options: ["vertical", "horizontal"] },
@@ -44,3 +44,11 @@ export const Playground: Story = {}
 export const Centered: Story = { args: { align: "center" } }
 export const Alternate: Story = { args: { align: "alternate" } }
 export const Horizontal: Story = { args: { orientation: "horizontal" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

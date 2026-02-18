@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Sidebar, SidebarSection, SidebarSectionLabel, SidebarItem } from "./sidebar.js"
 
 const meta = {
   title: "Navigation/Sidebar",
   component: Sidebar,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     width: {
       control: "select",
@@ -115,4 +115,62 @@ export const WithIndentation: Story = {
     await expect(canvas.getByText("Root")).toBeInTheDocument()
     await expect(canvas.getByText("Level 3")).toBeInTheDocument()
   },
+}
+
+export const ClickItem: Story = {
+  render: () => {
+    const onClick = fn()
+    return (
+      <Sidebar>
+        <SidebarSection>
+          <SidebarItem href="#" onClick={onClick}>
+            Clickable
+          </SidebarItem>
+          <SidebarItem href="#">Other</SidebarItem>
+        </SidebarSection>
+      </Sidebar>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const item = canvas.getByText("Clickable")
+    await userEvent.click(item)
+  },
+}
+
+export const Accessibility: Story = {
+  render: () => (
+    <Sidebar>
+      <SidebarSection>
+        <SidebarItem href="#" active>Home</SidebarItem>
+        <SidebarItem href="#">About</SidebarItem>
+      </SidebarSection>
+    </Sidebar>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole("navigation")).toBeInTheDocument()
+  },
+}
+
+export const Hover: Story = {
+  render: (args) => (
+    <Sidebar {...args}>
+      <SidebarSection>
+        <SidebarItem href="#">Item</SidebarItem>
+      </SidebarSection>
+    </Sidebar>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: (args) => (
+    <Sidebar {...args}>
+      <SidebarSection>
+        <SidebarItem href="#">Item</SidebarItem>
+      </SidebarSection>
+    </Sidebar>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
 }

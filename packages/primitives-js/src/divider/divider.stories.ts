@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { dividerClasses } from "./divider.classes.js"
 import type { DividerClassesOptions } from "./divider.types.js"
 
@@ -22,7 +22,7 @@ function createDivider(args: DividerClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Divider",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createDivider(args as DividerClassesOptions),
   argTypes: {
     orientation: { control: "select", options: ["horizontal", "vertical"] },
@@ -37,5 +37,38 @@ export default meta
 type Story = StoryObj<DividerClassesOptions>
 
 export const Playground: Story = {}
+export const Solid: Story = { args: { variant: "solid" } }
 export const Dashed: Story = { args: { variant: "dashed" } }
 export const Dotted: Story = { args: { variant: "dotted" } }
+
+export const Vertical: Story = {
+  render: (args) => {
+    const wrapper = document.createElement("div")
+    wrapper.style.display = "flex"
+    wrapper.style.alignItems = "center"
+    wrapper.style.height = "50px"
+    wrapper.style.gap = "16px"
+    const left = document.createElement("span")
+    left.textContent = "Left"
+    const hr = document.createElement("hr")
+    hr.className = dividerClasses({ ...args, orientation: "vertical" })
+    const right = document.createElement("span")
+    right.textContent = "Right"
+    wrapper.appendChild(left)
+    wrapper.appendChild(hr)
+    wrapper.appendChild(right)
+    return wrapper
+  },
+}
+
+export const LabelStart: Story = { args: { withLabel: true, labelPosition: "start" } }
+export const LabelCenter: Story = { args: { withLabel: true, labelPosition: "center" } }
+export const LabelEnd: Story = { args: { withLabel: true, labelPosition: "end" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

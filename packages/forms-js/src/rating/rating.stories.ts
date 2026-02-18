@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { ratingClasses } from "./rating.classes.js"
 import type { RatingClassesOptions } from "./rating.types.js"
 
@@ -15,7 +15,7 @@ function createRating(args: RatingArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Rating",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createRating(args as RatingArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -31,3 +31,18 @@ type Story = StoryObj<RatingArgs>
 export const Playground: Story = {}
 export const ReadOnly: Story = { args: { readOnly: true } }
 export const Disabled: Story = { args: { disabled: true } }
+export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+export const ExtraSmall: Story = { args: { size: "xs" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

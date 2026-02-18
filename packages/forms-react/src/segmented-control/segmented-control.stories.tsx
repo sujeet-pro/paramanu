@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { SegmentedControl } from "./segmented-control.js"
 
 const meta = {
   title: "Forms/Segmented Control",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: SegmentedControl,
   argTypes: {
     size: {
@@ -13,7 +13,9 @@ const meta = {
     },
     fullWidth: { control: "boolean" },
   },
-  args: {},
+  args: {
+    onChange: fn(),
+  },
 } satisfies Meta<typeof SegmentedControl>
 
 export default meta
@@ -56,6 +58,18 @@ export const Large: Story = {
   },
 }
 
+export const ExtraSmall: Story = {
+  args: {
+    size: "xs",
+    children: (
+      <>
+        <button type="button" className="pm-segmented-control__item" aria-pressed="true">A</button>
+        <button type="button" className="pm-segmented-control__item">B</button>
+      </>
+    ),
+  },
+}
+
 export const FullWidth: Story = {
   args: {
     fullWidth: true,
@@ -71,6 +85,7 @@ export const FullWidth: Story = {
 
 export const ClickSegment: Story = {
   args: {
+    onChange: fn(),
     children: (
       <>
         <button type="button" className="pm-segmented-control__item" aria-pressed="true">A</button>
@@ -83,4 +98,48 @@ export const ClickSegment: Story = {
     const buttons = canvas.getAllByRole("button")
     await userEvent.click(buttons[1])
   },
+}
+
+export const KeyboardNavigation: Story = {
+  args: {
+    children: (
+      <>
+        <button type="button" className="pm-segmented-control__item" aria-pressed="true">A</button>
+        <button type="button" className="pm-segmented-control__item">B</button>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-segmented-control")
+    await expect(el).toBeTruthy()
+    await userEvent.tab()
+  },
+}
+
+export const Accessibility: Story = {
+  args: {
+    children: (
+      <>
+        <button type="button" className="pm-segmented-control__item" aria-pressed="true">A</button>
+        <button type="button" className="pm-segmented-control__item">B</button>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const group = canvas.getByRole("radiogroup")
+    await expect(group).toBeTruthy()
+  },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

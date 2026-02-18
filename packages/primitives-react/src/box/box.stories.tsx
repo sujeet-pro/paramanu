@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Box } from "./box.js"
 
 const meta = {
   title: "Primitives/Box",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Box,
   argTypes: {
     as: {
@@ -104,4 +105,65 @@ export const AsSection: Story = {
       Rendered as &lt;section&gt;
     </Box>
   ),
+}
+
+/** Box with display block. */
+export const DisplayBlock: Story = {
+  args: { display: "block", p: "4" },
+  render: Playground.render,
+}
+
+/** Box with display inline-block. */
+export const DisplayInlineBlock: Story = {
+  args: { display: "inline-block", p: "4" },
+  render: Playground.render,
+}
+
+/** Box with display grid. */
+export const DisplayGrid: Story = {
+  args: { display: "grid", p: "4" },
+  render: Playground.render,
+}
+
+/** Box with display none. */
+export const DisplayNone: Story = {
+  args: { display: "none", p: "4" },
+  render: Playground.render,
+}
+
+/** Box with overflow scroll. */
+export const OverflowScroll: Story = {
+  args: { overflow: "scroll", p: "4" },
+  render: (args) => (
+    <Box {...args} style={{ border: "1px dashed #ccc", width: "200px", height: "80px" }}>
+      Scroll overflow content that is long enough to need scrolling.
+    </Box>
+  ),
+}
+
+/** Box with position sticky. */
+export const PositionSticky: Story = {
+  args: { position: "sticky", p: "4" },
+  render: Playground.render,
+}
+
+export const Hover: Story = {
+  args: { p: "4" },
+  render: Playground.render,
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: { p: "4" },
+  render: Playground.render,
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const RenderTest: Story = {
+  args: { p: "4" },
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-box")
+    await expect(el).toBeTruthy()
+  },
 }

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Steps, Step, StepIndicator, StepConnector, StepContent } from "./steps.js"
 
 const meta = {
   title: "Navigation/Steps",
   component: Steps,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: {
       control: "select",
@@ -113,6 +113,30 @@ export const Large: Story = {
   ),
 }
 
+export const ClickStep: Story = {
+  render: () => {
+    const onClick = fn()
+    return (
+      <Steps>
+        <Step status="complete" onClick={onClick}>
+          <StepIndicator status="complete">1</StepIndicator>
+          <StepContent>Clickable</StepContent>
+        </Step>
+        <StepConnector status="complete" />
+        <Step status="active">
+          <StepIndicator status="active">2</StepIndicator>
+          <StepContent>Current</StepContent>
+        </Step>
+      </Steps>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const step = canvas.getByText("Clickable")
+    await userEvent.click(step)
+  },
+}
+
 export const ActiveStepAccessibility: Story = {
   render: () => (
     <Steps>
@@ -131,4 +155,28 @@ export const ActiveStepAccessibility: Story = {
     const canvas = within(canvasElement)
     await expect(canvas.getByRole("list", { name: "Progress" })).toBeInTheDocument()
   },
+}
+
+export const Hover: Story = {
+  render: (args) => (
+    <Steps {...args}>
+      <Step status="active">
+        <StepIndicator status="active">1</StepIndicator>
+        <StepContent>Step</StepContent>
+      </Step>
+    </Steps>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: (args) => (
+    <Steps {...args}>
+      <Step status="active">
+        <StepIndicator status="active">1</StepIndicator>
+        <StepContent>Step</StepContent>
+      </Step>
+    </Steps>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
 }

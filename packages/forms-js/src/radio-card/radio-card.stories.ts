@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { radioCardClasses } from "./radio-card.classes.js"
 import type { RadioCardClassesOptions } from "./radio-card.types.js"
 
@@ -33,9 +33,27 @@ function createRadioCard(args: RadioCardArgs): HTMLElement {
   return label
 }
 
+function createCardGroup(): HTMLElement {
+  const wrapper = document.createElement("div")
+  wrapper.style.display = "flex"
+  wrapper.style.gap = "1rem"
+
+  ;["Basic", "Pro", "Enterprise"].forEach((plan) => {
+    const card = createRadioCard({
+      label: plan,
+      name: "plan",
+      value: plan.toLowerCase(),
+      size: "md",
+    })
+    wrapper.appendChild(card)
+  })
+
+  return wrapper
+}
+
 const meta = {
   title: "Forms/Radio Card",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createRadioCard(args as RadioCardArgs),
   argTypes: {
     size: {
@@ -71,6 +89,26 @@ export const Large: Story = {
   args: { size: "lg", label: "Large card" },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs", label: "Extra small card" },
+}
+
 export const Disabled: Story = {
   args: { disabled: true, label: "Disabled card" },
+}
+
+export const CardGroup: Story = {
+  render: () => createCardGroup(),
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

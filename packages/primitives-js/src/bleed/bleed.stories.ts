@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { bleedClasses } from "./bleed.classes.js"
 import type { BleedClassesOptions } from "./bleed.types.js"
 
@@ -19,7 +19,7 @@ function createBleed(args: BleedClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Bleed",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createBleed(args as BleedClassesOptions),
   argTypes: {
     inline: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8"] },
@@ -33,3 +33,15 @@ type Story = StoryObj<BleedClassesOptions>
 
 export const Playground: Story = {}
 export const BlockBleed: Story = { args: { inline: undefined, block: "4" } }
+export const InlineStartBleed: Story = { args: { inline: undefined, inlineStart: "4" } }
+export const InlineEndBleed: Story = { args: { inline: undefined, inlineEnd: "4" } }
+export const BlockStartBleed: Story = { args: { inline: undefined, blockStart: "4" } }
+export const BlockEndBleed: Story = { args: { inline: undefined, blockEnd: "4" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

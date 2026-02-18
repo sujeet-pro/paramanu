@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { wrapClasses } from "./wrap.classes.js"
 import type { WrapClassesOptions } from "./wrap.types.js"
 
@@ -18,7 +18,7 @@ function createWrap(args: WrapClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Wrap",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createWrap(args as WrapClassesOptions),
   argTypes: {
     gap: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8"] },
@@ -34,3 +34,22 @@ type Story = StoryObj<WrapClassesOptions>
 
 export const Playground: Story = {}
 export const Reversed: Story = { args: { direction: "row-reverse" } }
+export const AlignStart: Story = { args: { align: "start" } }
+export const AlignCenter: Story = { args: { align: "center" } }
+export const AlignEnd: Story = { args: { align: "end" } }
+export const AlignStretch: Story = { args: { align: "stretch" } }
+export const AlignBaseline: Story = { args: { align: "baseline" } }
+export const JustifyStart: Story = { args: { justify: "start" } }
+export const JustifyCenter: Story = { args: { justify: "center" } }
+export const JustifyEnd: Story = { args: { justify: "end" } }
+export const JustifyBetween: Story = { args: { justify: "between" } }
+export const JustifyAround: Story = { args: { justify: "around" } }
+export const JustifyEvenly: Story = { args: { justify: "evenly" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

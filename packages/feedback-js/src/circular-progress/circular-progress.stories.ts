@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { circularProgressClasses } from "./circular-progress.classes.js"
 import type { CircularProgressClassesOptions, CircularProgressVariant, CircularProgressSize } from "./circular-progress.types.js"
 
@@ -37,7 +37,7 @@ function createCircularProgress(args: CircularProgressArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Circular Progress",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createCircularProgress(args as CircularProgressArgs),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg", "xl"] },
@@ -82,3 +82,18 @@ export const AllSizes: Story = {
 }
 
 export const Indeterminate: Story = { args: { indeterminate: true } }
+
+export const Zero: Story = { args: { value: 0 } }
+export const Complete: Story = { args: { value: 100, variant: "success" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

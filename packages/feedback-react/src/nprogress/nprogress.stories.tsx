@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { NProgress } from "./nprogress.js"
 
 const meta = {
   title: "Feedback/NProgress",
   component: NProgress,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     active: { control: "boolean" },
     value: { control: { type: "range", min: 0, max: 1, step: 0.01 } },
@@ -69,4 +69,16 @@ export const Accessibility: Story = {
     await expect(bar).toHaveAttribute("aria-valuemin", "0")
     await expect(bar).toHaveAttribute("aria-valuemax", "100")
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

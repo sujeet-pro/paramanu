@@ -1,5 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/html"
-import { dropdownMenuClasses, dropdownMenuTriggerClasses, dropdownMenuContentClasses } from "./dropdown-menu.classes.js"
+import type { Meta, StoryObj } from "@storybook/html-vite"
+import {
+  dropdownMenuClasses,
+  dropdownMenuTriggerClasses,
+  dropdownMenuContentClasses,
+} from "./dropdown-menu.classes.js"
 import type { DropdownMenuClassesOptions } from "./dropdown-menu.types.js"
 
 interface DropdownMenuArgs extends DropdownMenuClassesOptions {}
@@ -32,7 +36,7 @@ function createDropdownMenu(args: DropdownMenuArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Dropdown Menu",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createDropdownMenu(args as DropdownMenuArgs),
   argTypes: {
     size: {
@@ -62,4 +66,13 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: { size: "lg", open: true },
+}
+
+export const Hover: Story = {
+  args: { open: true },
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

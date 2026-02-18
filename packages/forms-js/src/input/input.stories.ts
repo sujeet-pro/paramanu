@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { inputClasses } from "./input.classes.js"
 import type { InputClassesOptions } from "./input.types.js"
 
@@ -33,7 +33,7 @@ function createInput(args: InputArgs): HTMLInputElement {
 
 const meta = {
   title: "Forms/Input",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createInput(args as InputArgs),
   argTypes: {
     variant: {
@@ -74,6 +74,10 @@ export const Unstyled: Story = {
   args: { variant: "unstyled", placeholder: "Unstyled input" },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs", placeholder: "Extra small input" },
+}
+
 export const Small: Story = {
   args: { size: "sm", placeholder: "Small input" },
 }
@@ -96,4 +100,16 @@ export const ReadOnly: Story = {
 
 export const FullWidth: Story = {
   args: { fullWidth: true, placeholder: "Full width input" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

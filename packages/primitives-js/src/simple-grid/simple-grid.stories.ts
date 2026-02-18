@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { simpleGridClasses } from "./simple-grid.classes.js"
 import type { SimpleGridClassesOptions } from "./simple-grid.types.js"
 
@@ -26,7 +26,7 @@ function createSimpleGrid(args: SimpleGridArgs): HTMLElement {
 
 const meta = {
   title: "Primitives/Simple Grid",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createSimpleGrid(args as SimpleGridArgs),
   argTypes: {
     minChildWidth: { control: "select", options: ["2xs", "xs", "sm", "md", "lg", "xl"] },
@@ -41,4 +41,22 @@ export default meta
 type Story = StoryObj<SimpleGridArgs>
 
 export const Playground: Story = {}
+export const OneColumn: Story = { args: { columns: 1 } }
+export const TwoColumns: Story = { args: { columns: 2 } }
+export const FourColumns: Story = { args: { columns: 4 } }
+export const FiveColumns: Story = { args: { columns: 5 } }
+export const SixColumns: Story = { args: { columns: 6 } }
 export const Responsive: Story = { args: { minChildWidth: "sm", columns: undefined } }
+export const Responsive2xs: Story = { args: { minChildWidth: "2xs", columns: undefined } }
+export const ResponsiveXs: Story = { args: { minChildWidth: "xs", columns: undefined } }
+export const ResponsiveMd: Story = { args: { minChildWidth: "md", columns: undefined } }
+export const ResponsiveLg: Story = { args: { minChildWidth: "lg", columns: undefined } }
+export const ResponsiveXl: Story = { args: { minChildWidth: "xl", columns: undefined } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

@@ -1,12 +1,12 @@
 import { useState } from "react"
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, fn, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { ToggleButton } from "./toggle-button.js"
 
 const meta = {
   title: "Buttons/Toggle Button",
   component: ToggleButton,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: {
       control: "select",
@@ -22,6 +22,7 @@ const meta = {
   },
   args: {
     children: "Toggle",
+    onChange: fn(),
   },
 } satisfies Meta<typeof ToggleButton>
 
@@ -111,6 +112,21 @@ export const ClickToggle: Story = {
   },
 }
 
+export const KeyboardInteraction: Story = {
+  args: {
+    children: "Bold",
+    pressed: false,
+    onChange: fn(),
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole("button")
+    button.focus()
+    await userEvent.keyboard("{Enter}")
+    await expect(args.onChange).toHaveBeenCalledWith(true)
+  },
+}
+
 export const Accessibility: Story = {
   args: {
     children: "Bold",
@@ -121,4 +137,16 @@ export const Accessibility: Story = {
     const button = canvas.getByRole("button", { name: "Bold" })
     await expect(button).toHaveAttribute("aria-pressed", "true")
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

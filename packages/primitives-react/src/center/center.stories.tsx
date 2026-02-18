@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Center } from "./center.js"
 
 const meta = {
   title: "Primitives/Center",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Center,
   argTypes: {
     inline: { control: "boolean" },
@@ -42,4 +43,28 @@ export const WithTextCenter: Story = {
       <div style={{ width: "200px" }}>Text is also centered within this block</div>
     </Center>
   ),
+}
+
+/** Inline center with text alignment. */
+export const InlineWithTextCenter: Story = {
+  args: { inline: true, textCenter: true },
+  render: Playground.render,
+}
+
+export const Hover: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const RenderTest: Story = {
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-center")
+    await expect(el).toBeTruthy()
+  },
 }

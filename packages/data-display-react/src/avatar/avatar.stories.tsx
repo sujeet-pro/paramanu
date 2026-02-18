@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Avatar } from "./avatar.js"
 
 const meta = {
   title: "Data Display/Avatar",
   component: Avatar,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl"] },
     variant: { control: "select", options: ["circle", "square"] },
@@ -24,6 +25,36 @@ export const WithImage: Story = { args: { src: "https://i.pravatar.cc/150?u=a", 
 export const WithInitials: Story = { args: { name: "Jane Smith" } }
 export const Square: Story = { args: { variant: "square", name: "Alice" } }
 export const ExtraSmall: Story = { args: { size: "xs", name: "A" } }
+export const Small: Story = { args: { size: "sm", name: "S" } }
+export const Large: Story = { args: { size: "lg", name: "L" } }
 export const ExtraLarge: Story = { args: { size: "2xl", name: "Bob Ross" } }
 export const DangerColor: Story = { args: { color: "danger", name: "Error" } }
 export const SuccessColor: Story = { args: { color: "success", name: "OK" } }
+export const NeutralColor: Story = { args: { color: "neutral", name: "N" } }
+
+export const Hover: Story = {
+  args: { name: "Hover" },
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: { name: "Focus" },
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const RenderTest: Story = {
+  args: { name: "Test User" },
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-avatar")
+    await expect(el).toBeTruthy()
+  },
+}
+
+export const Accessibility: Story = {
+  args: { src: "https://i.pravatar.cc/150?u=a11y", alt: "Accessible avatar", name: "Test" },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const img = canvas.getByRole("img")
+    await expect(img).toHaveAttribute("alt")
+  },
+}

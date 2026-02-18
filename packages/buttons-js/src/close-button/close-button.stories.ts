@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { closeButtonClasses } from "./close-button.classes.js"
 import type { CloseButtonClassesOptions, CloseButtonSize } from "./close-button.types.js"
 
@@ -24,7 +24,7 @@ function createCloseButton(args: CloseButtonArgs): HTMLButtonElement {
 
 const meta = {
   title: "Buttons/Close Button",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createCloseButton(args as CloseButtonArgs),
   argTypes: {
     size: {
@@ -74,4 +74,32 @@ export const States: Story = {
     container.appendChild(createCloseButton({ disabled: true, ariaLabel: "Disabled" }))
     return container
   },
+}
+
+export const ExtraSmall: Story = {
+  args: { size: "xs", ariaLabel: "Close extra small" },
+}
+
+export const Small: Story = {
+  args: { size: "sm", ariaLabel: "Close small" },
+}
+
+export const Medium: Story = {
+  args: { size: "md", ariaLabel: "Close medium" },
+}
+
+export const Large: Story = {
+  args: { size: "lg", ariaLabel: "Close large" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

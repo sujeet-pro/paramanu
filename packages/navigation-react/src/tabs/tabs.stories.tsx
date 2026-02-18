@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Tabs, TabList, Tab, TabPanel } from "./tabs.js"
 
 const meta = {
   title: "Navigation/Tabs",
   component: Tabs,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: {
       control: "select",
@@ -157,4 +157,68 @@ export const WithDisabled: Story = {
     const activeTab = canvas.getByRole("tab", { name: "Tab 1" })
     await expect(activeTab).toHaveAttribute("aria-selected", "true")
   },
+}
+
+export const TabSwitch: Story = {
+  render: () => {
+    const onChange = fn()
+    return (
+      <Tabs>
+        <TabList>
+          <Tab active>Tab 1</Tab>
+          <Tab onClick={onChange}>Tab 2</Tab>
+          <Tab>Tab 3</Tab>
+        </TabList>
+        <TabPanel>Content</TabPanel>
+      </Tabs>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tabs = canvas.getAllByRole("tab")
+    await userEvent.click(tabs[1])
+  },
+}
+
+export const Accessibility: Story = {
+  render: () => (
+    <Tabs>
+      <TabList>
+        <Tab active>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+      </TabList>
+      <TabPanel>Content</TabPanel>
+    </Tabs>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole("tablist")).toBeInTheDocument()
+    await expect(canvas.getByRole("tabpanel")).toBeInTheDocument()
+  },
+}
+
+export const Hover: Story = {
+  render: (args) => (
+    <Tabs {...args}>
+      <TabList>
+        <Tab active>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+      </TabList>
+      <TabPanel>Content</TabPanel>
+    </Tabs>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: (args) => (
+    <Tabs {...args}>
+      <TabList>
+        <Tab active>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+      </TabList>
+      <TabPanel>Content</TabPanel>
+    </Tabs>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
 }

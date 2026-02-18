@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { breadcrumbsClasses, breadcrumbsItemClasses, breadcrumbsLinkClasses } from "./breadcrumbs.classes.js"
 import type { BreadcrumbsClassesOptions } from "./breadcrumbs.types.js"
 
@@ -43,7 +43,7 @@ function createBreadcrumbs(args: BreadcrumbsArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Breadcrumbs",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createBreadcrumbs(args as BreadcrumbsArgs),
   argTypes: {
     separator: {
@@ -71,4 +71,12 @@ export const Dot: Story = {
 
 export const Arrow: Story = {
   args: { separator: "arrow" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

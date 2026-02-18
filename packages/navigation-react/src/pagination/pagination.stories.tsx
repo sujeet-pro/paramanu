@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Pagination, PaginationItem } from "./pagination.js"
 
 const meta = {
   title: "Navigation/Pagination",
   component: Pagination,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: {
       control: "select",
@@ -101,4 +101,75 @@ export const WithEllipsis: Story = {
     const activePage = canvas.getByRole("button", { name: "5" })
     await expect(activePage).toHaveAttribute("aria-current", "page")
   },
+}
+
+export const ClickPage: Story = {
+  render: () => {
+    const onClick = fn()
+    return (
+      <Pagination>
+        <PaginationItem active>1</PaginationItem>
+        <PaginationItem onClick={onClick}>2</PaginationItem>
+        <PaginationItem>3</PaginationItem>
+      </Pagination>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const page2 = canvas.getByRole("button", { name: "2" })
+    await userEvent.click(page2)
+  },
+}
+
+export const ClickNext: Story = {
+  render: () => {
+    const onClick = fn()
+    return (
+      <Pagination>
+        <PaginationItem active>1</PaginationItem>
+        <PaginationItem>2</PaginationItem>
+        <PaginationItem type="next" onClick={onClick}>
+          Next
+        </PaginationItem>
+      </Pagination>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const next = canvas.getByRole("button", { name: "Next" })
+    await userEvent.click(next)
+  },
+}
+
+export const Accessibility: Story = {
+  render: () => (
+    <Pagination>
+      <PaginationItem active>1</PaginationItem>
+      <PaginationItem>2</PaginationItem>
+    </Pagination>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole("navigation", { name: "Pagination" })).toBeInTheDocument()
+  },
+}
+
+export const Hover: Story = {
+  render: (args) => (
+    <Pagination {...args}>
+      <PaginationItem active>1</PaginationItem>
+      <PaginationItem>2</PaginationItem>
+    </Pagination>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: (args) => (
+    <Pagination {...args}>
+      <PaginationItem active>1</PaginationItem>
+      <PaginationItem>2</PaginationItem>
+    </Pagination>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
 }

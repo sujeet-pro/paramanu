@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { SearchInput } from "./search-input.js"
 
 const meta = {
   title: "Forms/Search Input",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: SearchInput,
   argTypes: {
     variant: {
@@ -22,6 +22,9 @@ const meta = {
   },
   args: {
     placeholder: "Search...",
+    onChange: fn(),
+    onFocus: fn(),
+    onBlur: fn(),
   },
 } satisfies Meta<typeof SearchInput>
 
@@ -40,12 +43,20 @@ export const Filled: Story = {
   args: { variant: "filled", placeholder: "Search filled..." },
 }
 
+export const Unstyled: Story = {
+  args: { variant: "unstyled", placeholder: "Search unstyled..." },
+}
+
 export const Small: Story = {
   args: { size: "sm", placeholder: "Search small..." },
 }
 
 export const Large: Story = {
   args: { size: "lg", placeholder: "Search large..." },
+}
+
+export const ExtraSmall: Story = {
+  args: { size: "xs", placeholder: "Search extra small..." },
 }
 
 export const Disabled: Story = {
@@ -60,12 +71,51 @@ export const FullWidth: Story = {
   args: { fullWidth: true, placeholder: "Search full width..." },
 }
 
-export const WithTyping: Story = {
-  args: { placeholder: "Type to search..." },
+export const TypeAndSearch: Story = {
+  args: { placeholder: "Type to search...", onChange: fn() },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const input = canvas.getByPlaceholderText("Type to search...")
     await userEvent.type(input, "test query")
     await expect(input).toHaveValue("test query")
   },
+}
+
+export const ClearSearch: Story = {
+  args: { placeholder: "Clear me...", onChange: fn() },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const input = canvas.getByPlaceholderText("Clear me...")
+    await userEvent.type(input, "some text")
+    await userEvent.clear(input)
+    await expect(input).toHaveValue("")
+  },
+}
+
+export const KeyboardNavigation: Story = {
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-search-input")
+    await expect(el).toBeTruthy()
+    await userEvent.tab()
+  },
+}
+
+export const Accessibility: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const search = canvas.getByRole("search")
+    await expect(search).toBeTruthy()
+  },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

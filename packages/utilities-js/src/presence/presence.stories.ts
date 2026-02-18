@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { presenceClasses } from "./presence.classes.js"
 import type { PresenceClassesOptions } from "./presence.types.js"
 
@@ -22,7 +22,7 @@ function createPresence(args: PresenceClassesOptions): HTMLElement {
 
 const meta = {
   title: "Utilities/Presence",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createPresence(args as PresenceClassesOptions),
   argTypes: {
     state: {
@@ -38,4 +38,6 @@ type Story = StoryObj<PresenceClassesOptions>
 
 export const Playground: Story = {}
 export const Entering: Story = { args: { state: "entering" } }
+export const Entered: Story = { args: { state: "entered" } }
 export const Exiting: Story = { args: { state: "exiting" } }
+export const Exited: Story = { args: { state: "exited" } }

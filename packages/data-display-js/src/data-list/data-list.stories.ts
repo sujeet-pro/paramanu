@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { dataListClasses } from "./data-list.classes.js"
 import type { DataListClassesOptions } from "./data-list.types.js"
 
@@ -26,7 +26,7 @@ function createDataList(args: DataListClassesOptions): HTMLElement {
 
 const meta = {
   title: "Data Display/Data List",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createDataList(args as DataListClassesOptions),
   argTypes: {
     orientation: { control: "select", options: ["vertical", "horizontal"] },
@@ -42,3 +42,13 @@ type Story = StoryObj<DataListClassesOptions>
 export const Playground: Story = {}
 export const Horizontal: Story = { args: { orientation: "horizontal" } }
 export const WithDividers: Story = { args: { dividers: true } }
+export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

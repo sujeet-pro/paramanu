@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { contextMenuClasses } from "./context-menu.classes.js"
 import type { ContextMenuClassesOptions } from "./context-menu.types.js"
 
@@ -21,7 +21,7 @@ function createContextMenu(args: ContextMenuArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Context Menu",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createContextMenu(args as ContextMenuArgs),
   argTypes: {
     size: {
@@ -51,4 +51,12 @@ export const Large: Story = {
 
 export const Closed: Story = {
   args: { open: false },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

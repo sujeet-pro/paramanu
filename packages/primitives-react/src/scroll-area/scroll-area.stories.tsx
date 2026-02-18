@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { ScrollArea } from "./scroll-area.js"
 
 const meta = {
   title: "Primitives/Scroll Area",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: ScrollArea,
   argTypes: {
     direction: { control: "select", options: ["vertical", "horizontal", "both"] },
@@ -64,4 +65,54 @@ export const HiddenScrollbar: Story = {
       {longContent}
     </ScrollArea>
   ),
+}
+
+/** Both directions scroll. */
+export const DirectionBoth: Story = {
+  args: { direction: "both" },
+  render: Playground.render,
+}
+
+/** Scrollbar always visible. */
+export const ScrollbarAlways: Story = {
+  args: { scrollbar: "always" },
+  render: Playground.render,
+}
+
+/** Scrollbar visible on hover. */
+export const ScrollbarHover: Story = {
+  args: { scrollbar: "hover" },
+  render: Playground.render,
+}
+
+/** Scrollbar size none. */
+export const ScrollbarSizeNone: Story = {
+  args: { scrollbarSize: "none" },
+  render: Playground.render,
+}
+
+export const Hover: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const RenderTest: Story = {
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-scroll-area")
+    await expect(el).toBeTruthy()
+  },
+}
+
+export const Accessibility: Story = {
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector("[role='region']")
+    await expect(el).toBeTruthy()
+  },
 }

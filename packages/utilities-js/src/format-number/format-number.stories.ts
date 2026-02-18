@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 
 function createFormatNumberDemo(): HTMLElement {
   const wrapper = document.createElement("div")
@@ -24,7 +24,7 @@ function createFormatNumberDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/FormatNumber",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
 } satisfies Meta
 
 export default meta

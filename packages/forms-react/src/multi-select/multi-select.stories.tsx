@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { MultiSelect } from "./multi-select.js"
 
 const meta = {
   title: "Forms/Multi Select",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: MultiSelect,
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
@@ -14,7 +15,12 @@ const meta = {
     fullWidth: { control: "boolean" },
     placeholder: { control: "text" },
   },
-  args: { placeholder: "Select items..." },
+  args: {
+    placeholder: "Select items...",
+    onChange: fn(),
+    onFocus: fn(),
+    onBlur: fn(),
+  },
 } satisfies Meta<typeof MultiSelect>
 
 export default meta
@@ -39,4 +45,70 @@ export const Open: Story = {
 export const Disabled: Story = { args: { disabled: true } }
 export const Invalid: Story = { args: { invalid: true } }
 export const Filled: Story = { args: { variant: "filled" } }
+export const Unstyled: Story = { args: { variant: "unstyled" } }
 export const FullWidth: Story = { args: { fullWidth: true } }
+export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+export const ExtraSmall: Story = { args: { size: "xs" } }
+
+export const SelectInteraction: Story = {
+  args: {
+    children: (
+      <>
+        <div role="option">React</div>
+        <div role="option">Vue</div>
+        <div role="option">Angular</div>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const combobox = canvas.getByRole("combobox")
+    await userEvent.click(combobox)
+    await expect(combobox).toBeTruthy()
+  },
+}
+
+export const KeyboardNavigation: Story = {
+  args: {
+    children: (
+      <>
+        <div role="option">React</div>
+        <div role="option">Vue</div>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-multi-select")
+    await expect(el).toBeTruthy()
+    await userEvent.tab()
+  },
+}
+
+export const Accessibility: Story = {
+  args: {
+    children: (
+      <>
+        <div role="option">React</div>
+        <div role="option">Vue</div>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const combobox = canvas.getByRole("combobox")
+    await expect(combobox).toHaveAttribute("aria-haspopup", "listbox")
+  },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

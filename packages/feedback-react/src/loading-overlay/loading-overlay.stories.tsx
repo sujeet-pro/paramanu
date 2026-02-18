@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { LoadingOverlay } from "./loading-overlay.js"
 
 const meta = {
   title: "Feedback/Loading Overlay",
   component: LoadingOverlay,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     visible: { control: "boolean" },
     blur: { control: "boolean" },
@@ -68,4 +68,16 @@ export const Accessibility: Story = {
       <LoadingOverlay visible={false} />
     </div>
   ),
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

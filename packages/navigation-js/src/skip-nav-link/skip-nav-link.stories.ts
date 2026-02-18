@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { skipNavLinkClasses } from "./skip-nav-link.classes.js"
 
 interface SkipNavLinkArgs {
@@ -25,7 +25,7 @@ function createSkipNavLink(args: SkipNavLinkArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Skip Nav Link",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createSkipNavLink(args as SkipNavLinkArgs),
   argTypes: {
     href: { control: "text" },
@@ -44,4 +44,12 @@ export const Playground: Story = {}
 
 export const CustomTarget: Story = {
   args: { href: "#content", label: "Skip to content" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { avatarClasses } from "./avatar.classes.js"
 import type { AvatarClassesOptions } from "./avatar.types.js"
 
@@ -36,7 +36,7 @@ function createAvatar(args: AvatarArgs): HTMLSpanElement {
 
 const meta = {
   title: "Data Display/Avatar",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createAvatar(args as AvatarArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl"] },
@@ -55,3 +55,18 @@ export const Playground: Story = {}
 export const WithInitials: Story = { args: { name: "Jane Smith" } }
 export const Square: Story = { args: { variant: "square", name: "Alice" } }
 export const Small: Story = { args: { size: "sm", name: "S" } }
+export const ExtraSmall: Story = { args: { size: "xs", name: "X" } }
+export const Large: Story = { args: { size: "lg", name: "L" } }
+export const ExtraLarge: Story = { args: { size: "xl", name: "XL" } }
+export const TwoExtraLarge: Story = { args: { size: "2xl", name: "Bob Ross" } }
+export const Neutral: Story = { args: { color: "neutral", name: "N" } }
+export const Danger: Story = { args: { color: "danger", name: "D" } }
+export const Success: Story = { args: { color: "success", name: "S" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { imageClasses } from "./image.classes.js"
 import type { ImageClassesOptions } from "./image.types.js"
 
@@ -37,7 +37,7 @@ function createImage(args: ImageArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Image",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createImage(args as ImageArgs),
   argTypes: {
     fit: { control: "select", options: ["cover", "contain", "fill", "none", "scale-down"] },
@@ -56,5 +56,18 @@ type Story = StoryObj<ImageArgs>
 
 export const Playground: Story = {}
 export const Rounded: Story = { args: { radius: "lg" } }
+export const Circle: Story = { args: { radius: "full" } }
+export const SmallRadius: Story = { args: { radius: "sm" } }
+export const Contain: Story = { args: { fit: "contain" } }
+export const Fill: Story = { args: { fit: "fill" } }
 export const Fallback: Story = { args: { fallback: true, src: "" } }
+export const Loading: Story = { args: { loading: true, src: "" } }
 export const WithCaption: Story = { args: { captionText: "A sample image" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Input } from "./input.js"
 
 const meta = {
   title: "Forms/Input",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Input,
   argTypes: {
     variant: {
@@ -23,6 +23,9 @@ const meta = {
   },
   args: {
     placeholder: "Enter text...",
+    onChange: fn(),
+    onFocus: fn(),
+    onBlur: fn(),
   },
 } satisfies Meta<typeof Input>
 
@@ -43,6 +46,10 @@ export const Filled: Story = {
 
 export const Unstyled: Story = {
   args: { variant: "unstyled", placeholder: "Unstyled input" },
+}
+
+export const ExtraSmall: Story = {
+  args: { size: "xs", placeholder: "Extra small input" },
 }
 
 export const Small: Story = {
@@ -69,12 +76,47 @@ export const FullWidth: Story = {
   args: { fullWidth: true, placeholder: "Full width input" },
 }
 
-export const WithTyping: Story = {
-  args: { placeholder: "Type here..." },
+export const Required: Story = {
+  args: { required: true, placeholder: "Required input" },
+}
+
+export const TypeInteraction: Story = {
+  args: { placeholder: "Type here...", onChange: fn() },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const input = canvas.getByPlaceholderText("Type here...")
     await userEvent.type(input, "Hello World")
     await expect(input).toHaveValue("Hello World")
   },
+}
+
+export const KeyboardInteraction: Story = {
+  args: { placeholder: "Tab to me...", onChange: fn() },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const input = canvas.getByRole("textbox")
+    await userEvent.tab()
+    await expect(input).toHaveFocus()
+  },
+}
+
+export const Accessibility: Story = {
+  args: { "aria-label": "Email address", placeholder: "Enter email..." },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const el = canvas.getByRole("textbox", { name: "Email address" })
+    await expect(el).toBeInTheDocument()
+  },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

@@ -1,10 +1,18 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { StructuredList, StructuredListHead, StructuredListBody, StructuredListRow, StructuredListCell, StructuredListHeaderCell } from "./structured-list.js"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect } from "storybook/test"
+import {
+  StructuredList,
+  StructuredListHead,
+  StructuredListBody,
+  StructuredListRow,
+  StructuredListCell,
+  StructuredListHeaderCell,
+} from "./structured-list.js"
 
 const meta = {
   title: "Data Display/Structured List",
   component: StructuredList,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: { control: "select", options: ["sm", "md"] },
     selectable: { control: "boolean" },
@@ -75,4 +83,64 @@ export const Bordered: Story = {
       </StructuredListBody>
     </StructuredList>
   ),
+}
+
+export const Small: Story = {
+  args: { size: "sm" },
+  render: (args) => (
+    <StructuredList {...args}>
+      <StructuredListBody>
+        <StructuredListRow>
+          <StructuredListCell>Compact</StructuredListCell>
+          <StructuredListCell>Row</StructuredListCell>
+        </StructuredListRow>
+      </StructuredListBody>
+    </StructuredList>
+  ),
+}
+
+export const Hover: Story = {
+  args: { selectable: true },
+  parameters: { pseudo: { hover: true } },
+  render: (args) => (
+    <StructuredList {...args}>
+      <StructuredListBody>
+        <StructuredListRow>
+          <StructuredListCell>Hover</StructuredListCell>
+          <StructuredListCell>Row</StructuredListCell>
+        </StructuredListRow>
+      </StructuredListBody>
+    </StructuredList>
+  ),
+}
+
+export const FocusVisible: Story = {
+  args: { selectable: true },
+  parameters: { pseudo: { focusVisible: true } },
+  render: (args) => (
+    <StructuredList {...args}>
+      <StructuredListBody>
+        <StructuredListRow>
+          <StructuredListCell>Focus</StructuredListCell>
+          <StructuredListCell>Row</StructuredListCell>
+        </StructuredListRow>
+      </StructuredListBody>
+    </StructuredList>
+  ),
+}
+
+export const RenderTest: Story = {
+  render: () => (
+    <StructuredList>
+      <StructuredListBody>
+        <StructuredListRow>
+          <StructuredListCell>Test</StructuredListCell>
+        </StructuredListRow>
+      </StructuredListBody>
+    </StructuredList>
+  ),
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-structured-list")
+    await expect(el).toBeTruthy()
+  },
 }

@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect } from "storybook/test"
 import { Stat, StatLabel, StatValue, StatHelpText } from "./stat.js"
 
 const meta = {
   title: "Data Display/Stat",
   component: Stat,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },
     align: { control: "select", options: ["start", "center", "end"] },
@@ -55,6 +56,16 @@ export const Centered: Story = {
   ),
 }
 
+export const EndAligned: Story = {
+  args: { align: "end" },
+  render: (args) => (
+    <Stat {...args}>
+      <StatLabel>Revenue</StatLabel>
+      <StatValue>$12,345</StatValue>
+    </Stat>
+  ),
+}
+
 export const Small: Story = {
   args: { size: "sm" },
   render: (args) => (
@@ -63,4 +74,47 @@ export const Small: Story = {
       <StatValue>842</StatValue>
     </Stat>
   ),
+}
+
+export const Large: Story = {
+  args: { size: "lg" },
+  render: (args) => (
+    <Stat {...args}>
+      <StatLabel>Total Sales</StatLabel>
+      <StatValue>$98,765</StatValue>
+    </Stat>
+  ),
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+  render: (args) => (
+    <Stat {...args}>
+      <StatLabel>Metric</StatLabel>
+      <StatValue>100</StatValue>
+    </Stat>
+  ),
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+  render: (args) => (
+    <Stat {...args}>
+      <StatLabel>Metric</StatLabel>
+      <StatValue>100</StatValue>
+    </Stat>
+  ),
+}
+
+export const RenderTest: Story = {
+  render: () => (
+    <Stat>
+      <StatLabel>Test</StatLabel>
+      <StatValue>42</StatValue>
+    </Stat>
+  ),
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-stat")
+    await expect(el).toBeTruthy()
+  },
 }

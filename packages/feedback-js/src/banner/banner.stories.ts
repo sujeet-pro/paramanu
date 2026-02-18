@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { bannerClasses } from "./banner.classes.js"
 import type { BannerClassesOptions, BannerVariant } from "./banner.types.js"
 
@@ -38,7 +38,7 @@ function createBanner(args: BannerArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Banner",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createBanner(args as BannerArgs),
   argTypes: {
     variant: { control: "select", options: ["info", "success", "warning", "danger"] },
@@ -74,3 +74,21 @@ export const AllVariants: Story = {
 
 export const Dismissible: Story = { args: { dismissible: true, text: "Dismissible banner." } }
 export const Sticky: Story = { args: { sticky: true, text: "Sticky banner." } }
+
+export const Info: Story = { args: { variant: "info", text: "Info banner." } }
+export const Success: Story = { args: { variant: "success", text: "Success banner." } }
+export const Warning: Story = { args: { variant: "warning", text: "Warning banner." } }
+export const Danger: Story = { args: { variant: "danger", text: "Danger banner." } }
+export const BottomPosition: Story = { args: { position: "bottom", sticky: true, text: "Bottom banner." } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

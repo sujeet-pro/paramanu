@@ -1,12 +1,12 @@
 import { useState } from "react"
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { ToggleGroup, ToggleGroupItem } from "./toggle-group.js"
 
 const meta = {
   title: "Buttons/Toggle Group",
   component: ToggleGroup,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     type: {
       control: "select",
@@ -136,4 +136,74 @@ export const GroupRole: Story = {
     const group = canvas.getByRole("group", { name: "Selection group" })
     await expect(group).toBeInTheDocument()
   },
+}
+
+export const ClickInteraction: Story = {
+  render: () => {
+    const handleChange = fn()
+    return (
+      <ToggleGroup type="single" value="a" onChange={handleChange} aria-label="Selection">
+        <ToggleGroupItem value="a">A</ToggleGroupItem>
+        <ToggleGroupItem value="b">B</ToggleGroupItem>
+        <ToggleGroupItem value="c">C</ToggleGroupItem>
+      </ToggleGroup>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const buttons = canvas.getAllByRole("button")
+    await userEvent.click(buttons[1])
+    await expect(buttons[1]).toHaveFocus()
+  },
+}
+
+export const KeyboardNavigation: Story = {
+  render: () => (
+    <ToggleGroup type="single" value="a" aria-label="Keyboard test">
+      <ToggleGroupItem value="a">A</ToggleGroupItem>
+      <ToggleGroupItem value="b">B</ToggleGroupItem>
+      <ToggleGroupItem value="c">C</ToggleGroupItem>
+    </ToggleGroup>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const buttons = canvas.getAllByRole("button")
+    buttons[0].focus()
+    await expect(buttons[0]).toHaveFocus()
+    await userEvent.tab()
+    await expect(buttons[1]).toHaveFocus()
+  },
+}
+
+export const Hover: Story = {
+  render: () => (
+    <ToggleGroup type="single" attached value="a" aria-label="Hover test">
+      <ToggleGroupItem value="a">A</ToggleGroupItem>
+      <ToggleGroupItem value="b">B</ToggleGroupItem>
+      <ToggleGroupItem value="c">C</ToggleGroupItem>
+    </ToggleGroup>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: () => (
+    <ToggleGroup type="single" attached value="a" aria-label="Focus test">
+      <ToggleGroupItem value="a">A</ToggleGroupItem>
+      <ToggleGroupItem value="b">B</ToggleGroupItem>
+      <ToggleGroupItem value="c">C</ToggleGroupItem>
+    </ToggleGroup>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  render: () => (
+    <ToggleGroup type="single" attached value="a" aria-label="Active test">
+      <ToggleGroupItem value="a">A</ToggleGroupItem>
+      <ToggleGroupItem value="b">B</ToggleGroupItem>
+      <ToggleGroupItem value="c">C</ToggleGroupItem>
+    </ToggleGroup>
+  ),
+  parameters: { pseudo: { active: true } },
 }

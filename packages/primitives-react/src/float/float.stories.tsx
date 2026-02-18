@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Float } from "./float.js"
 
 const meta = {
   title: "Primitives/Float",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Float,
   argTypes: {
     placement: {
@@ -58,4 +59,58 @@ export const MiddleCenter: Story = {
 export const WithOffset: Story = {
   args: { placement: "top-end", offset: "2" },
   render: Playground.render,
+}
+
+/** Top-start placement. */
+export const TopStart: Story = {
+  args: { placement: "top-start" },
+  render: Playground.render,
+}
+
+/** Top-center placement. */
+export const TopCenter: Story = {
+  args: { placement: "top-center" },
+  render: Playground.render,
+}
+
+/** Middle-start placement. */
+export const MiddleStart: Story = {
+  args: { placement: "middle-start" },
+  render: Playground.render,
+}
+
+/** Middle-end placement. */
+export const MiddleEnd: Story = {
+  args: { placement: "middle-end" },
+  render: Playground.render,
+}
+
+/** Bottom-center placement. */
+export const BottomCenter: Story = {
+  args: { placement: "bottom-center" },
+  render: Playground.render,
+}
+
+/** Bottom-end placement. */
+export const BottomEnd: Story = {
+  args: { placement: "bottom-end" },
+  render: Playground.render,
+}
+
+export const Hover: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const RenderTest: Story = {
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-float")
+    await expect(el).toBeTruthy()
+  },
 }

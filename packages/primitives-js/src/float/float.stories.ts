@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { floatClasses } from "./float.classes.js"
 import type { FloatClassesOptions } from "./float.types.js"
 
@@ -36,7 +36,7 @@ function createFloat(args: FloatClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Float",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createFloat(args as FloatClassesOptions),
   argTypes: {
     placement: {
@@ -52,4 +52,21 @@ export default meta
 type Story = StoryObj<FloatClassesOptions>
 
 export const Playground: Story = {}
+export const TopStart: Story = { args: { placement: "top-start" } }
+export const TopCenter: Story = { args: { placement: "top-center" } }
+export const TopEnd: Story = { args: { placement: "top-end" } }
+export const MiddleStart: Story = { args: { placement: "middle-start" } }
+export const MiddleCenter: Story = { args: { placement: "middle-center" } }
+export const MiddleEnd: Story = { args: { placement: "middle-end" } }
 export const BottomStart: Story = { args: { placement: "bottom-start" } }
+export const BottomCenter: Story = { args: { placement: "bottom-center" } }
+export const BottomEnd: Story = { args: { placement: "bottom-end" } }
+export const WithOffset: Story = { args: { placement: "top-end", offset: "2" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

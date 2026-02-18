@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { tabsClasses, tabListClasses, tabClasses, tabPanelClasses } from "./tabs.classes.js"
 import type { TabsClassesOptions } from "./tabs.types.js"
 
@@ -37,7 +37,7 @@ function createTabs(args: TabsArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Tabs",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createTabs(args as TabsArgs),
   argTypes: {
     variant: {
@@ -75,10 +75,26 @@ export const Pill: Story = {
   args: { variant: "pill" },
 }
 
+export const Small: Story = {
+  args: { size: "sm" },
+}
+
+export const Large: Story = {
+  args: { size: "lg" },
+}
+
 export const Vertical: Story = {
   args: { orientation: "vertical" },
 }
 
 export const Fitted: Story = {
   args: { fitted: true },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

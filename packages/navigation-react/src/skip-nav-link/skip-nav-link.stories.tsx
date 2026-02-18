@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { SkipNavLink } from "./skip-nav-link.js"
 
 const meta = {
   title: "Navigation/Skip Nav Link",
   component: SkipNavLink,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   args: {
     href: "#main-content",
   },
@@ -66,4 +66,53 @@ export const FocusableOnTab: Story = {
     await expect(link).toBeInTheDocument()
     await expect(link).toHaveAttribute("href", "#main-content")
   },
+}
+
+export const KeyboardActivation: Story = {
+  render: () => (
+    <div>
+      <SkipNavLink />
+      <main id="main-content">Content</main>
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const link = canvas.getByText("Skip to main content")
+    link.focus()
+    await expect(link).toHaveFocus()
+  },
+}
+
+export const Accessibility: Story = {
+  render: () => (
+    <div>
+      <SkipNavLink />
+      <main id="main-content">Content</main>
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const link = canvas.getByText("Skip to main content")
+    await expect(link).toHaveAttribute("href", "#main-content")
+  },
+}
+
+export const Hover: Story = {
+  render: () => (
+    <div>
+      <SkipNavLink />
+      <main id="main-content">Content</main>
+    </div>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: () => (
+    <div>
+      <SkipNavLink />
+      <main id="main-content">Content</main>
+    </div>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
 }

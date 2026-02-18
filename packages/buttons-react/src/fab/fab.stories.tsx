@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, fn, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Fab } from "./fab.js"
 
 const PlusIcon = () => (
@@ -12,7 +12,7 @@ const PlusIcon = () => (
 const meta = {
   title: "Buttons/FAB",
   component: Fab,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: {
       control: "select",
@@ -28,6 +28,7 @@ const meta = {
   args: {
     children: <PlusIcon />,
     "aria-label": "Add item",
+    onClick: fn(),
   },
   decorators: [
     (Story) => (
@@ -123,6 +124,20 @@ export const ClickHandler: Story = {
   },
 }
 
+export const KeyboardInteraction: Story = {
+  args: {
+    onClick: fn(),
+    style: { position: "static" },
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole("button")
+    button.focus()
+    await userEvent.keyboard("{Enter}")
+    await expect(args.onClick).toHaveBeenCalledTimes(1)
+  },
+}
+
 export const Accessibility: Story = {
   args: {
     "aria-label": "Create new document",
@@ -133,4 +148,16 @@ export const Accessibility: Story = {
     const button = canvas.getByRole("button", { name: "Create new document" })
     await expect(button).toBeInTheDocument()
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

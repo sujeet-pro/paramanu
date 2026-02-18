@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import {
   appShellClasses,
   appShellHeaderClasses,
@@ -39,7 +39,7 @@ function createAppShell(args: AppShellClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/App Shell",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createAppShell(args as AppShellClassesOptions),
   argTypes: {
     sidebarCollapsed: { control: "boolean" },
@@ -54,3 +54,13 @@ type Story = StoryObj<AppShellClassesOptions>
 export const Playground: Story = {}
 export const SidebarEnd: Story = { args: { sidebarPosition: "end" } }
 export const CollapsedSidebar: Story = { args: { sidebarCollapsed: true } }
+
+export const SidebarStart: Story = { args: { sidebarPosition: "start" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

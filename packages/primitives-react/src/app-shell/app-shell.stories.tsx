@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { AppShell, AppShellHeader, AppShellSidebar, AppShellMain, AppShellFooter } from "./app-shell.js"
 
 const meta = {
   title: "Primitives/App Shell",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: AppShell,
   argTypes: {
     sidebarPosition: { control: "select", options: ["start", "end"] },
@@ -44,4 +45,29 @@ export const SidebarEnd: Story = {
 export const CollapsedSidebar: Story = {
   args: { sidebarCollapsed: true },
   render: Playground.render,
+}
+
+/** With sidebar at start position (default). */
+export const SidebarStart: Story = {
+  args: { sidebarPosition: "start" },
+  render: Playground.render,
+}
+
+export const Hover: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: Playground.render,
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const RenderTest: Story = {
+  render: Playground.render,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const el = canvasElement.querySelector(".pm-app-shell")
+    await expect(el).toBeTruthy()
+  },
 }

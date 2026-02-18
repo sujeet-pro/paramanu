@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "./collapsible.js"
 
 const meta = {
   title: "Disclosure/Collapsible",
   component: Collapsible,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: {
       control: "select",
@@ -18,6 +18,7 @@ const meta = {
     size: "md",
     disabled: false,
     defaultOpen: false,
+    onOpenChange: fn(),
   },
 } satisfies Meta<typeof Collapsible>
 
@@ -110,4 +111,74 @@ export const InteractiveToggle: Story = {
     await userEvent.click(trigger)
     await expect(trigger).toHaveAttribute("aria-expanded", "true")
   },
+}
+
+export const KeyboardInteraction: Story = {
+  render: () => (
+    <Collapsible>
+      <CollapsibleTrigger>Press Enter</CollapsibleTrigger>
+      <CollapsibleContent>
+        <p>Keyboard toggled.</p>
+      </CollapsibleContent>
+    </Collapsible>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const trigger = canvas.getByRole("button", { name: "Press Enter" })
+    trigger.focus()
+    await userEvent.keyboard("{Enter}")
+    await expect(trigger).toHaveAttribute("aria-expanded", "true")
+  },
+}
+
+export const Accessibility: Story = {
+  render: () => (
+    <Collapsible defaultOpen>
+      <CollapsibleTrigger>Accessible Trigger</CollapsibleTrigger>
+      <CollapsibleContent>
+        <p>Accessible content.</p>
+      </CollapsibleContent>
+    </Collapsible>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const trigger = canvas.getByRole("button", { name: "Accessible Trigger" })
+    await expect(trigger).toHaveAttribute("aria-expanded", "true")
+  },
+}
+
+export const Hover: Story = {
+  render: () => (
+    <Collapsible>
+      <CollapsibleTrigger>Hover test</CollapsibleTrigger>
+      <CollapsibleContent>
+        <p>Content.</p>
+      </CollapsibleContent>
+    </Collapsible>
+  ),
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  render: () => (
+    <Collapsible>
+      <CollapsibleTrigger>Focus test</CollapsibleTrigger>
+      <CollapsibleContent>
+        <p>Content.</p>
+      </CollapsibleContent>
+    </Collapsible>
+  ),
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  render: () => (
+    <Collapsible>
+      <CollapsibleTrigger>Active test</CollapsibleTrigger>
+      <CollapsibleContent>
+        <p>Content.</p>
+      </CollapsibleContent>
+    </Collapsible>
+  ),
+  parameters: { pseudo: { active: true } },
 }

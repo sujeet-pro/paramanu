@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { linkClasses } from "./link.classes.js"
 import type { LinkClassesOptions } from "./link.types.js"
 
@@ -34,7 +34,7 @@ function createLink(args: LinkArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Link",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createLink(args as LinkArgs),
   argTypes: {
     variant: {
@@ -71,10 +71,34 @@ export const Nav: Story = {
   args: { variant: "nav", label: "Nav Link" },
 }
 
+export const Active: Story = {
+  args: { active: true, label: "Active Link" },
+}
+
 export const Disabled: Story = {
   args: { disabled: true, label: "Disabled Link" },
 }
 
 export const External: Story = {
   args: { external: true, label: "External Link", href: "https://example.com" },
+}
+
+export const UnderlineAlways: Story = {
+  args: { underline: "always", label: "Always Underlined" },
+}
+
+export const UnderlineHover: Story = {
+  args: { underline: "hover", label: "Hover Underlined" },
+}
+
+export const UnderlineNever: Story = {
+  args: { underline: "never", label: "Never Underlined" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

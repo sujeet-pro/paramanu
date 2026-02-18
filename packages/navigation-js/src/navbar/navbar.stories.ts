@@ -1,5 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/html"
-import { navbarClasses, navbarInnerClasses, navbarSectionClasses, navbarBrandClasses, navbarToggleClasses } from "./navbar.classes.js"
+import type { Meta, StoryObj } from "@storybook/html-vite"
+import {
+  navbarClasses,
+  navbarInnerClasses,
+  navbarSectionClasses,
+  navbarBrandClasses,
+  navbarToggleClasses,
+} from "./navbar.classes.js"
 import type { NavbarClassesOptions } from "./navbar.types.js"
 
 interface NavbarArgs extends NavbarClassesOptions {
@@ -40,7 +46,7 @@ function createNavbar(args: NavbarArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Navbar",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createNavbar(args as NavbarArgs),
   argTypes: {
     variant: {
@@ -75,4 +81,16 @@ export const Bordered: Story = {
 
 export const Sticky: Story = {
   args: { position: "sticky" },
+}
+
+export const Fixed: Story = {
+  args: { position: "fixed" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

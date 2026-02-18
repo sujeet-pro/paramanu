@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { buttonGroupClasses } from "./button-group.classes.js"
 import { buttonClasses } from "../button/button.classes.js"
 import type { ButtonGroupClassesOptions, ButtonGroupOrientation } from "./button-group.types.js"
@@ -34,7 +34,7 @@ function createButtonGroup(args: ButtonGroupArgs): HTMLDivElement {
 
 const meta = {
   title: "Buttons/Button Group",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createButtonGroup(args as ButtonGroupArgs),
   argTypes: {
     orientation: {
@@ -132,4 +132,16 @@ export const MixedVariants: Story = {
 
 export const TwoButtons: Story = {
   args: { buttonCount: 2, attached: true },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

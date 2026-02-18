@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { dataTableClasses } from "./data-table.classes.js"
 import type { DataTableClassesOptions } from "./data-table.types.js"
 
@@ -54,7 +54,7 @@ function createDataTable(args: DataTableArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Data Table",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createDataTable(args as DataTableArgs),
   argTypes: {
     variant: { control: "select", options: ["simple", "striped"] },
@@ -72,3 +72,16 @@ type Story = StoryObj<DataTableArgs>
 export const Playground: Story = {}
 export const Striped: Story = { args: { variant: "striped" } }
 export const Selectable: Story = { args: { selectable: true, hoverable: true } }
+export const Bordered: Story = { args: { bordered: true } }
+export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+export const StickyHeader: Story = { args: { stickyHeader: true } }
+
+export const Hover: Story = {
+  args: { hoverable: true },
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

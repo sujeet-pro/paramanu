@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { statClasses } from "./stat.classes.js"
 import type { StatClassesOptions } from "./stat.types.js"
 
@@ -35,7 +35,7 @@ function createStat(args: StatArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Stat",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createStat(args as StatArgs),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },
@@ -58,5 +58,14 @@ type Story = StoryObj<StatArgs>
 
 export const Playground: Story = {}
 export const Centered: Story = { args: { align: "center" } }
+export const EndAligned: Story = { args: { align: "end" } }
 export const Small: Story = { args: { size: "sm" } }
 export const Large: Story = { args: { size: "lg" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

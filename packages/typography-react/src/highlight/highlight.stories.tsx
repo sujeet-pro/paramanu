@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { Highlight } from "./highlight.js"
 
 const meta = {
   title: "Typography/Highlight",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Highlight,
   argTypes: {
     color: { control: "select", options: ["primary", "danger", "success", "warning", "info", "neutral"] },
@@ -43,4 +44,45 @@ export const Outline: Story = {
 export const TextVariant: Story = {
   args: { variant: "text", color: "danger" },
   render: (args) => <Highlight {...args}>text-only highlight</Highlight>,
+}
+
+export const Warning: Story = {
+  args: { color: "warning" },
+  render: (args) => <Highlight {...args}>warning highlight</Highlight>,
+}
+
+export const Info: Story = {
+  args: { color: "info" },
+  render: (args) => <Highlight {...args}>info highlight</Highlight>,
+}
+
+export const Neutral: Story = {
+  args: { color: "neutral" },
+  render: (args) => <Highlight {...args}>neutral highlight</Highlight>,
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+  render: (args) => <Highlight {...args}>hover highlight</Highlight>,
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+  render: (args) => <Highlight {...args}>focus visible highlight</Highlight>,
+}
+
+export const RenderTest: Story = {
+  args: { children: "Test content" },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText("Test content")).toBeInTheDocument()
+  },
+}
+
+export const SemanticHTML: Story = {
+  render: () => <Highlight>semantic mark element</Highlight>,
+  play: async ({ canvasElement }) => {
+    const mark = canvasElement.querySelector("mark")
+    await expect(mark).toBeTruthy()
+  },
 }

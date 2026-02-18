@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { formControlClasses } from "./form-control.classes.js"
 import type { FormControlClassesOptions } from "./form-control.types.js"
 
@@ -14,7 +14,7 @@ function createFormControl(args: FormControlArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Form Control",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createFormControl(args as FormControlArgs),
   argTypes: {
     orientation: { control: "select", options: ["vertical", "horizontal"] },
@@ -33,3 +33,15 @@ export const Horizontal: Story = { args: { orientation: "horizontal" } }
 export const Invalid: Story = { args: { invalid: true } }
 export const Disabled: Story = { args: { disabled: true } }
 export const Required: Story = { args: { required: true } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+}

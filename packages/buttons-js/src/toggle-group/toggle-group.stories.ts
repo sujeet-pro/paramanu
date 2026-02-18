@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { toggleGroupClasses, toggleGroupItemClasses } from "./toggle-group.classes.js"
 import type { ToggleGroupClassesOptions, ToggleGroupSize } from "./toggle-group.types.js"
 
@@ -39,7 +39,7 @@ function createToggleGroup(args: ToggleGroupArgs): HTMLDivElement {
 
 const meta = {
   title: "Buttons/Toggle Group",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createToggleGroup(args as ToggleGroupArgs),
   argTypes: {
     type: {
@@ -117,4 +117,16 @@ export const AllSizes: Story = {
     }
     return container
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { LocaleProvider, useLocale } from "./locale-provider.js"
 
 function LocaleDisplay() {
@@ -22,7 +23,7 @@ function LocaleDisplay() {
 const meta = {
   title: "Utilities/LocaleProvider",
   component: LocaleProvider,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     defaultLocale: { control: "text" },
   },
@@ -39,4 +40,23 @@ export const Playground: Story = {}
 
 export const German: Story = {
   args: { defaultLocale: "de-DE" },
+}
+
+export const Japanese: Story = {
+  args: { defaultLocale: "ja" },
+}
+
+export const Arabic: Story = {
+  args: { defaultLocale: "ar-SA" },
+}
+
+export const RenderTest: Story = {
+  args: {
+    defaultLocale: "en-US",
+    children: <div>Test content</div>,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText("Test content")).toBeInTheDocument()
+  },
 }

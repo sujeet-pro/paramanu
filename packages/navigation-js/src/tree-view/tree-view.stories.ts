@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import {
   treeViewClasses,
   treeViewBranchClasses,
@@ -62,7 +62,7 @@ function createTreeView(args: TreeViewArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Tree View",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createTreeView(args as TreeViewArgs),
   argTypes: {
     size: {
@@ -82,4 +82,12 @@ export const Playground: Story = {}
 
 export const Small: Story = {
   args: { size: "sm" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

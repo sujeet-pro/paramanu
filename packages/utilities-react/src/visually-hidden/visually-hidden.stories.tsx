@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect } from "storybook/test"
 import { VisuallyHidden } from "./visually-hidden.js"
 
 const meta = {
   title: "Utilities/VisuallyHidden",
   component: VisuallyHidden,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     focusable: { control: "boolean" },
     as: { control: "select", options: ["span", "div", "a"] },
@@ -21,4 +22,25 @@ export const Playground: Story = {}
 
 export const Focusable: Story = {
   args: { focusable: true, as: "a", children: "Skip to content" },
+}
+
+export const AsDiv: Story = {
+  args: { as: "div", children: "Hidden div content" },
+}
+
+export const A11yScreenReaderText: Story = {
+  args: { children: "Screen reader only text" },
+  play: async ({ canvasElement }) => {
+    const hidden = canvasElement.querySelector("span")
+    await expect(hidden).toBeTruthy()
+    await expect(hidden?.textContent).toBe("Screen reader only text")
+  },
+}
+
+export const RenderTest: Story = {
+  args: { children: "Test content" },
+  play: async ({ canvasElement }) => {
+    const text = canvasElement.textContent
+    await expect(text).toContain("Test content")
+  },
 }

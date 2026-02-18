@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { aspectRatioClasses } from "./aspect-ratio.classes.js"
 import type { AspectRatioClassesOptions } from "./aspect-ratio.types.js"
 
@@ -22,7 +22,7 @@ function createAspectRatio(args: AspectRatioClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Aspect Ratio",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createAspectRatio(args as AspectRatioClassesOptions),
   argTypes: {
     ratio: { control: "select", options: ["1/1", "2/3", "3/2", "4/3", "3/4", "16/9", "9/16", "21/9"] },
@@ -36,3 +36,17 @@ type Story = StoryObj<AspectRatioClassesOptions>
 export const Playground: Story = {}
 export const Square: Story = { args: { ratio: "1/1" } }
 export const Portrait: Story = { args: { ratio: "3/4" } }
+export const Ratio2By3: Story = { args: { ratio: "2/3" } }
+export const Ratio3By2: Story = { args: { ratio: "3/2" } }
+export const Ratio4By3: Story = { args: { ratio: "4/3" } }
+export const Widescreen: Story = { args: { ratio: "16/9" } }
+export const Portrait9By16: Story = { args: { ratio: "9/16" } }
+export const Ultrawide: Story = { args: { ratio: "21/9" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

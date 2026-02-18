@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { avatarGroupClasses } from "./avatar-group.classes.js"
 import { avatarClasses } from "../avatar/avatar.classes.js"
 import type { AvatarGroupClassesOptions } from "./avatar-group.types.js"
@@ -43,7 +43,7 @@ function createAvatarGroup(args: AvatarGroupArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Avatar Group",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createAvatarGroup(args as AvatarGroupArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl"] },
@@ -60,3 +60,14 @@ type Story = StoryObj<AvatarGroupArgs>
 export const Playground: Story = {}
 export const WithMax: Story = { args: { count: 5, max: 3 } }
 export const Tight: Story = { args: { spacing: "tight" } }
+export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+export const ExtraLarge: Story = { args: { size: "xl" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

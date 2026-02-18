@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { structuredListClasses } from "./structured-list.classes.js"
 import type { StructuredListClassesOptions } from "./structured-list.types.js"
 
@@ -45,7 +45,7 @@ function createStructuredList(args: StructuredListClassesOptions): HTMLElement {
 
 const meta = {
   title: "Data Display/Structured List",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createStructuredList(args as StructuredListClassesOptions),
   argTypes: {
     size: { control: "select", options: ["sm", "md"] },
@@ -61,3 +61,14 @@ type Story = StoryObj<StructuredListClassesOptions>
 export const Playground: Story = {}
 export const Selectable: Story = { args: { selectable: true } }
 export const Bordered: Story = { args: { bordered: true } }
+export const Small: Story = { args: { size: "sm" } }
+
+export const Hover: Story = {
+  args: { selectable: true },
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: { selectable: true },
+  parameters: { pseudo: { focusVisible: true } },
+}

@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect } from "storybook/test"
 import { SkipNav, SkipNavTarget } from "./skip-nav.js"
 
 const meta = {
   title: "Utilities/SkipNav",
   component: SkipNav,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     targetId: { control: "text" },
   },
@@ -28,3 +29,15 @@ export default meta
 type Story = StoryObj<typeof SkipNav>
 
 export const Playground: Story = {}
+
+export const CustomTargetId: Story = {
+  args: { targetId: "custom-main" },
+}
+
+export const A11yTest: Story = {
+  play: async ({ canvasElement }) => {
+    const link = canvasElement.querySelector("a")
+    await expect(link).toBeTruthy()
+    await expect(link?.getAttribute("href")).toBe("#main-content")
+  },
+}

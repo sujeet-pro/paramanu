@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { boxClasses } from "./box.classes.js"
 import type { BoxClassesOptions } from "./box.types.js"
 
@@ -26,7 +26,7 @@ function createBox(args: BoxArgs): HTMLElement {
 
 const meta = {
   title: "Primitives/Box",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createBox(args as BoxArgs),
   argTypes: {
     display: {
@@ -97,4 +97,31 @@ export const OverflowHidden: Story = {
     el.style.height = "80px"
     return el
   },
+}
+
+export const DisplayBlock: Story = { args: { display: "block", content: "Block display" } }
+export const DisplayInlineBlock: Story = { args: { display: "inline-block", content: "Inline block" } }
+export const DisplayInline: Story = { args: { display: "inline", content: "Inline" } }
+export const DisplayGrid: Story = { args: { display: "grid", content: "Grid display" } }
+export const DisplayNone: Story = { args: { display: "none", content: "Hidden" } }
+
+export const OverflowScroll: Story = {
+  args: { overflow: "scroll", p: "4", content: "Scroll overflow content" },
+  render: (args) => {
+    const el = createBox(args as BoxArgs)
+    el.style.width = "200px"
+    el.style.height = "80px"
+    return el
+  },
+}
+
+export const PositionRelative: Story = { args: { position: "relative", p: "4", content: "Relative" } }
+export const PositionSticky: Story = { args: { position: "sticky", p: "4", content: "Sticky" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
 }

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { InlineMessage } from "./inline-message.js"
 
 const meta = {
   title: "Feedback/Inline Message",
   component: InlineMessage,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: { control: "select", options: ["info", "success", "warning", "danger"] },
     size: { control: "select", options: ["sm", "md"] },
@@ -79,4 +79,16 @@ export const AccessibilityRoles: Story = {
     await expect(canvas.getByRole("status")).toBeInTheDocument()
     await expect(canvas.getByRole("alert")).toBeInTheDocument()
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

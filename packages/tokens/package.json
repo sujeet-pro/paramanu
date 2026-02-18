@@ -11,9 +11,10 @@
     "./css": "./dist/css/tokens.css",
     "./css/layers": "./dist/css/tokens.layers.css",
     "./css/reset": "./dist/css/reset.css",
-    "./css/layer-order": "./dist/css/layers.css"
+    "./css/layer-order": "./dist/css/layers.css",
+    "./css/themes": "./src/themes/index.css"
   },
-  "files": ["dist"],
+  "files": ["dist", "src/themes"],
   "scripts": {
     "build": "tsx src/build.ts",
     "clean": "rm -rf dist"

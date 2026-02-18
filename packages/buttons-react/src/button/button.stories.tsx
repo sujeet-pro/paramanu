@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, fn, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Button } from "./button.js"
 
 const meta = {
   title: "Buttons/Button",
   component: Button,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: {
       control: "select",
@@ -33,6 +33,7 @@ const meta = {
     children: "Button",
     variant: "primary",
     size: "md",
+    onClick: fn(),
   },
 } satisfies Meta<typeof Button>
 
@@ -221,4 +222,16 @@ export const Accessibility: Story = {
     const button = canvas.getByRole("button", { name: "Perform action" })
     await expect(button).toBeInTheDocument()
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

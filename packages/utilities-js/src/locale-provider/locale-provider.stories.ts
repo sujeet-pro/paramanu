@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 
 function createLocaleDemo(): HTMLElement {
   const wrapper = document.createElement("div")
@@ -22,7 +22,7 @@ function createLocaleDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/LocaleProvider",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
 } satisfies Meta
 
 export default meta

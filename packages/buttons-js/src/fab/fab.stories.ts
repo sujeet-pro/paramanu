@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { fabClasses } from "./fab.classes.js"
 import type { FabClassesOptions, FabSize } from "./fab.types.js"
 
@@ -26,7 +26,7 @@ function createFab(args: FabArgs): HTMLButtonElement {
 
 const meta = {
   title: "Buttons/FAB",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => {
     const wrapper = document.createElement("div")
     wrapper.style.position = "relative"
@@ -96,4 +96,28 @@ export const BottomLeft: Story = {
 
 export const BottomCenter: Story = {
   args: { position: "bottom-center" },
+}
+
+export const SmallSize: Story = {
+  args: { size: "sm", ariaLabel: "Add small" },
+}
+
+export const MediumSize: Story = {
+  args: { size: "md", ariaLabel: "Add medium" },
+}
+
+export const LargeSize: Story = {
+  args: { size: "lg", ariaLabel: "Add large" },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

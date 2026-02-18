@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 
 function createDirectionDemo(): HTMLElement {
   const wrapper = document.createElement("div")
@@ -25,7 +25,7 @@ function createDirectionDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/DirectionProvider",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
 } satisfies Meta
 
 export default meta
@@ -33,4 +33,24 @@ type Story = StoryObj
 
 export const Playground: Story = {
   render: () => createDirectionDemo(),
+}
+
+export const LTR: Story = {
+  render: () => {
+    const el = document.createElement("div")
+    el.dir = "ltr"
+    el.style.padding = "16px"
+    el.textContent = "Left-to-right layout direction"
+    return el
+  },
+}
+
+export const RTL: Story = {
+  render: () => {
+    const el = document.createElement("div")
+    el.dir = "rtl"
+    el.style.padding = "16px"
+    el.textContent = "Right-to-left layout direction"
+    return el
+  },
 }

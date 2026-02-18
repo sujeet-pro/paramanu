@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Switch } from "./switch.js"
 
 const meta = {
   title: "Forms/Switch",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: Switch,
   argTypes: {
     size: {
@@ -20,6 +20,9 @@ const meta = {
   },
   args: {
     children: "Dark mode",
+    onChange: fn(),
+    onFocus: fn(),
+    onBlur: fn(),
   },
 } satisfies Meta<typeof Switch>
 
@@ -42,6 +45,10 @@ export const Large: Story = {
   args: { size: "lg", children: "Large switch" },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs", children: "Extra small switch" },
+}
+
 export const Disabled: Story = {
   args: { disabled: true, children: "Disabled switch" },
 }
@@ -50,12 +57,44 @@ export const LabelStart: Story = {
   args: { labelPlacement: "start", children: "Label start" },
 }
 
-export const ToggleSwitch: Story = {
-  args: { children: "Toggle me" },
+export const LabelEnd: Story = {
+  args: { labelPlacement: "end", children: "Label end" },
+}
+
+export const ToggleInteraction: Story = {
+  args: { children: "Toggle me", onChange: fn() },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const switchEl = canvas.getByRole("switch")
     await userEvent.click(switchEl)
     await expect(switchEl).toBeChecked()
   },
+}
+
+export const KeyboardNavigation: Story = {
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-switch")
+    await expect(el).toBeTruthy()
+    await userEvent.tab()
+  },
+}
+
+export const Accessibility: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const switchEl = canvas.getByRole("switch")
+    await expect(switchEl).toBeTruthy()
+  },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

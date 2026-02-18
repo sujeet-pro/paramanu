@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { iconClasses } from "./icon.classes.js"
 import type { IconClassesOptions } from "./icon.types.js"
 
@@ -22,7 +22,7 @@ function createIcon(args: IconArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Icon",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createIcon(args as IconArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl"] },
@@ -38,5 +38,20 @@ type Story = StoryObj<IconArgs>
 
 export const Playground: Story = {}
 export const Primary: Story = { args: { color: "primary" } }
+export const Neutral: Story = { args: { color: "neutral" } }
+export const Danger: Story = { args: { color: "danger" } }
+export const Success: Story = { args: { color: "success" } }
+export const ExtraSmall: Story = { args: { size: "xs" } }
+export const Small: Story = { args: { size: "sm" } }
+export const Large: Story = { args: { size: "lg" } }
+export const ExtraLarge: Story = { args: { size: "xl" } }
 export const Spinning: Story = { args: { spin: true, label: "Loading" } }
 export const Decorative: Story = { args: { label: "" } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

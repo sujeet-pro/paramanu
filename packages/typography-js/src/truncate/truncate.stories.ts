@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { truncateClasses } from "./truncate.classes.js"
 import type { TruncateClassesOptions } from "./truncate.types.js"
 
@@ -13,7 +13,7 @@ function createTruncate(args: TruncateClassesOptions): HTMLElement {
 
 const meta = {
   title: "Typography/Truncate",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createTruncate(args as TruncateClassesOptions),
   argTypes: {
     lines: { control: "select", options: [1, 2, 3, 4, 5, 6] },
@@ -26,6 +26,10 @@ export default meta
 type Story = StoryObj<TruncateClassesOptions>
 
 export const Playground: Story = {}
+export const TwoLines: Story = { args: { lines: 2 } }
 export const ThreeLines: Story = { args: { lines: 3 } }
+export const FourLines: Story = { args: { lines: 4 } }
+export const FiveLines: Story = { args: { lines: 5 } }
+export const SixLines: Story = { args: { lines: 6 } }
 export const StartPosition: Story = { args: { position: "start" } }
 export const MiddlePosition: Story = { args: { position: "middle" } }

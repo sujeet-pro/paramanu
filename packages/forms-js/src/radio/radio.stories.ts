@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { radioClasses, radioGroupClasses } from "./radio.classes.js"
 import type { RadioClassesOptions } from "./radio.types.js"
 
@@ -53,9 +53,23 @@ function createRadioGroup(): HTMLElement {
   return group
 }
 
+function createHorizontalRadioGroup(): HTMLElement {
+  const group = document.createElement("div")
+  group.className = radioGroupClasses({ orientation: "horizontal" })
+  group.setAttribute("role", "radiogroup")
+
+  const options = ["Red", "Blue", "Green"]
+  options.forEach((opt) => {
+    const radio = createRadio({ label: opt, name: "colors", value: opt.toLowerCase(), size: "md" })
+    group.appendChild(radio)
+  })
+
+  return group
+}
+
 const meta = {
   title: "Forms/Radio",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createRadio(args as RadioArgs),
   argTypes: {
     size: {
@@ -92,6 +106,10 @@ export const Large: Story = {
   args: { size: "lg", label: "Large radio" },
 }
 
+export const ExtraSmall: Story = {
+  args: { size: "xs", label: "Extra small radio" },
+}
+
 export const Disabled: Story = {
   args: { disabled: true, label: "Disabled radio" },
 }
@@ -102,4 +120,20 @@ export const Invalid: Story = {
 
 export const Group: Story = {
   render: () => createRadioGroup(),
+}
+
+export const HorizontalGroup: Story = {
+  render: () => createHorizontalRadioGroup(),
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
 }

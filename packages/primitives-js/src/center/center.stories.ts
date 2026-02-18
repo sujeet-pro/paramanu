@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 import { centerClasses } from "./center.classes.js"
 import type { CenterClassesOptions } from "./center.types.js"
 
@@ -17,7 +17,7 @@ function createCenter(args: CenterClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Center",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   render: (args) => createCenter(args as CenterClassesOptions),
   argTypes: {
     inline: { control: "boolean" },
@@ -32,3 +32,12 @@ type Story = StoryObj<CenterClassesOptions>
 export const Playground: Story = {}
 export const Inline: Story = { args: { inline: true } }
 export const WithTextCenter: Story = { args: { textCenter: true } }
+export const InlineWithTextCenter: Story = { args: { inline: true, textCenter: true } }
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}

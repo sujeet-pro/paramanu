@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/html"
+import type { Meta, StoryObj } from "@storybook/html-vite"
 
 function createFormatByteDemo(): HTMLElement {
   const wrapper = document.createElement("div")
@@ -30,7 +30,7 @@ function createFormatByteDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/FormatByte",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
 } satisfies Meta
 
 export default meta

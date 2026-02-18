@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { EditableText } from "./editable-text.js"
 
 const meta = {
   title: "Forms/Editable Text",
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   component: EditableText,
   argTypes: {
     size: {
@@ -13,7 +14,11 @@ const meta = {
     disabled: { control: "boolean" },
     editing: { control: "boolean" },
   },
-  args: {},
+  args: {
+    onChange: fn(),
+    onFocus: fn(),
+    onBlur: fn(),
+  },
 } satisfies Meta<typeof EditableText>
 
 export default meta
@@ -29,6 +34,13 @@ export const Editing: Story = {
   args: {
     editing: true,
     children: <input className="pm-input pm-input--outline pm-input--md" defaultValue="Editing mode" />,
+  },
+}
+
+export const ExtraSmall: Story = {
+  args: {
+    size: "xs",
+    children: <span>Extra small editable</span>,
   },
 }
 
@@ -51,4 +63,56 @@ export const Disabled: Story = {
     disabled: true,
     children: <span>Cannot edit</span>,
   },
+}
+
+export const ClickInteraction: Story = {
+  args: {
+    children: <span>Click to edit</span>,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const text = canvas.getByText("Click to edit")
+    await userEvent.click(text)
+    await expect(text).toBeInTheDocument()
+  },
+}
+
+export const KeyboardInteraction: Story = {
+  args: {
+    editing: true,
+    children: <input className="pm-input pm-input--outline pm-input--md" defaultValue="Edit me" />,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const input = canvas.getByDisplayValue("Edit me")
+    await userEvent.tab()
+    await expect(input).toHaveFocus()
+  },
+}
+
+export const Accessibility: Story = {
+  args: {
+    "aria-label": "Editable title",
+    children: <span>Click to edit</span>,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const el = canvas.getByRole("group", { name: "Editable title" })
+    await expect(el).toBeInTheDocument()
+  },
+}
+
+export const Hover: Story = {
+  args: { children: <span>Click to edit</span> },
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  args: { children: <span>Click to edit</span> },
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const Active: Story = {
+  args: { children: <span>Click to edit</span> },
+  parameters: { pseudo: { active: true } },
 }

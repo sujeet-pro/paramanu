@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { expect, fn, userEvent, within } from "@storybook/test"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Notification } from "./notification.js"
 
 const meta = {
   title: "Feedback/Notification",
   component: Notification,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     variant: {
       control: "select",
@@ -18,6 +18,7 @@ const meta = {
     title: "New message",
     message: "You have received a new message from John.",
     timestamp: "2 min ago",
+    onClose: fn(),
   },
 } satisfies Meta<typeof Notification>
 
@@ -98,4 +99,16 @@ export const Accessibility: Story = {
     const canvas = within(canvasElement)
     await expect(canvas.getByRole("article")).toBeInTheDocument()
   },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const ActiveState: Story = {
+  parameters: { pseudo: { active: true } },
 }

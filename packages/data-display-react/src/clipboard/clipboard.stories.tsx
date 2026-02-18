@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, fn, userEvent, within } from "storybook/test"
 import { Clipboard } from "./clipboard.js"
 
 const meta = {
   title: "Data Display/Clipboard",
   component: Clipboard,
-  tags: ["autodocs"],
+  tags: ["autodocs", "stable"],
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },
     value: { control: "text" },
@@ -28,4 +29,29 @@ export const Large: Story = {
 
 export const CustomTimeout: Story = {
   args: { value: "copied for 5 seconds", timeout: 5000 },
+}
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+}
+
+export const FocusVisible: Story = {
+  parameters: { pseudo: { focusVisible: true } },
+}
+
+export const CopyInteraction: Story = {
+  args: { value: "Copy this text" },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const copyBtn = canvas.getByRole("button")
+    await userEvent.click(copyBtn)
+  },
+}
+
+export const RenderTest: Story = {
+  args: { value: "test" },
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector(".pm-clipboard")
+    await expect(el).toBeTruthy()
+  },
 }
