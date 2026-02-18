@@ -1,0 +1,88 @@
+/**
+ * Material Design Theme
+ * Inspired by Material Design 3: elevation shadows, Roboto-oriented, specific color system.
+ */
+@layer pm.tokens {
+  .pm-theme-material {
+    color-scheme: light dark;
+
+    /* Primary — Material Purple #6750A4 */
+    --pm-color-primary-50: #f3edf7;
+    --pm-color-primary-100: #e8def8;
+    --pm-color-primary-200: #d0bcff;
+    --pm-color-primary-300: #b69df8;
+    --pm-color-primary-400: #9a82db;
+    --pm-color-primary-500: #6750a4;
+    --pm-color-primary-600: #5b3e9e;
+    --pm-color-primary-700: #4f378b;
+    --pm-color-primary-800: #3b2774;
+    --pm-color-primary-900: #21005d;
+
+    /* Danger — Material error red */
+    --pm-color-danger-50: #fceeee;
+    --pm-color-danger-100: #f9dedc;
+    --pm-color-danger-200: #f2b8b5;
+    --pm-color-danger-300: #ec928e;
+    --pm-color-danger-400: #e46962;
+    --pm-color-danger-500: #b3261e;
+    --pm-color-danger-600: #9c1b16;
+    --pm-color-danger-700: #84120e;
+    --pm-color-danger-800: #601410;
+    --pm-color-danger-900: #410e0b;
+
+    /* Success — Material green */
+    --pm-color-success-50: #e8f5e9;
+    --pm-color-success-100: #c8e6c9;
+    --pm-color-success-200: #a5d6a7;
+    --pm-color-success-300: #81c784;
+    --pm-color-success-400: #66bb6a;
+    --pm-color-success-500: #2e7d32;
+    --pm-color-success-600: #1b5e20;
+    --pm-color-success-700: #1b5e20;
+    --pm-color-success-800: #145218;
+    --pm-color-success-900: #0d3b10;
+
+    /* Neutral — Material surface tones */
+    --pm-color-neutral-0: #ffffff;
+    --pm-color-neutral-50: #fef7ff;
+    --pm-color-neutral-100: #f3edf7;
+    --pm-color-neutral-200: #e7e0ec;
+    --pm-color-neutral-300: #cac4d0;
+    --pm-color-neutral-400: #aea8b4;
+    --pm-color-neutral-500: #938f96;
+    --pm-color-neutral-600: #79747e;
+    --pm-color-neutral-700: #49454f;
+    --pm-color-neutral-800: #322f35;
+    --pm-color-neutral-900: #1d1b20;
+    --pm-color-neutral-950: #141218;
+
+    /* Radius — Material Design rounded corners */
+    --pm-radius-none: 0px;
+    --pm-radius-sm: 8px;
+    --pm-radius-md: 12px;
+    --pm-radius-lg: 16px;
+    --pm-radius-xl: 28px;
+    --pm-radius-full: 9999px;
+
+    /* Shadows — Material elevation */
+    --pm-shadow-sm: 0 1px 3px 1px rgb(0 0 0 / 0.15), 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --pm-shadow-md: 0 2px 6px 2px rgb(0 0 0 / 0.15), 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --pm-shadow-lg: 0 4px 8px 3px rgb(0 0 0 / 0.15), 0 1px 3px 0 rgb(0 0 0 / 0.3);
+
+    /* Font — Roboto-oriented */
+    --pm-font-family-sans: "Roboto", "Noto Sans", system-ui, -apple-system, sans-serif;
+    --pm-font-size-xs: 0.6875rem;
+    --pm-font-size-sm: 0.75rem;
+    --pm-font-size-md: 0.875rem;
+    --pm-font-size-lg: 1rem;
+    --pm-font-size-xl: 1.375rem;
+    --pm-font-size-2xl: 1.75rem;
+    --pm-font-size-3xl: 2.25rem;
+    --pm-font-weight-medium: 500;
+
+    /* Transitions — Material motion */
+    --pm-transition-fast: 150ms;
+    --pm-transition-normal: 250ms;
+    --pm-transition-slow: 400ms;
+  }
+}

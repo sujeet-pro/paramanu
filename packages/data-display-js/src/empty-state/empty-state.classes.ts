@@ -7,8 +7,18 @@ import type {
 const BASE = "pm-empty-state"
 
 /**
- * Returns BEM class names for the empty state component (human-readable).
- * Used by CDN and template consumers.
+ * Returns BEM class names for the EmptyState component.
+ *
+ * EmptyState is a centered placeholder displayed when a view or list
+ * has no data. It contains an icon, heading, description, and action buttons.
+ *
+ * @example
+ * ```ts
+ * const cls = emptyStateClasses({ size: "lg", bordered: true })
+ * // cls.root        => "pm-empty-state pm-empty-state--lg pm-empty-state--bordered"
+ * // cls.heading     => "pm-empty-state__heading"
+ * // cls.description => "pm-empty-state__description"
+ * ```
  */
 export function emptyStateClasses(options: EmptyStateClassesOptions = {}): EmptyStateClassesResult {
   const { size = "md", bordered = false } = options
@@ -27,8 +37,8 @@ export function emptyStateClasses(options: EmptyStateClassesOptions = {}): Empty
 }
 
 /**
- * Returns CSS module class names for the empty state component (hashed).
- * Used by bundled/template consumers who import CSS modules.
+ * Returns CSS module class names for the EmptyState component.
+ * Used by bundled consumers who import CSS modules.
  */
 export function emptyStateModuleClasses(
   classMap: Record<string, string>,

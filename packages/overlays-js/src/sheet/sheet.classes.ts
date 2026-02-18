@@ -12,8 +12,11 @@ const BASE = "pm-sheet"
  * Used by CDN and template consumers.
  */
 export function sheetClasses(options: SheetClassesOptions = {}): string {
-  const { size = "md" } = options
+  const { size = "md", dismissible = true } = options
   const classes = [BASE, `${BASE}--${size}`]
+
+  if (!dismissible) classes.push(`${BASE}--non-dismissible`)
+
   return classes.join(" ")
 }
 
@@ -25,8 +28,11 @@ export function sheetModuleClasses(
   classMap: Record<string, string>,
   options: SheetClassesOptions = {},
 ): string {
-  const { size = "md" } = options
+  const { size = "md", dismissible = true } = options
   const classes = [classMap["pm-sheet"], classMap[`pm-sheet--${size}`]]
+
+  if (!dismissible) classes.push(classMap["pm-sheet--non-dismissible"])
+
   return classes.filter(Boolean).join(" ")
 }
 
@@ -65,14 +71,14 @@ export function sheetBodyModuleClasses(
 }
 
 /**
- * Returns BEM class names for the sheet handle (human-readable).
+ * Returns BEM class names for the sheet handle (drag indicator).
  */
 export function sheetHandleClasses(_options: SheetHandleClassesOptions = {}): string {
   return `${BASE}__handle`
 }
 
 /**
- * Returns CSS module class names for the sheet handle (hashed).
+ * Returns CSS module class names for the sheet handle (drag indicator).
  */
 export function sheetHandleModuleClasses(
   classMap: Record<string, string>,

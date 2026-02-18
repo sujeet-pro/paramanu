@@ -1,13 +1,20 @@
 @layer pm.components {
   /* Inline code */
   .pm-code {
-    font-family: var(--pm-font-family-mono);
+    --pm-code-bg: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    --pm-code-text: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    --pm-code-border: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    --pm-code-font-family: var(--pm-font-family-mono);
+
+    font-family: var(--pm-code-font-family);
     font-size: 0.875em;
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    background-color: var(--pm-code-bg);
+    color: var(--pm-code-text);
     padding: 0.125em 0.375em;
     border-radius: var(--pm-radius-sm);
+    white-space: nowrap;
 
+    /* Sizes */
     &.pm-code--size-xs {
       font-size: var(--pm-font-size-xs);
     }
@@ -23,27 +30,78 @@
     &.pm-code--size-lg {
       font-size: var(--pm-font-size-lg);
     }
+
+    /* Outline variant */
+    &.pm-code--outline {
+      background-color: transparent;
+      border: 1px solid var(--pm-code-border);
+    }
+
+    /* Colors */
+    &.pm-code--color-primary {
+      --pm-code-bg: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
+      --pm-code-text: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+      --pm-code-border: light-dark(var(--pm-color-primary-200), var(--pm-color-primary-700));
+    }
+
+    &.pm-code--color-danger {
+      --pm-code-bg: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
+      --pm-code-text: light-dark(var(--pm-color-danger-700), var(--pm-color-danger-300));
+      --pm-code-border: light-dark(var(--pm-color-danger-200), var(--pm-color-danger-700));
+    }
+
+    &.pm-code--color-success {
+      --pm-code-bg: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
+      --pm-code-text: light-dark(var(--pm-color-success-700), var(--pm-color-success-300));
+      --pm-code-border: light-dark(var(--pm-color-success-200), var(--pm-color-success-700));
+    }
+
+    &.pm-code--color-warning {
+      --pm-code-bg: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
+      --pm-code-text: light-dark(var(--pm-color-warning-700), var(--pm-color-warning-300));
+      --pm-code-border: light-dark(var(--pm-color-warning-200), var(--pm-color-warning-700));
+    }
+
+    &.pm-code--color-info {
+      --pm-code-bg: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
+      --pm-code-text: light-dark(var(--pm-color-info-700), var(--pm-color-info-300));
+      --pm-code-border: light-dark(var(--pm-color-info-200), var(--pm-color-info-700));
+    }
+
+    &.pm-code--color-neutral {
+      /* Uses default colors */
+    }
   }
 
   /* Code block */
   .pm-code-block {
+    --pm-code-block-bg: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    --pm-code-block-text: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    --pm-code-block-border: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    --pm-code-block-line-number-color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+
     display: block;
     font-family: var(--pm-font-family-mono);
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    background-color: var(--pm-code-block-bg);
+    color: var(--pm-code-block-text);
     padding: var(--pm-spacing-4);
     border-radius: var(--pm-radius-md);
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-code-block-border);
     overflow-x: auto;
     white-space: pre;
     line-height: var(--pm-font-lineHeight-relaxed);
+    position: relative;
+    tab-size: 2;
 
+    /* Sizes */
     &.pm-code-block--size-xs {
       font-size: var(--pm-font-size-xs);
+      padding: var(--pm-spacing-2) var(--pm-spacing-3);
     }
 
     &.pm-code-block--size-sm {
       font-size: var(--pm-font-size-sm);
+      padding: var(--pm-spacing-3);
     }
 
     &.pm-code-block--size-md {
@@ -52,6 +110,141 @@
 
     &.pm-code-block--size-lg {
       font-size: var(--pm-font-size-lg);
+      padding: var(--pm-spacing-5);
     }
+
+    /* Outline variant */
+    &.pm-code-block--outline {
+      background-color: transparent;
+    }
+
+    /* Colors */
+    &.pm-code-block--color-primary {
+      --pm-code-block-bg: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
+      --pm-code-block-border: light-dark(var(--pm-color-primary-200), var(--pm-color-primary-700));
+    }
+
+    &.pm-code-block--color-danger {
+      --pm-code-block-bg: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
+      --pm-code-block-border: light-dark(var(--pm-color-danger-200), var(--pm-color-danger-700));
+    }
+
+    &.pm-code-block--color-success {
+      --pm-code-block-bg: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
+      --pm-code-block-border: light-dark(var(--pm-color-success-200), var(--pm-color-success-700));
+    }
+
+    &.pm-code-block--color-warning {
+      --pm-code-block-bg: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
+      --pm-code-block-border: light-dark(var(--pm-color-warning-200), var(--pm-color-warning-700));
+    }
+
+    &.pm-code-block--color-info {
+      --pm-code-block-bg: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
+      --pm-code-block-border: light-dark(var(--pm-color-info-200), var(--pm-color-info-700));
+    }
+
+    &.pm-code-block--color-neutral {
+      /* Uses default colors */
+    }
+
+    /* Line numbers */
+    &.pm-code-block--line-numbers {
+      padding-left: calc(var(--pm-spacing-4) + 3em);
+      counter-reset: line;
+
+      & code {
+        counter-increment: line;
+
+        &::before {
+          content: counter(line);
+          display: inline-block;
+          width: 2em;
+          margin-left: -3em;
+          margin-right: 1em;
+          text-align: right;
+          color: var(--pm-code-block-line-number-color);
+          user-select: none;
+        }
+      }
+    }
+
+    /* Copy button slot */
+    &.pm-code-block--copy {
+      padding-right: calc(var(--pm-spacing-4) + 2.5rem);
+    }
+
+    /* Nested code element resets */
+    & code {
+      font-family: inherit;
+      font-size: inherit;
+      background-color: transparent;
+      padding: 0;
+      border-radius: 0;
+      white-space: inherit;
+      color: inherit;
+    }
+  }
+
+  /* Theme overrides: Ant Design */
+  .pm-theme-antd .pm-code {
+    --pm-code-bg: light-dark(rgba(0, 0, 0, 0.03), rgba(255, 255, 255, 0.08));
+    border: 1px solid light-dark(#d9d9d9, #434343);
+    border-radius: 4px;
+  }
+
+  .pm-theme-antd .pm-code-block {
+    --pm-code-block-bg: light-dark(rgba(0, 0, 0, 0.03), rgba(255, 255, 255, 0.08));
+    --pm-code-block-border: light-dark(#d9d9d9, #434343);
+    border-radius: 6px;
+  }
+
+  /* Theme overrides: Material */
+  .pm-theme-material .pm-code {
+    --pm-code-bg: light-dark(#f5f5f5, #2d2d2d);
+    font-family: "Roboto Mono", monospace;
+  }
+
+  .pm-theme-material .pm-code-block {
+    --pm-code-block-bg: light-dark(#f5f5f5, #2d2d2d);
+    font-family: "Roboto Mono", monospace;
+    border: none;
+    box-shadow: var(--pm-shadow-sm);
+  }
+
+  /* Theme overrides: Bootstrap */
+  .pm-theme-bootstrap .pm-code {
+    --pm-code-bg: light-dark(#f8f9fa, #343a40);
+    --pm-code-text: light-dark(#d63384, #e685b5);
+    font-size: 0.875em;
+  }
+
+  .pm-theme-bootstrap .pm-code-block {
+    --pm-code-block-bg: light-dark(#f8f9fa, #343a40);
+    border: none;
+  }
+
+  /* Theme overrides: Dark Modern */
+  .pm-theme-dark-modern .pm-code {
+    --pm-code-bg: var(--pm-color-neutral-800);
+    --pm-code-text: var(--pm-color-neutral-200);
+  }
+
+  .pm-theme-dark-modern .pm-code-block {
+    --pm-code-block-bg: var(--pm-color-neutral-900);
+    --pm-code-block-border: var(--pm-color-neutral-700);
+    --pm-code-block-text: var(--pm-color-neutral-100);
+  }
+
+  /* Theme overrides: Light Modern */
+  .pm-theme-light-modern .pm-code {
+    --pm-code-bg: var(--pm-color-neutral-100);
+    --pm-code-text: var(--pm-color-neutral-800);
+  }
+
+  .pm-theme-light-modern .pm-code-block {
+    --pm-code-block-bg: var(--pm-color-neutral-50);
+    --pm-code-block-border: var(--pm-color-neutral-200);
+    --pm-code-block-text: var(--pm-color-neutral-800);
   }
 }

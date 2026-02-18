@@ -1,5 +1,7 @@
 @layer pm.components {
   .pm-notification {
+    --pm-notification-accent: var(--pm-color-primary-500);
+
     position: relative;
     display: flex;
     gap: var(--pm-spacing-3);
@@ -10,8 +12,28 @@
     box-shadow: var(--pm-shadow-sm);
   }
 
+  .pm-notification--info {
+    --pm-notification-accent: var(--pm-color-info-500);
+  }
+
+  .pm-notification--success {
+    --pm-notification-accent: var(--pm-color-success-500);
+  }
+
+  .pm-notification--warning {
+    --pm-notification-accent: var(--pm-color-warning-500);
+  }
+
+  .pm-notification--danger {
+    --pm-notification-accent: var(--pm-color-danger-500);
+  }
+
+  .pm-notification--neutral {
+    --pm-notification-accent: var(--pm-color-primary-500);
+  }
+
   .pm-notification--unread {
-    border-left: 3px solid var(--pm-color-primary-500);
+    border-left: 3px solid var(--pm-notification-accent);
   }
 
   .pm-notification--dismissible {

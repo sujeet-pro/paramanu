@@ -6,8 +6,14 @@ const BASE = "pm-spacer"
  * Returns BEM class names for the spacer component (human-readable).
  * Used by CDN and template consumers.
  */
-export function spacerClasses(_options: SpacerClassesOptions = {}): string {
-  return BASE
+export function spacerClasses(options: SpacerClassesOptions = {}): string {
+  const { size, axis } = options
+  const classes = [BASE]
+
+  if (size !== undefined) classes.push(`${BASE}--size-${size}`)
+  if (axis) classes.push(`${BASE}--${axis}`)
+
+  return classes.join(" ")
 }
 
 /**
@@ -16,7 +22,13 @@ export function spacerClasses(_options: SpacerClassesOptions = {}): string {
  */
 export function spacerModuleClasses(
   classMap: Record<string, string>,
-  _options: SpacerClassesOptions = {},
+  options: SpacerClassesOptions = {},
 ): string {
-  return classMap["pm-spacer"] ?? ""
+  const { size, axis } = options
+  const classes = [classMap["pm-spacer"]]
+
+  if (size !== undefined) classes.push(classMap[`pm-spacer--size-${size}`])
+  if (axis) classes.push(classMap[`pm-spacer--${axis}`])
+
+  return classes.filter(Boolean).join(" ")
 }

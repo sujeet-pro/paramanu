@@ -1,9 +1,27 @@
 @layer pm.components {
   .pm-group {
     display: inline-flex;
+    align-items: center;
 
     &.pm-group--horizontal { flex-direction: row; }
     &.pm-group--vertical { flex-direction: column; }
+
+    &.pm-group--wrap { flex-wrap: wrap; }
+
+    &.pm-group--grow > * { flex: 1; }
+
+    &.pm-group--align-start { align-items: flex-start; }
+    &.pm-group--align-center { align-items: center; }
+    &.pm-group--align-end { align-items: flex-end; }
+    &.pm-group--align-stretch { align-items: stretch; }
+    &.pm-group--align-baseline { align-items: baseline; }
+
+    &.pm-group--justify-start { justify-content: flex-start; }
+    &.pm-group--justify-center { justify-content: center; }
+    &.pm-group--justify-end { justify-content: flex-end; }
+    &.pm-group--justify-between { justify-content: space-between; }
+    &.pm-group--justify-around { justify-content: space-around; }
+    &.pm-group--justify-evenly { justify-content: space-evenly; }
 
     &.pm-group--attached {
       gap: 0;

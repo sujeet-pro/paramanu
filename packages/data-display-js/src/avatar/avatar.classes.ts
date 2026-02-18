@@ -3,8 +3,19 @@ import type { AvatarClassesOptions, AvatarClassesResult } from "./avatar.types.j
 const BASE = "pm-avatar"
 
 /**
- * Returns BEM class names for the avatar component (human-readable).
- * Used by CDN and template consumers.
+ * Returns BEM class names for the Avatar component.
+ *
+ * Avatars display a user image with a fallback to initials or an icon.
+ * They are rendered as a `<span role="img">` with an inner `<img>` or
+ * a fallback `<span>`.
+ *
+ * @example
+ * ```ts
+ * const cls = avatarClasses({ size: "lg", variant: "square", color: "success" })
+ * // cls.root     => "pm-avatar pm-avatar--lg pm-avatar--square pm-avatar--success"
+ * // cls.image    => "pm-avatar__image"
+ * // cls.fallback => "pm-avatar__fallback"
+ * ```
  */
 export function avatarClasses(options: AvatarClassesOptions = {}): AvatarClassesResult {
   const { size = "md", variant = "circle", color = "primary" } = options
@@ -17,8 +28,8 @@ export function avatarClasses(options: AvatarClassesOptions = {}): AvatarClasses
 }
 
 /**
- * Returns CSS module class names for the avatar component (hashed).
- * Used by bundled/template consumers who import CSS modules.
+ * Returns CSS module class names for the Avatar component.
+ * Used by bundled consumers who import CSS modules.
  */
 export function avatarModuleClasses(
   classMap: Record<string, string>,

@@ -5,6 +5,19 @@ import type {
 
 const BASE = "pm-avatar-group"
 
+/**
+ * Returns BEM class names for the AvatarGroup component.
+ *
+ * Renders a row of overlapping avatars using `flex-direction: row-reverse`
+ * with negative margins for the overlap effect.
+ *
+ * @example
+ * ```ts
+ * const cls = avatarGroupClasses({ size: "lg", spacing: "tight" })
+ * // cls.root     => "pm-avatar-group pm-avatar-group--lg pm-avatar-group--spacing-tight"
+ * // cls.overflow => "pm-avatar-group__overflow"
+ * ```
+ */
 export function avatarGroupClasses(
   options: AvatarGroupClassesOptions = {},
 ): AvatarGroupClassesResult {
@@ -16,6 +29,10 @@ export function avatarGroupClasses(
   }
 }
 
+/**
+ * Returns CSS module class names for the AvatarGroup component.
+ * Used by bundled consumers who import CSS modules.
+ */
 export function avatarGroupModuleClasses(
   classMap: Record<string, string>,
   options: AvatarGroupClassesOptions = {},

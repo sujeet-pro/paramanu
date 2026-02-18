@@ -1,0 +1,96 @@
+/**
+ * Ant Design Theme
+ * Inspired by Ant Design's visual language: compact, 4px radius, specific shadow scale.
+ */
+@layer pm.tokens {
+  .pm-theme-antd {
+    color-scheme: light dark;
+
+    /* Primary — Ant Design blue #1677ff */
+    --pm-color-primary-50: #e6f4ff;
+    --pm-color-primary-100: #bae0ff;
+    --pm-color-primary-200: #91caff;
+    --pm-color-primary-300: #69b1ff;
+    --pm-color-primary-400: #4096ff;
+    --pm-color-primary-500: #1677ff;
+    --pm-color-primary-600: #0958d9;
+    --pm-color-primary-700: #003eb3;
+    --pm-color-primary-800: #002c8c;
+    --pm-color-primary-900: #001d66;
+
+    /* Danger — Ant Design red */
+    --pm-color-danger-50: #fff1f0;
+    --pm-color-danger-100: #ffccc7;
+    --pm-color-danger-200: #ffa39e;
+    --pm-color-danger-300: #ff7875;
+    --pm-color-danger-400: #ff4d4f;
+    --pm-color-danger-500: #f5222d;
+    --pm-color-danger-600: #cf1322;
+    --pm-color-danger-700: #a8071a;
+    --pm-color-danger-800: #820014;
+    --pm-color-danger-900: #5c0011;
+
+    /* Success — Ant Design green */
+    --pm-color-success-50: #f6ffed;
+    --pm-color-success-100: #d9f7be;
+    --pm-color-success-200: #b7eb8f;
+    --pm-color-success-300: #95de64;
+    --pm-color-success-400: #73d13d;
+    --pm-color-success-500: #52c41a;
+    --pm-color-success-600: #389e0d;
+    --pm-color-success-700: #237804;
+    --pm-color-success-800: #135200;
+    --pm-color-success-900: #092b00;
+
+    /* Warning — Ant Design gold */
+    --pm-color-warning-50: #fffbe6;
+    --pm-color-warning-100: #fff1b8;
+    --pm-color-warning-200: #ffe58f;
+    --pm-color-warning-300: #ffd666;
+    --pm-color-warning-400: #ffc53d;
+    --pm-color-warning-500: #faad14;
+    --pm-color-warning-600: #d48806;
+    --pm-color-warning-700: #ad6800;
+    --pm-color-warning-800: #874d00;
+    --pm-color-warning-900: #613400;
+
+    /* Info — Ant Design cyan */
+    --pm-color-info-50: #e6fffb;
+    --pm-color-info-100: #b5f5ec;
+    --pm-color-info-200: #87e8de;
+    --pm-color-info-300: #5cdbd3;
+    --pm-color-info-400: #36cfc9;
+    --pm-color-info-500: #13c2c2;
+    --pm-color-info-600: #08979c;
+    --pm-color-info-700: #006d75;
+    --pm-color-info-800: #00474f;
+    --pm-color-info-900: #002329;
+
+    /* Radius — compact (Ant Design signature) */
+    --pm-radius-none: 0px;
+    --pm-radius-sm: 2px;
+    --pm-radius-md: 4px;
+    --pm-radius-lg: 6px;
+    --pm-radius-xl: 8px;
+
+    /* Shadows — Ant Design shadow scale */
+    --pm-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03), 0 1px 6px -1px rgb(0 0 0 / 0.02), 0 2px 4px 0 rgb(0 0 0 / 0.02);
+    --pm-shadow-md: 0 6px 16px 0 rgb(0 0 0 / 0.08), 0 3px 6px -4px rgb(0 0 0 / 0.12), 0 9px 28px 8px rgb(0 0 0 / 0.05);
+    --pm-shadow-lg: 0 6px 16px 0 rgb(0 0 0 / 0.08), 0 3px 6px -4px rgb(0 0 0 / 0.12), 0 9px 28px 8px rgb(0 0 0 / 0.05);
+
+    /* Font — Ant Design font stack */
+    --pm-font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    --pm-font-size-xs: 12px;
+    --pm-font-size-sm: 14px;
+    --pm-font-size-md: 14px;
+    --pm-font-size-lg: 16px;
+    --pm-font-size-xl: 20px;
+    --pm-font-size-2xl: 24px;
+    --pm-font-size-3xl: 30px;
+
+    /* Transitions — snappy */
+    --pm-transition-fast: 100ms;
+    --pm-transition-normal: 200ms;
+    --pm-transition-slow: 300ms;
+  }
+}

@@ -3,8 +3,17 @@ import type { ClipboardClassesOptions } from "./clipboard.types.js"
 const BASE = "pm-clipboard"
 
 /**
- * Returns BEM class names for the clipboard component (human-readable).
- * Used by CDN and template consumers.
+ * Returns BEM class names for the Clipboard component.
+ *
+ * A button that copies text to the clipboard. Shows a success state
+ * (green border + color) after copying. The actual clipboard API call
+ * is handled by the React wrapper or consumer.
+ *
+ * @example
+ * ```ts
+ * clipboardClasses({ size: "sm", copied: true })
+ * // => "pm-clipboard pm-clipboard--sm pm-clipboard--copied"
+ * ```
  */
 export function clipboardClasses(options: ClipboardClassesOptions = {}): string {
   const { size = "md", copied = false } = options
@@ -16,8 +25,8 @@ export function clipboardClasses(options: ClipboardClassesOptions = {}): string 
 }
 
 /**
- * Returns CSS module class names for the clipboard component (hashed).
- * Used by bundled/template consumers who import CSS modules.
+ * Returns CSS module class names for the Clipboard component.
+ * Used by bundled consumers who import CSS modules.
  */
 export function clipboardModuleClasses(
   classMap: Record<string, string>,

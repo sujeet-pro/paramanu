@@ -7,8 +7,18 @@ import type {
 const BASE = "pm-qr-code"
 
 /**
- * Returns BEM class names for the QR code component (human-readable).
- * Used by CDN and template consumers.
+ * Returns BEM class names for the QrCode component.
+ *
+ * Provides a styled container with a white background and padding for
+ * a QR code SVG. The actual QR matrix generation is left to the consumer
+ * (e.g. `qrcode` or `uqr` libraries).
+ *
+ * @example
+ * ```ts
+ * const cls = qrCodeClasses({ size: "lg" })
+ * // cls.root => "pm-qr-code pm-qr-code--lg"
+ * // cls.svg  => "pm-qr-code__svg"
+ * ```
  */
 export function qrCodeClasses(options: QrCodeClassesOptions = {}): QrCodeClassesResult {
   const { size = "md" } = options
@@ -22,8 +32,8 @@ export function qrCodeClasses(options: QrCodeClassesOptions = {}): QrCodeClasses
 }
 
 /**
- * Returns CSS module class names for the QR code component (hashed).
- * Used by bundled/template consumers who import CSS modules.
+ * Returns CSS module class names for the QrCode component.
+ * Used by bundled consumers who import CSS modules.
  */
 export function qrCodeModuleClasses(
   classMap: Record<string, string>,

@@ -12,11 +12,29 @@
     &.pm-scroll-area--horizontal { overflow-x: auto; overflow-y: hidden; }
     &.pm-scroll-area--both { overflow: auto; }
 
+    &.pm-scroll-area--scrollbar-auto { /* browser default, handled by direction */ }
     &.pm-scroll-area--scrollbar-always { overflow: scroll; }
     &.pm-scroll-area--scrollbar-hover {
       overflow: hidden;
 
       &:hover { overflow: auto; }
+    }
+    &.pm-scroll-area--scrollbar-hidden {
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar { display: none; }
+    }
+
+    &.pm-scroll-area--scrollbar-thin { scrollbar-width: thin; }
+    &.pm-scroll-area--scrollbar-none {
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar { display: none; }
+    }
+
+    &.pm-scroll-area--bordered {
+      border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+      border-radius: var(--pm-radius-md);
     }
   }
 }

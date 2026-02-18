@@ -46,6 +46,10 @@
     content: "\00B7";
   }
 
+  .pm-breadcrumbs--arrow .pm-breadcrumbs__item:not(:first-child)::before {
+    content: "\2192";
+  }
+
   .pm-breadcrumbs__link {
     color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
     text-decoration: none;

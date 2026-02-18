@@ -23,6 +23,14 @@
       background-color: transparent;
     }
 
+    &.pm-backdrop--blur {
+      background-color: light-dark(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.5)
+      );
+      backdrop-filter: blur(4px);
+    }
+
     &.pm-backdrop--visible {
       opacity: 1;
     }
@@ -30,5 +38,32 @@
     @media (prefers-reduced-motion: reduce) {
       transition-duration: 0ms;
     }
+  }
+
+  /* ----- Theme overrides ----- */
+
+  /* antd-like: lighter overlay */
+  :root[data-theme="antd"] .pm-backdrop {
+    background-color: rgba(0, 0, 0, 0.45);
+  }
+
+  /* material: scrim overlay */
+  :root[data-theme="material"] .pm-backdrop {
+    background-color: rgba(0, 0, 0, 0.32);
+  }
+
+  /* bootstrap: standard overlay */
+  :root[data-theme="bootstrap"] .pm-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* dark-modern: deeper overlay with glow */
+  :root[data-theme="dark-modern"] .pm-backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  /* light-modern: subtle overlay */
+  :root[data-theme="light-modern"] .pm-backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
   }
 }

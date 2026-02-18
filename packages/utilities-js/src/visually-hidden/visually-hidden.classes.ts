@@ -2,6 +2,26 @@ import type { VisuallyHiddenClassesOptions } from "./visually-hidden.types.js"
 
 const BASE = "pm-visually-hidden"
 
+/**
+ * Returns BEM class names for the visually hidden utility.
+ *
+ * Generates classes that visually hide an element while keeping it
+ * accessible to screen readers. Uses the well-established clip-rect
+ * technique recommended by WebAIM and used by major design systems
+ * (Radix, Chakra, Mantine, React Aria).
+ *
+ * @param options - Configuration options
+ * @returns Space-separated class string
+ *
+ * @example
+ * ```ts
+ * visuallyHiddenClasses()
+ * // => "pm-visually-hidden"
+ *
+ * visuallyHiddenClasses({ focusable: true })
+ * // => "pm-visually-hidden pm-visually-hidden--focusable"
+ * ```
+ */
 export function visuallyHiddenClasses(options: VisuallyHiddenClassesOptions = {}): string {
   const { focusable = false } = options
   const classes = [BASE]
@@ -9,6 +29,22 @@ export function visuallyHiddenClasses(options: VisuallyHiddenClassesOptions = {}
   return classes.join(" ")
 }
 
+/**
+ * Returns CSS module class names for the visually hidden utility.
+ *
+ * Maps BEM class names through a CSS modules class map for hashed
+ * class name support in bundled environments.
+ *
+ * @param classMap - CSS modules class name mapping object
+ * @param options - Configuration options
+ * @returns Space-separated mapped class string
+ *
+ * @example
+ * ```ts
+ * import styles from "@paramanu/utilities-js/modules/visually-hidden/map"
+ * visuallyHiddenModuleClasses(styles, { focusable: true })
+ * ```
+ */
 export function visuallyHiddenModuleClasses(
   classMap: Record<string, string>,
   options: VisuallyHiddenClassesOptions = {},

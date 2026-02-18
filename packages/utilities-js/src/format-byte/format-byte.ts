@@ -1,8 +1,44 @@
 import type { FormatByteOptions } from "./format-byte.types.js"
 
+/** SI decimal byte unit labels (powers of 1000). */
 const BYTE_UNITS = ["B", "KB", "MB", "GB", "TB", "PB"]
+
+/** SI decimal bit unit labels (powers of 1000). */
 const BIT_UNITS = ["b", "Kb", "Mb", "Gb", "Tb", "Pb"]
 
+/**
+ * Formats a byte value into a human-readable string with the
+ * appropriate unit suffix.
+ *
+ * Uses SI decimal prefixes (powers of 1000): B, KB, MB, GB, TB, PB.
+ * Automatically selects the best unit based on the magnitude of the value.
+ * Number formatting is delegated to `Intl.NumberFormat` for locale support.
+ *
+ * @param bytes - The raw byte count to format (non-negative recommended)
+ * @param options - Formatting options
+ * @returns A formatted string like `"1.5 MB"` or `"8 Kb"`
+ *
+ * @example
+ * ```ts
+ * formatByte(0)
+ * // => "0 B"
+ *
+ * formatByte(1500)
+ * // => "1.5 KB"
+ *
+ * formatByte(1500000000)
+ * // => "1.5 GB"
+ *
+ * formatByte(1000, { unit: "bit" })
+ * // => "8 Kb"
+ *
+ * formatByte(1234567, { decimals: 3 })
+ * // => "1.235 MB"
+ *
+ * formatByte(1500, { locale: "de-DE" })
+ * // => "1,5 KB"
+ * ```
+ */
 export function formatByte(bytes: number, options: FormatByteOptions = {}): string {
   const { locale = "en-US", decimals = 2, unit = "byte" } = options
 

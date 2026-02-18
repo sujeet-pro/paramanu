@@ -1,0 +1,5 @@
+# Paramanu Design System
+
+Themeable, accessible design system monorepo (pnpm + turbo). Components in per-group packages: `-js` + `-react`.
+
+All guidelines are in `agents-guidelines/`. Read the relevant file before working. See `CLAUDE.md` for architecture and `components-list.md` for component list.

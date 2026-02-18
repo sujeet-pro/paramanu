@@ -1,12 +1,19 @@
 @layer pm.components {
+  /* ------------------------------------------------------------------ */
+  /* Toast Container                                                     */
+  /* ------------------------------------------------------------------ */
+
   .pm-toast-container {
+    --pm-toast-container-gap: var(--pm-spacing-3);
+    --pm-toast-container-padding: var(--pm-spacing-4);
+
     position: fixed;
     z-index: 1000;
     display: flex;
     flex-direction: column;
-    gap: var(--pm-spacing-3);
+    gap: var(--pm-toast-container-gap);
     pointer-events: none;
-    padding: var(--pm-spacing-4);
+    padding: var(--pm-toast-container-padding);
 
     &.pm-toast-container--top-right {
       top: 0;
@@ -41,34 +48,45 @@
     }
   }
 
+  /* ------------------------------------------------------------------ */
+  /* Toast                                                               */
+  /* ------------------------------------------------------------------ */
+
   .pm-toast {
+    --pm-toast-bg: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    --pm-toast-border: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    --pm-toast-radius: var(--pm-radius-lg);
+    --pm-toast-accent: var(--pm-color-info-500);
+    --pm-toast-shadow: var(--pm-shadow-lg);
+
     position: relative;
     display: flex;
     align-items: flex-start;
     gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-3) var(--pm-spacing-4);
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-    border-radius: var(--pm-radius-lg);
-    box-shadow: var(--pm-shadow-lg);
+    background-color: var(--pm-toast-bg);
+    border: 1px solid var(--pm-toast-border);
+    border-left: 4px solid var(--pm-toast-accent);
+    border-radius: var(--pm-toast-radius);
+    box-shadow: var(--pm-toast-shadow);
     pointer-events: auto;
     min-width: 300px;
     max-width: 420px;
 
     &.pm-toast--info {
-      border-left: 4px solid var(--pm-color-info-500);
+      --pm-toast-accent: var(--pm-color-info-500);
     }
 
     &.pm-toast--success {
-      border-left: 4px solid var(--pm-color-success-500);
+      --pm-toast-accent: var(--pm-color-success-500);
     }
 
     &.pm-toast--warning {
-      border-left: 4px solid var(--pm-color-warning-500);
+      --pm-toast-accent: var(--pm-color-warning-500);
     }
 
     &.pm-toast--danger {
-      border-left: 4px solid var(--pm-color-danger-500);
+      --pm-toast-accent: var(--pm-color-danger-500);
     }
 
     &.pm-toast--dismissible {
@@ -122,11 +140,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--pm-toast-accent);
   }
 
   .pm-toast__content {
     flex: 1;
     min-width: 0;
+  }
+
+  .pm-toast__title {
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-sm);
+    font-weight: var(--pm-font-weight-semibold);
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-50));
+    line-height: var(--pm-font-lineHeight-tight);
+    margin-bottom: var(--pm-spacing-1);
   }
 
   .pm-toast__message {
@@ -140,5 +168,29 @@
     position: absolute;
     top: var(--pm-spacing-2);
     right: var(--pm-spacing-2);
+  }
+
+  /* ---- Theme overrides ---- */
+
+  .pm-theme-antd .pm-toast {
+    --pm-toast-radius: 4px;
+    --pm-toast-shadow: var(--pm-shadow-md);
+  }
+
+  .pm-theme-material .pm-toast {
+    --pm-toast-radius: 12px;
+    --pm-toast-shadow: var(--pm-shadow-xl);
+  }
+
+  .pm-theme-bootstrap .pm-toast {
+    --pm-toast-radius: 6px;
+  }
+
+  .pm-theme-dark-modern .pm-toast {
+    --pm-toast-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .pm-theme-light-modern .pm-toast {
+    --pm-toast-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
   }
 }

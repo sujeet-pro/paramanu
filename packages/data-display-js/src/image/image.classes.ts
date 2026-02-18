@@ -3,8 +3,18 @@ import type { ImageClassesOptions, ImageClassesResult } from "./image.types.js"
 const BASE = "pm-image"
 
 /**
- * Returns BEM class names for the image component (human-readable).
- * Used by CDN and template consumers.
+ * Returns BEM class names for the Image component.
+ *
+ * Enhanced `<img>` wrapper rendered as a `<figure>` with support for
+ * fallback placeholders, loading skeletons, captions, and object-fit control.
+ *
+ * @example
+ * ```ts
+ * const cls = imageClasses({ fit: "contain", radius: "lg" })
+ * // cls.root    => "pm-image pm-image--fit-contain pm-image--radius-lg"
+ * // cls.img     => "pm-image__img"
+ * // cls.caption => "pm-image__caption"
+ * ```
  */
 export function imageClasses(options: ImageClassesOptions = {}): ImageClassesResult {
   const { fit = "cover", radius = "none", fallback = false, loading = false } = options
@@ -24,8 +34,8 @@ export function imageClasses(options: ImageClassesOptions = {}): ImageClassesRes
 }
 
 /**
- * Returns CSS module class names for the image component (hashed).
- * Used by bundled/template consumers who import CSS modules.
+ * Returns CSS module class names for the Image component.
+ * Used by bundled consumers who import CSS modules.
  */
 export function imageModuleClasses(
   classMap: Record<string, string>,

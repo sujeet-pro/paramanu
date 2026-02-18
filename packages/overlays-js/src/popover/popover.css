@@ -2,6 +2,7 @@
   .pm-popover {
     position: absolute;
     z-index: var(--pm-overlay-z, 1000);
+    min-width: 8rem;
     background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
     border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
     border-radius: var(--pm-radius-md);
@@ -21,8 +22,10 @@
     &[data-pm-presence="exiting"] {
       opacity: 0;
       transform: translateY(4px);
+      transition-timing-function: ease-in;
     }
 
+    /* Top placement */
     &.pm-popover--top,
     &.pm-popover--top-start,
     &.pm-popover--top-end {
@@ -38,6 +41,7 @@
       }
     }
 
+    /* Left placement */
     &.pm-popover--left,
     &.pm-popover--left-start,
     &.pm-popover--left-end {
@@ -53,6 +57,7 @@
       }
     }
 
+    /* Right placement */
     &.pm-popover--right,
     &.pm-popover--right-start,
     &.pm-popover--right-end {
@@ -80,5 +85,45 @@
     background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
     border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
     transform: rotate(45deg);
+    z-index: -1;
+  }
+
+  .pm-popover__content {
+    padding: var(--pm-spacing-3) var(--pm-spacing-4);
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-md);
+  }
+
+  /* ----- Theme overrides ----- */
+
+  :root[data-theme="antd"] .pm-popover {
+    border-radius: var(--pm-radius-md);
+    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  :root[data-theme="material"] .pm-popover {
+    border: none;
+    border-radius: var(--pm-radius-sm);
+    box-shadow: var(--pm-shadow-md);
+  }
+
+  :root[data-theme="dark-modern"] .pm-popover {
+    background-color: var(--pm-color-neutral-800);
+    border-color: var(--pm-color-neutral-700);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  :root[data-theme="dark-modern"] .pm-popover__arrow {
+    background-color: var(--pm-color-neutral-800);
+    border-color: var(--pm-color-neutral-700);
+  }
+
+  :root[data-theme="light-modern"] .pm-popover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
+      0 8px 24px rgba(0, 0, 0, 0.06);
+    border-color: var(--pm-color-neutral-200);
   }
 }

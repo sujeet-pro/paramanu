@@ -4,15 +4,15 @@ import type { MarkClassesOptions } from "@paramanu/typography-js"
 
 export interface ReactMarkProps
   extends MarkClassesOptions,
-    React.HTMLAttributes<HTMLElement> {
+    Omit<React.HTMLAttributes<HTMLElement>, "color"> {
   children?: React.ReactNode
 }
 
 export const Mark = forwardRef<HTMLElement, ReactMarkProps>(function Mark(
-  { variant, className, children, ...rest },
+  { variant, color, className, children, ...rest },
   ref,
 ) {
-  const classes = markClasses({ variant })
+  const classes = markClasses({ variant, color })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (

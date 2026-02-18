@@ -2,6 +2,20 @@ import type { TagClassesOptions, TagClassesResult } from "./tag.types.js"
 
 const BASE = "pm-tag"
 
+/**
+ * Returns BEM class names for the Tag (Chip) component.
+ *
+ * Tags are labeled elements that can optionally be removed, clicked,
+ * or disabled. They support filled, outline, and subtle visual styles
+ * with multiple color palettes.
+ *
+ * @example
+ * ```ts
+ * const cls = tagClasses({ variant: "outline", color: "danger", removable: true })
+ * // cls.root   => "pm-tag pm-tag--outline pm-tag--md pm-tag--danger pm-tag--removable"
+ * // cls.remove => "pm-tag__remove"
+ * ```
+ */
 export function tagClasses(options: TagClassesOptions = {}): TagClassesResult {
   const {
     variant = "filled",
@@ -23,6 +37,10 @@ export function tagClasses(options: TagClassesOptions = {}): TagClassesResult {
   }
 }
 
+/**
+ * Returns CSS module class names for the Tag component.
+ * Used by bundled consumers who import CSS modules.
+ */
 export function tagModuleClasses(
   classMap: Record<string, string>,
   options: TagClassesOptions = {},

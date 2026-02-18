@@ -5,12 +5,24 @@ import type { ToastClassesOptions, ToastContainerClassesOptions } from "@paraman
 export interface ReactToastProps
   extends ToastClassesOptions,
     React.HTMLAttributes<HTMLDivElement> {
+  /** Icon rendered before the content. */
   icon?: React.ReactNode
+  /** Toast title rendered above the message. */
+  title?: React.ReactNode
+  /** Toast message body. */
   message?: React.ReactNode
+  /** Callback invoked when the close button is clicked or duration expires. */
   onClose?: () => void
+  /** Auto-dismiss duration in milliseconds. If `0` or not set, toast persists. */
   duration?: number
+  children?: React.ReactNode
 }
 
+/**
+ * Toast displays a brief, temporary notification.
+ *
+ * Uses `role="alert"` for warning/danger and `role="status"` otherwise.
+ */
 export const Toast = forwardRef<HTMLDivElement, ReactToastProps>(function Toast(
   {
     variant = "info",
@@ -18,10 +30,12 @@ export const Toast = forwardRef<HTMLDivElement, ReactToastProps>(function Toast(
     entering,
     exiting,
     icon,
+    title,
     message,
     onClose,
     duration,
     className,
+    children,
     ...rest
   },
   ref,
@@ -40,7 +54,9 @@ export const Toast = forwardRef<HTMLDivElement, ReactToastProps>(function Toast(
     <div ref={ref} className={combinedClassName} role={role} {...rest}>
       {icon && <div className={classes.icon}>{icon}</div>}
       <div className={classes.content}>
+        {title && <div className={classes.title}>{title}</div>}
         {message && <div className={classes.message}>{message}</div>}
+        {children}
       </div>
       {dismissible && onClose && (
         <button
@@ -62,13 +78,16 @@ export interface ReactToastContainerProps
   children?: React.ReactNode
 }
 
+/**
+ * Container for positioning toasts on screen.
+ */
 export const ToastContainer = forwardRef<HTMLDivElement, ReactToastContainerProps>(
   function ToastContainer({ placement, className, children, ...rest }, ref) {
     const classes = toastContainerClasses({ placement })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     return (
-      <div ref={ref} className={combinedClassName} {...rest}>
+      <div ref={ref} className={combinedClassName} aria-live="polite" {...rest}>
         {children}
       </div>
     )

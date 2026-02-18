@@ -3,6 +3,7 @@
     font-family: var(--pm-font-family-sans);
     line-height: var(--pm-font-lineHeight-relaxed);
     color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    max-width: 65ch;
   }
 
   /* Sizes */
@@ -16,5 +17,17 @@
 
   .pm-prose--lg {
     font-size: var(--pm-font-size-lg);
+  }
+
+  /* Colors */
+  .pm-prose--color-default {
+  }
+
+  .pm-prose--color-muted {
+    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+  }
+
+  /* Trim */
+  .pm-prose--trim {
   }
 }

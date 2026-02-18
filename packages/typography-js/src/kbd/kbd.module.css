@@ -11,9 +11,17 @@
     box-shadow: 0 1px 0 1px light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
     white-space: nowrap;
     vertical-align: baseline;
+    line-height: 1;
+    font-weight: var(--pm-font-weight-medium);
   }
 
   /* Sizes */
+  .pm-kbd--xs {
+    padding: 0.0625em 0.1875em;
+    font-size: 0.6875rem;
+    min-width: 1em;
+  }
+
   .pm-kbd--sm {
     padding: 0.0625em 0.25em;
     font-size: var(--pm-font-size-xs);
@@ -30,5 +38,17 @@
     padding: 0.1875em 0.5em;
     font-size: var(--pm-font-size-md);
     min-width: 1.75em;
+  }
+
+  /* Variants */
+  .pm-kbd--outline {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .pm-kbd--subtle {
+    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-700));
+    border-color: transparent;
+    box-shadow: none;
   }
 }

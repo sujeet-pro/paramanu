@@ -1,0 +1,6 @@
+---
+description: Storybook story conventions for vanilla and React
+globs: "**/*.stories.{ts,tsx}"
+---
+
+Read and follow `agents-guidelines/writing-stories.md`.

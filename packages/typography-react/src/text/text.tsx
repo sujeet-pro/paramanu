@@ -4,16 +4,47 @@ import type { TextClassesOptions } from "@paramanu/typography-js"
 
 export interface ReactTextProps
   extends TextClassesOptions,
-    React.HTMLAttributes<HTMLElement> {
-  as?: "p" | "span" | "div" | "label" | "em" | "strong"
+    Omit<React.HTMLAttributes<HTMLElement>, "color"> {
+  /** The HTML element to render. Defaults to "p". */
+  as?: "p" | "span" | "div" | "label" | "em" | "strong" | "small" | "abbr" | "del" | "ins" | "sub" | "sup"
   children?: React.ReactNode
 }
 
 export const Text = forwardRef<HTMLElement, ReactTextProps>(function Text(
-  { as: Tag = "p", size, weight, align, lineHeight, italic, truncate, transform, className, children, ...rest },
+  {
+    as: Tag = "p",
+    size,
+    weight,
+    align,
+    lineHeight,
+    italic,
+    truncate,
+    lineClamp,
+    transform,
+    decoration,
+    color,
+    inherit,
+    inline,
+    className,
+    children,
+    ...rest
+  },
   ref,
 ) {
-  const classes = textClasses({ size, weight, align, lineHeight, italic, truncate, transform })
+  const classes = textClasses({
+    size,
+    weight,
+    align,
+    lineHeight,
+    italic,
+    truncate,
+    lineClamp,
+    transform,
+    decoration,
+    color,
+    inherit,
+    inline,
+  })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (

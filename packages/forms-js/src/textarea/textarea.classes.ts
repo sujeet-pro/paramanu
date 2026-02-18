@@ -14,6 +14,7 @@ export function textareaClasses(options: TextareaClassesOptions = {}): string {
     readOnly = false,
     fullWidth = false,
     resize = "vertical",
+    autosize = false,
   } = options
   const classes = [BASE, `${BASE}--${variant}`, `${BASE}--${size}`, `${BASE}--resize-${resize}`]
 
@@ -21,6 +22,7 @@ export function textareaClasses(options: TextareaClassesOptions = {}): string {
   if (disabled) classes.push(`${BASE}--disabled`)
   if (readOnly) classes.push(`${BASE}--read-only`)
   if (fullWidth) classes.push(`${BASE}--full-width`)
+  if (autosize) classes.push(`${BASE}--autosize`)
 
   return classes.join(" ")
 }
@@ -40,6 +42,7 @@ export function textareaModuleClasses(
     readOnly = false,
     fullWidth = false,
     resize = "vertical",
+    autosize = false,
   } = options
 
   const classes = [
@@ -53,6 +56,7 @@ export function textareaModuleClasses(
   if (disabled) classes.push(classMap["pm-textarea--disabled"])
   if (readOnly) classes.push(classMap["pm-textarea--read-only"])
   if (fullWidth) classes.push(classMap["pm-textarea--full-width"])
+  if (autosize) classes.push(classMap["pm-textarea--autosize"])
 
   return classes.filter(Boolean).join(" ")
 }

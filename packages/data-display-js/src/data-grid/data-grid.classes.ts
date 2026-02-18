@@ -2,6 +2,20 @@ import type { DataGridClassesOptions, DataGridClassesResult } from "./data-grid.
 
 const BASE = "pm-data-grid"
 
+/**
+ * Returns BEM class names for the DataGrid component.
+ *
+ * DataGrid uses CSS Grid layout with `display: contents` rows, suitable for
+ * large datasets that may benefit from virtualization. It exposes ARIA grid
+ * roles (`grid`, `row`, `columnheader`, `gridcell`).
+ *
+ * @example
+ * ```ts
+ * const cls = dataGridClasses({ bordered: true, hoverable: true })
+ * // cls.root         => "pm-data-grid pm-data-grid--md pm-data-grid--bordered pm-data-grid--hoverable"
+ * // cls.columnHeader => "pm-data-grid__column-header"
+ * ```
+ */
 export function dataGridClasses(options: DataGridClassesOptions = {}): DataGridClassesResult {
   const {
     size = "md",
@@ -25,6 +39,10 @@ export function dataGridClasses(options: DataGridClassesOptions = {}): DataGridC
   }
 }
 
+/**
+ * Returns CSS module class names for the DataGrid component.
+ * Used by bundled consumers who import CSS modules.
+ */
 export function dataGridModuleClasses(
   classMap: Record<string, string>,
   options: DataGridClassesOptions = {},

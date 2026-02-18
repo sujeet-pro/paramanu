@@ -5,6 +5,7 @@ export interface AccordionContextValue {
   value: string[]
   toggleItem: (itemValue: string) => void
   multiple: boolean
+  collapsible: boolean
   variant: AccordionVariant
   size: AccordionSize
 }

@@ -67,6 +67,7 @@ export const Tab = forwardRef<HTMLButtonElement, ReactTabProps>(function Tab(
       aria-selected={active || false}
       aria-disabled={disabled || undefined}
       disabled={disabled}
+      tabIndex={active ? 0 : -1}
       {...rest}
     >
       {children}
@@ -86,7 +87,7 @@ export const TabPanel = forwardRef<HTMLDivElement, ReactTabPanelProps>(function 
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (
-    <div ref={ref} role="tabpanel" className={combinedClassName} {...rest}>
+    <div ref={ref} role="tabpanel" tabIndex={0} className={combinedClassName} {...rest}>
       {children}
     </div>
   )

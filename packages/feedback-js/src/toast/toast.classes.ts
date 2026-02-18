@@ -3,17 +3,31 @@ import type { ToastClassesOptions, ToastContainerClassesOptions } from "./toast.
 const BASE = "pm-toast"
 const CONTAINER_BASE = "pm-toast-container"
 
+/** Structured class names for the toast component and its sub-elements. */
 export interface ToastClassesResult {
+  /** Root element class names. */
   root: string
+  /** Icon container class. */
   icon: string
+  /** Content wrapper class. */
   content: string
+  /** Title element class. */
+  title: string
+  /** Message element class. */
   message: string
+  /** Close button container class. */
   close: string
 }
 
 /**
  * Returns BEM class names for the toast component (human-readable).
  * Used by CDN and template consumers.
+ *
+ * @example
+ * ```ts
+ * const classes = toastClasses({ variant: "success", entering: true })
+ * // classes.root => "pm-toast pm-toast--success pm-toast--entering"
+ * ```
  */
 export function toastClasses(options: ToastClassesOptions = {}): ToastClassesResult {
   const { variant = "info", dismissible = false, entering = false, exiting = false } = options
@@ -27,6 +41,7 @@ export function toastClasses(options: ToastClassesOptions = {}): ToastClassesRes
     root: rootClasses.join(" "),
     icon: `${BASE}__icon`,
     content: `${BASE}__content`,
+    title: `${BASE}__title`,
     message: `${BASE}__message`,
     close: `${BASE}__close`,
   }
@@ -52,6 +67,7 @@ export function toastModuleClasses(
     root: rootClasses.filter(Boolean).join(" "),
     icon: classMap["pm-toast__icon"] ?? "",
     content: classMap["pm-toast__content"] ?? "",
+    title: classMap["pm-toast__title"] ?? "",
     message: classMap["pm-toast__message"] ?? "",
     close: classMap["pm-toast__close"] ?? "",
   }

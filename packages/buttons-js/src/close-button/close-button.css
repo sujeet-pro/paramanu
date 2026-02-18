@@ -1,26 +1,40 @@
 @layer pm.components {
   .pm-close-button {
+    /* Component-specific CSS variables for easy theming */
+    --pm-close-button-color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    --pm-close-button-hover-bg: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    --pm-close-button-hover-color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    --pm-close-button-active-bg: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    --pm-close-button-radius: var(--pm-radius-sm);
+    --pm-close-button-size: 32px;
+    --pm-close-button-icon-size: var(--pm-font-size-sm);
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border: none;
     background: transparent;
     cursor: pointer;
-    border-radius: var(--pm-radius-sm);
-    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    border-radius: var(--pm-close-button-radius);
+    color: var(--pm-close-button-color);
+    width: var(--pm-close-button-size);
+    height: var(--pm-close-button-size);
+    padding: 0;
+    line-height: 1;
+    font-size: var(--pm-close-button-icon-size);
+    flex-shrink: 0;
+    user-select: none;
     transition-property: background-color, color;
     transition-duration: var(--pm-transition-fast);
     transition-timing-function: ease-in-out;
-    padding: 0;
-    line-height: 1;
 
     &:hover:not(.pm-close-button--disabled) {
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-      color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+      background-color: var(--pm-close-button-hover-bg);
+      color: var(--pm-close-button-hover-color);
     }
 
     &:active:not(.pm-close-button--disabled) {
-      background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+      background-color: var(--pm-close-button-active-bg);
     }
 
     &:focus-visible {
@@ -28,29 +42,66 @@
       outline-offset: var(--pm-focus-ring-offset);
     }
 
-    /* Sizes */
+    /* ---------- Sizes ---------- */
+
+    &.pm-close-button--xs {
+      --pm-close-button-size: 20px;
+      --pm-close-button-icon-size: var(--pm-font-size-xs);
+    }
+
     &.pm-close-button--sm {
-      width: 24px;
-      height: 24px;
-      font-size: var(--pm-font-size-xs);
+      --pm-close-button-size: 24px;
+      --pm-close-button-icon-size: var(--pm-font-size-xs);
     }
 
     &.pm-close-button--md {
-      width: 32px;
-      height: 32px;
-      font-size: var(--pm-font-size-sm);
+      --pm-close-button-size: 32px;
+      --pm-close-button-icon-size: var(--pm-font-size-sm);
     }
 
     &.pm-close-button--lg {
-      width: 40px;
-      height: 40px;
-      font-size: var(--pm-font-size-md);
+      --pm-close-button-size: 40px;
+      --pm-close-button-icon-size: var(--pm-font-size-md);
     }
 
-    /* States */
+    /* ---------- States ---------- */
+
     &.pm-close-button--disabled {
       opacity: 0.5;
       cursor: not-allowed;
+      pointer-events: none;
     }
+
+    /* ---------- Inner icon ---------- */
+
+    & .pm-close-button__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1em;
+      height: 1em;
+    }
+  }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-close-button {
+    --pm-close-button-radius: 4px;
+  }
+
+  .pm-theme-material .pm-close-button {
+    --pm-close-button-radius: 50%;
+  }
+
+  .pm-theme-bootstrap .pm-close-button {
+    --pm-close-button-radius: 4px;
+  }
+
+  .pm-theme-dark-modern .pm-close-button:hover:not(.pm-close-button--disabled) {
+    --pm-close-button-hover-bg: rgba(255, 255, 255, 0.1);
+  }
+
+  .pm-theme-light-modern .pm-close-button:hover:not(.pm-close-button--disabled) {
+    --pm-close-button-hover-bg: rgba(0, 0, 0, 0.06);
   }
 }

@@ -56,4 +56,30 @@
       background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
     }
   }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-context-menu {
+    border-radius: 4px;
+    box-shadow: 0 3px 6px -4px rgb(0 0 0 / 0.12), 0 6px 16px 0 rgb(0 0 0 / 0.08);
+  }
+
+  .pm-theme-material .pm-context-menu {
+    border: none;
+    border-radius: 4px;
+    box-shadow: var(--pm-shadow-lg);
+  }
+
+  .pm-theme-bootstrap .pm-context-menu {
+    border-radius: 6px;
+  }
+
+  .pm-theme-dark-modern .pm-context-menu {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .pm-theme-light-modern .pm-context-menu {
+    box-shadow: var(--pm-shadow-lg);
+    border-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-700));
+  }
 }

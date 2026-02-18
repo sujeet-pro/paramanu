@@ -165,4 +165,39 @@
   .pm-steps--lg.pm-steps--vertical .pm-steps__connector {
     margin-inline-start: calc(var(--pm-spacing-10) / 2 - 1px);
   }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-steps__indicator {
+    border-radius: 4px;
+  }
+
+  .pm-theme-antd .pm-steps__content {
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-theme-material .pm-steps__indicator {
+    box-shadow: var(--pm-shadow-sm);
+  }
+
+  .pm-theme-material .pm-steps__connector {
+    height: 1px;
+  }
+
+  .pm-theme-material.pm-steps--vertical .pm-steps__connector {
+    width: 1px;
+    height: auto;
+  }
+
+  .pm-theme-bootstrap .pm-steps__indicator {
+    border-width: 3px;
+  }
+
+  .pm-theme-dark-modern .pm-steps__indicator.pm-steps__indicator--active {
+    box-shadow: 0 0 12px light-dark(transparent, rgba(59, 130, 246, 0.3));
+  }
+
+  .pm-theme-light-modern .pm-steps__indicator {
+    box-shadow: var(--pm-shadow-xs);
+  }
 }

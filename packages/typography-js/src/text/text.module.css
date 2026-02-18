@@ -1,6 +1,8 @@
 @layer pm.components {
   .pm-text {
     font-family: var(--pm-font-family-sans);
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    margin: 0;
   }
 
   /* Sizes */
@@ -62,6 +64,10 @@
     text-align: right;
   }
 
+  .pm-text--align-justify {
+    text-align: justify;
+  }
+
   /* Line height */
   .pm-text--lh-tight {
     line-height: var(--pm-font-lineHeight-tight);
@@ -75,13 +81,56 @@
     line-height: var(--pm-font-lineHeight-relaxed);
   }
 
-  /* Modifiers */
+  /* Truncation */
   .pm-text--truncate {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
+  /* Line clamp */
+  .pm-text--line-clamp-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .pm-text--line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .pm-text--line-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .pm-text--line-clamp-4 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
+
+  .pm-text--line-clamp-5 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+
+  .pm-text--line-clamp-6 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+  }
+
+  /* Modifiers */
   .pm-text--italic {
     font-style: italic;
   }
@@ -97,5 +146,70 @@
 
   .pm-text--transform-capitalize {
     text-transform: capitalize;
+  }
+
+  .pm-text--transform-none {
+    text-transform: none;
+  }
+
+  /* Decoration */
+  .pm-text--decoration-underline {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .pm-text--decoration-line-through {
+    text-decoration: line-through;
+  }
+
+  .pm-text--decoration-none {
+    text-decoration: none;
+  }
+
+  /* Colors */
+  .pm-text--color-default {
+    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+  }
+
+  .pm-text--color-muted {
+    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+  }
+
+  .pm-text--color-dimmed {
+    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+  }
+
+  .pm-text--color-primary {
+    color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+  }
+
+  .pm-text--color-danger {
+    color: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-400));
+  }
+
+  .pm-text--color-success {
+    color: light-dark(var(--pm-color-success-600), var(--pm-color-success-400));
+  }
+
+  .pm-text--color-warning {
+    color: light-dark(var(--pm-color-warning-600), var(--pm-color-warning-400));
+  }
+
+  .pm-text--color-info {
+    color: light-dark(var(--pm-color-info-600), var(--pm-color-info-400));
+  }
+
+  /* Inherit */
+  .pm-text--inherit {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+
+  /* Inline */
+  .pm-text--inline {
+    display: inline;
   }
 }

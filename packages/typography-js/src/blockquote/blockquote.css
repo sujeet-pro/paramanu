@@ -1,18 +1,81 @@
 @layer pm.components {
   .pm-blockquote {
+    --pm-blockquote-border-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    --pm-blockquote-border-width: 3px;
+    --pm-blockquote-bg: transparent;
+    --pm-blockquote-text-color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+    --pm-blockquote-cite-color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    --pm-blockquote-icon-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+
     font-family: var(--pm-font-family-sans);
     font-style: italic;
     margin: 0;
-    border-left: 3px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    color: var(--pm-blockquote-text-color);
+    background-color: var(--pm-blockquote-bg);
+    border-left: var(--pm-blockquote-border-width) solid var(--pm-blockquote-border-color);
+    position: relative;
 
     /* Variants */
     &.pm-blockquote--default {
-      color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+      /* Uses base styles above */
     }
 
     &.pm-blockquote--accent {
-      border-left-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
-      color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+      --pm-blockquote-border-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+    }
+
+    &.pm-blockquote--filled {
+      --pm-blockquote-bg: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
+      border-radius: var(--pm-radius-md);
+    }
+
+    /* Colors */
+    &.pm-blockquote--color-primary {
+      --pm-blockquote-border-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+
+      &.pm-blockquote--filled {
+        --pm-blockquote-bg: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
+      }
+    }
+
+    &.pm-blockquote--color-neutral {
+      --pm-blockquote-border-color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+
+      &.pm-blockquote--filled {
+        --pm-blockquote-bg: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
+      }
+    }
+
+    &.pm-blockquote--color-danger {
+      --pm-blockquote-border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+
+      &.pm-blockquote--filled {
+        --pm-blockquote-bg: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
+      }
+    }
+
+    &.pm-blockquote--color-success {
+      --pm-blockquote-border-color: light-dark(var(--pm-color-success-500), var(--pm-color-success-400));
+
+      &.pm-blockquote--filled {
+        --pm-blockquote-bg: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
+      }
+    }
+
+    &.pm-blockquote--color-warning {
+      --pm-blockquote-border-color: light-dark(var(--pm-color-warning-500), var(--pm-color-warning-400));
+
+      &.pm-blockquote--filled {
+        --pm-blockquote-bg: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
+      }
+    }
+
+    &.pm-blockquote--color-info {
+      --pm-blockquote-border-color: light-dark(var(--pm-color-info-500), var(--pm-color-info-400));
+
+      &.pm-blockquote--filled {
+        --pm-blockquote-bg: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
+      }
     }
 
     /* Sizes */
@@ -30,5 +93,80 @@
       padding: var(--pm-spacing-4) var(--pm-spacing-6);
       font-size: var(--pm-font-size-lg);
     }
+
+    /* Cite attribution */
+    &.pm-blockquote--with-cite {
+      & cite {
+        display: block;
+        margin-top: var(--pm-spacing-2);
+        font-size: 0.875em;
+        font-style: normal;
+        color: var(--pm-blockquote-cite-color);
+
+        &::before {
+          content: "\2014\00A0";
+        }
+      }
+    }
+
+    /* Decorative icon */
+    &.pm-blockquote--with-icon {
+      padding-left: var(--pm-spacing-8);
+
+      &::before {
+        content: "\201C";
+        position: absolute;
+        left: var(--pm-spacing-3);
+        top: 0;
+        font-size: 2em;
+        line-height: 1;
+        color: var(--pm-blockquote-icon-color);
+        font-style: normal;
+      }
+    }
+  }
+
+  /* Theme overrides: Ant Design */
+  .pm-theme-antd .pm-blockquote {
+    --pm-blockquote-border-width: 4px;
+    --pm-blockquote-border-color: light-dark(#d9d9d9, #434343);
+    --pm-blockquote-text-color: light-dark(rgba(0, 0, 0, 0.88), rgba(255, 255, 255, 0.85));
+  }
+
+  /* Theme overrides: Material */
+  .pm-theme-material .pm-blockquote {
+    --pm-blockquote-border-width: 4px;
+    font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* Theme overrides: Bootstrap */
+  .pm-theme-bootstrap .pm-blockquote {
+    --pm-blockquote-border-width: 0;
+    border-left: none;
+    padding: 0;
+
+    &.pm-blockquote--sm {
+      font-size: var(--pm-font-size-md);
+    }
+
+    &.pm-blockquote--md {
+      font-size: var(--pm-font-size-lg);
+    }
+
+    &.pm-blockquote--lg {
+      font-size: var(--pm-font-size-xl);
+    }
+  }
+
+  /* Theme overrides: Dark Modern */
+  .pm-theme-dark-modern .pm-blockquote {
+    --pm-blockquote-text-color: var(--pm-color-neutral-300);
+    --pm-blockquote-border-color: var(--pm-color-neutral-600);
+  }
+
+  /* Theme overrides: Light Modern */
+  .pm-theme-light-modern .pm-blockquote {
+    --pm-blockquote-text-color: var(--pm-color-neutral-600);
+    --pm-blockquote-border-color: var(--pm-color-neutral-300);
   }
 }

@@ -1,5 +1,6 @@
 @layer pm.components {
   .pm-mark {
+    color: inherit;
   }
 
   /* Variants */
@@ -29,5 +30,28 @@
       var(--pm-color-primary-600)
     );
     padding: 0.0625em 0.25em;
+  }
+
+  .pm-mark--filled {
+    background-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+    color: var(--pm-color-neutral-0);
+    padding: 0.0625em 0.25em;
+    border-radius: var(--pm-radius-sm);
+  }
+
+  /* Colors */
+  .pm-mark--color-yellow {
+  }
+
+  .pm-mark--color-primary {
+  }
+
+  .pm-mark--color-danger {
+  }
+
+  .pm-mark--color-success {
+  }
+
+  .pm-mark--color-info {
   }
 }

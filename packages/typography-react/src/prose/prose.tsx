@@ -4,20 +4,22 @@ import type { ProseClassesOptions } from "@paramanu/typography-js"
 
 export interface ReactProseProps
   extends ProseClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+    Omit<React.HTMLAttributes<HTMLDivElement>, "color"> {
+  /** The HTML element to render. Defaults to "div". Use "article" for standalone content. */
+  as?: "div" | "article" | "section"
   children?: React.ReactNode
 }
 
 export const Prose = forwardRef<HTMLDivElement, ReactProseProps>(function Prose(
-  { size, className, children, ...rest },
+  { as: Tag = "div", size, color, trimMargins, className, children, ...rest },
   ref,
 ) {
-  const classes = proseClasses({ size })
+  const classes = proseClasses({ size, color, trimMargins })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (
-    <div ref={ref} className={combinedClassName} {...rest}>
+    <Tag ref={ref as React.Ref<never>} className={combinedClassName} {...rest}>
       {children}
-    </div>
+    </Tag>
   )
 })

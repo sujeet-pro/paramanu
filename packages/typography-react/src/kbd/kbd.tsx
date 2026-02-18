@@ -9,10 +9,10 @@ export interface ReactKbdProps
 }
 
 export const Kbd = forwardRef<HTMLElement, ReactKbdProps>(function Kbd(
-  { size, className, children, ...rest },
+  { size, variant, className, children, ...rest },
   ref,
 ) {
-  const classes = kbdClasses({ size })
+  const classes = kbdClasses({ size, variant })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (

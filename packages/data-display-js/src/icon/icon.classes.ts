@@ -3,8 +3,16 @@ import type { IconClassesOptions } from "./icon.types.js"
 const BASE = "pm-icon"
 
 /**
- * Returns BEM class names for the icon component (human-readable).
- * Used by CDN and template consumers.
+ * Returns BEM class names for the Icon component.
+ *
+ * Icon is an inline SVG wrapper that standardizes sizing, color, and
+ * optional spin animation. Child `<svg>` elements inherit `fill: currentColor`.
+ *
+ * @example
+ * ```ts
+ * iconClasses({ size: "lg", color: "danger", spin: true })
+ * // => "pm-icon pm-icon--lg pm-icon--danger pm-icon--spin"
+ * ```
  */
 export function iconClasses(options: IconClassesOptions = {}): string {
   const { size = "md", color = "inherit", spin = false } = options
@@ -16,8 +24,8 @@ export function iconClasses(options: IconClassesOptions = {}): string {
 }
 
 /**
- * Returns CSS module class names for the icon component (hashed).
- * Used by bundled/template consumers who import CSS modules.
+ * Returns CSS module class names for the Icon component.
+ * Used by bundled consumers who import CSS modules.
  */
 export function iconModuleClasses(
   classMap: Record<string, string>,

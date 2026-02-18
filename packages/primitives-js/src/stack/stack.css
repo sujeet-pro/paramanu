@@ -29,5 +29,16 @@
     &.pm-stack--gap-10 { gap: var(--pm-spacing-10); }
     &.pm-stack--gap-12 { gap: var(--pm-spacing-12); }
     &.pm-stack--gap-16 { gap: var(--pm-spacing-16); }
+
+    /* Separator dividers between children */
+    &.pm-stack--separator.pm-stack--vertical > * + * {
+      border-block-start: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+      padding-block-start: inherit;
+    }
+
+    &.pm-stack--separator.pm-stack--horizontal > * + * {
+      border-inline-start: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+      padding-inline-start: inherit;
+    }
   }
 }

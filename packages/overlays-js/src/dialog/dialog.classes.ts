@@ -11,10 +11,11 @@ const BASE = "pm-dialog"
  * Returns BEM class names for the dialog container.
  */
 export function dialogClasses(options: DialogClassesOptions = {}): string {
-  const { size = "md", centered = false } = options
+  const { size = "md", centered = false, scrollBehavior = "outside" } = options
   const classes = [BASE, `${BASE}--${size}`]
 
   if (centered) classes.push(`${BASE}--centered`)
+  if (scrollBehavior === "inside") classes.push(`${BASE}--scroll-inside`)
 
   return classes.join(" ")
 }
@@ -26,11 +27,12 @@ export function dialogModuleClasses(
   classMap: Record<string, string>,
   options: DialogClassesOptions = {},
 ): string {
-  const { size = "md", centered = false } = options
+  const { size = "md", centered = false, scrollBehavior = "outside" } = options
 
   const classes = [classMap["pm-dialog"], classMap[`pm-dialog--${size}`]]
 
   if (centered) classes.push(classMap["pm-dialog--centered"])
+  if (scrollBehavior === "inside") classes.push(classMap["pm-dialog--scroll-inside"])
 
   return classes.filter(Boolean).join(" ")
 }

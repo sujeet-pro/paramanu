@@ -1,61 +1,101 @@
 @layer pm.components {
   .pm-button-group {
+    --pm-button-group-gap: var(--pm-spacing-2);
+    --pm-button-group-radius: var(--pm-radius-md);
+
     display: inline-flex;
     flex-wrap: wrap;
 
     &.pm-button-group--horizontal {
       flex-direction: row;
-      gap: var(--pm-spacing-2);
+      gap: var(--pm-button-group-gap);
     }
 
     &.pm-button-group--vertical {
       flex-direction: column;
-      gap: var(--pm-spacing-2);
+      gap: var(--pm-button-group-gap);
+    }
+
+    &.pm-button-group--full-width {
+      display: flex;
+      width: 100%;
+
+      & > .pm-button {
+        flex: 1;
+      }
     }
 
     /* Attached: buttons share borders with no gap */
     &.pm-button-group--attached {
       gap: 0;
+      flex-wrap: nowrap;
 
-      & > .pm-button {
+      & > .pm-button,
+      & > .pm-icon-button {
         border-radius: 0;
       }
 
       &.pm-button-group--horizontal {
-        & > .pm-button:first-child {
-          border-top-left-radius: var(--pm-radius-md);
-          border-bottom-left-radius: var(--pm-radius-md);
+        & > .pm-button:first-child,
+        & > .pm-icon-button:first-child {
+          border-top-left-radius: var(--pm-button-group-radius);
+          border-bottom-left-radius: var(--pm-button-group-radius);
         }
 
-        & > .pm-button:last-child {
-          border-top-right-radius: var(--pm-radius-md);
-          border-bottom-right-radius: var(--pm-radius-md);
+        & > .pm-button:last-child,
+        & > .pm-icon-button:last-child {
+          border-top-right-radius: var(--pm-button-group-radius);
+          border-bottom-right-radius: var(--pm-button-group-radius);
         }
 
-        & > .pm-button + .pm-button {
+        & > .pm-button + .pm-button,
+        & > .pm-icon-button + .pm-icon-button,
+        & > .pm-button + .pm-icon-button,
+        & > .pm-icon-button + .pm-button {
           margin-left: -1px;
         }
       }
 
       &.pm-button-group--vertical {
-        & > .pm-button:first-child {
-          border-top-left-radius: var(--pm-radius-md);
-          border-top-right-radius: var(--pm-radius-md);
+        & > .pm-button:first-child,
+        & > .pm-icon-button:first-child {
+          border-top-left-radius: var(--pm-button-group-radius);
+          border-top-right-radius: var(--pm-button-group-radius);
         }
 
-        & > .pm-button:last-child {
-          border-bottom-left-radius: var(--pm-radius-md);
-          border-bottom-right-radius: var(--pm-radius-md);
+        & > .pm-button:last-child,
+        & > .pm-icon-button:last-child {
+          border-bottom-left-radius: var(--pm-button-group-radius);
+          border-bottom-right-radius: var(--pm-button-group-radius);
         }
 
-        & > .pm-button + .pm-button {
+        & > .pm-button + .pm-button,
+        & > .pm-icon-button + .pm-icon-button,
+        & > .pm-button + .pm-icon-button,
+        & > .pm-icon-button + .pm-button {
           margin-top: -1px;
         }
       }
 
-      & > .pm-button:focus-visible {
+      & > .pm-button:focus-visible,
+      & > .pm-icon-button:focus-visible {
         z-index: 1;
+        position: relative;
       }
     }
+  }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-button-group {
+    --pm-button-group-radius: 4px;
+  }
+
+  .pm-theme-material .pm-button-group {
+    --pm-button-group-radius: 20px;
+  }
+
+  .pm-theme-bootstrap .pm-button-group {
+    --pm-button-group-radius: 6px;
   }
 }

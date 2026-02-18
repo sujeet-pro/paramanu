@@ -5,12 +5,16 @@ export {
   collapsibleTriggerModuleClasses,
   collapsibleContentClasses,
   collapsibleContentModuleClasses,
+  collapsibleIconClasses,
+  collapsibleIconModuleClasses,
 } from "./collapsible/collapsible.classes.js"
 export type {
   CollapsibleSize,
   CollapsibleClassesOptions,
   CollapsibleTriggerClassesOptions,
   CollapsibleContentClassesOptions,
+  CollapsibleIconClassesOptions,
+  CollapsibleProps,
 } from "./collapsible/collapsible.types.js"
 
 export {
@@ -22,19 +26,29 @@ export {
   accordionTriggerModuleClasses,
   accordionContentClasses,
   accordionContentModuleClasses,
+  accordionIconClasses,
+  accordionIconModuleClasses,
 } from "./accordion/accordion.classes.js"
 export type {
   AccordionVariant,
   AccordionSize,
+  AccordionType,
   AccordionClassesOptions,
   AccordionItemClassesOptions,
   AccordionTriggerClassesOptions,
   AccordionContentClassesOptions,
+  AccordionIconClassesOptions,
+  AccordionProps,
+  AccordionItemProps,
 } from "./accordion/accordion.types.js"
 
 export {
   carouselClasses,
   carouselModuleClasses,
+  carouselViewportClasses,
+  carouselViewportModuleClasses,
+  carouselTrackClasses,
+  carouselTrackModuleClasses,
   carouselSlideClasses,
   carouselSlideModuleClasses,
   carouselControlClasses,
@@ -45,10 +59,14 @@ export {
 export type {
   CarouselOrientation,
   CarouselSize,
+  CarouselAlign,
   CarouselClassesOptions,
+  CarouselViewportClassesOptions,
+  CarouselTrackClassesOptions,
   CarouselSlideClassesOptions,
   CarouselControlClassesOptions,
   CarouselIndicatorClassesOptions,
+  CarouselProps,
 } from "./carousel/carousel.types.js"
 
 export {
@@ -58,10 +76,19 @@ export {
   tourStepModuleClasses,
   tourOverlayClasses,
   tourOverlayModuleClasses,
+  tourSpotlightClasses,
+  tourSpotlightModuleClasses,
+  tourCloseClasses,
+  tourCloseModuleClasses,
 } from "./tour/tour.classes.js"
 export type {
   TourPlacement,
+  TourVariant,
   TourClassesOptions,
   TourStepClassesOptions,
   TourOverlayClassesOptions,
+  TourSpotlightClassesOptions,
+  TourCloseClassesOptions,
+  TourStepConfig,
+  TourProps,
 } from "./tour/tour.types.js"

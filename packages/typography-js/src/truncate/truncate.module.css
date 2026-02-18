@@ -30,4 +30,27 @@
     -webkit-line-clamp: 4;
     overflow: hidden;
   }
+
+  .pm-truncate--lines-5 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+
+  .pm-truncate--lines-6 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+  }
+
+  /* Position variants */
+  .pm-truncate--start {
+    direction: rtl;
+    text-align: left;
+  }
+
+  .pm-truncate--middle {
+  }
 }

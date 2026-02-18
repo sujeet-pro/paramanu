@@ -6,6 +6,19 @@ import type {
 
 const BASE = "pm-data-table"
 
+/**
+ * Returns BEM class names for the DataTable component.
+ *
+ * DataTable is an enhanced table with support for sorting indicators,
+ * a toolbar area, pagination, and row selection.
+ *
+ * @example
+ * ```ts
+ * const cls = dataTableClasses({ variant: "striped", selectable: true })
+ * // cls.root    => "pm-data-table pm-data-table--striped pm-data-table--md pm-data-table--selectable"
+ * // cls.toolbar => "pm-data-table__toolbar"
+ * ```
+ */
 export function dataTableClasses(options: DataTableClassesOptions = {}): DataTableClassesResult {
   const {
     variant = "simple",
@@ -33,6 +46,15 @@ export function dataTableClasses(options: DataTableClassesOptions = {}): DataTab
   }
 }
 
+/**
+ * Returns BEM class names for a DataTable header cell with sort / align modifiers.
+ *
+ * @example
+ * ```ts
+ * dataTableHeaderCellClasses({ sortable: true, sortDirection: "asc" })
+ * // => "pm-data-table__header-cell pm-data-table__header-cell--sortable pm-data-table__header-cell--sort-asc"
+ * ```
+ */
 export function dataTableHeaderCellClasses(
   options: DataTableHeaderCellClassesOptions = {},
 ): string {
@@ -44,6 +66,10 @@ export function dataTableHeaderCellClasses(
   return classes.join(" ")
 }
 
+/**
+ * Returns CSS module class names for the DataTable component.
+ * Used by bundled consumers who import CSS modules.
+ */
 export function dataTableModuleClasses(
   classMap: Record<string, string>,
   options: DataTableClassesOptions = {},

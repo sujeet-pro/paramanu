@@ -2,6 +2,7 @@ import { forwardRef } from "react"
 import { cardClasses, cardMediaClasses } from "@paramanu/data-display-js"
 import type { CardProps, CardMediaClassesOptions } from "@paramanu/data-display-js"
 
+/** Props for the Card root component. Renders as an `<article>` or `<div>`. */
 export interface ReactCardProps
   extends CardProps,
     React.HTMLAttributes<HTMLDivElement> {
@@ -22,6 +23,7 @@ export const Card = forwardRef<HTMLDivElement, ReactCardProps>(function Card(
   )
 })
 
+/** Props for the CardHeader sub-component. */
 export interface ReactCardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
@@ -39,6 +41,7 @@ export const CardHeader = forwardRef<HTMLDivElement, ReactCardHeaderProps>(
   },
 )
 
+/** Props for the CardBody sub-component. */
 export interface ReactCardBodyProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
@@ -56,6 +59,7 @@ export const CardBody = forwardRef<HTMLDivElement, ReactCardBodyProps>(
   },
 )
 
+/** Props for the CardFooter sub-component. */
 export interface ReactCardFooterProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
@@ -73,6 +77,7 @@ export const CardFooter = forwardRef<HTMLDivElement, ReactCardFooterProps>(
   },
 )
 
+/** Props for the CardMedia sub-component. */
 export interface ReactCardMediaProps
   extends CardMediaClassesOptions,
     React.HTMLAttributes<HTMLDivElement> {

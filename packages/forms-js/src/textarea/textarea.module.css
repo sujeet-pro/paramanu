@@ -52,6 +52,12 @@
     outline: none;
   }
 
+  .pm-textarea--xs {
+    padding: var(--pm-spacing-0-5) var(--pm-spacing-1-5);
+    font-size: var(--pm-font-size-xs);
+    min-height: calc(var(--pm-spacing-6) * 2);
+  }
+
   .pm-textarea--sm {
     padding: var(--pm-spacing-1) var(--pm-spacing-2);
     font-size: var(--pm-font-size-sm);
@@ -84,6 +90,11 @@
 
   .pm-textarea--resize-both {
     resize: both;
+  }
+
+  .pm-textarea--autosize {
+    resize: none;
+    overflow: hidden;
   }
 
   .pm-textarea--invalid {

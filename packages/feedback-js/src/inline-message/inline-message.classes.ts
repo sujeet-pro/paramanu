@@ -2,15 +2,37 @@ import type { InlineMessageClassesOptions } from "./inline-message.types.js"
 
 const BASE = "pm-inline-message"
 
+/** Structured class names for the inline message component and its sub-elements. */
+export interface InlineMessageClassesResult {
+  /** Root element class names. */
+  root: string
+  /** Icon container class. */
+  icon: string
+  /** Content wrapper class. */
+  content: string
+}
+
 /**
  * Returns BEM class names for the inline message component (human-readable).
  * Used by CDN and template consumers.
+ *
+ * @example
+ * ```ts
+ * const classes = inlineMessageClasses({ variant: "danger", size: "sm" })
+ * // classes.root => "pm-inline-message pm-inline-message--danger pm-inline-message--sm"
+ * ```
  */
-export function inlineMessageClasses(options: InlineMessageClassesOptions = {}): string {
-  const { variant = "info" } = options
-  const classes = [BASE, `${BASE}--${variant}`]
+export function inlineMessageClasses(
+  options: InlineMessageClassesOptions = {},
+): InlineMessageClassesResult {
+  const { variant = "info", size = "md" } = options
+  const rootClasses = [BASE, `${BASE}--${variant}`, `${BASE}--${size}`]
 
-  return classes.join(" ")
+  return {
+    root: rootClasses.join(" "),
+    icon: `${BASE}__icon`,
+    content: `${BASE}__content`,
+  }
 }
 
 /**
@@ -20,10 +42,18 @@ export function inlineMessageClasses(options: InlineMessageClassesOptions = {}):
 export function inlineMessageModuleClasses(
   classMap: Record<string, string>,
   options: InlineMessageClassesOptions = {},
-): string {
-  const { variant = "info" } = options
+): InlineMessageClassesResult {
+  const { variant = "info", size = "md" } = options
 
-  const classes = [classMap["pm-inline-message"], classMap[`pm-inline-message--${variant}`]]
+  const rootClasses = [
+    classMap["pm-inline-message"],
+    classMap[`pm-inline-message--${variant}`],
+    classMap[`pm-inline-message--${size}`],
+  ]
 
-  return classes.filter(Boolean).join(" ")
+  return {
+    root: rootClasses.filter(Boolean).join(" "),
+    icon: classMap["pm-inline-message__icon"] ?? "",
+    content: classMap["pm-inline-message__content"] ?? "",
+  }
 }

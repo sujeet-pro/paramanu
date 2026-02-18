@@ -13,6 +13,18 @@
       align-items: center;
     }
 
+    &.pm-dialog--scroll-inside {
+      overflow-y: hidden;
+      align-items: center;
+    }
+
+    /* Size variants */
+    &.pm-dialog--xs {
+      & > .pm-dialog__panel {
+        max-width: 20rem;
+      }
+    }
+
     &.pm-dialog--sm {
       & > .pm-dialog__panel {
         max-width: 24rem;
@@ -38,22 +50,27 @@
     }
 
     &.pm-dialog--full {
+      padding: 0;
+
       & > .pm-dialog__panel {
         max-width: 100%;
         width: 100%;
         min-height: 100%;
+        border-radius: 0;
       }
     }
   }
 
   .pm-dialog__panel {
     position: relative;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     max-width: 32rem;
     background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
     border-radius: var(--pm-radius-lg);
     box-shadow: var(--pm-shadow-xl);
-    transform: scale(0.95);
+    transform: scale(0.95) translateY(8px);
     opacity: 0;
     transition-property: transform, opacity;
     transition-duration: var(--pm-transition-normal, 200ms);
@@ -61,13 +78,14 @@
 
     [data-pm-presence="entering"] &,
     [data-pm-presence="entered"] & {
-      transform: scale(1);
+      transform: scale(1) translateY(0);
       opacity: 1;
     }
 
     [data-pm-presence="exiting"] & {
-      transform: scale(0.95);
+      transform: scale(0.95) translateY(8px);
       opacity: 0;
+      transition-timing-function: ease-in;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -79,11 +97,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-4) var(--pm-spacing-6);
     border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
     font-family: var(--pm-font-family-sans);
     font-weight: var(--pm-font-weight-semibold);
     font-size: var(--pm-font-size-lg);
+    line-height: var(--pm-font-lineHeight-tight);
+    flex-shrink: 0;
   }
 
   .pm-dialog__body {
@@ -91,10 +112,15 @@
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-md);
     color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+    flex: 1;
 
     &.pm-dialog__body--scroll-inside {
       overflow-y: auto;
       max-height: 60vh;
+    }
+
+    &.pm-dialog__body--scroll-outside {
+      overflow-y: visible;
     }
   }
 
@@ -105,5 +131,77 @@
     gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-4) var(--pm-spacing-6);
     border-top: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    flex-shrink: 0;
+  }
+
+  /* ----- Theme overrides ----- */
+
+  /* antd-like */
+  :root[data-theme="antd"] {
+    & .pm-dialog__panel {
+      border-radius: var(--pm-radius-md);
+      box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+        0 3px 6px -4px rgba(0, 0, 0, 0.12),
+        0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    & .pm-dialog__header {
+      padding: var(--pm-spacing-4) var(--pm-spacing-6);
+      font-size: var(--pm-font-size-md);
+      font-weight: var(--pm-font-weight-semibold);
+    }
+  }
+
+  /* material */
+  :root[data-theme="material"] {
+    & .pm-dialog__panel {
+      border-radius: 28px;
+      box-shadow: var(--pm-shadow-xl);
+    }
+
+    & .pm-dialog__header {
+      padding: var(--pm-spacing-6);
+      font-size: var(--pm-font-size-xl);
+    }
+
+    & .pm-dialog__body {
+      padding: var(--pm-spacing-6);
+    }
+
+    & .pm-dialog__footer {
+      padding: var(--pm-spacing-4) var(--pm-spacing-6);
+      border-top: none;
+    }
+  }
+
+  /* bootstrap */
+  :root[data-theme="bootstrap"] {
+    & .pm-dialog__panel {
+      border-radius: var(--pm-radius-lg);
+      border: 1px solid light-dark(rgba(0, 0, 0, 0.175), rgba(255, 255, 255, 0.175));
+    }
+
+    & .pm-dialog__header {
+      border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    }
+  }
+
+  /* dark-modern */
+  :root[data-theme="dark-modern"] {
+    & .pm-dialog__panel {
+      background-color: var(--pm-color-neutral-800);
+      border: 1px solid var(--pm-color-neutral-700);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  /* light-modern */
+  :root[data-theme="light-modern"] {
+    & .pm-dialog__panel {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05),
+        0 20px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--pm-color-neutral-200);
+    }
   }
 }

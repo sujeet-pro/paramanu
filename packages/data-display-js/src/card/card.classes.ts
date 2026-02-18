@@ -7,8 +7,14 @@ import type {
 const BASE = "pm-card"
 
 /**
- * Returns BEM class names for the card component (human-readable).
- * Used by CDN and template consumers.
+ * Returns BEM class names for the Card component.
+ *
+ * @example
+ * ```ts
+ * const cls = cardClasses({ variant: "outline", size: "lg" })
+ * // cls.root  => "pm-card pm-card--outline pm-card--lg"
+ * // cls.header => "pm-card__header"
+ * ```
  */
 export function cardClasses(options: CardClassesOptions = {}): CardClassesResult {
   const {
@@ -35,7 +41,13 @@ export function cardClasses(options: CardClassesOptions = {}): CardClassesResult
 }
 
 /**
- * Returns BEM class names for the card media sub-part.
+ * Returns BEM class names for the Card media sub-element with position modifier.
+ *
+ * @example
+ * ```ts
+ * cardMediaClasses({ position: "bottom" })
+ * // => "pm-card__media pm-card__media--bottom"
+ * ```
  */
 export function cardMediaClasses(options: CardMediaClassesOptions = {}): string {
   const { position = "top" } = options
@@ -43,8 +55,8 @@ export function cardMediaClasses(options: CardMediaClassesOptions = {}): string 
 }
 
 /**
- * Returns CSS module class names for the card component (hashed).
- * Used by bundled/template consumers who import CSS modules.
+ * Returns CSS module class names for the Card component.
+ * Used by bundled consumers who import CSS modules.
  */
 export function cardModuleClasses(
   classMap: Record<string, string>,
@@ -78,7 +90,7 @@ export function cardModuleClasses(
 }
 
 /**
- * Returns CSS module class names for the card media sub-part.
+ * Returns CSS module class names for the Card media sub-element.
  */
 export function cardMediaModuleClasses(
   classMap: Record<string, string>,

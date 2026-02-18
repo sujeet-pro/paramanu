@@ -1,0 +1,6 @@
+---
+description: TypeScript, CSS, and component code conventions
+globs: "**/*.{ts,tsx,css}"
+---
+
+Read and follow `agents-guidelines/writing-code.md`. For theming/tokens, also read `agents-guidelines/theming.md`.

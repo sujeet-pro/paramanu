@@ -29,6 +29,7 @@ export type {
   AvatarGroupSpacing,
   AvatarGroupClassesOptions,
   AvatarGroupClassesResult,
+  AvatarGroupProps,
 } from "./avatar-group/avatar-group.types.js"
 
 // Icon
@@ -75,6 +76,7 @@ export type {
   TagColor,
   TagClassesOptions,
   TagClassesResult,
+  TagProps,
 } from "./tag/tag.types.js"
 
 // Tile
@@ -83,6 +85,7 @@ export type {
   TileVariant,
   TileSize,
   TileClassesOptions,
+  TileProps,
 } from "./tile/tile.types.js"
 
 // Stat
@@ -99,6 +102,7 @@ export type {
   StatClassesOptions,
   StatHelpTextClassesOptions,
   StatClassesResult,
+  StatProps,
 } from "./stat/stat.types.js"
 
 // Table
@@ -109,6 +113,7 @@ export type {
   TableLayout,
   TableClassesOptions,
   TableClassesResult,
+  TableModuleClassesResult,
   TableProps,
 } from "./table/table.types.js"
 
@@ -126,6 +131,7 @@ export type {
   DataTableClassesOptions,
   DataTableHeaderCellClassesOptions,
   DataTableClassesResult,
+  DataTableProps,
 } from "./data-table/data-table.types.js"
 
 // Data Grid
@@ -134,6 +140,7 @@ export type {
   DataGridSize,
   DataGridClassesOptions,
   DataGridClassesResult,
+  DataGridProps,
 } from "./data-grid/data-grid.types.js"
 
 // Data List
@@ -143,6 +150,7 @@ export type {
   DataListSize,
   DataListClassesOptions,
   DataListClassesResult,
+  DataListModuleClassesResult,
   DataListProps,
 } from "./data-list/data-list.types.js"
 
@@ -155,6 +163,7 @@ export type {
   StructuredListSize,
   StructuredListClassesOptions,
   StructuredListClassesResult,
+  StructuredListModuleClassesResult,
   StructuredListProps,
 } from "./structured-list/structured-list.types.js"
 
@@ -170,6 +179,7 @@ export type {
   TimelineAlign,
   TimelineClassesOptions,
   TimelineClassesResult,
+  TimelineModuleClassesResult,
   TimelineDotVariant,
   TimelineDotColor,
   TimelineDotClassesOptions,
@@ -183,6 +193,7 @@ export type {
   EmbedRatio,
   EmbedClassesOptions,
   EmbedClassesResult,
+  EmbedModuleClassesResult,
   EmbedProps,
 } from "./embed/embed.types.js"
 
@@ -192,6 +203,7 @@ export type {
   QrCodeSize,
   QrCodeClassesOptions,
   QrCodeClassesResult,
+  QrCodeModuleClassesResult,
   QrCodeProps,
 } from "./qr-code/qr-code.types.js"
 
@@ -204,6 +216,7 @@ export type {
   EmptyStateSize,
   EmptyStateClassesOptions,
   EmptyStateClassesResult,
+  EmptyStateModuleClassesResult,
   EmptyStateProps,
 } from "./empty-state/empty-state.types.js"
 

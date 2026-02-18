@@ -1,34 +1,147 @@
 @layer pm.components {
   .pm-highlight {
+    --pm-highlight-bg: transparent;
+    --pm-highlight-text: inherit;
+    --pm-highlight-border: transparent;
+
     padding: 0.0625em 0.125em;
     border-radius: var(--pm-radius-sm);
+    background-color: var(--pm-highlight-bg);
+    color: var(--pm-highlight-text);
 
+    /* Colors (filled by default) */
     &.pm-highlight--primary {
-      background-color: light-dark(
+      --pm-highlight-bg: light-dark(
         oklch(from var(--pm-color-primary-200) l c h / 0.5),
         oklch(from var(--pm-color-primary-700) l c h / 0.4)
       );
     }
 
     &.pm-highlight--danger {
-      background-color: light-dark(
+      --pm-highlight-bg: light-dark(
         oklch(from var(--pm-color-danger-200) l c h / 0.5),
         oklch(from var(--pm-color-danger-700) l c h / 0.4)
       );
     }
 
     &.pm-highlight--success {
-      background-color: light-dark(
+      --pm-highlight-bg: light-dark(
         oklch(from var(--pm-color-success-200) l c h / 0.5),
         oklch(from var(--pm-color-success-700) l c h / 0.4)
       );
     }
 
+    &.pm-highlight--warning {
+      --pm-highlight-bg: light-dark(
+        oklch(from var(--pm-color-warning-200) l c h / 0.5),
+        oklch(from var(--pm-color-warning-700) l c h / 0.4)
+      );
+    }
+
+    &.pm-highlight--info {
+      --pm-highlight-bg: light-dark(
+        oklch(from var(--pm-color-info-200) l c h / 0.5),
+        oklch(from var(--pm-color-info-700) l c h / 0.4)
+      );
+    }
+
     &.pm-highlight--neutral {
-      background-color: light-dark(
+      --pm-highlight-bg: light-dark(
         oklch(from var(--pm-color-neutral-200) l c h / 0.5),
         oklch(from var(--pm-color-neutral-700) l c h / 0.4)
       );
     }
+
+    /* Outline variant */
+    &.pm-highlight--outline {
+      background-color: transparent;
+      border: 1px solid var(--pm-highlight-border);
+      padding: 0 0.125em;
+
+      &.pm-highlight--primary {
+        --pm-highlight-border: light-dark(var(--pm-color-primary-400), var(--pm-color-primary-500));
+      }
+
+      &.pm-highlight--danger {
+        --pm-highlight-border: light-dark(var(--pm-color-danger-400), var(--pm-color-danger-500));
+      }
+
+      &.pm-highlight--success {
+        --pm-highlight-border: light-dark(var(--pm-color-success-400), var(--pm-color-success-500));
+      }
+
+      &.pm-highlight--warning {
+        --pm-highlight-border: light-dark(var(--pm-color-warning-400), var(--pm-color-warning-500));
+      }
+
+      &.pm-highlight--info {
+        --pm-highlight-border: light-dark(var(--pm-color-info-400), var(--pm-color-info-500));
+      }
+
+      &.pm-highlight--neutral {
+        --pm-highlight-border: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+      }
+    }
+
+    /* Text variant */
+    &.pm-highlight--text {
+      background-color: transparent;
+      padding: 0;
+
+      &.pm-highlight--primary {
+        --pm-highlight-text: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+        font-weight: var(--pm-font-weight-semibold);
+      }
+
+      &.pm-highlight--danger {
+        --pm-highlight-text: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-400));
+        font-weight: var(--pm-font-weight-semibold);
+      }
+
+      &.pm-highlight--success {
+        --pm-highlight-text: light-dark(var(--pm-color-success-600), var(--pm-color-success-400));
+        font-weight: var(--pm-font-weight-semibold);
+      }
+
+      &.pm-highlight--warning {
+        --pm-highlight-text: light-dark(var(--pm-color-warning-600), var(--pm-color-warning-400));
+        font-weight: var(--pm-font-weight-semibold);
+      }
+
+      &.pm-highlight--info {
+        --pm-highlight-text: light-dark(var(--pm-color-info-600), var(--pm-color-info-400));
+        font-weight: var(--pm-font-weight-semibold);
+      }
+
+      &.pm-highlight--neutral {
+        --pm-highlight-text: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+        font-weight: var(--pm-font-weight-semibold);
+      }
+    }
+  }
+
+  /* Theme overrides: Ant Design */
+  .pm-theme-antd .pm-highlight.pm-highlight--primary {
+    --pm-highlight-bg: light-dark(#e6f7ff, rgba(24, 144, 255, 0.2));
+  }
+
+  /* Theme overrides: Material */
+  .pm-theme-material .pm-highlight.pm-highlight--primary {
+    --pm-highlight-bg: light-dark(#bbdefb, rgba(33, 150, 243, 0.2));
+  }
+
+  /* Theme overrides: Bootstrap */
+  .pm-theme-bootstrap .pm-highlight.pm-highlight--primary {
+    --pm-highlight-bg: light-dark(#cfe2ff, rgba(13, 110, 253, 0.2));
+  }
+
+  /* Theme overrides: Dark Modern */
+  .pm-theme-dark-modern .pm-highlight.pm-highlight--primary {
+    --pm-highlight-bg: oklch(from var(--pm-color-primary-700) l c h / 0.35);
+  }
+
+  /* Theme overrides: Light Modern */
+  .pm-theme-light-modern .pm-highlight.pm-highlight--primary {
+    --pm-highlight-bg: oklch(from var(--pm-color-primary-200) l c h / 0.6);
   }
 }

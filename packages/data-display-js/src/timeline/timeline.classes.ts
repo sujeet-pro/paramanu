@@ -8,7 +8,13 @@ import type {
 const BASE = "pm-timeline"
 
 /**
- * Returns BEM class names for the timeline dot sub-component (human-readable).
+ * Returns BEM class names for the TimelineDot sub-component.
+ *
+ * @example
+ * ```ts
+ * timelineDotClasses({ variant: "outline", color: "success" })
+ * // => "pm-timeline__dot pm-timeline__dot--outline pm-timeline__dot--success"
+ * ```
  */
 export function timelineDotClasses(options: TimelineDotClassesOptions = {}): string {
   const { variant = "filled", color = "primary" } = options
@@ -20,7 +26,7 @@ export function timelineDotClasses(options: TimelineDotClassesOptions = {}): str
 }
 
 /**
- * Returns CSS module class names for the timeline dot sub-component (hashed).
+ * Returns CSS module class names for the TimelineDot sub-component.
  */
 export function timelineDotModuleClasses(
   classMap: Record<string, string>,
@@ -38,8 +44,17 @@ export function timelineDotModuleClasses(
 }
 
 /**
- * Returns BEM class names for the timeline component (human-readable).
- * Used by CDN and template consumers.
+ * Returns BEM class names for the Timeline component.
+ *
+ * Timeline displays chronological events in a vertical or horizontal layout
+ * with connector lines and dot indicators.
+ *
+ * @example
+ * ```ts
+ * const cls = timelineClasses({ orientation: "vertical", align: "alternate" })
+ * // cls.root      => "pm-timeline pm-timeline--vertical pm-timeline--alternate"
+ * // cls.connector => "pm-timeline__connector"
+ * ```
  */
 export function timelineClasses(options: TimelineClassesOptions = {}): TimelineClassesResult {
   const { orientation = "vertical", align = "start" } = options
@@ -57,8 +72,8 @@ export function timelineClasses(options: TimelineClassesOptions = {}): TimelineC
 }
 
 /**
- * Returns CSS module class names for the timeline component (hashed).
- * Used by bundled/template consumers who import CSS modules.
+ * Returns CSS module class names for the Timeline component.
+ * Used by bundled consumers who import CSS modules.
  */
 export function timelineModuleClasses(
   classMap: Record<string, string>,

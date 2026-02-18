@@ -7,8 +7,18 @@ import type {
 const BASE = "pm-data-list"
 
 /**
- * Returns BEM class names for the data list component (human-readable).
- * Used by CDN and template consumers.
+ * Returns BEM class names for the DataList (description list) component.
+ *
+ * Renders a semantic `<dl>` with `<dt>` / `<dd>` pairs. Supports
+ * vertical (stacked) and horizontal (side-by-side) orientations.
+ *
+ * @example
+ * ```ts
+ * const cls = dataListClasses({ orientation: "horizontal", dividers: true })
+ * // cls.root   => "pm-data-list pm-data-list--horizontal pm-data-list--md pm-data-list--dividers"
+ * // cls.term   => "pm-data-list__term"
+ * // cls.detail => "pm-data-list__detail"
+ * ```
  */
 export function dataListClasses(options: DataListClassesOptions = {}): DataListClassesResult {
   const { orientation = "vertical", size = "md", dividers = false } = options
@@ -26,8 +36,8 @@ export function dataListClasses(options: DataListClassesOptions = {}): DataListC
 }
 
 /**
- * Returns CSS module class names for the data list component (hashed).
- * Used by bundled/template consumers who import CSS modules.
+ * Returns CSS module class names for the DataList component.
+ * Used by bundled consumers who import CSS modules.
  */
 export function dataListModuleClasses(
   classMap: Record<string, string>,

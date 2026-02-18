@@ -8,7 +8,7 @@
     box-shadow: var(--pm-shadow-xl);
     transition-property: transform;
     transition-duration: var(--pm-transition-normal, 200ms);
-    transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
   }
 
   /* Placements */
@@ -125,11 +125,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-4) var(--pm-spacing-6);
     border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
     font-family: var(--pm-font-family-sans);
     font-weight: var(--pm-font-weight-semibold);
     font-size: var(--pm-font-size-lg);
+    line-height: var(--pm-font-lineHeight-tight);
+    flex-shrink: 0;
   }
 
   .pm-drawer__body {
@@ -148,5 +151,6 @@
     gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-4) var(--pm-spacing-6);
     border-top: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    flex-shrink: 0;
   }
 }

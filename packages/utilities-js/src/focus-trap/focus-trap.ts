@@ -1,5 +1,12 @@
 import type { FocusTrapOptions, FocusTrapInstance } from "./focus-trap.types.js"
 
+/**
+ * CSS selector matching all natively focusable elements.
+ * Used internally by `createFocusTrap` to find tab-navigable descendants.
+ *
+ * Includes: links with href, enabled buttons/inputs/selects/textareas,
+ * and elements with a non-negative tabindex.
+ */
 export const FOCUSABLE_SELECTOR = [
   "a[href]",
   "button:not([disabled])",
@@ -9,6 +16,33 @@ export const FOCUSABLE_SELECTOR = [
   '[tabindex]:not([tabindex="-1"])',
 ].join(", ")
 
+/**
+ * Creates an imperative focus trap that constrains keyboard focus within
+ * the given container element.
+ *
+ * The trap intercepts Tab and Shift+Tab keypresses to cycle focus among
+ * the container's focusable descendants. It also handles the Escape key
+ * via the optional `onEscapeKey` callback.
+ *
+ * Used internally by Dialog, Drawer, and other overlay components.
+ * For React usage, prefer the `useFocusTrap` hook or `<FocusTrap>` component
+ * from `@paramanu/utilities-react`.
+ *
+ * @param element - The container element to trap focus within
+ * @param options - Configuration options
+ * @returns A `FocusTrapInstance` with `activate`, `deactivate`, and `destroy` methods
+ *
+ * @example
+ * ```ts
+ * const trap = createFocusTrap(dialogEl, {
+ *   initialFocus: "#confirm-btn",
+ *   onEscapeKey: () => closeDialog(),
+ * })
+ * trap.activate()
+ * // ... when dialog closes:
+ * trap.deactivate()
+ * ```
+ */
 export function createFocusTrap(
   element: HTMLElement,
   options: FocusTrapOptions = {},

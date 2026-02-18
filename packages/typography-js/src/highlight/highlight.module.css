@@ -25,10 +25,37 @@
     );
   }
 
+  .pm-highlight--warning {
+    background-color: light-dark(
+      oklch(from var(--pm-color-warning-200) l c h / 0.5),
+      oklch(from var(--pm-color-warning-700) l c h / 0.4)
+    );
+  }
+
+  .pm-highlight--info {
+    background-color: light-dark(
+      oklch(from var(--pm-color-info-200) l c h / 0.5),
+      oklch(from var(--pm-color-info-700) l c h / 0.4)
+    );
+  }
+
   .pm-highlight--neutral {
     background-color: light-dark(
       oklch(from var(--pm-color-neutral-200) l c h / 0.5),
       oklch(from var(--pm-color-neutral-700) l c h / 0.4)
     );
+  }
+
+  /* Outline variant */
+  .pm-highlight--outline {
+    background-color: transparent;
+    padding: 0 0.125em;
+  }
+
+  /* Text variant */
+  .pm-highlight--text {
+    background-color: transparent;
+    padding: 0;
+    font-weight: var(--pm-font-weight-semibold);
   }
 }

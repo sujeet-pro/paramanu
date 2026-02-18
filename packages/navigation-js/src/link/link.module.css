@@ -47,6 +47,29 @@
     background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
   }
 
+  /* Underline overrides */
+  .pm-link--underline-always {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .pm-link--underline-hover {
+    text-decoration: none;
+  }
+
+  .pm-link--underline-hover:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .pm-link--underline-never {
+    text-decoration: none;
+  }
+
+  .pm-link--underline-never:hover {
+    text-decoration: none;
+  }
+
   /* States */
   .pm-link--active {
     font-weight: var(--pm-font-weight-semibold);

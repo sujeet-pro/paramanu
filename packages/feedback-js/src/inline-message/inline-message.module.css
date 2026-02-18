@@ -1,6 +1,8 @@
 @layer pm.components {
   .pm-inline-message {
-    display: block;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--pm-spacing-2);
     padding: var(--pm-spacing-3) var(--pm-spacing-4);
     border-left: 3px solid transparent;
     border-radius: 0 var(--pm-radius-md) var(--pm-radius-md) 0;
@@ -32,5 +34,27 @@
     background-color: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
     border-left-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
     color: light-dark(var(--pm-color-danger-800), var(--pm-color-danger-100));
+  }
+
+  /* Sizes */
+  .pm-inline-message--sm {
+    padding: var(--pm-spacing-2) var(--pm-spacing-3);
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-inline-message--md {
+  }
+
+  /* Sub-elements */
+  .pm-inline-message__icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+  }
+
+  .pm-inline-message__content {
+    flex: 1;
+    min-width: 0;
   }
 }

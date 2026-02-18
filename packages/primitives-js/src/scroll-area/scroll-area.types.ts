@@ -1,10 +1,21 @@
+/** Scroll direction for the scroll area. */
 export type ScrollDirection = "vertical" | "horizontal" | "both"
 
-export type ScrollbarVisibility = "auto" | "always" | "hover"
+/** Scrollbar visibility behavior. */
+export type ScrollbarVisibility = "auto" | "always" | "hover" | "hidden"
+
+/** Scrollbar width style. */
+export type ScrollbarSize = "thin" | "none"
 
 export interface ScrollAreaClassesOptions {
+  /** Which axes allow scrolling. Defaults to "vertical". */
   direction?: ScrollDirection
+  /** When to show scrollbars. Defaults to "auto". */
   scrollbar?: ScrollbarVisibility
+  /** Width of the scrollbar. Defaults to "thin". */
+  scrollbarSize?: ScrollbarSize
+  /** Whether the scroll area has a border. */
+  bordered?: boolean
 }
 
 export interface ScrollAreaProps extends ScrollAreaClassesOptions {}

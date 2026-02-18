@@ -26,6 +26,7 @@
   .pm-progress-bar {
     display: flex;
     flex-direction: column;
+    gap: var(--pm-spacing-1);
     width: 100%;
     box-sizing: border-box;
   }
@@ -76,34 +77,7 @@
     );
   }
 
-  /* Striped (applied to fill via parent class in JS) */
-  .pm-progress-bar--striped {
-  }
-
-  /* Animated */
-  .pm-progress-bar--animated {
-  }
-
-  /* Indeterminate */
-  .pm-progress-bar--indeterminate {
-  }
-
-  .pm-progress-bar__track {
-    position: relative;
-    width: 100%;
-    height: var(--pm-progress-bar-height, 8px);
-    background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-    border-radius: var(--pm-radius-full);
-    overflow: hidden;
-  }
-
-  .pm-progress-bar__fill {
-    height: 100%;
-    background-color: var(--pm-progress-bar-fill-color, light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500)));
-    border-radius: var(--pm-radius-full);
-    transition: width var(--pm-transition-normal) ease-in-out;
-  }
-
+  /* Striped */
   .pm-progress-bar--striped .pm-progress-bar__fill {
     background-image: repeating-linear-gradient(
       45deg,
@@ -122,6 +96,34 @@
   .pm-progress-bar--indeterminate .pm-progress-bar__fill {
     position: absolute;
     animation: pm-progress-indeterminate 1.5s ease-in-out infinite;
+  }
+
+  .pm-progress-bar--with-label {
+  }
+
+  .pm-progress-bar__track {
+    position: relative;
+    width: 100%;
+    height: var(--pm-progress-bar-height, 8px);
+    background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-radius: var(--pm-radius-full);
+    overflow: hidden;
+  }
+
+  .pm-progress-bar__fill {
+    height: 100%;
+    background-color: var(--pm-progress-bar-fill-color, light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500)));
+    border-radius: var(--pm-radius-full);
+    transition: width var(--pm-transition-normal) ease-in-out;
+  }
+
+  .pm-progress-bar__label {
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-xs);
+    font-weight: var(--pm-font-weight-medium);
+    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    text-align: right;
+    line-height: 1;
   }
 
   @media (prefers-reduced-motion: reduce) {

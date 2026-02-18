@@ -7,8 +7,17 @@ import type {
 const BASE = "pm-table"
 
 /**
- * Returns BEM class names for the table component (human-readable).
- * Used by CDN and template consumers.
+ * Returns BEM class names for the Table component.
+ *
+ * Wraps a standard HTML `<table>` with styling for variants, sizes, and features
+ * like striped rows, hover highlighting, bordered cells, and sticky headers.
+ *
+ * @example
+ * ```ts
+ * const cls = tableClasses({ variant: "striped", hoverable: true })
+ * // cls.root => "pm-table pm-table--striped pm-table--md pm-table--layout-auto pm-table--hoverable"
+ * // cls.row  => "pm-table__row"
+ * ```
  */
 export function tableClasses(options: TableClassesOptions = {}): TableClassesResult {
   const {
@@ -40,8 +49,8 @@ export function tableClasses(options: TableClassesOptions = {}): TableClassesRes
 }
 
 /**
- * Returns CSS module class names for the table component (hashed).
- * Used by bundled/template consumers who import CSS modules.
+ * Returns CSS module class names for the Table component.
+ * Used by bundled consumers who import CSS modules.
  */
 export function tableModuleClasses(
   classMap: Record<string, string>,

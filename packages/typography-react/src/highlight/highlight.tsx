@@ -9,10 +9,10 @@ export interface ReactHighlightProps
 }
 
 export const Highlight = forwardRef<HTMLElement, ReactHighlightProps>(function Highlight(
-  { color, className, children, ...rest },
+  { color, variant, className, children, ...rest },
   ref,
 ) {
-  const classes = highlightClasses({ color })
+  const classes = highlightClasses({ color, variant })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (

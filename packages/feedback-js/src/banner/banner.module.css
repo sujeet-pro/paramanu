@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     width: 100%;
+    gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-3) var(--pm-spacing-4);
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-md);
@@ -33,8 +34,15 @@
   /* Sticky */
   .pm-banner--sticky {
     position: sticky;
-    top: 0;
     z-index: 100;
+  }
+
+  .pm-banner--top {
+    top: 0;
+  }
+
+  .pm-banner--bottom {
+    bottom: 0;
   }
 
   /* Dismissible */
@@ -43,9 +51,23 @@
   }
 
   /* Sub-elements */
+  .pm-banner__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .pm-banner__content {
     flex: 1;
     min-width: 0;
+  }
+
+  .pm-banner__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--pm-spacing-2);
+    flex-shrink: 0;
   }
 
   .pm-banner__close {

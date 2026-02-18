@@ -2,6 +2,7 @@ import { forwardRef } from "react"
 import { tileClasses } from "@paramanu/data-display-js"
 import type { TileClassesOptions } from "@paramanu/data-display-js"
 
+/** Props for the Tile component. Renders as a `<button>` element. */
 export interface ReactTileProps
   extends TileClassesOptions,
     React.ButtonHTMLAttributes<HTMLButtonElement> {

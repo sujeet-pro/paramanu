@@ -14,6 +14,15 @@
     align-items: center;
   }
 
+  .pm-dialog--scroll-inside {
+    overflow-y: hidden;
+    align-items: center;
+  }
+
+  .pm-dialog--xs > .pm-dialog__panel {
+    max-width: 20rem;
+  }
+
   .pm-dialog--sm > .pm-dialog__panel {
     max-width: 24rem;
   }
@@ -30,20 +39,27 @@
     max-width: 64rem;
   }
 
+  .pm-dialog--full {
+    padding: 0;
+  }
+
   .pm-dialog--full > .pm-dialog__panel {
     max-width: 100%;
     width: 100%;
     min-height: 100%;
+    border-radius: 0;
   }
 
   .pm-dialog__panel {
     position: relative;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     max-width: 32rem;
     background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
     border-radius: var(--pm-radius-lg);
     box-shadow: var(--pm-shadow-xl);
-    transform: scale(0.95);
+    transform: scale(0.95) translateY(8px);
     opacity: 0;
     transition-property: transform, opacity;
     transition-duration: var(--pm-transition-normal, 200ms);
@@ -52,13 +68,14 @@
 
   [data-pm-presence="entering"] .pm-dialog__panel,
   [data-pm-presence="entered"] .pm-dialog__panel {
-    transform: scale(1);
+    transform: scale(1) translateY(0);
     opacity: 1;
   }
 
   [data-pm-presence="exiting"] .pm-dialog__panel {
-    transform: scale(0.95);
+    transform: scale(0.95) translateY(8px);
     opacity: 0;
+    transition-timing-function: ease-in;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -71,11 +88,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-4) var(--pm-spacing-6);
     border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
     font-family: var(--pm-font-family-sans);
     font-weight: var(--pm-font-weight-semibold);
     font-size: var(--pm-font-size-lg);
+    line-height: var(--pm-font-lineHeight-tight);
+    flex-shrink: 0;
   }
 
   .pm-dialog__body {
@@ -83,11 +103,16 @@
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-md);
     color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+    flex: 1;
   }
 
   .pm-dialog__body--scroll-inside {
     overflow-y: auto;
     max-height: 60vh;
+  }
+
+  .pm-dialog__body--scroll-outside {
+    overflow-y: visible;
   }
 
   .pm-dialog__footer {
@@ -97,5 +122,6 @@
     gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-4) var(--pm-spacing-6);
     border-top: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    flex-shrink: 0;
   }
 }

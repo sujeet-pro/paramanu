@@ -5,14 +5,15 @@ import type { StackProps } from "@paramanu/primitives-js"
 export interface ReactStackProps
   extends StackProps,
     React.HTMLAttributes<HTMLDivElement> {
+  /** Child elements. */
   children?: React.ReactNode
 }
 
 export const Stack = forwardRef<HTMLDivElement, ReactStackProps>(function Stack(
-  { direction, gap, align, justify, className, children, ...rest },
+  { direction, gap, align, justify, separator, className, children, ...rest },
   ref,
 ) {
-  const classes = stackClasses({ direction, gap, align, justify })
+  const classes = stackClasses({ direction, gap, align, justify, separator })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (

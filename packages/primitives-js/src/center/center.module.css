@@ -8,4 +8,8 @@
   .pm-center--inline {
     display: inline-flex;
   }
+
+  .pm-center--text {
+    text-align: center;
+  }
 }

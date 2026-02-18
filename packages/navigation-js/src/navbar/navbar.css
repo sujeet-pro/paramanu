@@ -111,4 +111,50 @@
       outline-offset: var(--pm-focus-ring-offset);
     }
   }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-navbar {
+    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+  }
+
+  .pm-theme-antd .pm-navbar--floating {
+    border-radius: 4px;
+  }
+
+  .pm-theme-material .pm-navbar {
+    box-shadow: var(--pm-shadow-sm);
+    border-block-end: none;
+  }
+
+  .pm-theme-material .pm-navbar--floating {
+    border-radius: 4px;
+    box-shadow: var(--pm-shadow-md);
+  }
+
+  .pm-theme-bootstrap .pm-navbar {
+    padding-block: var(--pm-spacing-2);
+  }
+
+  .pm-theme-bootstrap .pm-navbar--floating {
+    border-radius: 6px;
+  }
+
+  .pm-theme-dark-modern .pm-navbar {
+    background-color: light-dark(var(--pm-color-neutral-50), rgba(15, 23, 42, 0.95));
+    backdrop-filter: blur(8px);
+  }
+
+  .pm-theme-dark-modern .pm-navbar--floating {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .pm-theme-light-modern .pm-navbar {
+    background-color: light-dark(rgba(255, 255, 255, 0.95), var(--pm-color-neutral-900));
+    backdrop-filter: blur(8px);
+  }
+
+  .pm-theme-light-modern .pm-navbar--default {
+    border-block-end-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-700));
+  }
 }

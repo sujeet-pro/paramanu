@@ -1,7 +1,8 @@
 @layer pm.components {
   .pm-divider {
+    --pm-divider-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
     border: 0;
-    border-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-color: var(--pm-divider-color);
   }
 
   .pm-divider--horizontal {
@@ -12,17 +13,32 @@
   .pm-divider--vertical {
     border-left-width: 1px;
     height: 100%;
+    align-self: stretch;
   }
 
-  .pm-divider--solid {
-    border-style: solid;
+  .pm-divider--solid { border-style: solid; }
+  .pm-divider--dashed { border-style: dashed; }
+  .pm-divider--dotted { border-style: dotted; }
+
+  .pm-divider--with-label {
+    display: flex;
+    align-items: center;
+    border: 0;
+    gap: var(--pm-spacing-3);
   }
 
-  .pm-divider--dashed {
-    border-style: dashed;
-  }
+  .pm-divider--label-start { /* label at start */ }
+  .pm-divider--label-end { /* label at end */ }
 
-  .pm-divider--dotted {
-    border-style: dotted;
-  }
+  .pm-divider--my-0 { margin-block: var(--pm-spacing-0); }
+  .pm-divider--my-1 { margin-block: var(--pm-spacing-1); }
+  .pm-divider--my-2 { margin-block: var(--pm-spacing-2); }
+  .pm-divider--my-3 { margin-block: var(--pm-spacing-3); }
+  .pm-divider--my-4 { margin-block: var(--pm-spacing-4); }
+  .pm-divider--my-5 { margin-block: var(--pm-spacing-5); }
+  .pm-divider--my-6 { margin-block: var(--pm-spacing-6); }
+  .pm-divider--my-8 { margin-block: var(--pm-spacing-8); }
+  .pm-divider--my-10 { margin-block: var(--pm-spacing-10); }
+  .pm-divider--my-12 { margin-block: var(--pm-spacing-12); }
+  .pm-divider--my-16 { margin-block: var(--pm-spacing-16); }
 }

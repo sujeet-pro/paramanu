@@ -41,6 +41,23 @@
         overflow: hidden;
       }
     }
+
+    /* Variant: filled — subtle background on items */
+    &.pm-accordion--filled {
+      display: flex;
+      flex-direction: column;
+      gap: var(--pm-spacing-2);
+
+      & .pm-accordion__item {
+        border-radius: var(--pm-radius-md);
+        background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
+        overflow: hidden;
+      }
+
+      & .pm-accordion__item--open {
+        background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-750));
+      }
+    }
   }
 
   .pm-accordion__item {
@@ -96,6 +113,24 @@
     }
   }
 
+  /* Icon — chevron indicator */
+  .pm-accordion__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 1.25em;
+    height: 1.25em;
+    transition-property: transform;
+    transition-duration: var(--pm-transition-normal);
+    transition-timing-function: ease-in-out;
+
+    &.pm-accordion__icon--open {
+      transform: rotate(180deg);
+    }
+  }
+
+  /* Content — animated collapse/expand using grid rows */
   .pm-accordion__content {
     display: grid;
     grid-template-rows: 0fr;
@@ -122,5 +157,115 @@
   .pm-accordion__content-inner {
     overflow: hidden;
     min-height: 0;
+  }
+
+  /* data-state based animations as an alternative to class toggling */
+  .pm-accordion__content[data-state="open"] {
+    animation: pm-accordion-expand var(--pm-transition-normal) ease-out forwards;
+  }
+
+  .pm-accordion__content[data-state="closed"] {
+    animation: pm-accordion-collapse var(--pm-transition-normal) ease-out forwards;
+  }
+
+  @keyframes pm-accordion-expand {
+    from {
+      grid-template-rows: 0fr;
+      opacity: 0;
+    }
+
+    to {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+  }
+
+  @keyframes pm-accordion-collapse {
+    from {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+
+    to {
+      grid-template-rows: 0fr;
+      opacity: 0;
+    }
+  }
+
+  /* ---------- Theme overrides ---------- */
+
+  /* Ant Design — compact, small radius, specific border color */
+  .pm-theme-antd .pm-accordion {
+    &.pm-accordion--bordered,
+    &.pm-accordion--separated {
+      border-radius: var(--pm-radius-sm);
+    }
+
+    & .pm-accordion__item {
+      border-color: light-dark(#d9d9d9, #424242);
+    }
+
+    & .pm-accordion__trigger {
+      font-weight: var(--pm-font-weight-normal);
+      padding-top: var(--pm-spacing-2);
+      padding-bottom: var(--pm-spacing-2);
+    }
+  }
+
+  /* Material — elevation on expanded, rounded corners */
+  .pm-theme-material .pm-accordion {
+    &.pm-accordion--separated .pm-accordion__item {
+      border-radius: var(--pm-radius-md);
+      border: none;
+      box-shadow: var(--pm-shadow-sm);
+      transition: box-shadow var(--pm-transition-normal) ease-in-out;
+    }
+
+    &.pm-accordion--separated .pm-accordion__item--open {
+      box-shadow: var(--pm-shadow-md);
+    }
+
+    & .pm-accordion__trigger {
+      font-weight: var(--pm-font-weight-medium);
+    }
+  }
+
+  /* Bootstrap — card-style, standard borders */
+  .pm-theme-bootstrap .pm-accordion {
+    &.pm-accordion--bordered {
+      border-radius: var(--pm-radius-md);
+    }
+
+    & .pm-accordion__trigger {
+      font-weight: var(--pm-font-weight-normal);
+      background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-850));
+    }
+
+    & .pm-accordion__trigger:hover:not(.pm-accordion__trigger--disabled) {
+      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    }
+  }
+
+  /* Dark Modern — dark surface, glow on expand */
+  .pm-theme-dark-modern .pm-accordion {
+    & .pm-accordion__item--open {
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.15);
+    }
+
+    & .pm-accordion__trigger:hover:not(.pm-accordion__trigger--disabled) {
+      background-color: light-dark(var(--pm-color-neutral-100), rgba(255, 255, 255, 0.05));
+    }
+  }
+
+  /* Light Modern — refined borders, clean shadows */
+  .pm-theme-light-modern .pm-accordion {
+    &.pm-accordion--separated .pm-accordion__item {
+      box-shadow: var(--pm-shadow-xs);
+      border-color: light-dark(var(--pm-color-neutral-150), var(--pm-color-neutral-700));
+    }
+
+    & .pm-accordion__trigger {
+      font-weight: var(--pm-font-weight-normal);
+    }
   }
 }

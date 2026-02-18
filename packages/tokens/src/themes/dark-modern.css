@@ -1,0 +1,46 @@
+/**
+ * Dark Modern Theme
+ * Dark background with vibrant accents, subtle gradients, and glow effects.
+ */
+@layer pm.tokens {
+  .pm-theme-dark-modern {
+    color-scheme: dark;
+
+    /* Primary — vibrant blue */
+    --pm-color-primary-50: #eff6ff;
+    --pm-color-primary-100: #dbeafe;
+    --pm-color-primary-200: #bfdbfe;
+    --pm-color-primary-300: #93c5fd;
+    --pm-color-primary-400: #60a5fa;
+    --pm-color-primary-500: #3b82f6;
+    --pm-color-primary-600: #2563eb;
+    --pm-color-primary-700: #1d4ed8;
+    --pm-color-primary-800: #1e40af;
+    --pm-color-primary-900: #1e3a8a;
+
+    /* Neutral — dark surfaces */
+    --pm-color-neutral-0: #0a0a0b;
+    --pm-color-neutral-50: #111114;
+    --pm-color-neutral-100: #18181b;
+    --pm-color-neutral-200: #27272a;
+    --pm-color-neutral-300: #3f3f46;
+    --pm-color-neutral-400: #52525b;
+    --pm-color-neutral-500: #71717a;
+    --pm-color-neutral-600: #a1a1aa;
+    --pm-color-neutral-700: #d4d4d8;
+    --pm-color-neutral-800: #e4e4e7;
+    --pm-color-neutral-900: #f4f4f5;
+    --pm-color-neutral-950: #fafafa;
+
+    /* Shadows — glow-style */
+    --pm-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --pm-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --pm-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+
+    /* Radius — slightly larger for modern feel */
+    --pm-radius-sm: 6px;
+    --pm-radius-md: 8px;
+    --pm-radius-lg: 12px;
+    --pm-radius-xl: 16px;
+  }
+}

@@ -5,7 +5,10 @@ export {
   visuallyHiddenClasses,
   visuallyHiddenModuleClasses,
 } from "./visually-hidden/visually-hidden.classes.js"
-export type { VisuallyHiddenClassesOptions } from "./visually-hidden/visually-hidden.types.js"
+export type {
+  VisuallyHiddenClassesOptions,
+  VisuallyHiddenProps,
+} from "./visually-hidden/visually-hidden.types.js"
 
 // Skip Nav
 export {
@@ -14,6 +17,7 @@ export {
   skipNavModuleClasses,
   skipNavTargetModuleClasses,
 } from "./skip-nav/skip-nav.classes.js"
+export type { SkipNavProps, SkipNavTargetProps } from "./skip-nav/skip-nav.types.js"
 
 // Show/Hide
 export { showHideClasses, showHideModuleClasses } from "./show-hide/show-hide.classes.js"
@@ -21,7 +25,11 @@ export type { ShowHideDisplay, ShowHideClassesOptions } from "./show-hide/show-h
 
 // Affix
 export { affixClasses, affixModuleClasses } from "./affix/affix.classes.js"
-export type { AffixPosition, AffixClassesOptions } from "./affix/affix.types.js"
+export type {
+  AffixPosition,
+  SpacingScale,
+  AffixClassesOptions,
+} from "./affix/affix.types.js"
 
 // Focus Trap
 export { createFocusTrap, FOCUSABLE_SELECTOR } from "./focus-trap/focus-trap.js"
@@ -51,7 +59,10 @@ export type { ThemeMode, ThemeProviderOptions } from "./theme-provider/theme-pro
 
 // Direction Provider
 export { setDirection, getDirection } from "./direction-provider/direction-provider.js"
-export type { Direction } from "./direction-provider/direction-provider.types.js"
+export type {
+  Direction,
+  DirectionProviderOptions,
+} from "./direction-provider/direction-provider.types.js"
 
 // Locale Provider
 export { setLocale, getLocale } from "./locale-provider/locale-provider.js"

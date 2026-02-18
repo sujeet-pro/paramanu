@@ -28,5 +28,35 @@
       -webkit-line-clamp: 4;
       overflow: hidden;
     }
+
+    &.pm-truncate--lines-5 {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+      overflow: hidden;
+    }
+
+    &.pm-truncate--lines-6 {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 6;
+      overflow: hidden;
+    }
+
+    /* Position variants (CSS-only approximation for start/middle) */
+    &.pm-truncate--start {
+      direction: rtl;
+      text-align: left;
+
+      /* Reset nested content direction */
+      & > * {
+        direction: ltr;
+      }
+    }
+
+    &.pm-truncate--middle {
+      /* Middle truncation requires JS for true implementation.
+         This CSS-only approach shows ellipsis at the end as a fallback. */
+    }
   }
 }

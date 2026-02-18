@@ -73,4 +73,28 @@
       visibility: visible;
     }
   }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-back-to-top {
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  }
+
+  .pm-theme-material .pm-back-to-top {
+    box-shadow: var(--pm-shadow-lg);
+    border: none;
+  }
+
+  .pm-theme-bootstrap .pm-back-to-top {
+    border-radius: 6px;
+  }
+
+  .pm-theme-dark-modern .pm-back-to-top:hover {
+    box-shadow: 0 0 12px light-dark(transparent, rgba(59, 130, 246, 0.3));
+  }
+
+  .pm-theme-light-modern .pm-back-to-top {
+    box-shadow: var(--pm-shadow-md);
+  }
 }

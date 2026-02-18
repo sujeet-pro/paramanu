@@ -46,6 +46,29 @@
       }
     }
 
+    /* Underline overrides */
+    &.pm-link--underline-always {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    &.pm-link--underline-hover {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+    }
+
+    &.pm-link--underline-never {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
     /* States */
     &.pm-link--active {
       font-weight: var(--pm-font-weight-semibold);
@@ -67,5 +90,29 @@
       margin-inline-start: var(--pm-spacing-1);
       font-size: 0.75em;
     }
+  }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-link {
+    text-underline-offset: 3px;
+  }
+
+  .pm-theme-material .pm-link {
+    font-weight: var(--pm-font-weight-medium);
+    text-decoration-thickness: 2px;
+  }
+
+  .pm-theme-bootstrap .pm-link {
+    text-decoration-thickness: 1px;
+  }
+
+  .pm-theme-dark-modern .pm-link:hover:not(.pm-link--disabled) {
+    text-shadow: 0 0 8px light-dark(transparent, rgba(59, 130, 246, 0.3));
+  }
+
+  .pm-theme-light-modern .pm-link {
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
   }
 }

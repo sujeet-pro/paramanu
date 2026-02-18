@@ -10,10 +10,10 @@ export interface ReactLinkProps
 }
 
 export const Link = forwardRef<HTMLAnchorElement, ReactLinkProps>(function Link(
-  { variant, active, disabled, external, href, className, children, ...rest },
+  { variant, active, disabled, external, underline, href, className, children, ...rest },
   ref,
 ) {
-  const classes = linkClasses({ variant, active, disabled, external })
+  const classes = linkClasses({ variant, active, disabled, external, underline })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (

@@ -1,50 +1,55 @@
 @layer pm.components {
   .pm-input {
+    --_pm-input-border-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    --_pm-input-bg: transparent;
+    --_pm-input-color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    --_pm-input-placeholder: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    --_pm-input-radius: var(--pm-radius-md);
+    --_pm-input-focus-color: var(--pm-color-primary-500);
+
     display: inline-flex;
     align-items: center;
     font-family: var(--pm-font-family-sans);
     line-height: var(--pm-font-lineHeight-normal);
-    border-radius: var(--pm-radius-md);
+    border-radius: var(--_pm-input-radius);
     transition-property: border-color, box-shadow, background-color;
     transition-duration: var(--pm-transition-fast);
     transition-timing-function: ease-in-out;
     width: auto;
+    color: var(--_pm-input-color);
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--_pm-input-focus-color);
       outline-offset: var(--pm-focus-ring-offset);
     }
 
     /* Variants */
     &.pm-input--outline {
-      border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
-      background-color: transparent;
-      color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+      border: 1px solid var(--_pm-input-border-color);
+      background-color: var(--_pm-input-bg);
 
       &::placeholder {
-        color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+        color: var(--_pm-input-placeholder);
       }
     }
 
     &.pm-input--filled {
       border: 1px solid transparent;
       background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-      color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
 
       &::placeholder {
-        color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+        color: var(--_pm-input-placeholder);
       }
 
       &:focus-visible {
         background-color: transparent;
-        border-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+        border-color: var(--_pm-input-focus-color);
       }
     }
 
     &.pm-input--unstyled {
       border: none;
       background-color: transparent;
-      color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
       border-radius: 0;
       padding: 0;
 
@@ -54,6 +59,12 @@
     }
 
     /* Sizes */
+    &.pm-input--xs {
+      padding: var(--pm-spacing-0-5) var(--pm-spacing-1-5);
+      font-size: var(--pm-font-size-xs);
+      height: calc(var(--pm-spacing-6));
+    }
+
     &.pm-input--sm {
       padding: var(--pm-spacing-1) var(--pm-spacing-2);
       font-size: var(--pm-font-size-sm);
@@ -90,5 +101,57 @@
     &.pm-input--full-width {
       width: 100%;
     }
+  }
+
+  /* ---- Theme overrides ---- */
+
+  /* Ant Design-like */
+  :where([data-theme="antd"]) .pm-input {
+    --_pm-input-radius: 4px;
+    --_pm-input-focus-color: #1677ff;
+  }
+
+  /* Material-like */
+  :where([data-theme="material"]) .pm-input {
+    --_pm-input-radius: 12px;
+  }
+
+  :where([data-theme="material"]) .pm-input.pm-input--filled {
+    border-radius: 12px 12px 0 0;
+    border-bottom: 2px solid var(--_pm-input-border-color);
+  }
+
+  :where([data-theme="material"]) .pm-input.pm-input--filled:focus-visible {
+    border-bottom-color: var(--_pm-input-focus-color);
+    outline: none;
+  }
+
+  /* Bootstrap-like */
+  :where([data-theme="bootstrap"]) .pm-input {
+    --_pm-input-radius: 6px;
+    --_pm-input-focus-color: #0d6efd;
+  }
+
+  :where([data-theme="bootstrap"]) .pm-input:focus-visible {
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 0.25);
+  }
+
+  /* Dark Modern */
+  :where([data-theme="dark-modern"]) .pm-input {
+    --_pm-input-bg: light-dark(transparent, var(--pm-color-neutral-800));
+    --_pm-input-border-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-700));
+  }
+
+  :where([data-theme="dark-modern"]) .pm-input:focus-visible {
+    box-shadow: 0 0 0 2px light-dark(transparent, var(--pm-color-primary-500) / 0.3);
+  }
+
+  /* Light Modern */
+  :where([data-theme="light-modern"]) .pm-input {
+    --_pm-input-border-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+  }
+
+  :where([data-theme="light-modern"]) .pm-input:focus-visible {
+    box-shadow: 0 0 0 3px light-dark(var(--pm-color-primary-100), var(--pm-color-primary-900));
   }
 }

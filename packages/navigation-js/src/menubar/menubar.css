@@ -50,4 +50,46 @@
       cursor: not-allowed;
     }
   }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-menubar {
+    border-radius: 4px;
+    gap: 0;
+  }
+
+  .pm-theme-antd .pm-menubar__item {
+    border-radius: 0;
+    padding: var(--pm-spacing-2) var(--pm-spacing-4);
+  }
+
+  .pm-theme-material .pm-menubar {
+    border: none;
+    box-shadow: var(--pm-shadow-sm);
+    border-radius: 4px;
+  }
+
+  .pm-theme-material .pm-menubar__item {
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: var(--pm-font-size-sm);
+  }
+
+  .pm-theme-bootstrap .pm-menubar {
+    border-radius: 6px;
+  }
+
+  .pm-theme-dark-modern .pm-menubar {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .pm-theme-dark-modern .pm-menubar__item:hover:not(.pm-menubar__item--disabled) {
+    box-shadow: 0 0 8px light-dark(transparent, rgba(59, 130, 246, 0.15));
+  }
+
+  .pm-theme-light-modern .pm-menubar {
+    box-shadow: var(--pm-shadow-sm);
+    border-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-700));
+  }
 }

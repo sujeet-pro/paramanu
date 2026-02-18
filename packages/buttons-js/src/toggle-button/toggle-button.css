@@ -1,16 +1,38 @@
 @layer pm.components {
   .pm-toggle-button {
+    /* Component-specific CSS variables for easy theming */
+    --pm-toggle-button-bg: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    --pm-toggle-button-color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    --pm-toggle-button-border-color: transparent;
+    --pm-toggle-button-hover-bg: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    --pm-toggle-button-active-bg: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    --pm-toggle-button-pressed-bg: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    --pm-toggle-button-pressed-color: var(--pm-color-neutral-0);
+    --pm-toggle-button-pressed-hover-bg: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-400));
+    --pm-toggle-button-pressed-active-bg: light-dark(var(--pm-color-primary-800), var(--pm-color-primary-600));
+    --pm-toggle-button-radius: var(--pm-radius-md);
+    --pm-toggle-button-font-size: var(--pm-font-size-md);
+    --pm-toggle-button-padding-x: var(--pm-spacing-4);
+    --pm-toggle-button-padding-y: var(--pm-spacing-2);
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: var(--pm-spacing-2);
-    border: 1px solid transparent;
-    border-radius: var(--pm-radius-md);
+    border: 1px solid var(--pm-toggle-button-border-color);
+    border-radius: var(--pm-toggle-button-radius);
+    background-color: var(--pm-toggle-button-bg);
+    color: var(--pm-toggle-button-color);
+    padding: var(--pm-toggle-button-padding-y) var(--pm-toggle-button-padding-x);
     font-family: var(--pm-font-family-sans);
     font-weight: var(--pm-font-weight-medium);
+    font-size: var(--pm-toggle-button-font-size);
     line-height: var(--pm-font-lineHeight-tight);
     cursor: pointer;
     text-decoration: none;
+    white-space: nowrap;
+    user-select: none;
+    vertical-align: middle;
     transition-property: background-color, border-color, color, box-shadow;
     transition-duration: var(--pm-transition-fast);
     transition-timing-function: ease-in-out;
@@ -20,81 +42,123 @@
       outline-offset: var(--pm-focus-ring-offset);
     }
 
-    /* Variants */
+    &:hover:not(.pm-toggle-button--disabled) {
+      background-color: var(--pm-toggle-button-hover-bg);
+    }
+
+    &:active:not(.pm-toggle-button--disabled) {
+      background-color: var(--pm-toggle-button-active-bg);
+    }
+
+    /* ---------- Variants ---------- */
+
     &.pm-toggle-button--default {
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-      color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
-
-      &:hover:not(.pm-toggle-button--disabled) {
-        background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-      }
-
-      &:active:not(.pm-toggle-button--disabled) {
-        background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
-      }
+      --pm-toggle-button-bg: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      --pm-toggle-button-color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+      --pm-toggle-button-hover-bg: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+      --pm-toggle-button-active-bg: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
 
       &.pm-toggle-button--pressed {
-        background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
-        color: var(--pm-color-neutral-0);
-
-        &:hover:not(.pm-toggle-button--disabled) {
-          background-color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-400));
-        }
-
-        &:active:not(.pm-toggle-button--disabled) {
-          background-color: light-dark(var(--pm-color-primary-800), var(--pm-color-primary-600));
-        }
+        --pm-toggle-button-bg: var(--pm-toggle-button-pressed-bg);
+        --pm-toggle-button-color: var(--pm-toggle-button-pressed-color);
+        --pm-toggle-button-hover-bg: var(--pm-toggle-button-pressed-hover-bg);
+        --pm-toggle-button-active-bg: var(--pm-toggle-button-pressed-active-bg);
       }
     }
 
     &.pm-toggle-button--outline {
-      background-color: transparent;
-      color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
-      border-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
-
-      &:hover:not(.pm-toggle-button--disabled) {
-        background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-      }
-
-      &:active:not(.pm-toggle-button--disabled) {
-        background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-      }
+      --pm-toggle-button-bg: transparent;
+      --pm-toggle-button-color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+      --pm-toggle-button-border-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+      --pm-toggle-button-hover-bg: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      --pm-toggle-button-active-bg: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
 
       &.pm-toggle-button--pressed {
-        background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
-        color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
-        border-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
-
-        &:hover:not(.pm-toggle-button--disabled) {
-          background-color: light-dark(var(--pm-color-primary-100), var(--pm-color-primary-800));
-        }
-
-        &:active:not(.pm-toggle-button--disabled) {
-          background-color: light-dark(var(--pm-color-primary-200), var(--pm-color-primary-700));
-        }
+        --pm-toggle-button-bg: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
+        --pm-toggle-button-color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+        --pm-toggle-button-border-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+        --pm-toggle-button-hover-bg: light-dark(var(--pm-color-primary-100), var(--pm-color-primary-800));
+        --pm-toggle-button-active-bg: light-dark(var(--pm-color-primary-200), var(--pm-color-primary-700));
       }
     }
 
-    /* Sizes */
+    /* ---------- Sizes ---------- */
+
+    &.pm-toggle-button--xs {
+      --pm-toggle-button-padding-x: var(--pm-spacing-2);
+      --pm-toggle-button-padding-y: var(--pm-spacing-1);
+      --pm-toggle-button-font-size: var(--pm-font-size-xs);
+      gap: var(--pm-spacing-1);
+    }
+
     &.pm-toggle-button--sm {
-      padding: var(--pm-spacing-1) var(--pm-spacing-3);
-      font-size: var(--pm-font-size-sm);
+      --pm-toggle-button-padding-x: var(--pm-spacing-3);
+      --pm-toggle-button-padding-y: var(--pm-spacing-1);
+      --pm-toggle-button-font-size: var(--pm-font-size-sm);
     }
 
     &.pm-toggle-button--md {
-      padding: var(--pm-spacing-2) var(--pm-spacing-4);
-      font-size: var(--pm-font-size-md);
+      --pm-toggle-button-padding-x: var(--pm-spacing-4);
+      --pm-toggle-button-padding-y: var(--pm-spacing-2);
+      --pm-toggle-button-font-size: var(--pm-font-size-md);
     }
 
     &.pm-toggle-button--lg {
-      padding: var(--pm-spacing-3) var(--pm-spacing-6);
-      font-size: var(--pm-font-size-lg);
+      --pm-toggle-button-padding-x: var(--pm-spacing-6);
+      --pm-toggle-button-padding-y: var(--pm-spacing-3);
+      --pm-toggle-button-font-size: var(--pm-font-size-lg);
     }
 
-    /* States */
+    &.pm-toggle-button--xl {
+      --pm-toggle-button-padding-x: var(--pm-spacing-8);
+      --pm-toggle-button-padding-y: var(--pm-spacing-3);
+      --pm-toggle-button-font-size: var(--pm-font-size-xl);
+      gap: var(--pm-spacing-3);
+    }
+
+    /* ---------- States ---------- */
+
     &.pm-toggle-button--disabled {
       opacity: 0.5;
       cursor: not-allowed;
+      pointer-events: none;
     }
+
+    &.pm-toggle-button--full-width {
+      width: 100%;
+    }
+
+    /* ---------- Inner elements ---------- */
+
+    & .pm-toggle-button__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 1em;
+      height: 1em;
+    }
+  }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-toggle-button {
+    --pm-toggle-button-radius: 4px;
+  }
+
+  .pm-theme-material .pm-toggle-button {
+    --pm-toggle-button-radius: 20px;
+  }
+
+  .pm-theme-bootstrap .pm-toggle-button {
+    --pm-toggle-button-radius: 6px;
+  }
+
+  .pm-theme-dark-modern .pm-toggle-button.pm-toggle-button--pressed {
+    box-shadow: 0 0 8px light-dark(transparent, rgba(59, 130, 246, 0.25));
+  }
+
+  .pm-theme-light-modern .pm-toggle-button {
+    box-shadow: var(--pm-shadow-sm);
   }
 }

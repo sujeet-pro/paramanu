@@ -90,4 +90,44 @@
       background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
     }
   }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-dropdown-menu__trigger {
+    border-radius: 4px;
+  }
+
+  .pm-theme-antd .pm-dropdown-menu__content {
+    border-radius: 4px;
+    box-shadow: 0 3px 6px -4px rgb(0 0 0 / 0.12), 0 6px 16px 0 rgb(0 0 0 / 0.08);
+  }
+
+  .pm-theme-material .pm-dropdown-menu__trigger {
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pm-theme-material .pm-dropdown-menu__content {
+    border: none;
+    border-radius: 4px;
+    box-shadow: var(--pm-shadow-lg);
+  }
+
+  .pm-theme-bootstrap .pm-dropdown-menu__trigger {
+    border-radius: 6px;
+  }
+
+  .pm-theme-bootstrap .pm-dropdown-menu__content {
+    border-radius: 6px;
+  }
+
+  .pm-theme-dark-modern .pm-dropdown-menu__content {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .pm-theme-light-modern .pm-dropdown-menu__content {
+    box-shadow: var(--pm-shadow-lg);
+    border-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-700));
+  }
 }

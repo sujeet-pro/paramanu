@@ -3,16 +3,18 @@ import { codeClasses } from "@paramanu/typography-js"
 import type { CodeClassesOptions } from "@paramanu/typography-js"
 
 export interface ReactCodeProps
-  extends CodeClassesOptions,
-    React.HTMLAttributes<HTMLElement> {
+  extends Omit<CodeClassesOptions, "language">,
+    Omit<React.HTMLAttributes<HTMLElement>, "color"> {
+  /** Language hint for syntax highlighting. Applied as a CSS class (e.g., "language-js"). */
+  language?: string
   children?: React.ReactNode
 }
 
 export const Code = forwardRef<HTMLElement, ReactCodeProps>(function Code(
-  { block, size, className, children, ...rest },
+  { block, size, variant, color, withLineNumbers, withCopyButton, language, className, children, ...rest },
   ref,
 ) {
-  const classes = codeClasses({ block, size })
+  const classes = codeClasses({ block, size, variant, color, withLineNumbers, withCopyButton, language })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   if (block) {

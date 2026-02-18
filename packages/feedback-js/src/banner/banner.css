@@ -1,39 +1,64 @@
 @layer pm.components {
+  /* ------------------------------------------------------------------ */
+  /* Banner                                                              */
+  /* ------------------------------------------------------------------ */
+
   .pm-banner {
+    --pm-banner-bg: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
+    --pm-banner-color: light-dark(var(--pm-color-info-800), var(--pm-color-info-100));
+    --pm-banner-icon-color: currentColor;
+    --pm-banner-padding-x: var(--pm-spacing-4);
+    --pm-banner-padding-y: var(--pm-spacing-3);
+    --pm-banner-gap: var(--pm-spacing-3);
+
     display: flex;
     align-items: center;
     width: 100%;
-    padding: var(--pm-spacing-3) var(--pm-spacing-4);
+    gap: var(--pm-banner-gap);
+    padding: var(--pm-banner-padding-y) var(--pm-banner-padding-x);
+    background-color: var(--pm-banner-bg);
+    color: var(--pm-banner-color);
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-md);
     line-height: var(--pm-font-lineHeight-normal);
 
     /* Variants */
     &.pm-banner--info {
-      background-color: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
-      color: light-dark(var(--pm-color-info-800), var(--pm-color-info-100));
+      --pm-banner-bg: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
+      --pm-banner-color: light-dark(var(--pm-color-info-800), var(--pm-color-info-100));
+      --pm-banner-icon-color: light-dark(var(--pm-color-info-600), var(--pm-color-info-400));
     }
 
     &.pm-banner--success {
-      background-color: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
-      color: light-dark(var(--pm-color-success-800), var(--pm-color-success-100));
+      --pm-banner-bg: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
+      --pm-banner-color: light-dark(var(--pm-color-success-800), var(--pm-color-success-100));
+      --pm-banner-icon-color: light-dark(var(--pm-color-success-600), var(--pm-color-success-400));
     }
 
     &.pm-banner--warning {
-      background-color: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
-      color: light-dark(var(--pm-color-warning-800), var(--pm-color-warning-100));
+      --pm-banner-bg: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
+      --pm-banner-color: light-dark(var(--pm-color-warning-800), var(--pm-color-warning-100));
+      --pm-banner-icon-color: light-dark(var(--pm-color-warning-600), var(--pm-color-warning-400));
     }
 
     &.pm-banner--danger {
-      background-color: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
-      color: light-dark(var(--pm-color-danger-800), var(--pm-color-danger-100));
+      --pm-banner-bg: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
+      --pm-banner-color: light-dark(var(--pm-color-danger-800), var(--pm-color-danger-100));
+      --pm-banner-icon-color: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-400));
     }
 
     /* Sticky */
     &.pm-banner--sticky {
       position: sticky;
-      top: 0;
       z-index: 100;
+    }
+
+    &.pm-banner--top {
+      top: 0;
+    }
+
+    &.pm-banner--bottom {
+      bottom: 0;
     }
 
     /* Dismissible */
@@ -43,13 +68,52 @@
   }
 
   /* Sub-elements */
+  .pm-banner__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pm-banner-icon-color);
+  }
+
   .pm-banner__content {
     flex: 1;
     min-width: 0;
   }
 
+  .pm-banner__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--pm-spacing-2);
+    flex-shrink: 0;
+  }
+
   .pm-banner__close {
     flex-shrink: 0;
     margin-left: auto;
+  }
+
+  /* ---- Theme overrides ---- */
+
+  .pm-theme-antd .pm-banner {
+    --pm-banner-padding-x: var(--pm-spacing-3);
+    --pm-banner-padding-y: var(--pm-spacing-2);
+    --pm-banner-gap: var(--pm-spacing-2);
+  }
+
+  .pm-theme-material .pm-banner {
+    box-shadow: var(--pm-shadow-sm);
+  }
+
+  .pm-theme-bootstrap .pm-banner {
+    /* Bootstrap uses standard banner styling */
+  }
+
+  .pm-theme-dark-modern .pm-banner {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .pm-theme-light-modern .pm-banner {
+    box-shadow: var(--pm-shadow-xs);
   }
 }

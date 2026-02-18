@@ -88,4 +88,38 @@
     color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
     border-color: transparent;
   }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-pagination__item {
+    border-radius: 4px;
+  }
+
+  .pm-theme-antd .pm-pagination__item.pm-pagination__item--active {
+    border-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-500));
+    background-color: transparent;
+    color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+  }
+
+  .pm-theme-material .pm-pagination__item {
+    border: none;
+    border-radius: var(--pm-radius-full);
+  }
+
+  .pm-theme-material .pm-pagination__item.pm-pagination__item--active {
+    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    color: var(--pm-color-neutral-0);
+  }
+
+  .pm-theme-bootstrap .pm-pagination__item {
+    border-radius: 6px;
+  }
+
+  .pm-theme-dark-modern .pm-pagination__item:hover:not(.pm-pagination__item--disabled):not(.pm-pagination__item--active) {
+    box-shadow: 0 0 8px light-dark(transparent, rgba(59, 130, 246, 0.2));
+  }
+
+  .pm-theme-light-modern .pm-pagination__item {
+    box-shadow: var(--pm-shadow-xs);
+  }
 }

@@ -3,8 +3,17 @@ import type { BadgeClassesOptions } from "./badge.types.js"
 const BASE = "pm-badge"
 
 /**
- * Returns BEM class names for the badge component (human-readable).
- * Used by CDN and template consumers.
+ * Returns BEM class names for the Badge component.
+ *
+ * Badge is a small inline status indicator rendered as a `<span>`.
+ * Supports filled, outline, and subtle variants with multiple color palettes.
+ * Can also be used as an overlay positioned on avatars or icons.
+ *
+ * @example
+ * ```ts
+ * badgeClasses({ variant: "subtle", color: "success", pill: true })
+ * // => "pm-badge pm-badge--subtle pm-badge--md pm-badge--success pm-badge--pill"
+ * ```
  */
 export function badgeClasses(options: BadgeClassesOptions = {}): string {
   const { variant = "filled", size = "md", color = "primary", pill = false } = options
@@ -16,8 +25,8 @@ export function badgeClasses(options: BadgeClassesOptions = {}): string {
 }
 
 /**
- * Returns CSS module class names for the badge component (hashed).
- * Used by bundled/template consumers who import CSS modules.
+ * Returns CSS module class names for the Badge component.
+ * Used by bundled consumers who import CSS modules.
  */
 export function badgeModuleClasses(
   classMap: Record<string, string>,

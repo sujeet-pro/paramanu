@@ -7,7 +7,7 @@ const BASE = "pm-grid"
  * Used by CDN and template consumers.
  */
 export function gridClasses(options: GridClassesOptions = {}): string {
-  const { columns, rows, gap, rowGap, columnGap, align, justify, inline } = options
+  const { columns, rows, gap, rowGap, columnGap, align, justify, inline, flow } = options
   const classes = [BASE]
 
   if (inline) classes.push(`${BASE}--inline`)
@@ -18,6 +18,7 @@ export function gridClasses(options: GridClassesOptions = {}): string {
   if (columnGap !== undefined) classes.push(`${BASE}--col-gap-${columnGap}`)
   if (align) classes.push(`${BASE}--align-${align}`)
   if (justify) classes.push(`${BASE}--justify-${justify}`)
+  if (flow) classes.push(`${BASE}--flow-${flow}`)
 
   return classes.join(" ")
 }
@@ -30,7 +31,7 @@ export function gridModuleClasses(
   classMap: Record<string, string>,
   options: GridClassesOptions = {},
 ): string {
-  const { columns, rows, gap, rowGap, columnGap, align, justify, inline } = options
+  const { columns, rows, gap, rowGap, columnGap, align, justify, inline, flow } = options
   const classes = [classMap["pm-grid"]]
 
   if (inline) classes.push(classMap["pm-grid--inline"])
@@ -41,6 +42,7 @@ export function gridModuleClasses(
   if (columnGap !== undefined) classes.push(classMap[`pm-grid--col-gap-${columnGap}`])
   if (align) classes.push(classMap[`pm-grid--align-${align}`])
   if (justify) classes.push(classMap[`pm-grid--justify-${justify}`])
+  if (flow) classes.push(classMap[`pm-grid--flow-${flow}`])
 
   return classes.filter(Boolean).join(" ")
 }

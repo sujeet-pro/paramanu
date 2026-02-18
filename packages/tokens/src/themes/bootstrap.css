@@ -1,0 +1,111 @@
+/**
+ * Bootstrap Theme
+ * Inspired by Bootstrap 5: specific primary blue, utility-friendly tokens.
+ */
+@layer pm.tokens {
+  .pm-theme-bootstrap {
+    color-scheme: light dark;
+
+    /* Primary — Bootstrap blue #0d6efd */
+    --pm-color-primary-50: #e7f1ff;
+    --pm-color-primary-100: #cfe2ff;
+    --pm-color-primary-200: #9ec5fe;
+    --pm-color-primary-300: #6ea8fe;
+    --pm-color-primary-400: #3d8bfd;
+    --pm-color-primary-500: #0d6efd;
+    --pm-color-primary-600: #0a58ca;
+    --pm-color-primary-700: #084298;
+    --pm-color-primary-800: #052c65;
+    --pm-color-primary-900: #031633;
+
+    /* Danger — Bootstrap red */
+    --pm-color-danger-50: #fce4e4;
+    --pm-color-danger-100: #f8d7da;
+    --pm-color-danger-200: #f1aeb5;
+    --pm-color-danger-300: #ea868f;
+    --pm-color-danger-400: #e35d6a;
+    --pm-color-danger-500: #dc3545;
+    --pm-color-danger-600: #b02a37;
+    --pm-color-danger-700: #842029;
+    --pm-color-danger-800: #58151c;
+    --pm-color-danger-900: #2c0b0e;
+
+    /* Success — Bootstrap green */
+    --pm-color-success-50: #d1e7dd;
+    --pm-color-success-100: #d1e7dd;
+    --pm-color-success-200: #a3cfbb;
+    --pm-color-success-300: #75b798;
+    --pm-color-success-400: #479f76;
+    --pm-color-success-500: #198754;
+    --pm-color-success-600: #146c43;
+    --pm-color-success-700: #0f5132;
+    --pm-color-success-800: #0a3622;
+    --pm-color-success-900: #051b11;
+
+    /* Warning — Bootstrap yellow */
+    --pm-color-warning-50: #fff9e6;
+    --pm-color-warning-100: #fff3cd;
+    --pm-color-warning-200: #ffe69c;
+    --pm-color-warning-300: #ffda6a;
+    --pm-color-warning-400: #ffcd39;
+    --pm-color-warning-500: #ffc107;
+    --pm-color-warning-600: #cc9a06;
+    --pm-color-warning-700: #997404;
+    --pm-color-warning-800: #664d03;
+    --pm-color-warning-900: #332701;
+
+    /* Info — Bootstrap cyan */
+    --pm-color-info-50: #d2f4ea;
+    --pm-color-info-100: #cff4fc;
+    --pm-color-info-200: #9eeaf9;
+    --pm-color-info-300: #6edff6;
+    --pm-color-info-400: #3dd5f3;
+    --pm-color-info-500: #0dcaf0;
+    --pm-color-info-600: #0aa2c0;
+    --pm-color-info-700: #087990;
+    --pm-color-info-800: #055160;
+    --pm-color-info-900: #032830;
+
+    /* Neutral — Bootstrap grays */
+    --pm-color-neutral-0: #ffffff;
+    --pm-color-neutral-50: #f8f9fa;
+    --pm-color-neutral-100: #f8f9fa;
+    --pm-color-neutral-200: #e9ecef;
+    --pm-color-neutral-300: #dee2e6;
+    --pm-color-neutral-400: #ced4da;
+    --pm-color-neutral-500: #adb5bd;
+    --pm-color-neutral-600: #6c757d;
+    --pm-color-neutral-700: #495057;
+    --pm-color-neutral-800: #343a40;
+    --pm-color-neutral-900: #212529;
+    --pm-color-neutral-950: #0d1117;
+
+    /* Radius — Bootstrap values */
+    --pm-radius-none: 0px;
+    --pm-radius-sm: 4px;
+    --pm-radius-md: 6px;
+    --pm-radius-lg: 8px;
+    --pm-radius-xl: 16px;
+    --pm-radius-full: 50rem;
+
+    /* Shadows — Bootstrap box shadows */
+    --pm-shadow-sm: 0 0.125rem 0.25rem rgb(0 0 0 / 0.075);
+    --pm-shadow-md: 0 0.5rem 1rem rgb(0 0 0 / 0.15);
+    --pm-shadow-lg: 0 1rem 3rem rgb(0 0 0 / 0.175);
+
+    /* Font — Bootstrap system font stack */
+    --pm-font-family-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+    --pm-font-size-xs: 0.75rem;
+    --pm-font-size-sm: 0.875rem;
+    --pm-font-size-md: 1rem;
+    --pm-font-size-lg: 1.25rem;
+    --pm-font-size-xl: 1.5rem;
+    --pm-font-size-2xl: 2rem;
+    --pm-font-size-3xl: 2.5rem;
+
+    /* Transitions — Bootstrap timing */
+    --pm-transition-fast: 150ms;
+    --pm-transition-normal: 200ms;
+    --pm-transition-slow: 350ms;
+  }
+}

@@ -55,4 +55,12 @@
   .pm-affix--offset-16 {
     --pm-affix-offset: var(--pm-spacing-16);
   }
+
+  .pm-affix--top[class*="pm-affix--offset"] {
+    top: var(--pm-affix-offset);
+  }
+
+  .pm-affix--bottom[class*="pm-affix--offset"] {
+    bottom: var(--pm-affix-offset);
+  }
 }

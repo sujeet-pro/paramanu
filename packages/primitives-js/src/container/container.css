@@ -4,24 +4,33 @@
     margin-inline: auto;
     padding-inline: var(--pm-spacing-4);
 
-    &.pm-container--sm {
-      max-width: 640px;
-    }
+    &.pm-container--xs { max-width: 480px; }
+    &.pm-container--sm { max-width: 640px; }
+    &.pm-container--md { max-width: 768px; }
+    &.pm-container--lg { max-width: 1024px; }
+    &.pm-container--xl { max-width: 1280px; }
+    &.pm-container--2xl { max-width: 1536px; }
+    &.pm-container--full { max-width: 100%; }
+    &.pm-container--fluid { max-width: 100%; }
 
-    &.pm-container--md {
-      max-width: 768px;
-    }
+    /* Horizontal padding overrides */
+    &.pm-container--px-0 { padding-inline: var(--pm-spacing-0); }
+    &.pm-container--px-1 { padding-inline: var(--pm-spacing-1); }
+    &.pm-container--px-2 { padding-inline: var(--pm-spacing-2); }
+    &.pm-container--px-3 { padding-inline: var(--pm-spacing-3); }
+    &.pm-container--px-4 { padding-inline: var(--pm-spacing-4); }
+    &.pm-container--px-5 { padding-inline: var(--pm-spacing-5); }
+    &.pm-container--px-6 { padding-inline: var(--pm-spacing-6); }
+    &.pm-container--px-8 { padding-inline: var(--pm-spacing-8); }
+    &.pm-container--px-10 { padding-inline: var(--pm-spacing-10); }
+    &.pm-container--px-12 { padding-inline: var(--pm-spacing-12); }
+    &.pm-container--px-16 { padding-inline: var(--pm-spacing-16); }
 
-    &.pm-container--lg {
-      max-width: 1024px;
-    }
-
-    &.pm-container--xl {
-      max-width: 1280px;
-    }
-
-    &.pm-container--full {
-      max-width: 100%;
+    /* Center content */
+    &.pm-container--center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 }

@@ -54,6 +54,24 @@
     }
   }
 
+  /* Icon — chevron indicator */
+  .pm-collapsible__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 1.25em;
+    height: 1.25em;
+    transition-property: transform;
+    transition-duration: var(--pm-transition-normal);
+    transition-timing-function: ease-in-out;
+
+    &.pm-collapsible__icon--open {
+      transform: rotate(180deg);
+    }
+  }
+
+  /* Content — animated collapse/expand using grid rows */
   .pm-collapsible__content {
     display: grid;
     grid-template-rows: 0fr;
@@ -80,5 +98,60 @@
   .pm-collapsible__content-inner {
     overflow: hidden;
     min-height: 0;
+  }
+
+  /* data-state based animations */
+  .pm-collapsible__content[data-state="open"] {
+    animation: pm-collapsible-expand var(--pm-transition-normal) ease-out forwards;
+  }
+
+  .pm-collapsible__content[data-state="closed"] {
+    animation: pm-collapsible-collapse var(--pm-transition-normal) ease-out forwards;
+  }
+
+  @keyframes pm-collapsible-expand {
+    from {
+      grid-template-rows: 0fr;
+      opacity: 0;
+    }
+
+    to {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+  }
+
+  @keyframes pm-collapsible-collapse {
+    from {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+
+    to {
+      grid-template-rows: 0fr;
+      opacity: 0;
+    }
+  }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-collapsible__trigger {
+    font-weight: var(--pm-font-weight-normal);
+  }
+
+  .pm-theme-material .pm-collapsible__trigger {
+    border-radius: var(--pm-radius-sm);
+  }
+
+  .pm-theme-bootstrap .pm-collapsible__trigger {
+    font-weight: var(--pm-font-weight-normal);
+  }
+
+  .pm-theme-dark-modern .pm-collapsible__trigger:hover:not(.pm-collapsible__trigger--disabled) {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .pm-theme-light-modern .pm-collapsible__trigger {
+    font-weight: var(--pm-font-weight-normal);
   }
 }

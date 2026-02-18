@@ -1,0 +1,6 @@
+---
+description: Component documentation conventions
+globs: "apps/docs/**/*.{mdx,md}"
+---
+
+Read and follow `agents-guidelines/writing-docs.md`.

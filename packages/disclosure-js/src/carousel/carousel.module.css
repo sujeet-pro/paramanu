@@ -1,32 +1,16 @@
 @layer pm.components {
   .pm-carousel {
     position: relative;
-    overflow: hidden;
     width: 100%;
   }
 
-  /* Orientation: horizontal */
-  .pm-carousel--horizontal .pm-carousel__track {
-    display: flex;
-    flex-direction: row;
-    transition: transform var(--pm-transition-normal) ease-in-out;
+  /* Hide toggles */
+  .pm-carousel--no-arrows > .pm-carousel__control {
+    display: none;
   }
 
-  .pm-carousel--horizontal .pm-carousel__slide {
-    flex: 0 0 100%;
-    min-width: 0;
-  }
-
-  /* Orientation: vertical */
-  .pm-carousel--vertical .pm-carousel__track {
-    display: flex;
-    flex-direction: column;
-    transition: transform var(--pm-transition-normal) ease-in-out;
-  }
-
-  .pm-carousel--vertical .pm-carousel__slide {
-    flex: 0 0 100%;
-    min-height: 0;
+  .pm-carousel--no-dots > .pm-carousel__indicators {
+    display: none;
   }
 
   /* Size: sm */
@@ -80,10 +64,49 @@
     padding: var(--pm-spacing-4);
   }
 
+  /* Viewport */
+  .pm-carousel__viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .pm-carousel__viewport--vertical {
+    overflow-y: hidden;
+  }
+
+  /* Track */
+  .pm-carousel__track {
+    display: flex;
+    transition: transform var(--pm-transition-normal) ease-in-out;
+    will-change: transform;
+  }
+
+  .pm-carousel__track--horizontal {
+    flex-direction: row;
+  }
+
+  .pm-carousel__track--vertical {
+    flex-direction: column;
+  }
+
+  .pm-carousel__track--dragging {
+    transition: none;
+    cursor: grabbing;
+    user-select: none;
+  }
+
+  /* Slide */
+  .pm-carousel__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+
   .pm-carousel__slide--active {
     visibility: visible;
   }
 
+  /* Controls */
   .pm-carousel__control {
     position: absolute;
     top: 50%;
@@ -96,7 +119,7 @@
     background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
     color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
     cursor: pointer;
-    transition-property: background-color, color, opacity;
+    transition-property: background-color, color, opacity, box-shadow;
     transition-duration: var(--pm-transition-fast);
     transition-timing-function: ease-in-out;
     z-index: 1;
@@ -124,6 +147,25 @@
     cursor: not-allowed;
   }
 
+  /* Vertical control positions */
+  .pm-carousel--vertical > .pm-carousel__control {
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .pm-carousel--vertical > .pm-carousel__control--prev {
+    top: var(--pm-spacing-2);
+    left: 50%;
+  }
+
+  .pm-carousel--vertical > .pm-carousel__control--next {
+    bottom: var(--pm-spacing-2);
+    right: auto;
+    left: 50%;
+  }
+
+  /* Indicators */
   .pm-carousel__indicators {
     display: flex;
     align-items: center;
@@ -135,7 +177,7 @@
     border-radius: var(--pm-radius-full);
     background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
     cursor: pointer;
-    transition-property: background-color;
+    transition-property: background-color, transform;
     transition-duration: var(--pm-transition-fast);
     transition-timing-function: ease-in-out;
     padding: 0;
@@ -152,5 +194,113 @@
 
   .pm-carousel__indicator--active {
     background-color: var(--pm-color-primary-500);
+    transform: scale(1.2);
+  }
+
+  /* Progress bar */
+  .pm-carousel__progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background-color: var(--pm-color-primary-500);
+    transition: width linear;
+    z-index: 1;
+  }
+
+  /* Slide transition animations */
+  @keyframes pm-carousel-slide-in-right {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes pm-carousel-slide-in-left {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes pm-carousel-fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-carousel .pm-carousel__control {
+    border-color: light-dark(#d9d9d9, #424242);
+    border-radius: var(--pm-radius-sm);
+  }
+
+  .pm-theme-antd .pm-carousel .pm-carousel__indicator--active {
+    background-color: var(--pm-color-primary-500);
+  }
+
+  .pm-theme-material .pm-carousel .pm-carousel__control {
+    border: none;
+    box-shadow: var(--pm-shadow-md);
+    border-radius: var(--pm-radius-full);
+  }
+
+  .pm-theme-material .pm-carousel .pm-carousel__control:hover:not(.pm-carousel__control--disabled) {
+    box-shadow: var(--pm-shadow-lg);
+  }
+
+  .pm-theme-material .pm-carousel .pm-carousel__indicator {
+    border-radius: var(--pm-radius-full);
+  }
+
+  .pm-theme-bootstrap .pm-carousel .pm-carousel__control {
+    border-radius: var(--pm-radius-md);
+    background-color: light-dark(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.25));
+    color: var(--pm-color-neutral-0);
+    border: none;
+  }
+
+  .pm-theme-bootstrap .pm-carousel .pm-carousel__indicator {
+    border-radius: var(--pm-radius-sm);
+    width: var(--pm-spacing-8) !important;
+    height: 3px !important;
+  }
+
+  .pm-theme-dark-modern .pm-carousel .pm-carousel__control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .pm-theme-dark-modern .pm-carousel .pm-carousel__control:hover:not(.pm-carousel__control--disabled) {
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+  }
+
+  .pm-theme-dark-modern .pm-carousel .pm-carousel__indicator--active {
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+  }
+
+  .pm-theme-light-modern .pm-carousel .pm-carousel__control {
+    box-shadow: var(--pm-shadow-sm);
+    border-color: light-dark(var(--pm-color-neutral-150), var(--pm-color-neutral-700));
+  }
+
+  .pm-theme-light-modern .pm-carousel .pm-carousel__control:hover:not(.pm-carousel__control--disabled) {
+    box-shadow: var(--pm-shadow-md);
   }
 }

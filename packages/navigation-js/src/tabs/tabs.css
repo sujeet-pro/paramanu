@@ -140,4 +140,40 @@
   .pm-tabs__panel {
     padding: var(--pm-spacing-4);
   }
+
+  /* ---------- Theme overrides ---------- */
+
+  .pm-theme-antd .pm-tabs__tab {
+    border-radius: 0;
+  }
+
+  .pm-theme-antd .pm-tabs--line .pm-tabs__tab.pm-tabs__tab--active {
+    border-bottom-width: 2px;
+  }
+
+  .pm-theme-material .pm-tabs--line .pm-tabs__tab {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: var(--pm-font-weight-medium);
+  }
+
+  .pm-theme-material .pm-tabs--line .pm-tabs__tab.pm-tabs__tab--active {
+    border-bottom-width: 2px;
+  }
+
+  .pm-theme-bootstrap .pm-tabs--pill .pm-tabs__tab {
+    border-radius: var(--pm-radius-full);
+  }
+
+  .pm-theme-bootstrap .pm-tabs--enclosed .pm-tabs__tab {
+    border-radius: var(--pm-radius-md) var(--pm-radius-md) 0 0;
+  }
+
+  .pm-theme-dark-modern .pm-tabs__tab:hover:not(.pm-tabs__tab--disabled) {
+    text-shadow: 0 0 8px light-dark(transparent, rgba(59, 130, 246, 0.2));
+  }
+
+  .pm-theme-light-modern .pm-tabs--enclosed .pm-tabs__tab.pm-tabs__tab--active {
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+  }
 }

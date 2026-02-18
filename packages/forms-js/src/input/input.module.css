@@ -53,6 +53,12 @@
     outline: none;
   }
 
+  .pm-input--xs {
+    padding: var(--pm-spacing-0-5) var(--pm-spacing-1-5);
+    font-size: var(--pm-font-size-xs);
+    height: calc(var(--pm-spacing-6));
+  }
+
   .pm-input--sm {
     padding: var(--pm-spacing-1) var(--pm-spacing-2);
     font-size: var(--pm-font-size-sm);

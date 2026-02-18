@@ -7,8 +7,18 @@ import type {
 const BASE = "pm-structured-list"
 
 /**
- * Returns BEM class names for the structured list component (human-readable).
- * Used by CDN and template consumers.
+ * Returns BEM class names for the StructuredList component.
+ *
+ * A read-only, column-aligned list rendered with CSS `display: table`.
+ * Ideal for key-value data that needs column alignment without the
+ * overhead of a full data table.
+ *
+ * @example
+ * ```ts
+ * const cls = structuredListClasses({ selectable: true, bordered: true })
+ * // cls.root       => "pm-structured-list pm-structured-list--md pm-structured-list--selectable pm-structured-list--bordered"
+ * // cls.headerCell => "pm-structured-list__header-cell"
+ * ```
  */
 export function structuredListClasses(
   options: StructuredListClassesOptions = {},
@@ -31,8 +41,8 @@ export function structuredListClasses(
 }
 
 /**
- * Returns CSS module class names for the structured list component (hashed).
- * Used by bundled/template consumers who import CSS modules.
+ * Returns CSS module class names for the StructuredList component.
+ * Used by bundled consumers who import CSS modules.
  */
 export function structuredListModuleClasses(
   classMap: Record<string, string>,

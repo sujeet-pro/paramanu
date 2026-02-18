@@ -1,16 +1,47 @@
 @layer pm.components {
+  /* ------------------------------------------------------------------ */
+  /* Notification                                                        */
+  /* ------------------------------------------------------------------ */
+
   .pm-notification {
+    --pm-notification-bg: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    --pm-notification-border: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    --pm-notification-radius: var(--pm-radius-lg);
+    --pm-notification-shadow: var(--pm-shadow-sm);
+    --pm-notification-accent: var(--pm-color-primary-500);
+
     position: relative;
     display: flex;
     gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-4);
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-    border-radius: var(--pm-radius-lg);
-    box-shadow: var(--pm-shadow-sm);
+    background-color: var(--pm-notification-bg);
+    border: 1px solid var(--pm-notification-border);
+    border-radius: var(--pm-notification-radius);
+    box-shadow: var(--pm-notification-shadow);
+
+    /* Variant accents */
+    &.pm-notification--info {
+      --pm-notification-accent: var(--pm-color-info-500);
+    }
+
+    &.pm-notification--success {
+      --pm-notification-accent: var(--pm-color-success-500);
+    }
+
+    &.pm-notification--warning {
+      --pm-notification-accent: var(--pm-color-warning-500);
+    }
+
+    &.pm-notification--danger {
+      --pm-notification-accent: var(--pm-color-danger-500);
+    }
+
+    &.pm-notification--neutral {
+      --pm-notification-accent: var(--pm-color-primary-500);
+    }
 
     &.pm-notification--unread {
-      border-left: 3px solid var(--pm-color-primary-500);
+      border-left: 3px solid var(--pm-notification-accent);
     }
 
     &.pm-notification--dismissible {
@@ -70,5 +101,29 @@
     position: absolute;
     top: var(--pm-spacing-2);
     right: var(--pm-spacing-2);
+  }
+
+  /* ---- Theme overrides ---- */
+
+  .pm-theme-antd .pm-notification {
+    --pm-notification-radius: 4px;
+    --pm-notification-shadow: var(--pm-shadow-sm);
+  }
+
+  .pm-theme-material .pm-notification {
+    --pm-notification-radius: 12px;
+    --pm-notification-shadow: var(--pm-shadow-md);
+  }
+
+  .pm-theme-bootstrap .pm-notification {
+    --pm-notification-radius: 6px;
+  }
+
+  .pm-theme-dark-modern .pm-notification {
+    --pm-notification-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .pm-theme-light-modern .pm-notification {
+    --pm-notification-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
   }
 }

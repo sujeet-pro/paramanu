@@ -28,4 +28,6 @@
   .pm-stack--gap-10 { gap: var(--pm-spacing-10); }
   .pm-stack--gap-12 { gap: var(--pm-spacing-12); }
   .pm-stack--gap-16 { gap: var(--pm-spacing-16); }
+
+  .pm-stack--separator { /* base for specificity */ }
 }

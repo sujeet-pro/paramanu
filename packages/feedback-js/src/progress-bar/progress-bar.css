@@ -1,4 +1,8 @@
 @layer pm.components {
+  /* ------------------------------------------------------------------ */
+  /* Progress Bar                                                        */
+  /* ------------------------------------------------------------------ */
+
   @keyframes pm-progress-stripes {
     0% {
       background-position: 1rem 0;
@@ -24,8 +28,14 @@
   }
 
   .pm-progress-bar {
+    --pm-progress-bar-height: 8px;
+    --pm-progress-bar-fill-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    --pm-progress-bar-track-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    --pm-progress-bar-radius: var(--pm-radius-full);
+
     display: flex;
     flex-direction: column;
+    gap: var(--pm-spacing-1);
     width: 100%;
     box-sizing: border-box;
 
@@ -97,22 +107,36 @@
       position: absolute;
       animation: pm-progress-indeterminate 1.5s ease-in-out infinite;
     }
+
+    /* With label */
+    &.pm-progress-bar--with-label {
+      /* reserve space for label */
+    }
   }
 
   .pm-progress-bar__track {
     position: relative;
     width: 100%;
-    height: var(--pm-progress-bar-height, 8px);
-    background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-    border-radius: var(--pm-radius-full);
+    height: var(--pm-progress-bar-height);
+    background-color: var(--pm-progress-bar-track-color);
+    border-radius: var(--pm-progress-bar-radius);
     overflow: hidden;
   }
 
   .pm-progress-bar__fill {
     height: 100%;
-    background-color: var(--pm-progress-bar-fill-color, light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500)));
-    border-radius: var(--pm-radius-full);
+    background-color: var(--pm-progress-bar-fill-color);
+    border-radius: var(--pm-progress-bar-radius);
     transition: width var(--pm-transition-normal) ease-in-out;
+  }
+
+  .pm-progress-bar__label {
+    font-family: var(--pm-font-family-sans);
+    font-size: var(--pm-font-size-xs);
+    font-weight: var(--pm-font-weight-medium);
+    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    text-align: right;
+    line-height: 1;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -123,5 +147,27 @@
     .pm-progress-bar--indeterminate .pm-progress-bar__fill {
       animation: none;
     }
+  }
+
+  /* ---- Theme overrides ---- */
+
+  .pm-theme-antd .pm-progress-bar {
+    --pm-progress-bar-radius: 4px;
+  }
+
+  .pm-theme-material .pm-progress-bar {
+    --pm-progress-bar-radius: 12px;
+  }
+
+  .pm-theme-bootstrap .pm-progress-bar {
+    --pm-progress-bar-radius: 6px;
+  }
+
+  .pm-theme-dark-modern .pm-progress-bar {
+    --pm-progress-bar-track-color: var(--pm-color-neutral-800);
+  }
+
+  .pm-theme-light-modern .pm-progress-bar {
+    --pm-progress-bar-track-color: var(--pm-color-neutral-100);
   }
 }

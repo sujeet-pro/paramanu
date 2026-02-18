@@ -7,6 +7,7 @@
     }
   }
 
+  /* Overlay — dims the page behind the tour step */
   .pm-tour__overlay {
     position: fixed;
     inset: 0;
@@ -27,12 +28,30 @@
     }
   }
 
+  /* Spotlight — highlights the target element through the overlay */
+  .pm-tour__spotlight {
+    position: fixed;
+    z-index: 1000;
+    border-radius: var(--pm-radius-md);
+    box-shadow: 0 0 0 9999px light-dark(rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.7));
+    pointer-events: none;
+    opacity: 0;
+    transition-property: opacity, top, left, width, height;
+    transition-duration: var(--pm-transition-normal);
+    transition-timing-function: ease-in-out;
+
+    &.pm-tour__spotlight--visible {
+      opacity: 1;
+    }
+  }
+
+  /* Step — popover card positioned near the target */
   .pm-tour__step {
     position: absolute;
     z-index: 1001;
     display: none;
     width: max-content;
-    max-width: 320px;
+    max-width: 360px;
     padding: var(--pm-spacing-4);
     border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
     border-radius: var(--pm-radius-lg);
@@ -45,6 +64,12 @@
 
     &.pm-tour__step--active {
       display: block;
+      animation: pm-tour-step-enter var(--pm-transition-normal) ease-out;
+    }
+
+    /* Variant: primary — colored header accent */
+    &.pm-tour__step--primary {
+      border-top: 3px solid var(--pm-color-primary-500);
     }
 
     /* Arrow base */
@@ -59,47 +84,99 @@
     }
 
     /* Placement: top — step above target, arrow points down */
-    &.pm-tour__step--top {
+    &.pm-tour__step--top,
+    &.pm-tour__step--top-start,
+    &.pm-tour__step--top-end {
       &::before {
         bottom: calc(-1 * var(--pm-spacing-1-5));
-        left: 50%;
-        margin-left: calc(-1 * var(--pm-spacing-1-5));
         border-top: none;
         border-left: none;
       }
+    }
+
+    &.pm-tour__step--top::before {
+      left: 50%;
+      margin-left: calc(-1 * var(--pm-spacing-1-5));
+    }
+
+    &.pm-tour__step--top-start::before {
+      left: var(--pm-spacing-4);
+    }
+
+    &.pm-tour__step--top-end::before {
+      right: var(--pm-spacing-4);
     }
 
     /* Placement: bottom — step below target, arrow points up */
-    &.pm-tour__step--bottom {
+    &.pm-tour__step--bottom,
+    &.pm-tour__step--bottom-start,
+    &.pm-tour__step--bottom-end {
       &::before {
         top: calc(-1 * var(--pm-spacing-1-5));
-        left: 50%;
-        margin-left: calc(-1 * var(--pm-spacing-1-5));
         border-bottom: none;
         border-right: none;
       }
     }
 
+    &.pm-tour__step--bottom::before {
+      left: 50%;
+      margin-left: calc(-1 * var(--pm-spacing-1-5));
+    }
+
+    &.pm-tour__step--bottom-start::before {
+      left: var(--pm-spacing-4);
+    }
+
+    &.pm-tour__step--bottom-end::before {
+      right: var(--pm-spacing-4);
+    }
+
     /* Placement: left — step to left of target, arrow points right */
-    &.pm-tour__step--left {
+    &.pm-tour__step--left,
+    &.pm-tour__step--left-start,
+    &.pm-tour__step--left-end {
       &::before {
         right: calc(-1 * var(--pm-spacing-1-5));
-        top: 50%;
-        margin-top: calc(-1 * var(--pm-spacing-1-5));
         border-bottom: none;
         border-left: none;
       }
     }
 
+    &.pm-tour__step--left::before {
+      top: 50%;
+      margin-top: calc(-1 * var(--pm-spacing-1-5));
+    }
+
+    &.pm-tour__step--left-start::before {
+      top: var(--pm-spacing-4);
+    }
+
+    &.pm-tour__step--left-end::before {
+      bottom: var(--pm-spacing-4);
+    }
+
     /* Placement: right — step to right of target, arrow points left */
-    &.pm-tour__step--right {
+    &.pm-tour__step--right,
+    &.pm-tour__step--right-start,
+    &.pm-tour__step--right-end {
       &::before {
         left: calc(-1 * var(--pm-spacing-1-5));
-        top: 50%;
-        margin-top: calc(-1 * var(--pm-spacing-1-5));
         border-top: none;
         border-right: none;
       }
+    }
+
+    &.pm-tour__step--right::before {
+      top: 50%;
+      margin-top: calc(-1 * var(--pm-spacing-1-5));
+    }
+
+    &.pm-tour__step--right-start::before {
+      top: var(--pm-spacing-4);
+    }
+
+    &.pm-tour__step--right-end::before {
+      bottom: var(--pm-spacing-4);
     }
   }
 
@@ -108,6 +185,7 @@
     font-size: var(--pm-font-size-md);
     font-weight: var(--pm-font-weight-semibold);
     color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    padding-right: var(--pm-spacing-6);
   }
 
   .pm-tour__step-description {
@@ -150,10 +228,103 @@
       outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
       outline-offset: var(--pm-focus-ring-offset);
     }
+
+    /* Primary variant close button — different hover */
+    &.pm-tour__step-close--primary:hover {
+      background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
+      color: var(--pm-color-primary-500);
+    }
   }
 
   .pm-tour__step-counter {
     font-size: var(--pm-font-size-xs);
     color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+  }
+
+  /* Step progress dots */
+  .pm-tour__step-dots {
+    display: flex;
+    align-items: center;
+    gap: var(--pm-spacing-1);
+  }
+
+  .pm-tour__step-dot {
+    width: var(--pm-spacing-1-5);
+    height: var(--pm-spacing-1-5);
+    border-radius: var(--pm-radius-full);
+    background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    transition-property: background-color;
+    transition-duration: var(--pm-transition-fast);
+    transition-timing-function: ease-in-out;
+  }
+
+  .pm-tour__step-dot--active {
+    background-color: var(--pm-color-primary-500);
+  }
+
+  .pm-tour__step-dot--completed {
+    background-color: light-dark(var(--pm-color-primary-300), var(--pm-color-primary-700));
+  }
+
+  /* Step enter animation */
+  @keyframes pm-tour-step-enter {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(4px);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* ---------- Theme overrides ---------- */
+
+  /* Ant Design — compact step, smaller padding */
+  .pm-theme-antd .pm-tour__step {
+    padding: var(--pm-spacing-3);
+    border-radius: var(--pm-radius-sm);
+    max-width: 300px;
+  }
+
+  .pm-theme-antd .pm-tour__step-title {
+    font-size: var(--pm-font-size-sm);
+  }
+
+  /* Material — elevated, rounded, no border */
+  .pm-theme-material .pm-tour__step {
+    border: none;
+    box-shadow: var(--pm-shadow-lg);
+    border-radius: var(--pm-radius-lg);
+  }
+
+  .pm-theme-material .pm-tour__step::before {
+    border: none;
+    box-shadow: 2px 2px 4px light-dark(rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.3));
+  }
+
+  /* Bootstrap — card-style, standard borders */
+  .pm-theme-bootstrap .pm-tour__step {
+    border-radius: var(--pm-radius-md);
+    box-shadow: 0 2px 8px light-dark(rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.3));
+  }
+
+  /* Dark Modern — glow effect on step */
+  .pm-theme-dark-modern .pm-tour__step {
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(59, 130, 246, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .pm-theme-dark-modern .pm-tour__spotlight {
+    box-shadow: 0 0 0 9999px rgb(0 0 0 / 0.8);
+  }
+
+  /* Light Modern — clean shadow, refined border */
+  .pm-theme-light-modern .pm-tour__step {
+    box-shadow: var(--pm-shadow-lg);
+    border-color: light-dark(var(--pm-color-neutral-150), var(--pm-color-neutral-700));
   }
 }

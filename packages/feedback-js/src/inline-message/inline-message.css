@@ -1,36 +1,105 @@
 @layer pm.components {
+  /* ------------------------------------------------------------------ */
+  /* Inline Message                                                      */
+  /* ------------------------------------------------------------------ */
+
   .pm-inline-message {
-    display: block;
-    padding: var(--pm-spacing-3) var(--pm-spacing-4);
-    border-left: 3px solid transparent;
-    border-radius: 0 var(--pm-radius-md) var(--pm-radius-md) 0;
+    --pm-inline-message-bg: transparent;
+    --pm-inline-message-border-color: transparent;
+    --pm-inline-message-color: inherit;
+    --pm-inline-message-icon-color: currentColor;
+    --pm-inline-message-radius: 0 var(--pm-radius-md) var(--pm-radius-md) 0;
+    --pm-inline-message-padding-x: var(--pm-spacing-4);
+    --pm-inline-message-padding-y: var(--pm-spacing-3);
+
+    display: flex;
+    align-items: flex-start;
+    gap: var(--pm-spacing-2);
+    padding: var(--pm-inline-message-padding-y) var(--pm-inline-message-padding-x);
+    border-left: 3px solid var(--pm-inline-message-border-color);
+    border-radius: var(--pm-inline-message-radius);
+    background-color: var(--pm-inline-message-bg);
+    color: var(--pm-inline-message-color);
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-md);
     line-height: var(--pm-font-lineHeight-normal);
 
     /* Variants */
     &.pm-inline-message--info {
-      background-color: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
-      border-left-color: light-dark(var(--pm-color-info-500), var(--pm-color-info-400));
-      color: light-dark(var(--pm-color-info-800), var(--pm-color-info-100));
+      --pm-inline-message-bg: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
+      --pm-inline-message-border-color: light-dark(var(--pm-color-info-500), var(--pm-color-info-400));
+      --pm-inline-message-color: light-dark(var(--pm-color-info-800), var(--pm-color-info-100));
+      --pm-inline-message-icon-color: light-dark(var(--pm-color-info-600), var(--pm-color-info-400));
     }
 
     &.pm-inline-message--success {
-      background-color: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
-      border-left-color: light-dark(var(--pm-color-success-500), var(--pm-color-success-400));
-      color: light-dark(var(--pm-color-success-800), var(--pm-color-success-100));
+      --pm-inline-message-bg: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
+      --pm-inline-message-border-color: light-dark(var(--pm-color-success-500), var(--pm-color-success-400));
+      --pm-inline-message-color: light-dark(var(--pm-color-success-800), var(--pm-color-success-100));
+      --pm-inline-message-icon-color: light-dark(var(--pm-color-success-600), var(--pm-color-success-400));
     }
 
     &.pm-inline-message--warning {
-      background-color: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
-      border-left-color: light-dark(var(--pm-color-warning-500), var(--pm-color-warning-400));
-      color: light-dark(var(--pm-color-warning-800), var(--pm-color-warning-100));
+      --pm-inline-message-bg: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
+      --pm-inline-message-border-color: light-dark(var(--pm-color-warning-500), var(--pm-color-warning-400));
+      --pm-inline-message-color: light-dark(var(--pm-color-warning-800), var(--pm-color-warning-100));
+      --pm-inline-message-icon-color: light-dark(var(--pm-color-warning-600), var(--pm-color-warning-400));
     }
 
     &.pm-inline-message--danger {
-      background-color: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
-      border-left-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
-      color: light-dark(var(--pm-color-danger-800), var(--pm-color-danger-100));
+      --pm-inline-message-bg: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
+      --pm-inline-message-border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+      --pm-inline-message-color: light-dark(var(--pm-color-danger-800), var(--pm-color-danger-100));
+      --pm-inline-message-icon-color: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-400));
     }
+
+    /* Sizes */
+    &.pm-inline-message--sm {
+      --pm-inline-message-padding-x: var(--pm-spacing-3);
+      --pm-inline-message-padding-y: var(--pm-spacing-2);
+      font-size: var(--pm-font-size-sm);
+    }
+
+    &.pm-inline-message--md {
+      /* defaults */
+    }
+  }
+
+  /* Sub-elements */
+  .pm-inline-message__icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    color: var(--pm-inline-message-icon-color);
+  }
+
+  .pm-inline-message__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* ---- Theme overrides ---- */
+
+  .pm-theme-antd .pm-inline-message {
+    --pm-inline-message-radius: 0 4px 4px 0;
+    --pm-inline-message-padding-x: var(--pm-spacing-3);
+    --pm-inline-message-padding-y: var(--pm-spacing-2);
+  }
+
+  .pm-theme-material .pm-inline-message {
+    --pm-inline-message-radius: 0 12px 12px 0;
+  }
+
+  .pm-theme-bootstrap .pm-inline-message {
+    --pm-inline-message-radius: 0 6px 6px 0;
+  }
+
+  .pm-theme-dark-modern .pm-inline-message {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .pm-theme-light-modern .pm-inline-message {
+    box-shadow: var(--pm-shadow-xs);
   }
 }
