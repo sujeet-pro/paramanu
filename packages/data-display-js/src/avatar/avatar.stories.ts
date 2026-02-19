@@ -36,7 +36,7 @@ function createAvatar(args: AvatarArgs): HTMLSpanElement {
 
 const meta = {
   title: "Data Display/Avatar",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createAvatar(args as AvatarArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl"] },

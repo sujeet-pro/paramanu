@@ -1,10 +1,18 @@
 ---
 title: Spacer
 description: An invisible spacing element that fills available space or adds a fixed gap between items.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 Spacer creates space between elements. Without a `size`, it grows to fill available flex space. With a `size`, it adds a fixed gap.
 

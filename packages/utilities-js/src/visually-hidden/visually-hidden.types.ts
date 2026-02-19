@@ -8,15 +8,15 @@
  * @example
  * ```ts
  * // Hide text from sighted users
- * visuallyHiddenClasses()
- * // => "pm-visually-hidden"
+ * srOnlyClasses()
+ * // => "pm-sr-only"
  *
  * // Allow the element to become visible when focused (e.g. skip links)
- * visuallyHiddenClasses({ focusable: true })
- * // => "pm-visually-hidden pm-visually-hidden--focusable"
+ * srOnlyClasses({ focusable: true })
+ * // => "pm-sr-only pm-sr-only--focusable"
  * ```
  */
-export interface VisuallyHiddenClassesOptions {
+export interface SrOnlyClassesOptions {
   /**
    * When `true`, the element becomes visible when it receives focus.
    * Useful for skip navigation links and other keyboard-only controls.
@@ -27,10 +27,10 @@ export interface VisuallyHiddenClassesOptions {
 }
 
 /**
- * Props for the VisuallyHidden component.
+ * Props for the SrOnly component.
  * Extends class options with semantic HTML attributes.
  */
-export interface VisuallyHiddenProps extends VisuallyHiddenClassesOptions {
+export interface SrOnlyProps extends SrOnlyClassesOptions {
   /**
    * The HTML element to render.
    *

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { hoverCardClasses } from "./hover-card.classes.js"
-import type { HoverCardClassesOptions } from "./hover-card.types.js"
+import { hovercardClasses } from "./hover-card.classes.js"
+import type { HovercardClassesOptions } from "./hover-card.types.js"
 
-function createHoverCard(args: HoverCardClassesOptions): HTMLElement {
+function createHovercard(args: HovercardClassesOptions): HTMLElement {
   const wrapper = document.createElement("div")
   wrapper.style.padding = "100px"
 
@@ -12,7 +12,7 @@ function createHoverCard(args: HoverCardClassesOptions): HTMLElement {
   wrapper.appendChild(trigger)
 
   const card = document.createElement("div")
-  card.className = hoverCardClasses(args)
+  card.className = hovercardClasses(args)
   card.textContent = "Hover card preview content"
   card.style.padding = "16px"
   wrapper.appendChild(card)
@@ -21,17 +21,17 @@ function createHoverCard(args: HoverCardClassesOptions): HTMLElement {
 }
 
 const meta = {
-  title: "Overlays/HoverCard",
-  tags: ["autodocs", "stable"],
-  render: (args) => createHoverCard(args as HoverCardClassesOptions),
+  title: "Overlays/Hovercard",
+  tags: ["autodocs", "beta"],
+  render: (args) => createHovercard(args as HovercardClassesOptions),
   argTypes: {
     placement: { control: "select", options: ["top", "bottom", "left", "right"] },
   },
   args: { placement: "bottom" },
-} satisfies Meta<HoverCardClassesOptions>
+} satisfies Meta<HovercardClassesOptions>
 
 export default meta
-type Story = StoryObj<HoverCardClassesOptions>
+type Story = StoryObj<HovercardClassesOptions>
 
 export const Playground: Story = {}
 export const TopPlacement: Story = { args: { placement: "top" } }

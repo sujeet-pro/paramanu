@@ -7,14 +7,14 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("StructuredList Stories", () => {
+describe("StructList Stories", () => {
   it("Playground renders without crashing", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-structured-list")).toBeTruthy()
+    expect(container.querySelector(".pm-struct-list")).toBeTruthy()
   })
 
   it("Selectable applies correct class", () => {
     const { container } = render(<composed.Selectable />)
-    expect(container.querySelector(".pm-structured-list--selectable")).toBeTruthy()
+    expect(container.querySelector(".pm-struct-list--selectable")).toBeTruthy()
   })
 })

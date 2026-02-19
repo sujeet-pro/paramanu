@@ -7,9 +7,9 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("ColorPicker Stories", () => {
+describe("Colorpicker Stories", () => {
   it("Playground renders without crashing", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-color-picker")).toBeTruthy()
+    expect(container.querySelector(".pm-colorpicker")).toBeTruthy()
   })
 })

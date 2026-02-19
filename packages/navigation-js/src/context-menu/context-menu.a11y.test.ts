@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
-import { contextMenuClasses } from "./context-menu.classes.js"
+import { ctxMenuClasses } from "./context-menu.classes.js"
 
-function createContextMenuHTML(open = false): string {
-  const rootClasses = contextMenuClasses({ open })
+function createCtxMenuHTML(open = false): string {
+  const rootClasses = ctxMenuClasses({ open })
   return `
     <div class="${rootClasses}" role="menu">
       <div class="pm-menu__item" role="menuitem">Cut</div>
@@ -17,32 +17,32 @@ function createContextMenuHTML(open = false): string {
 
 describe("context menu accessibility", () => {
   it("root has role=menu", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createContextMenuHTML(true)}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createCtxMenuHTML(true)}</body>`)
     const menu = dom.window.document.querySelector("[role='menu']")
     expect(menu).not.toBeNull()
   })
 
   it("items have role=menuitem", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createContextMenuHTML(true)}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createCtxMenuHTML(true)}</body>`)
     const items = dom.window.document.querySelectorAll("[role='menuitem']")
     expect(items.length).toBe(4)
   })
 
   it("separator has role=separator", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createContextMenuHTML(true)}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createCtxMenuHTML(true)}</body>`)
     const separator = dom.window.document.querySelector("[role='separator']")
     expect(separator).not.toBeNull()
   })
 
   it("is a div element (positioned absolutely)", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createContextMenuHTML(true)}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createCtxMenuHTML(true)}</body>`)
     const menu = dom.window.document.querySelector("[role='menu']")
     expect(menu?.tagName).toBe("DIV")
   })
 
-  it("includes pm-context-menu class", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createContextMenuHTML(true)}</body>`)
+  it("includes pm-ctx-menu class", () => {
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createCtxMenuHTML(true)}</body>`)
     const menu = dom.window.document.querySelector("[role='menu']")
-    expect(menu?.classList.contains("pm-context-menu")).toBe(true)
+    expect(menu?.classList.contains("pm-ctx-menu")).toBe(true)
   })
 })

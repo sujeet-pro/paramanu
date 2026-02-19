@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest"
 import { render, screen, act } from "@testing-library/react"
-import { ThemeProvider, useTheme } from "./theme-provider.js"
+import { Theme, useTheme } from "./theme-provider.js"
 
 function ThemeConsumer() {
   const { mode, setMode, clearMode } = useTheme()
@@ -17,7 +17,7 @@ function ThemeConsumer() {
   )
 }
 
-describe("ThemeProvider", () => {
+describe("Theme", () => {
   beforeEach(() => {
     localStorage.clear()
     document.documentElement.removeAttribute("data-pm-theme")
@@ -26,9 +26,9 @@ describe("ThemeProvider", () => {
 
   it("provides default system mode", () => {
     render(
-      <ThemeProvider>
+      <Theme>
         <ThemeConsumer />
-      </ThemeProvider>,
+      </Theme>,
     )
     expect(screen.getByTestId("mode")).toHaveTextContent("system")
   })
@@ -36,18 +36,18 @@ describe("ThemeProvider", () => {
   it("reads stored theme from localStorage", () => {
     localStorage.setItem("pm-theme", "dark")
     render(
-      <ThemeProvider>
+      <Theme>
         <ThemeConsumer />
-      </ThemeProvider>,
+      </Theme>,
     )
     expect(screen.getByTestId("mode")).toHaveTextContent("dark")
   })
 
   it("updates theme on setMode", () => {
     render(
-      <ThemeProvider>
+      <Theme>
         <ThemeConsumer />
-      </ThemeProvider>,
+      </Theme>,
     )
     act(() => {
       screen.getByTestId("set-dark").click()
@@ -58,9 +58,9 @@ describe("ThemeProvider", () => {
 
   it("clears theme on clearMode", () => {
     render(
-      <ThemeProvider>
+      <Theme>
         <ThemeConsumer />
-      </ThemeProvider>,
+      </Theme>,
     )
     act(() => {
       screen.getByTestId("set-dark").click()
@@ -73,9 +73,9 @@ describe("ThemeProvider", () => {
 
   it("uses custom storageKey", () => {
     render(
-      <ThemeProvider storageKey="custom-key" defaultMode="light">
+      <Theme storageKey="custom-key" defaultMode="light">
         <ThemeConsumer />
-      </ThemeProvider>,
+      </Theme>,
     )
     expect(screen.getByTestId("mode")).toHaveTextContent("light")
     expect(localStorage.getItem("custom-key")).toBe("light")

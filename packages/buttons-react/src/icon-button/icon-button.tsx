@@ -1,9 +1,9 @@
 import { forwardRef } from "react"
-import { iconButtonClasses } from "@paramanu/buttons-js"
-import type { IconButtonProps } from "@paramanu/buttons-js"
+import { iconBtnClasses } from "@paramanu/buttons-js"
+import type { IconBtnProps } from "@paramanu/buttons-js"
 
-export interface ReactIconButtonProps
-  extends IconButtonProps,
+export interface ReactIconBtnProps
+  extends IconBtnProps,
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type" | "aria-label"> {
   /**
    * Accessible label for the icon button (required).
@@ -19,26 +19,26 @@ export interface ReactIconButtonProps
 /**
  * A square/circular button that renders only an icon with no visible text.
  * Requires `aria-label` for accessibility. Shares the same variant and size
- * scale as `Button` but uses equal width and height dimensions.
+ * scale as `Btn` but uses equal width and height dimensions.
  *
  * @example
  * ```tsx
- * <IconButton aria-label="Search" variant="ghost">
+ * <IconBtn aria-label="Search" variant="ghost">
  *   <SearchIcon />
- * </IconButton>
+ * </IconBtn>
  * ```
  */
-export const IconButton = forwardRef<HTMLButtonElement, ReactIconButtonProps>(
-  function IconButton(
+export const IconBtn = forwardRef<HTMLButtonElement, ReactIconBtnProps>(
+  function IconBtn(
     { variant, size, shape, disabled, loading, active, className, children, spinner, ...rest },
     ref,
   ) {
-    const classes = iconButtonClasses({ variant, size, shape, disabled, loading, active })
+    const classes = iconBtnClasses({ variant, size, shape, disabled, loading, active })
     const combinedClassName = className ? `${classes} ${className}` : classes
     const isDisabled = disabled || loading
 
     const spinnerElement = spinner ?? (
-      <span className="pm-icon-button__spinner" aria-hidden="true">
+      <span className="pm-icon-btn__spinner" aria-hidden="true">
         <svg
           width="1em"
           height="1em"

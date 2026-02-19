@@ -1,11 +1,11 @@
-import type { FileUploadClassesOptions } from "./file-upload.types.js"
+import type { UploadClassesOptions } from "./file-upload.types.js"
 
-const BASE = "pm-file-upload"
+const BASE = "pm-upload"
 
 /**
  * Returns BEM class names for the file upload component (human-readable).
  */
-export function fileUploadClasses(options: FileUploadClassesOptions = {}): string {
+export function uploadClasses(options: UploadClassesOptions = {}): string {
   const { size = "md", disabled = false } = options
   const classes = [BASE, `${BASE}--${size}`]
 
@@ -17,15 +17,15 @@ export function fileUploadClasses(options: FileUploadClassesOptions = {}): strin
 /**
  * Returns CSS module class names for the file upload component (hashed).
  */
-export function fileUploadModuleClasses(
+export function uploadModuleClasses(
   classMap: Record<string, string>,
-  options: FileUploadClassesOptions = {},
+  options: UploadClassesOptions = {},
 ): string {
   const { size = "md", disabled = false } = options
 
-  const classes = [classMap["pm-file-upload"], classMap[`pm-file-upload--${size}`]]
+  const classes = [classMap["pm-upload"], classMap[`pm-upload--${size}`]]
 
-  if (disabled) classes.push(classMap["pm-file-upload--disabled"])
+  if (disabled) classes.push(classMap["pm-upload--disabled"])
 
   return classes.filter(Boolean).join(" ")
 }

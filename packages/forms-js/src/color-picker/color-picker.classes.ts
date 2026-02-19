@@ -1,11 +1,11 @@
-import type { ColorPickerClassesOptions } from "./color-picker.types.js"
+import type { ColorpickerClassesOptions } from "./color-picker.types.js"
 
-const BASE = "pm-color-picker"
+const BASE = "pm-colorpicker"
 
 /**
  * Returns BEM class names for the color picker component (human-readable).
  */
-export function colorPickerClasses(options: ColorPickerClassesOptions = {}): string {
+export function colorpickerClasses(options: ColorpickerClassesOptions = {}): string {
   const { size = "md", disabled = false, open = false } = options
   const classes = [BASE, `${BASE}--${size}`]
 
@@ -18,16 +18,16 @@ export function colorPickerClasses(options: ColorPickerClassesOptions = {}): str
 /**
  * Returns CSS module class names for the color picker component (hashed).
  */
-export function colorPickerModuleClasses(
+export function colorpickerModuleClasses(
   classMap: Record<string, string>,
-  options: ColorPickerClassesOptions = {},
+  options: ColorpickerClassesOptions = {},
 ): string {
   const { size = "md", disabled = false, open = false } = options
 
-  const classes = [classMap["pm-color-picker"], classMap[`pm-color-picker--${size}`]]
+  const classes = [classMap["pm-colorpicker"], classMap[`pm-colorpicker--${size}`]]
 
-  if (disabled) classes.push(classMap["pm-color-picker--disabled"])
-  if (open) classes.push(classMap["pm-color-picker--open"])
+  if (disabled) classes.push(classMap["pm-colorpicker--disabled"])
+  if (open) classes.push(classMap["pm-colorpicker--open"])
 
   return classes.filter(Boolean).join(" ")
 }

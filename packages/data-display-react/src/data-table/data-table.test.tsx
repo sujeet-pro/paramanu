@@ -1,115 +1,115 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
 import {
-  DataTable,
-  DataTableToolbar,
-  DataTableHeaderCell,
-  DataTableRow,
-  DataTableCell,
-  DataTablePagination,
+  Datatable,
+  DatatableToolbar,
+  DatatableHeaderCell,
+  DatatableRow,
+  DatatableCell,
+  DatatablePagination,
 } from "./data-table.js"
 
 afterEach(cleanup)
 
-describe("DataTable", () => {
+describe("Datatable", () => {
   it("renders with children", () => {
-    render(<DataTable data-testid="dt">Content</DataTable>)
+    render(<Datatable data-testid="dt">Content</Datatable>)
     expect(screen.getByTestId("dt")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<DataTable data-testid="dt">Content</DataTable>)
+    render(<Datatable data-testid="dt">Content</Datatable>)
     const dt = screen.getByTestId("dt")
-    expect(dt.className).toContain("pm-data-table")
-    expect(dt.className).toContain("pm-data-table--simple")
-    expect(dt.className).toContain("pm-data-table--md")
+    expect(dt.className).toContain("pm-datatable")
+    expect(dt.className).toContain("pm-datatable--simple")
+    expect(dt.className).toContain("pm-datatable--md")
   })
 
   it("applies variant class", () => {
-    render(<DataTable variant="striped" data-testid="dt">Content</DataTable>)
-    expect(screen.getByTestId("dt").className).toContain("pm-data-table--striped")
+    render(<Datatable variant="striped" data-testid="dt">Content</Datatable>)
+    expect(screen.getByTestId("dt").className).toContain("pm-datatable--striped")
   })
 
   it("applies hoverable modifier", () => {
-    render(<DataTable hoverable data-testid="dt">Content</DataTable>)
-    expect(screen.getByTestId("dt").className).toContain("pm-data-table--hoverable")
+    render(<Datatable hoverable data-testid="dt">Content</Datatable>)
+    expect(screen.getByTestId("dt").className).toContain("pm-datatable--hoverable")
   })
 
   it("applies bordered modifier", () => {
-    render(<DataTable bordered data-testid="dt">Content</DataTable>)
-    expect(screen.getByTestId("dt").className).toContain("pm-data-table--bordered")
+    render(<Datatable bordered data-testid="dt">Content</Datatable>)
+    expect(screen.getByTestId("dt").className).toContain("pm-datatable--bordered")
   })
 
   it("applies selectable modifier", () => {
-    render(<DataTable selectable data-testid="dt">Content</DataTable>)
-    expect(screen.getByTestId("dt").className).toContain("pm-data-table--selectable")
+    render(<Datatable selectable data-testid="dt">Content</Datatable>)
+    expect(screen.getByTestId("dt").className).toContain("pm-datatable--selectable")
   })
 
   it("forwards ref", () => {
     let dtRef: HTMLDivElement | null = null
-    render(<DataTable ref={(el) => (dtRef = el)}>Content</DataTable>)
+    render(<Datatable ref={(el) => (dtRef = el)}>Content</Datatable>)
     expect(dtRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    render(<DataTable className="custom" data-testid="dt">Content</DataTable>)
+    render(<Datatable className="custom" data-testid="dt">Content</Datatable>)
     const dt = screen.getByTestId("dt")
-    expect(dt.className).toContain("pm-data-table")
+    expect(dt.className).toContain("pm-datatable")
     expect(dt.className).toContain("custom")
   })
 })
 
-describe("DataTableToolbar", () => {
+describe("DatatableToolbar", () => {
   it("renders with toolbar class", () => {
-    render(<DataTableToolbar data-testid="toolbar">Toolbar</DataTableToolbar>)
-    expect(screen.getByTestId("toolbar").className).toContain("pm-data-table__toolbar")
+    render(<DatatableToolbar data-testid="toolbar">Toolbar</DatatableToolbar>)
+    expect(screen.getByTestId("toolbar").className).toContain("pm-datatable__toolbar")
   })
 })
 
-describe("DataTableHeaderCell", () => {
+describe("DatatableHeaderCell", () => {
   it("renders with header-cell class", () => {
     render(
-      <table><thead><tr><DataTableHeaderCell data-testid="th">Header</DataTableHeaderCell></tr></thead><tbody><tr><td>Cell</td></tr></tbody></table>,
+      <table><thead><tr><DatatableHeaderCell data-testid="th">Header</DatatableHeaderCell></tr></thead><tbody><tr><td>Cell</td></tr></tbody></table>,
     )
-    expect(screen.getByTestId("th").className).toContain("pm-data-table__header-cell")
+    expect(screen.getByTestId("th").className).toContain("pm-datatable__header-cell")
   })
 
   it("applies sortable modifier", () => {
     render(
-      <table><thead><tr><DataTableHeaderCell sortable data-testid="th">Header</DataTableHeaderCell></tr></thead><tbody><tr><td>Cell</td></tr></tbody></table>,
+      <table><thead><tr><DatatableHeaderCell sortable data-testid="th">Header</DatatableHeaderCell></tr></thead><tbody><tr><td>Cell</td></tr></tbody></table>,
     )
-    expect(screen.getByTestId("th").className).toContain("pm-data-table__header-cell--sortable")
+    expect(screen.getByTestId("th").className).toContain("pm-datatable__header-cell--sortable")
   })
 
   it("sets aria-sort for ascending", () => {
     render(
-      <table><thead><tr><DataTableHeaderCell sortable sortDirection="asc" data-testid="th">Header</DataTableHeaderCell></tr></thead><tbody><tr><td>Cell</td></tr></tbody></table>,
+      <table><thead><tr><DatatableHeaderCell sortable sortDirection="asc" data-testid="th">Header</DatatableHeaderCell></tr></thead><tbody><tr><td>Cell</td></tr></tbody></table>,
     )
     expect(screen.getByTestId("th")).toHaveAttribute("aria-sort", "ascending")
   })
 })
 
-describe("DataTableRow", () => {
+describe("DatatableRow", () => {
   it("renders with row class", () => {
     render(
-      <table><tbody><DataTableRow data-testid="row"><td>Cell</td></DataTableRow></tbody></table>,
+      <table><tbody><DatatableRow data-testid="row"><td>Cell</td></DatatableRow></tbody></table>,
     )
-    expect(screen.getByTestId("row").className).toContain("pm-data-table__row")
+    expect(screen.getByTestId("row").className).toContain("pm-datatable__row")
   })
 })
 
-describe("DataTableCell", () => {
+describe("DatatableCell", () => {
   it("renders with cell class", () => {
     render(
-      <table><tbody><tr><DataTableCell data-testid="td">Cell</DataTableCell></tr></tbody></table>,
+      <table><tbody><tr><DatatableCell data-testid="td">Cell</DatatableCell></tr></tbody></table>,
     )
-    expect(screen.getByTestId("td").className).toContain("pm-data-table__cell")
+    expect(screen.getByTestId("td").className).toContain("pm-datatable__cell")
   })
 })
 
-describe("DataTablePagination", () => {
+describe("DatatablePagination", () => {
   it("renders with pagination class", () => {
-    render(<DataTablePagination data-testid="pagination">Pagination</DataTablePagination>)
-    expect(screen.getByTestId("pagination").className).toContain("pm-data-table__pagination")
+    render(<DatatablePagination data-testid="pagination">Pagination</DatatablePagination>)
+    expect(screen.getByTestId("pagination").className).toContain("pm-datatable__pagination")
   })
 })

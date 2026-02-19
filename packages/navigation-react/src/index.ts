@@ -3,19 +3,19 @@ export { Link } from "./link/link.js"
 export type { ReactLinkProps } from "./link/link.js"
 
 // Skip Nav Link
-export { SkipNavLink } from "./skip-nav-link/skip-nav-link.js"
-export type { ReactSkipNavLinkProps } from "./skip-nav-link/skip-nav-link.js"
+export { SkipLink } from "./skip-nav-link/skip-nav-link.js"
+export type { ReactSkipLinkProps } from "./skip-nav-link/skip-nav-link.js"
 
 // Back to Top
-export { BackToTop } from "./back-to-top/back-to-top.js"
-export type { ReactBackToTopProps } from "./back-to-top/back-to-top.js"
+export { Btt } from "./back-to-top/back-to-top.js"
+export type { ReactBttProps } from "./back-to-top/back-to-top.js"
 
-// Breadcrumbs
-export { Breadcrumbs, BreadcrumbsItem, BreadcrumbsLink } from "./breadcrumbs/breadcrumbs.js"
+// Breadcrumb
+export { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "./breadcrumbs/breadcrumbs.js"
 export type {
-  ReactBreadcrumbsProps,
-  ReactBreadcrumbsItemProps,
-  ReactBreadcrumbsLinkProps,
+  ReactBreadcrumbProps,
+  ReactBreadcrumbItemProps,
+  ReactBreadcrumbLinkProps,
 } from "./breadcrumbs/breadcrumbs.js"
 
 // Tabs
@@ -56,19 +56,19 @@ export type { ReactMenubarProps, ReactMenubarItemProps } from "./menubar/menubar
 
 // Dropdown Menu
 export {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
+  Dropdown,
+  DropdownTrigger,
+  DropdownContent,
 } from "./dropdown-menu/dropdown-menu.js"
 export type {
-  ReactDropdownMenuProps,
-  ReactDropdownMenuTriggerProps,
-  ReactDropdownMenuContentProps,
+  ReactDropdownProps,
+  ReactDropdownTriggerProps,
+  ReactDropdownContentProps,
 } from "./dropdown-menu/dropdown-menu.js"
 
 // Context Menu
-export { ContextMenu } from "./context-menu/context-menu.js"
-export type { ReactContextMenuProps } from "./context-menu/context-menu.js"
+export { CtxMenu } from "./context-menu/context-menu.js"
+export type { ReactCtxMenuProps } from "./context-menu/context-menu.js"
 
 // Navbar
 export {
@@ -102,18 +102,18 @@ export type {
 
 // Tree View
 export {
-  TreeView,
-  TreeViewBranch,
-  TreeViewItem,
-  TreeViewItemContent,
-  TreeViewIndicator,
-  TreeViewGroup,
+  Tree,
+  TreeBranch,
+  TreeItem,
+  TreeItemContent,
+  TreeIndicator,
+  TreeGroup,
 } from "./tree-view/tree-view.js"
 export type {
-  ReactTreeViewProps,
-  ReactTreeViewBranchProps,
-  ReactTreeViewItemProps,
-  ReactTreeViewItemContentProps,
-  ReactTreeViewIndicatorProps,
-  ReactTreeViewGroupProps,
+  ReactTreeProps,
+  ReactTreeBranchProps,
+  ReactTreeItemProps,
+  ReactTreeItemContentProps,
+  ReactTreeIndicatorProps,
+  ReactTreeGroupProps,
 } from "./tree-view/tree-view.js"

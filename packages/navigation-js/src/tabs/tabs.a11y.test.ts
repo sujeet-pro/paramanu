@@ -8,7 +8,7 @@ function createTabsHTML(
 ): string {
   const rootClasses = tabsClasses(options)
   const listClasses = tabListClasses()
-  const tabButtons = tabs
+  const tabBtns = tabs
     .map((tab) => {
       const cls = tabClasses({ active: tab.active, disabled: tab.disabled })
       const selected = tab.active ? "true" : "false"
@@ -23,7 +23,7 @@ function createTabsHTML(
       return `<div role="tabpanel" class="${cls}" id="panel-${tab.id}" aria-labelledby="tab-${tab.id}"${hidden}>Content for ${tab.label}</div>`
     })
     .join("")
-  return `<div class="${rootClasses}"><div role="tablist" class="${listClasses}">${tabButtons}</div>${panels}</div>`
+  return `<div class="${rootClasses}"><div role="tablist" class="${listClasses}">${tabBtns}</div>${panels}</div>`
 }
 
 describe("tabs accessibility", () => {

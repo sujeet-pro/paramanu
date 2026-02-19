@@ -1,16 +1,16 @@
 import { forwardRef } from "react"
-import { structuredListClasses } from "@paramanu/data-display-js"
-import type { StructuredListProps } from "@paramanu/data-display-js"
+import { structListClasses } from "@paramanu/data-display-js"
+import type { StructListProps } from "@paramanu/data-display-js"
 
-export interface ReactStructuredListProps
-  extends StructuredListProps,
+export interface ReactStructListProps
+  extends StructListProps,
     React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const StructuredList = forwardRef<HTMLDivElement, ReactStructuredListProps>(
-  function StructuredList({ size, selectable, bordered, className, children, ...rest }, ref) {
-    const classes = structuredListClasses({ size, selectable, bordered })
+export const StructList = forwardRef<HTMLDivElement, ReactStructListProps>(
+  function StructList({ size, selectable, bordered, className, children, ...rest }, ref) {
+    const classes = structListClasses({ size, selectable, bordered })
     const combinedClassName = className ? `${classes.root} ${className}` : classes.root
 
     return (
@@ -21,13 +21,13 @@ export const StructuredList = forwardRef<HTMLDivElement, ReactStructuredListProp
   },
 )
 
-export interface ReactStructuredListHeadProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactStructListHeadProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const StructuredListHead = forwardRef<HTMLDivElement, ReactStructuredListHeadProps>(
-  function StructuredListHead({ className, children, ...rest }, ref) {
-    const classes = structuredListClasses()
+export const StructListHead = forwardRef<HTMLDivElement, ReactStructListHeadProps>(
+  function StructListHead({ className, children, ...rest }, ref) {
+    const classes = structListClasses()
     const combinedClassName = className ? `${classes.head} ${className}` : classes.head
 
     return (
@@ -38,13 +38,13 @@ export const StructuredListHead = forwardRef<HTMLDivElement, ReactStructuredList
   },
 )
 
-export interface ReactStructuredListBodyProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactStructListBodyProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const StructuredListBody = forwardRef<HTMLDivElement, ReactStructuredListBodyProps>(
-  function StructuredListBody({ className, children, ...rest }, ref) {
-    const classes = structuredListClasses()
+export const StructListBody = forwardRef<HTMLDivElement, ReactStructListBodyProps>(
+  function StructListBody({ className, children, ...rest }, ref) {
+    const classes = structListClasses()
     const combinedClassName = className ? `${classes.body} ${className}` : classes.body
 
     return (
@@ -55,13 +55,13 @@ export const StructuredListBody = forwardRef<HTMLDivElement, ReactStructuredList
   },
 )
 
-export interface ReactStructuredListRowProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactStructListRowProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const StructuredListRow = forwardRef<HTMLDivElement, ReactStructuredListRowProps>(
-  function StructuredListRow({ className, children, ...rest }, ref) {
-    const classes = structuredListClasses()
+export const StructListRow = forwardRef<HTMLDivElement, ReactStructListRowProps>(
+  function StructListRow({ className, children, ...rest }, ref) {
+    const classes = structListClasses()
     const combinedClassName = className ? `${classes.row} ${className}` : classes.row
 
     return (
@@ -72,13 +72,13 @@ export const StructuredListRow = forwardRef<HTMLDivElement, ReactStructuredListR
   },
 )
 
-export interface ReactStructuredListCellProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactStructListCellProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const StructuredListCell = forwardRef<HTMLDivElement, ReactStructuredListCellProps>(
-  function StructuredListCell({ className, children, ...rest }, ref) {
-    const classes = structuredListClasses()
+export const StructListCell = forwardRef<HTMLDivElement, ReactStructListCellProps>(
+  function StructListCell({ className, children, ...rest }, ref) {
+    const classes = structListClasses()
     const combinedClassName = className ? `${classes.cell} ${className}` : classes.cell
 
     return (
@@ -89,15 +89,15 @@ export const StructuredListCell = forwardRef<HTMLDivElement, ReactStructuredList
   },
 )
 
-export interface ReactStructuredListHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactStructListHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const StructuredListHeaderCell = forwardRef<
+export const StructListHeaderCell = forwardRef<
   HTMLDivElement,
-  ReactStructuredListHeaderCellProps
->(function StructuredListHeaderCell({ className, children, ...rest }, ref) {
-  const classes = structuredListClasses()
+  ReactStructListHeaderCellProps
+>(function StructListHeaderCell({ className, children, ...rest }, ref) {
+  const classes = structListClasses()
   const combinedClassName = className ? `${classes.headerCell} ${className}` : classes.headerCell
 
   return (

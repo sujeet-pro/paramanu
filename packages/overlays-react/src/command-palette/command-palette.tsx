@@ -1,23 +1,23 @@
 import { forwardRef, useEffect } from "react"
 import {
-  commandPaletteClasses,
+  cmdPaletteClasses,
   commandPaletteInputClasses,
   commandPaletteListClasses,
-  commandPaletteItemClasses,
+  cmdPaletteItemClasses,
   commandPaletteGroupClasses,
   commandPaletteEmptyClasses,
 } from "@paramanu/overlays-js"
-import type { CommandPaletteItemClassesOptions } from "@paramanu/overlays-js"
+import type { CmdPaletteItemClassesOptions } from "@paramanu/overlays-js"
 
-export interface ReactCommandPaletteProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactCmdPaletteProps extends React.HTMLAttributes<HTMLDivElement> {
   open?: boolean
   onClose?: () => void
   children?: React.ReactNode
 }
 
-export const CommandPalette = forwardRef<HTMLDivElement, ReactCommandPaletteProps>(
-  function CommandPalette({ open = false, onClose, className, children, ...rest }, ref) {
-    const classes = commandPaletteClasses()
+export const CmdPalette = forwardRef<HTMLDivElement, ReactCmdPaletteProps>(
+  function CmdPalette({ open = false, onClose, className, children, ...rest }, ref) {
+    const classes = cmdPaletteClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     useEffect(() => {
@@ -39,11 +39,11 @@ export const CommandPalette = forwardRef<HTMLDivElement, ReactCommandPaletteProp
   },
 )
 
-export interface ReactCommandPaletteInputProps
+export interface ReactCmdPaletteInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-export const CommandPaletteInput = forwardRef<HTMLInputElement, ReactCommandPaletteInputProps>(
-  function CommandPaletteInput({ className, ...rest }, ref) {
+export const CmdPaletteInput = forwardRef<HTMLInputElement, ReactCmdPaletteInputProps>(
+  function CmdPaletteInput({ className, ...rest }, ref) {
     const classes = commandPaletteInputClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
 
@@ -60,12 +60,12 @@ export const CommandPaletteInput = forwardRef<HTMLInputElement, ReactCommandPale
   },
 )
 
-export interface ReactCommandPaletteListProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactCmdPaletteListProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const CommandPaletteList = forwardRef<HTMLDivElement, ReactCommandPaletteListProps>(
-  function CommandPaletteList({ className, children, ...rest }, ref) {
+export const CmdPaletteList = forwardRef<HTMLDivElement, ReactCmdPaletteListProps>(
+  function CmdPaletteList({ className, children, ...rest }, ref) {
     const classes = commandPaletteListClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
 
@@ -77,16 +77,16 @@ export const CommandPaletteList = forwardRef<HTMLDivElement, ReactCommandPalette
   },
 )
 
-export interface ReactCommandPaletteItemProps
-  extends CommandPaletteItemClassesOptions,
+export interface ReactCmdPaletteItemProps
+  extends CmdPaletteItemClassesOptions,
     React.HTMLAttributes<HTMLDivElement> {
   value?: string
   children?: React.ReactNode
 }
 
-export const CommandPaletteItem = forwardRef<HTMLDivElement, ReactCommandPaletteItemProps>(
-  function CommandPaletteItem({ active, value, className, children, ...rest }, ref) {
-    const classes = commandPaletteItemClasses({ active })
+export const CmdPaletteItem = forwardRef<HTMLDivElement, ReactCmdPaletteItemProps>(
+  function CmdPaletteItem({ active, value, className, children, ...rest }, ref) {
+    const classes = cmdPaletteItemClasses({ active })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     return (
@@ -104,12 +104,12 @@ export const CommandPaletteItem = forwardRef<HTMLDivElement, ReactCommandPalette
   },
 )
 
-export interface ReactCommandPaletteGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactCmdPaletteGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const CommandPaletteGroup = forwardRef<HTMLDivElement, ReactCommandPaletteGroupProps>(
-  function CommandPaletteGroup({ className, children, ...rest }, ref) {
+export const CmdPaletteGroup = forwardRef<HTMLDivElement, ReactCmdPaletteGroupProps>(
+  function CmdPaletteGroup({ className, children, ...rest }, ref) {
     const classes = commandPaletteGroupClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
 
@@ -121,12 +121,12 @@ export const CommandPaletteGroup = forwardRef<HTMLDivElement, ReactCommandPalett
   },
 )
 
-export interface ReactCommandPaletteEmptyProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactCmdPaletteEmptyProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const CommandPaletteEmpty = forwardRef<HTMLDivElement, ReactCommandPaletteEmptyProps>(
-  function CommandPaletteEmpty({ className, children, ...rest }, ref) {
+export const CmdPaletteEmpty = forwardRef<HTMLDivElement, ReactCmdPaletteEmptyProps>(
+  function CmdPaletteEmpty({ className, children, ...rest }, ref) {
     const classes = commandPaletteEmptyClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
 

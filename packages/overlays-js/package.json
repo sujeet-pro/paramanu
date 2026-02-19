@@ -1,7 +1,9 @@
 {
   "name": "@paramanu/overlays-js",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-alpha.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -9,7 +11,17 @@
       "import": "./dist/js/index.js"
     },
     "./css": "./dist/css/overlays.css",
-    "./css/layers": "./dist/css/overlays.layers.css",
+    "./css/min": "./dist/css/overlays.min.css",
+    "./css/alert-dialog": "./dist/css/alert-dialog.css",
+    "./css/backdrop": "./dist/css/backdrop.css",
+    "./css/command-palette": "./dist/css/command-palette.css",
+    "./css/dialog": "./dist/css/dialog.css",
+    "./css/drawer": "./dist/css/drawer.css",
+    "./css/hover-card": "./dist/css/hover-card.css",
+    "./css/inline-dialog": "./dist/css/inline-dialog.css",
+    "./css/popover": "./dist/css/popover.css",
+    "./css/sheet": "./dist/css/sheet.css",
+    "./css/tooltip": "./dist/css/tooltip.css",
     "./modules/backdrop/map": {
       "types": "./dist/css/backdrop.module.d.ts",
       "import": "./dist/css/backdrop.module.js"
@@ -51,7 +63,9 @@
       "import": "./dist/css/command-palette.module.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsx css.build.ts && tsup",
     "test": "vitest run",

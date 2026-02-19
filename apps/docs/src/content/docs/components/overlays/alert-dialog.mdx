@@ -1,10 +1,18 @@
 ---
 title: Alert Dialog
 description: A modal dialog that requires explicit user action to dismiss.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 Alert Dialog is a modal that requires explicit user action to dismiss. Unlike Dialog, it does not close on backdrop click. Uses `role="alertdialog"`.
 
@@ -14,26 +22,26 @@ Alert Dialog is a modal that requires explicit user action to dismiss. Unlike Di
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-alert-dialog pm-alert-dialog--danger" role="alertdialog" aria-modal="true">
-  <div class="pm-alert-dialog__header">Delete Item?</div>
-  <div class="pm-alert-dialog__body">This action cannot be undone.</div>
-  <div class="pm-alert-dialog__footer">
+  htmlCode={`<div class="pm-alertdialog pm-alertdialog--danger" role="alertdialog" aria-modal="true">
+  <div class="pm-alertdialog__header">Delete Item?</div>
+  <div class="pm-alertdialog__body">This action cannot be undone.</div>
+  <div class="pm-alertdialog__footer">
     <button>Cancel</button>
     <button>Delete</button>
   </div>
 </div>`}
-  reactCode={`import { AlertDialog, AlertDialogHeader, AlertDialogBody, AlertDialogFooter } from "@paramanu/overlays-react"
+  reactCode={`import { Alertdialog, AlertdialogHeader, AlertdialogBody, AlertdialogFooter } from "@paramanu/overlays-react"
 
 export default function App() {
   return (
-    <AlertDialog open variant="danger" onClose={() => {}}>
-      <AlertDialogHeader>Delete Item?</AlertDialogHeader>
-      <AlertDialogBody>This action cannot be undone.</AlertDialogBody>
-      <AlertDialogFooter>
+    <Alertdialog open variant="danger" onClose={() => {}}>
+      <AlertdialogHeader>Delete Item?</AlertdialogHeader>
+      <AlertdialogBody>This action cannot be undone.</AlertdialogBody>
+      <AlertdialogFooter>
         <button>Cancel</button>
         <button>Delete</button>
-      </AlertDialogFooter>
-    </AlertDialog>
+      </AlertdialogFooter>
+    </Alertdialog>
   )
 }`}
 />

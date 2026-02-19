@@ -3,32 +3,32 @@ export { linkClasses, linkModuleClasses } from "./link/link.classes.js"
 export type { LinkVariant, LinkClassesOptions, LinkProps } from "./link/link.types.js"
 
 // Skip Nav Link
-export { skipNavLinkClasses, skipNavLinkModuleClasses } from "./skip-nav-link/skip-nav-link.classes.js"
-export type { SkipNavLinkClassesOptions, SkipNavLinkProps } from "./skip-nav-link/skip-nav-link.types.js"
+export { skipLinkClasses, skipLinkModuleClasses } from "./skip-nav-link/skip-nav-link.classes.js"
+export type { SkipLinkClassesOptions, SkipLinkProps } from "./skip-nav-link/skip-nav-link.types.js"
 
 // Back to Top
-export { backToTopClasses, backToTopModuleClasses } from "./back-to-top/back-to-top.classes.js"
+export { bttClasses, bttModuleClasses } from "./back-to-top/back-to-top.classes.js"
 export type {
-  BackToTopSize,
-  BackToTopPosition,
-  BackToTopClassesOptions,
-  BackToTopProps,
+  BttSize,
+  BttPosition,
+  BttClassesOptions,
+  BttProps,
 } from "./back-to-top/back-to-top.types.js"
 
-// Breadcrumbs
+// Breadcrumb
 export {
-  breadcrumbsClasses,
-  breadcrumbsModuleClasses,
-  breadcrumbsItemClasses,
-  breadcrumbsItemModuleClasses,
+  breadcrumbClasses,
+  breadcrumbModuleClasses,
+  breadcrumbItemClasses,
+  breadcrumbItemModuleClasses,
   breadcrumbsLinkClasses,
   breadcrumbsLinkModuleClasses,
 } from "./breadcrumbs/breadcrumbs.classes.js"
 export type {
-  BreadcrumbsSeparator,
-  BreadcrumbsClassesOptions,
-  BreadcrumbsItemClassesOptions,
-  BreadcrumbsLinkClassesOptions,
+  BreadcrumbSeparator,
+  BreadcrumbClassesOptions,
+  BreadcrumbItemClassesOptions,
+  BreadcrumbLinkClassesOptions,
 } from "./breadcrumbs/breadcrumbs.types.js"
 
 // Tabs
@@ -117,26 +117,26 @@ export type { MenubarItemClassesOptions } from "./menubar/menubar.types.js"
 
 // Dropdown Menu
 export {
-  dropdownMenuClasses,
-  dropdownMenuModuleClasses,
+  dropdownClasses,
+  dropdownModuleClasses,
   dropdownMenuTriggerClasses,
   dropdownMenuTriggerModuleClasses,
   dropdownMenuContentClasses,
   dropdownMenuContentModuleClasses,
 } from "./dropdown-menu/dropdown-menu.classes.js"
 export type {
-  DropdownMenuSize,
-  DropdownMenuClassesOptions,
+  DropdownSize,
+  DropdownClassesOptions,
 } from "./dropdown-menu/dropdown-menu.types.js"
 
 // Context Menu
 export {
-  contextMenuClasses,
-  contextMenuModuleClasses,
+  ctxMenuClasses,
+  ctxMenuModuleClasses,
 } from "./context-menu/context-menu.classes.js"
 export type {
-  ContextMenuSize,
-  ContextMenuClassesOptions,
+  CtxMenuSize,
+  CtxMenuClassesOptions,
 } from "./context-menu/context-menu.types.js"
 
 // Navbar
@@ -180,12 +180,12 @@ export type {
 
 // Tree View
 export {
-  treeViewClasses,
-  treeViewModuleClasses,
+  treeClasses,
+  treeModuleClasses,
   treeViewBranchClasses,
   treeViewBranchModuleClasses,
-  treeViewItemClasses,
-  treeViewItemModuleClasses,
+  treeItemClasses,
+  treeItemModuleClasses,
   treeViewItemContentClasses,
   treeViewItemContentModuleClasses,
   treeViewIndicatorClasses,
@@ -194,9 +194,9 @@ export {
   treeViewGroupModuleClasses,
 } from "./tree-view/tree-view.classes.js"
 export type {
-  TreeViewSize,
-  TreeViewClassesOptions,
-  TreeViewBranchClassesOptions,
-  TreeViewItemClassesOptions,
-  TreeViewIndicatorClassesOptions,
+  TreeSize,
+  TreeClassesOptions,
+  TreeBranchClassesOptions,
+  TreeItemClassesOptions,
+  TreeIndicatorClassesOptions,
 } from "./tree-view/tree-view.types.js"

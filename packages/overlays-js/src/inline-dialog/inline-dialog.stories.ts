@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { inlineDialogClasses, inlineDialogBodyClasses } from "./inline-dialog.classes.js"
-import type { InlineDialogClassesOptions } from "./inline-dialog.types.js"
+import { inlineDlgClasses, inlineDialogBodyClasses } from "./inline-dialog.classes.js"
+import type { InlineDlgClassesOptions } from "./inline-dialog.types.js"
 
-function createInlineDialog(args: InlineDialogClassesOptions): HTMLElement {
+function createInlineDlg(args: InlineDlgClassesOptions): HTMLElement {
   const wrapper = document.createElement("div")
   wrapper.style.padding = "40px"
 
@@ -12,7 +12,7 @@ function createInlineDialog(args: InlineDialogClassesOptions): HTMLElement {
   wrapper.appendChild(trigger)
 
   const dialog = document.createElement("div")
-  dialog.className = inlineDialogClasses(args)
+  dialog.className = inlineDlgClasses(args)
   dialog.setAttribute("role", "dialog")
 
   const body = document.createElement("div")
@@ -25,17 +25,17 @@ function createInlineDialog(args: InlineDialogClassesOptions): HTMLElement {
 }
 
 const meta = {
-  title: "Overlays/InlineDialog",
-  tags: ["autodocs", "stable"],
-  render: (args) => createInlineDialog(args as InlineDialogClassesOptions),
+  title: "Overlays/InlineDlg",
+  tags: ["autodocs", "beta"],
+  render: (args) => createInlineDlg(args as InlineDlgClassesOptions),
   argTypes: {
     visible: { control: "boolean" },
   },
   args: { visible: true },
-} satisfies Meta<InlineDialogClassesOptions>
+} satisfies Meta<InlineDlgClassesOptions>
 
 export default meta
-type Story = StoryObj<InlineDialogClassesOptions>
+type Story = StoryObj<InlineDlgClassesOptions>
 
 export const Playground: Story = {}
 export const Hidden: Story = { args: { visible: false } }

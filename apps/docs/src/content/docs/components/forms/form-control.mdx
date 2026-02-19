@@ -1,10 +1,18 @@
 ---
 title: Form Control
 description: A wrapper that groups a label, input, and helper or error text.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 The Form Control groups a label, input, and helper/error text into a single accessible unit.
 
@@ -14,8 +22,8 @@ The Form Control groups a label, input, and helper/error text into a single acce
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-form-control pm-form-control--vertical" role="group">...</div>`}
-  reactCode={`import { FormControl } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <FormControl helperText="Enter your name">\n      <label>Name</label>\n      <input />\n    </FormControl>\n  )\n}`}
+  htmlCode={`<div class="pm-form-ctrl pm-form-ctrl--vertical" role="group">...</div>`}
+  reactCode={`import { FormCtrl } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <FormCtrl helperText="Enter your name">\n      <label>Name</label>\n      <input />\n    </FormCtrl>\n  )\n}`}
 />
 
 </TabItem>

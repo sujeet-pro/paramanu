@@ -5,7 +5,7 @@ import { Alert } from "./alert.js"
 const meta = {
   title: "Feedback/Alert",
   component: Alert,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: {
       control: "select",
@@ -123,8 +123,8 @@ export const DismissClick: Story = {
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement)
-    const closeButton = canvas.getByRole("button", { name: "Close" })
-    await userEvent.click(closeButton)
+    const closeBtn = canvas.getByRole("button", { name: "Close" })
+    await userEvent.click(closeBtn)
     await expect(args.onClose).toHaveBeenCalledTimes(1)
   },
 }

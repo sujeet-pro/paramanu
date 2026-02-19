@@ -5,7 +5,7 @@ import { Affix } from "./affix.js"
 const meta = {
   title: "Utilities/Affix",
   component: Affix,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     position: {
       control: "select",

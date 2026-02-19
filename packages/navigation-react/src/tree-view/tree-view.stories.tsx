@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
 import {
-  TreeView,
-  TreeViewBranch,
-  TreeViewItem,
-  TreeViewItemContent,
-  TreeViewIndicator,
-  TreeViewGroup,
+  Tree,
+  TreeBranch,
+  TreeItem,
+  TreeItemContent,
+  TreeIndicator,
+  TreeGroup,
 } from "./tree-view.js"
 
 const meta = {
   title: "Navigation/Tree View",
-  component: TreeView,
-  tags: ["autodocs", "stable"],
+  component: Tree,
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: {
       control: "select",
@@ -22,86 +22,86 @@ const meta = {
   args: {
     size: "md",
   },
-} satisfies Meta<typeof TreeView>
+} satisfies Meta<typeof Tree>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   render: (args) => (
-    <TreeView {...args}>
-      <TreeViewBranch expanded>
-        <TreeViewItemContent>
-          <TreeViewIndicator expanded />
+    <Tree {...args}>
+      <TreeBranch expanded>
+        <TreeItemContent>
+          <TreeIndicator expanded />
           src
-        </TreeViewItemContent>
-        <TreeViewGroup>
-          <TreeViewItem>index.ts</TreeViewItem>
-          <TreeViewBranch>
-            <TreeViewItemContent>
-              <TreeViewIndicator />
+        </TreeItemContent>
+        <TreeGroup>
+          <TreeItem>index.ts</TreeItem>
+          <TreeBranch>
+            <TreeItemContent>
+              <TreeIndicator />
               components
-            </TreeViewItemContent>
-          </TreeViewBranch>
-        </TreeViewGroup>
-      </TreeViewBranch>
-      <TreeViewItem>package.json</TreeViewItem>
-      <TreeViewItem>README.md</TreeViewItem>
-    </TreeView>
+            </TreeItemContent>
+          </TreeBranch>
+        </TreeGroup>
+      </TreeBranch>
+      <TreeItem>package.json</TreeItem>
+      <TreeItem>README.md</TreeItem>
+    </Tree>
   ),
 }
 
 export const Default: Story = {
   render: () => (
-    <TreeView>
-      <TreeViewItem>File 1</TreeViewItem>
-      <TreeViewItem>File 2</TreeViewItem>
-      <TreeViewItem>File 3</TreeViewItem>
-    </TreeView>
+    <Tree>
+      <TreeItem>File 1</TreeItem>
+      <TreeItem>File 2</TreeItem>
+      <TreeItem>File 3</TreeItem>
+    </Tree>
   ),
 }
 
 export const Small: Story = {
   args: { size: "sm" },
   render: (args) => (
-    <TreeView {...args}>
-      <TreeViewItem>Small Item 1</TreeViewItem>
-      <TreeViewItem>Small Item 2</TreeViewItem>
-    </TreeView>
+    <Tree {...args}>
+      <TreeItem>Small Item 1</TreeItem>
+      <TreeItem>Small Item 2</TreeItem>
+    </Tree>
   ),
 }
 
 export const NestedBranches: Story = {
   render: () => (
-    <TreeView>
-      <TreeViewBranch expanded>
-        <TreeViewItemContent>
-          <TreeViewIndicator expanded />
+    <Tree>
+      <TreeBranch expanded>
+        <TreeItemContent>
+          <TreeIndicator expanded />
           Level 1
-        </TreeViewItemContent>
-        <TreeViewGroup>
-          <TreeViewBranch expanded>
-            <TreeViewItemContent>
-              <TreeViewIndicator expanded />
+        </TreeItemContent>
+        <TreeGroup>
+          <TreeBranch expanded>
+            <TreeItemContent>
+              <TreeIndicator expanded />
               Level 2
-            </TreeViewItemContent>
-            <TreeViewGroup>
-              <TreeViewItem>Leaf</TreeViewItem>
-            </TreeViewGroup>
-          </TreeViewBranch>
-        </TreeViewGroup>
-      </TreeViewBranch>
-    </TreeView>
+            </TreeItemContent>
+            <TreeGroup>
+              <TreeItem>Leaf</TreeItem>
+            </TreeGroup>
+          </TreeBranch>
+        </TreeGroup>
+      </TreeBranch>
+    </Tree>
   ),
 }
 
 export const WithSelection: Story = {
   render: () => (
-    <TreeView>
-      <TreeViewItem selected>Selected Item</TreeViewItem>
-      <TreeViewItem>Normal Item</TreeViewItem>
-      <TreeViewItem disabled>Disabled Item</TreeViewItem>
-    </TreeView>
+    <Tree>
+      <TreeItem selected>Selected Item</TreeItem>
+      <TreeItem>Normal Item</TreeItem>
+      <TreeItem disabled>Disabled Item</TreeItem>
+    </Tree>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -114,17 +114,17 @@ export const ExpandCollapse: Story = {
   render: () => {
     const onClick = fn()
     return (
-      <TreeView>
-        <TreeViewBranch expanded onClick={onClick}>
-          <TreeViewItemContent>
-            <TreeViewIndicator expanded />
+      <Tree>
+        <TreeBranch expanded onClick={onClick}>
+          <TreeItemContent>
+            <TreeIndicator expanded />
             Expandable
-          </TreeViewItemContent>
-          <TreeViewGroup>
-            <TreeViewItem>Child</TreeViewItem>
-          </TreeViewGroup>
-        </TreeViewBranch>
-      </TreeView>
+          </TreeItemContent>
+          <TreeGroup>
+            <TreeItem>Child</TreeItem>
+          </TreeGroup>
+        </TreeBranch>
+      </Tree>
     )
   },
   play: async ({ canvasElement }) => {
@@ -136,17 +136,17 @@ export const ExpandCollapse: Story = {
 
 export const Accessibility: Story = {
   render: () => (
-    <TreeView>
-      <TreeViewBranch expanded>
-        <TreeViewItemContent>
-          <TreeViewIndicator expanded />
+    <Tree>
+      <TreeBranch expanded>
+        <TreeItemContent>
+          <TreeIndicator expanded />
           Folder
-        </TreeViewItemContent>
-        <TreeViewGroup>
-          <TreeViewItem>File</TreeViewItem>
-        </TreeViewGroup>
-      </TreeViewBranch>
-    </TreeView>
+        </TreeItemContent>
+        <TreeGroup>
+          <TreeItem>File</TreeItem>
+        </TreeGroup>
+      </TreeBranch>
+    </Tree>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -157,20 +157,20 @@ export const Accessibility: Story = {
 
 export const Hover: Story = {
   render: (args) => (
-    <TreeView {...args}>
-      <TreeViewItem>Item 1</TreeViewItem>
-      <TreeViewItem>Item 2</TreeViewItem>
-    </TreeView>
+    <Tree {...args}>
+      <TreeItem>Item 1</TreeItem>
+      <TreeItem>Item 2</TreeItem>
+    </Tree>
   ),
   parameters: { pseudo: { hover: true } },
 }
 
 export const FocusVisible: Story = {
   render: (args) => (
-    <TreeView {...args}>
-      <TreeViewItem>Item 1</TreeViewItem>
-      <TreeViewItem>Item 2</TreeViewItem>
-    </TreeView>
+    <Tree {...args}>
+      <TreeItem>Item 1</TreeItem>
+      <TreeItem>Item 2</TreeItem>
+    </Tree>
   ),
   parameters: { pseudo: { focusVisible: true } },
 }

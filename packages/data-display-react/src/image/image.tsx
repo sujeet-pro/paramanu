@@ -1,20 +1,20 @@
 import { forwardRef, useState } from "react"
-import { imageClasses } from "@paramanu/data-display-js"
-import type { ImageProps } from "@paramanu/data-display-js"
+import { imgClasses } from "@paramanu/data-display-js"
+import type { ImgProps } from "@paramanu/data-display-js"
 
-export interface ReactImageProps
-  extends ImageProps,
+export interface ReactImgProps
+  extends ImgProps,
     Omit<React.HTMLAttributes<HTMLElement>, "children"> {
   children?: React.ReactNode
 }
 
-export const Image = forwardRef<HTMLElement, ReactImageProps>(function Image(
+export const Img = forwardRef<HTMLElement, ReactImgProps>(function Img(
   { fit, radius, fallback, loading, src, alt, caption, className, children, ...rest },
   ref,
 ) {
   const [hasError, setHasError] = useState(false)
   const showFallback = fallback && (hasError || !src)
-  const classes = imageClasses({ fit, radius, fallback: showFallback, loading })
+  const classes = imgClasses({ fit, radius, fallback: showFallback, loading })
   const combinedClassName = className ? `${classes.root} ${className}` : classes.root
 
   return (

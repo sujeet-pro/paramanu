@@ -1,23 +1,23 @@
 import { forwardRef } from "react"
-import { multiSelectClasses } from "@paramanu/forms-js"
-import type { MultiSelectProps } from "@paramanu/forms-js"
+import { multiSelClasses } from "@paramanu/forms-js"
+import type { MultiSelProps } from "@paramanu/forms-js"
 
-export interface ReactMultiSelectProps extends MultiSelectProps, React.HTMLAttributes<HTMLDivElement> {
+export interface ReactMultiSelProps extends MultiSelProps, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
   placeholder?: string
 }
 
-export const MultiSelect = forwardRef<HTMLDivElement, ReactMultiSelectProps>(function MultiSelect(
+export const MultiSel = forwardRef<HTMLDivElement, ReactMultiSelProps>(function MultiSel(
   { variant, size, disabled, invalid, open, fullWidth, className, children, placeholder, ...rest },
   ref,
 ) {
-  const classes = multiSelectClasses({ variant, size, disabled, invalid, open, fullWidth })
+  const classes = multiSelClasses({ variant, size, disabled, invalid, open, fullWidth })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (
     <div ref={ref} className={combinedClassName} {...rest}>
       <div
-        className="pm-multi-select__trigger"
+        className="pm-multi-sel__trigger"
         role="combobox"
         aria-expanded={open || false}
         aria-haspopup="listbox"
@@ -27,7 +27,7 @@ export const MultiSelect = forwardRef<HTMLDivElement, ReactMultiSelectProps>(fun
       >
         {placeholder && <span>{placeholder}</span>}
       </div>
-      <div className="pm-multi-select__listbox" role="listbox" aria-multiselectable="true">
+      <div className="pm-multi-sel__listbox" role="listbox" aria-multiselectable="true">
         {children}
       </div>
     </div>

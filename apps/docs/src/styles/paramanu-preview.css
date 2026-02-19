@@ -1,2 +1,6 @@
 /* Paramanu CSS for component previews in documentation */
+@import "@paramanu/tokens/css/layer-order";
+@import "@paramanu/tokens/css/reset";
+@import "@paramanu/tokens/css";
+@import "@paramanu/tokens/css/themes";
 @import "@paramanu/buttons-js/css";

@@ -1,16 +1,16 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
-import { toggleGroupClasses, toggleGroupItemClasses } from "./toggle-group.classes.js"
+import { toggleGrpClasses, toggleGrpItemClasses } from "./toggle-group.classes.js"
 
-function createToggleGroupHTML(
+function createToggleGrpHTML(
   items: { label: string; pressed?: boolean; disabled?: boolean }[],
-  groupOptions: Parameters<typeof toggleGroupClasses>[0] = {},
+  groupOptions: Parameters<typeof toggleGrpClasses>[0] = {},
   attrs: string = "",
 ): string {
-  const groupClassStr = toggleGroupClasses(groupOptions)
+  const groupClassStr = toggleGrpClasses(groupOptions)
   const itemsHtml = items
     .map((item) => {
-      const itemClassStr = toggleGroupItemClasses({
+      const itemClassStr = toggleGrpItemClasses({
         size: groupOptions?.size,
         pressed: item.pressed,
         disabled: item.disabled,
@@ -25,14 +25,14 @@ function createToggleGroupHTML(
 
 describe("toggle group accessibility", () => {
   it("renders with role=group", () => {
-    const html = createToggleGroupHTML([{ label: "Bold" }, { label: "Italic" }])
+    const html = createToggleGrpHTML([{ label: "Bold" }, { label: "Italic" }])
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const group = dom.window.document.querySelector('[role="group"]')
     expect(group).not.toBeNull()
   })
 
   it("supports aria-label for group description", () => {
-    const html = createToggleGroupHTML(
+    const html = createToggleGrpHTML(
       [{ label: "Bold" }, { label: "Italic" }],
       {},
       'aria-label="Text formatting"',
@@ -43,7 +43,7 @@ describe("toggle group accessibility", () => {
   })
 
   it("contains focusable button elements", () => {
-    const html = createToggleGroupHTML([{ label: "Bold" }, { label: "Italic" }])
+    const html = createToggleGrpHTML([{ label: "Bold" }, { label: "Italic" }])
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const buttons = dom.window.document.querySelectorAll("button")
     expect(buttons.length).toBe(2)
@@ -52,7 +52,7 @@ describe("toggle group accessibility", () => {
   })
 
   it("items have aria-pressed attribute", () => {
-    const html = createToggleGroupHTML([
+    const html = createToggleGrpHTML([
       { label: "Bold", pressed: true },
       { label: "Italic", pressed: false },
     ])
@@ -63,14 +63,14 @@ describe("toggle group accessibility", () => {
   })
 
   it("disabled items have aria-disabled", () => {
-    const html = createToggleGroupHTML([{ label: "Bold", disabled: true }])
+    const html = createToggleGrpHTML([{ label: "Bold", disabled: true }])
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const button = dom.window.document.querySelector("button")
     expect(button?.getAttribute("aria-disabled")).toBe("true")
   })
 
   it("renders as a div container (non-interactive)", () => {
-    const html = createToggleGroupHTML([{ label: "A" }])
+    const html = createToggleGrpHTML([{ label: "A" }])
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const group = dom.window.document.querySelector('[role="group"]')
     expect(group?.tagName).toBe("DIV")

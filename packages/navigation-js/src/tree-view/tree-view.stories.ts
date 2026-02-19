@@ -1,19 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
 import {
-  treeViewClasses,
+  treeClasses,
   treeViewBranchClasses,
-  treeViewItemClasses,
+  treeItemClasses,
   treeViewItemContentClasses,
   treeViewIndicatorClasses,
   treeViewGroupClasses,
 } from "./tree-view.classes.js"
-import type { TreeViewClassesOptions } from "./tree-view.types.js"
+import type { TreeClassesOptions } from "./tree-view.types.js"
 
-interface TreeViewArgs extends TreeViewClassesOptions {}
+interface TreeArgs extends TreeClassesOptions {}
 
-function createTreeView(args: TreeViewArgs): HTMLElement {
+function createTree(args: TreeArgs): HTMLElement {
   const tree = document.createElement("ul")
-  tree.className = treeViewClasses(args)
+  tree.className = treeClasses(args)
   tree.setAttribute("role", "tree")
 
   // Branch
@@ -39,7 +39,7 @@ function createTreeView(args: TreeViewArgs): HTMLElement {
 
   ;["index.ts", "utils.ts"].forEach((text) => {
     const item = document.createElement("li")
-    item.className = treeViewItemClasses()
+    item.className = treeItemClasses()
     item.setAttribute("role", "treeitem")
     item.textContent = text
     group.appendChild(item)
@@ -51,7 +51,7 @@ function createTreeView(args: TreeViewArgs): HTMLElement {
   // Leaf items
   ;["package.json", "README.md"].forEach((text) => {
     const item = document.createElement("li")
-    item.className = treeViewItemClasses()
+    item.className = treeItemClasses()
     item.setAttribute("role", "treeitem")
     item.textContent = text
     tree.appendChild(item)
@@ -62,8 +62,8 @@ function createTreeView(args: TreeViewArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Tree View",
-  tags: ["autodocs", "stable"],
-  render: (args) => createTreeView(args as TreeViewArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createTree(args as TreeArgs),
   argTypes: {
     size: {
       control: "select",
@@ -73,10 +73,10 @@ const meta = {
   args: {
     size: "md",
   },
-} satisfies Meta<TreeViewArgs>
+} satisfies Meta<TreeArgs>
 
 export default meta
-type Story = StoryObj<TreeViewArgs>
+type Story = StoryObj<TreeArgs>
 
 export const Playground: Story = {}
 

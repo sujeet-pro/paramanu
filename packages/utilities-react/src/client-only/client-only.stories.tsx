@@ -5,7 +5,7 @@ import { ClientOnly } from "./client-only.js"
 const meta = {
   title: "Utilities/ClientOnly",
   component: ClientOnly,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   args: {
     fallback: <div style={{ padding: "16px", background: "#f0f0f0" }}>Loading...</div>,
     children: (

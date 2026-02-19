@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("DropdownMenu Stories", () => {
+describe("Dropdown Stories", () => {
   it("Playground renders without crashing", () => {
     render(<composed.Playground />)
     expect(screen.getByRole("button", { name: "Options" })).toBeTruthy()

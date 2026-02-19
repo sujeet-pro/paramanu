@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { datePickerClasses } from "./date-picker.classes.js"
-import type { DatePickerClassesOptions } from "./date-picker.types.js"
+import { datepickerClasses } from "./date-picker.classes.js"
+import type { DatepickerClassesOptions } from "./date-picker.types.js"
 
-type DatePickerArgs = DatePickerClassesOptions & { placeholder: string }
+type DatepickerArgs = DatepickerClassesOptions & { placeholder: string }
 
-function createDatePicker(args: DatePickerArgs): HTMLElement {
+function createDatepicker(args: DatepickerArgs): HTMLElement {
   const wrapper = document.createElement("div")
-  wrapper.className = datePickerClasses(args)
+  wrapper.className = datepickerClasses(args)
 
   const input = document.createElement("input")
   input.type = "text"
-  input.className = "pm-date-picker__input"
+  input.className = "pm-datepicker__input"
   input.setAttribute("role", "combobox")
   input.setAttribute("aria-expanded", String(args.open || false))
   input.setAttribute("aria-haspopup", "dialog")
@@ -19,7 +19,7 @@ function createDatePicker(args: DatePickerArgs): HTMLElement {
   if (args.invalid) input.setAttribute("aria-invalid", "true")
 
   const icon = document.createElement("span")
-  icon.className = "pm-date-picker__icon"
+  icon.className = "pm-datepicker__icon"
   icon.setAttribute("aria-hidden", "true")
   icon.innerHTML = "&#128197;"
 
@@ -30,8 +30,8 @@ function createDatePicker(args: DatePickerArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Date Picker",
-  tags: ["autodocs", "stable"],
-  render: (args) => createDatePicker(args as DatePickerArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createDatepicker(args as DatepickerArgs),
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -41,10 +41,10 @@ const meta = {
     placeholder: { control: "text" },
   },
   args: { variant: "outline", size: "md", placeholder: "Select date..." },
-} satisfies Meta<DatePickerArgs>
+} satisfies Meta<DatepickerArgs>
 
 export default meta
-type Story = StoryObj<DatePickerArgs>
+type Story = StoryObj<DatepickerArgs>
 
 export const Playground: Story = {}
 export const Open: Story = { args: { open: true } }

@@ -20,7 +20,7 @@
     }
   }
 
-  .pm-circular-progress {
+  .pm-ring-progress {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -29,83 +29,71 @@
   }
 
   /* Sizes */
-  .pm-circular-progress--sm {
+  .pm-ring-progress--sm {
     width: 32px;
     height: 32px;
   }
 
-  .pm-circular-progress--md {
+  .pm-ring-progress--md {
     width: 48px;
     height: 48px;
   }
 
-  .pm-circular-progress--lg {
+  .pm-ring-progress--lg {
     width: 64px;
     height: 64px;
   }
 
-  .pm-circular-progress--xl {
+  .pm-ring-progress--xl {
     width: 80px;
     height: 80px;
   }
 
   /* Variants */
-  .pm-circular-progress--primary {
-    --pm-circular-progress-fill-color: light-dark(
-      var(--pm-color-primary-600),
-      var(--pm-color-primary-500)
-    );
+  .pm-ring-progress--primary {
+    --pm-ring-progress-fill-color: var(--pm-primary);
   }
 
-  .pm-circular-progress--success {
-    --pm-circular-progress-fill-color: light-dark(
-      var(--pm-color-success-600),
-      var(--pm-color-success-500)
-    );
+  .pm-ring-progress--success {
+    --pm-ring-progress-fill-color: var(--pm-success);
   }
 
-  .pm-circular-progress--warning {
-    --pm-circular-progress-fill-color: light-dark(
-      var(--pm-color-warning-600),
-      var(--pm-color-warning-500)
-    );
+  .pm-ring-progress--warning {
+    --pm-ring-progress-fill-color: var(--pm-warning);
   }
 
-  .pm-circular-progress--danger {
-    --pm-circular-progress-fill-color: light-dark(
-      var(--pm-color-danger-600),
-      var(--pm-color-danger-500)
-    );
+  .pm-ring-progress--danger {
+    --pm-ring-progress-fill-color: var(--pm-danger);
   }
 
   /* Indeterminate */
-  .pm-circular-progress--indeterminate .pm-circular-progress__svg {
+  .pm-ring-progress--indeterminate .pm-ring-progress__svg {
     animation: pm-circular-spin 1.4s linear infinite;
   }
 
-  .pm-circular-progress--indeterminate .pm-circular-progress__fill {
+  .pm-ring-progress--indeterminate .pm-ring-progress__fill {
     animation: pm-circular-dash 1.4s ease-in-out infinite;
   }
 
-  .pm-circular-progress--with-label {
+  .pm-ring-progress--with-label {
   }
 
-  .pm-circular-progress__svg {
+  .pm-ring-progress__svg {
     width: 100%;
     height: 100%;
   }
 
-  .pm-circular-progress__track {
+  .pm-ring-progress__track {
     fill: none;
-    stroke: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    stroke: var(--pm-neutral-hover);
     stroke-width: 4;
   }
 
-  .pm-circular-progress__fill {
+  .pm-ring-progress__fill {
     fill: none;
     stroke: var(
-      --pm-circular-progress-fill-color,
-      light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500))
+      --pm-ring-progress-fill-color,
+      var(--pm-primary)
     );
     stroke-width: 4;
     stroke-linecap: round;
@@ -114,7 +102,7 @@
     transition: stroke-dashoffset var(--pm-transition-normal) ease-in-out;
   }
 
-  .pm-circular-progress__label {
+  .pm-ring-progress__label {
     position: absolute;
     inset: 0;
     display: flex;
@@ -123,16 +111,16 @@
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-xs);
     font-weight: var(--pm-font-weight-semibold);
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    color: var(--pm-neutral-fg);
     pointer-events: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .pm-circular-progress--indeterminate .pm-circular-progress__svg {
+    .pm-ring-progress--indeterminate .pm-ring-progress__svg {
       animation: none;
     }
 
-    .pm-circular-progress--indeterminate .pm-circular-progress__fill {
+    .pm-ring-progress--indeterminate .pm-ring-progress__fill {
       animation: none;
     }
   }

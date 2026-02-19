@@ -5,7 +5,7 @@ import { FormatByte } from "./format-byte.js"
 const meta = {
   title: "Utilities/FormatByte",
   component: FormatByte,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     value: { control: "number" },
     locale: { control: "text" },

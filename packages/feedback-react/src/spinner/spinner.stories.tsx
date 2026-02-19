@@ -5,7 +5,7 @@ import { Spinner } from "./spinner.js"
 const meta = {
   title: "Feedback/Spinner",
   component: Spinner,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl"] },
     variant: { control: "select", options: ["primary", "neutral"] },

@@ -1,10 +1,18 @@
 ---
 title: Tree View
 description: A hierarchical tree structure for navigating nested data like file systems.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 The Tree View displays hierarchical data with expandable/collapsible branches and selectable items.
 
@@ -14,34 +22,34 @@ The Tree View displays hierarchical data with expandable/collapsible branches an
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<ul class="pm-tree-view pm-tree-view--md" role="tree">
-  <li class="pm-tree-view__branch pm-tree-view__branch--expanded" role="treeitem" aria-expanded="true">
-    <div class="pm-tree-view__item-content">
-      <span class="pm-tree-view__indicator pm-tree-view__indicator--expanded" aria-hidden="true"></span>
+  htmlCode={`<ul class="pm-tree pm-tree--md" role="tree">
+  <li class="pm-tree__branch pm-tree__branch--expanded" role="treeitem" aria-expanded="true">
+    <div class="pm-tree__item-content">
+      <span class="pm-tree__indicator pm-tree__indicator--expanded" aria-hidden="true"></span>
       src
     </div>
-    <ul class="pm-tree-view__group" role="group">
-      <li class="pm-tree-view__item" role="treeitem">index.ts</li>
+    <ul class="pm-tree__group" role="group">
+      <li class="pm-tree__item" role="treeitem">index.ts</li>
     </ul>
   </li>
-  <li class="pm-tree-view__item" role="treeitem">README.md</li>
+  <li class="pm-tree__item" role="treeitem">README.md</li>
 </ul>`}
-  reactCode={`import { TreeView, TreeViewBranch, TreeViewItem, TreeViewItemContent, TreeViewIndicator, TreeViewGroup } from "@paramanu/navigation-react"
+  reactCode={`import { Tree, TreeBranch, TreeItem, TreeItemContent, TreeIndicator, TreeGroup } from "@paramanu/navigation-react"
 
 export default function App() {
   return (
-    <TreeView>
-      <TreeViewBranch expanded>
-        <TreeViewItemContent>
-          <TreeViewIndicator expanded />
+    <Tree>
+      <TreeBranch expanded>
+        <TreeItemContent>
+          <TreeIndicator expanded />
           src
-        </TreeViewItemContent>
-        <TreeViewGroup>
-          <TreeViewItem>index.ts</TreeViewItem>
-        </TreeViewGroup>
-      </TreeViewBranch>
-      <TreeViewItem>README.md</TreeViewItem>
-    </TreeView>
+        </TreeItemContent>
+        <TreeGroup>
+          <TreeItem>index.ts</TreeItem>
+        </TreeGroup>
+      </TreeBranch>
+      <TreeItem>README.md</TreeItem>
+    </Tree>
   )
 }`}
 />
@@ -66,20 +74,20 @@ export default function App() {
 </TabItem>
   <TabItem label="API">
 
-## TreeView Props
+## Tree Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `size` | `"sm" \| "md"` | `"md"` | Size preset |
 
-## TreeViewItem Props
+## TreeItem Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `selected` | `boolean` | `false` | Selected state |
 | `disabled` | `boolean` | `false` | Disabled state |
 
-## TreeViewBranch Props
+## TreeBranch Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -89,13 +97,13 @@ export default function App() {
 
 | Class | Description |
 |-------|-------------|
-| `pm-tree-view` | Root element |
-| `pm-tree-view__branch` | Branch node |
-| `pm-tree-view__branch--expanded` | Expanded branch |
-| `pm-tree-view__item` | Leaf item |
-| `pm-tree-view__item--selected` | Selected item |
-| `pm-tree-view__group` | Nested group |
-| `pm-tree-view__indicator` | Expand/collapse icon |
+| `pm-tree` | Root element |
+| `pm-tree__branch` | Branch node |
+| `pm-tree__branch--expanded` | Expanded branch |
+| `pm-tree__item` | Leaf item |
+| `pm-tree__item--selected` | Selected item |
+| `pm-tree__group` | Nested group |
+| `pm-tree__indicator` | Expand/collapse icon |
 
 </TabItem>
 </Tabs>

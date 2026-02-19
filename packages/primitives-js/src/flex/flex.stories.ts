@@ -28,7 +28,7 @@ function createFlex(args: FlexArgs): HTMLElement {
 
 const meta = {
   title: "Primitives/Flex",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createFlex(args as FlexArgs),
   argTypes: {
     direction: { control: "select", options: ["row", "column", "row-reverse", "column-reverse"] },

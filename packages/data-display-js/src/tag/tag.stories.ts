@@ -31,7 +31,7 @@ function createTag(args: TagArgs): HTMLSpanElement {
 
 const meta = {
   title: "Data Display/Tag",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createTag(args as TagArgs),
   argTypes: {
     variant: { control: "select", options: ["filled", "outline", "subtle"] },

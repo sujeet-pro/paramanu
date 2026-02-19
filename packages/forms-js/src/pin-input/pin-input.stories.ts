@@ -40,7 +40,7 @@ function createPinInput(args: PinInputArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Pin Input",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createPinInput(args as PinInputArgs),
   argTypes: {
     size: {

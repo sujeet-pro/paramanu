@@ -30,7 +30,7 @@ function createMentions(args: MentionsArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Mentions",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createMentions(args as MentionsArgs),
   argTypes: {
     variant: {

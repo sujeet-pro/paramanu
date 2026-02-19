@@ -1,20 +1,20 @@
 import type {
-  AppShellClassesOptions,
-  AppShellHeaderClassesOptions,
-  AppShellSidebarClassesOptions,
+  ShellClassesOptions,
+  ShellHeaderClassesOptions,
+  ShellSidebarClassesOptions,
 } from "./app-shell.types.js"
 
-const BASE = "pm-app-shell"
-const HEADER = "pm-app-shell__header"
-const SIDEBAR = "pm-app-shell__sidebar"
-const MAIN = "pm-app-shell__main"
-const FOOTER = "pm-app-shell__footer"
+const BASE = "pm-shell"
+const HEADER = "pm-shell__header"
+const SIDEBAR = "pm-shell__sidebar"
+const MAIN = "pm-shell__main"
+const FOOTER = "pm-shell__footer"
 
 /**
  * Returns BEM class names for the app shell container (human-readable).
  * Used by CDN and template consumers.
  */
-export function appShellClasses(options: AppShellClassesOptions = {}): string {
+export function shellClasses(options: ShellClassesOptions = {}): string {
   const { sidebarCollapsed, sidebarPosition = "start" } = options
   const classes = [BASE, `${BASE}--sidebar-${sidebarPosition}`]
 
@@ -27,9 +27,9 @@ export function appShellClasses(options: AppShellClassesOptions = {}): string {
  * Returns CSS module class names for the app shell container (hashed).
  * Used by bundled/template consumers who import CSS modules.
  */
-export function appShellModuleClasses(
+export function shellModuleClasses(
   classMap: Record<string, string>,
-  options: AppShellClassesOptions = {},
+  options: ShellClassesOptions = {},
 ): string {
   const { sidebarCollapsed, sidebarPosition = "start" } = options
 
@@ -43,7 +43,7 @@ export function appShellModuleClasses(
 /**
  * Returns BEM class names for the app shell header (human-readable).
  */
-export function appShellHeaderClasses(options: AppShellHeaderClassesOptions = {}): string {
+export function appShellHeaderClasses(options: ShellHeaderClassesOptions = {}): string {
   const { sticky } = options
   const classes = [HEADER]
 
@@ -57,7 +57,7 @@ export function appShellHeaderClasses(options: AppShellHeaderClassesOptions = {}
  */
 export function appShellHeaderModuleClasses(
   classMap: Record<string, string>,
-  options: AppShellHeaderClassesOptions = {},
+  options: ShellHeaderClassesOptions = {},
 ): string {
   const { sticky } = options
 
@@ -71,7 +71,7 @@ export function appShellHeaderModuleClasses(
 /**
  * Returns BEM class names for the app shell sidebar (human-readable).
  */
-export function appShellSidebarClasses(options: AppShellSidebarClassesOptions = {}): string {
+export function appShellSidebarClasses(options: ShellSidebarClassesOptions = {}): string {
   const { width = "md", collapsed } = options
   const classes = [SIDEBAR, `${SIDEBAR}--${width}`]
 
@@ -85,7 +85,7 @@ export function appShellSidebarClasses(options: AppShellSidebarClassesOptions = 
  */
 export function appShellSidebarModuleClasses(
   classMap: Record<string, string>,
-  options: AppShellSidebarClassesOptions = {},
+  options: ShellSidebarClassesOptions = {},
 ): string {
   const { width = "md", collapsed } = options
 

@@ -1,5 +1,5 @@
 @layer pm.components {
-  .pm-image {
+  .pm-img {
     display: block;
     position: relative;
     margin: 0;
@@ -7,83 +7,83 @@
     overflow: hidden;
 
     /* Radius */
-    &.pm-image--radius-sm {
+    &.pm-img--radius-sm {
       border-radius: var(--pm-radius-sm);
     }
 
-    &.pm-image--radius-md {
+    &.pm-img--radius-md {
       border-radius: var(--pm-radius-md);
     }
 
-    &.pm-image--radius-lg {
+    &.pm-img--radius-lg {
       border-radius: var(--pm-radius-lg);
     }
 
-    &.pm-image--radius-xl {
+    &.pm-img--radius-xl {
       border-radius: var(--pm-radius-xl);
     }
 
-    &.pm-image--radius-full {
+    &.pm-img--radius-full {
       border-radius: var(--pm-radius-full);
     }
   }
 
-  .pm-image__img {
+  .pm-img__img {
     display: block;
     width: 100%;
     height: auto;
 
-    .pm-image--fit-cover & {
+    .pm-img--fit-cover & {
       object-fit: cover;
     }
 
-    .pm-image--fit-contain & {
+    .pm-img--fit-contain & {
       object-fit: contain;
     }
 
-    .pm-image--fit-fill & {
+    .pm-img--fit-fill & {
       object-fit: fill;
     }
 
-    .pm-image--fit-none & {
+    .pm-img--fit-none & {
       object-fit: none;
     }
 
-    .pm-image--fit-scale-down & {
+    .pm-img--fit-scale-down & {
       object-fit: scale-down;
     }
   }
 
-  .pm-image__fallback {
+  .pm-img__fallback {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     min-height: 8rem;
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    background-color: var(--pm-bg-muted);
+    color: var(--pm-fg-muted);
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-sm);
   }
 
-  .pm-image__caption {
+  .pm-img__caption {
     margin-top: var(--pm-spacing-2);
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-sm);
-    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
     line-height: var(--pm-font-lineHeight-normal);
   }
 
   /* Loading state */
-  .pm-image--loading .pm-image__img {
+  .pm-img--loading .pm-img__img {
     opacity: 0;
   }
 
-  .pm-image--loading .pm-image__fallback {
-    animation: pm-image-pulse 1.5s ease-in-out infinite;
+  .pm-img--loading .pm-img__fallback {
+    animation: pm-img-pulse 1.5s ease-in-out infinite;
   }
 
-  @keyframes pm-image-pulse {
+  @keyframes pm-img-pulse {
     0%,
     100% {
       opacity: 1;

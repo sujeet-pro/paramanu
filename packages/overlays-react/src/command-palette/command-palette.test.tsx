@@ -1,43 +1,43 @@
 import { describe, it, expect, afterEach, vi } from "vitest"
 import { render, screen, cleanup, fireEvent } from "@testing-library/react"
 import {
-  CommandPalette,
-  CommandPaletteInput,
-  CommandPaletteList,
-  CommandPaletteItem,
-  CommandPaletteGroup,
-  CommandPaletteEmpty,
+  CmdPalette,
+  CmdPaletteInput,
+  CmdPaletteList,
+  CmdPaletteItem,
+  CmdPaletteGroup,
+  CmdPaletteEmpty,
 } from "./command-palette.js"
 
 afterEach(cleanup)
 
-describe("CommandPalette", () => {
+describe("CmdPalette", () => {
   it("renders children when open", () => {
-    render(<CommandPalette open>Palette content</CommandPalette>)
+    render(<CmdPalette open>Palette content</CmdPalette>)
     expect(screen.getByText("Palette content")).toBeInTheDocument()
   })
 
   it("does not render when closed", () => {
-    render(<CommandPalette>Palette content</CommandPalette>)
+    render(<CmdPalette>Palette content</CmdPalette>)
     expect(screen.queryByText("Palette content")).not.toBeInTheDocument()
   })
 
   it("applies default classes", () => {
     render(
-      <CommandPalette open data-testid="palette">
+      <CmdPalette open data-testid="palette">
         Content
-      </CommandPalette>,
+      </CmdPalette>,
     )
     const el = screen.getByTestId("palette")
-    expect(el.className).toContain("pm-command-palette")
+    expect(el.className).toContain("pm-cmd-palette")
   })
 
   it("calls onClose when Escape is pressed", () => {
     const onClose = vi.fn()
     render(
-      <CommandPalette open onClose={onClose}>
+      <CmdPalette open onClose={onClose}>
         Content
-      </CommandPalette>,
+      </CmdPalette>,
     )
     fireEvent.keyDown(document, { key: "Escape" })
     expect(onClose).toHaveBeenCalledTimes(1)
@@ -45,7 +45,7 @@ describe("CommandPalette", () => {
 
   it("does not call onClose when Escape is pressed and closed", () => {
     const onClose = vi.fn()
-    render(<CommandPalette onClose={onClose}>Content</CommandPalette>)
+    render(<CmdPalette onClose={onClose}>Content</CmdPalette>)
     fireEvent.keyDown(document, { key: "Escape" })
     expect(onClose).not.toHaveBeenCalled()
   })
@@ -53,150 +53,150 @@ describe("CommandPalette", () => {
   it("forwards ref", () => {
     let paletteRef: HTMLDivElement | null = null
     render(
-      <CommandPalette open ref={(el) => (paletteRef = el)}>
+      <CmdPalette open ref={(el) => (paletteRef = el)}>
         Content
-      </CommandPalette>,
+      </CmdPalette>,
     )
     expect(paletteRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <CommandPalette open className="custom-class" data-testid="palette">
+      <CmdPalette open className="custom-class" data-testid="palette">
         Content
-      </CommandPalette>,
+      </CmdPalette>,
     )
     const el = screen.getByTestId("palette")
-    expect(el.className).toContain("pm-command-palette")
+    expect(el.className).toContain("pm-cmd-palette")
     expect(el.className).toContain("custom-class")
   })
 })
 
-describe("CommandPaletteInput", () => {
+describe("CmdPaletteInput", () => {
   it("renders with default classes", () => {
-    render(<CommandPaletteInput data-testid="input" />)
+    render(<CmdPaletteInput data-testid="input" />)
     const el = screen.getByTestId("input")
-    expect(el.className).toContain("pm-command-palette__input")
+    expect(el.className).toContain("pm-cmd-palette__input")
   })
 
   it("has role combobox", () => {
-    render(<CommandPaletteInput />)
+    render(<CmdPaletteInput />)
     const el = screen.getByRole("combobox")
     expect(el).toBeInTheDocument()
   })
 
   it("has aria-expanded attribute", () => {
-    render(<CommandPaletteInput data-testid="input" />)
+    render(<CmdPaletteInput data-testid="input" />)
     const el = screen.getByTestId("input")
     expect(el).toHaveAttribute("aria-expanded", "true")
   })
 
   it("has aria-autocomplete attribute", () => {
-    render(<CommandPaletteInput data-testid="input" />)
+    render(<CmdPaletteInput data-testid="input" />)
     const el = screen.getByTestId("input")
     expect(el).toHaveAttribute("aria-autocomplete", "list")
   })
 
   it("forwards ref", () => {
     let inputRef: HTMLInputElement | null = null
-    render(<CommandPaletteInput ref={(el) => (inputRef = el)} />)
+    render(<CmdPaletteInput ref={(el) => (inputRef = el)} />)
     expect(inputRef).toBeInstanceOf(HTMLInputElement)
   })
 
   it("merges custom className", () => {
-    render(<CommandPaletteInput className="custom-input" data-testid="input" />)
+    render(<CmdPaletteInput className="custom-input" data-testid="input" />)
     const el = screen.getByTestId("input")
-    expect(el.className).toContain("pm-command-palette__input")
+    expect(el.className).toContain("pm-cmd-palette__input")
     expect(el.className).toContain("custom-input")
   })
 })
 
-describe("CommandPaletteList", () => {
+describe("CmdPaletteList", () => {
   it("renders with default classes", () => {
-    render(<CommandPaletteList data-testid="list">Items</CommandPaletteList>)
+    render(<CmdPaletteList data-testid="list">Items</CmdPaletteList>)
     const el = screen.getByTestId("list")
-    expect(el.className).toContain("pm-command-palette__list")
+    expect(el.className).toContain("pm-cmd-palette__list")
   })
 
   it("has role listbox", () => {
-    render(<CommandPaletteList>Items</CommandPaletteList>)
+    render(<CmdPaletteList>Items</CmdPaletteList>)
     const el = screen.getByRole("listbox")
     expect(el).toBeInTheDocument()
   })
 
   it("renders children", () => {
-    render(<CommandPaletteList>List items here</CommandPaletteList>)
+    render(<CmdPaletteList>List items here</CmdPaletteList>)
     expect(screen.getByText("List items here")).toBeInTheDocument()
   })
 
   it("forwards ref", () => {
     let listRef: HTMLDivElement | null = null
-    render(<CommandPaletteList ref={(el) => (listRef = el)}>Items</CommandPaletteList>)
+    render(<CmdPaletteList ref={(el) => (listRef = el)}>Items</CmdPaletteList>)
     expect(listRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <CommandPaletteList className="custom-list" data-testid="list">
+      <CmdPaletteList className="custom-list" data-testid="list">
         Items
-      </CommandPaletteList>,
+      </CmdPaletteList>,
     )
     const el = screen.getByTestId("list")
-    expect(el.className).toContain("pm-command-palette__list")
+    expect(el.className).toContain("pm-cmd-palette__list")
     expect(el.className).toContain("custom-list")
   })
 })
 
-describe("CommandPaletteItem", () => {
+describe("CmdPaletteItem", () => {
   it("renders with default classes", () => {
-    render(<CommandPaletteItem data-testid="item">Item</CommandPaletteItem>)
+    render(<CmdPaletteItem data-testid="item">Item</CmdPaletteItem>)
     const el = screen.getByTestId("item")
-    expect(el.className).toContain("pm-command-palette__item")
+    expect(el.className).toContain("pm-cmd-palette__item")
   })
 
   it("has role option", () => {
-    render(<CommandPaletteItem>Item</CommandPaletteItem>)
+    render(<CmdPaletteItem>Item</CmdPaletteItem>)
     const el = screen.getByRole("option")
     expect(el).toBeInTheDocument()
   })
 
   it("applies active class when active", () => {
     render(
-      <CommandPaletteItem active data-testid="item">
+      <CmdPaletteItem active data-testid="item">
         Item
-      </CommandPaletteItem>,
+      </CmdPaletteItem>,
     )
     const el = screen.getByTestId("item")
-    expect(el.className).toContain("pm-command-palette__item--active")
+    expect(el.className).toContain("pm-cmd-palette__item--active")
   })
 
   it("does not apply active class when not active", () => {
-    render(<CommandPaletteItem data-testid="item">Item</CommandPaletteItem>)
+    render(<CmdPaletteItem data-testid="item">Item</CmdPaletteItem>)
     const el = screen.getByTestId("item")
-    expect(el.className).not.toContain("pm-command-palette__item--active")
+    expect(el.className).not.toContain("pm-cmd-palette__item--active")
   })
 
   it("sets aria-selected when active", () => {
     render(
-      <CommandPaletteItem active data-testid="item">
+      <CmdPaletteItem active data-testid="item">
         Item
-      </CommandPaletteItem>,
+      </CmdPaletteItem>,
     )
     const el = screen.getByTestId("item")
     expect(el).toHaveAttribute("aria-selected", "true")
   })
 
   it("does not set aria-selected when not active", () => {
-    render(<CommandPaletteItem data-testid="item">Item</CommandPaletteItem>)
+    render(<CmdPaletteItem data-testid="item">Item</CmdPaletteItem>)
     const el = screen.getByTestId("item")
     expect(el).not.toHaveAttribute("aria-selected")
   })
 
   it("sets data-value attribute", () => {
     render(
-      <CommandPaletteItem value="search" data-testid="item">
+      <CmdPaletteItem value="search" data-testid="item">
         Item
-      </CommandPaletteItem>,
+      </CmdPaletteItem>,
     )
     const el = screen.getByTestId("item")
     expect(el).toHaveAttribute("data-value", "search")
@@ -204,86 +204,86 @@ describe("CommandPaletteItem", () => {
 
   it("forwards ref", () => {
     let itemRef: HTMLDivElement | null = null
-    render(<CommandPaletteItem ref={(el) => (itemRef = el)}>Item</CommandPaletteItem>)
+    render(<CmdPaletteItem ref={(el) => (itemRef = el)}>Item</CmdPaletteItem>)
     expect(itemRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <CommandPaletteItem className="custom-item" data-testid="item">
+      <CmdPaletteItem className="custom-item" data-testid="item">
         Item
-      </CommandPaletteItem>,
+      </CmdPaletteItem>,
     )
     const el = screen.getByTestId("item")
-    expect(el.className).toContain("pm-command-palette__item")
+    expect(el.className).toContain("pm-cmd-palette__item")
     expect(el.className).toContain("custom-item")
   })
 })
 
-describe("CommandPaletteGroup", () => {
+describe("CmdPaletteGroup", () => {
   it("renders with default classes", () => {
-    render(<CommandPaletteGroup data-testid="group">Group</CommandPaletteGroup>)
+    render(<CmdPaletteGroup data-testid="group">Group</CmdPaletteGroup>)
     const el = screen.getByTestId("group")
-    expect(el.className).toContain("pm-command-palette__group")
+    expect(el.className).toContain("pm-cmd-palette__group")
   })
 
   it("has role group", () => {
-    render(<CommandPaletteGroup>Group content</CommandPaletteGroup>)
+    render(<CmdPaletteGroup>Group content</CmdPaletteGroup>)
     const el = screen.getByRole("group")
     expect(el).toBeInTheDocument()
   })
 
   it("renders children", () => {
-    render(<CommandPaletteGroup>Group items</CommandPaletteGroup>)
+    render(<CmdPaletteGroup>Group items</CmdPaletteGroup>)
     expect(screen.getByText("Group items")).toBeInTheDocument()
   })
 
   it("forwards ref", () => {
     let groupRef: HTMLDivElement | null = null
-    render(<CommandPaletteGroup ref={(el) => (groupRef = el)}>Group</CommandPaletteGroup>)
+    render(<CmdPaletteGroup ref={(el) => (groupRef = el)}>Group</CmdPaletteGroup>)
     expect(groupRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <CommandPaletteGroup className="custom-group" data-testid="group">
+      <CmdPaletteGroup className="custom-group" data-testid="group">
         Group
-      </CommandPaletteGroup>,
+      </CmdPaletteGroup>,
     )
     const el = screen.getByTestId("group")
-    expect(el.className).toContain("pm-command-palette__group")
+    expect(el.className).toContain("pm-cmd-palette__group")
     expect(el.className).toContain("custom-group")
   })
 })
 
-describe("CommandPaletteEmpty", () => {
+describe("CmdPaletteEmpty", () => {
   it("renders with default classes", () => {
-    render(<CommandPaletteEmpty data-testid="empty">No results</CommandPaletteEmpty>)
+    render(<CmdPaletteEmpty data-testid="empty">No results</CmdPaletteEmpty>)
     const el = screen.getByTestId("empty")
-    expect(el.className).toContain("pm-command-palette__empty")
+    expect(el.className).toContain("pm-cmd-palette__empty")
   })
 
   it("renders children", () => {
-    render(<CommandPaletteEmpty>No results found</CommandPaletteEmpty>)
+    render(<CmdPaletteEmpty>No results found</CmdPaletteEmpty>)
     expect(screen.getByText("No results found")).toBeInTheDocument()
   })
 
   it("forwards ref", () => {
     let emptyRef: HTMLDivElement | null = null
     render(
-      <CommandPaletteEmpty ref={(el) => (emptyRef = el)}>No results</CommandPaletteEmpty>,
+      <CmdPaletteEmpty ref={(el) => (emptyRef = el)}>No results</CmdPaletteEmpty>,
     )
     expect(emptyRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <CommandPaletteEmpty className="custom-empty" data-testid="empty">
+      <CmdPaletteEmpty className="custom-empty" data-testid="empty">
         No results
-      </CommandPaletteEmpty>,
+      </CmdPaletteEmpty>,
     )
     const el = screen.getByTestId("empty")
-    expect(el.className).toContain("pm-command-palette__empty")
+    expect(el.className).toContain("pm-cmd-palette__empty")
     expect(el.className).toContain("custom-empty")
   })
 })

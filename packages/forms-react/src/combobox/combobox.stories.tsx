@@ -4,7 +4,7 @@ import { Combobox } from "./combobox.js"
 
 const meta = {
   title: "Forms/Combobox",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Combobox,
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },

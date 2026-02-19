@@ -1,68 +1,68 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { InlineMessage } from "./inline-message.js"
+import { InlineMsg } from "./inline-message.js"
 
 afterEach(cleanup)
 
-describe("InlineMessage", () => {
+describe("InlineMsg", () => {
   it("renders with role=status by default", () => {
-    render(<InlineMessage>Info message</InlineMessage>)
+    render(<InlineMsg>Info message</InlineMsg>)
     expect(screen.getByRole("status")).toBeInTheDocument()
   })
 
   it("renders with role=status for info variant", () => {
-    render(<InlineMessage variant="info">Info</InlineMessage>)
+    render(<InlineMsg variant="info">Info</InlineMsg>)
     expect(screen.getByRole("status")).toBeInTheDocument()
   })
 
   it("renders with role=status for success variant", () => {
-    render(<InlineMessage variant="success">Success</InlineMessage>)
+    render(<InlineMsg variant="success">Success</InlineMsg>)
     expect(screen.getByRole("status")).toBeInTheDocument()
   })
 
   it("renders with role=alert for warning variant", () => {
-    render(<InlineMessage variant="warning">Warning</InlineMessage>)
+    render(<InlineMsg variant="warning">Warning</InlineMsg>)
     expect(screen.getByRole("alert")).toBeInTheDocument()
   })
 
   it("renders with role=alert for danger variant", () => {
-    render(<InlineMessage variant="danger">Danger</InlineMessage>)
+    render(<InlineMsg variant="danger">Danger</InlineMsg>)
     expect(screen.getByRole("alert")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<InlineMessage>Default</InlineMessage>)
+    render(<InlineMsg>Default</InlineMsg>)
     const message = screen.getByRole("status")
-    expect(message.className).toContain("pm-inline-message")
-    expect(message.className).toContain("pm-inline-message--info")
+    expect(message.className).toContain("pm-inline-msg")
+    expect(message.className).toContain("pm-inline-msg--info")
   })
 
   it("applies variant class", () => {
-    render(<InlineMessage variant="success">Success</InlineMessage>)
+    render(<InlineMsg variant="success">Success</InlineMsg>)
     const message = screen.getByRole("status")
-    expect(message.className).toContain("pm-inline-message--success")
+    expect(message.className).toContain("pm-inline-msg--success")
   })
 
   it("renders children", () => {
-    render(<InlineMessage>Hello world</InlineMessage>)
+    render(<InlineMsg>Hello world</InlineMsg>)
     expect(screen.getByText("Hello world")).toBeInTheDocument()
   })
 
   it("forwards ref", () => {
     let messageRef: HTMLDivElement | null = null
-    render(<InlineMessage ref={(el) => (messageRef = el)}>Ref</InlineMessage>)
+    render(<InlineMsg ref={(el) => (messageRef = el)}>Ref</InlineMsg>)
     expect(messageRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    render(<InlineMessage className="custom-class">Custom</InlineMessage>)
+    render(<InlineMsg className="custom-class">Custom</InlineMsg>)
     const message = screen.getByRole("status")
-    expect(message.className).toContain("pm-inline-message")
+    expect(message.className).toContain("pm-inline-msg")
     expect(message.className).toContain("custom-class")
   })
 
   it("passes through additional HTML attributes", () => {
-    render(<InlineMessage data-testid="my-message">Test</InlineMessage>)
+    render(<InlineMsg data-testid="my-message">Test</InlineMsg>)
     expect(screen.getByTestId("my-message")).toBeInTheDocument()
   })
 })

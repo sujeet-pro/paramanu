@@ -28,7 +28,7 @@
   .pm-slider__track {
     position: relative;
     border-radius: var(--pm-radius-full);
-    background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    background-color: var(--pm-neutral-hover);
   }
 
   .pm-slider--horizontal .pm-slider__track {
@@ -69,7 +69,7 @@
   .pm-slider__filled-track {
     position: absolute;
     border-radius: var(--pm-radius-full);
-    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    background-color: var(--pm-primary);
   }
 
   .pm-slider--horizontal .pm-slider__filled-track {
@@ -85,7 +85,7 @@
   .pm-slider__thumb {
     position: absolute;
     border-radius: var(--pm-radius-full);
-    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    background-color: var(--pm-primary);
     border: 2px solid var(--pm-color-neutral-0);
     box-shadow: var(--pm-shadow-md);
     cursor: grab;
@@ -95,7 +95,7 @@
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
   }
@@ -118,7 +118,7 @@
   .pm-slider__mark {
     position: absolute;
     width: 2px;
-    background-color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    background-color: var(--pm-fg-subtle);
   }
 
   .pm-slider--sm .pm-slider__mark {
@@ -137,6 +137,6 @@
     position: absolute;
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-xs);
-    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
   }
 }

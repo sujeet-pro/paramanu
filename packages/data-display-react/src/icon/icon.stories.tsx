@@ -5,7 +5,7 @@ import { Icon } from "./icon.js"
 const meta = {
   title: "Data Display/Icon",
   component: Icon,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl"] },
     color: { control: "select", options: ["inherit", "primary", "neutral", "danger", "success"] },

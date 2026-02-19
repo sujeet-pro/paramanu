@@ -41,7 +41,7 @@ function createSwitch(args: SwitchArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Switch",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createSwitch(args as SwitchArgs),
   argTypes: {
     size: {

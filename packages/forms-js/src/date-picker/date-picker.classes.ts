@@ -1,11 +1,11 @@
-import type { DatePickerClassesOptions } from "./date-picker.types.js"
+import type { DatepickerClassesOptions } from "./date-picker.types.js"
 
-const BASE = "pm-date-picker"
+const BASE = "pm-datepicker"
 
 /**
  * Returns BEM class names for the date picker component (human-readable).
  */
-export function datePickerClasses(options: DatePickerClassesOptions = {}): string {
+export function datepickerClasses(options: DatepickerClassesOptions = {}): string {
   const {
     variant = "outline",
     size = "md",
@@ -25,9 +25,9 @@ export function datePickerClasses(options: DatePickerClassesOptions = {}): strin
 /**
  * Returns CSS module class names for the date picker component (hashed).
  */
-export function datePickerModuleClasses(
+export function datepickerModuleClasses(
   classMap: Record<string, string>,
-  options: DatePickerClassesOptions = {},
+  options: DatepickerClassesOptions = {},
 ): string {
   const {
     variant = "outline",
@@ -38,14 +38,14 @@ export function datePickerModuleClasses(
   } = options
 
   const classes = [
-    classMap["pm-date-picker"],
-    classMap[`pm-date-picker--${variant}`],
-    classMap[`pm-date-picker--${size}`],
+    classMap["pm-datepicker"],
+    classMap[`pm-datepicker--${variant}`],
+    classMap[`pm-datepicker--${size}`],
   ]
 
-  if (invalid) classes.push(classMap["pm-date-picker--invalid"])
-  if (disabled) classes.push(classMap["pm-date-picker--disabled"])
-  if (open) classes.push(classMap["pm-date-picker--open"])
+  if (invalid) classes.push(classMap["pm-datepicker--invalid"])
+  if (disabled) classes.push(classMap["pm-datepicker--disabled"])
+  if (open) classes.push(classMap["pm-datepicker--open"])
 
   return classes.filter(Boolean).join(" ")
 }

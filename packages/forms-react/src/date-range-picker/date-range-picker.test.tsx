@@ -1,74 +1,74 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { DateRangePicker } from "./date-range-picker.js"
+import { Daterange } from "./date-range-picker.js"
 
 afterEach(cleanup)
 
-describe("DateRangePicker", () => {
+describe("Daterange", () => {
   it("renders a combobox trigger", () => {
-    render(<DateRangePicker aria-label="Date range" />)
+    render(<Daterange aria-label="Date range" />)
     expect(screen.getByRole("combobox")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    const { container } = render(<DateRangePicker aria-label="Date range" />)
+    const { container } = render(<Daterange aria-label="Date range" />)
     const wrapper = container.firstElementChild
-    expect(wrapper?.className).toContain("pm-date-range-picker")
-    expect(wrapper?.className).toContain("pm-date-range-picker--outline")
-    expect(wrapper?.className).toContain("pm-date-range-picker--md")
+    expect(wrapper?.className).toContain("pm-daterange")
+    expect(wrapper?.className).toContain("pm-daterange--outline")
+    expect(wrapper?.className).toContain("pm-daterange--md")
   })
 
   it("applies variant class", () => {
-    const { container } = render(<DateRangePicker variant="filled" aria-label="Date range" />)
-    expect(container.firstElementChild?.className).toContain("pm-date-range-picker--filled")
+    const { container } = render(<Daterange variant="filled" aria-label="Date range" />)
+    expect(container.firstElementChild?.className).toContain("pm-daterange--filled")
   })
 
   it("applies size class", () => {
-    const { container } = render(<DateRangePicker size="lg" aria-label="Date range" />)
-    expect(container.firstElementChild?.className).toContain("pm-date-range-picker--lg")
+    const { container } = render(<Daterange size="lg" aria-label="Date range" />)
+    expect(container.firstElementChild?.className).toContain("pm-daterange--lg")
   })
 
   it("applies open modifier", () => {
-    const { container } = render(<DateRangePicker open aria-label="Date range" />)
-    expect(container.firstElementChild?.className).toContain("pm-date-range-picker--open")
+    const { container } = render(<Daterange open aria-label="Date range" />)
+    expect(container.firstElementChild?.className).toContain("pm-daterange--open")
   })
 
   it("sets aria-expanded based on open prop", () => {
-    const { rerender } = render(<DateRangePicker open={false} aria-label="Date range" />)
+    const { rerender } = render(<Daterange open={false} aria-label="Date range" />)
     expect(screen.getByRole("combobox")).toHaveAttribute("aria-expanded", "false")
-    rerender(<DateRangePicker open aria-label="Date range" />)
+    rerender(<Daterange open aria-label="Date range" />)
     expect(screen.getByRole("combobox")).toHaveAttribute("aria-expanded", "true")
   })
 
   it("has aria-haspopup=dialog", () => {
-    render(<DateRangePicker aria-label="Date range" />)
+    render(<Daterange aria-label="Date range" />)
     expect(screen.getByRole("combobox")).toHaveAttribute("aria-haspopup", "dialog")
   })
 
   it("renders popover dialog", () => {
-    render(<DateRangePicker aria-label="Date range" />)
+    render(<Daterange aria-label="Date range" />)
     expect(screen.getByRole("dialog")).toBeInTheDocument()
   })
 
   it("sets disabled on trigger", () => {
-    render(<DateRangePicker disabled aria-label="Date range" />)
+    render(<Daterange disabled aria-label="Date range" />)
     expect(screen.getByRole("combobox")).toBeDisabled()
   })
 
   it("renders placeholder text", () => {
-    render(<DateRangePicker placeholder="Pick range" aria-label="Date range" />)
+    render(<Daterange placeholder="Pick range" aria-label="Date range" />)
     expect(screen.getByRole("combobox")).toHaveTextContent("Pick range")
   })
 
   it("forwards ref", () => {
     let divRef: HTMLDivElement | null = null
-    render(<DateRangePicker ref={(el) => (divRef = el)} aria-label="Date range" />)
+    render(<Daterange ref={(el) => (divRef = el)} aria-label="Date range" />)
     expect(divRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    const { container } = render(<DateRangePicker className="custom" aria-label="Date range" />)
-    expect(container.firstElementChild?.className).toContain("pm-date-range-picker")
+    const { container } = render(<Daterange className="custom" aria-label="Date range" />)
+    expect(container.firstElementChild?.className).toContain("pm-daterange")
     expect(container.firstElementChild?.className).toContain("custom")
   })
 })

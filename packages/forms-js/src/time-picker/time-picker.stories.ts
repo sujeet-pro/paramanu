@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { timePickerClasses } from "./time-picker.classes.js"
-import type { TimePickerClassesOptions } from "./time-picker.types.js"
+import { timepickerClasses } from "./time-picker.classes.js"
+import type { TimepickerClassesOptions } from "./time-picker.types.js"
 
-type TimePickerArgs = TimePickerClassesOptions
+type TimepickerArgs = TimepickerClassesOptions
 
-function createTimePicker(args: TimePickerArgs): HTMLElement {
+function createTimepicker(args: TimepickerArgs): HTMLElement {
   const wrapper = document.createElement("div")
-  wrapper.className = timePickerClasses(args)
+  wrapper.className = timepickerClasses(args)
   const input = document.createElement("input")
   input.type = "text"
-  input.className = "pm-time-picker__input"
+  input.className = "pm-timepicker__input"
   input.placeholder = "Select time..."
   if (args.disabled) input.disabled = true
   if (args.invalid) input.setAttribute("aria-invalid", "true")
@@ -19,8 +19,8 @@ function createTimePicker(args: TimePickerArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Time Picker",
-  tags: ["autodocs", "stable"],
-  render: (args) => createTimePicker(args as TimePickerArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createTimepicker(args as TimepickerArgs),
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -29,10 +29,10 @@ const meta = {
     open: { control: "boolean" },
   },
   args: { variant: "outline", size: "md" },
-} satisfies Meta<TimePickerArgs>
+} satisfies Meta<TimepickerArgs>
 
 export default meta
-type Story = StoryObj<TimePickerArgs>
+type Story = StoryObj<TimepickerArgs>
 
 export const Playground: Story = {}
 export const Disabled: Story = { args: { disabled: true } }

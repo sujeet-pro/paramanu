@@ -55,7 +55,7 @@ function createCarousel(args: CarouselArgs): HTMLElement {
 
 const meta = {
   title: "Disclosure/Carousel",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createCarousel(args as CarouselArgs),
   argTypes: {
     orientation: {

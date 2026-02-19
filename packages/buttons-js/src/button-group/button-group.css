@@ -1,84 +1,84 @@
 @layer pm.components {
-  .pm-button-group {
-    --pm-button-group-gap: var(--pm-spacing-2);
-    --pm-button-group-radius: var(--pm-radius-md);
+  .pm-btn-group {
+    --pm-btn-group-gap: var(--pm-spacing-2);
+    --pm-btn-group-radius: var(--pm-radius-md);
 
     display: inline-flex;
     flex-wrap: wrap;
 
-    &.pm-button-group--horizontal {
+    &.pm-btn-group--horizontal {
       flex-direction: row;
-      gap: var(--pm-button-group-gap);
+      gap: var(--pm-btn-group-gap);
     }
 
-    &.pm-button-group--vertical {
+    &.pm-btn-group--vertical {
       flex-direction: column;
-      gap: var(--pm-button-group-gap);
+      gap: var(--pm-btn-group-gap);
     }
 
-    &.pm-button-group--full-width {
+    &.pm-btn-group--full-width {
       display: flex;
       width: 100%;
 
-      & > .pm-button {
+      & > .pm-btn {
         flex: 1;
       }
     }
 
     /* Attached: buttons share borders with no gap */
-    &.pm-button-group--attached {
+    &.pm-btn-group--attached {
       gap: 0;
       flex-wrap: nowrap;
 
-      & > .pm-button,
-      & > .pm-icon-button {
+      & > .pm-btn,
+      & > .pm-icon-btn {
         border-radius: 0;
       }
 
-      &.pm-button-group--horizontal {
-        & > .pm-button:first-child,
-        & > .pm-icon-button:first-child {
-          border-top-left-radius: var(--pm-button-group-radius);
-          border-bottom-left-radius: var(--pm-button-group-radius);
+      &.pm-btn-group--horizontal {
+        & > .pm-btn:first-child,
+        & > .pm-icon-btn:first-child {
+          border-top-left-radius: var(--pm-btn-group-radius);
+          border-bottom-left-radius: var(--pm-btn-group-radius);
         }
 
-        & > .pm-button:last-child,
-        & > .pm-icon-button:last-child {
-          border-top-right-radius: var(--pm-button-group-radius);
-          border-bottom-right-radius: var(--pm-button-group-radius);
+        & > .pm-btn:last-child,
+        & > .pm-icon-btn:last-child {
+          border-top-right-radius: var(--pm-btn-group-radius);
+          border-bottom-right-radius: var(--pm-btn-group-radius);
         }
 
-        & > .pm-button + .pm-button,
-        & > .pm-icon-button + .pm-icon-button,
-        & > .pm-button + .pm-icon-button,
-        & > .pm-icon-button + .pm-button {
+        & > .pm-btn + .pm-btn,
+        & > .pm-icon-btn + .pm-icon-btn,
+        & > .pm-btn + .pm-icon-btn,
+        & > .pm-icon-btn + .pm-btn {
           margin-left: -1px;
         }
       }
 
-      &.pm-button-group--vertical {
-        & > .pm-button:first-child,
-        & > .pm-icon-button:first-child {
-          border-top-left-radius: var(--pm-button-group-radius);
-          border-top-right-radius: var(--pm-button-group-radius);
+      &.pm-btn-group--vertical {
+        & > .pm-btn:first-child,
+        & > .pm-icon-btn:first-child {
+          border-top-left-radius: var(--pm-btn-group-radius);
+          border-top-right-radius: var(--pm-btn-group-radius);
         }
 
-        & > .pm-button:last-child,
-        & > .pm-icon-button:last-child {
-          border-bottom-left-radius: var(--pm-button-group-radius);
-          border-bottom-right-radius: var(--pm-button-group-radius);
+        & > .pm-btn:last-child,
+        & > .pm-icon-btn:last-child {
+          border-bottom-left-radius: var(--pm-btn-group-radius);
+          border-bottom-right-radius: var(--pm-btn-group-radius);
         }
 
-        & > .pm-button + .pm-button,
-        & > .pm-icon-button + .pm-icon-button,
-        & > .pm-button + .pm-icon-button,
-        & > .pm-icon-button + .pm-button {
+        & > .pm-btn + .pm-btn,
+        & > .pm-icon-btn + .pm-icon-btn,
+        & > .pm-btn + .pm-icon-btn,
+        & > .pm-icon-btn + .pm-btn {
           margin-top: -1px;
         }
       }
 
-      & > .pm-button:focus-visible,
-      & > .pm-icon-button:focus-visible {
+      & > .pm-btn:focus-visible,
+      & > .pm-icon-btn:focus-visible {
         z-index: 1;
         position: relative;
       }
@@ -87,15 +87,15 @@
 
   /* ---------- Theme overrides ---------- */
 
-  .pm-theme-antd .pm-button-group {
-    --pm-button-group-radius: 4px;
+  .pm-theme-antd .pm-btn-group {
+    --pm-btn-group-radius: 4px;
   }
 
-  .pm-theme-material .pm-button-group {
-    --pm-button-group-radius: 20px;
+  .pm-theme-material .pm-btn-group {
+    --pm-btn-group-radius: 20px;
   }
 
-  .pm-theme-bootstrap .pm-button-group {
-    --pm-button-group-radius: 6px;
+  .pm-theme-bootstrap .pm-btn-group {
+    --pm-btn-group-radius: 6px;
   }
 }

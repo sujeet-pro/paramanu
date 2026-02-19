@@ -3,10 +3,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border: 1px solid var(--pm-neutral-active);
     border-radius: var(--pm-radius-md);
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    color: var(--pm-neutral-fg);
     font-family: var(--pm-font-family-sans);
     cursor: pointer;
     transition-property: background-color, border-color, color;
@@ -14,15 +14,15 @@
     transition-timing-function: ease-in-out;
 
     &:hover:not(.pm-clipboard--copied) {
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      background-color: var(--pm-bg-muted);
     }
 
     &:active:not(.pm-clipboard--copied) {
-      background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+      background-color: var(--pm-neutral-hover);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
 
@@ -44,9 +44,9 @@
 
     /* Copied state */
     &.pm-clipboard--copied {
-      border-color: light-dark(var(--pm-color-success-500), var(--pm-color-success-400));
-      color: light-dark(var(--pm-color-success-600), var(--pm-color-success-400));
-      background-color: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
+      border-color: var(--pm-success-border);
+      color: var(--pm-success);
+      background-color: var(--pm-success-subtle);
     }
   }
 }

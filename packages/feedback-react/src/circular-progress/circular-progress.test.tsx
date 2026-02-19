@@ -1,42 +1,42 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { CircularProgress } from "./circular-progress.js"
+import { RingProgress } from "./circular-progress.js"
 
 afterEach(cleanup)
 
-describe("CircularProgress", () => {
+describe("RingProgress", () => {
   it("renders with role=progressbar", () => {
-    render(<CircularProgress />)
+    render(<RingProgress />)
     expect(screen.getByRole("progressbar")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<CircularProgress />)
+    render(<RingProgress />)
     const progress = screen.getByRole("progressbar")
-    expect(progress.className).toContain("pm-circular-progress")
-    expect(progress.className).toContain("pm-circular-progress--md")
-    expect(progress.className).toContain("pm-circular-progress--primary")
+    expect(progress.className).toContain("pm-ring-progress")
+    expect(progress.className).toContain("pm-ring-progress--md")
+    expect(progress.className).toContain("pm-ring-progress--primary")
   })
 
   it("applies size class", () => {
-    render(<CircularProgress size="lg" />)
+    render(<RingProgress size="lg" />)
     const progress = screen.getByRole("progressbar")
-    expect(progress.className).toContain("pm-circular-progress--lg")
+    expect(progress.className).toContain("pm-ring-progress--lg")
   })
 
   it("applies variant class", () => {
-    render(<CircularProgress variant="success" />)
+    render(<RingProgress variant="success" />)
     const progress = screen.getByRole("progressbar")
-    expect(progress.className).toContain("pm-circular-progress--success")
+    expect(progress.className).toContain("pm-ring-progress--success")
   })
 
   it("contains an SVG element", () => {
-    const { container } = render(<CircularProgress />)
+    const { container } = render(<RingProgress />)
     expect(container.querySelector("svg")).toBeInTheDocument()
   })
 
   it("sets aria-valuenow, aria-valuemin, aria-valuemax", () => {
-    render(<CircularProgress value={60} min={0} max={100} />)
+    render(<RingProgress value={60} min={0} max={100} />)
     const progress = screen.getByRole("progressbar")
     expect(progress).toHaveAttribute("aria-valuenow", "60")
     expect(progress).toHaveAttribute("aria-valuemin", "0")
@@ -44,32 +44,32 @@ describe("CircularProgress", () => {
   })
 
   it("omits aria-valuenow when indeterminate", () => {
-    render(<CircularProgress indeterminate />)
+    render(<RingProgress indeterminate />)
     const progress = screen.getByRole("progressbar")
     expect(progress).not.toHaveAttribute("aria-valuenow")
   })
 
   it("applies indeterminate class", () => {
-    render(<CircularProgress indeterminate />)
+    render(<RingProgress indeterminate />)
     const progress = screen.getByRole("progressbar")
-    expect(progress.className).toContain("pm-circular-progress--indeterminate")
+    expect(progress.className).toContain("pm-ring-progress--indeterminate")
   })
 
   it("forwards ref", () => {
     let progressRef: HTMLDivElement | null = null
-    render(<CircularProgress ref={(el) => (progressRef = el)} />)
+    render(<RingProgress ref={(el) => (progressRef = el)} />)
     expect(progressRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    render(<CircularProgress className="custom-class" />)
+    render(<RingProgress className="custom-class" />)
     const progress = screen.getByRole("progressbar")
-    expect(progress.className).toContain("pm-circular-progress")
+    expect(progress.className).toContain("pm-ring-progress")
     expect(progress.className).toContain("custom-class")
   })
 
   it("renders track and fill circles", () => {
-    const { container } = render(<CircularProgress />)
+    const { container } = render(<RingProgress />)
     const circles = container.querySelectorAll("circle")
     expect(circles).toHaveLength(2)
   })

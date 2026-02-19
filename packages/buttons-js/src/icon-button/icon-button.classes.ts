@@ -1,6 +1,6 @@
-import type { IconButtonClassesOptions } from "./icon-button.types.js"
+import type { IconBtnClassesOptions } from "./icon-button.types.js"
 
-const BASE = "pm-icon-button"
+const BASE = "pm-icon-btn"
 
 /**
  * Returns BEM class names for the icon button component (human-readable).
@@ -8,11 +8,11 @@ const BASE = "pm-icon-button"
  *
  * @example
  * ```ts
- * iconButtonClasses() // "pm-icon-button pm-icon-button--primary pm-icon-button--md pm-icon-button--square"
- * iconButtonClasses({ variant: "ghost", shape: "circle", loading: true })
+ * iconBtnClasses() // "pm-icon-btn pm-icon-btn--primary pm-icon-btn--md pm-icon-btn--square"
+ * iconBtnClasses({ variant: "ghost", shape: "circle", loading: true })
  * ```
  */
-export function iconButtonClasses(options: IconButtonClassesOptions = {}): string {
+export function iconBtnClasses(options: IconBtnClassesOptions = {}): string {
   const {
     variant = "primary",
     size = "md",
@@ -37,12 +37,12 @@ export function iconButtonClasses(options: IconButtonClassesOptions = {}): strin
  * @example
  * ```ts
  * import styles from "./icon-button.module.css"
- * iconButtonModuleClasses(styles, { variant: "ghost" })
+ * iconBtnModuleClasses(styles, { variant: "ghost" })
  * ```
  */
-export function iconButtonModuleClasses(
+export function iconBtnModuleClasses(
   classMap: Record<string, string>,
-  options: IconButtonClassesOptions = {},
+  options: IconBtnClassesOptions = {},
 ): string {
   const {
     variant = "primary",
@@ -54,15 +54,15 @@ export function iconButtonModuleClasses(
   } = options
 
   const classes = [
-    classMap["pm-icon-button"],
-    classMap[`pm-icon-button--${variant}`],
-    classMap[`pm-icon-button--${size}`],
-    classMap[`pm-icon-button--${shape}`],
+    classMap["pm-icon-btn"],
+    classMap[`pm-icon-btn--${variant}`],
+    classMap[`pm-icon-btn--${size}`],
+    classMap[`pm-icon-btn--${shape}`],
   ]
 
-  if (disabled) classes.push(classMap["pm-icon-button--disabled"])
-  if (loading) classes.push(classMap["pm-icon-button--loading"])
-  if (active) classes.push(classMap["pm-icon-button--active"])
+  if (disabled) classes.push(classMap["pm-icon-btn--disabled"])
+  if (loading) classes.push(classMap["pm-icon-btn--loading"])
+  if (active) classes.push(classMap["pm-icon-btn--active"])
 
   return classes.filter(Boolean).join(" ")
 }

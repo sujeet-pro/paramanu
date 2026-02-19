@@ -5,7 +5,7 @@ import { Banner } from "./banner.js"
 const meta = {
   title: "Feedback/Banner",
   component: Banner,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: { control: "select", options: ["info", "success", "warning", "danger"] },
     sticky: { control: "boolean" },
@@ -76,8 +76,8 @@ export const DismissClick: Story = {
   args: { dismissible: true, onClose: fn(), children: "Dismiss me" },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement)
-    const closeButton = canvas.getByRole("button", { name: "Close" })
-    await userEvent.click(closeButton)
+    const closeBtn = canvas.getByRole("button", { name: "Close" })
+    await userEvent.click(closeBtn)
     await expect(args.onClose).toHaveBeenCalledTimes(1)
   },
 }

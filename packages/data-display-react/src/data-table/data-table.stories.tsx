@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect } from "storybook/test"
 import {
-  DataTable,
-  DataTableToolbar,
-  DataTableHeaderCell,
-  DataTableRow,
-  DataTableCell,
-  DataTablePagination,
+  Datatable,
+  DatatableToolbar,
+  DatatableHeaderCell,
+  DatatableRow,
+  DatatableCell,
+  DatatablePagination,
 } from "./data-table.js"
 
 const meta = {
   title: "Data Display/Data Table",
-  component: DataTable,
-  tags: ["autodocs", "stable"],
+  component: Datatable,
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: { control: "select", options: ["simple", "striped"] },
     size: { control: "select", options: ["sm", "md", "lg"] },
@@ -22,171 +22,171 @@ const meta = {
     selectable: { control: "boolean" },
   },
   args: { variant: "simple", size: "md" },
-} satisfies Meta<typeof DataTable>
+} satisfies Meta<typeof Datatable>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   render: (args) => (
-    <DataTable {...args}>
-      <DataTableToolbar>Search / Filters</DataTableToolbar>
+    <Datatable {...args}>
+      <DatatableToolbar>Search / Filters</DatatableToolbar>
       <table>
         <thead>
-          <DataTableRow>
-            <DataTableHeaderCell sortable sortDirection="asc">
+          <DatatableRow>
+            <DatatableHeaderCell sortable sortDirection="asc">
               Name
-            </DataTableHeaderCell>
-            <DataTableHeaderCell>Email</DataTableHeaderCell>
-            <DataTableHeaderCell align="end">Actions</DataTableHeaderCell>
-          </DataTableRow>
+            </DatatableHeaderCell>
+            <DatatableHeaderCell>Email</DatatableHeaderCell>
+            <DatatableHeaderCell align="end">Actions</DatatableHeaderCell>
+          </DatatableRow>
         </thead>
         <tbody>
-          <DataTableRow>
-            <DataTableCell>Alice</DataTableCell>
-            <DataTableCell>alice@example.com</DataTableCell>
-            <DataTableCell>Edit</DataTableCell>
-          </DataTableRow>
-          <DataTableRow>
-            <DataTableCell>Bob</DataTableCell>
-            <DataTableCell>bob@example.com</DataTableCell>
-            <DataTableCell>Edit</DataTableCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableCell>Alice</DatatableCell>
+            <DatatableCell>alice@example.com</DatatableCell>
+            <DatatableCell>Edit</DatatableCell>
+          </DatatableRow>
+          <DatatableRow>
+            <DatatableCell>Bob</DatatableCell>
+            <DatatableCell>bob@example.com</DatatableCell>
+            <DatatableCell>Edit</DatatableCell>
+          </DatatableRow>
         </tbody>
       </table>
-      <DataTablePagination>1 of 5</DataTablePagination>
-    </DataTable>
+      <DatatablePagination>1 of 5</DatatablePagination>
+    </Datatable>
   ),
 }
 
 export const Striped: Story = {
   args: { variant: "striped" },
   render: (args) => (
-    <DataTable {...args}>
+    <Datatable {...args}>
       <table>
         <thead>
-          <DataTableRow>
-            <DataTableHeaderCell>Name</DataTableHeaderCell>
-            <DataTableHeaderCell>Role</DataTableHeaderCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableHeaderCell>Name</DatatableHeaderCell>
+            <DatatableHeaderCell>Role</DatatableHeaderCell>
+          </DatatableRow>
         </thead>
         <tbody>
-          <DataTableRow>
-            <DataTableCell>Alice</DataTableCell>
-            <DataTableCell>Engineer</DataTableCell>
-          </DataTableRow>
-          <DataTableRow>
-            <DataTableCell>Bob</DataTableCell>
-            <DataTableCell>Designer</DataTableCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableCell>Alice</DatatableCell>
+            <DatatableCell>Engineer</DatatableCell>
+          </DatatableRow>
+          <DatatableRow>
+            <DatatableCell>Bob</DatatableCell>
+            <DatatableCell>Designer</DatatableCell>
+          </DatatableRow>
         </tbody>
       </table>
-    </DataTable>
+    </Datatable>
   ),
 }
 
 export const Selectable: Story = {
   args: { selectable: true, hoverable: true },
   render: (args) => (
-    <DataTable {...args}>
+    <Datatable {...args}>
       <table>
         <thead>
-          <DataTableRow>
-            <DataTableHeaderCell>Name</DataTableHeaderCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableHeaderCell>Name</DatatableHeaderCell>
+          </DatatableRow>
         </thead>
         <tbody>
-          <DataTableRow>
-            <DataTableCell>Alice</DataTableCell>
-          </DataTableRow>
-          <DataTableRow>
-            <DataTableCell>Bob</DataTableCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableCell>Alice</DatatableCell>
+          </DatatableRow>
+          <DatatableRow>
+            <DatatableCell>Bob</DatatableCell>
+          </DatatableRow>
         </tbody>
       </table>
-    </DataTable>
+    </Datatable>
   ),
 }
 
 export const Bordered: Story = {
   args: { bordered: true },
   render: (args) => (
-    <DataTable {...args}>
+    <Datatable {...args}>
       <table>
         <thead>
-          <DataTableRow>
-            <DataTableHeaderCell>Name</DataTableHeaderCell>
-            <DataTableHeaderCell>Role</DataTableHeaderCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableHeaderCell>Name</DatatableHeaderCell>
+            <DatatableHeaderCell>Role</DatatableHeaderCell>
+          </DatatableRow>
         </thead>
         <tbody>
-          <DataTableRow>
-            <DataTableCell>Alice</DataTableCell>
-            <DataTableCell>Engineer</DataTableCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableCell>Alice</DatatableCell>
+            <DatatableCell>Engineer</DatatableCell>
+          </DatatableRow>
         </tbody>
       </table>
-    </DataTable>
+    </Datatable>
   ),
 }
 
 export const Small: Story = {
   args: { size: "sm" },
   render: (args) => (
-    <DataTable {...args}>
+    <Datatable {...args}>
       <table>
         <thead>
-          <DataTableRow>
-            <DataTableHeaderCell>Name</DataTableHeaderCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableHeaderCell>Name</DatatableHeaderCell>
+          </DatatableRow>
         </thead>
         <tbody>
-          <DataTableRow>
-            <DataTableCell>Alice</DataTableCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableCell>Alice</DatatableCell>
+          </DatatableRow>
         </tbody>
       </table>
-    </DataTable>
+    </Datatable>
   ),
 }
 
 export const Large: Story = {
   args: { size: "lg" },
   render: (args) => (
-    <DataTable {...args}>
+    <Datatable {...args}>
       <table>
         <thead>
-          <DataTableRow>
-            <DataTableHeaderCell>Name</DataTableHeaderCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableHeaderCell>Name</DatatableHeaderCell>
+          </DatatableRow>
         </thead>
         <tbody>
-          <DataTableRow>
-            <DataTableCell>Alice</DataTableCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableCell>Alice</DatatableCell>
+          </DatatableRow>
         </tbody>
       </table>
-    </DataTable>
+    </Datatable>
   ),
 }
 
 export const StickyHeader: Story = {
   args: { stickyHeader: true },
   render: (args) => (
-    <DataTable {...args}>
+    <Datatable {...args}>
       <table>
         <thead>
-          <DataTableRow>
-            <DataTableHeaderCell>Name</DataTableHeaderCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableHeaderCell>Name</DatatableHeaderCell>
+          </DatatableRow>
         </thead>
         <tbody>
-          <DataTableRow>
-            <DataTableCell>Alice</DataTableCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableCell>Alice</DatatableCell>
+          </DatatableRow>
         </tbody>
       </table>
-    </DataTable>
+    </Datatable>
   ),
 }
 
@@ -194,57 +194,57 @@ export const Hover: Story = {
   args: { hoverable: true },
   parameters: { pseudo: { hover: true } },
   render: (args) => (
-    <DataTable {...args}>
+    <Datatable {...args}>
       <table>
         <thead>
-          <DataTableRow>
-            <DataTableHeaderCell>Name</DataTableHeaderCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableHeaderCell>Name</DatatableHeaderCell>
+          </DatatableRow>
         </thead>
         <tbody>
-          <DataTableRow>
-            <DataTableCell>Hover</DataTableCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableCell>Hover</DatatableCell>
+          </DatatableRow>
         </tbody>
       </table>
-    </DataTable>
+    </Datatable>
   ),
 }
 
 export const FocusVisible: Story = {
   parameters: { pseudo: { focusVisible: true } },
   render: (args) => (
-    <DataTable {...args}>
+    <Datatable {...args}>
       <table>
         <thead>
-          <DataTableRow>
-            <DataTableHeaderCell>Name</DataTableHeaderCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableHeaderCell>Name</DatatableHeaderCell>
+          </DatatableRow>
         </thead>
         <tbody>
-          <DataTableRow>
-            <DataTableCell>Focus</DataTableCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableCell>Focus</DatatableCell>
+          </DatatableRow>
         </tbody>
       </table>
-    </DataTable>
+    </Datatable>
   ),
 }
 
 export const RenderTest: Story = {
   render: () => (
-    <DataTable>
+    <Datatable>
       <table>
         <tbody>
-          <DataTableRow>
-            <DataTableCell>Test</DataTableCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableCell>Test</DatatableCell>
+          </DatatableRow>
         </tbody>
       </table>
-    </DataTable>
+    </Datatable>
   ),
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-data-table")
+    const el = canvasElement.querySelector(".pm-datatable")
     await expect(el).toBeTruthy()
   },
 }

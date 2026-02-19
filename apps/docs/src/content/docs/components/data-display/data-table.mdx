@@ -1,10 +1,18 @@
 ---
 title: Data Table
 description: A feature-rich table with toolbar, sorting, pagination, and row selection.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 Data Table extends the basic Table with toolbar, sorting headers, pagination, and row selection capabilities.
 
@@ -14,40 +22,40 @@ Data Table extends the basic Table with toolbar, sorting headers, pagination, an
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-data-table pm-data-table--simple pm-data-table--md">
-  <div class="pm-data-table__toolbar">Search</div>
-  <table class="pm-data-table__table">
+  htmlCode={`<div class="pm-datatable pm-datatable--simple pm-datatable--md">
+  <div class="pm-datatable__toolbar">Search</div>
+  <table class="pm-datatable__table">
     <thead>
-      <tr class="pm-data-table__row">
-        <th class="pm-data-table__header-cell">Name</th>
+      <tr class="pm-datatable__row">
+        <th class="pm-datatable__header-cell">Name</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="pm-data-table__row">
-        <td class="pm-data-table__cell">Alice</td>
+      <tr class="pm-datatable__row">
+        <td class="pm-datatable__cell">Alice</td>
       </tr>
     </tbody>
   </table>
-  <div class="pm-data-table__pagination">Page 1</div>
+  <div class="pm-datatable__pagination">Page 1</div>
 </div>`}
-  reactCode={`import { DataTable, DataTableToolbar, DataTableHeaderCell, DataTableRow, DataTableCell, DataTablePagination } from "@paramanu/data-display-react"
+  reactCode={`import { Datatable, DatatableToolbar, DatatableHeaderCell, DatatableRow, DatatableCell, DatatablePagination } from "@paramanu/data-display-react"
 
 export default function App() {
   return (
-    <DataTable>
-      <DataTableToolbar>Search</DataTableToolbar>
+    <Datatable>
+      <DatatableToolbar>Search</DatatableToolbar>
       <table>
         <thead>
-          <DataTableRow>
-            <DataTableHeaderCell sortable sortDirection="asc">Name</DataTableHeaderCell>
-          </DataTableRow>
+          <DatatableRow>
+            <DatatableHeaderCell sortable sortDirection="asc">Name</DatatableHeaderCell>
+          </DatatableRow>
         </thead>
         <tbody>
-          <DataTableRow><DataTableCell>Alice</DataTableCell></DataTableRow>
+          <DatatableRow><DatatableCell>Alice</DatatableCell></DatatableRow>
         </tbody>
       </table>
-      <DataTablePagination>Page 1</DataTablePagination>
-    </DataTable>
+      <DatatablePagination>Page 1</DatatablePagination>
+    </Datatable>
   )
 }`}
 />

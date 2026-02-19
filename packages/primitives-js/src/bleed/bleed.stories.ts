@@ -19,7 +19,7 @@ function createBleed(args: BleedClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Bleed",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createBleed(args as BleedClassesOptions),
   argTypes: {
     inline: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8"] },

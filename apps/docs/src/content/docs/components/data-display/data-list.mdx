@@ -1,10 +1,18 @@
 ---
 title: Data List
 description: A semantic definition list for displaying term-detail pairs in vertical or horizontal layout.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 Data List renders term-detail pairs using semantic `<dl>`, `<dt>`, `<dd>` elements. Supports vertical and horizontal orientation with optional dividers.
 
@@ -14,22 +22,22 @@ Data List renders term-detail pairs using semantic `<dl>`, `<dt>`, `<dd>` elemen
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<dl class="pm-data-list pm-data-list--vertical pm-data-list--md">
-  <div class="pm-data-list__item">
-    <dt class="pm-data-list__term">Name</dt>
-    <dd class="pm-data-list__detail">John Doe</dd>
+  htmlCode={`<dl class="pm-datalist pm-datalist--vertical pm-datalist--md">
+  <div class="pm-datalist__item">
+    <dt class="pm-datalist__term">Name</dt>
+    <dd class="pm-datalist__detail">John Doe</dd>
   </div>
 </dl>`}
-  reactCode={`import { DataList, DataListItem, DataListTerm, DataListDetail } from "@paramanu/data-display-react"
+  reactCode={`import { Datalist, DatalistItem, DatalistTerm, DatalistDetail } from "@paramanu/data-display-react"
 
 export default function App() {
   return (
-    <DataList>
-      <DataListItem>
-        <DataListTerm>Name</DataListTerm>
-        <DataListDetail>John Doe</DataListDetail>
-      </DataListItem>
-    </DataList>
+    <Datalist>
+      <DatalistItem>
+        <DatalistTerm>Name</DatalistTerm>
+        <DatalistDetail>John Doe</DatalistDetail>
+      </DatalistItem>
+    </Datalist>
   )
 }`}
 />

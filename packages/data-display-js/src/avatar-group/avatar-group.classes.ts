@@ -1,26 +1,26 @@
 import type {
-  AvatarGroupClassesOptions,
-  AvatarGroupClassesResult,
+  AvatarGrpClassesOptions,
+  AvatarGrpClassesResult,
 } from "./avatar-group.types.js"
 
-const BASE = "pm-avatar-group"
+const BASE = "pm-avatar-grp"
 
 /**
- * Returns BEM class names for the AvatarGroup component.
+ * Returns BEM class names for the AvatarGrp component.
  *
  * Renders a row of overlapping avatars using `flex-direction: row-reverse`
  * with negative margins for the overlap effect.
  *
  * @example
  * ```ts
- * const cls = avatarGroupClasses({ size: "lg", spacing: "tight" })
- * // cls.root     => "pm-avatar-group pm-avatar-group--lg pm-avatar-group--spacing-tight"
- * // cls.overflow => "pm-avatar-group__overflow"
+ * const cls = avatarGrpClasses({ size: "lg", spacing: "tight" })
+ * // cls.root     => "pm-avatar-grp pm-avatar-grp--lg pm-avatar-grp--spacing-tight"
+ * // cls.overflow => "pm-avatar-grp__overflow"
  * ```
  */
-export function avatarGroupClasses(
-  options: AvatarGroupClassesOptions = {},
-): AvatarGroupClassesResult {
+export function avatarGrpClasses(
+  options: AvatarGrpClassesOptions = {},
+): AvatarGrpClassesResult {
   const { size = "md", spacing = "normal" } = options
 
   return {
@@ -30,13 +30,13 @@ export function avatarGroupClasses(
 }
 
 /**
- * Returns CSS module class names for the AvatarGroup component.
+ * Returns CSS module class names for the AvatarGrp component.
  * Used by bundled consumers who import CSS modules.
  */
-export function avatarGroupModuleClasses(
+export function avatarGrpModuleClasses(
   classMap: Record<string, string>,
-  options: AvatarGroupClassesOptions = {},
-): AvatarGroupClassesResult {
+  options: AvatarGrpClassesOptions = {},
+): AvatarGrpClassesResult {
   const { size = "md", spacing = "normal" } = options
 
   return {

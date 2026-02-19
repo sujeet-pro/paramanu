@@ -1,114 +1,114 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from "./dropdown-menu.js"
+import { Dropdown, DropdownTrigger, DropdownContent } from "./dropdown-menu.js"
 
 afterEach(cleanup)
 
-describe("DropdownMenu", () => {
+describe("Dropdown", () => {
   it("renders children", () => {
     render(
-      <DropdownMenu>
+      <Dropdown>
         <span>content</span>
-      </DropdownMenu>,
+      </Dropdown>,
     )
     expect(screen.getByText("content")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<DropdownMenu data-testid="root">content</DropdownMenu>)
+    render(<Dropdown data-testid="root">content</Dropdown>)
     const root = screen.getByTestId("root")
-    expect(root.className).toContain("pm-dropdown-menu")
-    expect(root.className).toContain("pm-dropdown-menu--md")
+    expect(root.className).toContain("pm-dropdown")
+    expect(root.className).toContain("pm-dropdown--md")
   })
 
   it("applies size class", () => {
     render(
-      <DropdownMenu size="lg" data-testid="root">
+      <Dropdown size="lg" data-testid="root">
         content
-      </DropdownMenu>,
+      </Dropdown>,
     )
-    expect(screen.getByTestId("root").className).toContain("pm-dropdown-menu--lg")
+    expect(screen.getByTestId("root").className).toContain("pm-dropdown--lg")
   })
 
   it("applies open modifier", () => {
     render(
-      <DropdownMenu open data-testid="root">
+      <Dropdown open data-testid="root">
         content
-      </DropdownMenu>,
+      </Dropdown>,
     )
-    expect(screen.getByTestId("root").className).toContain("pm-dropdown-menu--open")
+    expect(screen.getByTestId("root").className).toContain("pm-dropdown--open")
   })
 
   it("forwards ref", () => {
     let rootRef: HTMLDivElement | null = null
-    render(<DropdownMenu ref={(el) => (rootRef = el)}>content</DropdownMenu>)
+    render(<Dropdown ref={(el) => (rootRef = el)}>content</Dropdown>)
     expect(rootRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <DropdownMenu className="custom" data-testid="root">
+      <Dropdown className="custom" data-testid="root">
         content
-      </DropdownMenu>,
+      </Dropdown>,
     )
     const root = screen.getByTestId("root")
-    expect(root.className).toContain("pm-dropdown-menu")
+    expect(root.className).toContain("pm-dropdown")
     expect(root.className).toContain("custom")
   })
 })
 
-describe("DropdownMenuTrigger", () => {
+describe("DropdownTrigger", () => {
   it("renders as button with aria-haspopup", () => {
-    render(<DropdownMenuTrigger>Options</DropdownMenuTrigger>)
+    render(<DropdownTrigger>Options</DropdownTrigger>)
     const trigger = screen.getByRole("button", { name: "Options" })
     expect(trigger).toHaveAttribute("aria-haspopup", "true")
   })
 
   it("applies trigger class", () => {
-    render(<DropdownMenuTrigger>Options</DropdownMenuTrigger>)
-    expect(screen.getByRole("button").className).toContain("pm-dropdown-menu__trigger")
+    render(<DropdownTrigger>Options</DropdownTrigger>)
+    expect(screen.getByRole("button").className).toContain("pm-dropdown__trigger")
   })
 
   it("sets aria-expanded", () => {
-    render(<DropdownMenuTrigger expanded={true}>Options</DropdownMenuTrigger>)
+    render(<DropdownTrigger expanded={true}>Options</DropdownTrigger>)
     expect(screen.getByRole("button")).toHaveAttribute("aria-expanded", "true")
   })
 
   it("forwards ref", () => {
     let triggerRef: HTMLButtonElement | null = null
-    render(<DropdownMenuTrigger ref={(el) => (triggerRef = el)}>Options</DropdownMenuTrigger>)
+    render(<DropdownTrigger ref={(el) => (triggerRef = el)}>Options</DropdownTrigger>)
     expect(triggerRef).toBeInstanceOf(HTMLButtonElement)
   })
 
   it("merges custom className", () => {
-    render(<DropdownMenuTrigger className="custom">Options</DropdownMenuTrigger>)
+    render(<DropdownTrigger className="custom">Options</DropdownTrigger>)
     const trigger = screen.getByRole("button")
-    expect(trigger.className).toContain("pm-dropdown-menu__trigger")
+    expect(trigger.className).toContain("pm-dropdown__trigger")
     expect(trigger.className).toContain("custom")
   })
 })
 
-describe("DropdownMenuContent", () => {
+describe("DropdownContent", () => {
   it("renders with role=menu", () => {
-    render(<DropdownMenuContent>items</DropdownMenuContent>)
+    render(<DropdownContent>items</DropdownContent>)
     expect(screen.getByRole("menu")).toBeInTheDocument()
   })
 
   it("applies content class", () => {
-    render(<DropdownMenuContent>items</DropdownMenuContent>)
-    expect(screen.getByRole("menu").className).toContain("pm-dropdown-menu__content")
+    render(<DropdownContent>items</DropdownContent>)
+    expect(screen.getByRole("menu").className).toContain("pm-dropdown__content")
   })
 
   it("forwards ref", () => {
     let contentRef: HTMLDivElement | null = null
-    render(<DropdownMenuContent ref={(el) => (contentRef = el)}>items</DropdownMenuContent>)
+    render(<DropdownContent ref={(el) => (contentRef = el)}>items</DropdownContent>)
     expect(contentRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    render(<DropdownMenuContent className="custom">items</DropdownMenuContent>)
+    render(<DropdownContent className="custom">items</DropdownContent>)
     const content = screen.getByRole("menu")
-    expect(content.className).toContain("pm-dropdown-menu__content")
+    expect(content.className).toContain("pm-dropdown__content")
     expect(content.className).toContain("custom")
   })
 })

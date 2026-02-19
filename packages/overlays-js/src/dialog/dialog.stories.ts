@@ -37,7 +37,7 @@ function createDialog(args: DialogClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Dialog",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createDialog(args as DialogClassesOptions),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "full"] },

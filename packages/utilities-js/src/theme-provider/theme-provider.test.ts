@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { JSDOM } from "jsdom"
 import { setTheme, getTheme, clearTheme } from "./theme-provider.js"
-import { themeProviderClasses, themeProviderModuleClasses } from "./theme-provider.classes.js"
+import { themeClasses, themeModuleClasses } from "./theme-provider.classes.js"
 
 function setupDOM() {
   const dom = new JSDOM(`<!DOCTYPE html><html><body></body></html>`, {
@@ -110,33 +110,33 @@ describe("clearTheme", () => {
   })
 })
 
-describe("themeProviderClasses", () => {
+describe("themeClasses", () => {
   it("returns base class without mode", () => {
-    expect(themeProviderClasses()).toBe("pm-theme-provider")
+    expect(themeClasses()).toBe("pm-theme")
   })
 
   it("returns base class with mode", () => {
-    expect(themeProviderClasses("dark")).toBe("pm-theme-provider pm-theme-provider--dark")
-    expect(themeProviderClasses("light")).toBe("pm-theme-provider pm-theme-provider--light")
+    expect(themeClasses("dark")).toBe("pm-theme pm-theme--dark")
+    expect(themeClasses("light")).toBe("pm-theme pm-theme--light")
   })
 })
 
-describe("themeProviderModuleClasses", () => {
+describe("themeModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-theme-provider": "pm_abc_tp",
-    "pm-theme-provider--dark": "pm_abc_dark",
+    "pm-theme": "pm_abc_tp",
+    "pm-theme--dark": "pm_abc_dark",
   }
 
   it("returns mapped base class", () => {
-    expect(themeProviderModuleClasses(mockClassMap)).toBe("pm_abc_tp")
+    expect(themeModuleClasses(mockClassMap)).toBe("pm_abc_tp")
   })
 
   it("returns mapped mode class", () => {
-    expect(themeProviderModuleClasses(mockClassMap, "dark")).toBe("pm_abc_tp pm_abc_dark")
+    expect(themeModuleClasses(mockClassMap, "dark")).toBe("pm_abc_tp pm_abc_dark")
   })
 
   it("handles missing entries gracefully", () => {
-    const result = themeProviderModuleClasses({})
+    const result = themeModuleClasses({})
     expect(result).not.toContain("undefined")
   })
 })

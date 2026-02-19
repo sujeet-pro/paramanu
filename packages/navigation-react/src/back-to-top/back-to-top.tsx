@@ -1,18 +1,18 @@
 import { forwardRef } from "react"
-import { backToTopClasses } from "@paramanu/navigation-js"
-import type { BackToTopProps } from "@paramanu/navigation-js"
+import { bttClasses } from "@paramanu/navigation-js"
+import type { BttProps } from "@paramanu/navigation-js"
 
-export interface ReactBackToTopProps
-  extends BackToTopProps,
+export interface ReactBttProps
+  extends BttProps,
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
   children?: React.ReactNode
 }
 
-export const BackToTop = forwardRef<HTMLButtonElement, ReactBackToTopProps>(function BackToTop(
+export const Btt = forwardRef<HTMLButtonElement, ReactBttProps>(function Btt(
   { size, position, visible, className, children, ...rest },
   ref,
 ) {
-  const classes = backToTopClasses({ size, position, visible })
+  const classes = bttClasses({ size, position, visible })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (

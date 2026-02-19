@@ -5,7 +5,7 @@ import { NProgress } from "./nprogress.js"
 const meta = {
   title: "Feedback/NProgress",
   component: NProgress,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     active: { control: "boolean" },
     value: { control: { type: "range", min: 0, max: 1, step: 0.01 } },

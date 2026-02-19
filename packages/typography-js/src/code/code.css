@@ -1,9 +1,9 @@
 @layer pm.components {
   /* Inline code */
   .pm-code {
-    --pm-code-bg: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    --pm-code-text: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
-    --pm-code-border: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    --pm-code-bg: var(--pm-bg-muted);
+    --pm-code-text: var(--pm-fg);
+    --pm-code-border: var(--pm-border-muted);
     --pm-code-font-family: var(--pm-font-family-mono);
 
     font-family: var(--pm-code-font-family);
@@ -39,33 +39,33 @@
 
     /* Colors */
     &.pm-code--color-primary {
-      --pm-code-bg: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
-      --pm-code-text: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
-      --pm-code-border: light-dark(var(--pm-color-primary-200), var(--pm-color-primary-700));
+      --pm-code-bg: var(--pm-primary-subtle);
+      --pm-code-text: var(--pm-fg-link-hover);
+      --pm-code-border: var(--pm-primary-border);
     }
 
     &.pm-code--color-danger {
-      --pm-code-bg: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
-      --pm-code-text: light-dark(var(--pm-color-danger-700), var(--pm-color-danger-300));
-      --pm-code-border: light-dark(var(--pm-color-danger-200), var(--pm-color-danger-700));
+      --pm-code-bg: var(--pm-danger-subtle);
+      --pm-code-text: var(--pm-danger-subtle-fg);
+      --pm-code-border: var(--pm-danger-border);
     }
 
     &.pm-code--color-success {
-      --pm-code-bg: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
-      --pm-code-text: light-dark(var(--pm-color-success-700), var(--pm-color-success-300));
-      --pm-code-border: light-dark(var(--pm-color-success-200), var(--pm-color-success-700));
+      --pm-code-bg: var(--pm-success-subtle);
+      --pm-code-text: var(--pm-success-subtle-fg);
+      --pm-code-border: var(--pm-success-border);
     }
 
     &.pm-code--color-warning {
-      --pm-code-bg: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
-      --pm-code-text: light-dark(var(--pm-color-warning-700), var(--pm-color-warning-300));
-      --pm-code-border: light-dark(var(--pm-color-warning-200), var(--pm-color-warning-700));
+      --pm-code-bg: var(--pm-warning-subtle);
+      --pm-code-text: var(--pm-warning-subtle-fg);
+      --pm-code-border: var(--pm-warning-border);
     }
 
     &.pm-code--color-info {
-      --pm-code-bg: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
-      --pm-code-text: light-dark(var(--pm-color-info-700), var(--pm-color-info-300));
-      --pm-code-border: light-dark(var(--pm-color-info-200), var(--pm-color-info-700));
+      --pm-code-bg: var(--pm-info-subtle);
+      --pm-code-text: var(--pm-info-subtle-fg);
+      --pm-code-border: var(--pm-info-border);
     }
 
     &.pm-code--color-neutral {
@@ -75,10 +75,10 @@
 
   /* Code block */
   .pm-code-block {
-    --pm-code-block-bg: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    --pm-code-block-text: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
-    --pm-code-block-border: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-    --pm-code-block-line-number-color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    --pm-code-block-bg: var(--pm-bg-muted);
+    --pm-code-block-text: var(--pm-fg);
+    --pm-code-block-border: var(--pm-border-muted);
+    --pm-code-block-line-number-color: var(--pm-fg-subtle);
 
     display: block;
     font-family: var(--pm-font-family-mono);
@@ -120,28 +120,28 @@
 
     /* Colors */
     &.pm-code-block--color-primary {
-      --pm-code-block-bg: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
-      --pm-code-block-border: light-dark(var(--pm-color-primary-200), var(--pm-color-primary-700));
+      --pm-code-block-bg: var(--pm-primary-subtle);
+      --pm-code-block-border: var(--pm-primary-border);
     }
 
     &.pm-code-block--color-danger {
-      --pm-code-block-bg: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
-      --pm-code-block-border: light-dark(var(--pm-color-danger-200), var(--pm-color-danger-700));
+      --pm-code-block-bg: var(--pm-danger-subtle);
+      --pm-code-block-border: var(--pm-danger-border);
     }
 
     &.pm-code-block--color-success {
-      --pm-code-block-bg: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
-      --pm-code-block-border: light-dark(var(--pm-color-success-200), var(--pm-color-success-700));
+      --pm-code-block-bg: var(--pm-success-subtle);
+      --pm-code-block-border: var(--pm-success-border);
     }
 
     &.pm-code-block--color-warning {
-      --pm-code-block-bg: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
-      --pm-code-block-border: light-dark(var(--pm-color-warning-200), var(--pm-color-warning-700));
+      --pm-code-block-bg: var(--pm-warning-subtle);
+      --pm-code-block-border: var(--pm-warning-border);
     }
 
     &.pm-code-block--color-info {
-      --pm-code-block-bg: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
-      --pm-code-block-border: light-dark(var(--pm-color-info-200), var(--pm-color-info-700));
+      --pm-code-block-bg: var(--pm-info-subtle);
+      --pm-code-block-border: var(--pm-info-border);
     }
 
     &.pm-code-block--color-neutral {

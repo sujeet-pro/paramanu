@@ -1,11 +1,11 @@
 @layer pm.components {
-  .pm-skip-nav-link {
+  .pm-skip-link {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
     padding: var(--pm-spacing-2) var(--pm-spacing-4);
-    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    background-color: var(--pm-primary);
     color: var(--pm-color-neutral-0);
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-md);
@@ -17,34 +17,34 @@
 
     &:focus-visible {
       transform: translateY(0);
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
   }
 
   /* ---------- Theme overrides ---------- */
 
-  .pm-theme-antd .pm-skip-nav-link {
+  .pm-theme-antd .pm-skip-link {
     border-radius: 0 0 4px 0;
     font-size: var(--pm-font-size-sm);
   }
 
-  .pm-theme-material .pm-skip-nav-link {
+  .pm-theme-material .pm-skip-link {
     border-radius: 0 0 20px 0;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: var(--pm-font-size-sm);
   }
 
-  .pm-theme-bootstrap .pm-skip-nav-link {
+  .pm-theme-bootstrap .pm-skip-link {
     border-radius: 0 0 6px 0;
   }
 
-  .pm-theme-dark-modern .pm-skip-nav-link:focus-visible {
+  .pm-theme-dark-modern .pm-skip-link:focus-visible {
     box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
   }
 
-  .pm-theme-light-modern .pm-skip-nav-link {
+  .pm-theme-light-modern .pm-skip-link {
     box-shadow: var(--pm-shadow-md);
   }
 }

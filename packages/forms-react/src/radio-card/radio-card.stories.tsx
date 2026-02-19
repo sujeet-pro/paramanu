@@ -4,7 +4,7 @@ import { RadioCard } from "./radio-card.js"
 
 const meta = {
   title: "Forms/Radio Card",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: RadioCard,
   argTypes: {
     size: {

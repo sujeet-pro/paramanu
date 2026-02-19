@@ -16,7 +16,7 @@ function createProse(args: ProseClassesOptions): HTMLElement {
 
 const meta = {
   title: "Typography/Prose",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createProse(args as ProseClassesOptions),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },

@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("ScrollArea Stories", () => {
+describe("Scroll Stories", () => {
   it("Playground renders with role=region", () => {
     const { container } = render(<composed.Playground />)
     expect(container.querySelector("[role='region']")).toBeTruthy()
@@ -15,11 +15,11 @@ describe("ScrollArea Stories", () => {
 
   it("Bordered applies bordered class", () => {
     const { container } = render(<composed.Bordered />)
-    expect(container.querySelector(".pm-scroll-area--bordered")).toBeTruthy()
+    expect(container.querySelector(".pm-scroll--bordered")).toBeTruthy()
   })
 
   it("Horizontal applies horizontal class", () => {
     const { container } = render(<composed.Horizontal />)
-    expect(container.querySelector(".pm-scroll-area--horizontal")).toBeTruthy()
+    expect(container.querySelector(".pm-scroll--horizontal")).toBeTruthy()
   })
 })

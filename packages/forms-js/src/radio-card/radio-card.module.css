@@ -3,7 +3,7 @@
     display: flex;
     align-items: flex-start;
     gap: var(--pm-spacing-3);
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-md);
     cursor: pointer;
     transition-property: border-color, box-shadow, background-color;
@@ -23,8 +23,8 @@
   }
 
   .pm-radio-card--checked {
-    border-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
-    background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-950));
+    border-color: var(--pm-primary-border);
+    background-color: var(--pm-primary-subtle);
   }
 
   .pm-radio-card--disabled {

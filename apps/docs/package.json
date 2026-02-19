@@ -13,6 +13,7 @@
     "@astrojs/react": "^4.4.2",
     "@astrojs/starlight": "^0.31.0",
     "@codesandbox/sandpack-react": "^2.20.0",
+    "@paramanu/tokens": "workspace:*",
     "@paramanu/buttons-js": "workspace:*",
     "@paramanu/data-display-js": "workspace:*",
     "@paramanu/disclosure-js": "workspace:*",

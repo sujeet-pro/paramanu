@@ -5,7 +5,7 @@ import { Tile } from "./tile.js"
 const meta = {
   title: "Data Display/Tile",
   component: Tile,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: {
       control: "select",

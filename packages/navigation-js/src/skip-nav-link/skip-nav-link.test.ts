@@ -1,20 +1,20 @@
 import { describe, it, expect } from "vitest"
-import { skipNavLinkClasses, skipNavLinkModuleClasses } from "./skip-nav-link.classes.js"
+import { skipLinkClasses, skipLinkModuleClasses } from "./skip-nav-link.classes.js"
 
-describe("skipNavLinkClasses", () => {
+describe("skipLinkClasses", () => {
   it("returns the base class", () => {
-    expect(skipNavLinkClasses()).toBe("pm-skip-nav-link")
+    expect(skipLinkClasses()).toBe("pm-skip-link")
   })
 })
 
-describe("skipNavLinkModuleClasses", () => {
+describe("skipLinkModuleClasses", () => {
   it("returns mapped class", () => {
-    const mockClassMap = { "pm-skip-nav-link": "pm_abc_skipNavLink" }
-    expect(skipNavLinkModuleClasses(mockClassMap)).toBe("pm_abc_skipNavLink")
+    const mockClassMap = { "pm-skip-link": "pm_abc_skipNavLink" }
+    expect(skipLinkModuleClasses(mockClassMap)).toBe("pm_abc_skipNavLink")
   })
 
   it("handles missing class map entry gracefully", () => {
-    const result = skipNavLinkModuleClasses({})
+    const result = skipLinkModuleClasses({})
     expect(result).toBe("")
   })
 })

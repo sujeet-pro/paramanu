@@ -23,12 +23,12 @@ describe("float accessibility", () => {
   it("preserves child content and accessibility attributes", () => {
     const dom = new JSDOM(`<!DOCTYPE html><body>
       <div class="${floatClasses()}">
-        <span aria-label="Notification count">3</span>
+        <span aria-label="Notif count">3</span>
       </div>
     </body>`)
     const span = dom.window.document.querySelector("span")
     expect(span).not.toBeNull()
-    expect(span?.getAttribute("aria-label")).toBe("Notification count")
+    expect(span?.getAttribute("aria-label")).toBe("Notif count")
   })
 
   it("does not introduce unwanted roles or aria attributes", () => {

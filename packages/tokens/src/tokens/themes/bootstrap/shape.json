@@ -1,0 +1,17 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "none": { "$value": "0px" },
+    "sm": { "$value": "4px" },
+    "md": { "$value": "6px" },
+    "lg": { "$value": "8px" },
+    "xl": { "$value": "16px" },
+    "full": { "$value": "50rem" }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "sm": { "$value": "0 0.125rem 0.25rem rgb(0 0 0 / 0.075)" },
+    "md": { "$value": "0 0.5rem 1rem rgb(0 0 0 / 0.15)" },
+    "lg": { "$value": "0 1rem 3rem rgb(0 0 0 / 0.175)" }
+  }
+}

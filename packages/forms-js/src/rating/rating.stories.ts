@@ -15,7 +15,7 @@ function createRating(args: RatingArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Rating",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createRating(args as RatingArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },

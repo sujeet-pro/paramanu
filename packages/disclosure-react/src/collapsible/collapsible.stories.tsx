@@ -5,7 +5,7 @@ import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "./collapsib
 const meta = {
   title: "Disclosure/Collapsible",
   component: Collapsible,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: {
       control: "select",

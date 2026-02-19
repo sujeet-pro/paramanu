@@ -1,50 +1,50 @@
 import { describe, it, expect } from "vitest"
-import { multiSelectClasses, multiSelectModuleClasses } from "./multi-select.classes.js"
+import { multiSelClasses, multiSelModuleClasses } from "./multi-select.classes.js"
 
-describe("multiSelectClasses", () => {
+describe("multiSelClasses", () => {
   it("returns default classes (outline, md)", () => {
-    const result = multiSelectClasses()
-    expect(result).toBe("pm-multi-select pm-multi-select--outline pm-multi-select--md")
+    const result = multiSelClasses()
+    expect(result).toBe("pm-multi-sel pm-multi-sel--outline pm-multi-sel--md")
   })
 
   it("applies variant", () => {
-    expect(multiSelectClasses({ variant: "outline" })).toContain("pm-multi-select--outline")
-    expect(multiSelectClasses({ variant: "filled" })).toContain("pm-multi-select--filled")
-    expect(multiSelectClasses({ variant: "unstyled" })).toContain("pm-multi-select--unstyled")
+    expect(multiSelClasses({ variant: "outline" })).toContain("pm-multi-sel--outline")
+    expect(multiSelClasses({ variant: "filled" })).toContain("pm-multi-sel--filled")
+    expect(multiSelClasses({ variant: "unstyled" })).toContain("pm-multi-sel--unstyled")
   })
 
   it("applies size", () => {
-    expect(multiSelectClasses({ size: "sm" })).toContain("pm-multi-select--sm")
-    expect(multiSelectClasses({ size: "md" })).toContain("pm-multi-select--md")
-    expect(multiSelectClasses({ size: "lg" })).toContain("pm-multi-select--lg")
+    expect(multiSelClasses({ size: "sm" })).toContain("pm-multi-sel--sm")
+    expect(multiSelClasses({ size: "md" })).toContain("pm-multi-sel--md")
+    expect(multiSelClasses({ size: "lg" })).toContain("pm-multi-sel--lg")
   })
 
   it("applies invalid modifier", () => {
-    expect(multiSelectClasses({ invalid: true })).toContain("pm-multi-select--invalid")
-    expect(multiSelectClasses({ invalid: false })).not.toContain("pm-multi-select--invalid")
+    expect(multiSelClasses({ invalid: true })).toContain("pm-multi-sel--invalid")
+    expect(multiSelClasses({ invalid: false })).not.toContain("pm-multi-sel--invalid")
   })
 
   it("applies disabled modifier", () => {
-    expect(multiSelectClasses({ disabled: true })).toContain("pm-multi-select--disabled")
-    expect(multiSelectClasses({ disabled: false })).not.toContain("pm-multi-select--disabled")
+    expect(multiSelClasses({ disabled: true })).toContain("pm-multi-sel--disabled")
+    expect(multiSelClasses({ disabled: false })).not.toContain("pm-multi-sel--disabled")
   })
 
   it("applies open modifier", () => {
-    expect(multiSelectClasses({ open: true })).toContain("pm-multi-select--open")
-    expect(multiSelectClasses({ open: false })).not.toContain("pm-multi-select--open")
+    expect(multiSelClasses({ open: true })).toContain("pm-multi-sel--open")
+    expect(multiSelClasses({ open: false })).not.toContain("pm-multi-sel--open")
   })
 
   it("applies full-width modifier", () => {
-    expect(multiSelectClasses({ fullWidth: true })).toContain("pm-multi-select--full-width")
-    expect(multiSelectClasses({ fullWidth: false })).not.toContain("pm-multi-select--full-width")
+    expect(multiSelClasses({ fullWidth: true })).toContain("pm-multi-sel--full-width")
+    expect(multiSelClasses({ fullWidth: false })).not.toContain("pm-multi-sel--full-width")
   })
 
   it("always includes base class", () => {
-    expect(multiSelectClasses()).toMatch(/^pm-multi-select\s/)
+    expect(multiSelClasses()).toMatch(/^pm-multi-sel\s/)
   })
 
   it("combines multiple options", () => {
-    const result = multiSelectClasses({
+    const result = multiSelClasses({
       variant: "filled",
       size: "lg",
       invalid: true,
@@ -53,45 +53,45 @@ describe("multiSelectClasses", () => {
       fullWidth: true,
     })
     expect(result).toBe(
-      "pm-multi-select pm-multi-select--filled pm-multi-select--lg pm-multi-select--invalid pm-multi-select--disabled pm-multi-select--open pm-multi-select--full-width",
+      "pm-multi-sel pm-multi-sel--filled pm-multi-sel--lg pm-multi-sel--invalid pm-multi-sel--disabled pm-multi-sel--open pm-multi-sel--full-width",
     )
   })
 })
 
-describe("multiSelectModuleClasses", () => {
+describe("multiSelModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-multi-select": "pm_abc_multiSelect",
-    "pm-multi-select--outline": "pm_abc_outline",
-    "pm-multi-select--filled": "pm_abc_filled",
-    "pm-multi-select--md": "pm_abc_md",
-    "pm-multi-select--sm": "pm_abc_sm",
-    "pm-multi-select--lg": "pm_abc_lg",
-    "pm-multi-select--invalid": "pm_abc_invalid",
-    "pm-multi-select--disabled": "pm_abc_disabled",
-    "pm-multi-select--open": "pm_abc_open",
-    "pm-multi-select--full-width": "pm_abc_fullWidth",
+    "pm-multi-sel": "pm_abc_multiSelect",
+    "pm-multi-sel--outline": "pm_abc_outline",
+    "pm-multi-sel--filled": "pm_abc_filled",
+    "pm-multi-sel--md": "pm_abc_md",
+    "pm-multi-sel--sm": "pm_abc_sm",
+    "pm-multi-sel--lg": "pm_abc_lg",
+    "pm-multi-sel--invalid": "pm_abc_invalid",
+    "pm-multi-sel--disabled": "pm_abc_disabled",
+    "pm-multi-sel--open": "pm_abc_open",
+    "pm-multi-sel--full-width": "pm_abc_fullWidth",
   }
 
   it("returns mapped default classes", () => {
-    const result = multiSelectModuleClasses(mockClassMap)
+    const result = multiSelModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_multiSelect pm_abc_outline pm_abc_md")
   })
 
   it("maps variant classes correctly", () => {
-    const result = multiSelectModuleClasses(mockClassMap, { variant: "filled" })
+    const result = multiSelModuleClasses(mockClassMap, { variant: "filled" })
     expect(result).toContain("pm_abc_filled")
   })
 
   it("maps open class", () => {
-    const result = multiSelectModuleClasses(mockClassMap, { open: true })
+    const result = multiSelModuleClasses(mockClassMap, { open: true })
     expect(result).toContain("pm_abc_open")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-multi-select": "pm_abc_multiSelect",
+      "pm-multi-sel": "pm_abc_multiSelect",
     }
-    const result = multiSelectModuleClasses(sparseMap)
+    const result = multiSelModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_multiSelect")
     expect(result).not.toContain("undefined")
   })

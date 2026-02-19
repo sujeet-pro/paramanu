@@ -35,7 +35,7 @@ function createCombobox(args: ComboboxArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Combobox",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createCombobox(args as ComboboxArgs),
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },

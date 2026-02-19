@@ -4,7 +4,7 @@ import { List } from "./list.js"
 
 const meta = {
   title: "Typography/List",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: List,
   argTypes: {
     type: { control: "select", options: ["ordered", "unordered"] },

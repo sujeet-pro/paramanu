@@ -1,23 +1,23 @@
 /** Visual style variant for the icon button */
-export type IconButtonVariant = "primary" | "secondary" | "danger" | "ghost" | "outline"
+export type IconBtnVariant = "primary" | "secondary" | "danger" | "ghost" | "outline"
 
 /** Size preset for the icon button */
-export type IconButtonSize = "xs" | "sm" | "md" | "lg" | "xl"
+export type IconBtnSize = "xs" | "sm" | "md" | "lg" | "xl"
 
 /** Shape of the icon button */
-export type IconButtonShape = "square" | "circle"
+export type IconBtnShape = "square" | "circle"
 
 /**
  * Options for generating icon button CSS class names.
- * Used by both BEM (`iconButtonClasses`) and CSS module (`iconButtonModuleClasses`) builders.
+ * Used by both BEM (`iconBtnClasses`) and CSS module (`iconBtnModuleClasses`) builders.
  */
-export interface IconButtonClassesOptions {
+export interface IconBtnClassesOptions {
   /** Visual style variant. @default "primary" */
-  variant?: IconButtonVariant
+  variant?: IconBtnVariant
   /** Size preset controlling dimensions. @default "md" */
-  size?: IconButtonSize
-  /** Button shape. @default "square" */
-  shape?: IconButtonShape
+  size?: IconBtnSize
+  /** Btn shape. @default "square" */
+  shape?: IconBtnShape
   /** Whether the button is in a disabled state. @default false */
   disabled?: boolean
   /** Whether the button is in a loading state. @default false */
@@ -30,7 +30,7 @@ export interface IconButtonClassesOptions {
  * Full props interface for the icon button component.
  * Extends class options with HTML-specific attributes.
  */
-export interface IconButtonProps extends IconButtonClassesOptions {
+export interface IconBtnProps extends IconBtnClassesOptions {
   /**
    * Accessible label for the icon button (required for a11y).
    * Since icon buttons have no visible text, an aria-label is mandatory.

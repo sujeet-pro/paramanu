@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { IconButton } from "./icon-button.js"
+import { IconBtn } from "./icon-button.js"
 
 const SearchIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -16,9 +16,9 @@ const HeartIcon = () => (
 )
 
 const meta = {
-  title: "Buttons/Icon Button",
-  component: IconButton,
-  tags: ["autodocs", "stable"],
+  title: "Btns/Icon Btn",
+  component: IconBtn,
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: {
       control: "select",
@@ -41,7 +41,7 @@ const meta = {
     children: <SearchIcon />,
     onClick: fn(),
   },
-} satisfies Meta<typeof IconButton>
+} satisfies Meta<typeof IconBtn>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -82,9 +82,9 @@ export const AllVariantsAndSizes: Story = {
       {(["primary", "secondary", "danger", "ghost", "outline"] as const).map((variant) => (
         <div key={variant} style={{ display: "flex", gap: 8, alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
-            <IconButton key={size} variant={variant} size={size} aria-label={`${variant} ${size}`}>
+            <IconBtn key={size} variant={variant} size={size} aria-label={`${variant} ${size}`}>
               <SearchIcon />
-            </IconButton>
+            </IconBtn>
           ))}
         </div>
       ))}
@@ -96,9 +96,9 @@ export const Sizes: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
       {(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
-        <IconButton key={size} size={size} aria-label={`${size} icon`}>
+        <IconBtn key={size} size={size} aria-label={`${size} icon`}>
           <SearchIcon />
-        </IconButton>
+        </IconBtn>
       ))}
     </div>
   ),
@@ -119,18 +119,18 @@ export const Active: Story = {
 export const States: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 8 }}>
-      <IconButton aria-label="Default">
+      <IconBtn aria-label="Default">
         <SearchIcon />
-      </IconButton>
-      <IconButton disabled aria-label="Disabled">
+      </IconBtn>
+      <IconBtn disabled aria-label="Disabled">
         <SearchIcon />
-      </IconButton>
-      <IconButton loading aria-label="Loading">
+      </IconBtn>
+      <IconBtn loading aria-label="Loading">
         <SearchIcon />
-      </IconButton>
-      <IconButton active aria-label="Active">
+      </IconBtn>
+      <IconBtn active aria-label="Active">
         <SearchIcon />
-      </IconButton>
+      </IconBtn>
     </div>
   ),
 }
@@ -139,9 +139,9 @@ export const CircleShape: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 8 }}>
       {(["primary", "secondary", "danger", "ghost", "outline"] as const).map((variant) => (
-        <IconButton key={variant} variant={variant} shape="circle" aria-label={variant}>
+        <IconBtn key={variant} variant={variant} shape="circle" aria-label={variant}>
           <HeartIcon />
-        </IconButton>
+        </IconBtn>
       ))}
     </div>
   ),

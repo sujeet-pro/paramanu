@@ -1,11 +1,11 @@
-import type { DateRangePickerClassesOptions } from "./date-range-picker.types.js"
+import type { DaterangeClassesOptions } from "./date-range-picker.types.js"
 
-const BASE = "pm-date-range-picker"
+const BASE = "pm-daterange"
 
 /**
  * Returns BEM class names for the date range picker component (human-readable).
  */
-export function dateRangePickerClasses(options: DateRangePickerClassesOptions = {}): string {
+export function daterangeClasses(options: DaterangeClassesOptions = {}): string {
   const {
     variant = "outline",
     size = "md",
@@ -25,9 +25,9 @@ export function dateRangePickerClasses(options: DateRangePickerClassesOptions = 
 /**
  * Returns CSS module class names for the date range picker component (hashed).
  */
-export function dateRangePickerModuleClasses(
+export function daterangeModuleClasses(
   classMap: Record<string, string>,
-  options: DateRangePickerClassesOptions = {},
+  options: DaterangeClassesOptions = {},
 ): string {
   const {
     variant = "outline",
@@ -38,14 +38,14 @@ export function dateRangePickerModuleClasses(
   } = options
 
   const classes = [
-    classMap["pm-date-range-picker"],
-    classMap[`pm-date-range-picker--${variant}`],
-    classMap[`pm-date-range-picker--${size}`],
+    classMap["pm-daterange"],
+    classMap[`pm-daterange--${variant}`],
+    classMap[`pm-daterange--${size}`],
   ]
 
-  if (invalid) classes.push(classMap["pm-date-range-picker--invalid"])
-  if (disabled) classes.push(classMap["pm-date-range-picker--disabled"])
-  if (open) classes.push(classMap["pm-date-range-picker--open"])
+  if (invalid) classes.push(classMap["pm-daterange--invalid"])
+  if (disabled) classes.push(classMap["pm-daterange--disabled"])
+  if (open) classes.push(classMap["pm-daterange--open"])
 
   return classes.filter(Boolean).join(" ")
 }

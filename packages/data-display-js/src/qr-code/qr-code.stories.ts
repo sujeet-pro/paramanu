@@ -14,7 +14,7 @@ function createQrCode(args: QrCodeClassesOptions): HTMLElement {
 
 const meta = {
   title: "Data Display/QR Code",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createQrCode(args as QrCodeClassesOptions),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg", "xl"] },

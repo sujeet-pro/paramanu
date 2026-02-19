@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { loadingOverlayClasses } from "./loading-overlay.classes.js"
-import type { LoadingOverlayClassesOptions } from "./loading-overlay.types.js"
+import { loadingClasses } from "./loading-overlay.classes.js"
+import type { LoadingClassesOptions } from "./loading-overlay.types.js"
 
-function createLoadingOverlay(args: LoadingOverlayClassesOptions): HTMLDivElement {
-  const classes = loadingOverlayClasses(args)
+function createLoading(args: LoadingClassesOptions): HTMLDivElement {
+  const classes = loadingClasses(args)
 
   const wrapper = document.createElement("div")
   wrapper.style.position = "relative"
@@ -34,17 +34,17 @@ function createLoadingOverlay(args: LoadingOverlayClassesOptions): HTMLDivElemen
 
 const meta = {
   title: "Feedback/Loading Overlay",
-  tags: ["autodocs", "stable"],
-  render: (args) => createLoadingOverlay(args as LoadingOverlayClassesOptions),
+  tags: ["autodocs", "beta"],
+  render: (args) => createLoading(args as LoadingClassesOptions),
   argTypes: {
     visible: { control: "boolean" },
     blur: { control: "boolean" },
   },
   args: { visible: true },
-} satisfies Meta<LoadingOverlayClassesOptions>
+} satisfies Meta<LoadingClassesOptions>
 
 export default meta
-type Story = StoryObj<LoadingOverlayClassesOptions>
+type Story = StoryObj<LoadingClassesOptions>
 
 export const Playground: Story = {}
 export const Visible: Story = { args: { visible: true } }

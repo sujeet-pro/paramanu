@@ -1,30 +1,30 @@
 import type {
-  TreeViewClassesOptions,
-  TreeViewBranchClassesOptions,
-  TreeViewItemClassesOptions,
-  TreeViewIndicatorClassesOptions,
+  TreeClassesOptions,
+  TreeBranchClassesOptions,
+  TreeItemClassesOptions,
+  TreeIndicatorClassesOptions,
 } from "./tree-view.types.js"
 
-const BASE = "pm-tree-view"
+const BASE = "pm-tree"
 
-export function treeViewClasses(options: TreeViewClassesOptions = {}): string {
+export function treeClasses(options: TreeClassesOptions = {}): string {
   const { size = "md" } = options
   const classes = [BASE, `${BASE}--${size}`]
   return classes.join(" ")
 }
 
-export function treeViewModuleClasses(
+export function treeModuleClasses(
   classMap: Record<string, string>,
-  options: TreeViewClassesOptions = {},
+  options: TreeClassesOptions = {},
 ): string {
   const { size = "md" } = options
   const classes = [classMap[BASE], classMap[`${BASE}--${size}`]]
   return classes.filter(Boolean).join(" ")
 }
 
-const BRANCH_BASE = "pm-tree-view__branch"
+const BRANCH_BASE = "pm-tree__branch"
 
-export function treeViewBranchClasses(options: TreeViewBranchClassesOptions = {}): string {
+export function treeViewBranchClasses(options: TreeBranchClassesOptions = {}): string {
   const { expanded = false } = options
   const classes = [BRANCH_BASE]
   if (expanded) classes.push(`${BRANCH_BASE}--expanded`)
@@ -33,7 +33,7 @@ export function treeViewBranchClasses(options: TreeViewBranchClassesOptions = {}
 
 export function treeViewBranchModuleClasses(
   classMap: Record<string, string>,
-  options: TreeViewBranchClassesOptions = {},
+  options: TreeBranchClassesOptions = {},
 ): string {
   const { expanded = false } = options
   const classes = [classMap[BRANCH_BASE]]
@@ -41,9 +41,9 @@ export function treeViewBranchModuleClasses(
   return classes.filter(Boolean).join(" ")
 }
 
-const ITEM_BASE = "pm-tree-view__item"
+const ITEM_BASE = "pm-tree__item"
 
-export function treeViewItemClasses(options: TreeViewItemClassesOptions = {}): string {
+export function treeItemClasses(options: TreeItemClassesOptions = {}): string {
   const { selected = false, disabled = false } = options
   const classes = [ITEM_BASE]
   if (selected) classes.push(`${ITEM_BASE}--selected`)
@@ -51,9 +51,9 @@ export function treeViewItemClasses(options: TreeViewItemClassesOptions = {}): s
   return classes.join(" ")
 }
 
-export function treeViewItemModuleClasses(
+export function treeItemModuleClasses(
   classMap: Record<string, string>,
-  options: TreeViewItemClassesOptions = {},
+  options: TreeItemClassesOptions = {},
 ): string {
   const { selected = false, disabled = false } = options
   const classes = [classMap[ITEM_BASE]]
@@ -62,7 +62,7 @@ export function treeViewItemModuleClasses(
   return classes.filter(Boolean).join(" ")
 }
 
-const ITEM_CONTENT_BASE = "pm-tree-view__item-content"
+const ITEM_CONTENT_BASE = "pm-tree__item-content"
 
 export function treeViewItemContentClasses(): string {
   return ITEM_CONTENT_BASE
@@ -72,9 +72,9 @@ export function treeViewItemContentModuleClasses(classMap: Record<string, string
   return classMap[ITEM_CONTENT_BASE] || ""
 }
 
-const INDICATOR_BASE = "pm-tree-view__indicator"
+const INDICATOR_BASE = "pm-tree__indicator"
 
-export function treeViewIndicatorClasses(options: TreeViewIndicatorClassesOptions = {}): string {
+export function treeViewIndicatorClasses(options: TreeIndicatorClassesOptions = {}): string {
   const { expanded = false } = options
   const classes = [INDICATOR_BASE]
   if (expanded) classes.push(`${INDICATOR_BASE}--expanded`)
@@ -83,7 +83,7 @@ export function treeViewIndicatorClasses(options: TreeViewIndicatorClassesOption
 
 export function treeViewIndicatorModuleClasses(
   classMap: Record<string, string>,
-  options: TreeViewIndicatorClassesOptions = {},
+  options: TreeIndicatorClassesOptions = {},
 ): string {
   const { expanded = false } = options
   const classes = [classMap[INDICATOR_BASE]]
@@ -91,7 +91,7 @@ export function treeViewIndicatorModuleClasses(
   return classes.filter(Boolean).join(" ")
 }
 
-const GROUP_BASE = "pm-tree-view__group"
+const GROUP_BASE = "pm-tree__group"
 
 export function treeViewGroupClasses(): string {
   return GROUP_BASE

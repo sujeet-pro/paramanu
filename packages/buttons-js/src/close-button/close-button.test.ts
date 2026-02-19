@@ -1,66 +1,66 @@
 import { describe, it, expect } from "vitest"
-import { closeButtonClasses, closeButtonModuleClasses } from "./close-button.classes.js"
+import { closeBtnClasses, closeBtnModuleClasses } from "./close-button.classes.js"
 
-describe("closeButtonClasses", () => {
+describe("closeBtnClasses", () => {
   it("returns default classes (md)", () => {
-    const result = closeButtonClasses()
-    expect(result).toBe("pm-close-button pm-close-button--md")
+    const result = closeBtnClasses()
+    expect(result).toBe("pm-close-btn pm-close-btn--md")
   })
 
   it("applies size", () => {
-    expect(closeButtonClasses({ size: "sm" })).toContain("pm-close-button--sm")
-    expect(closeButtonClasses({ size: "md" })).toContain("pm-close-button--md")
-    expect(closeButtonClasses({ size: "lg" })).toContain("pm-close-button--lg")
+    expect(closeBtnClasses({ size: "sm" })).toContain("pm-close-btn--sm")
+    expect(closeBtnClasses({ size: "md" })).toContain("pm-close-btn--md")
+    expect(closeBtnClasses({ size: "lg" })).toContain("pm-close-btn--lg")
   })
 
   it("applies disabled modifier", () => {
-    expect(closeButtonClasses({ disabled: true })).toContain("pm-close-button--disabled")
-    expect(closeButtonClasses({ disabled: false })).not.toContain("pm-close-button--disabled")
+    expect(closeBtnClasses({ disabled: true })).toContain("pm-close-btn--disabled")
+    expect(closeBtnClasses({ disabled: false })).not.toContain("pm-close-btn--disabled")
   })
 
   it("always includes base class", () => {
-    expect(closeButtonClasses()).toMatch(/^pm-close-button\s/)
+    expect(closeBtnClasses()).toMatch(/^pm-close-btn\s/)
   })
 
   it("combines multiple options", () => {
-    const result = closeButtonClasses({
+    const result = closeBtnClasses({
       size: "lg",
       disabled: true,
     })
-    expect(result).toBe("pm-close-button pm-close-button--lg pm-close-button--disabled")
+    expect(result).toBe("pm-close-btn pm-close-btn--lg pm-close-btn--disabled")
   })
 })
 
-describe("closeButtonModuleClasses", () => {
+describe("closeBtnModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-close-button": "pm_abc_closeButton",
-    "pm-close-button--sm": "pm_abc_sm",
-    "pm-close-button--md": "pm_abc_md",
-    "pm-close-button--lg": "pm_abc_lg",
-    "pm-close-button--disabled": "pm_abc_disabled",
+    "pm-close-btn": "pm_abc_closeBtn",
+    "pm-close-btn--sm": "pm_abc_sm",
+    "pm-close-btn--md": "pm_abc_md",
+    "pm-close-btn--lg": "pm_abc_lg",
+    "pm-close-btn--disabled": "pm_abc_disabled",
   }
 
   it("returns mapped default classes", () => {
-    const result = closeButtonModuleClasses(mockClassMap)
-    expect(result).toBe("pm_abc_closeButton pm_abc_md")
+    const result = closeBtnModuleClasses(mockClassMap)
+    expect(result).toBe("pm_abc_closeBtn pm_abc_md")
   })
 
   it("maps size classes correctly", () => {
-    const result = closeButtonModuleClasses(mockClassMap, { size: "sm" })
+    const result = closeBtnModuleClasses(mockClassMap, { size: "sm" })
     expect(result).toContain("pm_abc_sm")
   })
 
   it("maps disabled class", () => {
-    const result = closeButtonModuleClasses(mockClassMap, { disabled: true })
+    const result = closeBtnModuleClasses(mockClassMap, { disabled: true })
     expect(result).toContain("pm_abc_disabled")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-close-button": "pm_abc_closeButton",
+      "pm-close-btn": "pm_abc_closeBtn",
     }
-    const result = closeButtonModuleClasses(sparseMap)
-    expect(result).toContain("pm_abc_closeButton")
+    const result = closeBtnModuleClasses(sparseMap)
+    expect(result).toContain("pm_abc_closeBtn")
     expect(result).not.toContain("undefined")
   })
 })

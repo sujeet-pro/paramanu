@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { LoadingOverlay } from "./loading-overlay.js"
+import { Loading } from "./loading-overlay.js"
 
 const meta = {
   title: "Feedback/Loading Overlay",
-  component: LoadingOverlay,
-  tags: ["autodocs", "stable"],
+  component: Loading,
+  tags: ["autodocs", "beta"],
   argTypes: {
     visible: { control: "boolean" },
     blur: { control: "boolean" },
@@ -21,7 +21,7 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof LoadingOverlay>
+} satisfies Meta<typeof Loading>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -52,11 +52,11 @@ export const States: Story = {
     <div style={{ display: "flex", gap: 16 }}>
       <div style={{ position: "relative", width: 200, height: 150, border: "1px solid #ccc", padding: 8 }}>
         <p>Visible overlay</p>
-        <LoadingOverlay visible />
+        <Loading visible />
       </div>
       <div style={{ position: "relative", width: 200, height: 150, border: "1px solid #ccc", padding: 8 }}>
         <p>With blur</p>
-        <LoadingOverlay visible blur />
+        <Loading visible blur />
       </div>
     </div>
   ),
@@ -65,7 +65,7 @@ export const States: Story = {
 export const Accessibility: Story = {
   render: () => (
     <div style={{ position: "relative", height: 100 }}>
-      <LoadingOverlay visible={false} />
+      <Loading visible={false} />
     </div>
   ),
 }

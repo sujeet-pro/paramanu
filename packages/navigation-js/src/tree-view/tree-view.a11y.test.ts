@@ -1,20 +1,20 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import {
-  treeViewClasses,
+  treeClasses,
   treeViewBranchClasses,
-  treeViewItemClasses,
+  treeItemClasses,
   treeViewItemContentClasses,
   treeViewIndicatorClasses,
   treeViewGroupClasses,
 } from "./tree-view.classes.js"
 
-function createTreeViewHTML(): string {
-  const rootClasses = treeViewClasses()
+function createTreeHTML(): string {
+  const rootClasses = treeClasses()
   const branchClasses = treeViewBranchClasses({ expanded: true })
-  const itemClasses = treeViewItemClasses()
-  const selectedClasses = treeViewItemClasses({ selected: true })
-  const disabledClasses = treeViewItemClasses({ disabled: true })
+  const itemClasses = treeItemClasses()
+  const selectedClasses = treeItemClasses({ selected: true })
+  const disabledClasses = treeItemClasses({ disabled: true })
   const contentClasses = treeViewItemContentClasses()
   const indicatorClasses = treeViewIndicatorClasses({ expanded: true })
   const groupClasses = treeViewGroupClasses()
@@ -48,7 +48,7 @@ function createTreeViewHTML(): string {
 
 describe("tree-view accessibility", () => {
   it("uses ul with role=tree", () => {
-    const html = createTreeViewHTML()
+    const html = createTreeHTML()
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const tree = dom.window.document.querySelector("[role='tree']")
     expect(tree).not.toBeNull()
@@ -56,21 +56,21 @@ describe("tree-view accessibility", () => {
   })
 
   it("has aria-label on tree root", () => {
-    const html = createTreeViewHTML()
+    const html = createTreeHTML()
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const tree = dom.window.document.querySelector("[role='tree']")
     expect(tree?.getAttribute("aria-label")).toBe("File explorer")
   })
 
   it("uses role=treeitem on items", () => {
-    const html = createTreeViewHTML()
+    const html = createTreeHTML()
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const items = dom.window.document.querySelectorAll("[role='treeitem']")
     expect(items.length).toBe(4)
   })
 
   it("branch has aria-expanded", () => {
-    const html = createTreeViewHTML()
+    const html = createTreeHTML()
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const branch = dom.window.document.querySelector("[aria-expanded]")
     expect(branch).not.toBeNull()
@@ -78,7 +78,7 @@ describe("tree-view accessibility", () => {
   })
 
   it("uses role=group for nested lists", () => {
-    const html = createTreeViewHTML()
+    const html = createTreeHTML()
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const group = dom.window.document.querySelector("[role='group']")
     expect(group).not.toBeNull()
@@ -86,21 +86,21 @@ describe("tree-view accessibility", () => {
   })
 
   it("selected item has aria-selected", () => {
-    const html = createTreeViewHTML()
+    const html = createTreeHTML()
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const selected = dom.window.document.querySelector("[aria-selected='true']")
     expect(selected).not.toBeNull()
   })
 
   it("disabled item has aria-disabled", () => {
-    const html = createTreeViewHTML()
+    const html = createTreeHTML()
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const disabled = dom.window.document.querySelector("[aria-disabled='true']")
     expect(disabled).not.toBeNull()
   })
 
   it("indicator is hidden from assistive technology", () => {
-    const html = createTreeViewHTML()
+    const html = createTreeHTML()
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const indicator = dom.window.document.querySelector("[aria-hidden='true']")
     expect(indicator).not.toBeNull()

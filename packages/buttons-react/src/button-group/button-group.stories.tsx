@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { Button } from "../button/button.js"
-import { ButtonGroup } from "./button-group.js"
+import { Btn } from "../button/button.js"
+import { BtnGroup } from "./button-group.js"
 
 const meta = {
-  title: "Buttons/Button Group",
-  component: ButtonGroup,
-  tags: ["autodocs", "stable"],
+  title: "Btns/Btn Group",
+  component: BtnGroup,
+  tags: ["autodocs", "beta"],
   argTypes: {
     orientation: {
       control: "select",
@@ -18,7 +18,7 @@ const meta = {
   args: {
     "aria-label": "Actions",
   },
-} satisfies Meta<typeof ButtonGroup>
+} satisfies Meta<typeof BtnGroup>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -26,69 +26,69 @@ type Story = StoryObj<typeof meta>
 /** The default playground story with all controls exposed. */
 export const Playground: Story = {
   render: (args) => (
-    <ButtonGroup {...args}>
-      <Button variant="secondary">Left</Button>
-      <Button variant="secondary">Center</Button>
-      <Button variant="secondary">Right</Button>
-    </ButtonGroup>
+    <BtnGroup {...args}>
+      <Btn variant="secondary">Left</Btn>
+      <Btn variant="secondary">Center</Btn>
+      <Btn variant="secondary">Right</Btn>
+    </BtnGroup>
   ),
 }
 
 export const Horizontal: Story = {
   args: { orientation: "horizontal" },
   render: (args) => (
-    <ButtonGroup {...args}>
-      <Button variant="secondary">Left</Button>
-      <Button variant="secondary">Center</Button>
-      <Button variant="secondary">Right</Button>
-    </ButtonGroup>
+    <BtnGroup {...args}>
+      <Btn variant="secondary">Left</Btn>
+      <Btn variant="secondary">Center</Btn>
+      <Btn variant="secondary">Right</Btn>
+    </BtnGroup>
   ),
 }
 
 export const Vertical: Story = {
   args: { orientation: "vertical" },
   render: (args) => (
-    <ButtonGroup {...args}>
-      <Button variant="secondary">Top</Button>
-      <Button variant="secondary">Middle</Button>
-      <Button variant="secondary">Bottom</Button>
-    </ButtonGroup>
+    <BtnGroup {...args}>
+      <Btn variant="secondary">Top</Btn>
+      <Btn variant="secondary">Middle</Btn>
+      <Btn variant="secondary">Bottom</Btn>
+    </BtnGroup>
   ),
 }
 
 export const Attached: Story = {
   args: { attached: true },
   render: (args) => (
-    <ButtonGroup {...args}>
-      <Button variant="secondary">Left</Button>
-      <Button variant="secondary">Center</Button>
-      <Button variant="secondary">Right</Button>
-    </ButtonGroup>
+    <BtnGroup {...args}>
+      <Btn variant="secondary">Left</Btn>
+      <Btn variant="secondary">Center</Btn>
+      <Btn variant="secondary">Right</Btn>
+    </BtnGroup>
   ),
 }
 
 export const VerticalAttached: Story = {
   args: { orientation: "vertical", attached: true },
   render: (args) => (
-    <ButtonGroup {...args}>
-      <Button variant="secondary">Top</Button>
-      <Button variant="secondary">Middle</Button>
-      <Button variant="secondary">Bottom</Button>
-    </ButtonGroup>
+    <BtnGroup {...args}>
+      <Btn variant="secondary">Top</Btn>
+      <Btn variant="secondary">Middle</Btn>
+      <Btn variant="secondary">Bottom</Btn>
+    </BtnGroup>
   ),
 }
 
 export const FullWidth: Story = {
   args: { fullWidth: true },
   render: (args) => (
-    <ButtonGroup {...args}>
-      <Button variant="secondary" fullWidth>
+    <BtnGroup {...args}>
+      <Btn variant="secondary" fullWidth>
         Left
-      </Button>
-      <Button variant="secondary" fullWidth>
+      </Btn>
+      <Btn variant="secondary" fullWidth>
         Right
-      </Button>
-    </ButtonGroup>
+      </Btn>
+    </BtnGroup>
   ),
 }
 
@@ -100,11 +100,11 @@ export const AllVariantsAndSizes: Story = {
           <p style={{ marginBottom: 8 }}>
             {orientation} / attached
           </p>
-          <ButtonGroup orientation={orientation} attached aria-label={`${orientation} group`}>
-            <Button variant="primary">One</Button>
-            <Button variant="primary">Two</Button>
-            <Button variant="primary">Three</Button>
-          </ButtonGroup>
+          <BtnGroup orientation={orientation} attached aria-label={`${orientation} group`}>
+            <Btn variant="primary">One</Btn>
+            <Btn variant="primary">Two</Btn>
+            <Btn variant="primary">Three</Btn>
+          </BtnGroup>
         </div>
       ))}
     </div>
@@ -113,43 +113,43 @@ export const AllVariantsAndSizes: Story = {
 
 export const MixedVariants: Story = {
   render: () => (
-    <ButtonGroup aria-label="Mixed actions">
-      <Button variant="primary">Save</Button>
-      <Button variant="secondary">Cancel</Button>
-      <Button variant="danger">Delete</Button>
-    </ButtonGroup>
+    <BtnGroup aria-label="Mixed actions">
+      <Btn variant="primary">Save</Btn>
+      <Btn variant="secondary">Cancel</Btn>
+      <Btn variant="danger">Delete</Btn>
+    </BtnGroup>
   ),
 }
 
-export const TwoButtons: Story = {
+export const TwoBtns: Story = {
   args: { attached: true },
   render: (args) => (
-    <ButtonGroup {...args}>
-      <Button variant="secondary">Yes</Button>
-      <Button variant="secondary">No</Button>
-    </ButtonGroup>
+    <BtnGroup {...args}>
+      <Btn variant="secondary">Yes</Btn>
+      <Btn variant="secondary">No</Btn>
+    </BtnGroup>
   ),
 }
 
-export const WithDisabledButton: Story = {
+export const WithDisabledBtn: Story = {
   render: () => (
-    <ButtonGroup attached aria-label="Actions">
-      <Button variant="secondary">Edit</Button>
-      <Button variant="secondary" disabled>
+    <BtnGroup attached aria-label="Actions">
+      <Btn variant="secondary">Edit</Btn>
+      <Btn variant="secondary" disabled>
         Share
-      </Button>
-      <Button variant="danger">Delete</Button>
-    </ButtonGroup>
+      </Btn>
+      <Btn variant="danger">Delete</Btn>
+    </BtnGroup>
   ),
 }
 
 export const GroupRole: Story = {
   render: () => (
-    <ButtonGroup aria-label="Formatting options">
-      <Button variant="outline">Bold</Button>
-      <Button variant="outline">Italic</Button>
-      <Button variant="outline">Underline</Button>
-    </ButtonGroup>
+    <BtnGroup aria-label="Formatting options">
+      <Btn variant="outline">Bold</Btn>
+      <Btn variant="outline">Italic</Btn>
+      <Btn variant="outline">Underline</Btn>
+    </BtnGroup>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -162,12 +162,12 @@ export const ClickInteraction: Story = {
   render: () => {
     const handleClick = fn()
     return (
-      <ButtonGroup aria-label="Actions">
-        <Button variant="secondary" onClick={handleClick}>
+      <BtnGroup aria-label="Actions">
+        <Btn variant="secondary" onClick={handleClick}>
           First
-        </Button>
-        <Button variant="secondary">Second</Button>
-      </ButtonGroup>
+        </Btn>
+        <Btn variant="secondary">Second</Btn>
+      </BtnGroup>
     )
   },
   play: async ({ canvasElement }) => {
@@ -180,11 +180,11 @@ export const ClickInteraction: Story = {
 
 export const KeyboardNavigation: Story = {
   render: () => (
-    <ButtonGroup aria-label="Navigation">
-      <Button variant="secondary">One</Button>
-      <Button variant="secondary">Two</Button>
-      <Button variant="secondary">Three</Button>
-    </ButtonGroup>
+    <BtnGroup aria-label="Navigation">
+      <Btn variant="secondary">One</Btn>
+      <Btn variant="secondary">Two</Btn>
+      <Btn variant="secondary">Three</Btn>
+    </BtnGroup>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -199,11 +199,11 @@ export const KeyboardNavigation: Story = {
 export const Hover: Story = {
   args: { attached: true },
   render: (args) => (
-    <ButtonGroup {...args}>
-      <Button variant="secondary">Left</Button>
-      <Button variant="secondary">Center</Button>
-      <Button variant="secondary">Right</Button>
-    </ButtonGroup>
+    <BtnGroup {...args}>
+      <Btn variant="secondary">Left</Btn>
+      <Btn variant="secondary">Center</Btn>
+      <Btn variant="secondary">Right</Btn>
+    </BtnGroup>
   ),
   parameters: { pseudo: { hover: true } },
 }
@@ -211,11 +211,11 @@ export const Hover: Story = {
 export const FocusVisible: Story = {
   args: { attached: true },
   render: (args) => (
-    <ButtonGroup {...args}>
-      <Button variant="secondary">Left</Button>
-      <Button variant="secondary">Center</Button>
-      <Button variant="secondary">Right</Button>
-    </ButtonGroup>
+    <BtnGroup {...args}>
+      <Btn variant="secondary">Left</Btn>
+      <Btn variant="secondary">Center</Btn>
+      <Btn variant="secondary">Right</Btn>
+    </BtnGroup>
   ),
   parameters: { pseudo: { focusVisible: true } },
 }
@@ -223,11 +223,11 @@ export const FocusVisible: Story = {
 export const Active: Story = {
   args: { attached: true },
   render: (args) => (
-    <ButtonGroup {...args}>
-      <Button variant="secondary">Left</Button>
-      <Button variant="secondary">Center</Button>
-      <Button variant="secondary">Right</Button>
-    </ButtonGroup>
+    <BtnGroup {...args}>
+      <Btn variant="secondary">Left</Btn>
+      <Btn variant="secondary">Center</Btn>
+      <Btn variant="secondary">Right</Btn>
+    </BtnGroup>
   ),
   parameters: { pseudo: { active: true } },
 }

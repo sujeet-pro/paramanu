@@ -1,24 +1,24 @@
 /** Selection mode for the toggle group */
-export type ToggleGroupType = "single" | "multiple"
+export type ToggleGrpType = "single" | "multiple"
 
 /** Layout orientation for the toggle group */
-export type ToggleGroupOrientation = "horizontal" | "vertical"
+export type ToggleGrpOrientation = "horizontal" | "vertical"
 
 /** Size preset shared across all items in the toggle group */
-export type ToggleGroupSize = "xs" | "sm" | "md" | "lg" | "xl"
+export type ToggleGrpSize = "xs" | "sm" | "md" | "lg" | "xl"
 
 /** Visual style variant for toggle group items */
-export type ToggleGroupVariant = "default" | "outline"
+export type ToggleGrpVariant = "default" | "outline"
 
 /**
  * Options for generating toggle group container CSS class names.
- * Used by both BEM (`toggleGroupClasses`) and CSS module (`toggleGroupModuleClasses`) builders.
+ * Used by both BEM (`toggleGrpClasses`) and CSS module (`toggleGrpModuleClasses`) builders.
  */
-export interface ToggleGroupClassesOptions {
+export interface ToggleGrpClassesOptions {
   /** Layout direction. @default "horizontal" */
-  orientation?: ToggleGroupOrientation
+  orientation?: ToggleGrpOrientation
   /** Shared size for all items. @default "md" */
-  size?: ToggleGroupSize
+  size?: ToggleGrpSize
   /** Whether items are visually attached with shared borders. @default false */
   attached?: boolean
   /** Whether the group should stretch to fill its container width. @default false */
@@ -27,13 +27,13 @@ export interface ToggleGroupClassesOptions {
 
 /**
  * Options for generating toggle group item CSS class names.
- * Used by both BEM (`toggleGroupItemClasses`) and CSS module (`toggleGroupItemModuleClasses`) builders.
+ * Used by both BEM (`toggleGrpItemClasses`) and CSS module (`toggleGrpItemModuleClasses`) builders.
  */
-export interface ToggleGroupItemClassesOptions {
+export interface ToggleGrpItemClassesOptions {
   /** Shared size inherited from the group or set per-item. @default "md" */
-  size?: ToggleGroupSize
+  size?: ToggleGrpSize
   /** Visual style variant. @default "default" */
-  variant?: ToggleGroupVariant
+  variant?: ToggleGrpVariant
   /** Whether this item is in the pressed/on state. @default false */
   pressed?: boolean
   /** Whether this item is in a disabled state. @default false */

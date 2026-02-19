@@ -1,7 +1,9 @@
 {
   "name": "@paramanu/utilities-js",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-alpha.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -9,7 +11,20 @@
       "import": "./dist/js/index.js"
     },
     "./css": "./dist/css/utilities.css",
-    "./css/layers": "./dist/css/utilities.layers.css",
+    "./css/min": "./dist/css/utilities.min.css",
+    "./css/affix": "./dist/css/affix.css",
+    "./css/client-only": "./dist/css/client-only.css",
+    "./css/direction-provider": "./dist/css/direction-provider.css",
+    "./css/focus-trap": "./dist/css/focus-trap.css",
+    "./css/format-byte": "./dist/css/format-byte.css",
+    "./css/format-number": "./dist/css/format-number.css",
+    "./css/locale-provider": "./dist/css/locale-provider.css",
+    "./css/portal": "./dist/css/portal.css",
+    "./css/presence": "./dist/css/presence.css",
+    "./css/show-hide": "./dist/css/show-hide.css",
+    "./css/skip-nav": "./dist/css/skip-nav.css",
+    "./css/theme-provider": "./dist/css/theme-provider.css",
+    "./css/visually-hidden": "./dist/css/visually-hidden.css",
     "./modules/visually-hidden/map": {
       "types": "./dist/css/visually-hidden.module.d.ts",
       "import": "./dist/css/visually-hidden.module.js"
@@ -35,7 +50,9 @@
       "import": "./dist/css/theme-provider.module.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsx css.build.ts && tsup",
     "test": "vitest run",

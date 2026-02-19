@@ -4,7 +4,7 @@ import { Float } from "./float.js"
 
 const meta = {
   title: "Primitives/Float",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Float,
   argTypes: {
     placement: {

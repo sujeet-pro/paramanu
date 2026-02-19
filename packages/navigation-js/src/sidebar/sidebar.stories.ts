@@ -46,7 +46,7 @@ function createSidebar(args: SidebarArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Sidebar",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createSidebar(args as SidebarArgs),
   argTypes: {
     width: {

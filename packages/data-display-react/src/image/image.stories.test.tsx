@@ -7,19 +7,19 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("Image Stories", () => {
+describe("Img Stories", () => {
   it("Playground renders without crashing", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-image")).toBeTruthy()
+    expect(container.querySelector(".pm-img")).toBeTruthy()
   })
 
   it("Rounded applies radius class", () => {
     const { container } = render(<composed.Rounded />)
-    expect(container.querySelector(".pm-image--radius-lg")).toBeTruthy()
+    expect(container.querySelector(".pm-img--radius-lg")).toBeTruthy()
   })
 
   it("Fallback shows fallback element", () => {
     const { container } = render(<composed.Fallback />)
-    expect(container.querySelector(".pm-image__fallback")).toBeTruthy()
+    expect(container.querySelector(".pm-img__fallback")).toBeTruthy()
   })
 })

@@ -1,12 +1,20 @@
 ---
-title: Breadcrumbs
+title: Breadcrumb
 description: A wayfinding component showing the user's location within a hierarchical structure.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-Breadcrumbs help users understand their location within a site hierarchy and navigate back to parent pages.
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
+
+Breadcrumb help users understand their location within a site hierarchy and navigate back to parent pages.
 
 <Tabs syncKey="component-tab">
   <TabItem label="Usage">
@@ -14,22 +22,22 @@ Breadcrumbs help users understand their location within a site hierarchy and nav
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<nav class="pm-breadcrumbs pm-breadcrumbs--slash" aria-label="Breadcrumb">
+  htmlCode={`<nav class="pm-breadcrumb pm-breadcrumb--slash" aria-label="Breadcrumb">
   <ol>
-    <li class="pm-breadcrumbs__item"><a class="pm-breadcrumbs__link" href="#">Home</a></li>
-    <li class="pm-breadcrumbs__item pm-breadcrumbs__item--active"><span aria-current="page">Page</span></li>
+    <li class="pm-breadcrumb__item"><a class="pm-breadcrumb__link" href="#">Home</a></li>
+    <li class="pm-breadcrumb__item pm-breadcrumb__item--active"><span aria-current="page">Page</span></li>
   </ol>
 </nav>`}
-  reactCode={`import { Breadcrumbs, BreadcrumbsItem, BreadcrumbsLink } from "@paramanu/navigation-react"
+  reactCode={`import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@paramanu/navigation-react"
 
 export default function App() {
   return (
-    <Breadcrumbs>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Home</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem active>Page</BreadcrumbsItem>
-    </Breadcrumbs>
+    <Breadcrumb>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem active>Page</BreadcrumbItem>
+    </Breadcrumb>
   )
 }`}
 />
@@ -53,13 +61,13 @@ Use `separator` to choose between `"slash"`, `"chevron"`, `"dot"`, or `"arrow"`.
 </TabItem>
   <TabItem label="API">
 
-## Breadcrumbs Props
+## Breadcrumb Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `separator` | `"slash" \| "chevron" \| "dot" \| "arrow"` | `"slash"` | Separator style |
 
-## BreadcrumbsItem Props
+## BreadcrumbItem Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -69,11 +77,11 @@ Use `separator` to choose between `"slash"`, `"chevron"`, `"dot"`, or `"arrow"`.
 
 | Class | Description |
 |-------|-------------|
-| `pm-breadcrumbs` | Root element |
-| `pm-breadcrumbs--chevron` | Chevron separator |
-| `pm-breadcrumbs__item` | Item element |
-| `pm-breadcrumbs__item--active` | Active/current item |
-| `pm-breadcrumbs__link` | Link element |
+| `pm-breadcrumb` | Root element |
+| `pm-breadcrumb--chevron` | Chevron separator |
+| `pm-breadcrumb__item` | Item element |
+| `pm-breadcrumb__item--active` | Active/current item |
+| `pm-breadcrumb__link` | Link element |
 
 </TabItem>
 </Tabs>

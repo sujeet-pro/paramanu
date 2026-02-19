@@ -49,8 +49,8 @@
     align-items: flex-start;
     gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-3) var(--pm-spacing-4);
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    background-color: var(--pm-bg);
+    border: 1px solid var(--pm-neutral-hover);
     border-left: 4px solid var(--pm-toast-accent);
     border-radius: var(--pm-radius-lg);
     box-shadow: var(--pm-shadow-lg);
@@ -137,7 +137,7 @@
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-sm);
     font-weight: var(--pm-font-weight-semibold);
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-50));
+    color: var(--pm-bg-inverse);
     line-height: var(--pm-font-lineHeight-tight);
     margin-bottom: var(--pm-spacing-1);
   }
@@ -145,7 +145,7 @@
   .pm-toast__message {
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-sm);
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    color: var(--pm-neutral-fg);
     line-height: var(--pm-font-lineHeight-normal);
   }
 

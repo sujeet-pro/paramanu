@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { formControlClasses } from "./form-control.classes.js"
-import type { FormControlClassesOptions } from "./form-control.types.js"
+import { formCtrlClasses } from "./form-control.classes.js"
+import type { FormCtrlClassesOptions } from "./form-control.types.js"
 
-type FormControlArgs = FormControlClassesOptions
+type FormCtrlArgs = FormCtrlClassesOptions
 
-function createFormControl(args: FormControlArgs): HTMLElement {
+function createFormCtrl(args: FormCtrlArgs): HTMLElement {
   const el = document.createElement("div")
-  el.className = formControlClasses(args)
+  el.className = formCtrlClasses(args)
   el.role = "group"
   el.textContent = "Form control content"
   return el
@@ -14,8 +14,8 @@ function createFormControl(args: FormControlArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Form Control",
-  tags: ["autodocs", "stable"],
-  render: (args) => createFormControl(args as FormControlArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createFormCtrl(args as FormCtrlArgs),
   argTypes: {
     orientation: { control: "select", options: ["vertical", "horizontal"] },
     invalid: { control: "boolean" },
@@ -23,10 +23,10 @@ const meta = {
     required: { control: "boolean" },
   },
   args: { orientation: "vertical" },
-} satisfies Meta<FormControlArgs>
+} satisfies Meta<FormCtrlArgs>
 
 export default meta
-type Story = StoryObj<FormControlArgs>
+type Story = StoryObj<FormCtrlArgs>
 
 export const Playground: Story = {}
 export const Horizontal: Story = { args: { orientation: "horizontal" } }

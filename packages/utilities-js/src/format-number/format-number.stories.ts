@@ -24,7 +24,7 @@ function createFormatNumberDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/FormatNumber",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
 } satisfies Meta
 
 export default meta

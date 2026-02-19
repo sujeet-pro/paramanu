@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { PasswordInput } from "./password-input.js"
+import { PwdInput } from "./password-input.js"
 
 const meta = {
   title: "Forms/Password Input",
-  tags: ["autodocs", "stable"],
-  component: PasswordInput,
+  tags: ["autodocs", "beta"],
+  component: PwdInput,
   argTypes: {
     variant: {
       control: "select",
@@ -27,7 +27,7 @@ const meta = {
     onBlur: fn(),
     onVisibilityChange: fn(),
   },
-} satisfies Meta<typeof PasswordInput>
+} satisfies Meta<typeof PwdInput>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -99,7 +99,7 @@ export const TypeAndToggle: Story = {
 
 export const KeyboardNavigation: Story = {
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-password-input")
+    const el = canvasElement.querySelector(".pm-pwd-input")
     await expect(el).toBeTruthy()
     await userEvent.tab()
   },

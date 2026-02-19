@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { passwordInputClasses } from "./password-input.classes.js"
+import { pwdInputClasses } from "./password-input.classes.js"
 import { inputClasses } from "../input/input.classes.js"
-import type { PasswordInputClassesOptions } from "./password-input.types.js"
+import type { PwdInputClassesOptions } from "./password-input.types.js"
 
-interface PasswordInputArgs extends PasswordInputClassesOptions {
+interface PwdInputArgs extends PwdInputClassesOptions {
   placeholder: string
 }
 
-function createPasswordInput(args: PasswordInputArgs): HTMLElement {
+function createPwdInput(args: PwdInputArgs): HTMLElement {
   const wrapper = document.createElement("div")
-  wrapper.className = passwordInputClasses({
+  wrapper.className = pwdInputClasses({
     variant: args.variant,
     size: args.size,
     invalid: args.invalid,
@@ -29,7 +29,7 @@ function createPasswordInput(args: PasswordInputArgs): HTMLElement {
 
   const toggle = document.createElement("button")
   toggle.type = "button"
-  toggle.className = "pm-password-input__toggle"
+  toggle.className = "pm-pwd-input__toggle"
   toggle.setAttribute("aria-label", "Show password")
   toggle.textContent = "Show"
   toggle.addEventListener("click", () => {
@@ -46,8 +46,8 @@ function createPasswordInput(args: PasswordInputArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Password Input",
-  tags: ["autodocs", "stable"],
-  render: (args) => createPasswordInput(args as PasswordInputArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createPwdInput(args as PwdInputArgs),
   argTypes: {
     variant: {
       control: "select",
@@ -67,10 +67,10 @@ const meta = {
     variant: "outline",
     size: "md",
   },
-} satisfies Meta<PasswordInputArgs>
+} satisfies Meta<PwdInputArgs>
 
 export default meta
-type Story = StoryObj<PasswordInputArgs>
+type Story = StoryObj<PwdInputArgs>
 
 export const Playground: Story = {}
 

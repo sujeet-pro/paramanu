@@ -1,16 +1,16 @@
 @layer pm.components {
-  .pm-native-select {
+  .pm-native-sel {
     position: relative;
     display: inline-flex;
     align-items: center;
     width: auto;
   }
 
-  .pm-native-select--full-width {
+  .pm-native-sel--full-width {
     width: 100%;
   }
 
-  .pm-native-select__field {
+  .pm-native-sel__field {
     appearance: none;
     font-family: var(--pm-font-family-sans);
     line-height: var(--pm-font-lineHeight-normal);
@@ -22,64 +22,64 @@
     cursor: pointer;
   }
 
-  .pm-native-select__field:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+  .pm-native-sel__field:focus-visible {
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
-  .pm-native-select--outline .pm-native-select__field {
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+  .pm-native-sel--outline .pm-native-sel__field {
+    border: 1px solid var(--pm-neutral-active);
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
   }
 
-  .pm-native-select--filled .pm-native-select__field {
+  .pm-native-sel--filled .pm-native-sel__field {
     border: 1px solid transparent;
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    background-color: var(--pm-bg-muted);
+    color: var(--pm-fg);
   }
 
-  .pm-native-select--unstyled .pm-native-select__field {
+  .pm-native-sel--unstyled .pm-native-sel__field {
     border: none;
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
   }
 
-  .pm-native-select--sm .pm-native-select__field {
+  .pm-native-sel--sm .pm-native-sel__field {
     padding: var(--pm-spacing-1) var(--pm-spacing-2);
     font-size: var(--pm-font-size-sm);
     height: calc(var(--pm-spacing-8));
   }
 
-  .pm-native-select--md .pm-native-select__field {
+  .pm-native-sel--md .pm-native-sel__field {
     padding: var(--pm-spacing-2) var(--pm-spacing-3);
     font-size: var(--pm-font-size-md);
     height: calc(var(--pm-spacing-10));
   }
 
-  .pm-native-select--lg .pm-native-select__field {
+  .pm-native-sel--lg .pm-native-sel__field {
     padding: var(--pm-spacing-3) var(--pm-spacing-4);
     font-size: var(--pm-font-size-lg);
     height: calc(var(--pm-spacing-12));
   }
 
-  .pm-native-select--invalid .pm-native-select__field {
-    border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+  .pm-native-sel--invalid .pm-native-sel__field {
+    border-color: var(--pm-danger-border);
   }
 
-  .pm-native-select--disabled {
+  .pm-native-sel--disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
 
-  .pm-native-select--disabled .pm-native-select__field {
+  .pm-native-sel--disabled .pm-native-sel__field {
     cursor: not-allowed;
   }
 
-  .pm-native-select__arrow {
+  .pm-native-sel__arrow {
     position: absolute;
     right: var(--pm-spacing-3);
     pointer-events: none;
-    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
   }
 }

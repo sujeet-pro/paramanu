@@ -1,11 +1,11 @@
-import type { NativeSelectClassesOptions } from "./native-select.types.js"
+import type { NativeSelClassesOptions } from "./native-select.types.js"
 
-const BASE = "pm-native-select"
+const BASE = "pm-native-sel"
 
 /**
  * Returns BEM class names for the native select component (human-readable).
  */
-export function nativeSelectClasses(options: NativeSelectClassesOptions = {}): string {
+export function nativeSelClasses(options: NativeSelClassesOptions = {}): string {
   const { variant = "outline", size = "md", invalid = false, disabled = false, fullWidth = false } =
     options
   const classes = [BASE, `${BASE}--${variant}`, `${BASE}--${size}`]
@@ -20,22 +20,22 @@ export function nativeSelectClasses(options: NativeSelectClassesOptions = {}): s
 /**
  * Returns CSS module class names for the native select component (hashed).
  */
-export function nativeSelectModuleClasses(
+export function nativeSelModuleClasses(
   classMap: Record<string, string>,
-  options: NativeSelectClassesOptions = {},
+  options: NativeSelClassesOptions = {},
 ): string {
   const { variant = "outline", size = "md", invalid = false, disabled = false, fullWidth = false } =
     options
 
   const classes = [
-    classMap["pm-native-select"],
-    classMap[`pm-native-select--${variant}`],
-    classMap[`pm-native-select--${size}`],
+    classMap["pm-native-sel"],
+    classMap[`pm-native-sel--${variant}`],
+    classMap[`pm-native-sel--${size}`],
   ]
 
-  if (invalid) classes.push(classMap["pm-native-select--invalid"])
-  if (disabled) classes.push(classMap["pm-native-select--disabled"])
-  if (fullWidth) classes.push(classMap["pm-native-select--full-width"])
+  if (invalid) classes.push(classMap["pm-native-sel--invalid"])
+  if (disabled) classes.push(classMap["pm-native-sel--disabled"])
+  if (fullWidth) classes.push(classMap["pm-native-sel--full-width"])
 
   return classes.filter(Boolean).join(" ")
 }

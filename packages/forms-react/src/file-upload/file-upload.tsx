@@ -1,18 +1,18 @@
 import { forwardRef } from "react"
-import { fileUploadClasses } from "@paramanu/forms-js"
-import type { FileUploadProps } from "@paramanu/forms-js"
+import { uploadClasses } from "@paramanu/forms-js"
+import type { UploadProps } from "@paramanu/forms-js"
 
-export interface ReactFileUploadProps
-  extends FileUploadProps,
+export interface ReactUploadProps
+  extends UploadProps,
     React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const FileUpload = forwardRef<HTMLDivElement, ReactFileUploadProps>(function FileUpload(
+export const Upload = forwardRef<HTMLDivElement, ReactUploadProps>(function Upload(
   { size, disabled, className, children, ...rest },
   ref,
 ) {
-  const classes = fileUploadClasses({ size, disabled })
+  const classes = uploadClasses({ size, disabled })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (

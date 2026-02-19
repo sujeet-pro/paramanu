@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { Notification } from "./notification.js"
+import { Notif } from "./notification.js"
 
 const meta = {
-  title: "Feedback/Notification",
-  component: Notification,
-  tags: ["autodocs", "stable"],
+  title: "Feedback/Notif",
+  component: Notif,
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: {
       control: "select",
@@ -20,7 +20,7 @@ const meta = {
     timestamp: "2 min ago",
     onClose: fn(),
   },
-} satisfies Meta<typeof Notification>
+} satisfies Meta<typeof Notif>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -37,7 +37,7 @@ export const AllVariants: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
       {(["info", "success", "warning", "danger", "neutral"] as const).map((variant) => (
-        <Notification key={variant} variant={variant} title={variant} message={`${variant} notification.`} />
+        <Notif key={variant} variant={variant} title={variant} message={`${variant} notification.`} />
       ))}
     </div>
   ),
@@ -87,8 +87,8 @@ export const DismissClick: Story = {
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement)
-    const closeButton = canvas.getByRole("button", { name: "Dismiss notification" })
-    await userEvent.click(closeButton)
+    const closeBtn = canvas.getByRole("button", { name: "Dismiss notification" })
+    await userEvent.click(closeBtn)
     await expect(args.onClose).toHaveBeenCalledTimes(1)
   },
 }

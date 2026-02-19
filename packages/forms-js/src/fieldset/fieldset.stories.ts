@@ -22,7 +22,7 @@ function createFieldset(args: FieldsetArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Fieldset",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createFieldset(args as FieldsetArgs),
   argTypes: {
     variant: { control: "select", options: ["default", "card"] },

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { dataTableClasses } from "./data-table.classes.js"
-import type { DataTableClassesOptions } from "./data-table.types.js"
+import { datatableClasses } from "./data-table.classes.js"
+import type { DatatableClassesOptions } from "./data-table.types.js"
 
-interface DataTableArgs extends DataTableClassesOptions {}
+interface DatatableArgs extends DatatableClassesOptions {}
 
-function createDataTable(args: DataTableArgs): HTMLElement {
-  const cls = dataTableClasses(args)
+function createDatatable(args: DatatableArgs): HTMLElement {
+  const cls = datatableClasses(args)
   const root = document.createElement("div")
   root.className = cls.root
 
@@ -54,8 +54,8 @@ function createDataTable(args: DataTableArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Data Table",
-  tags: ["autodocs", "stable"],
-  render: (args) => createDataTable(args as DataTableArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createDatatable(args as DatatableArgs),
   argTypes: {
     variant: { control: "select", options: ["simple", "striped"] },
     size: { control: "select", options: ["sm", "md", "lg"] },
@@ -64,10 +64,10 @@ const meta = {
     selectable: { control: "boolean" },
   },
   args: { variant: "simple", size: "md" },
-} satisfies Meta<DataTableArgs>
+} satisfies Meta<DatatableArgs>
 
 export default meta
-type Story = StoryObj<DataTableArgs>
+type Story = StoryObj<DatatableArgs>
 
 export const Playground: Story = {}
 export const Striped: Story = { args: { variant: "striped" } }

@@ -1,10 +1,18 @@
 ---
 title: Menubar
 description: A horizontal menu bar for application-level commands like File, Edit, View.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 The Menubar renders a horizontal bar of top-level menu items, following the WAI-ARIA menubar pattern.
 

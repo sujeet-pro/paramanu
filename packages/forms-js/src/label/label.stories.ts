@@ -14,7 +14,7 @@ function createLabel(args: LabelArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Label",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createLabel(args as LabelArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },

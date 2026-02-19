@@ -6,8 +6,8 @@
     margin: 0;
     padding: var(--pm-spacing-1);
     gap: var(--pm-spacing-1);
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    background-color: var(--pm-bg);
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-md);
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-md);
@@ -21,7 +21,7 @@
     border: none;
     border-radius: var(--pm-radius-sm);
     background: none;
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    color: var(--pm-neutral-fg);
     font-family: inherit;
     font-size: inherit;
     font-weight: var(--pm-font-weight-medium);
@@ -32,17 +32,17 @@
   }
 
   .pm-menubar__item:hover:not(.pm-menubar__item--disabled) {
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-muted);
   }
 
   .pm-menubar__item:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
   .pm-menubar__item--active {
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+    background-color: var(--pm-bg-muted);
+    color: var(--pm-fg-link-hover);
   }
 
   .pm-menubar__item--disabled {

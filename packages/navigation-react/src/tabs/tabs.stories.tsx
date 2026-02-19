@@ -5,7 +5,7 @@ import { Tabs, TabList, Tab, TabPanel } from "./tabs.js"
 const meta = {
   title: "Navigation/Tabs",
   component: Tabs,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: {
       control: "select",

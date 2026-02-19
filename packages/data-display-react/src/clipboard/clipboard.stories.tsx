@@ -5,7 +5,7 @@ import { Clipboard } from "./clipboard.js"
 const meta = {
   title: "Data Display/Clipboard",
   component: Clipboard,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },
     value: { control: "text" },

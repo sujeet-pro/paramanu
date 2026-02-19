@@ -1,85 +1,85 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
 import {
-  EmptyState,
-  EmptyStateIcon,
-  EmptyStateHeading,
-  EmptyStateDescription,
-  EmptyStateActions,
+  Empty,
+  EmptyIcon,
+  EmptyHeading,
+  EmptyDescription,
+  EmptyActions,
 } from "./empty-state.js"
 
 afterEach(cleanup)
 
-describe("EmptyState", () => {
+describe("Empty", () => {
   it("renders with children", () => {
-    render(<EmptyState data-testid="es">Content</EmptyState>)
+    render(<Empty data-testid="es">Content</Empty>)
     expect(screen.getByTestId("es")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<EmptyState data-testid="es">Content</EmptyState>)
+    render(<Empty data-testid="es">Content</Empty>)
     const es = screen.getByTestId("es")
-    expect(es.className).toContain("pm-empty-state")
-    expect(es.className).toContain("pm-empty-state--md")
+    expect(es.className).toContain("pm-empty")
+    expect(es.className).toContain("pm-empty--md")
   })
 
   it("applies size class", () => {
-    render(<EmptyState size="lg" data-testid="es">Content</EmptyState>)
-    expect(screen.getByTestId("es").className).toContain("pm-empty-state--lg")
+    render(<Empty size="lg" data-testid="es">Content</Empty>)
+    expect(screen.getByTestId("es").className).toContain("pm-empty--lg")
   })
 
   it("applies bordered modifier", () => {
-    render(<EmptyState bordered data-testid="es">Content</EmptyState>)
-    expect(screen.getByTestId("es").className).toContain("pm-empty-state--bordered")
+    render(<Empty bordered data-testid="es">Content</Empty>)
+    expect(screen.getByTestId("es").className).toContain("pm-empty--bordered")
   })
 
   it("forwards ref", () => {
     let esRef: HTMLDivElement | null = null
-    render(<EmptyState ref={(el) => (esRef = el)}>Content</EmptyState>)
+    render(<Empty ref={(el) => (esRef = el)}>Content</Empty>)
     expect(esRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    render(<EmptyState className="custom" data-testid="es">Content</EmptyState>)
+    render(<Empty className="custom" data-testid="es">Content</Empty>)
     const es = screen.getByTestId("es")
-    expect(es.className).toContain("pm-empty-state")
+    expect(es.className).toContain("pm-empty")
     expect(es.className).toContain("custom")
   })
 
   it("passes through additional HTML attributes", () => {
-    render(<EmptyState data-testid="my-es">Content</EmptyState>)
+    render(<Empty data-testid="my-es">Content</Empty>)
     expect(screen.getByTestId("my-es")).toBeInTheDocument()
   })
 })
 
-describe("EmptyStateIcon", () => {
+describe("EmptyIcon", () => {
   it("renders with icon class", () => {
-    render(<EmptyStateIcon data-testid="icon">Icon</EmptyStateIcon>)
-    expect(screen.getByTestId("icon").className).toContain("pm-empty-state__icon")
+    render(<EmptyIcon data-testid="icon">Icon</EmptyIcon>)
+    expect(screen.getByTestId("icon").className).toContain("pm-empty__icon")
   })
 })
 
-describe("EmptyStateHeading", () => {
+describe("EmptyHeading", () => {
   it("renders an h3 with heading class", () => {
-    render(<EmptyStateHeading>Title</EmptyStateHeading>)
+    render(<EmptyHeading>Title</EmptyHeading>)
     const heading = screen.getByRole("heading", { name: "Title" })
     expect(heading.tagName).toBe("H3")
-    expect(heading.className).toContain("pm-empty-state__heading")
+    expect(heading.className).toContain("pm-empty__heading")
   })
 })
 
-describe("EmptyStateDescription", () => {
+describe("EmptyDescription", () => {
   it("renders a p with description class", () => {
-    render(<EmptyStateDescription data-testid="desc">Desc</EmptyStateDescription>)
+    render(<EmptyDescription data-testid="desc">Desc</EmptyDescription>)
     const desc = screen.getByTestId("desc")
     expect(desc.tagName).toBe("P")
-    expect(desc.className).toContain("pm-empty-state__description")
+    expect(desc.className).toContain("pm-empty__description")
   })
 })
 
-describe("EmptyStateActions", () => {
+describe("EmptyActions", () => {
   it("renders with actions class", () => {
-    render(<EmptyStateActions data-testid="actions">Actions</EmptyStateActions>)
-    expect(screen.getByTestId("actions").className).toContain("pm-empty-state__actions")
+    render(<EmptyActions data-testid="actions">Actions</EmptyActions>)
+    expect(screen.getByTestId("actions").className).toContain("pm-empty__actions")
   })
 })

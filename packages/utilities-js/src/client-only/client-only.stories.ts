@@ -19,7 +19,7 @@ function createClientOnlyDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/ClientOnly",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
 } satisfies Meta
 
 export default meta

@@ -1,10 +1,10 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
-import { dataListClasses } from "./data-list.classes.js"
-import type { DataListClassesOptions } from "./data-list.types.js"
+import { datalistClasses } from "./data-list.classes.js"
+import type { DatalistClassesOptions } from "./data-list.types.js"
 
-function createDataListHTML(options: DataListClassesOptions = {}): string {
-  const classes = dataListClasses(options)
+function createDatalistHTML(options: DatalistClassesOptions = {}): string {
+  const classes = datalistClasses(options)
   return `
     <dl class="${classes.root}">
       <div class="${classes.item}">
@@ -21,14 +21,14 @@ function createDataListHTML(options: DataListClassesOptions = {}): string {
 
 describe("data list accessibility", () => {
   it("renders as a semantic dl element", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createDataListHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDatalistHTML()}</body>`)
     const dl = dom.window.document.querySelector("dl")
     expect(dl).not.toBeNull()
     expect(dl?.tagName).toBe("DL")
   })
 
   it("uses dt elements for terms", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createDataListHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDatalistHTML()}</body>`)
     const terms = dom.window.document.querySelectorAll("dt")
     expect(terms.length).toBe(2)
     expect(terms[0].textContent).toBe("Name")
@@ -36,7 +36,7 @@ describe("data list accessibility", () => {
   })
 
   it("uses dd elements for details", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createDataListHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDatalistHTML()}</body>`)
     const details = dom.window.document.querySelectorAll("dd")
     expect(details.length).toBe(2)
     expect(details[0].textContent).toBe("John Doe")
@@ -44,8 +44,8 @@ describe("data list accessibility", () => {
   })
 
   it("groups dt/dd pairs in items", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createDataListHTML()}</body>`)
-    const items = dom.window.document.querySelectorAll(".pm-data-list__item")
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDatalistHTML()}</body>`)
+    const items = dom.window.document.querySelectorAll(".pm-datalist__item")
     expect(items.length).toBe(2)
     items.forEach((item) => {
       expect(item.querySelector("dt")).not.toBeNull()
@@ -55,9 +55,9 @@ describe("data list accessibility", () => {
 
   it("renders correctly in horizontal orientation", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createDataListHTML({ orientation: "horizontal" })}</body>`,
+      `<!DOCTYPE html><body>${createDatalistHTML({ orientation: "horizontal" })}</body>`,
     )
     const dl = dom.window.document.querySelector("dl")
-    expect(dl?.classList.contains("pm-data-list--horizontal")).toBe(true)
+    expect(dl?.classList.contains("pm-datalist--horizontal")).toBe(true)
   })
 })

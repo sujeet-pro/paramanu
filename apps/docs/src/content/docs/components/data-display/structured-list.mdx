@@ -1,10 +1,18 @@
 ---
 title: Structured List
 description: A column-aligned list using display table layout for structured key-value data.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 Structured List uses `display: table` for column alignment without a real `<table>` element. Useful for settings panels and configuration displays.
 
@@ -14,38 +22,38 @@ Structured List uses `display: table` for column alignment without a real `<tabl
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-structured-list pm-structured-list--md" role="table">
-  <div class="pm-structured-list__head">
-    <div class="pm-structured-list__row" role="row">
-      <div class="pm-structured-list__header-cell" role="columnheader">Name</div>
-      <div class="pm-structured-list__header-cell" role="columnheader">Value</div>
+  htmlCode={`<div class="pm-struct-list pm-struct-list--md" role="table">
+  <div class="pm-struct-list__head">
+    <div class="pm-struct-list__row" role="row">
+      <div class="pm-struct-list__header-cell" role="columnheader">Name</div>
+      <div class="pm-struct-list__header-cell" role="columnheader">Value</div>
     </div>
   </div>
-  <div class="pm-structured-list__body">
-    <div class="pm-structured-list__row" role="row">
-      <div class="pm-structured-list__cell" role="cell">CPU</div>
-      <div class="pm-structured-list__cell" role="cell">85%</div>
+  <div class="pm-struct-list__body">
+    <div class="pm-struct-list__row" role="row">
+      <div class="pm-struct-list__cell" role="cell">CPU</div>
+      <div class="pm-struct-list__cell" role="cell">85%</div>
     </div>
   </div>
 </div>`}
-  reactCode={`import { StructuredList, StructuredListHead, StructuredListBody, StructuredListRow, StructuredListCell, StructuredListHeaderCell } from "@paramanu/data-display-react"
+  reactCode={`import { StructList, StructListHead, StructListBody, StructListRow, StructListCell, StructListHeaderCell } from "@paramanu/data-display-react"
 
 export default function App() {
   return (
-    <StructuredList>
-      <StructuredListHead>
-        <StructuredListRow>
-          <StructuredListHeaderCell>Name</StructuredListHeaderCell>
-          <StructuredListHeaderCell>Value</StructuredListHeaderCell>
-        </StructuredListRow>
-      </StructuredListHead>
-      <StructuredListBody>
-        <StructuredListRow>
-          <StructuredListCell>CPU</StructuredListCell>
-          <StructuredListCell>85%</StructuredListCell>
-        </StructuredListRow>
-      </StructuredListBody>
-    </StructuredList>
+    <StructList>
+      <StructListHead>
+        <StructListRow>
+          <StructListHeaderCell>Name</StructListHeaderCell>
+          <StructListHeaderCell>Value</StructListHeaderCell>
+        </StructListRow>
+      </StructListHead>
+      <StructListBody>
+        <StructListRow>
+          <StructListCell>CPU</StructListCell>
+          <StructListCell>85%</StructListCell>
+        </StructListRow>
+      </StructListBody>
+    </StructList>
   )
 }`}
 />

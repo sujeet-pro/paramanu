@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { BackToTop } from "./back-to-top.js"
+import { Btt } from "./back-to-top.js"
 
 const meta = {
   title: "Navigation/Back to Top",
-  component: BackToTop,
-  tags: ["autodocs", "stable"],
+  component: Btt,
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: {
       control: "select",
@@ -23,7 +23,7 @@ const meta = {
     visible: true,
     onClick: fn(),
   },
-} satisfies Meta<typeof BackToTop>
+} satisfies Meta<typeof Btt>
 
 export default meta
 type Story = StoryObj<typeof meta>

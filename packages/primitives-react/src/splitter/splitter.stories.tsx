@@ -4,7 +4,7 @@ import { Splitter, SplitterPanel, SplitterHandle } from "./splitter.js"
 
 const meta = {
   title: "Primitives/Splitter",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Splitter,
   argTypes: {
     orientation: { control: "select", options: ["horizontal", "vertical"] },

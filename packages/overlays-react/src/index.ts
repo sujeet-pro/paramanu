@@ -12,22 +12,22 @@ export type {
 } from "./dialog/dialog.js"
 
 export {
-  AlertDialog,
-  AlertDialogHeader,
-  AlertDialogBody,
-  AlertDialogFooter,
+  Alertdialog,
+  AlertdialogHeader,
+  AlertdialogBody,
+  AlertdialogFooter,
 } from "./alert-dialog/alert-dialog.js"
 export type {
-  ReactAlertDialogProps,
-  ReactAlertDialogHeaderProps,
-  ReactAlertDialogBodyProps,
-  ReactAlertDialogFooterProps,
+  ReactAlertdialogProps,
+  ReactAlertdialogHeaderProps,
+  ReactAlertdialogBodyProps,
+  ReactAlertdialogFooterProps,
 } from "./alert-dialog/alert-dialog.js"
 
-export { InlineDialog, InlineDialogBody } from "./inline-dialog/inline-dialog.js"
+export { InlineDlg, InlineDlgBody } from "./inline-dialog/inline-dialog.js"
 export type {
-  ReactInlineDialogProps,
-  ReactInlineDialogBodyProps,
+  ReactInlineDlgProps,
+  ReactInlineDlgBodyProps,
 } from "./inline-dialog/inline-dialog.js"
 
 export { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from "./drawer/drawer.js"
@@ -52,22 +52,22 @@ export type { ReactPopoverProps, ReactPopoverArrowProps } from "./popover/popove
 export { Tooltip, TooltipArrow } from "./tooltip/tooltip.js"
 export type { ReactTooltipProps, ReactTooltipArrowProps } from "./tooltip/tooltip.js"
 
-export { HoverCard, HoverCardArrow } from "./hover-card/hover-card.js"
-export type { ReactHoverCardProps, ReactHoverCardArrowProps } from "./hover-card/hover-card.js"
+export { Hovercard, HovercardArrow } from "./hover-card/hover-card.js"
+export type { ReactHovercardProps, ReactHovercardArrowProps } from "./hover-card/hover-card.js"
 
 export {
-  CommandPalette,
-  CommandPaletteInput,
-  CommandPaletteList,
-  CommandPaletteItem,
-  CommandPaletteGroup,
-  CommandPaletteEmpty,
+  CmdPalette,
+  CmdPaletteInput,
+  CmdPaletteList,
+  CmdPaletteItem,
+  CmdPaletteGroup,
+  CmdPaletteEmpty,
 } from "./command-palette/command-palette.js"
 export type {
-  ReactCommandPaletteProps,
-  ReactCommandPaletteInputProps,
-  ReactCommandPaletteListProps,
-  ReactCommandPaletteItemProps,
-  ReactCommandPaletteGroupProps,
-  ReactCommandPaletteEmptyProps,
+  ReactCmdPaletteProps,
+  ReactCmdPaletteInputProps,
+  ReactCmdPaletteListProps,
+  ReactCmdPaletteItemProps,
+  ReactCmdPaletteGroupProps,
+  ReactCmdPaletteEmptyProps,
 } from "./command-palette/command-palette.js"

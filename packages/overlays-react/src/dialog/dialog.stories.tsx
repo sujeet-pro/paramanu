@@ -5,7 +5,7 @@ import { Dialog, DialogHeader, DialogBody, DialogFooter } from "./dialog.js"
 const meta = {
   title: "Overlays/Dialog",
   component: Dialog,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "full"] },
     centered: { control: "boolean" },
@@ -98,7 +98,7 @@ export const ScrollInside: Story = {
   ),
 }
 
-export const CloseButton: Story = {
+export const CloseBtn: Story = {
   args: { onClose: fn() },
   render: (args) => (
     <Dialog {...args}>

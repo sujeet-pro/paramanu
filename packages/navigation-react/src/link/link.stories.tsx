@@ -5,7 +5,7 @@ import { Link } from "./link.js"
 const meta = {
   title: "Navigation/Link",
   component: Link,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: {
       control: "select",

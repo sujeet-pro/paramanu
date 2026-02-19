@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { buttonGroupClasses } from "./button-group.classes.js"
-import { buttonClasses } from "../button/button.classes.js"
-import type { ButtonGroupClassesOptions, ButtonGroupOrientation } from "./button-group.types.js"
-import type { ButtonVariant } from "../button/button.types.js"
+import { btnGroupClasses } from "./button-group.classes.js"
+import { btnClasses } from "../button/button.classes.js"
+import type { BtnGroupClassesOptions, BtnGroupOrientation } from "./button-group.types.js"
+import type { BtnVariant } from "../button/button.types.js"
 
-interface ButtonGroupArgs extends ButtonGroupClassesOptions {
+interface BtnGroupArgs extends BtnGroupClassesOptions {
   buttonCount: number
-  buttonVariant: ButtonVariant
+  buttonVariant: BtnVariant
   ariaLabel: string
 }
 
-function createButtonGroup(args: ButtonGroupArgs): HTMLDivElement {
+function createBtnGroup(args: BtnGroupArgs): HTMLDivElement {
   const group = document.createElement("div")
-  group.className = buttonGroupClasses({
+  group.className = btnGroupClasses({
     orientation: args.orientation,
     attached: args.attached,
     fullWidth: args.fullWidth,
@@ -23,8 +23,8 @@ function createButtonGroup(args: ButtonGroupArgs): HTMLDivElement {
   const labels = ["Left", "Center", "Right", "Fourth", "Fifth", "Sixth"]
   for (let i = 0; i < args.buttonCount; i++) {
     const button = document.createElement("button")
-    button.className = buttonClasses({ variant: args.buttonVariant })
-    button.textContent = labels[i] ?? `Button ${i + 1}`
+    button.className = btnClasses({ variant: args.buttonVariant })
+    button.textContent = labels[i] ?? `Btn ${i + 1}`
     button.type = "button"
     group.appendChild(button)
   }
@@ -33,9 +33,9 @@ function createButtonGroup(args: ButtonGroupArgs): HTMLDivElement {
 }
 
 const meta = {
-  title: "Buttons/Button Group",
-  tags: ["autodocs", "stable"],
-  render: (args) => createButtonGroup(args as ButtonGroupArgs),
+  title: "Btns/Btn Group",
+  tags: ["autodocs", "beta"],
+  render: (args) => createBtnGroup(args as BtnGroupArgs),
   argTypes: {
     orientation: {
       control: "select",
@@ -57,10 +57,10 @@ const meta = {
     buttonVariant: "secondary",
     ariaLabel: "Actions",
   },
-} satisfies Meta<ButtonGroupArgs>
+} satisfies Meta<BtnGroupArgs>
 
 export default meta
-type Story = StoryObj<ButtonGroupArgs>
+type Story = StoryObj<BtnGroupArgs>
 
 export const Playground: Story = {}
 
@@ -91,13 +91,13 @@ export const AllVariantsAndSizes: Story = {
     container.style.flexDirection = "column"
     container.style.gap = "16px"
 
-    const orientations: ButtonGroupOrientation[] = ["horizontal", "vertical"]
+    const orientations: BtnGroupOrientation[] = ["horizontal", "vertical"]
     for (const orientation of orientations) {
       const label = document.createElement("p")
       label.textContent = `${orientation} / attached`
       container.appendChild(label)
       container.appendChild(
-        createButtonGroup({
+        createBtnGroup({
           orientation,
           attached: true,
           buttonCount: 3,
@@ -113,15 +113,15 @@ export const AllVariantsAndSizes: Story = {
 export const MixedVariants: Story = {
   render: () => {
     const group = document.createElement("div")
-    group.className = buttonGroupClasses({})
+    group.className = btnGroupClasses({})
     group.setAttribute("role", "group")
     group.setAttribute("aria-label", "Mixed actions")
 
-    const variants: ButtonVariant[] = ["primary", "secondary", "danger"]
+    const variants: BtnVariant[] = ["primary", "secondary", "danger"]
     const labels = ["Save", "Cancel", "Delete"]
     for (let i = 0; i < variants.length; i++) {
       const button = document.createElement("button")
-      button.className = buttonClasses({ variant: variants[i] })
+      button.className = btnClasses({ variant: variants[i] })
       button.textContent = labels[i]
       button.type = "button"
       group.appendChild(button)
@@ -130,7 +130,7 @@ export const MixedVariants: Story = {
   },
 }
 
-export const TwoButtons: Story = {
+export const TwoBtns: Story = {
   args: { buttonCount: 2, attached: true },
 }
 

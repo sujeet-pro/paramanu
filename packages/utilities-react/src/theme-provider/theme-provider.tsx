@@ -22,17 +22,17 @@ export function useTheme(): ThemeContextValue {
   return useContext(ThemeContext)
 }
 
-export interface ReactThemeProviderProps {
+export interface ReactThemeProps {
   defaultMode?: ThemeMode
   storageKey?: string
   children: React.ReactNode
 }
 
-export function ThemeProvider({
+export function Theme({
   defaultMode = "system",
   storageKey = "pm-theme",
   children,
-}: ReactThemeProviderProps) {
+}: ReactThemeProps) {
   const [mode, setModeState] = useState<ThemeMode>(() => {
     try {
       const stored = localStorage.getItem(storageKey)

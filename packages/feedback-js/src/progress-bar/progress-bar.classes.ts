@@ -1,9 +1,9 @@
-import type { ProgressBarClassesOptions } from "./progress-bar.types.js"
+import type { ProgressClassesOptions } from "./progress-bar.types.js"
 
-const BASE = "pm-progress-bar"
+const BASE = "pm-progress"
 
 /** Structured class names for the progress bar component and its sub-elements. */
-export interface ProgressBarClassesResult {
+export interface ProgressClassesResult {
   /** Root element class names. */
   root: string
   /** Track (background) element class. */
@@ -21,11 +21,11 @@ export interface ProgressBarClassesResult {
  *
  * @example
  * ```ts
- * const classes = progressBarClasses({ variant: "success", striped: true, animated: true })
- * // classes.root => "pm-progress-bar pm-progress-bar--md pm-progress-bar--success pm-progress-bar--striped pm-progress-bar--animated"
+ * const classes = progressClasses({ variant: "success", striped: true, animated: true })
+ * // classes.root => "pm-progress pm-progress--md pm-progress--success pm-progress--striped pm-progress--animated"
  * ```
  */
-export function progressBarClasses(options: ProgressBarClassesOptions = {}): ProgressBarClassesResult {
+export function progressClasses(options: ProgressClassesOptions = {}): ProgressClassesResult {
   const {
     size = "md",
     variant = "primary",
@@ -55,10 +55,10 @@ export function progressBarClasses(options: ProgressBarClassesOptions = {}): Pro
  * Returns an object with classes for root, track, fill, and label sub-elements.
  * Used by bundled/template consumers who import CSS modules.
  */
-export function progressBarModuleClasses(
+export function progressModuleClasses(
   classMap: Record<string, string>,
-  options: ProgressBarClassesOptions = {},
-): ProgressBarClassesResult {
+  options: ProgressClassesOptions = {},
+): ProgressClassesResult {
   const {
     size = "md",
     variant = "primary",
@@ -69,20 +69,20 @@ export function progressBarModuleClasses(
   } = options
 
   const rootClasses = [
-    classMap["pm-progress-bar"],
-    classMap[`pm-progress-bar--${size}`],
-    classMap[`pm-progress-bar--${variant}`],
+    classMap["pm-progress"],
+    classMap[`pm-progress--${size}`],
+    classMap[`pm-progress--${variant}`],
   ]
 
-  if (striped) rootClasses.push(classMap["pm-progress-bar--striped"])
-  if (animated) rootClasses.push(classMap["pm-progress-bar--animated"])
-  if (indeterminate) rootClasses.push(classMap["pm-progress-bar--indeterminate"])
-  if (showLabel) rootClasses.push(classMap["pm-progress-bar--with-label"])
+  if (striped) rootClasses.push(classMap["pm-progress--striped"])
+  if (animated) rootClasses.push(classMap["pm-progress--animated"])
+  if (indeterminate) rootClasses.push(classMap["pm-progress--indeterminate"])
+  if (showLabel) rootClasses.push(classMap["pm-progress--with-label"])
 
   return {
     root: rootClasses.filter(Boolean).join(" "),
-    track: classMap["pm-progress-bar__track"] ?? "",
-    fill: classMap["pm-progress-bar__fill"] ?? "",
-    label: classMap["pm-progress-bar__label"] ?? "",
+    track: classMap["pm-progress__track"] ?? "",
+    fill: classMap["pm-progress__fill"] ?? "",
+    label: classMap["pm-progress__label"] ?? "",
   }
 }

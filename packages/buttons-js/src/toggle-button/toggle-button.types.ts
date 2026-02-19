@@ -1,18 +1,18 @@
 /** Visual style variant for the toggle button */
-export type ToggleButtonVariant = "default" | "outline"
+export type ToggleBtnVariant = "default" | "outline"
 
 /** Size preset for the toggle button */
-export type ToggleButtonSize = "xs" | "sm" | "md" | "lg" | "xl"
+export type ToggleBtnSize = "xs" | "sm" | "md" | "lg" | "xl"
 
 /**
  * Options for generating toggle button CSS class names.
- * Used by both BEM (`toggleButtonClasses`) and CSS module (`toggleButtonModuleClasses`) builders.
+ * Used by both BEM (`toggleBtnClasses`) and CSS module (`toggleBtnModuleClasses`) builders.
  */
-export interface ToggleButtonClassesOptions {
+export interface ToggleBtnClassesOptions {
   /** Visual style variant. @default "default" */
-  variant?: ToggleButtonVariant
+  variant?: ToggleBtnVariant
   /** Size preset controlling padding and font-size. @default "md" */
-  size?: ToggleButtonSize
+  size?: ToggleBtnSize
   /** Whether the toggle is currently in the pressed/on state. @default false */
   pressed?: boolean
   /** Whether the toggle is in a disabled state. @default false */
@@ -25,7 +25,7 @@ export interface ToggleButtonClassesOptions {
  * Full props interface for the toggle button component.
  * A toggle button is a two-state button (on/off) that uses `aria-pressed`.
  */
-export interface ToggleButtonProps extends ToggleButtonClassesOptions {
-  /** The value associated with this toggle button (used by ToggleGroup). */
+export interface ToggleBtnProps extends ToggleBtnClassesOptions {
+  /** The value associated with this toggle button (used by ToggleGrp). */
   value?: string
 }

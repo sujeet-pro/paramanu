@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
 import {
-  alertDialogClasses,
+  alertdialogClasses,
   alertDialogHeaderClasses,
   alertDialogBodyClasses,
   alertDialogFooterClasses,
 } from "./alert-dialog.classes.js"
-import type { AlertDialogClassesOptions } from "./alert-dialog.types.js"
+import type { AlertdialogClassesOptions } from "./alert-dialog.types.js"
 
-function createAlertDialog(args: AlertDialogClassesOptions): HTMLElement {
-  const cls = alertDialogClasses(args)
+function createAlertdialog(args: AlertdialogClassesOptions): HTMLElement {
+  const cls = alertdialogClasses(args)
   const root = document.createElement("div")
   root.className = cls
   root.setAttribute("role", "alertdialog")
@@ -39,16 +39,16 @@ function createAlertDialog(args: AlertDialogClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Alert Dialog",
-  tags: ["autodocs", "stable"],
-  render: (args) => createAlertDialog(args as AlertDialogClassesOptions),
+  tags: ["autodocs", "beta"],
+  render: (args) => createAlertdialog(args as AlertdialogClassesOptions),
   argTypes: {
     variant: { control: "select", options: ["info", "danger", "warning"] },
   },
   args: { variant: "info" },
-} satisfies Meta<AlertDialogClassesOptions>
+} satisfies Meta<AlertdialogClassesOptions>
 
 export default meta
-type Story = StoryObj<AlertDialogClassesOptions>
+type Story = StoryObj<AlertdialogClassesOptions>
 
 export const Playground: Story = {}
 export const Danger: Story = { args: { variant: "danger" } }

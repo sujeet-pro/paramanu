@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("SearchInput Stories", () => {
+describe("Search Stories", () => {
   it("Playground renders without crashing", () => {
     render(<composed.Playground />)
     expect(screen.getByPlaceholderText("Search...")).toBeTruthy()

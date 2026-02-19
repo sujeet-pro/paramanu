@@ -1,30 +1,30 @@
 @layer pm.components {
-  .pm-segmented-control {
+  .pm-seg-ctrl {
     display: inline-flex;
     align-items: center;
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-muted);
     border-radius: var(--pm-radius-md);
     padding: 2px;
     position: relative;
 
-    &.pm-segmented-control--full-width {
+    &.pm-seg-ctrl--full-width {
       width: 100%;
     }
 
-    &.pm-segmented-control--sm {
+    &.pm-seg-ctrl--sm {
       height: calc(var(--pm-spacing-8));
     }
 
-    &.pm-segmented-control--md {
+    &.pm-seg-ctrl--md {
       height: calc(var(--pm-spacing-10));
     }
 
-    &.pm-segmented-control--lg {
+    &.pm-seg-ctrl--lg {
       height: calc(var(--pm-spacing-12));
     }
   }
 
-  .pm-segmented-control__item {
+  .pm-seg-ctrl__item {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +35,7 @@
     cursor: pointer;
     font-family: var(--pm-font-family-sans);
     font-weight: var(--pm-font-weight-medium);
-    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
     border-radius: calc(var(--pm-radius-md) - 2px);
     transition-property: background-color, color, box-shadow;
     transition-duration: var(--pm-transition-fast);
@@ -44,39 +44,39 @@
     position: relative;
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
 
-    &:hover:not(.pm-segmented-control__item--active) {
-      color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    &:hover:not(.pm-seg-ctrl__item--active) {
+      color: var(--pm-fg);
     }
   }
 
-  .pm-segmented-control--sm .pm-segmented-control__item {
+  .pm-seg-ctrl--sm .pm-seg-ctrl__item {
     font-size: var(--pm-font-size-sm);
   }
 
-  .pm-segmented-control--md .pm-segmented-control__item {
+  .pm-seg-ctrl--md .pm-seg-ctrl__item {
     font-size: var(--pm-font-size-md);
   }
 
-  .pm-segmented-control--lg .pm-segmented-control__item {
+  .pm-seg-ctrl--lg .pm-seg-ctrl__item {
     font-size: var(--pm-font-size-lg);
   }
 
-  .pm-segmented-control__item--active {
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-700));
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+  .pm-seg-ctrl__item--active {
+    background-color: var(--pm-bg);
+    color: var(--pm-fg);
     box-shadow: var(--pm-shadow-sm);
   }
 
-  .pm-segmented-control__indicator {
+  .pm-seg-ctrl__indicator {
     position: absolute;
     top: 2px;
     bottom: 2px;
     border-radius: calc(var(--pm-radius-md) - 2px);
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-700));
+    background-color: var(--pm-bg);
     box-shadow: var(--pm-shadow-sm);
     transition-property: left, width;
     transition-duration: var(--pm-transition-normal);

@@ -1,79 +1,79 @@
 import { describe, it, expect } from "vitest"
-import { editableTextClasses, editableTextModuleClasses } from "./editable-text.classes.js"
+import { editableClasses, editableModuleClasses } from "./editable-text.classes.js"
 
-describe("editableTextClasses", () => {
+describe("editableClasses", () => {
   it("returns default classes (md)", () => {
-    const result = editableTextClasses()
-    expect(result).toBe("pm-editable-text pm-editable-text--md")
+    const result = editableClasses()
+    expect(result).toBe("pm-editable pm-editable--md")
   })
 
   it("applies size", () => {
-    expect(editableTextClasses({ size: "sm" })).toContain("pm-editable-text--sm")
-    expect(editableTextClasses({ size: "md" })).toContain("pm-editable-text--md")
-    expect(editableTextClasses({ size: "lg" })).toContain("pm-editable-text--lg")
+    expect(editableClasses({ size: "sm" })).toContain("pm-editable--sm")
+    expect(editableClasses({ size: "md" })).toContain("pm-editable--md")
+    expect(editableClasses({ size: "lg" })).toContain("pm-editable--lg")
   })
 
   it("applies disabled modifier", () => {
-    expect(editableTextClasses({ disabled: true })).toContain("pm-editable-text--disabled")
-    expect(editableTextClasses({ disabled: false })).not.toContain("pm-editable-text--disabled")
+    expect(editableClasses({ disabled: true })).toContain("pm-editable--disabled")
+    expect(editableClasses({ disabled: false })).not.toContain("pm-editable--disabled")
   })
 
   it("applies editing modifier", () => {
-    expect(editableTextClasses({ editing: true })).toContain("pm-editable-text--editing")
-    expect(editableTextClasses({ editing: false })).not.toContain("pm-editable-text--editing")
+    expect(editableClasses({ editing: true })).toContain("pm-editable--editing")
+    expect(editableClasses({ editing: false })).not.toContain("pm-editable--editing")
   })
 
   it("always includes base class", () => {
-    expect(editableTextClasses()).toMatch(/^pm-editable-text\s/)
+    expect(editableClasses()).toMatch(/^pm-editable\s/)
   })
 
   it("combines multiple options", () => {
-    const result = editableTextClasses({
+    const result = editableClasses({
       size: "lg",
       disabled: true,
       editing: true,
     })
     expect(result).toBe(
-      "pm-editable-text pm-editable-text--lg pm-editable-text--disabled pm-editable-text--editing",
+      "pm-editable pm-editable--lg pm-editable--disabled pm-editable--editing",
     )
   })
 })
 
-describe("editableTextModuleClasses", () => {
+describe("editableModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-editable-text": "pm_abc_editableText",
-    "pm-editable-text--md": "pm_abc_md",
-    "pm-editable-text--sm": "pm_abc_sm",
-    "pm-editable-text--lg": "pm_abc_lg",
-    "pm-editable-text--disabled": "pm_abc_disabled",
-    "pm-editable-text--editing": "pm_abc_editing",
+    "pm-editable": "pm_abc_editableText",
+    "pm-editable--md": "pm_abc_md",
+    "pm-editable--sm": "pm_abc_sm",
+    "pm-editable--lg": "pm_abc_lg",
+    "pm-editable--disabled": "pm_abc_disabled",
+    "pm-editable--editing": "pm_abc_editing",
   }
 
   it("returns mapped default classes", () => {
-    const result = editableTextModuleClasses(mockClassMap)
+    const result = editableModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_editableText pm_abc_md")
   })
 
   it("maps size classes correctly", () => {
-    const result = editableTextModuleClasses(mockClassMap, { size: "lg" })
+    const result = editableModuleClasses(mockClassMap, { size: "lg" })
     expect(result).toContain("pm_abc_lg")
   })
 
   it("maps disabled class", () => {
-    const result = editableTextModuleClasses(mockClassMap, { disabled: true })
+    const result = editableModuleClasses(mockClassMap, { disabled: true })
     expect(result).toContain("pm_abc_disabled")
   })
 
   it("maps editing class", () => {
-    const result = editableTextModuleClasses(mockClassMap, { editing: true })
+    const result = editableModuleClasses(mockClassMap, { editing: true })
     expect(result).toContain("pm_abc_editing")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-editable-text": "pm_abc_editableText",
+      "pm-editable": "pm_abc_editableText",
     }
-    const result = editableTextModuleClasses(sparseMap)
+    const result = editableModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_editableText")
     expect(result).not.toContain("undefined")
   })

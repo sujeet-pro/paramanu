@@ -1,11 +1,15 @@
 import { defineConfig } from "astro/config"
 import starlight from "@astrojs/starlight"
 import react from "@astrojs/react"
+import { createRequire } from "node:module"
+
+const require = createRequire(import.meta.url)
+const { version } = require("../../package.json")
 
 export default defineConfig({
   integrations: [
     starlight({
-      title: "Paramanu",
+      title: `Paramanu v${version}`,
       description: "A modern, accessible design system",
       social: {
         github: "https://github.com/sujeet-pro/paramanu",
@@ -66,14 +70,14 @@ export default defineConfig({
               ],
             },
             {
-              label: "Buttons",
+              label: "Btns",
               collapsed: true,
               items: [
-                { label: "Button", slug: "components/buttons/button" },
-                { label: "Button Group", slug: "components/buttons/button-group" },
-                { label: "Icon Button", slug: "components/buttons/icon-button" },
-                { label: "Close Button", slug: "components/buttons/close-button" },
-                { label: "Toggle Button", slug: "components/buttons/toggle-button" },
+                { label: "Btn", slug: "components/buttons/button" },
+                { label: "Btn Group", slug: "components/buttons/button-group" },
+                { label: "Icon Btn", slug: "components/buttons/icon-button" },
+                { label: "Close Btn", slug: "components/buttons/close-button" },
+                { label: "Toggle Btn", slug: "components/buttons/toggle-button" },
                 { label: "Toggle Group", slug: "components/buttons/toggle-group" },
                 { label: "FAB", slug: "components/buttons/fab" },
               ],
@@ -128,7 +132,7 @@ export default defineConfig({
                 { label: "Menubar", slug: "components/navigation/menubar" },
                 { label: "Dropdown Menu", slug: "components/navigation/dropdown-menu" },
                 { label: "Context Menu", slug: "components/navigation/context-menu" },
-                { label: "Breadcrumbs", slug: "components/navigation/breadcrumbs" },
+                { label: "Breadcrumb", slug: "components/navigation/breadcrumbs" },
                 { label: "Tabs", slug: "components/navigation/tabs" },
                 { label: "Pagination", slug: "components/navigation/pagination" },
                 { label: "Steps", slug: "components/navigation/steps" },
@@ -152,7 +156,7 @@ export default defineConfig({
                 { label: "Timeline", slug: "components/data-display/timeline" },
                 { label: "Avatar", slug: "components/data-display/avatar" },
                 { label: "Avatar Group", slug: "components/data-display/avatar-group" },
-                { label: "Image", slug: "components/data-display/image" },
+                { label: "Img", slug: "components/data-display/image" },
                 { label: "Icon", slug: "components/data-display/icon" },
                 { label: "QR Code", slug: "components/data-display/qr-code" },
                 { label: "Embed", slug: "components/data-display/embed" },
@@ -169,7 +173,7 @@ export default defineConfig({
               items: [
                 { label: "Alert", slug: "components/feedback/alert" },
                 { label: "Toast", slug: "components/feedback/toast" },
-                { label: "Notification", slug: "components/feedback/notification" },
+                { label: "Notif", slug: "components/feedback/notification" },
                 { label: "Banner", slug: "components/feedback/banner" },
                 { label: "Inline Message", slug: "components/feedback/inline-message" },
                 { label: "Progress Bar", slug: "components/feedback/progress-bar" },

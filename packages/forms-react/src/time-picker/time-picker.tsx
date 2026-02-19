@@ -1,18 +1,18 @@
 import { forwardRef } from "react"
-import { timePickerClasses } from "@paramanu/forms-js"
-import type { TimePickerProps } from "@paramanu/forms-js"
+import { timepickerClasses } from "@paramanu/forms-js"
+import type { TimepickerProps } from "@paramanu/forms-js"
 
-export interface ReactTimePickerProps
-  extends TimePickerProps,
+export interface ReactTimepickerProps
+  extends TimepickerProps,
     Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   children?: React.ReactNode
 }
 
-export const TimePicker = forwardRef<HTMLInputElement, ReactTimePickerProps>(function TimePicker(
+export const Timepicker = forwardRef<HTMLInputElement, ReactTimepickerProps>(function Timepicker(
   { variant, size, disabled, invalid, open, className, children, ...rest },
   ref,
 ) {
-  const classes = timePickerClasses({ variant, size, disabled, invalid, open })
+  const classes = timepickerClasses({ variant, size, disabled, invalid, open })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (
@@ -20,7 +20,7 @@ export const TimePicker = forwardRef<HTMLInputElement, ReactTimePickerProps>(fun
       <input
         ref={ref}
         type="text"
-        className="pm-time-picker__input"
+        className="pm-timepicker__input"
         role="combobox"
         aria-expanded={open || false}
         aria-haspopup="listbox"
@@ -28,7 +28,7 @@ export const TimePicker = forwardRef<HTMLInputElement, ReactTimePickerProps>(fun
         disabled={disabled}
         {...rest}
       />
-      <div className="pm-time-picker__dropdown" role="listbox">
+      <div className="pm-timepicker__dropdown" role="listbox">
         {children}
       </div>
     </div>

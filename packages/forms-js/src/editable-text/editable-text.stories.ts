@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { editableTextClasses } from "./editable-text.classes.js"
-import type { EditableTextClassesOptions } from "./editable-text.types.js"
+import { editableClasses } from "./editable-text.classes.js"
+import type { EditableClassesOptions } from "./editable-text.types.js"
 
-interface EditableTextArgs extends EditableTextClassesOptions {
+interface EditableArgs extends EditableClassesOptions {
   text: string
 }
 
-function createEditableText(args: EditableTextArgs): HTMLElement {
+function createEditable(args: EditableArgs): HTMLElement {
   const wrapper = document.createElement("div")
-  wrapper.className = editableTextClasses({
+  wrapper.className = editableClasses({
     size: args.size,
     disabled: args.disabled,
     editing: args.editing,
@@ -32,8 +32,8 @@ function createEditableText(args: EditableTextArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Editable Text",
-  tags: ["autodocs", "stable"],
-  render: (args) => createEditableText(args as EditableTextArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createEditable(args as EditableArgs),
   argTypes: {
     size: {
       control: "select",
@@ -47,10 +47,10 @@ const meta = {
     size: "md",
     text: "Click to edit",
   },
-} satisfies Meta<EditableTextArgs>
+} satisfies Meta<EditableArgs>
 
 export default meta
-type Story = StoryObj<EditableTextArgs>
+type Story = StoryObj<EditableArgs>
 
 export const Playground: Story = {}
 

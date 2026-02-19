@@ -5,7 +5,7 @@ import { Badge } from "./badge.js"
 const meta = {
   title: "Data Display/Badge",
   component: Badge,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: { control: "select", options: ["filled", "outline", "subtle"] },
     size: { control: "select", options: ["sm", "md", "lg"] },

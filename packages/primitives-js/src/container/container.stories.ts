@@ -16,7 +16,7 @@ function createContainer(args: ContainerClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Container",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createContainer(args as ContainerClassesOptions),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl", "full"] },

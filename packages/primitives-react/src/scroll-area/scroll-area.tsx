@@ -1,19 +1,19 @@
 import { forwardRef } from "react"
-import { scrollAreaClasses } from "@paramanu/primitives-js"
-import type { ScrollAreaProps } from "@paramanu/primitives-js"
+import { scrollClasses } from "@paramanu/primitives-js"
+import type { ScrollProps } from "@paramanu/primitives-js"
 
-export interface ReactScrollAreaProps
-  extends ScrollAreaProps,
+export interface ReactScrollProps
+  extends ScrollProps,
     Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
   /** Child elements. */
   children?: React.ReactNode
 }
 
-export const ScrollArea = forwardRef<HTMLDivElement, ReactScrollAreaProps>(function ScrollArea(
+export const Scroll = forwardRef<HTMLDivElement, ReactScrollProps>(function Scroll(
   { direction, scrollbar, scrollbarSize, bordered, className, children, ...rest },
   ref,
 ) {
-  const classes = scrollAreaClasses({ direction, scrollbar, scrollbarSize, bordered })
+  const classes = scrollClasses({ direction, scrollbar, scrollbarSize, bordered })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (

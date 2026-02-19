@@ -5,7 +5,7 @@ import * as stories from "./form-control.stories.js"
 
 const composed = composeStories(stories)
 
-describe("FormControl stories", () => {
+describe("FormCtrl stories", () => {
   test("Playground renders", () => {
     const { container } = render(<composed.Playground />)
     expect(container.querySelector("[role='group']")).toBeTruthy()
@@ -15,6 +15,6 @@ describe("FormControl stories", () => {
     const { container } = render(<composed.Disabled />)
     const el = container.querySelector("[role='group']")
     expect(el).toBeTruthy()
-    expect(el?.classList.contains("pm-form-control--disabled")).toBe(true)
+    expect(el?.classList.contains("pm-form-ctrl--disabled")).toBe(true)
   })
 })

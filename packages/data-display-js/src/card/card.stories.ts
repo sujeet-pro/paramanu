@@ -44,7 +44,7 @@ function createCard(args: CardArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Card",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createCard(args as CardArgs),
   argTypes: {
     variant: {

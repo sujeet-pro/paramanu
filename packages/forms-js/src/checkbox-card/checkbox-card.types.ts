@@ -1,9 +1,9 @@
 import type { FormSize } from "../shared.types.js"
 
-export interface CheckboxCardClassesOptions {
+export interface ChkCardClassesOptions {
   size?: FormSize
   disabled?: boolean
   checked?: boolean
 }
 
-export interface CheckboxCardProps extends CheckboxCardClassesOptions {}
+export interface ChkCardProps extends ChkCardClassesOptions {}

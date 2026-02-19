@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { SearchInput } from "./search-input.js"
+import { Search } from "./search-input.js"
 
 const meta = {
   title: "Forms/Search Input",
-  tags: ["autodocs", "stable"],
-  component: SearchInput,
+  tags: ["autodocs", "beta"],
+  component: Search,
   argTypes: {
     variant: {
       control: "select",
@@ -26,7 +26,7 @@ const meta = {
     onFocus: fn(),
     onBlur: fn(),
   },
-} satisfies Meta<typeof SearchInput>
+} satisfies Meta<typeof Search>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -94,7 +94,7 @@ export const ClearSearch: Story = {
 
 export const KeyboardNavigation: Story = {
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-search-input")
+    const el = canvasElement.querySelector(".pm-search")
     await expect(el).toBeTruthy()
     await userEvent.tab()
   },

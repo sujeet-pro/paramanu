@@ -1,8 +1,8 @@
 import type { FormSize } from "../shared.types.js"
 
-export interface SegmentedControlClassesOptions {
+export interface SegCtrlClassesOptions {
   size?: FormSize
   fullWidth?: boolean
 }
 
-export interface SegmentedControlProps extends SegmentedControlClassesOptions {}
+export interface SegCtrlProps extends SegCtrlClassesOptions {}

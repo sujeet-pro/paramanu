@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, within } from "storybook/test"
-import { FileUpload } from "./file-upload.js"
+import { Upload } from "./file-upload.js"
 
 const meta = {
   title: "Forms/File Upload",
-  component: FileUpload,
-  tags: ["autodocs", "stable"],
+  component: Upload,
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
     disabled: { control: "boolean" },
@@ -16,7 +16,7 @@ const meta = {
     onFocus: fn(),
     onBlur: fn(),
   },
-} satisfies Meta<typeof FileUpload>
+} satisfies Meta<typeof Upload>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -28,10 +28,10 @@ export const Playground: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-      <FileUpload size="xs">Choose file</FileUpload>
-      <FileUpload size="sm">Choose file</FileUpload>
-      <FileUpload size="md">Choose file</FileUpload>
-      <FileUpload size="lg">Choose file</FileUpload>
+      <Upload size="xs">Choose file</Upload>
+      <Upload size="sm">Choose file</Upload>
+      <Upload size="md">Choose file</Upload>
+      <Upload size="lg">Choose file</Upload>
     </div>
   ),
 }

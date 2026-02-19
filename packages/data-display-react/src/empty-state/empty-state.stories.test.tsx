@@ -7,14 +7,14 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("EmptyState Stories", () => {
+describe("Empty Stories", () => {
   it("Playground renders without crashing", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-empty-state")).toBeTruthy()
+    expect(container.querySelector(".pm-empty")).toBeTruthy()
   })
 
   it("Bordered applies correct class", () => {
     const { container } = render(<composed.Bordered />)
-    expect(container.querySelector(".pm-empty-state--bordered")).toBeTruthy()
+    expect(container.querySelector(".pm-empty--bordered")).toBeTruthy()
   })
 })

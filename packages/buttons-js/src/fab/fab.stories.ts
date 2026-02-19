@@ -25,8 +25,8 @@ function createFab(args: FabArgs): HTMLButtonElement {
 }
 
 const meta = {
-  title: "Buttons/FAB",
-  tags: ["autodocs", "stable"],
+  title: "Btns/FAB",
+  tags: ["autodocs", "beta"],
   render: (args) => {
     const wrapper = document.createElement("div")
     wrapper.style.position = "relative"

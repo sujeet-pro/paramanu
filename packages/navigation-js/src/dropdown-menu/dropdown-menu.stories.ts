@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
 import {
-  dropdownMenuClasses,
+  dropdownClasses,
   dropdownMenuTriggerClasses,
   dropdownMenuContentClasses,
 } from "./dropdown-menu.classes.js"
-import type { DropdownMenuClassesOptions } from "./dropdown-menu.types.js"
+import type { DropdownClassesOptions } from "./dropdown-menu.types.js"
 
-interface DropdownMenuArgs extends DropdownMenuClassesOptions {}
+interface DropdownArgs extends DropdownClassesOptions {}
 
-function createDropdownMenu(args: DropdownMenuArgs): HTMLElement {
+function createDropdown(args: DropdownArgs): HTMLElement {
   const wrapper = document.createElement("div")
-  wrapper.className = dropdownMenuClasses(args)
+  wrapper.className = dropdownClasses(args)
 
   const trigger = document.createElement("button")
   trigger.className = dropdownMenuTriggerClasses()
@@ -36,8 +36,8 @@ function createDropdownMenu(args: DropdownMenuArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Dropdown Menu",
-  tags: ["autodocs", "stable"],
-  render: (args) => createDropdownMenu(args as DropdownMenuArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createDropdown(args as DropdownArgs),
   argTypes: {
     size: {
       control: "select",
@@ -49,10 +49,10 @@ const meta = {
     size: "md",
     open: false,
   },
-} satisfies Meta<DropdownMenuArgs>
+} satisfies Meta<DropdownArgs>
 
 export default meta
-type Story = StoryObj<DropdownMenuArgs>
+type Story = StoryObj<DropdownArgs>
 
 export const Playground: Story = {}
 

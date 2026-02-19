@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from "./dropdown-menu.js"
+import { Dropdown, DropdownTrigger, DropdownContent } from "./dropdown-menu.js"
 
 const meta = {
   title: "Navigation/Dropdown Menu",
-  component: DropdownMenu,
-  tags: ["autodocs", "stable"],
+  component: Dropdown,
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: {
       control: "select",
@@ -17,71 +17,71 @@ const meta = {
     size: "md",
     open: false,
   },
-} satisfies Meta<typeof DropdownMenu>
+} satisfies Meta<typeof Dropdown>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   render: (args) => (
-    <DropdownMenu {...args}>
-      <DropdownMenuTrigger expanded={args.open}>Options</DropdownMenuTrigger>
-      <DropdownMenuContent>
+    <Dropdown {...args}>
+      <DropdownTrigger expanded={args.open}>Options</DropdownTrigger>
+      <DropdownContent>
         <div>Item 1</div>
         <div>Item 2</div>
         <div>Item 3</div>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownContent>
+    </Dropdown>
   ),
 }
 
 export const Closed: Story = {
   render: () => (
-    <DropdownMenu>
-      <DropdownMenuTrigger>Select</DropdownMenuTrigger>
-      <DropdownMenuContent>
+    <Dropdown>
+      <DropdownTrigger>Select</DropdownTrigger>
+      <DropdownContent>
         <div>Option A</div>
         <div>Option B</div>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownContent>
+    </Dropdown>
   ),
 }
 
 export const Open: Story = {
   args: { open: true },
   render: (args) => (
-    <DropdownMenu {...args}>
-      <DropdownMenuTrigger expanded>Actions</DropdownMenuTrigger>
-      <DropdownMenuContent>
+    <Dropdown {...args}>
+      <DropdownTrigger expanded>Actions</DropdownTrigger>
+      <DropdownContent>
         <div>Edit</div>
         <div>Duplicate</div>
         <div>Delete</div>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownContent>
+    </Dropdown>
   ),
 }
 
 export const Small: Story = {
   args: { size: "sm", open: true },
   render: (args) => (
-    <DropdownMenu {...args}>
-      <DropdownMenuTrigger expanded>Small</DropdownMenuTrigger>
-      <DropdownMenuContent>
+    <Dropdown {...args}>
+      <DropdownTrigger expanded>Small</DropdownTrigger>
+      <DropdownContent>
         <div>Item</div>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownContent>
+    </Dropdown>
   ),
 }
 
 export const Large: Story = {
   args: { size: "lg", open: true },
   render: (args) => (
-    <DropdownMenu {...args}>
-      <DropdownMenuTrigger expanded>Large</DropdownMenuTrigger>
-      <DropdownMenuContent>
+    <Dropdown {...args}>
+      <DropdownTrigger expanded>Large</DropdownTrigger>
+      <DropdownContent>
         <div>Item</div>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownContent>
+    </Dropdown>
   ),
 }
 
@@ -89,14 +89,14 @@ export const TriggerClick: Story = {
   render: () => {
     const onClick = fn()
     return (
-      <DropdownMenu>
-        <DropdownMenuTrigger expanded={false} onClick={onClick}>
+      <Dropdown>
+        <DropdownTrigger expanded={false} onClick={onClick}>
           Menu
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        </DropdownTrigger>
+        <DropdownContent>
           <div>Content</div>
-        </DropdownMenuContent>
-      </DropdownMenu>
+        </DropdownContent>
+      </Dropdown>
     )
   },
   play: async ({ canvasElement }) => {
@@ -108,12 +108,12 @@ export const TriggerClick: Story = {
 
 export const TriggerAccessibility: Story = {
   render: () => (
-    <DropdownMenu>
-      <DropdownMenuTrigger expanded={false}>Menu</DropdownMenuTrigger>
-      <DropdownMenuContent>
+    <Dropdown>
+      <DropdownTrigger expanded={false}>Menu</DropdownTrigger>
+      <DropdownContent>
         <div>Content</div>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownContent>
+    </Dropdown>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -126,24 +126,24 @@ export const TriggerAccessibility: Story = {
 export const Hover: Story = {
   args: { open: true },
   render: (args) => (
-    <DropdownMenu {...args}>
-      <DropdownMenuTrigger expanded>Options</DropdownMenuTrigger>
-      <DropdownMenuContent>
+    <Dropdown {...args}>
+      <DropdownTrigger expanded>Options</DropdownTrigger>
+      <DropdownContent>
         <div>Item</div>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownContent>
+    </Dropdown>
   ),
   parameters: { pseudo: { hover: true } },
 }
 
 export const FocusVisible: Story = {
   render: () => (
-    <DropdownMenu>
-      <DropdownMenuTrigger>Options</DropdownMenuTrigger>
-      <DropdownMenuContent>
+    <Dropdown>
+      <DropdownTrigger>Options</DropdownTrigger>
+      <DropdownContent>
         <div>Item</div>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownContent>
+    </Dropdown>
   ),
   parameters: { pseudo: { focusVisible: true } },
 }

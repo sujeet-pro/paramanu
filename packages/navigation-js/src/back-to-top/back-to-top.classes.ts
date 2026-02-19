@@ -1,8 +1,8 @@
-import type { BackToTopClassesOptions } from "./back-to-top.types.js"
+import type { BttClassesOptions } from "./back-to-top.types.js"
 
-const BASE = "pm-back-to-top"
+const BASE = "pm-btt"
 
-export function backToTopClasses(options: BackToTopClassesOptions = {}): string {
+export function bttClasses(options: BttClassesOptions = {}): string {
   const { size = "md", position = "bottom-right", visible = true } = options
   const classes = [BASE, `${BASE}--${size}`, `${BASE}--${position}`]
 
@@ -11,18 +11,18 @@ export function backToTopClasses(options: BackToTopClassesOptions = {}): string 
   return classes.join(" ")
 }
 
-export function backToTopModuleClasses(
+export function bttModuleClasses(
   classMap: Record<string, string>,
-  options: BackToTopClassesOptions = {},
+  options: BttClassesOptions = {},
 ): string {
   const { size = "md", position = "bottom-right", visible = true } = options
   const classes = [
-    classMap["pm-back-to-top"],
-    classMap[`pm-back-to-top--${size}`],
-    classMap[`pm-back-to-top--${position}`],
+    classMap["pm-btt"],
+    classMap[`pm-btt--${size}`],
+    classMap[`pm-btt--${position}`],
   ]
 
-  if (visible) classes.push(classMap["pm-back-to-top--visible"])
+  if (visible) classes.push(classMap["pm-btt--visible"])
 
   return classes.filter(Boolean).join(" ")
 }

@@ -17,7 +17,7 @@ function createShowHide(args: ShowHideClassesOptions): HTMLElement {
 
 const meta = {
   title: "Utilities/ShowHide",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createShowHide(args as ShowHideClassesOptions),
   argTypes: {
     display: { control: "select", options: ["show", "hide"] },

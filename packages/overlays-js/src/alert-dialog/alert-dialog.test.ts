@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest"
 import {
-  alertDialogClasses,
-  alertDialogModuleClasses,
+  alertdialogClasses,
+  alertdialogModuleClasses,
   alertDialogHeaderClasses,
   alertDialogHeaderModuleClasses,
   alertDialogBodyClasses,
@@ -10,50 +10,50 @@ import {
   alertDialogFooterModuleClasses,
 } from "./alert-dialog.classes.js"
 
-describe("alertDialogClasses", () => {
+describe("alertdialogClasses", () => {
   it("returns default classes (info)", () => {
-    const result = alertDialogClasses()
-    expect(result).toBe("pm-alert-dialog pm-alert-dialog--info")
+    const result = alertdialogClasses()
+    expect(result).toBe("pm-alertdialog pm-alertdialog--info")
   })
 
   it("applies variant", () => {
-    expect(alertDialogClasses({ variant: "info" })).toContain("pm-alert-dialog--info")
-    expect(alertDialogClasses({ variant: "danger" })).toContain("pm-alert-dialog--danger")
-    expect(alertDialogClasses({ variant: "warning" })).toContain("pm-alert-dialog--warning")
+    expect(alertdialogClasses({ variant: "info" })).toContain("pm-alertdialog--info")
+    expect(alertdialogClasses({ variant: "danger" })).toContain("pm-alertdialog--danger")
+    expect(alertdialogClasses({ variant: "warning" })).toContain("pm-alertdialog--warning")
   })
 
   it("always includes base class", () => {
-    expect(alertDialogClasses()).toMatch(/^pm-alert-dialog\s/)
+    expect(alertdialogClasses()).toMatch(/^pm-alertdialog\s/)
   })
 })
 
-describe("alertDialogModuleClasses", () => {
+describe("alertdialogModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-alert-dialog": "pm_abc_alertDialog",
-    "pm-alert-dialog--info": "pm_abc_info",
-    "pm-alert-dialog--danger": "pm_abc_danger",
-    "pm-alert-dialog--warning": "pm_abc_warning",
+    "pm-alertdialog": "pm_abc_alertDialog",
+    "pm-alertdialog--info": "pm_abc_info",
+    "pm-alertdialog--danger": "pm_abc_danger",
+    "pm-alertdialog--warning": "pm_abc_warning",
   }
 
   it("returns mapped default classes", () => {
-    const result = alertDialogModuleClasses(mockClassMap)
+    const result = alertdialogModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_alertDialog pm_abc_info")
   })
 
   it("maps variant classes correctly", () => {
-    expect(alertDialogModuleClasses(mockClassMap, { variant: "danger" })).toContain(
+    expect(alertdialogModuleClasses(mockClassMap, { variant: "danger" })).toContain(
       "pm_abc_danger",
     )
-    expect(alertDialogModuleClasses(mockClassMap, { variant: "warning" })).toContain(
+    expect(alertdialogModuleClasses(mockClassMap, { variant: "warning" })).toContain(
       "pm_abc_warning",
     )
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-alert-dialog": "pm_abc_alertDialog",
+      "pm-alertdialog": "pm_abc_alertDialog",
     }
-    const result = alertDialogModuleClasses(sparseMap)
+    const result = alertdialogModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_alertDialog")
     expect(result).not.toContain("undefined")
   })
@@ -61,13 +61,13 @@ describe("alertDialogModuleClasses", () => {
 
 describe("alertDialogHeaderClasses", () => {
   it("returns header class", () => {
-    expect(alertDialogHeaderClasses()).toBe("pm-alert-dialog__header")
+    expect(alertDialogHeaderClasses()).toBe("pm-alertdialog__header")
   })
 })
 
 describe("alertDialogHeaderModuleClasses", () => {
   it("returns mapped header class", () => {
-    const classMap = { "pm-alert-dialog__header": "pm_abc_header" }
+    const classMap = { "pm-alertdialog__header": "pm_abc_header" }
     expect(alertDialogHeaderModuleClasses(classMap)).toBe("pm_abc_header")
   })
 
@@ -78,13 +78,13 @@ describe("alertDialogHeaderModuleClasses", () => {
 
 describe("alertDialogBodyClasses", () => {
   it("returns body class", () => {
-    expect(alertDialogBodyClasses()).toBe("pm-alert-dialog__body")
+    expect(alertDialogBodyClasses()).toBe("pm-alertdialog__body")
   })
 })
 
 describe("alertDialogBodyModuleClasses", () => {
   it("returns mapped body class", () => {
-    const classMap = { "pm-alert-dialog__body": "pm_abc_body" }
+    const classMap = { "pm-alertdialog__body": "pm_abc_body" }
     expect(alertDialogBodyModuleClasses(classMap)).toBe("pm_abc_body")
   })
 
@@ -95,13 +95,13 @@ describe("alertDialogBodyModuleClasses", () => {
 
 describe("alertDialogFooterClasses", () => {
   it("returns footer class", () => {
-    expect(alertDialogFooterClasses()).toBe("pm-alert-dialog__footer")
+    expect(alertDialogFooterClasses()).toBe("pm-alertdialog__footer")
   })
 })
 
 describe("alertDialogFooterModuleClasses", () => {
   it("returns mapped footer class", () => {
-    const classMap = { "pm-alert-dialog__footer": "pm_abc_footer" }
+    const classMap = { "pm-alertdialog__footer": "pm_abc_footer" }
     expect(alertDialogFooterModuleClasses(classMap)).toBe("pm_abc_footer")
   })
 

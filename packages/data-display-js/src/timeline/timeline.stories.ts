@@ -28,7 +28,7 @@ function createTimeline(args: TimelineClassesOptions): HTMLElement {
 
 const meta = {
   title: "Data Display/Timeline",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createTimeline(args as TimelineClassesOptions),
   argTypes: {
     orientation: { control: "select", options: ["vertical", "horizontal"] },

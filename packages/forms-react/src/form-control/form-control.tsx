@@ -1,31 +1,31 @@
 import { forwardRef } from "react"
-import { formControlClasses } from "@paramanu/forms-js"
-import type { FormControlProps } from "@paramanu/forms-js"
+import { formCtrlClasses } from "@paramanu/forms-js"
+import type { FormCtrlProps } from "@paramanu/forms-js"
 
-export interface ReactFormControlProps
-  extends FormControlProps,
+export interface ReactFormCtrlProps
+  extends FormCtrlProps,
     React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
   helperText?: React.ReactNode
   errorText?: React.ReactNode
 }
 
-export const FormControl = forwardRef<HTMLDivElement, ReactFormControlProps>(
-  function FormControl(
+export const FormCtrl = forwardRef<HTMLDivElement, ReactFormCtrlProps>(
+  function FormCtrl(
     { orientation, invalid, disabled, required, helperText, errorText, className, children, ...rest },
     ref,
   ) {
-    const classes = formControlClasses({ orientation, invalid, disabled, required })
+    const classes = formCtrlClasses({ orientation, invalid, disabled, required })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     return (
       <div ref={ref} role="group" className={combinedClassName} {...rest}>
         {children}
         {helperText && !invalid && (
-          <span className="pm-form-control__helper-text">{helperText}</span>
+          <span className="pm-form-ctrl__helper-text">{helperText}</span>
         )}
         {errorText && invalid && (
-          <span className="pm-form-control__error-text">{errorText}</span>
+          <span className="pm-form-ctrl__error-text">{errorText}</span>
         )}
       </div>
     )

@@ -5,7 +5,7 @@ import { Fieldset } from "./fieldset.js"
 const meta = {
   title: "Forms/Fieldset",
   component: Fieldset,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: { control: "select", options: ["default", "card"] },
     disabled: { control: "boolean" },

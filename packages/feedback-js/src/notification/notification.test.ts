@@ -1,51 +1,51 @@
 import { describe, it, expect } from "vitest"
-import { notificationClasses, notificationModuleClasses } from "./notification.classes.js"
+import { notifClasses, notifModuleClasses } from "./notification.classes.js"
 
-describe("notificationClasses", () => {
+describe("notifClasses", () => {
   it("returns default classes (no modifiers)", () => {
-    const result = notificationClasses()
-    expect(result.root).toBe("pm-notification")
-    expect(result.icon).toBe("pm-notification__icon")
-    expect(result.content).toBe("pm-notification__content")
-    expect(result.title).toBe("pm-notification__title")
-    expect(result.message).toBe("pm-notification__message")
-    expect(result.timestamp).toBe("pm-notification__timestamp")
-    expect(result.actions).toBe("pm-notification__actions")
-    expect(result.close).toBe("pm-notification__close")
+    const result = notifClasses()
+    expect(result.root).toBe("pm-notif")
+    expect(result.icon).toBe("pm-notif__icon")
+    expect(result.content).toBe("pm-notif__content")
+    expect(result.title).toBe("pm-notif__title")
+    expect(result.message).toBe("pm-notif__message")
+    expect(result.timestamp).toBe("pm-notif__timestamp")
+    expect(result.actions).toBe("pm-notif__actions")
+    expect(result.close).toBe("pm-notif__close")
   })
 
   it("applies unread modifier", () => {
-    const result = notificationClasses({ unread: true })
-    expect(result.root).toContain("pm-notification--unread")
+    const result = notifClasses({ unread: true })
+    expect(result.root).toContain("pm-notif--unread")
   })
 
   it("does not apply unread modifier when false", () => {
-    const result = notificationClasses({ unread: false })
-    expect(result.root).not.toContain("pm-notification--unread")
+    const result = notifClasses({ unread: false })
+    expect(result.root).not.toContain("pm-notif--unread")
   })
 
   it("applies dismissible modifier", () => {
-    const result = notificationClasses({ dismissible: true })
-    expect(result.root).toContain("pm-notification--dismissible")
+    const result = notifClasses({ dismissible: true })
+    expect(result.root).toContain("pm-notif--dismissible")
   })
 
   it("does not apply dismissible modifier when false", () => {
-    const result = notificationClasses({ dismissible: false })
-    expect(result.root).not.toContain("pm-notification--dismissible")
+    const result = notifClasses({ dismissible: false })
+    expect(result.root).not.toContain("pm-notif--dismissible")
   })
 
   it("combines multiple modifiers", () => {
-    const result = notificationClasses({ unread: true, dismissible: true })
-    expect(result.root).toBe("pm-notification pm-notification--unread pm-notification--dismissible")
+    const result = notifClasses({ unread: true, dismissible: true })
+    expect(result.root).toBe("pm-notif pm-notif--unread pm-notif--dismissible")
   })
 
   it("always includes base class in root", () => {
-    expect(notificationClasses().root).toMatch(/^pm-notification/)
-    expect(notificationClasses({ unread: true }).root).toMatch(/^pm-notification\s/)
+    expect(notifClasses().root).toMatch(/^pm-notif/)
+    expect(notifClasses({ unread: true }).root).toMatch(/^pm-notif\s/)
   })
 
   it("returns all sub-element classes", () => {
-    const result = notificationClasses()
+    const result = notifClasses()
     expect(result).toHaveProperty("root")
     expect(result).toHaveProperty("icon")
     expect(result).toHaveProperty("content")
@@ -57,22 +57,22 @@ describe("notificationClasses", () => {
   })
 })
 
-describe("notificationModuleClasses", () => {
+describe("notifModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-notification": "pm_abc_notification",
-    "pm-notification--unread": "pm_abc_unread",
-    "pm-notification--dismissible": "pm_abc_dismissible",
-    "pm-notification__icon": "pm_abc_icon",
-    "pm-notification__content": "pm_abc_content",
-    "pm-notification__title": "pm_abc_title",
-    "pm-notification__message": "pm_abc_message",
-    "pm-notification__timestamp": "pm_abc_timestamp",
-    "pm-notification__actions": "pm_abc_actions",
-    "pm-notification__close": "pm_abc_close",
+    "pm-notif": "pm_abc_notification",
+    "pm-notif--unread": "pm_abc_unread",
+    "pm-notif--dismissible": "pm_abc_dismissible",
+    "pm-notif__icon": "pm_abc_icon",
+    "pm-notif__content": "pm_abc_content",
+    "pm-notif__title": "pm_abc_title",
+    "pm-notif__message": "pm_abc_message",
+    "pm-notif__timestamp": "pm_abc_timestamp",
+    "pm-notif__actions": "pm_abc_actions",
+    "pm-notif__close": "pm_abc_close",
   }
 
   it("returns mapped default classes", () => {
-    const result = notificationModuleClasses(mockClassMap)
+    const result = notifModuleClasses(mockClassMap)
     expect(result.root).toBe("pm_abc_notification")
     expect(result.icon).toBe("pm_abc_icon")
     expect(result.content).toBe("pm_abc_content")
@@ -84,25 +84,25 @@ describe("notificationModuleClasses", () => {
   })
 
   it("maps unread class", () => {
-    const result = notificationModuleClasses(mockClassMap, { unread: true })
+    const result = notifModuleClasses(mockClassMap, { unread: true })
     expect(result.root).toContain("pm_abc_unread")
   })
 
   it("maps dismissible class", () => {
-    const result = notificationModuleClasses(mockClassMap, { dismissible: true })
+    const result = notifModuleClasses(mockClassMap, { dismissible: true })
     expect(result.root).toContain("pm_abc_dismissible")
   })
 
   it("combines multiple mapped modifiers", () => {
-    const result = notificationModuleClasses(mockClassMap, { unread: true, dismissible: true })
+    const result = notifModuleClasses(mockClassMap, { unread: true, dismissible: true })
     expect(result.root).toBe("pm_abc_notification pm_abc_unread pm_abc_dismissible")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-notification": "pm_abc_notification",
+      "pm-notif": "pm_abc_notification",
     }
-    const result = notificationModuleClasses(sparseMap)
+    const result = notifModuleClasses(sparseMap)
     expect(result.root).toContain("pm_abc_notification")
     expect(result.root).not.toContain("undefined")
     expect(result.icon).toBe("")

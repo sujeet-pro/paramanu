@@ -1,6 +1,6 @@
-import type { AspectRatioClassesOptions } from "./aspect-ratio.types.js"
+import type { AspectClassesOptions } from "./aspect-ratio.types.js"
 
-const BASE = "pm-aspect-ratio"
+const BASE = "pm-aspect"
 
 function ratioToModifier(ratio: string): string {
   return ratio.replace("/", "-")
@@ -10,7 +10,7 @@ function ratioToModifier(ratio: string): string {
  * Returns BEM class names for the aspect-ratio component (human-readable).
  * Used by CDN and template consumers.
  */
-export function aspectRatioClasses(options: AspectRatioClassesOptions = {}): string {
+export function aspectClasses(options: AspectClassesOptions = {}): string {
   const { ratio = "16/9" } = options
   const classes = [BASE, `${BASE}--${ratioToModifier(ratio)}`]
 
@@ -21,13 +21,13 @@ export function aspectRatioClasses(options: AspectRatioClassesOptions = {}): str
  * Returns CSS module class names for the aspect-ratio component (hashed).
  * Used by bundled/template consumers who import CSS modules.
  */
-export function aspectRatioModuleClasses(
+export function aspectModuleClasses(
   classMap: Record<string, string>,
-  options: AspectRatioClassesOptions = {},
+  options: AspectClassesOptions = {},
 ): string {
   const { ratio = "16/9" } = options
 
-  const classes = [classMap["pm-aspect-ratio"], classMap[`pm-aspect-ratio--${ratioToModifier(ratio)}`]]
+  const classes = [classMap["pm-aspect"], classMap[`pm-aspect--${ratioToModifier(ratio)}`]]
 
   return classes.filter(Boolean).join(" ")
 }

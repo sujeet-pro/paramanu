@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { numberInputClasses } from "./number-input.classes.js"
+import { numInputClasses } from "./number-input.classes.js"
 import { inputClasses } from "../input/input.classes.js"
-import type { NumberInputClassesOptions } from "./number-input.types.js"
+import type { NumInputClassesOptions } from "./number-input.types.js"
 
-interface NumberInputArgs extends NumberInputClassesOptions {
+interface NumInputArgs extends NumInputClassesOptions {
   min?: number
   max?: number
   step?: number
 }
 
-function createNumberInput(args: NumberInputArgs): HTMLElement {
+function createNumInput(args: NumInputArgs): HTMLElement {
   const wrapper = document.createElement("div")
-  wrapper.className = numberInputClasses({
+  wrapper.className = numInputClasses({
     variant: args.variant,
     size: args.size,
     invalid: args.invalid,
@@ -32,11 +32,11 @@ function createNumberInput(args: NumberInputArgs): HTMLElement {
   if (args.invalid) input.setAttribute("aria-invalid", "true")
 
   const stepper = document.createElement("div")
-  stepper.className = "pm-number-input__stepper"
+  stepper.className = "pm-num-input__stepper"
 
   const increment = document.createElement("button")
   increment.type = "button"
-  increment.className = "pm-number-input__increment"
+  increment.className = "pm-num-input__increment"
   increment.setAttribute("aria-label", "Increment")
   increment.innerHTML = "&#9650;"
   increment.addEventListener("click", () => {
@@ -45,7 +45,7 @@ function createNumberInput(args: NumberInputArgs): HTMLElement {
 
   const decrement = document.createElement("button")
   decrement.type = "button"
-  decrement.className = "pm-number-input__decrement"
+  decrement.className = "pm-num-input__decrement"
   decrement.setAttribute("aria-label", "Decrement")
   decrement.innerHTML = "&#9660;"
   decrement.addEventListener("click", () => {
@@ -61,8 +61,8 @@ function createNumberInput(args: NumberInputArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Number Input",
-  tags: ["autodocs", "stable"],
-  render: (args) => createNumberInput(args as NumberInputArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createNumInput(args as NumInputArgs),
   argTypes: {
     variant: {
       control: "select",
@@ -82,10 +82,10 @@ const meta = {
     variant: "outline",
     size: "md",
   },
-} satisfies Meta<NumberInputArgs>
+} satisfies Meta<NumInputArgs>
 
 export default meta
-type Story = StoryObj<NumberInputArgs>
+type Story = StoryObj<NumInputArgs>
 
 export const Playground: Story = {}
 

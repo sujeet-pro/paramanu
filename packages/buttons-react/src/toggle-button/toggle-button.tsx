@@ -1,9 +1,9 @@
 import { forwardRef } from "react"
-import { toggleButtonClasses } from "@paramanu/buttons-js"
-import type { ToggleButtonProps } from "@paramanu/buttons-js"
+import { toggleBtnClasses } from "@paramanu/buttons-js"
+import type { ToggleBtnProps } from "@paramanu/buttons-js"
 
-export interface ReactToggleButtonProps
-  extends ToggleButtonProps,
+export interface ReactToggleBtnProps
+  extends ToggleBtnProps,
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type" | "value" | "onChange"> {
   /** Content to render inside the toggle button. */
   children?: React.ReactNode
@@ -19,11 +19,11 @@ export interface ReactToggleButtonProps
  * @example
  * ```tsx
  * const [bold, setBold] = useState(false)
- * <ToggleButton pressed={bold} onChange={setBold}>Bold</ToggleButton>
+ * <ToggleBtn pressed={bold} onChange={setBold}>Bold</ToggleBtn>
  * ```
  */
-export const ToggleButton = forwardRef<HTMLButtonElement, ReactToggleButtonProps>(
-  function ToggleButton(
+export const ToggleBtn = forwardRef<HTMLButtonElement, ReactToggleBtnProps>(
+  function ToggleBtn(
     {
       variant,
       size,
@@ -39,7 +39,7 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ReactToggleButtonProps
     },
     ref,
   ) {
-    const classes = toggleButtonClasses({ variant, size, pressed, disabled, fullWidth })
+    const classes = toggleBtnClasses({ variant, size, pressed, disabled, fullWidth })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {

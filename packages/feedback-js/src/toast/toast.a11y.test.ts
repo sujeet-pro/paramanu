@@ -7,8 +7,8 @@ function createToastHTML(message: string, options: ToastClassesOptions = {}): st
   const classes = toastClasses(options)
   const variant = options?.variant ?? "info"
   const role = variant === "warning" || variant === "danger" ? "alert" : "status"
-  const closeButton = options?.dismissible
-    ? `<div class="${classes.close}"><button class="pm-close-button pm-close-button--sm" aria-label="Dismiss">\u00d7</button></div>`
+  const closeBtn = options?.dismissible
+    ? `<div class="${classes.close}"><button class="pm-close-btn pm-close-btn--sm" aria-label="Dismiss">\u00d7</button></div>`
     : ""
 
   return `<div class="${classes.root}" role="${role}">
@@ -16,7 +16,7 @@ function createToastHTML(message: string, options: ToastClassesOptions = {}): st
     <div class="${classes.content}">
       <div class="${classes.message}">${message}</div>
     </div>
-    ${closeButton}
+    ${closeBtn}
   </div>`
 }
 
@@ -65,7 +65,7 @@ describe("toast accessibility", () => {
     const dom = new JSDOM(
       `<!DOCTYPE html><body>${createToastHTML("Message", { dismissible: true })}</body>`,
     )
-    const closeBtn = dom.window.document.querySelector(".pm-close-button")
+    const closeBtn = dom.window.document.querySelector(".pm-close-btn")
     expect(closeBtn).not.toBeNull()
     expect(closeBtn?.getAttribute("aria-label")).toBe("Dismiss")
   })
@@ -74,7 +74,7 @@ describe("toast accessibility", () => {
     const dom = new JSDOM(
       `<!DOCTYPE html><body>${createToastHTML("Message", { dismissible: false })}</body>`,
     )
-    const closeBtn = dom.window.document.querySelector(".pm-close-button")
+    const closeBtn = dom.window.document.querySelector(".pm-close-btn")
     expect(closeBtn).toBeNull()
   })
 })

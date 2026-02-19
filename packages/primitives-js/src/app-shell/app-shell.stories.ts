@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
 import {
-  appShellClasses,
+  shellClasses,
   appShellHeaderClasses,
   appShellSidebarClasses,
   appShellMainClasses,
   appShellFooterClasses,
 } from "./app-shell.classes.js"
-import type { AppShellClassesOptions } from "./app-shell.types.js"
+import type { ShellClassesOptions } from "./app-shell.types.js"
 
-function createAppShell(args: AppShellClassesOptions): HTMLElement {
+function createShell(args: ShellClassesOptions): HTMLElement {
   const shell = document.createElement("div")
-  shell.className = appShellClasses(args)
+  shell.className = shellClasses(args)
   shell.style.height = "400px"
   shell.style.border = "1px solid #e2e8f0"
 
@@ -39,17 +39,17 @@ function createAppShell(args: AppShellClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/App Shell",
-  tags: ["autodocs", "stable"],
-  render: (args) => createAppShell(args as AppShellClassesOptions),
+  tags: ["autodocs", "beta"],
+  render: (args) => createShell(args as ShellClassesOptions),
   argTypes: {
     sidebarCollapsed: { control: "boolean" },
     sidebarPosition: { control: "select", options: ["start", "end"] },
   },
   args: {},
-} satisfies Meta<AppShellClassesOptions>
+} satisfies Meta<ShellClassesOptions>
 
 export default meta
-type Story = StoryObj<AppShellClassesOptions>
+type Story = StoryObj<ShellClassesOptions>
 
 export const Playground: Story = {}
 export const SidebarEnd: Story = { args: { sidebarPosition: "end" } }

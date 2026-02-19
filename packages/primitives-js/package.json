@@ -1,7 +1,9 @@
 {
   "name": "@paramanu/primitives-js",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-alpha.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -9,9 +11,29 @@
       "import": "./dist/js/index.js"
     },
     "./css": "./dist/css/primitives.css",
-    "./css/layers": "./dist/css/primitives.layers.css"
+    "./css/min": "./dist/css/primitives.min.css",
+    "./css/app-shell": "./dist/css/app-shell.css",
+    "./css/aspect-ratio": "./dist/css/aspect-ratio.css",
+    "./css/bleed": "./dist/css/bleed.css",
+    "./css/box": "./dist/css/box.css",
+    "./css/center": "./dist/css/center.css",
+    "./css/container": "./dist/css/container.css",
+    "./css/divider": "./dist/css/divider.css",
+    "./css/flex": "./dist/css/flex.css",
+    "./css/float": "./dist/css/float.css",
+    "./css/grid": "./dist/css/grid.css",
+    "./css/group": "./dist/css/group.css",
+    "./css/masonry": "./dist/css/masonry.css",
+    "./css/scroll-area": "./dist/css/scroll-area.css",
+    "./css/simple-grid": "./dist/css/simple-grid.css",
+    "./css/spacer": "./dist/css/spacer.css",
+    "./css/splitter": "./dist/css/splitter.css",
+    "./css/stack": "./dist/css/stack.css",
+    "./css/wrap": "./dist/css/wrap.css"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsx css.build.ts && tsup",
     "test": "vitest run",

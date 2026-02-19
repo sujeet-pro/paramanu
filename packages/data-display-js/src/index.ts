@@ -21,15 +21,15 @@ export type {
 
 // Avatar Group
 export {
-  avatarGroupClasses,
-  avatarGroupModuleClasses,
+  avatarGrpClasses,
+  avatarGrpModuleClasses,
 } from "./avatar-group/avatar-group.classes.js"
 export type {
-  AvatarGroupSize,
-  AvatarGroupSpacing,
-  AvatarGroupClassesOptions,
-  AvatarGroupClassesResult,
-  AvatarGroupProps,
+  AvatarGrpSize,
+  AvatarGrpSpacing,
+  AvatarGrpClassesOptions,
+  AvatarGrpClassesResult,
+  AvatarGrpProps,
 } from "./avatar-group/avatar-group.types.js"
 
 // Icon
@@ -41,14 +41,14 @@ export type {
   IconProps,
 } from "./icon/icon.types.js"
 
-// Image
-export { imageClasses, imageModuleClasses } from "./image/image.classes.js"
+// Img
+export { imgClasses, imgModuleClasses } from "./image/image.classes.js"
 export type {
-  ImageFit,
-  ImageRadius,
-  ImageClassesOptions,
-  ImageClassesResult,
-  ImageProps,
+  ImgFit,
+  ImgRadius,
+  ImgClassesOptions,
+  ImgClassesResult,
+  ImgProps,
 } from "./image/image.types.js"
 
 // Card
@@ -119,52 +119,52 @@ export type {
 
 // Data Table
 export {
-  dataTableClasses,
+  datatableClasses,
   dataTableHeaderCellClasses,
-  dataTableModuleClasses,
+  datatableModuleClasses,
 } from "./data-table/data-table.classes.js"
 export type {
-  DataTableSize,
-  DataTableVariant,
-  DataTableSortDirection,
-  DataTableCellAlign,
-  DataTableClassesOptions,
-  DataTableHeaderCellClassesOptions,
-  DataTableClassesResult,
-  DataTableProps,
+  DatatableSize,
+  DatatableVariant,
+  DatatableSortDirection,
+  DatatableCellAlign,
+  DatatableClassesOptions,
+  DatatableHeaderCellClassesOptions,
+  DatatableClassesResult,
+  DatatableProps,
 } from "./data-table/data-table.types.js"
 
 // Data Grid
-export { dataGridClasses, dataGridModuleClasses } from "./data-grid/data-grid.classes.js"
+export { datagridClasses, datagridModuleClasses } from "./data-grid/data-grid.classes.js"
 export type {
-  DataGridSize,
-  DataGridClassesOptions,
-  DataGridClassesResult,
-  DataGridProps,
+  DatagridSize,
+  DatagridClassesOptions,
+  DatagridClassesResult,
+  DatagridProps,
 } from "./data-grid/data-grid.types.js"
 
 // Data List
-export { dataListClasses, dataListModuleClasses } from "./data-list/data-list.classes.js"
+export { datalistClasses, datalistModuleClasses } from "./data-list/data-list.classes.js"
 export type {
-  DataListOrientation,
-  DataListSize,
-  DataListClassesOptions,
-  DataListClassesResult,
-  DataListModuleClassesResult,
-  DataListProps,
+  DatalistOrientation,
+  DatalistSize,
+  DatalistClassesOptions,
+  DatalistClassesResult,
+  DatalistModuleClassesResult,
+  DatalistProps,
 } from "./data-list/data-list.types.js"
 
 // Structured List
 export {
-  structuredListClasses,
-  structuredListModuleClasses,
+  structListClasses,
+  structListModuleClasses,
 } from "./structured-list/structured-list.classes.js"
 export type {
-  StructuredListSize,
-  StructuredListClassesOptions,
-  StructuredListClassesResult,
-  StructuredListModuleClassesResult,
-  StructuredListProps,
+  StructListSize,
+  StructListClassesOptions,
+  StructListClassesResult,
+  StructListModuleClassesResult,
+  StructListProps,
 } from "./structured-list/structured-list.types.js"
 
 // Timeline
@@ -209,15 +209,15 @@ export type {
 
 // Empty State
 export {
-  emptyStateClasses,
-  emptyStateModuleClasses,
+  emptyClasses,
+  emptyModuleClasses,
 } from "./empty-state/empty-state.classes.js"
 export type {
-  EmptyStateSize,
-  EmptyStateClassesOptions,
-  EmptyStateClassesResult,
-  EmptyStateModuleClassesResult,
-  EmptyStateProps,
+  EmptySize,
+  EmptyClassesOptions,
+  EmptyClassesResult,
+  EmptyModuleClassesResult,
+  EmptyProps,
 } from "./empty-state/empty-state.types.js"
 
 // Clipboard

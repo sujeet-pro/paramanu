@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { AlertDialog, AlertDialogHeader, AlertDialogBody, AlertDialogFooter } from "./alert-dialog.js"
+import { Alertdialog, AlertdialogHeader, AlertdialogBody, AlertdialogFooter } from "./alert-dialog.js"
 
 const meta = {
   title: "Overlays/Alert Dialog",
-  component: AlertDialog,
-  tags: ["autodocs", "stable"],
+  component: Alertdialog,
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: { control: "select", options: ["info", "danger", "warning"] },
     open: { control: "boolean" },
   },
   args: { open: true, variant: "info" },
-} satisfies Meta<typeof AlertDialog>
+} satisfies Meta<typeof Alertdialog>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -19,56 +19,56 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   args: { onClose: fn() },
   render: (args) => (
-    <AlertDialog {...args}>
-      <AlertDialogHeader>Confirm Action</AlertDialogHeader>
-      <AlertDialogBody>Are you sure you want to proceed?</AlertDialogBody>
-      <AlertDialogFooter>
+    <Alertdialog {...args}>
+      <AlertdialogHeader>Confirm Action</AlertdialogHeader>
+      <AlertdialogBody>Are you sure you want to proceed?</AlertdialogBody>
+      <AlertdialogFooter>
         <button type="button" onClick={args.onClose}>Cancel</button>
         <button type="button">Confirm</button>
-      </AlertDialogFooter>
-    </AlertDialog>
+      </AlertdialogFooter>
+    </Alertdialog>
   ),
 }
 
 export const Danger: Story = {
   args: { variant: "danger", onClose: fn() },
   render: (args) => (
-    <AlertDialog {...args}>
-      <AlertDialogHeader>Delete Item?</AlertDialogHeader>
-      <AlertDialogBody>This action cannot be undone.</AlertDialogBody>
-      <AlertDialogFooter>
+    <Alertdialog {...args}>
+      <AlertdialogHeader>Delete Item?</AlertdialogHeader>
+      <AlertdialogBody>This action cannot be undone.</AlertdialogBody>
+      <AlertdialogFooter>
         <button type="button" onClick={args.onClose}>Cancel</button>
         <button type="button">Delete</button>
-      </AlertDialogFooter>
-    </AlertDialog>
+      </AlertdialogFooter>
+    </Alertdialog>
   ),
 }
 
 export const Warning: Story = {
   args: { variant: "warning", onClose: fn() },
   render: (args) => (
-    <AlertDialog {...args}>
-      <AlertDialogHeader>Unsaved Changes</AlertDialogHeader>
-      <AlertDialogBody>You have unsaved changes. Discard them?</AlertDialogBody>
-      <AlertDialogFooter>
+    <Alertdialog {...args}>
+      <AlertdialogHeader>Unsaved Changes</AlertdialogHeader>
+      <AlertdialogBody>You have unsaved changes. Discard them?</AlertdialogBody>
+      <AlertdialogFooter>
         <button type="button" onClick={args.onClose}>Keep Editing</button>
         <button type="button">Discard</button>
-      </AlertDialogFooter>
-    </AlertDialog>
+      </AlertdialogFooter>
+    </Alertdialog>
   ),
 }
 
 export const ClickCancel: Story = {
   args: { onClose: fn() },
   render: (args) => (
-    <AlertDialog {...args}>
-      <AlertDialogHeader>Confirm</AlertDialogHeader>
-      <AlertDialogBody>Proceed?</AlertDialogBody>
-      <AlertDialogFooter>
+    <Alertdialog {...args}>
+      <AlertdialogHeader>Confirm</AlertdialogHeader>
+      <AlertdialogBody>Proceed?</AlertdialogBody>
+      <AlertdialogFooter>
         <button type="button" onClick={args.onClose}>Cancel</button>
         <button type="button">OK</button>
-      </AlertDialogFooter>
-    </AlertDialog>
+      </AlertdialogFooter>
+    </Alertdialog>
   ),
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement)
@@ -81,13 +81,13 @@ export const ClickCancel: Story = {
 export const Accessibility: Story = {
   args: { onClose: fn() },
   render: (args) => (
-    <AlertDialog {...args}>
-      <AlertDialogHeader>Alert</AlertDialogHeader>
-      <AlertDialogBody>Content</AlertDialogBody>
-      <AlertDialogFooter>
+    <Alertdialog {...args}>
+      <AlertdialogHeader>Alert</AlertdialogHeader>
+      <AlertdialogBody>Content</AlertdialogBody>
+      <AlertdialogFooter>
         <button type="button">OK</button>
-      </AlertDialogFooter>
-    </AlertDialog>
+      </AlertdialogFooter>
+    </Alertdialog>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -98,13 +98,13 @@ export const Accessibility: Story = {
 export const Hover: Story = {
   args: { onClose: fn() },
   render: (args) => (
-    <AlertDialog {...args}>
-      <AlertDialogHeader>Alert</AlertDialogHeader>
-      <AlertDialogBody>Content</AlertDialogBody>
-      <AlertDialogFooter>
+    <Alertdialog {...args}>
+      <AlertdialogHeader>Alert</AlertdialogHeader>
+      <AlertdialogBody>Content</AlertdialogBody>
+      <AlertdialogFooter>
         <button type="button">OK</button>
-      </AlertDialogFooter>
-    </AlertDialog>
+      </AlertdialogFooter>
+    </Alertdialog>
   ),
   parameters: { pseudo: { hover: true } },
 }
@@ -112,13 +112,13 @@ export const Hover: Story = {
 export const FocusVisible: Story = {
   args: { onClose: fn() },
   render: (args) => (
-    <AlertDialog {...args}>
-      <AlertDialogHeader>Alert</AlertDialogHeader>
-      <AlertDialogBody>Content</AlertDialogBody>
-      <AlertDialogFooter>
+    <Alertdialog {...args}>
+      <AlertdialogHeader>Alert</AlertdialogHeader>
+      <AlertdialogBody>Content</AlertdialogBody>
+      <AlertdialogFooter>
         <button type="button">OK</button>
-      </AlertDialogFooter>
-    </AlertDialog>
+      </AlertdialogFooter>
+    </Alertdialog>
   ),
   parameters: { pseudo: { focusVisible: true } },
 }

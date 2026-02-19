@@ -1,92 +1,92 @@
 import { describe, it, expect } from "vitest"
-import { dataListClasses, dataListModuleClasses } from "./data-list.classes.js"
+import { datalistClasses, datalistModuleClasses } from "./data-list.classes.js"
 
-describe("dataListClasses", () => {
+describe("datalistClasses", () => {
   it("returns default classes (vertical, md)", () => {
-    const result = dataListClasses()
-    expect(result.root).toBe("pm-data-list pm-data-list--vertical pm-data-list--md")
+    const result = datalistClasses()
+    expect(result.root).toBe("pm-datalist pm-datalist--vertical pm-datalist--md")
   })
 
   it("returns correct sub-part class names", () => {
-    const result = dataListClasses()
-    expect(result.item).toBe("pm-data-list__item")
-    expect(result.term).toBe("pm-data-list__term")
-    expect(result.detail).toBe("pm-data-list__detail")
+    const result = datalistClasses()
+    expect(result.item).toBe("pm-datalist__item")
+    expect(result.term).toBe("pm-datalist__term")
+    expect(result.detail).toBe("pm-datalist__detail")
   })
 
   it("applies orientation", () => {
-    expect(dataListClasses({ orientation: "horizontal" }).root).toContain(
-      "pm-data-list--horizontal",
+    expect(datalistClasses({ orientation: "horizontal" }).root).toContain(
+      "pm-datalist--horizontal",
     )
-    expect(dataListClasses({ orientation: "vertical" }).root).toContain("pm-data-list--vertical")
+    expect(datalistClasses({ orientation: "vertical" }).root).toContain("pm-datalist--vertical")
   })
 
   it("applies size", () => {
-    expect(dataListClasses({ size: "sm" }).root).toContain("pm-data-list--sm")
-    expect(dataListClasses({ size: "lg" }).root).toContain("pm-data-list--lg")
+    expect(datalistClasses({ size: "sm" }).root).toContain("pm-datalist--sm")
+    expect(datalistClasses({ size: "lg" }).root).toContain("pm-datalist--lg")
   })
 
   it("applies dividers modifier", () => {
-    expect(dataListClasses({ dividers: true }).root).toContain("pm-data-list--dividers")
-    expect(dataListClasses({ dividers: false }).root).not.toContain("pm-data-list--dividers")
+    expect(datalistClasses({ dividers: true }).root).toContain("pm-datalist--dividers")
+    expect(datalistClasses({ dividers: false }).root).not.toContain("pm-datalist--dividers")
   })
 
   it("always includes base class", () => {
-    expect(dataListClasses().root).toMatch(/^pm-data-list\s/)
+    expect(datalistClasses().root).toMatch(/^pm-datalist\s/)
   })
 
   it("combines multiple options", () => {
-    const result = dataListClasses({
+    const result = datalistClasses({
       orientation: "horizontal",
       size: "lg",
       dividers: true,
     })
     expect(result.root).toBe(
-      "pm-data-list pm-data-list--horizontal pm-data-list--lg pm-data-list--dividers",
+      "pm-datalist pm-datalist--horizontal pm-datalist--lg pm-datalist--dividers",
     )
   })
 })
 
-describe("dataListModuleClasses", () => {
+describe("datalistModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-data-list": "pm_abc_dataList",
-    "pm-data-list--vertical": "pm_abc_vertical",
-    "pm-data-list--horizontal": "pm_abc_horizontal",
-    "pm-data-list--md": "pm_abc_md",
-    "pm-data-list--sm": "pm_abc_sm",
-    "pm-data-list--dividers": "pm_abc_dividers",
-    "pm-data-list__item": "pm_abc_item",
-    "pm-data-list__term": "pm_abc_term",
-    "pm-data-list__detail": "pm_abc_detail",
+    "pm-datalist": "pm_abc_dataList",
+    "pm-datalist--vertical": "pm_abc_vertical",
+    "pm-datalist--horizontal": "pm_abc_horizontal",
+    "pm-datalist--md": "pm_abc_md",
+    "pm-datalist--sm": "pm_abc_sm",
+    "pm-datalist--dividers": "pm_abc_dividers",
+    "pm-datalist__item": "pm_abc_item",
+    "pm-datalist__term": "pm_abc_term",
+    "pm-datalist__detail": "pm_abc_detail",
   }
 
   it("returns mapped default classes", () => {
-    const result = dataListModuleClasses(mockClassMap)
+    const result = datalistModuleClasses(mockClassMap)
     expect(result.root).toBe("pm_abc_dataList pm_abc_vertical pm_abc_md")
   })
 
   it("maps sub-part classes correctly", () => {
-    const result = dataListModuleClasses(mockClassMap)
+    const result = datalistModuleClasses(mockClassMap)
     expect(result.item).toBe("pm_abc_item")
     expect(result.term).toBe("pm_abc_term")
     expect(result.detail).toBe("pm_abc_detail")
   })
 
   it("maps orientation classes correctly", () => {
-    const result = dataListModuleClasses(mockClassMap, { orientation: "horizontal" })
+    const result = datalistModuleClasses(mockClassMap, { orientation: "horizontal" })
     expect(result.root).toContain("pm_abc_horizontal")
   })
 
   it("maps dividers class", () => {
-    const result = dataListModuleClasses(mockClassMap, { dividers: true })
+    const result = datalistModuleClasses(mockClassMap, { dividers: true })
     expect(result.root).toContain("pm_abc_dividers")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-data-list": "pm_abc_dataList",
+      "pm-datalist": "pm_abc_dataList",
     }
-    const result = dataListModuleClasses(sparseMap)
+    const result = datalistModuleClasses(sparseMap)
     expect(result.root).toContain("pm_abc_dataList")
     expect(result.root).not.toContain("undefined")
     expect(result.item).toBe("")

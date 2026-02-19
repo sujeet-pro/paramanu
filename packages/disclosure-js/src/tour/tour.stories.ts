@@ -34,7 +34,7 @@ function createTour(args: TourArgs): HTMLElement {
 
 const meta = {
   title: "Disclosure/Tour",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createTour(args as TourArgs),
   argTypes: {
     open: { control: "boolean" },

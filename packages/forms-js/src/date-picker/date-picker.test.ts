@@ -1,45 +1,45 @@
 import { describe, it, expect } from "vitest"
-import { datePickerClasses, datePickerModuleClasses } from "./date-picker.classes.js"
+import { datepickerClasses, datepickerModuleClasses } from "./date-picker.classes.js"
 
-describe("datePickerClasses", () => {
+describe("datepickerClasses", () => {
   it("returns default classes (outline, md)", () => {
-    const result = datePickerClasses()
-    expect(result).toBe("pm-date-picker pm-date-picker--outline pm-date-picker--md")
+    const result = datepickerClasses()
+    expect(result).toBe("pm-datepicker pm-datepicker--outline pm-datepicker--md")
   })
 
   it("applies variant", () => {
-    expect(datePickerClasses({ variant: "outline" })).toContain("pm-date-picker--outline")
-    expect(datePickerClasses({ variant: "filled" })).toContain("pm-date-picker--filled")
-    expect(datePickerClasses({ variant: "unstyled" })).toContain("pm-date-picker--unstyled")
+    expect(datepickerClasses({ variant: "outline" })).toContain("pm-datepicker--outline")
+    expect(datepickerClasses({ variant: "filled" })).toContain("pm-datepicker--filled")
+    expect(datepickerClasses({ variant: "unstyled" })).toContain("pm-datepicker--unstyled")
   })
 
   it("applies size", () => {
-    expect(datePickerClasses({ size: "sm" })).toContain("pm-date-picker--sm")
-    expect(datePickerClasses({ size: "md" })).toContain("pm-date-picker--md")
-    expect(datePickerClasses({ size: "lg" })).toContain("pm-date-picker--lg")
+    expect(datepickerClasses({ size: "sm" })).toContain("pm-datepicker--sm")
+    expect(datepickerClasses({ size: "md" })).toContain("pm-datepicker--md")
+    expect(datepickerClasses({ size: "lg" })).toContain("pm-datepicker--lg")
   })
 
   it("applies invalid modifier", () => {
-    expect(datePickerClasses({ invalid: true })).toContain("pm-date-picker--invalid")
-    expect(datePickerClasses({ invalid: false })).not.toContain("pm-date-picker--invalid")
+    expect(datepickerClasses({ invalid: true })).toContain("pm-datepicker--invalid")
+    expect(datepickerClasses({ invalid: false })).not.toContain("pm-datepicker--invalid")
   })
 
   it("applies disabled modifier", () => {
-    expect(datePickerClasses({ disabled: true })).toContain("pm-date-picker--disabled")
-    expect(datePickerClasses({ disabled: false })).not.toContain("pm-date-picker--disabled")
+    expect(datepickerClasses({ disabled: true })).toContain("pm-datepicker--disabled")
+    expect(datepickerClasses({ disabled: false })).not.toContain("pm-datepicker--disabled")
   })
 
   it("applies open modifier", () => {
-    expect(datePickerClasses({ open: true })).toContain("pm-date-picker--open")
-    expect(datePickerClasses({ open: false })).not.toContain("pm-date-picker--open")
+    expect(datepickerClasses({ open: true })).toContain("pm-datepicker--open")
+    expect(datepickerClasses({ open: false })).not.toContain("pm-datepicker--open")
   })
 
   it("always includes base class", () => {
-    expect(datePickerClasses()).toMatch(/^pm-date-picker\s/)
+    expect(datepickerClasses()).toMatch(/^pm-datepicker\s/)
   })
 
   it("combines multiple options", () => {
-    const result = datePickerClasses({
+    const result = datepickerClasses({
       variant: "filled",
       size: "lg",
       invalid: true,
@@ -47,44 +47,44 @@ describe("datePickerClasses", () => {
       open: true,
     })
     expect(result).toBe(
-      "pm-date-picker pm-date-picker--filled pm-date-picker--lg pm-date-picker--invalid pm-date-picker--disabled pm-date-picker--open",
+      "pm-datepicker pm-datepicker--filled pm-datepicker--lg pm-datepicker--invalid pm-datepicker--disabled pm-datepicker--open",
     )
   })
 })
 
-describe("datePickerModuleClasses", () => {
+describe("datepickerModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-date-picker": "pm_abc_datePicker",
-    "pm-date-picker--outline": "pm_abc_outline",
-    "pm-date-picker--filled": "pm_abc_filled",
-    "pm-date-picker--md": "pm_abc_md",
-    "pm-date-picker--sm": "pm_abc_sm",
-    "pm-date-picker--lg": "pm_abc_lg",
-    "pm-date-picker--invalid": "pm_abc_invalid",
-    "pm-date-picker--disabled": "pm_abc_disabled",
-    "pm-date-picker--open": "pm_abc_open",
+    "pm-datepicker": "pm_abc_datePicker",
+    "pm-datepicker--outline": "pm_abc_outline",
+    "pm-datepicker--filled": "pm_abc_filled",
+    "pm-datepicker--md": "pm_abc_md",
+    "pm-datepicker--sm": "pm_abc_sm",
+    "pm-datepicker--lg": "pm_abc_lg",
+    "pm-datepicker--invalid": "pm_abc_invalid",
+    "pm-datepicker--disabled": "pm_abc_disabled",
+    "pm-datepicker--open": "pm_abc_open",
   }
 
   it("returns mapped default classes", () => {
-    const result = datePickerModuleClasses(mockClassMap)
+    const result = datepickerModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_datePicker pm_abc_outline pm_abc_md")
   })
 
   it("maps variant classes correctly", () => {
-    const result = datePickerModuleClasses(mockClassMap, { variant: "filled" })
+    const result = datepickerModuleClasses(mockClassMap, { variant: "filled" })
     expect(result).toContain("pm_abc_filled")
   })
 
   it("maps open class", () => {
-    const result = datePickerModuleClasses(mockClassMap, { open: true })
+    const result = datepickerModuleClasses(mockClassMap, { open: true })
     expect(result).toContain("pm_abc_open")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-date-picker": "pm_abc_datePicker",
+      "pm-datepicker": "pm_abc_datePicker",
     }
-    const result = datePickerModuleClasses(sparseMap)
+    const result = datepickerModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_datePicker")
     expect(result).not.toContain("undefined")
   })

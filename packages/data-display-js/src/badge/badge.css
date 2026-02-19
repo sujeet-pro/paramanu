@@ -36,22 +36,22 @@
     /* Filled variants */
     &.pm-badge--filled {
       &.pm-badge--primary {
-        background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+        background-color: var(--pm-primary);
         color: var(--pm-color-neutral-0);
       }
 
       &.pm-badge--neutral {
-        background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-        color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-100));
+        background-color: var(--pm-neutral-hover);
+        color: var(--pm-fg);
       }
 
       &.pm-badge--danger {
-        background-color: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-500));
+        background-color: var(--pm-danger);
         color: var(--pm-color-neutral-0);
       }
 
       &.pm-badge--success {
-        background-color: light-dark(var(--pm-color-success-600), var(--pm-color-success-500));
+        background-color: var(--pm-success);
         color: var(--pm-color-neutral-0);
       }
     }
@@ -62,46 +62,46 @@
       border: 1px solid;
 
       &.pm-badge--primary {
-        border-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
-        color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+        border-color: var(--pm-primary-border);
+        color: var(--pm-fg-link-hover);
       }
 
       &.pm-badge--neutral {
-        border-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
-        color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+        border-color: var(--pm-border);
+        color: var(--pm-neutral-fg);
       }
 
       &.pm-badge--danger {
-        border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
-        color: light-dark(var(--pm-color-danger-700), var(--pm-color-danger-300));
+        border-color: var(--pm-danger-border);
+        color: var(--pm-danger-subtle-fg);
       }
 
       &.pm-badge--success {
-        border-color: light-dark(var(--pm-color-success-500), var(--pm-color-success-400));
-        color: light-dark(var(--pm-color-success-700), var(--pm-color-success-300));
+        border-color: var(--pm-success-border);
+        color: var(--pm-success-subtle-fg);
       }
     }
 
     /* Subtle variants */
     &.pm-badge--subtle {
       &.pm-badge--primary {
-        background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
-        color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+        background-color: var(--pm-primary-subtle);
+        color: var(--pm-fg-link-hover);
       }
 
       &.pm-badge--neutral {
-        background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-        color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+        background-color: var(--pm-bg-muted);
+        color: var(--pm-neutral-fg);
       }
 
       &.pm-badge--danger {
-        background-color: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
-        color: light-dark(var(--pm-color-danger-700), var(--pm-color-danger-300));
+        background-color: var(--pm-danger-subtle);
+        color: var(--pm-danger-subtle-fg);
       }
 
       &.pm-badge--success {
-        background-color: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
-        color: light-dark(var(--pm-color-success-700), var(--pm-color-success-300));
+        background-color: var(--pm-success-subtle);
+        color: var(--pm-success-subtle-fg);
       }
     }
   }

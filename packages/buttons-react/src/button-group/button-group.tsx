@@ -1,11 +1,11 @@
 import { forwardRef } from "react"
-import { buttonGroupClasses } from "@paramanu/buttons-js"
-import type { ButtonGroupClassesOptions } from "@paramanu/buttons-js"
+import { btnGroupClasses } from "@paramanu/buttons-js"
+import type { BtnGroupClassesOptions } from "@paramanu/buttons-js"
 
-export interface ReactButtonGroupProps
-  extends ButtonGroupClassesOptions,
+export interface ReactBtnGroupProps
+  extends BtnGroupClassesOptions,
     React.HTMLAttributes<HTMLDivElement> {
-  /** Button elements to render inside the group. */
+  /** Btn elements to render inside the group. */
   children?: React.ReactNode
 }
 
@@ -15,18 +15,18 @@ export interface ReactButtonGroupProps
  *
  * @example
  * ```tsx
- * <ButtonGroup attached>
- *   <Button variant="secondary">Left</Button>
- *   <Button variant="secondary">Center</Button>
- *   <Button variant="secondary">Right</Button>
- * </ButtonGroup>
+ * <BtnGroup attached>
+ *   <Btn variant="secondary">Left</Btn>
+ *   <Btn variant="secondary">Center</Btn>
+ *   <Btn variant="secondary">Right</Btn>
+ * </BtnGroup>
  * ```
  */
-export const ButtonGroup = forwardRef<HTMLDivElement, ReactButtonGroupProps>(function ButtonGroup(
+export const BtnGroup = forwardRef<HTMLDivElement, ReactBtnGroupProps>(function BtnGroup(
   { orientation, attached, fullWidth, className, children, role = "group", ...rest },
   ref,
 ) {
-  const classes = buttonGroupClasses({ orientation, attached, fullWidth })
+  const classes = btnGroupClasses({ orientation, attached, fullWidth })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (

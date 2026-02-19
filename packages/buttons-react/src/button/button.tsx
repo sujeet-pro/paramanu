@@ -1,9 +1,9 @@
 import { forwardRef } from "react"
-import { buttonClasses } from "@paramanu/buttons-js"
-import type { ButtonProps } from "@paramanu/buttons-js"
+import { btnClasses } from "@paramanu/buttons-js"
+import type { BtnProps } from "@paramanu/buttons-js"
 
-export interface ReactButtonProps
-  extends ButtonProps,
+export interface ReactBtnProps
+  extends BtnProps,
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
   /** The HTML button type attribute. @default "button" */
   type?: "button" | "submit" | "reset"
@@ -23,12 +23,12 @@ export interface ReactButtonProps
  *
  * @example
  * ```tsx
- * <Button variant="primary" size="md">Click me</Button>
- * <Button loading loadingText="Saving...">Save</Button>
- * <Button leftIcon={<SearchIcon />}>Search</Button>
+ * <Btn variant="primary" size="md">Click me</Btn>
+ * <Btn loading loadingText="Saving...">Save</Btn>
+ * <Btn leftIcon={<SearchIcon />}>Search</Btn>
  * ```
  */
-export const Button = forwardRef<HTMLButtonElement, ReactButtonProps>(function Button(
+export const Btn = forwardRef<HTMLButtonElement, ReactBtnProps>(function Btn(
   {
     variant,
     size,
@@ -48,12 +48,12 @@ export const Button = forwardRef<HTMLButtonElement, ReactButtonProps>(function B
   },
   ref,
 ) {
-  const classes = buttonClasses({ variant, size, disabled, fullWidth, loading, active })
+  const classes = btnClasses({ variant, size, disabled, fullWidth, loading, active })
   const combinedClassName = className ? `${classes} ${className}` : classes
   const isDisabled = disabled || loading
 
   const spinnerElement = spinner ?? (
-    <span className="pm-button__spinner" aria-hidden="true">
+    <span className="pm-btn__spinner" aria-hidden="true">
       <svg
         width="1em"
         height="1em"
@@ -74,11 +74,11 @@ export const Button = forwardRef<HTMLButtonElement, ReactButtonProps>(function B
         return spinnerPlacement === "start" ? (
           <>
             {spinnerElement}
-            <span className="pm-button__label">{loadingText}</span>
+            <span className="pm-btn__label">{loadingText}</span>
           </>
         ) : (
           <>
-            <span className="pm-button__label">{loadingText}</span>
+            <span className="pm-btn__label">{loadingText}</span>
             {spinnerElement}
           </>
         )
@@ -96,9 +96,9 @@ export const Button = forwardRef<HTMLButtonElement, ReactButtonProps>(function B
 
     return (
       <>
-        {leftIcon && <span className="pm-button__icon" aria-hidden="true">{leftIcon}</span>}
+        {leftIcon && <span className="pm-btn__icon" aria-hidden="true">{leftIcon}</span>}
         {children}
-        {rightIcon && <span className="pm-button__icon" aria-hidden="true">{rightIcon}</span>}
+        {rightIcon && <span className="pm-btn__icon" aria-hidden="true">{rightIcon}</span>}
       </>
     )
   }

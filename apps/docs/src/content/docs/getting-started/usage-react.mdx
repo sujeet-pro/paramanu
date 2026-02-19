@@ -12,16 +12,16 @@ The React package provides typed, accessible components with `forwardRef` suppor
 import "@paramanu/buttons-js/css"
 ```
 
-## Button
+## Btn
 
 ```tsx
-import { Button } from "@paramanu/buttons-react"
+import { Btn } from "@paramanu/buttons-react"
 
 function App() {
   return (
-    <Button variant="primary" size="md" onClick={() => alert("Clicked!")}>
+    <Btn variant="primary" size="md" onClick={() => alert("Clicked!")}>
       Click me
-    </Button>
+    </Btn>
   )
 }
 ```
@@ -41,12 +41,12 @@ All standard HTML button attributes are also accepted.
 ### Examples
 
 ```tsx
-<Button variant="primary">Primary</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="danger">Danger</Button>
-<Button variant="ghost">Ghost</Button>
-<Button size="sm">Small</Button>
-<Button size="lg">Large</Button>
-<Button disabled>Disabled</Button>
-<Button fullWidth>Full Width</Button>
+<Btn variant="primary">Primary</Btn>
+<Btn variant="secondary">Secondary</Btn>
+<Btn variant="danger">Danger</Btn>
+<Btn variant="ghost">Ghost</Btn>
+<Btn size="sm">Small</Btn>
+<Btn size="lg">Large</Btn>
+<Btn disabled>Disabled</Btn>
+<Btn fullWidth>Full Width</Btn>
 ```

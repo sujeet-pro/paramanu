@@ -7,9 +7,9 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("TimePicker Stories", () => {
+describe("Timepicker Stories", () => {
   it("Playground renders without crashing", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-time-picker")).toBeTruthy()
+    expect(container.querySelector(".pm-timepicker")).toBeTruthy()
   })
 })

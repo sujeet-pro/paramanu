@@ -1,22 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { InlineDialog, InlineDialogBody } from "./inline-dialog.js"
+import { InlineDlg, InlineDlgBody } from "./inline-dialog.js"
 
 const meta = {
-  title: "Overlays/InlineDialog",
-  component: InlineDialog,
-  tags: ["autodocs", "stable"],
+  title: "Overlays/InlineDlg",
+  component: InlineDlg,
+  tags: ["autodocs", "beta"],
   argTypes: {
     visible: { control: "boolean" },
   },
   args: {
     visible: true,
-    children: <InlineDialogBody>Inline dialog content displayed near the trigger.</InlineDialogBody>,
+    children: <InlineDlgBody>Inline dialog content displayed near the trigger.</InlineDlgBody>,
   },
-} satisfies Meta<typeof InlineDialog>
+} satisfies Meta<typeof InlineDlg>
 
 export default meta
-type Story = StoryObj<typeof InlineDialog>
+type Story = StoryObj<typeof InlineDlg>
 
 export const Playground: Story = {}
 
@@ -32,9 +32,9 @@ export const ToggleVisibility: Story = {
         <button type="button" onClick={onClick}>
           Toggle
         </button>
-        <InlineDialog visible>
-          <InlineDialogBody>Content</InlineDialogBody>
-        </InlineDialog>
+        <InlineDlg visible>
+          <InlineDlgBody>Content</InlineDlgBody>
+        </InlineDlg>
       </div>
     )
   },
@@ -47,9 +47,9 @@ export const ToggleVisibility: Story = {
 
 export const Accessibility: Story = {
   render: () => (
-    <InlineDialog visible>
-      <InlineDialogBody>Accessible content</InlineDialogBody>
-    </InlineDialog>
+    <InlineDlg visible>
+      <InlineDlgBody>Accessible content</InlineDlgBody>
+    </InlineDlg>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)

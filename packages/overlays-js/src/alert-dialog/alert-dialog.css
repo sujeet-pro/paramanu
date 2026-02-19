@@ -1,5 +1,5 @@
 @layer pm.components {
-  .pm-alert-dialog {
+  .pm-alertdialog {
     position: fixed;
     inset: 0;
     z-index: var(--pm-overlay-z, 1000);
@@ -9,13 +9,13 @@
     padding: var(--pm-spacing-8) var(--pm-spacing-4);
   }
 
-  .pm-alert-dialog__panel {
+  .pm-alertdialog__panel {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 28rem;
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    background-color: var(--pm-bg);
     border-radius: var(--pm-radius-lg);
     box-shadow: var(--pm-shadow-xl);
     transform: scale(0.95);
@@ -42,33 +42,33 @@
   }
 
   /* Variant: info */
-  .pm-alert-dialog--info {
-    & .pm-alert-dialog__panel {
-      border-left: 4px solid light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+  .pm-alertdialog--info {
+    & .pm-alertdialog__panel {
+      border-left: 4px solid var(--pm-primary-border);
     }
   }
 
   /* Variant: danger */
-  .pm-alert-dialog--danger {
-    & .pm-alert-dialog__panel {
-      border-left: 4px solid light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+  .pm-alertdialog--danger {
+    & .pm-alertdialog__panel {
+      border-left: 4px solid var(--pm-danger-border);
     }
   }
 
   /* Variant: warning */
-  .pm-alert-dialog--warning {
-    & .pm-alert-dialog__panel {
-      border-left: 4px solid light-dark(var(--pm-color-warning-500), var(--pm-color-warning-400));
+  .pm-alertdialog--warning {
+    & .pm-alertdialog__panel {
+      border-left: 4px solid var(--pm-warning-border);
     }
   }
 
-  .pm-alert-dialog__header {
+  .pm-alertdialog__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-4) var(--pm-spacing-6);
-    border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-bottom: 1px solid var(--pm-neutral-hover);
     font-family: var(--pm-font-family-sans);
     font-weight: var(--pm-font-weight-semibold);
     font-size: var(--pm-font-size-lg);
@@ -76,57 +76,57 @@
     flex-shrink: 0;
   }
 
-  .pm-alert-dialog__body {
+  .pm-alertdialog__body {
     padding: var(--pm-spacing-6);
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-md);
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+    color: var(--pm-neutral-fg);
     flex: 1;
   }
 
-  .pm-alert-dialog__footer {
+  .pm-alertdialog__footer {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-4) var(--pm-spacing-6);
-    border-top: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-top: 1px solid var(--pm-neutral-hover);
     flex-shrink: 0;
   }
 
   /* ----- Theme overrides ----- */
 
   :root[data-theme="antd"] {
-    & .pm-alert-dialog__panel {
+    & .pm-alertdialog__panel {
       border-radius: var(--pm-radius-md);
       border-left-width: 3px;
     }
   }
 
   :root[data-theme="material"] {
-    & .pm-alert-dialog__panel {
+    & .pm-alertdialog__panel {
       border-radius: 28px;
       border-left: none;
     }
 
-    & .pm-alert-dialog__footer {
+    & .pm-alertdialog__footer {
       border-top: none;
       padding: var(--pm-spacing-4) var(--pm-spacing-6);
     }
   }
 
   :root[data-theme="bootstrap"] {
-    & .pm-alert-dialog__panel {
+    & .pm-alertdialog__panel {
       border: 1px solid light-dark(rgba(0, 0, 0, 0.175), rgba(255, 255, 255, 0.175));
     }
 
-    & .pm-alert-dialog--danger .pm-alert-dialog__panel {
-      border-left: 4px solid light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+    & .pm-alertdialog--danger .pm-alertdialog__panel {
+      border-left: 4px solid var(--pm-danger-border);
     }
   }
 
   :root[data-theme="dark-modern"] {
-    & .pm-alert-dialog__panel {
+    & .pm-alertdialog__panel {
       background-color: var(--pm-color-neutral-800);
       border: 1px solid var(--pm-color-neutral-700);
       box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
@@ -135,7 +135,7 @@
   }
 
   :root[data-theme="light-modern"] {
-    & .pm-alert-dialog__panel {
+    & .pm-alertdialog__panel {
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05),
         0 20px 40px rgba(0, 0, 0, 0.08);
       border: 1px solid var(--pm-color-neutral-200);

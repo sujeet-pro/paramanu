@@ -1,27 +1,27 @@
 import { forwardRef } from "react"
-import { dateRangePickerClasses } from "@paramanu/forms-js"
-import type { DateRangePickerProps } from "@paramanu/forms-js"
+import { daterangeClasses } from "@paramanu/forms-js"
+import type { DaterangeProps } from "@paramanu/forms-js"
 
-export interface ReactDateRangePickerProps
-  extends DateRangePickerProps,
+export interface ReactDaterangeProps
+  extends DaterangeProps,
     React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
   placeholder?: string
 }
 
-export const DateRangePicker = forwardRef<HTMLDivElement, ReactDateRangePickerProps>(
-  function DateRangePicker(
+export const Daterange = forwardRef<HTMLDivElement, ReactDaterangeProps>(
+  function Daterange(
     { variant, size, disabled, invalid, open, className, children, placeholder, ...rest },
     ref,
   ) {
-    const classes = dateRangePickerClasses({ variant, size, disabled, invalid, open })
+    const classes = daterangeClasses({ variant, size, disabled, invalid, open })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     return (
       <div ref={ref} className={combinedClassName} {...rest}>
         <button
           type="button"
-          className="pm-date-range-picker__trigger"
+          className="pm-daterange__trigger"
           role="combobox"
           aria-expanded={open || false}
           aria-haspopup="dialog"
@@ -31,8 +31,8 @@ export const DateRangePicker = forwardRef<HTMLDivElement, ReactDateRangePickerPr
         >
           {placeholder ?? "Select date range"}
         </button>
-        <div className="pm-date-range-picker__popover" role="dialog" aria-label="Date range calendar">
-          <div className="pm-date-range-picker__panels">{children}</div>
+        <div className="pm-daterange__popover" role="dialog" aria-label="Date range calendar">
+          <div className="pm-daterange__panels">{children}</div>
         </div>
       </div>
     )

@@ -1,12 +1,20 @@
 ---
 title: Loading Overlay
 description: Full-area overlay with backdrop for loading states over content sections.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-LoadingOverlay covers a content area with a semi-transparent backdrop and centered loading indicator.
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
+
+Loading covers a content area with a semi-transparent backdrop and centered loading indicator.
 
 <Tabs syncKey="component-tab">
   <TabItem label="Usage">
@@ -16,18 +24,18 @@ LoadingOverlay covers a content area with a semi-transparent backdrop and center
 <ComponentPreview
   htmlCode={`<div style="position: relative; height: 200px;">
   <p>Content underneath</p>
-  <div class="pm-loading-overlay pm-loading-overlay--visible">
-    <div class="pm-loading-overlay__backdrop"></div>
-    <div class="pm-loading-overlay__content">Loading...</div>
+  <div class="pm-loading pm-loading--visible">
+    <div class="pm-loading__backdrop"></div>
+    <div class="pm-loading__content">Loading...</div>
   </div>
 </div>`}
-  reactCode={`import { LoadingOverlay } from "@paramanu/feedback-react"
+  reactCode={`import { Loading } from "@paramanu/feedback-react"
 
 export default function App() {
   return (
     <div style={{ position: "relative", height: 200 }}>
       <p>Content underneath</p>
-      <LoadingOverlay visible>Loading...</LoadingOverlay>
+      <Loading visible>Loading...</Loading>
     </div>
   )
 }`}
@@ -38,18 +46,18 @@ export default function App() {
 <ComponentPreview
   htmlCode={`<div style="position: relative; height: 200px;">
   <p>Content underneath</p>
-  <div class="pm-loading-overlay pm-loading-overlay--visible pm-loading-overlay--blur">
-    <div class="pm-loading-overlay__backdrop"></div>
-    <div class="pm-loading-overlay__content">Loading...</div>
+  <div class="pm-loading pm-loading--visible pm-loading--blur">
+    <div class="pm-loading__backdrop"></div>
+    <div class="pm-loading__content">Loading...</div>
   </div>
 </div>`}
-  reactCode={`import { LoadingOverlay } from "@paramanu/feedback-react"
+  reactCode={`import { Loading } from "@paramanu/feedback-react"
 
 export default function App() {
   return (
     <div style={{ position: "relative", height: 200 }}>
       <p>Content underneath</p>
-      <LoadingOverlay visible blur>Loading...</LoadingOverlay>
+      <Loading visible blur>Loading...</Loading>
     </div>
   )
 }`}

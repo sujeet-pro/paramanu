@@ -1,9 +1,9 @@
 import { forwardRef } from "react"
-import { closeButtonClasses } from "@paramanu/buttons-js"
-import type { CloseButtonProps } from "@paramanu/buttons-js"
+import { closeBtnClasses } from "@paramanu/buttons-js"
+import type { CloseBtnProps } from "@paramanu/buttons-js"
 
-export interface ReactCloseButtonProps
-  extends CloseButtonProps,
+export interface ReactCloseBtnProps
+  extends CloseBtnProps,
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
   /**
    * Custom icon element to render inside the close button.
@@ -18,18 +18,18 @@ export interface ReactCloseButtonProps
  *
  * @example
  * ```tsx
- * <CloseButton aria-label="Close dialog" />
- * <CloseButton size="sm" onClick={onDismiss} />
+ * <CloseBtn aria-label="Close dialog" />
+ * <CloseBtn size="sm" onClick={onDismiss} />
  * ```
  */
-export const CloseButton = forwardRef<HTMLButtonElement, ReactCloseButtonProps>(
-  function CloseButton({ size, disabled, className, children, ...rest }, ref) {
-    const classes = closeButtonClasses({ size, disabled })
+export const CloseBtn = forwardRef<HTMLButtonElement, ReactCloseBtnProps>(
+  function CloseBtn({ size, disabled, className, children, ...rest }, ref) {
+    const classes = closeBtnClasses({ size, disabled })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     const defaultIcon = (
       <svg
-        className="pm-close-button__icon"
+        className="pm-close-btn__icon"
         aria-hidden="true"
         width="1em"
         height="1em"

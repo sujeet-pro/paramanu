@@ -1,26 +1,26 @@
 import type {
-  EmptyStateClassesOptions,
-  EmptyStateClassesResult,
-  EmptyStateModuleClassesResult,
+  EmptyClassesOptions,
+  EmptyClassesResult,
+  EmptyModuleClassesResult,
 } from "./empty-state.types.js"
 
-const BASE = "pm-empty-state"
+const BASE = "pm-empty"
 
 /**
- * Returns BEM class names for the EmptyState component.
+ * Returns BEM class names for the Empty component.
  *
- * EmptyState is a centered placeholder displayed when a view or list
+ * Empty is a centered placeholder displayed when a view or list
  * has no data. It contains an icon, heading, description, and action buttons.
  *
  * @example
  * ```ts
- * const cls = emptyStateClasses({ size: "lg", bordered: true })
- * // cls.root        => "pm-empty-state pm-empty-state--lg pm-empty-state--bordered"
- * // cls.heading     => "pm-empty-state__heading"
- * // cls.description => "pm-empty-state__description"
+ * const cls = emptyClasses({ size: "lg", bordered: true })
+ * // cls.root        => "pm-empty pm-empty--lg pm-empty--bordered"
+ * // cls.heading     => "pm-empty__heading"
+ * // cls.description => "pm-empty__description"
  * ```
  */
-export function emptyStateClasses(options: EmptyStateClassesOptions = {}): EmptyStateClassesResult {
+export function emptyClasses(options: EmptyClassesOptions = {}): EmptyClassesResult {
   const { size = "md", bordered = false } = options
 
   const rootClasses = [BASE, `${BASE}--${size}`]
@@ -37,13 +37,13 @@ export function emptyStateClasses(options: EmptyStateClassesOptions = {}): Empty
 }
 
 /**
- * Returns CSS module class names for the EmptyState component.
+ * Returns CSS module class names for the Empty component.
  * Used by bundled consumers who import CSS modules.
  */
-export function emptyStateModuleClasses(
+export function emptyModuleClasses(
   classMap: Record<string, string>,
-  options: EmptyStateClassesOptions = {},
-): EmptyStateModuleClassesResult {
+  options: EmptyClassesOptions = {},
+): EmptyModuleClassesResult {
   const { size = "md", bordered = false } = options
 
   const rootClasses = [classMap[BASE], classMap[`${BASE}--${size}`]]

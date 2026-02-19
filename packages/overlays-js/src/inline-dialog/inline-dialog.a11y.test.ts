@@ -1,12 +1,12 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
-import { inlineDialogClasses, inlineDialogBodyClasses } from "./inline-dialog.classes.js"
+import { inlineDlgClasses, inlineDialogBodyClasses } from "./inline-dialog.classes.js"
 
-function createInlineDialogHTML(
-  options: Parameters<typeof inlineDialogClasses>[0] = {},
+function createInlineDlgHTML(
+  options: Parameters<typeof inlineDlgClasses>[0] = {},
   attrs: string = "",
 ): string {
-  const classes = inlineDialogClasses(options)
+  const classes = inlineDlgClasses(options)
   const bodyClasses = inlineDialogBodyClasses()
   return `
     <div class="${classes}" role="dialog" aria-labelledby="inline-dialog-title"${attrs ? " " + attrs : ""}>
@@ -20,19 +20,19 @@ function createInlineDialogHTML(
 
 describe("inline dialog accessibility", () => {
   it("has role='dialog'", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createInlineDialogHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createInlineDlgHTML()}</body>`)
     const dialog = dom.window.document.querySelector("[role='dialog']")
     expect(dialog).not.toBeNull()
   })
 
   it("does not have aria-modal (not a modal dialog)", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createInlineDialogHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createInlineDlgHTML()}</body>`)
     const dialog = dom.window.document.querySelector("[role='dialog']")
     expect(dialog?.getAttribute("aria-modal")).toBeNull()
   })
 
   it("has aria-labelledby referencing the title", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createInlineDialogHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createInlineDlgHTML()}</body>`)
     const dialog = dom.window.document.querySelector("[role='dialog']")
     const labelledBy = dialog?.getAttribute("aria-labelledby")
     expect(labelledBy).toBe("inline-dialog-title")
@@ -43,24 +43,24 @@ describe("inline dialog accessibility", () => {
   })
 
   it("is positioned absolutely (not fixed like modal dialogs)", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createInlineDialogHTML()}</body>`)
-    const dialog = dom.window.document.querySelector(".pm-inline-dialog")
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createInlineDlgHTML()}</body>`)
+    const dialog = dom.window.document.querySelector(".pm-inline-dlg")
     expect(dialog).not.toBeNull()
-    // The inline dialog uses pm-inline-dialog class which has position: absolute in CSS
-    expect(dialog?.classList.contains("pm-inline-dialog")).toBe(true)
+    // The inline dialog uses pm-inline-dlg class which has position: absolute in CSS
+    expect(dialog?.classList.contains("pm-inline-dlg")).toBe(true)
   })
 
   it("supports aria-describedby for additional context", () => {
-    const html = createInlineDialogHTML({}, 'aria-describedby="inline-dialog-desc"')
+    const html = createInlineDlgHTML({}, 'aria-describedby="inline-dialog-desc"')
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const dialog = dom.window.document.querySelector("[role='dialog']")
     expect(dialog?.getAttribute("aria-describedby")).toBe("inline-dialog-desc")
   })
 
   it("contains the body section", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createInlineDialogHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createInlineDlgHTML()}</body>`)
     const dialog = dom.window.document.querySelector("[role='dialog']")
-    const body = dialog?.querySelector(".pm-inline-dialog__body")
+    const body = dialog?.querySelector(".pm-inline-dlg__body")
     expect(body).not.toBeNull()
   })
 })

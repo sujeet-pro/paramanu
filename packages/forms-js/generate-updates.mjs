@@ -21,7 +21,7 @@ writeComponent("number-input", {
   "number-input.types.ts": `import type { FormSize, InputVariant } from "../shared.types.js"
 
 /** Options for generating number input class names */
-export interface NumberInputClassesOptions {
+export interface NumInputClassesOptions {
   /** Visual variant of the input */
   variant?: InputVariant
   /** Size of the input */
@@ -35,7 +35,7 @@ export interface NumberInputClassesOptions {
 }
 
 /** Props for the number input component */
-export interface NumberInputProps extends NumberInputClassesOptions {
+export interface NumInputProps extends NumInputClassesOptions {
   /** Minimum allowed value */
   min?: number
   /** Maximum allowed value */
@@ -63,14 +63,14 @@ export interface NumberInputProps extends NumberInputClassesOptions {
 }
 `,
 
-  "number-input.classes.ts": `import type { NumberInputClassesOptions } from "./number-input.types.js"
+  "number-input.classes.ts": `import type { NumInputClassesOptions } from "./number-input.types.js"
 
-const BASE = "pm-number-input"
+const BASE = "pm-num-input"
 
 /**
  * Returns BEM class names for the number input wrapper (human-readable).
  */
-export function numberInputClasses(options: NumberInputClassesOptions = {}): string {
+export function numInputClasses(options: NumInputClassesOptions = {}): string {
   const { variant = "outline", size = "md", invalid = false, disabled = false, fullWidth = false } =
     options
   const classes = [BASE, \`\${BASE}--\${variant}\`, \`\${BASE}--\${size}\`]
@@ -85,30 +85,30 @@ export function numberInputClasses(options: NumberInputClassesOptions = {}): str
 /**
  * Returns CSS module class names for the number input wrapper (hashed).
  */
-export function numberInputModuleClasses(
+export function numInputModuleClasses(
   classMap: Record<string, string>,
-  options: NumberInputClassesOptions = {},
+  options: NumInputClassesOptions = {},
 ): string {
   const { variant = "outline", size = "md", invalid = false, disabled = false, fullWidth = false } =
     options
 
   const classes = [
-    classMap["pm-number-input"],
-    classMap[\`pm-number-input--\${variant}\`],
-    classMap[\`pm-number-input--\${size}\`],
+    classMap["pm-num-input"],
+    classMap[\`pm-num-input--\${variant}\`],
+    classMap[\`pm-num-input--\${size}\`],
   ]
 
-  if (invalid) classes.push(classMap["pm-number-input--invalid"])
-  if (disabled) classes.push(classMap["pm-number-input--disabled"])
-  if (fullWidth) classes.push(classMap["pm-number-input--full-width"])
+  if (invalid) classes.push(classMap["pm-num-input--invalid"])
+  if (disabled) classes.push(classMap["pm-num-input--disabled"])
+  if (fullWidth) classes.push(classMap["pm-num-input--full-width"])
 
   return classes.filter(Boolean).join(" ")
 }
 `,
 
   "number-input.css": `@layer pm.components {
-  .pm-number-input {
-    --_pm-number-input-radius: var(--pm-radius-md);
+  .pm-num-input {
+    --_pm-num-input-radius: var(--pm-radius-md);
 
     position: relative;
     display: inline-flex;
@@ -126,17 +126,17 @@ export function numberInputModuleClasses(
       }
     }
 
-    &.pm-number-input--full-width {
+    &.pm-num-input--full-width {
       width: 100%;
     }
 
-    &.pm-number-input--disabled {
+    &.pm-num-input--disabled {
       opacity: 0.5;
       pointer-events: none;
     }
   }
 
-  .pm-number-input__stepper {
+  .pm-num-input__stepper {
     position: absolute;
     right: 0;
     top: 0;
@@ -146,8 +146,8 @@ export function numberInputModuleClasses(
     border-left: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
   }
 
-  .pm-number-input__increment,
-  .pm-number-input__decrement {
+  .pm-num-input__increment,
+  .pm-num-input__decrement {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,48 +174,48 @@ export function numberInputModuleClasses(
     }
   }
 
-  .pm-number-input__increment {
+  .pm-num-input__increment {
     border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-    border-radius: 0 var(--_pm-number-input-radius) 0 0;
+    border-radius: 0 var(--_pm-num-input-radius) 0 0;
   }
 
-  .pm-number-input__decrement {
-    border-radius: 0 0 var(--_pm-number-input-radius) 0;
+  .pm-num-input__decrement {
+    border-radius: 0 0 var(--_pm-num-input-radius) 0;
   }
 
   /* ---- Theme overrides ---- */
-  :where([data-theme="antd"]) .pm-number-input {
-    --_pm-number-input-radius: 4px;
+  :where([data-theme="antd"]) .pm-num-input {
+    --_pm-num-input-radius: 4px;
   }
 
-  :where([data-theme="material"]) .pm-number-input {
-    --_pm-number-input-radius: 12px;
+  :where([data-theme="material"]) .pm-num-input {
+    --_pm-num-input-radius: 12px;
   }
 
-  :where([data-theme="bootstrap"]) .pm-number-input {
-    --_pm-number-input-radius: 6px;
+  :where([data-theme="bootstrap"]) .pm-num-input {
+    --_pm-num-input-radius: 6px;
   }
 }
 `,
 
   "number-input.module.css": `@layer pm.components {
-  .pm-number-input {
+  .pm-num-input {
     position: relative;
     display: inline-flex;
     align-items: center;
     width: auto;
   }
 
-  .pm-number-input--full-width {
+  .pm-num-input--full-width {
     width: 100%;
   }
 
-  .pm-number-input--disabled {
+  .pm-num-input--disabled {
     opacity: 0.5;
     pointer-events: none;
   }
 
-  .pm-number-input__stepper {
+  .pm-num-input__stepper {
     position: absolute;
     right: 0;
     top: 0;
@@ -225,8 +225,8 @@ export function numberInputModuleClasses(
     border-left: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
   }
 
-  .pm-number-input__increment,
-  .pm-number-input__decrement {
+  .pm-num-input__increment,
+  .pm-num-input__decrement {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -239,23 +239,23 @@ export function numberInputModuleClasses(
     font-size: var(--pm-font-size-xs);
   }
 
-  .pm-number-input__increment:hover,
-  .pm-number-input__decrement:hover {
+  .pm-num-input__increment:hover,
+  .pm-num-input__decrement:hover {
     background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
   }
 
-  .pm-number-input__increment:focus-visible,
-  .pm-number-input__decrement:focus-visible {
+  .pm-num-input__increment:focus-visible,
+  .pm-num-input__decrement:focus-visible {
     outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
     outline-offset: -1px;
   }
 
-  .pm-number-input__increment {
+  .pm-num-input__increment {
     border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
     border-radius: 0 var(--pm-radius-md) 0 0;
   }
 
-  .pm-number-input__decrement {
+  .pm-num-input__decrement {
     border-radius: 0 0 var(--pm-radius-md) 0;
   }
 }
@@ -516,7 +516,7 @@ writeComponent("search-input", {
   "search-input.types.ts": `import type { FormSize, InputVariant } from "../shared.types.js"
 
 /** Options for generating search input class names */
-export interface SearchInputClassesOptions {
+export interface SearchClassesOptions {
   /** Visual variant of the input */
   variant?: InputVariant
   /** Size of the input */
@@ -532,7 +532,7 @@ export interface SearchInputClassesOptions {
 }
 
 /** Props for the search input component */
-export interface SearchInputProps extends SearchInputClassesOptions {
+export interface SearchProps extends SearchClassesOptions {
   /** Placeholder text */
   placeholder?: string
   /** Controlled value */
@@ -550,14 +550,14 @@ export interface SearchInputProps extends SearchInputClassesOptions {
 }
 `,
 
-  "search-input.classes.ts": `import type { SearchInputClassesOptions } from "./search-input.types.js"
+  "search-input.classes.ts": `import type { SearchClassesOptions } from "./search-input.types.js"
 
-const BASE = "pm-search-input"
+const BASE = "pm-search"
 
 /**
  * Returns BEM class names for the search input wrapper (human-readable).
  */
-export function searchInputClasses(options: SearchInputClassesOptions = {}): string {
+export function searchClasses(options: SearchClassesOptions = {}): string {
   const {
     variant = "outline",
     size = "md",
@@ -579,9 +579,9 @@ export function searchInputClasses(options: SearchInputClassesOptions = {}): str
 /**
  * Returns CSS module class names for the search input wrapper (hashed).
  */
-export function searchInputModuleClasses(
+export function searchModuleClasses(
   classMap: Record<string, string>,
-  options: SearchInputClassesOptions = {},
+  options: SearchClassesOptions = {},
 ): string {
   const {
     variant = "outline",
@@ -593,22 +593,22 @@ export function searchInputModuleClasses(
   } = options
 
   const classes = [
-    classMap["pm-search-input"],
-    classMap[\`pm-search-input--\${variant}\`],
-    classMap[\`pm-search-input--\${size}\`],
+    classMap["pm-search"],
+    classMap[\`pm-search--\${variant}\`],
+    classMap[\`pm-search--\${size}\`],
   ]
 
-  if (invalid) classes.push(classMap["pm-search-input--invalid"])
-  if (disabled) classes.push(classMap["pm-search-input--disabled"])
-  if (fullWidth) classes.push(classMap["pm-search-input--full-width"])
-  if (loading) classes.push(classMap["pm-search-input--loading"])
+  if (invalid) classes.push(classMap["pm-search--invalid"])
+  if (disabled) classes.push(classMap["pm-search--disabled"])
+  if (fullWidth) classes.push(classMap["pm-search--full-width"])
+  if (loading) classes.push(classMap["pm-search--loading"])
 
   return classes.filter(Boolean).join(" ")
 }
 `,
 
   "search-input.css": `@layer pm.components {
-  .pm-search-input {
+  .pm-search {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -620,32 +620,32 @@ export function searchInputModuleClasses(
       padding-right: var(--pm-spacing-9);
     }
 
-    &.pm-search-input--xs .pm-input {
+    &.pm-search--xs .pm-input {
       padding-left: var(--pm-spacing-7);
       padding-right: var(--pm-spacing-7);
     }
 
-    &.pm-search-input--sm .pm-input {
+    &.pm-search--sm .pm-input {
       padding-left: var(--pm-spacing-8);
       padding-right: var(--pm-spacing-8);
     }
 
-    &.pm-search-input--lg .pm-input {
+    &.pm-search--lg .pm-input {
       padding-left: var(--pm-spacing-10);
       padding-right: var(--pm-spacing-10);
     }
 
-    &.pm-search-input--full-width {
+    &.pm-search--full-width {
       width: 100%;
     }
 
-    &.pm-search-input--disabled {
+    &.pm-search--disabled {
       opacity: 0.5;
       pointer-events: none;
     }
   }
 
-  .pm-search-input__icon {
+  .pm-search__icon {
     position: absolute;
     left: var(--pm-spacing-3);
     display: flex;
@@ -654,7 +654,7 @@ export function searchInputModuleClasses(
     color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
   }
 
-  .pm-search-input__clear {
+  .pm-search__clear {
     position: absolute;
     right: var(--pm-spacing-2);
     display: inline-flex;
@@ -677,7 +677,7 @@ export function searchInputModuleClasses(
     }
   }
 
-  .pm-search-input__spinner {
+  .pm-search__spinner {
     position: absolute;
     right: var(--pm-spacing-3);
     display: flex;
@@ -688,23 +688,23 @@ export function searchInputModuleClasses(
 `,
 
   "search-input.module.css": `@layer pm.components {
-  .pm-search-input {
+  .pm-search {
     position: relative;
     display: inline-flex;
     align-items: center;
     width: auto;
   }
 
-  .pm-search-input--full-width {
+  .pm-search--full-width {
     width: 100%;
   }
 
-  .pm-search-input--disabled {
+  .pm-search--disabled {
     opacity: 0.5;
     pointer-events: none;
   }
 
-  .pm-search-input__icon {
+  .pm-search__icon {
     position: absolute;
     left: var(--pm-spacing-3);
     display: flex;
@@ -713,7 +713,7 @@ export function searchInputModuleClasses(
     color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
   }
 
-  .pm-search-input__clear {
+  .pm-search__clear {
     position: absolute;
     right: var(--pm-spacing-2);
     display: inline-flex;
@@ -727,16 +727,16 @@ export function searchInputModuleClasses(
     border-radius: var(--pm-radius-full);
   }
 
-  .pm-search-input__clear:hover {
+  .pm-search__clear:hover {
     color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
     background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
   }
 
-  .pm-search-input__clear:focus-visible {
+  .pm-search__clear:focus-visible {
     outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
   }
 
-  .pm-search-input__spinner {
+  .pm-search__spinner {
     position: absolute;
     right: var(--pm-spacing-3);
     display: flex;
@@ -1146,7 +1146,7 @@ writeComponent("editable-text", {
   "editable-text.types.ts": `import type { FormSize } from "../shared.types.js"
 
 /** Options for generating editable text class names */
-export interface EditableTextClassesOptions {
+export interface EditableClassesOptions {
   /** Size of the editable text */
   size?: FormSize
   /** Whether the component is disabled */
@@ -1156,7 +1156,7 @@ export interface EditableTextClassesOptions {
 }
 
 /** Props for the editable text component */
-export interface EditableTextProps extends EditableTextClassesOptions {
+export interface EditableProps extends EditableClassesOptions {
   /** Controlled value */
   value?: string
   /** Default value for uncontrolled usage */
@@ -1182,14 +1182,14 @@ export interface EditableTextProps extends EditableTextClassesOptions {
 }
 `,
 
-  "editable-text.classes.ts": `import type { EditableTextClassesOptions } from "./editable-text.types.js"
+  "editable-text.classes.ts": `import type { EditableClassesOptions } from "./editable-text.types.js"
 
-const BASE = "pm-editable-text"
+const BASE = "pm-editable"
 
 /**
  * Returns BEM class names for the editable text component (human-readable).
  */
-export function editableTextClasses(options: EditableTextClassesOptions = {}): string {
+export function editableClasses(options: EditableClassesOptions = {}): string {
   const { size = "md", disabled = false, editing = false } = options
   const classes = [BASE, \`\${BASE}--\${size}\`]
 
@@ -1202,16 +1202,16 @@ export function editableTextClasses(options: EditableTextClassesOptions = {}): s
 /**
  * Returns CSS module class names for the editable text component (hashed).
  */
-export function editableTextModuleClasses(
+export function editableModuleClasses(
   classMap: Record<string, string>,
-  options: EditableTextClassesOptions = {},
+  options: EditableClassesOptions = {},
 ): string {
   const { size = "md", disabled = false, editing = false } = options
 
-  const classes = [classMap["pm-editable-text"], classMap[\`pm-editable-text--\${size}\`]]
+  const classes = [classMap["pm-editable"], classMap[\`pm-editable--\${size}\`]]
 
-  if (disabled) classes.push(classMap["pm-editable-text--disabled"])
-  if (editing) classes.push(classMap["pm-editable-text--editing"])
+  if (disabled) classes.push(classMap["pm-editable--disabled"])
+  if (editing) classes.push(classMap["pm-editable--editing"])
 
   return classes.filter(Boolean).join(" ")
 }
@@ -1560,7 +1560,7 @@ writeComponent("checkbox-card", {
   "checkbox-card.types.ts": `import type { FormSize } from "../shared.types.js"
 
 /** Options for generating checkbox card class names */
-export interface CheckboxCardClassesOptions {
+export interface ChkCardClassesOptions {
   /** Size of the checkbox card */
   size?: FormSize
   /** Whether the checkbox card is disabled */
@@ -1570,7 +1570,7 @@ export interface CheckboxCardClassesOptions {
 }
 
 /** Props for the checkbox card component */
-export interface CheckboxCardProps extends CheckboxCardClassesOptions {
+export interface ChkCardProps extends ChkCardClassesOptions {
   /** Controlled checked value */
   value?: string
   /** Default checked state for uncontrolled usage */
@@ -1588,14 +1588,14 @@ export interface CheckboxCardProps extends CheckboxCardClassesOptions {
 }
 `,
 
-  "checkbox-card.classes.ts": `import type { CheckboxCardClassesOptions } from "./checkbox-card.types.js"
+  "checkbox-card.classes.ts": `import type { ChkCardClassesOptions } from "./checkbox-card.types.js"
 
-const BASE = "pm-checkbox-card"
+const BASE = "pm-chk-card"
 
 /**
  * Returns BEM class names for the checkbox card component (human-readable).
  */
-export function checkboxCardClasses(options: CheckboxCardClassesOptions = {}): string {
+export function chkCardClasses(options: ChkCardClassesOptions = {}): string {
   const { size = "md", disabled = false, checked = false } = options
   const classes = [BASE, \`\${BASE}--\${size}\`]
 
@@ -1608,69 +1608,69 @@ export function checkboxCardClasses(options: CheckboxCardClassesOptions = {}): s
 /**
  * Returns CSS module class names for the checkbox card component (hashed).
  */
-export function checkboxCardModuleClasses(
+export function chkCardModuleClasses(
   classMap: Record<string, string>,
-  options: CheckboxCardClassesOptions = {},
+  options: ChkCardClassesOptions = {},
 ): string {
   const { size = "md", disabled = false, checked = false } = options
 
-  const classes = [classMap["pm-checkbox-card"], classMap[\`pm-checkbox-card--\${size}\`]]
+  const classes = [classMap["pm-chk-card"], classMap[\`pm-chk-card--\${size}\`]]
 
-  if (disabled) classes.push(classMap["pm-checkbox-card--disabled"])
-  if (checked) classes.push(classMap["pm-checkbox-card--checked"])
+  if (disabled) classes.push(classMap["pm-chk-card--disabled"])
+  if (checked) classes.push(classMap["pm-chk-card--checked"])
 
   return classes.filter(Boolean).join(" ")
 }
 `,
 
   "checkbox-card.css": `@layer pm.components {
-  .pm-checkbox-card {
-    --_pm-checkbox-card-radius: var(--pm-radius-md);
-    --_pm-checkbox-card-checked-bg: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-950));
-    --_pm-checkbox-card-checked-border: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+  .pm-chk-card {
+    --_pm-chk-card-radius: var(--pm-radius-md);
+    --_pm-chk-card-checked-bg: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-950));
+    --_pm-chk-card-checked-border: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
 
     display: flex;
     align-items: flex-start;
     gap: var(--pm-spacing-3);
     border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-    border-radius: var(--_pm-checkbox-card-radius);
+    border-radius: var(--_pm-chk-card-radius);
     cursor: pointer;
     transition-property: border-color, box-shadow, background-color;
     transition-duration: var(--pm-transition-fast);
     position: relative;
 
-    &:hover:not(.pm-checkbox-card--disabled) {
+    &:hover:not(.pm-chk-card--disabled) {
       border-color: light-dark(var(--pm-color-primary-300), var(--pm-color-primary-600));
     }
 
-    &.pm-checkbox-card--xs {
+    &.pm-chk-card--xs {
       padding: var(--pm-spacing-1-5) var(--pm-spacing-2);
     }
 
-    &.pm-checkbox-card--sm {
+    &.pm-chk-card--sm {
       padding: var(--pm-spacing-2) var(--pm-spacing-3);
     }
 
-    &.pm-checkbox-card--md {
+    &.pm-chk-card--md {
       padding: var(--pm-spacing-3) var(--pm-spacing-4);
     }
 
-    &.pm-checkbox-card--lg {
+    &.pm-chk-card--lg {
       padding: var(--pm-spacing-4) var(--pm-spacing-5);
     }
 
-    &.pm-checkbox-card--checked {
-      border-color: var(--_pm-checkbox-card-checked-border);
-      background-color: var(--_pm-checkbox-card-checked-bg);
+    &.pm-chk-card--checked {
+      border-color: var(--_pm-chk-card-checked-border);
+      background-color: var(--_pm-chk-card-checked-bg);
     }
 
-    &.pm-checkbox-card--disabled {
+    &.pm-chk-card--disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
   }
 
-  .pm-checkbox-card__input {
+  .pm-chk-card__input {
     position: absolute;
     opacity: 0;
     width: 0;
@@ -1678,25 +1678,25 @@ export function checkboxCardModuleClasses(
     margin: 0;
   }
 
-  .pm-checkbox-card__input:focus-visible ~ .pm-checkbox-card__content {
+  .pm-chk-card__input:focus-visible ~ .pm-chk-card__content {
     outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
     outline-offset: var(--pm-focus-ring-offset);
-    border-radius: var(--_pm-checkbox-card-radius);
+    border-radius: var(--_pm-chk-card-radius);
   }
 
-  .pm-checkbox-card__content {
+  .pm-chk-card__content {
     display: flex;
     flex-direction: column;
     flex: 1;
   }
 
-  .pm-checkbox-card__title {
+  .pm-chk-card__title {
     font-family: var(--pm-font-family-sans);
     font-weight: var(--pm-font-weight-medium);
     color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-100));
   }
 
-  .pm-checkbox-card__description {
+  .pm-chk-card__description {
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-sm);
     color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
@@ -1704,23 +1704,23 @@ export function checkboxCardModuleClasses(
   }
 
   /* ---- Theme overrides ---- */
-  :where([data-theme="antd"]) .pm-checkbox-card {
-    --_pm-checkbox-card-radius: 4px;
-    --_pm-checkbox-card-checked-border: #1677ff;
-    --_pm-checkbox-card-checked-bg: #e6f4ff;
+  :where([data-theme="antd"]) .pm-chk-card {
+    --_pm-chk-card-radius: 4px;
+    --_pm-chk-card-checked-border: #1677ff;
+    --_pm-chk-card-checked-bg: #e6f4ff;
   }
 
-  :where([data-theme="material"]) .pm-checkbox-card {
-    --_pm-checkbox-card-radius: 12px;
+  :where([data-theme="material"]) .pm-chk-card {
+    --_pm-chk-card-radius: 12px;
   }
 
-  :where([data-theme="bootstrap"]) .pm-checkbox-card {
-    --_pm-checkbox-card-radius: 6px;
-    --_pm-checkbox-card-checked-border: #0d6efd;
+  :where([data-theme="bootstrap"]) .pm-chk-card {
+    --_pm-chk-card-radius: 6px;
+    --_pm-chk-card-checked-border: #0d6efd;
   }
 
-  :where([data-theme="dark-modern"]) .pm-checkbox-card {
-    --_pm-checkbox-card-checked-bg: light-dark(transparent, var(--pm-color-primary-900));
+  :where([data-theme="dark-modern"]) .pm-chk-card {
+    --_pm-chk-card-checked-bg: light-dark(transparent, var(--pm-color-primary-900));
   }
 }
 `,
@@ -2256,7 +2256,7 @@ writeComponent("segmented-control", {
   "segmented-control.types.ts": `import type { FormSize } from "../shared.types.js"
 
 /** Options for generating segmented control class names */
-export interface SegmentedControlClassesOptions {
+export interface SegCtrlClassesOptions {
   /** Size of the segmented control */
   size?: FormSize
   /** Whether the segmented control takes full width */
@@ -2266,7 +2266,7 @@ export interface SegmentedControlClassesOptions {
 }
 
 /** Props for the segmented control component */
-export interface SegmentedControlProps extends SegmentedControlClassesOptions {
+export interface SegCtrlProps extends SegCtrlClassesOptions {
   /** Controlled value */
   value?: string
   /** Default value for uncontrolled usage */
@@ -2278,14 +2278,14 @@ export interface SegmentedControlProps extends SegmentedControlClassesOptions {
 }
 `,
 
-  "segmented-control.classes.ts": `import type { SegmentedControlClassesOptions } from "./segmented-control.types.js"
+  "segmented-control.classes.ts": `import type { SegCtrlClassesOptions } from "./segmented-control.types.js"
 
-const BASE = "pm-segmented-control"
+const BASE = "pm-seg-ctrl"
 
 /**
  * Returns BEM class names for the segmented control component (human-readable).
  */
-export function segmentedControlClasses(options: SegmentedControlClassesOptions = {}): string {
+export function segCtrlClasses(options: SegCtrlClassesOptions = {}): string {
   const { size = "md", fullWidth = false, disabled = false } = options
   const classes = [BASE, \`\${BASE}--\${size}\`]
 
@@ -2298,23 +2298,23 @@ export function segmentedControlClasses(options: SegmentedControlClassesOptions 
 /**
  * Returns CSS module class names for the segmented control component (hashed).
  */
-export function segmentedControlModuleClasses(
+export function segCtrlModuleClasses(
   classMap: Record<string, string>,
-  options: SegmentedControlClassesOptions = {},
+  options: SegCtrlClassesOptions = {},
 ): string {
   const { size = "md", fullWidth = false, disabled = false } = options
 
-  const classes = [classMap["pm-segmented-control"], classMap[\`pm-segmented-control--\${size}\`]]
+  const classes = [classMap["pm-seg-ctrl"], classMap[\`pm-seg-ctrl--\${size}\`]]
 
-  if (fullWidth) classes.push(classMap["pm-segmented-control--full-width"])
-  if (disabled) classes.push(classMap["pm-segmented-control--disabled"])
+  if (fullWidth) classes.push(classMap["pm-seg-ctrl--full-width"])
+  if (disabled) classes.push(classMap["pm-seg-ctrl--disabled"])
 
   return classes.filter(Boolean).join(" ")
 }
 `,
 
   "segmented-control.css": `@layer pm.components {
-  .pm-segmented-control {
+  .pm-seg-ctrl {
     --_pm-segment-bg: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
     --_pm-segment-active-bg: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-700));
     --_pm-segment-radius: var(--pm-radius-md);
@@ -2326,33 +2326,33 @@ export function segmentedControlModuleClasses(
     padding: 2px;
     position: relative;
 
-    &.pm-segmented-control--full-width {
+    &.pm-seg-ctrl--full-width {
       width: 100%;
     }
 
-    &.pm-segmented-control--disabled {
+    &.pm-seg-ctrl--disabled {
       opacity: 0.5;
       pointer-events: none;
     }
 
-    &.pm-segmented-control--xs {
+    &.pm-seg-ctrl--xs {
       height: calc(var(--pm-spacing-6));
     }
 
-    &.pm-segmented-control--sm {
+    &.pm-seg-ctrl--sm {
       height: calc(var(--pm-spacing-8));
     }
 
-    &.pm-segmented-control--md {
+    &.pm-seg-ctrl--md {
       height: calc(var(--pm-spacing-10));
     }
 
-    &.pm-segmented-control--lg {
+    &.pm-seg-ctrl--lg {
       height: calc(var(--pm-spacing-12));
     }
   }
 
-  .pm-segmented-control__item {
+  .pm-seg-ctrl__item {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -2376,7 +2376,7 @@ export function segmentedControlModuleClasses(
       outline-offset: var(--pm-focus-ring-offset);
     }
 
-    &:hover:not(.pm-segmented-control__item--active):not(:disabled) {
+    &:hover:not(.pm-seg-ctrl__item--active):not(:disabled) {
       color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
     }
 
@@ -2386,30 +2386,30 @@ export function segmentedControlModuleClasses(
     }
   }
 
-  .pm-segmented-control--xs .pm-segmented-control__item {
+  .pm-seg-ctrl--xs .pm-seg-ctrl__item {
     font-size: var(--pm-font-size-xs);
     padding: 0 var(--pm-spacing-2);
   }
 
-  .pm-segmented-control--sm .pm-segmented-control__item {
+  .pm-seg-ctrl--sm .pm-seg-ctrl__item {
     font-size: var(--pm-font-size-sm);
   }
 
-  .pm-segmented-control--md .pm-segmented-control__item {
+  .pm-seg-ctrl--md .pm-seg-ctrl__item {
     font-size: var(--pm-font-size-md);
   }
 
-  .pm-segmented-control--lg .pm-segmented-control__item {
+  .pm-seg-ctrl--lg .pm-seg-ctrl__item {
     font-size: var(--pm-font-size-lg);
   }
 
-  .pm-segmented-control__item--active {
+  .pm-seg-ctrl__item--active {
     background-color: var(--_pm-segment-active-bg);
     color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
     box-shadow: var(--pm-shadow-sm);
   }
 
-  .pm-segmented-control__indicator {
+  .pm-seg-ctrl__indicator {
     position: absolute;
     top: 2px;
     bottom: 2px;
@@ -2422,16 +2422,16 @@ export function segmentedControlModuleClasses(
   }
 
   /* ---- Theme overrides ---- */
-  :where([data-theme="antd"]) .pm-segmented-control {
+  :where([data-theme="antd"]) .pm-seg-ctrl {
     --_pm-segment-radius: 4px;
     --_pm-segment-bg: #f5f5f5;
   }
 
-  :where([data-theme="material"]) .pm-segmented-control {
+  :where([data-theme="material"]) .pm-seg-ctrl {
     --_pm-segment-radius: 20px;
   }
 
-  :where([data-theme="bootstrap"]) .pm-segmented-control {
+  :where([data-theme="bootstrap"]) .pm-seg-ctrl {
     --_pm-segment-radius: 6px;
   }
 }
@@ -2448,7 +2448,7 @@ writeComponent("color-picker", {
 export type ColorFormat = "hex" | "rgb" | "hsl" | "hsv"
 
 /** Options for generating color picker class names */
-export interface ColorPickerClassesOptions {
+export interface ColorpickerClassesOptions {
   /** Size of the color picker trigger */
   size?: FormSize
   /** Whether the color picker is disabled */
@@ -2460,7 +2460,7 @@ export interface ColorPickerClassesOptions {
 }
 
 /** Props for the color picker component */
-export interface ColorPickerProps extends ColorPickerClassesOptions {
+export interface ColorpickerProps extends ColorpickerClassesOptions {
   /** Controlled color value */
   value?: string
   /** Default value for uncontrolled usage */
@@ -2486,14 +2486,14 @@ export interface ColorPickerProps extends ColorPickerClassesOptions {
 }
 `,
 
-  "color-picker.classes.ts": `import type { ColorPickerClassesOptions } from "./color-picker.types.js"
+  "color-picker.classes.ts": `import type { ColorpickerClassesOptions } from "./color-picker.types.js"
 
-const BASE = "pm-color-picker"
+const BASE = "pm-colorpicker"
 
 /**
  * Returns BEM class names for the color picker component (human-readable).
  */
-export function colorPickerClasses(options: ColorPickerClassesOptions = {}): string {
+export function colorpickerClasses(options: ColorpickerClassesOptions = {}): string {
   const { size = "md", disabled = false, open = false, fullWidth = false } = options
   const classes = [BASE, \`\${BASE}--\${size}\`]
 
@@ -2507,48 +2507,48 @@ export function colorPickerClasses(options: ColorPickerClassesOptions = {}): str
 /**
  * Returns CSS module class names for the color picker component (hashed).
  */
-export function colorPickerModuleClasses(
+export function colorpickerModuleClasses(
   classMap: Record<string, string>,
-  options: ColorPickerClassesOptions = {},
+  options: ColorpickerClassesOptions = {},
 ): string {
   const { size = "md", disabled = false, open = false, fullWidth = false } = options
 
-  const classes = [classMap["pm-color-picker"], classMap[\`pm-color-picker--\${size}\`]]
+  const classes = [classMap["pm-colorpicker"], classMap[\`pm-colorpicker--\${size}\`]]
 
-  if (disabled) classes.push(classMap["pm-color-picker--disabled"])
-  if (open) classes.push(classMap["pm-color-picker--open"])
-  if (fullWidth) classes.push(classMap["pm-color-picker--full-width"])
+  if (disabled) classes.push(classMap["pm-colorpicker--disabled"])
+  if (open) classes.push(classMap["pm-colorpicker--open"])
+  if (fullWidth) classes.push(classMap["pm-colorpicker--full-width"])
 
   return classes.filter(Boolean).join(" ")
 }
 `,
 
   "color-picker.css": `@layer pm.components {
-  .pm-color-picker {
-    --_pm-color-picker-radius: var(--pm-radius-md);
+  .pm-colorpicker {
+    --_pm-colorpicker-radius: var(--pm-radius-md);
 
     position: relative;
     display: inline-flex;
     flex-direction: column;
     font-family: var(--pm-font-family-sans);
 
-    &.pm-color-picker--disabled {
+    &.pm-colorpicker--disabled {
       opacity: 0.5;
       cursor: not-allowed;
       pointer-events: none;
     }
 
-    &.pm-color-picker--full-width {
+    &.pm-colorpicker--full-width {
       width: 100%;
     }
   }
 
-  .pm-color-picker__trigger {
+  .pm-colorpicker__trigger {
     display: inline-flex;
     align-items: center;
     gap: var(--pm-spacing-2);
     border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
-    border-radius: var(--_pm-color-picker-radius);
+    border-radius: var(--_pm-colorpicker-radius);
     background: none;
     cursor: pointer;
     transition-property: border-color, box-shadow;
@@ -2562,58 +2562,58 @@ export function colorPickerModuleClasses(
     }
   }
 
-  .pm-color-picker--xs .pm-color-picker__trigger {
+  .pm-colorpicker--xs .pm-colorpicker__trigger {
     padding: var(--pm-spacing-0-5) var(--pm-spacing-1-5);
     height: var(--pm-spacing-6);
     font-size: var(--pm-font-size-xs);
   }
 
-  .pm-color-picker--sm .pm-color-picker__trigger {
+  .pm-colorpicker--sm .pm-colorpicker__trigger {
     padding: var(--pm-spacing-1) var(--pm-spacing-2);
     height: var(--pm-spacing-8);
     font-size: var(--pm-font-size-sm);
   }
 
-  .pm-color-picker--md .pm-color-picker__trigger {
+  .pm-colorpicker--md .pm-colorpicker__trigger {
     padding: var(--pm-spacing-2) var(--pm-spacing-3);
     height: var(--pm-spacing-10);
     font-size: var(--pm-font-size-md);
   }
 
-  .pm-color-picker--lg .pm-color-picker__trigger {
+  .pm-colorpicker--lg .pm-colorpicker__trigger {
     padding: var(--pm-spacing-3) var(--pm-spacing-4);
     height: var(--pm-spacing-12);
     font-size: var(--pm-font-size-lg);
   }
 
-  .pm-color-picker__swatch {
+  .pm-colorpicker__swatch {
     display: inline-block;
     flex-shrink: 0;
     border-radius: var(--pm-radius-sm);
     border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
   }
 
-  .pm-color-picker--xs .pm-color-picker__swatch {
+  .pm-colorpicker--xs .pm-colorpicker__swatch {
     width: 16px;
     height: 16px;
   }
 
-  .pm-color-picker--sm .pm-color-picker__swatch {
+  .pm-colorpicker--sm .pm-colorpicker__swatch {
     width: 18px;
     height: 18px;
   }
 
-  .pm-color-picker--md .pm-color-picker__swatch {
+  .pm-colorpicker--md .pm-colorpicker__swatch {
     width: 22px;
     height: 22px;
   }
 
-  .pm-color-picker--lg .pm-color-picker__swatch {
+  .pm-colorpicker--lg .pm-colorpicker__swatch {
     width: 26px;
     height: 26px;
   }
 
-  .pm-color-picker__popover {
+  .pm-colorpicker__popover {
     display: none;
     position: absolute;
     top: 100%;
@@ -2621,20 +2621,20 @@ export function colorPickerModuleClasses(
     z-index: 10;
     margin-top: var(--pm-spacing-1);
     border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-    border-radius: var(--_pm-color-picker-radius);
+    border-radius: var(--_pm-colorpicker-radius);
     background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
     box-shadow: var(--pm-shadow-lg);
     padding: var(--pm-spacing-3);
     min-width: 240px;
   }
 
-  .pm-color-picker--open .pm-color-picker__popover {
+  .pm-colorpicker--open .pm-colorpicker__popover {
     display: flex;
     flex-direction: column;
     gap: var(--pm-spacing-3);
   }
 
-  .pm-color-picker__saturation {
+  .pm-colorpicker__saturation {
     position: relative;
     width: 100%;
     height: 160px;
@@ -2643,7 +2643,7 @@ export function colorPickerModuleClasses(
     overflow: hidden;
   }
 
-  .pm-color-picker__saturation-cursor {
+  .pm-colorpicker__saturation-cursor {
     position: absolute;
     width: 16px;
     height: 16px;
@@ -2654,25 +2654,25 @@ export function colorPickerModuleClasses(
     pointer-events: none;
   }
 
-  .pm-color-picker__sliders {
+  .pm-colorpicker__sliders {
     display: flex;
     flex-direction: column;
     gap: var(--pm-spacing-2);
   }
 
-  .pm-color-picker__hue,
-  .pm-color-picker__alpha {
+  .pm-colorpicker__hue,
+  .pm-colorpicker__alpha {
     position: relative;
     height: 12px;
     border-radius: var(--pm-radius-full);
     cursor: pointer;
   }
 
-  .pm-color-picker__hue {
+  .pm-colorpicker__hue {
     background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
   }
 
-  .pm-color-picker__slider-thumb {
+  .pm-colorpicker__slider-thumb {
     position: absolute;
     top: 50%;
     width: 16px;
@@ -2693,13 +2693,13 @@ export function colorPickerModuleClasses(
     }
   }
 
-  .pm-color-picker__swatches {
+  .pm-colorpicker__swatches {
     display: flex;
     flex-wrap: wrap;
     gap: var(--pm-spacing-1);
   }
 
-  .pm-color-picker__swatches button {
+  .pm-colorpicker__swatches button {
     width: 24px;
     height: 24px;
     border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
@@ -2713,13 +2713,13 @@ export function colorPickerModuleClasses(
     }
   }
 
-  .pm-color-picker__input {
+  .pm-colorpicker__input {
     display: flex;
     gap: var(--pm-spacing-2);
     align-items: center;
   }
 
-  .pm-color-picker__input input {
+  .pm-colorpicker__input input {
     flex: 1;
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-sm);
@@ -2736,39 +2736,39 @@ export function colorPickerModuleClasses(
   }
 
   /* ---- Theme overrides ---- */
-  :where([data-theme="antd"]) .pm-color-picker {
-    --_pm-color-picker-radius: 4px;
+  :where([data-theme="antd"]) .pm-colorpicker {
+    --_pm-colorpicker-radius: 4px;
   }
 
-  :where([data-theme="material"]) .pm-color-picker {
-    --_pm-color-picker-radius: 12px;
+  :where([data-theme="material"]) .pm-colorpicker {
+    --_pm-colorpicker-radius: 12px;
   }
 
-  :where([data-theme="bootstrap"]) .pm-color-picker {
-    --_pm-color-picker-radius: 6px;
+  :where([data-theme="bootstrap"]) .pm-colorpicker {
+    --_pm-colorpicker-radius: 6px;
   }
 }
 `,
 
   "color-picker.module.css": `@layer pm.components {
-  .pm-color-picker {
+  .pm-colorpicker {
     position: relative;
     display: inline-flex;
     flex-direction: column;
     font-family: var(--pm-font-family-sans);
   }
 
-  .pm-color-picker--disabled {
+  .pm-colorpicker--disabled {
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
   }
 
-  .pm-color-picker--full-width {
+  .pm-colorpicker--full-width {
     width: 100%;
   }
 
-  .pm-color-picker__trigger {
+  .pm-colorpicker__trigger {
     display: inline-flex;
     align-items: center;
     gap: var(--pm-spacing-2);
@@ -2782,36 +2782,36 @@ export function colorPickerModuleClasses(
     color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
   }
 
-  .pm-color-picker__trigger:focus-visible {
+  .pm-colorpicker__trigger:focus-visible {
     outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
-  .pm-color-picker--xs .pm-color-picker__trigger {
+  .pm-colorpicker--xs .pm-colorpicker__trigger {
     padding: var(--pm-spacing-0-5) var(--pm-spacing-1-5);
     height: var(--pm-spacing-6);
     font-size: var(--pm-font-size-xs);
   }
 
-  .pm-color-picker--sm .pm-color-picker__trigger {
+  .pm-colorpicker--sm .pm-colorpicker__trigger {
     padding: var(--pm-spacing-1) var(--pm-spacing-2);
     height: var(--pm-spacing-8);
     font-size: var(--pm-font-size-sm);
   }
 
-  .pm-color-picker--md .pm-color-picker__trigger {
+  .pm-colorpicker--md .pm-colorpicker__trigger {
     padding: var(--pm-spacing-2) var(--pm-spacing-3);
     height: var(--pm-spacing-10);
     font-size: var(--pm-font-size-md);
   }
 
-  .pm-color-picker--lg .pm-color-picker__trigger {
+  .pm-colorpicker--lg .pm-colorpicker__trigger {
     padding: var(--pm-spacing-3) var(--pm-spacing-4);
     height: var(--pm-spacing-12);
     font-size: var(--pm-font-size-lg);
   }
 
-  .pm-color-picker__swatch {
+  .pm-colorpicker__swatch {
     display: inline-block;
     flex-shrink: 0;
     border-radius: var(--pm-radius-sm);
@@ -2820,7 +2820,7 @@ export function colorPickerModuleClasses(
     height: 22px;
   }
 
-  .pm-color-picker__popover {
+  .pm-colorpicker__popover {
     display: none;
     position: absolute;
     top: 100%;
@@ -2835,13 +2835,13 @@ export function colorPickerModuleClasses(
     min-width: 240px;
   }
 
-  .pm-color-picker--open .pm-color-picker__popover {
+  .pm-colorpicker--open .pm-colorpicker__popover {
     display: flex;
     flex-direction: column;
     gap: var(--pm-spacing-3);
   }
 
-  .pm-color-picker__saturation {
+  .pm-colorpicker__saturation {
     position: relative;
     width: 100%;
     height: 160px;
@@ -2850,7 +2850,7 @@ export function colorPickerModuleClasses(
     overflow: hidden;
   }
 
-  .pm-color-picker__saturation-cursor {
+  .pm-colorpicker__saturation-cursor {
     position: absolute;
     width: 16px;
     height: 16px;
@@ -2861,13 +2861,13 @@ export function colorPickerModuleClasses(
     pointer-events: none;
   }
 
-  .pm-color-picker__sliders {
+  .pm-colorpicker__sliders {
     display: flex;
     flex-direction: column;
     gap: var(--pm-spacing-2);
   }
 
-  .pm-color-picker__hue {
+  .pm-colorpicker__hue {
     position: relative;
     height: 12px;
     border-radius: var(--pm-radius-full);
@@ -2875,14 +2875,14 @@ export function colorPickerModuleClasses(
     background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
   }
 
-  .pm-color-picker__alpha {
+  .pm-colorpicker__alpha {
     position: relative;
     height: 12px;
     border-radius: var(--pm-radius-full);
     cursor: pointer;
   }
 
-  .pm-color-picker__slider-thumb {
+  .pm-colorpicker__slider-thumb {
     position: absolute;
     top: 50%;
     width: 16px;
@@ -2894,12 +2894,12 @@ export function colorPickerModuleClasses(
     cursor: grab;
   }
 
-  .pm-color-picker__slider-thumb:focus-visible {
+  .pm-colorpicker__slider-thumb:focus-visible {
     outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
-  .pm-color-picker__swatches {
+  .pm-colorpicker__swatches {
     display: flex;
     flex-wrap: wrap;
     gap: var(--pm-spacing-1);
@@ -3344,7 +3344,7 @@ export interface LabelProps extends LabelClassesOptions {
 // Form Control
 writeComponent("form-control", {
   "form-control.types.ts": `/** Options for generating form control class names */
-export interface FormControlClassesOptions {
+export interface FormCtrlClassesOptions {
   /** Layout orientation of label + input */
   orientation?: "vertical" | "horizontal"
   /** Whether the associated control is in an invalid state */
@@ -3356,7 +3356,7 @@ export interface FormControlClassesOptions {
 }
 
 /** Props for the form control component */
-export interface FormControlProps extends FormControlClassesOptions {
+export interface FormCtrlProps extends FormCtrlClassesOptions {
   /** Unique ID for the form control, used to connect label/input/helper */
   id?: string
   /** Label text */
@@ -3606,7 +3606,7 @@ writeComponent("file-upload", {
   "file-upload.types.ts": `import type { FormSize } from "../shared.types.js"
 
 /** Options for generating file upload class names */
-export interface FileUploadClassesOptions {
+export interface UploadClassesOptions {
   /** Size of the trigger button */
   size?: FormSize
   /** Whether the file upload is disabled */
@@ -3614,7 +3614,7 @@ export interface FileUploadClassesOptions {
 }
 
 /** Props for the file upload component */
-export interface FileUploadProps extends FileUploadClassesOptions {
+export interface UploadProps extends UploadClassesOptions {
   /** Accepted file types (MIME types or extensions) */
   accept?: string
   /** Whether multiple files can be selected */
@@ -3902,7 +3902,7 @@ writeComponent("native-select", {
   "native-select.types.ts": `import type { FormSize, InputVariant } from "../shared.types.js"
 
 /** Options for generating native select class names */
-export interface NativeSelectClassesOptions {
+export interface NativeSelClassesOptions {
   /** Visual variant */
   variant?: InputVariant
   /** Size of the select */
@@ -3916,7 +3916,7 @@ export interface NativeSelectClassesOptions {
 }
 
 /** Props for the native select component */
-export interface NativeSelectProps extends NativeSelectClassesOptions {
+export interface NativeSelProps extends NativeSelClassesOptions {
   /** Controlled value */
   value?: string
   /** Default value for uncontrolled usage */
@@ -3940,7 +3940,7 @@ writeComponent("multi-select", {
   "multi-select.types.ts": `import type { FormSize, InputVariant } from "../shared.types.js"
 
 /** Options for generating multi select class names */
-export interface MultiSelectClassesOptions {
+export interface MultiSelClassesOptions {
   /** Visual variant */
   variant?: InputVariant
   /** Size of the multi select */
@@ -3956,7 +3956,7 @@ export interface MultiSelectClassesOptions {
 }
 
 /** Props for the multi select component */
-export interface MultiSelectProps extends MultiSelectClassesOptions {
+export interface MultiSelProps extends MultiSelClassesOptions {
   /** Controlled selected values */
   value?: string[]
   /** Default values for uncontrolled usage */
@@ -4084,7 +4084,7 @@ writeComponent("date-picker", {
   "date-picker.types.ts": `import type { FormSize, InputVariant } from "../shared.types.js"
 
 /** Options for generating date picker class names */
-export interface DatePickerClassesOptions {
+export interface DatepickerClassesOptions {
   /** Visual variant */
   variant?: InputVariant
   /** Size of the date picker */
@@ -4100,7 +4100,7 @@ export interface DatePickerClassesOptions {
 }
 
 /** Props for the date picker component */
-export interface DatePickerProps extends DatePickerClassesOptions {
+export interface DatepickerProps extends DatepickerClassesOptions {
   /** Controlled value */
   value?: Date
   /** Default value for uncontrolled usage */
@@ -4134,7 +4134,7 @@ writeComponent("date-range-picker", {
   "date-range-picker.types.ts": `import type { FormSize, InputVariant } from "../shared.types.js"
 
 /** Options for generating date range picker class names */
-export interface DateRangePickerClassesOptions {
+export interface DaterangeClassesOptions {
   /** Visual variant */
   variant?: InputVariant
   /** Size of the date range picker */
@@ -4150,7 +4150,7 @@ export interface DateRangePickerClassesOptions {
 }
 
 /** Props for the date range picker component */
-export interface DateRangePickerProps extends DateRangePickerClassesOptions {
+export interface DaterangeProps extends DaterangeClassesOptions {
   /** Controlled range value [start, end] */
   value?: [Date | null, Date | null]
   /** Default range value for uncontrolled usage */
@@ -4187,7 +4187,7 @@ writeComponent("time-picker", {
 export type TimeFormat = "12h" | "24h"
 
 /** Options for generating time picker class names */
-export interface TimePickerClassesOptions {
+export interface TimepickerClassesOptions {
   /** Visual variant */
   variant?: InputVariant
   /** Size of the time picker */
@@ -4203,7 +4203,7 @@ export interface TimePickerClassesOptions {
 }
 
 /** Props for the time picker component */
-export interface TimePickerProps extends TimePickerClassesOptions {
+export interface TimepickerProps extends TimepickerClassesOptions {
   /** Controlled value as a string (e.g. "14:30") */
   value?: string
   /** Default value for uncontrolled usage */

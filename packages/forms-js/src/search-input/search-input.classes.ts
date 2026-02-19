@@ -1,11 +1,11 @@
-import type { SearchInputClassesOptions } from "./search-input.types.js"
+import type { SearchClassesOptions } from "./search-input.types.js"
 
-const BASE = "pm-search-input"
+const BASE = "pm-search"
 
 /**
  * Returns BEM class names for the search input wrapper (human-readable).
  */
-export function searchInputClasses(options: SearchInputClassesOptions = {}): string {
+export function searchClasses(options: SearchClassesOptions = {}): string {
   const { variant = "outline", size = "md", invalid = false, disabled = false, fullWidth = false } =
     options
   const classes = [BASE, `${BASE}--${variant}`, `${BASE}--${size}`]
@@ -20,22 +20,22 @@ export function searchInputClasses(options: SearchInputClassesOptions = {}): str
 /**
  * Returns CSS module class names for the search input wrapper (hashed).
  */
-export function searchInputModuleClasses(
+export function searchModuleClasses(
   classMap: Record<string, string>,
-  options: SearchInputClassesOptions = {},
+  options: SearchClassesOptions = {},
 ): string {
   const { variant = "outline", size = "md", invalid = false, disabled = false, fullWidth = false } =
     options
 
   const classes = [
-    classMap["pm-search-input"],
-    classMap[`pm-search-input--${variant}`],
-    classMap[`pm-search-input--${size}`],
+    classMap["pm-search"],
+    classMap[`pm-search--${variant}`],
+    classMap[`pm-search--${size}`],
   ]
 
-  if (invalid) classes.push(classMap["pm-search-input--invalid"])
-  if (disabled) classes.push(classMap["pm-search-input--disabled"])
-  if (fullWidth) classes.push(classMap["pm-search-input--full-width"])
+  if (invalid) classes.push(classMap["pm-search--invalid"])
+  if (disabled) classes.push(classMap["pm-search--disabled"])
+  if (fullWidth) classes.push(classMap["pm-search--full-width"])
 
   return classes.filter(Boolean).join(" ")
 }

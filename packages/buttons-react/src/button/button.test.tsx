@@ -1,67 +1,67 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { Button } from "./button.js"
+import { Btn } from "./button.js"
 
 afterEach(cleanup)
 
-describe("Button", () => {
+describe("Btn", () => {
   it("renders with text content", () => {
-    render(<Button>Click me</Button>)
+    render(<Btn>Click me</Btn>)
     expect(screen.getByRole("button", { name: "Click me" })).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<Button>Default</Button>)
+    render(<Btn>Default</Btn>)
     const button = screen.getByRole("button", { name: "Default" })
-    expect(button.className).toContain("pm-button")
-    expect(button.className).toContain("pm-button--primary")
-    expect(button.className).toContain("pm-button--md")
+    expect(button.className).toContain("pm-btn")
+    expect(button.className).toContain("pm-btn--primary")
+    expect(button.className).toContain("pm-btn--md")
   })
 
   it("applies variant class", () => {
-    render(<Button variant="danger">Danger</Button>)
+    render(<Btn variant="danger">Danger</Btn>)
     const button = screen.getByRole("button", { name: "Danger" })
-    expect(button.className).toContain("pm-button--danger")
+    expect(button.className).toContain("pm-btn--danger")
   })
 
   it("applies size class", () => {
-    render(<Button size="lg">Large</Button>)
+    render(<Btn size="lg">Large</Btn>)
     const button = screen.getByRole("button", { name: "Large" })
-    expect(button.className).toContain("pm-button--lg")
+    expect(button.className).toContain("pm-btn--lg")
   })
 
   it("sets disabled attribute and aria-disabled", () => {
-    render(<Button disabled>Disabled</Button>)
+    render(<Btn disabled>Disabled</Btn>)
     const button = screen.getByRole("button", { name: "Disabled" })
     expect(button).toBeDisabled()
     expect(button).toHaveAttribute("aria-disabled", "true")
   })
 
   it("defaults to type=button", () => {
-    render(<Button>Click</Button>)
+    render(<Btn>Click</Btn>)
     expect(screen.getByRole("button", { name: "Click" })).toHaveAttribute("type", "button")
   })
 
   it("allows type=submit", () => {
-    render(<Button type="submit">Submit</Button>)
+    render(<Btn type="submit">Submit</Btn>)
     expect(screen.getByRole("button", { name: "Submit" })).toHaveAttribute("type", "submit")
   })
 
   it("forwards ref", () => {
     let buttonRef: HTMLButtonElement | null = null
-    render(<Button ref={(el) => (buttonRef = el)}>Ref</Button>)
+    render(<Btn ref={(el) => (buttonRef = el)}>Ref</Btn>)
     expect(buttonRef).toBeInstanceOf(HTMLButtonElement)
   })
 
   it("merges custom className", () => {
-    render(<Button className="custom-class">Custom</Button>)
+    render(<Btn className="custom-class">Custom</Btn>)
     const button = screen.getByRole("button", { name: "Custom" })
-    expect(button.className).toContain("pm-button")
+    expect(button.className).toContain("pm-btn")
     expect(button.className).toContain("custom-class")
   })
 
   it("passes through additional HTML attributes", () => {
-    render(<Button data-testid="my-button">Test</Button>)
+    render(<Btn data-testid="my-button">Test</Btn>)
     expect(screen.getByTestId("my-button")).toBeInTheDocument()
   })
 })

@@ -1,19 +1,19 @@
 import { forwardRef, useCallback } from "react"
-import { numberInputClasses, inputClasses } from "@paramanu/forms-js"
-import type { NumberInputProps } from "@paramanu/forms-js"
+import { numInputClasses, inputClasses } from "@paramanu/forms-js"
+import type { NumInputProps } from "@paramanu/forms-js"
 
-export interface ReactNumberInputProps
-  extends NumberInputProps,
+export interface ReactNumInputProps
+  extends NumInputProps,
     Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type" | "min" | "max" | "step"> {
   children?: React.ReactNode
 }
 
-export const NumberInput = forwardRef<HTMLInputElement, ReactNumberInputProps>(
-  function NumberInput(
+export const NumInput = forwardRef<HTMLInputElement, ReactNumInputProps>(
+  function NumInput(
     { variant, size, disabled, invalid, min, max, step = 1, className, onChange, ...rest },
     ref,
   ) {
-    const wrapperClasses = numberInputClasses({ variant, size, invalid, disabled })
+    const wrapperClasses = numInputClasses({ variant, size, invalid, disabled })
     const innerClasses = inputClasses({ variant, size, invalid, disabled })
     const combinedWrapperClassName = className ? `${wrapperClasses} ${className}` : wrapperClasses
 
@@ -52,10 +52,10 @@ export const NumberInput = forwardRef<HTMLInputElement, ReactNumberInputProps>(
           onChange={onChange}
           {...rest}
         />
-        <div className="pm-number-input__stepper">
+        <div className="pm-num-input__stepper">
           <button
             type="button"
-            className="pm-number-input__increment"
+            className="pm-num-input__increment"
             aria-label="Increment"
             onClick={() => handleStep(1)}
             disabled={disabled}
@@ -65,7 +65,7 @@ export const NumberInput = forwardRef<HTMLInputElement, ReactNumberInputProps>(
           </button>
           <button
             type="button"
-            className="pm-number-input__decrement"
+            className="pm-num-input__decrement"
             aria-label="Decrement"
             onClick={() => handleStep(-1)}
             disabled={disabled}

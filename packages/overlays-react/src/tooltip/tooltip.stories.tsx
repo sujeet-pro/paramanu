@@ -5,7 +5,7 @@ import { Tooltip } from "./tooltip.js"
 const meta = {
   title: "Overlays/Tooltip",
   component: Tooltip,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     placement: {
       control: "select",

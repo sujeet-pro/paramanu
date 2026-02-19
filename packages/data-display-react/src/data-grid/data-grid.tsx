@@ -1,18 +1,18 @@
 import { forwardRef } from "react"
-import { dataGridClasses } from "@paramanu/data-display-js"
-import type { DataGridClassesOptions } from "@paramanu/data-display-js"
+import { datagridClasses } from "@paramanu/data-display-js"
+import type { DatagridClassesOptions } from "@paramanu/data-display-js"
 
-export interface ReactDataGridProps
-  extends DataGridClassesOptions,
+export interface ReactDatagridProps
+  extends DatagridClassesOptions,
     React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const DataGrid = forwardRef<HTMLDivElement, ReactDataGridProps>(function DataGrid(
+export const Datagrid = forwardRef<HTMLDivElement, ReactDatagridProps>(function Datagrid(
   { size, bordered, hoverable, stickyHeader, resizable, className, children, ...rest },
   ref,
 ) {
-  const classes = dataGridClasses({ size, bordered, hoverable, stickyHeader, resizable })
+  const classes = datagridClasses({ size, bordered, hoverable, stickyHeader, resizable })
   const combinedClassName = className ? `${classes.root} ${className}` : classes.root
 
   return (
@@ -22,13 +22,13 @@ export const DataGrid = forwardRef<HTMLDivElement, ReactDataGridProps>(function 
   )
 })
 
-export interface ReactDataGridRowProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactDatagridRowProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const DataGridRow = forwardRef<HTMLDivElement, ReactDataGridRowProps>(
-  function DataGridRow({ className, children, ...rest }, ref) {
-    const classes = dataGridClasses()
+export const DatagridRow = forwardRef<HTMLDivElement, ReactDatagridRowProps>(
+  function DatagridRow({ className, children, ...rest }, ref) {
+    const classes = datagridClasses()
     const combinedClassName = className ? `${classes.row} ${className}` : classes.row
 
     return (
@@ -39,13 +39,13 @@ export const DataGridRow = forwardRef<HTMLDivElement, ReactDataGridRowProps>(
   },
 )
 
-export interface ReactDataGridCellProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactDatagridCellProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const DataGridCell = forwardRef<HTMLDivElement, ReactDataGridCellProps>(
-  function DataGridCell({ className, children, ...rest }, ref) {
-    const classes = dataGridClasses()
+export const DatagridCell = forwardRef<HTMLDivElement, ReactDatagridCellProps>(
+  function DatagridCell({ className, children, ...rest }, ref) {
+    const classes = datagridClasses()
     const combinedClassName = className ? `${classes.cell} ${className}` : classes.cell
 
     return (
@@ -56,13 +56,13 @@ export const DataGridCell = forwardRef<HTMLDivElement, ReactDataGridCellProps>(
   },
 )
 
-export interface ReactDataGridColumnHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactDatagridColumnHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const DataGridColumnHeader = forwardRef<HTMLDivElement, ReactDataGridColumnHeaderProps>(
-  function DataGridColumnHeader({ className, children, ...rest }, ref) {
-    const classes = dataGridClasses()
+export const DatagridColumnHeader = forwardRef<HTMLDivElement, ReactDatagridColumnHeaderProps>(
+  function DatagridColumnHeader({ className, children, ...rest }, ref) {
+    const classes = datagridClasses()
     const combinedClassName = className
       ? `${classes.columnHeader} ${className}`
       : classes.columnHeader

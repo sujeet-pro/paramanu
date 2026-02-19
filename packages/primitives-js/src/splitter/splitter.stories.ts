@@ -31,7 +31,7 @@ function createSplitter(args: SplitterClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Splitter",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createSplitter(args as SplitterClassesOptions),
   argTypes: {
     orientation: { control: "select", options: ["horizontal", "vertical"] },

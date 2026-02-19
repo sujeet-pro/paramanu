@@ -4,7 +4,7 @@ import { Mark } from "./mark.js"
 
 const meta = {
   title: "Typography/Mark",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Mark,
   argTypes: {
     variant: { control: "select", options: ["default", "underline", "circle", "filled"] },

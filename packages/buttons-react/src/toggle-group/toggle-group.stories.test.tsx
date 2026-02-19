@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("ToggleGroup Stories", () => {
+describe("ToggleGrp Stories", () => {
   it("Playground renders without crashing", () => {
     render(<composed.Playground />)
     expect(screen.getByRole("group")).toBeInTheDocument()

@@ -53,7 +53,7 @@ function createCardGroup(): HTMLElement {
 
 const meta = {
   title: "Forms/Radio Card",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createRadioCard(args as RadioCardArgs),
   argTypes: {
     size: {

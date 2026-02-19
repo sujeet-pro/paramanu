@@ -12,39 +12,39 @@
   }
 
   .pm-input:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
   .pm-input--outline {
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border: 1px solid var(--pm-neutral-active);
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
   }
 
   .pm-input--outline::placeholder {
-    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    color: var(--pm-fg-subtle);
   }
 
   .pm-input--filled {
     border: 1px solid transparent;
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    background-color: var(--pm-bg-muted);
+    color: var(--pm-fg);
   }
 
   .pm-input--filled::placeholder {
-    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    color: var(--pm-fg-subtle);
   }
 
   .pm-input--filled:focus-visible {
     background-color: transparent;
-    border-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+    border-color: var(--pm-primary-border);
   }
 
   .pm-input--unstyled {
     border: none;
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
     border-radius: 0;
     padding: 0;
   }
@@ -78,7 +78,7 @@
   }
 
   .pm-input--invalid {
-    border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+    border-color: var(--pm-danger-border);
   }
 
   .pm-input--disabled {
@@ -87,7 +87,7 @@
   }
 
   .pm-input--read-only {
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-900));
+    background-color: var(--pm-bg-subtle);
     cursor: default;
   }
 

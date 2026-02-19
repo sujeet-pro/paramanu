@@ -26,7 +26,7 @@ function createBox(args: BoxArgs): HTMLElement {
 
 const meta = {
   title: "Primitives/Box",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createBox(args as BoxArgs),
   argTypes: {
     display: {

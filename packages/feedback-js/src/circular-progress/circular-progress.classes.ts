@@ -1,9 +1,9 @@
-import type { CircularProgressClassesOptions } from "./circular-progress.types.js"
+import type { RingProgressClassesOptions } from "./circular-progress.types.js"
 
-const BASE = "pm-circular-progress"
+const BASE = "pm-ring-progress"
 
 /** Structured class names for the circular progress component and its sub-elements. */
-export interface CircularProgressClassesResult {
+export interface RingProgressClassesResult {
   /** Root element class names. */
   root: string
   /** SVG element class. */
@@ -23,13 +23,13 @@ export interface CircularProgressClassesResult {
  *
  * @example
  * ```ts
- * const classes = circularProgressClasses({ size: "lg", variant: "success" })
- * // classes.root => "pm-circular-progress pm-circular-progress--lg pm-circular-progress--success"
+ * const classes = ringProgressClasses({ size: "lg", variant: "success" })
+ * // classes.root => "pm-ring-progress pm-ring-progress--lg pm-ring-progress--success"
  * ```
  */
-export function circularProgressClasses(
-  options: CircularProgressClassesOptions = {},
-): CircularProgressClassesResult {
+export function ringProgressClasses(
+  options: RingProgressClassesOptions = {},
+): RingProgressClassesResult {
   const { size = "md", variant = "primary", indeterminate = false, showLabel = false } = options
 
   const rootClasses = [BASE, `${BASE}--${size}`, `${BASE}--${variant}`]
@@ -51,26 +51,26 @@ export function circularProgressClasses(
  * Returns an object with classes for root, svg, track, fill, and label sub-elements.
  * Used by bundled/template consumers who import CSS modules.
  */
-export function circularProgressModuleClasses(
+export function ringProgressModuleClasses(
   classMap: Record<string, string>,
-  options: CircularProgressClassesOptions = {},
-): CircularProgressClassesResult {
+  options: RingProgressClassesOptions = {},
+): RingProgressClassesResult {
   const { size = "md", variant = "primary", indeterminate = false, showLabel = false } = options
 
   const rootClasses = [
-    classMap["pm-circular-progress"],
-    classMap[`pm-circular-progress--${size}`],
-    classMap[`pm-circular-progress--${variant}`],
+    classMap["pm-ring-progress"],
+    classMap[`pm-ring-progress--${size}`],
+    classMap[`pm-ring-progress--${variant}`],
   ]
 
-  if (indeterminate) rootClasses.push(classMap["pm-circular-progress--indeterminate"])
-  if (showLabel) rootClasses.push(classMap["pm-circular-progress--with-label"])
+  if (indeterminate) rootClasses.push(classMap["pm-ring-progress--indeterminate"])
+  if (showLabel) rootClasses.push(classMap["pm-ring-progress--with-label"])
 
   return {
     root: rootClasses.filter(Boolean).join(" "),
-    svg: classMap["pm-circular-progress__svg"] ?? "",
-    track: classMap["pm-circular-progress__track"] ?? "",
-    fill: classMap["pm-circular-progress__fill"] ?? "",
-    label: classMap["pm-circular-progress__label"] ?? "",
+    svg: classMap["pm-ring-progress__svg"] ?? "",
+    track: classMap["pm-ring-progress__track"] ?? "",
+    fill: classMap["pm-ring-progress__fill"] ?? "",
+    label: classMap["pm-ring-progress__label"] ?? "",
   }
 }

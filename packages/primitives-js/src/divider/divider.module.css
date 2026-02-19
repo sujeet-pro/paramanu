@@ -1,6 +1,6 @@
 @layer pm.components {
   .pm-divider {
-    --pm-divider-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    --pm-divider-color: var(--pm-neutral-hover);
     border: 0;
     border-color: var(--pm-divider-color);
   }

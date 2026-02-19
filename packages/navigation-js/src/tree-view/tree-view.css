@@ -1,5 +1,5 @@
 @layer pm.components {
-  .pm-tree-view {
+  .pm-tree {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -7,26 +7,26 @@
   }
 
   /* Size variants */
-  .pm-tree-view--sm {
+  .pm-tree--sm {
     font-size: var(--pm-font-size-xs);
   }
 
-  .pm-tree-view--md {
+  .pm-tree--md {
     font-size: var(--pm-font-size-sm);
   }
 
   /* Branch */
-  .pm-tree-view__branch {
+  .pm-tree__branch {
     list-style: none;
   }
 
   /* Item (leaf or clickable row) */
-  .pm-tree-view__item {
+  .pm-tree__item {
     list-style: none;
   }
 
   /* Item content wrapper */
-  .pm-tree-view__item-content {
+  .pm-tree__item-content {
     display: flex;
     align-items: center;
     gap: var(--pm-spacing-1);
@@ -34,35 +34,35 @@
     padding-block: var(--pm-spacing-1);
     border-radius: var(--pm-radius-sm);
     cursor: pointer;
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    color: var(--pm-neutral-fg);
     transition-property: color, background-color;
     transition-duration: var(--pm-transition-fast);
     transition-timing-function: ease-in-out;
 
     &:hover {
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      background-color: var(--pm-bg-muted);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
   }
 
-  .pm-tree-view__item--selected > .pm-tree-view__item-content {
-    color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
-    background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-950));
+  .pm-tree__item--selected > .pm-tree__item-content {
+    color: var(--pm-fg-link-hover);
+    background-color: var(--pm-primary-subtle);
     font-weight: var(--pm-font-weight-medium);
   }
 
-  .pm-tree-view__item--disabled > .pm-tree-view__item-content {
+  .pm-tree__item--disabled > .pm-tree__item-content {
     opacity: 0.5;
     pointer-events: none;
     cursor: default;
   }
 
   /* Indicator (expand/collapse arrow) */
-  .pm-tree-view__indicator {
+  .pm-tree__indicator {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -84,12 +84,12 @@
     }
   }
 
-  .pm-tree-view__indicator--expanded {
+  .pm-tree__indicator--expanded {
     transform: rotate(90deg);
   }
 
   /* Nested group */
-  .pm-tree-view__group {
+  .pm-tree__group {
     list-style: none;
     margin: 0;
     padding: 0;

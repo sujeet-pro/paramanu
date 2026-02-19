@@ -4,7 +4,7 @@ import { Blockquote } from "./blockquote.js"
 
 const meta = {
   title: "Typography/Blockquote",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Blockquote,
   argTypes: {
     variant: { control: "select", options: ["default", "accent", "filled"] },

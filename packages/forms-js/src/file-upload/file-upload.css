@@ -1,18 +1,18 @@
 @layer pm.components {
-  .pm-file-upload {
+  .pm-upload {
     display: flex;
     flex-direction: column;
     gap: var(--pm-spacing-3);
     font-family: var(--pm-font-family-sans);
 
-    &.pm-file-upload--disabled {
+    &.pm-upload--disabled {
       opacity: 0.5;
       cursor: not-allowed;
       pointer-events: none;
     }
   }
 
-  .pm-file-upload__input {
+  .pm-upload__input {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -24,72 +24,72 @@
     border: 0;
   }
 
-  .pm-file-upload__trigger {
+  .pm-upload__trigger {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: var(--pm-spacing-2);
     font-family: inherit;
     font-weight: var(--pm-font-weight-medium);
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border: 1px solid var(--pm-neutral-active);
     border-radius: var(--pm-radius-md);
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+    color: var(--pm-neutral-fg);
     cursor: pointer;
     transition-property: background-color, border-color;
     transition-duration: var(--pm-transition-fast);
 
     &:hover {
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      background-color: var(--pm-bg-muted);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
   }
 
-  .pm-file-upload--sm .pm-file-upload__trigger {
+  .pm-upload--sm .pm-upload__trigger {
     padding: var(--pm-spacing-1) var(--pm-spacing-3);
     font-size: var(--pm-font-size-sm);
   }
 
-  .pm-file-upload--md .pm-file-upload__trigger {
+  .pm-upload--md .pm-upload__trigger {
     padding: var(--pm-spacing-2) var(--pm-spacing-4);
     font-size: var(--pm-font-size-md);
   }
 
-  .pm-file-upload--lg .pm-file-upload__trigger {
+  .pm-upload--lg .pm-upload__trigger {
     padding: var(--pm-spacing-3) var(--pm-spacing-5);
     font-size: var(--pm-font-size-lg);
   }
 
-  .pm-file-upload__file-list {
+  .pm-upload__file-list {
     display: flex;
     flex-direction: column;
     gap: var(--pm-spacing-2);
   }
 
-  .pm-file-upload__file-item {
+  .pm-upload__file-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--pm-spacing-2);
     padding: var(--pm-spacing-2) var(--pm-spacing-3);
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-md);
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-900));
+    background-color: var(--pm-bg-subtle);
   }
 
-  .pm-file-upload__file-name {
+  .pm-upload__file-name {
     font-size: var(--pm-font-size-sm);
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+    color: var(--pm-neutral-fg);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
-  .pm-file-upload__file-remove {
+  .pm-upload__file-remove {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -97,18 +97,18 @@
     border: none;
     padding: var(--pm-spacing-0-5);
     cursor: pointer;
-    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    color: var(--pm-fg-subtle);
     border-radius: var(--pm-radius-full);
     transition-property: color, background-color;
     transition-duration: var(--pm-transition-fast);
 
     &:hover {
-      color: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-400));
-      background-color: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-950));
+      color: var(--pm-danger);
+      background-color: var(--pm-danger-subtle);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
   }

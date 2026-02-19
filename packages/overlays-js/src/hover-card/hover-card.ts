@@ -2,13 +2,13 @@ import { computePosition } from "../_internal/position.js"
 import type { Placement } from "../_internal/position.js"
 import { createPresence } from "@paramanu/utilities-js"
 import type { PresenceInstance } from "@paramanu/utilities-js"
-import type { CreateHoverCardOptions, HoverCardInstance } from "./hover-card.types.js"
+import type { CreateHovercardOptions, HovercardInstance } from "./hover-card.types.js"
 
-export function createHoverCard(
+export function createHovercard(
   trigger: HTMLElement,
   card: HTMLElement,
-  options: CreateHoverCardOptions = {},
-): HoverCardInstance {
+  options: CreateHovercardOptions = {},
+): HovercardInstance {
   const {
     placement = "bottom",
     offset = 8,

@@ -1,116 +1,116 @@
 @layer pm.components {
-  .pm-editable-text {
+  .pm-editable {
     display: inline-flex;
     align-items: center;
     gap: var(--pm-spacing-2);
     font-family: var(--pm-font-family-sans);
 
-    &.pm-editable-text--disabled {
+    &.pm-editable--disabled {
       opacity: 0.5;
       cursor: not-allowed;
       pointer-events: none;
     }
   }
 
-  .pm-editable-text__preview {
+  .pm-editable__preview {
     display: inline-block;
     cursor: pointer;
     border-bottom: 1px dashed transparent;
     padding: var(--pm-spacing-0-5) 0;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
     transition-property: border-color;
     transition-duration: var(--pm-transition-fast);
 
     &:hover {
-      border-bottom-color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+      border-bottom-color: var(--pm-fg-subtle);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
       border-radius: var(--pm-radius-sm);
     }
   }
 
-  .pm-editable-text__input {
+  .pm-editable__input {
     font-family: inherit;
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border: 1px solid var(--pm-neutral-active);
     border-radius: var(--pm-radius-md);
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
     transition-property: border-color, box-shadow;
     transition-duration: var(--pm-transition-fast);
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
   }
 
-  .pm-editable-text__controls {
+  .pm-editable__controls {
     display: inline-flex;
     align-items: center;
     gap: var(--pm-spacing-1);
   }
 
-  .pm-editable-text__controls button {
+  .pm-editable__controls button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     background: none;
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border: 1px solid var(--pm-neutral-active);
     border-radius: var(--pm-radius-md);
     cursor: pointer;
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+    color: var(--pm-neutral-fg);
     transition-property: background-color, border-color;
     transition-duration: var(--pm-transition-fast);
 
     &:hover {
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      background-color: var(--pm-bg-muted);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
   }
 
-  .pm-editable-text--sm .pm-editable-text__preview,
-  .pm-editable-text--sm .pm-editable-text__input {
+  .pm-editable--sm .pm-editable__preview,
+  .pm-editable--sm .pm-editable__input {
     font-size: var(--pm-font-size-sm);
   }
 
-  .pm-editable-text--sm .pm-editable-text__input {
+  .pm-editable--sm .pm-editable__input {
     padding: var(--pm-spacing-1) var(--pm-spacing-2);
   }
 
-  .pm-editable-text--sm .pm-editable-text__controls button {
+  .pm-editable--sm .pm-editable__controls button {
     padding: var(--pm-spacing-0-5);
   }
 
-  .pm-editable-text--md .pm-editable-text__preview,
-  .pm-editable-text--md .pm-editable-text__input {
+  .pm-editable--md .pm-editable__preview,
+  .pm-editable--md .pm-editable__input {
     font-size: var(--pm-font-size-md);
   }
 
-  .pm-editable-text--md .pm-editable-text__input {
+  .pm-editable--md .pm-editable__input {
     padding: var(--pm-spacing-2) var(--pm-spacing-3);
   }
 
-  .pm-editable-text--md .pm-editable-text__controls button {
+  .pm-editable--md .pm-editable__controls button {
     padding: var(--pm-spacing-1);
   }
 
-  .pm-editable-text--lg .pm-editable-text__preview,
-  .pm-editable-text--lg .pm-editable-text__input {
+  .pm-editable--lg .pm-editable__preview,
+  .pm-editable--lg .pm-editable__input {
     font-size: var(--pm-font-size-lg);
   }
 
-  .pm-editable-text--lg .pm-editable-text__input {
+  .pm-editable--lg .pm-editable__input {
     padding: var(--pm-spacing-3) var(--pm-spacing-4);
   }
 
-  .pm-editable-text--lg .pm-editable-text__controls button {
+  .pm-editable--lg .pm-editable__controls button {
     padding: var(--pm-spacing-1-5);
   }
 }

@@ -14,16 +14,16 @@
   .pm-pin-input__field {
     text-align: center;
     font-family: var(--pm-font-family-sans);
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border: 1px solid var(--pm-neutral-active);
     border-radius: var(--pm-radius-md);
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
     transition-property: border-color, box-shadow;
     transition-duration: var(--pm-transition-fast);
   }
 
   .pm-pin-input__field:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
@@ -46,6 +46,6 @@
   }
 
   .pm-pin-input--invalid .pm-pin-input__field {
-    border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+    border-color: var(--pm-danger-border);
   }
 }

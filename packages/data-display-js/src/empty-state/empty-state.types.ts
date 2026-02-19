@@ -1,10 +1,10 @@
 /** Size controlling padding, spacing, and font sizes. */
-export type EmptyStateSize = "sm" | "md" | "lg"
+export type EmptySize = "sm" | "md" | "lg"
 
 /** Options for generating empty state CSS class names. */
-export interface EmptyStateClassesOptions {
+export interface EmptyClassesOptions {
   /** Controls padding, spacing, and font sizes. @default "md" */
-  size?: EmptyStateSize
+  size?: EmptySize
   /** Adds a dashed border around the empty state container. @default false */
   bordered?: boolean
 }
@@ -13,7 +13,7 @@ export interface EmptyStateClassesOptions {
  * Object containing BEM class names for each empty state sub-element.
  * Typically used to display placeholder content when a list or view has no data.
  */
-export interface EmptyStateClassesResult {
+export interface EmptyClassesResult {
   /** Class for the outermost centered `<div>` wrapper. */
   root: string
   /** Class for the icon / illustration area. */
@@ -27,7 +27,7 @@ export interface EmptyStateClassesResult {
 }
 
 /** CSS module result (same shape). */
-export interface EmptyStateModuleClassesResult {
+export interface EmptyModuleClassesResult {
   root: string
   icon: string
   heading: string
@@ -35,5 +35,5 @@ export interface EmptyStateModuleClassesResult {
   actions: string
 }
 
-/** Props for the EmptyState component. */
-export interface EmptyStateProps extends EmptyStateClassesOptions {}
+/** Props for the Empty component. */
+export interface EmptyProps extends EmptyClassesOptions {}

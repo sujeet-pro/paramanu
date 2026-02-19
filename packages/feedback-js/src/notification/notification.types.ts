@@ -1,12 +1,12 @@
 /** Visual status variant for the notification. */
-export type NotificationVariant = "info" | "success" | "warning" | "danger" | "neutral"
+export type NotifVariant = "info" | "success" | "warning" | "danger" | "neutral"
 
 /** Options for generating notification class names. */
-export interface NotificationClassesOptions {
+export interface NotifClassesOptions {
   /** The status variant of the notification. Determines color accent.
    * @default "neutral"
    */
-  variant?: NotificationVariant
+  variant?: NotifVariant
 
   /** Whether the notification has not been read yet.
    * @default false

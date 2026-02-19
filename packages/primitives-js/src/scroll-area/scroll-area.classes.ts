@@ -1,12 +1,12 @@
-import type { ScrollAreaClassesOptions } from "./scroll-area.types.js"
+import type { ScrollClassesOptions } from "./scroll-area.types.js"
 
-const BASE = "pm-scroll-area"
+const BASE = "pm-scroll"
 
 /**
  * Returns BEM class names for the scroll-area component (human-readable).
  * Used by CDN and template consumers.
  */
-export function scrollAreaClasses(options: ScrollAreaClassesOptions = {}): string {
+export function scrollClasses(options: ScrollClassesOptions = {}): string {
   const { direction = "vertical", scrollbar = "auto", scrollbarSize, bordered } = options
   const classes = [BASE, `${BASE}--${direction}`, `${BASE}--scrollbar-${scrollbar}`]
 
@@ -20,20 +20,20 @@ export function scrollAreaClasses(options: ScrollAreaClassesOptions = {}): strin
  * Returns CSS module class names for the scroll-area component (hashed).
  * Used by bundled/template consumers who import CSS modules.
  */
-export function scrollAreaModuleClasses(
+export function scrollModuleClasses(
   classMap: Record<string, string>,
-  options: ScrollAreaClassesOptions = {},
+  options: ScrollClassesOptions = {},
 ): string {
   const { direction = "vertical", scrollbar = "auto", scrollbarSize, bordered } = options
 
   const classes = [
-    classMap["pm-scroll-area"],
-    classMap[`pm-scroll-area--${direction}`],
-    classMap[`pm-scroll-area--scrollbar-${scrollbar}`],
+    classMap["pm-scroll"],
+    classMap[`pm-scroll--${direction}`],
+    classMap[`pm-scroll--scrollbar-${scrollbar}`],
   ]
 
-  if (scrollbarSize) classes.push(classMap[`pm-scroll-area--scrollbar-${scrollbarSize}`])
-  if (bordered) classes.push(classMap["pm-scroll-area--bordered"])
+  if (scrollbarSize) classes.push(classMap[`pm-scroll--scrollbar-${scrollbarSize}`])
+  if (bordered) classes.push(classMap["pm-scroll--bordered"])
 
   return classes.filter(Boolean).join(" ")
 }

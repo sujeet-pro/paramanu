@@ -19,7 +19,7 @@ export interface CodeClassesOptions {
   /** Whether to show line numbers in block mode. */
   withLineNumbers?: boolean
   /** Whether to show a copy button in block mode. */
-  withCopyButton?: boolean
+  withCopyBtn?: boolean
   /** Language hint for syntax highlighting (CSS class only, no runtime highlighting). */
   language?: string
 }

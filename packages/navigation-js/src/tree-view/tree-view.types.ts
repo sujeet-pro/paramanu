@@ -1,18 +1,18 @@
-export type TreeViewSize = "sm" | "md"
+export type TreeSize = "sm" | "md"
 
-export interface TreeViewClassesOptions {
-  size?: TreeViewSize
+export interface TreeClassesOptions {
+  size?: TreeSize
 }
 
-export interface TreeViewBranchClassesOptions {
+export interface TreeBranchClassesOptions {
   expanded?: boolean
 }
 
-export interface TreeViewItemClassesOptions {
+export interface TreeItemClassesOptions {
   selected?: boolean
   disabled?: boolean
 }
 
-export interface TreeViewIndicatorClassesOptions {
+export interface TreeIndicatorClassesOptions {
   expanded?: boolean
 }

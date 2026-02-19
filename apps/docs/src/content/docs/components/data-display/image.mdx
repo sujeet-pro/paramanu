@@ -1,12 +1,20 @@
 ---
-title: Image
+title: Img
 description: A styled image component with object-fit, border radius, fallback, and caption support.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-Image renders a styled `<figure>` with an `<img>` element, optional `<figcaption>`, fallback placeholder, and loading skeleton.
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
+
+Img renders a styled `<figure>` with an `<img>` element, optional `<figcaption>`, fallback placeholder, and loading skeleton.
 
 <Tabs syncKey="component-tab">
   <TabItem label="Usage">
@@ -14,13 +22,13 @@ Image renders a styled `<figure>` with an `<img>` element, optional `<figcaption
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<figure class="pm-image pm-image--cover pm-image--radius-none">
-  <img class="pm-image__img" src="https://picsum.photos/400/300" alt="Sample" />
+  htmlCode={`<figure class="pm-img pm-img--cover pm-img--radius-none">
+  <img class="pm-img__img" src="https://picsum.photos/400/300" alt="Sample" />
 </figure>`}
-  reactCode={`import { Image } from "@paramanu/data-display-react"
+  reactCode={`import { Img } from "@paramanu/data-display-react"
 
 export default function App() {
-  return <Image src="https://picsum.photos/400/300" alt="Sample" />
+  return <Img src="https://picsum.photos/400/300" alt="Sample" />
 }`}
 />
 
@@ -43,7 +51,7 @@ export default function App() {
 | `radius` | `"none" \| "sm" \| "md" \| "lg" \| "xl" \| "full"` | `"none"` | Border radius |
 | `fallback` | `boolean` | `false` | Show fallback placeholder |
 | `loading` | `boolean` | `false` | Show loading skeleton |
-| `src` | `string` | - | Image source URL |
+| `src` | `string` | - | Img source URL |
 | `alt` | `string` | - | Alt text |
 | `caption` | `string` | - | Caption text |
 

@@ -10,9 +10,9 @@ const PlusIcon = () => (
 )
 
 const meta = {
-  title: "Buttons/FAB",
+  title: "Btns/FAB",
   component: Fab,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: {
       control: "select",

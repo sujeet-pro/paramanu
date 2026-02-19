@@ -22,7 +22,7 @@ function createIcon(args: IconArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Icon",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createIcon(args as IconArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl"] },

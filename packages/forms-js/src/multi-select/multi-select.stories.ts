@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { multiSelectClasses } from "./multi-select.classes.js"
-import type { MultiSelectClassesOptions } from "./multi-select.types.js"
+import { multiSelClasses } from "./multi-select.classes.js"
+import type { MultiSelClassesOptions } from "./multi-select.types.js"
 
-type MultiSelectArgs = MultiSelectClassesOptions & { placeholder: string }
+type MultiSelArgs = MultiSelClassesOptions & { placeholder: string }
 
-function createMultiSelect(args: MultiSelectArgs): HTMLElement {
+function createMultiSel(args: MultiSelArgs): HTMLElement {
   const wrapper = document.createElement("div")
-  wrapper.className = multiSelectClasses(args)
+  wrapper.className = multiSelClasses(args)
 
   const trigger = document.createElement("div")
-  trigger.className = "pm-multi-select__trigger"
+  trigger.className = "pm-multi-sel__trigger"
   trigger.setAttribute("role", "combobox")
   trigger.setAttribute("aria-expanded", String(args.open || false))
   trigger.setAttribute("aria-haspopup", "listbox")
@@ -19,7 +19,7 @@ function createMultiSelect(args: MultiSelectArgs): HTMLElement {
   if (args.invalid) trigger.setAttribute("aria-invalid", "true")
 
   const listbox = document.createElement("div")
-  listbox.className = "pm-multi-select__listbox"
+  listbox.className = "pm-multi-sel__listbox"
   listbox.setAttribute("role", "listbox")
   listbox.setAttribute("aria-multiselectable", "true")
   ;["React", "Vue", "Angular"].forEach((opt) => {
@@ -36,8 +36,8 @@ function createMultiSelect(args: MultiSelectArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Multi Select",
-  tags: ["autodocs", "stable"],
-  render: (args) => createMultiSelect(args as MultiSelectArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createMultiSel(args as MultiSelArgs),
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -48,10 +48,10 @@ const meta = {
     placeholder: { control: "text" },
   },
   args: { variant: "outline", size: "md", placeholder: "Select items..." },
-} satisfies Meta<MultiSelectArgs>
+} satisfies Meta<MultiSelArgs>
 
 export default meta
-type Story = StoryObj<MultiSelectArgs>
+type Story = StoryObj<MultiSelArgs>
 
 export const Playground: Story = {}
 export const Open: Story = { args: { open: true } }

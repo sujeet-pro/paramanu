@@ -27,7 +27,7 @@ export type ThemeMode = "light" | "dark" | "system"
  * })
  * ```
  */
-export interface ThemeProviderOptions {
+export interface ThemeOptions {
   /**
    * The initial theme mode to use when no stored preference exists.
    *

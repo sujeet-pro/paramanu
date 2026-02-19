@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("Button Stories", () => {
+describe("Btn Stories", () => {
   it("Playground renders without crashing", () => {
     render(<composed.Playground />)
     expect(screen.getByRole("button")).toBeInTheDocument()

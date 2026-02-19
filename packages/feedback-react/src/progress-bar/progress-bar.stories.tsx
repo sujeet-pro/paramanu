@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, within } from "storybook/test"
-import { ProgressBar } from "./progress-bar.js"
+import { Progress } from "./progress-bar.js"
 
 const meta = {
   title: "Feedback/Progress Bar",
-  component: ProgressBar,
-  tags: ["autodocs", "stable"],
+  component: Progress,
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
     variant: { control: "select", options: ["primary", "success", "warning", "danger"] },
@@ -18,7 +18,7 @@ const meta = {
   args: {
     value: 60,
   },
-} satisfies Meta<typeof ProgressBar>
+} satisfies Meta<typeof Progress>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -34,7 +34,7 @@ export const AllVariants: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
       {(["primary", "success", "warning", "danger"] as const).map((variant) => (
-        <ProgressBar key={variant} variant={variant} value={65} aria-label={`${variant} progress`} />
+        <Progress key={variant} variant={variant} value={65} aria-label={`${variant} progress`} />
       ))}
     </div>
   ),
@@ -44,7 +44,7 @@ export const AllSizes: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
       {(["xs", "sm", "md", "lg"] as const).map((size) => (
-        <ProgressBar key={size} size={size} value={50} aria-label={`${size} progress`} />
+        <Progress key={size} size={size} value={50} aria-label={`${size} progress`} />
       ))}
     </div>
   ),

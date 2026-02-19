@@ -4,7 +4,7 @@ import { Group } from "./group.js"
 
 const meta = {
   title: "Primitives/Group",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Group,
   argTypes: {
     orientation: { control: "select", options: ["horizontal", "vertical"] },

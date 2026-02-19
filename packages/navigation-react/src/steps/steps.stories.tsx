@@ -5,7 +5,7 @@ import { Steps, Step, StepIndicator, StepConnector, StepContent } from "./steps.
 const meta = {
   title: "Navigation/Steps",
   component: Steps,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: {
       control: "select",

@@ -1,10 +1,10 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
-import { dataGridClasses } from "./data-grid.classes.js"
+import { datagridClasses } from "./data-grid.classes.js"
 
 describe("data-grid accessibility", () => {
   it("has role=grid on root element", () => {
-    const classes = dataGridClasses()
+    const classes = datagridClasses()
     const dom = new JSDOM(`<!DOCTYPE html><body>
       <div class="${classes.root}" role="grid" aria-label="User data">
         <div class="${classes.row}" role="row">
@@ -23,7 +23,7 @@ describe("data-grid accessibility", () => {
   })
 
   it("rows have role=row", () => {
-    const classes = dataGridClasses()
+    const classes = datagridClasses()
     const dom = new JSDOM(`<!DOCTYPE html><body>
       <div class="${classes.root}" role="grid">
         <div class="${classes.row}" role="row">
@@ -36,7 +36,7 @@ describe("data-grid accessibility", () => {
   })
 
   it("cells have role=gridcell", () => {
-    const classes = dataGridClasses()
+    const classes = datagridClasses()
     const dom = new JSDOM(`<!DOCTYPE html><body>
       <div class="${classes.root}" role="grid">
         <div class="${classes.row}" role="row">
@@ -50,7 +50,7 @@ describe("data-grid accessibility", () => {
   })
 
   it("column headers have role=columnheader", () => {
-    const classes = dataGridClasses()
+    const classes = datagridClasses()
     const dom = new JSDOM(`<!DOCTYPE html><body>
       <div class="${classes.root}" role="grid">
         <div class="${classes.row}" role="row">

@@ -1,16 +1,16 @@
 import { forwardRef } from "react"
-import { loadingOverlayClasses } from "@paramanu/feedback-js"
-import type { LoadingOverlayClassesOptions } from "@paramanu/feedback-js"
+import { loadingClasses } from "@paramanu/feedback-js"
+import type { LoadingClassesOptions } from "@paramanu/feedback-js"
 
-export interface ReactLoadingOverlayProps
-  extends LoadingOverlayClassesOptions,
+export interface ReactLoadingProps
+  extends LoadingClassesOptions,
     React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const LoadingOverlay = forwardRef<HTMLDivElement, ReactLoadingOverlayProps>(
-  function LoadingOverlay({ visible, blur, className, children, ...rest }, ref) {
-    const classes = loadingOverlayClasses({ visible, blur })
+export const Loading = forwardRef<HTMLDivElement, ReactLoadingProps>(
+  function Loading({ visible, blur, className, children, ...rest }, ref) {
+    const classes = loadingClasses({ visible, blur })
     const combinedClassName = className ? `${classes.root} ${className}` : classes.root
 
     return (

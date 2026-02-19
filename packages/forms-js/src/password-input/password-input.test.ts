@@ -1,88 +1,88 @@
 import { describe, it, expect } from "vitest"
-import { passwordInputClasses, passwordInputModuleClasses } from "./password-input.classes.js"
+import { pwdInputClasses, pwdInputModuleClasses } from "./password-input.classes.js"
 
-describe("passwordInputClasses", () => {
+describe("pwdInputClasses", () => {
   it("returns default classes (outline, md)", () => {
-    const result = passwordInputClasses()
-    expect(result).toBe("pm-password-input pm-password-input--outline pm-password-input--md")
+    const result = pwdInputClasses()
+    expect(result).toBe("pm-pwd-input pm-pwd-input--outline pm-pwd-input--md")
   })
 
   it("applies variant", () => {
-    expect(passwordInputClasses({ variant: "outline" })).toContain("pm-password-input--outline")
-    expect(passwordInputClasses({ variant: "filled" })).toContain("pm-password-input--filled")
-    expect(passwordInputClasses({ variant: "unstyled" })).toContain("pm-password-input--unstyled")
+    expect(pwdInputClasses({ variant: "outline" })).toContain("pm-pwd-input--outline")
+    expect(pwdInputClasses({ variant: "filled" })).toContain("pm-pwd-input--filled")
+    expect(pwdInputClasses({ variant: "unstyled" })).toContain("pm-pwd-input--unstyled")
   })
 
   it("applies size", () => {
-    expect(passwordInputClasses({ size: "sm" })).toContain("pm-password-input--sm")
-    expect(passwordInputClasses({ size: "md" })).toContain("pm-password-input--md")
-    expect(passwordInputClasses({ size: "lg" })).toContain("pm-password-input--lg")
+    expect(pwdInputClasses({ size: "sm" })).toContain("pm-pwd-input--sm")
+    expect(pwdInputClasses({ size: "md" })).toContain("pm-pwd-input--md")
+    expect(pwdInputClasses({ size: "lg" })).toContain("pm-pwd-input--lg")
   })
 
   it("applies invalid modifier", () => {
-    expect(passwordInputClasses({ invalid: true })).toContain("pm-password-input--invalid")
-    expect(passwordInputClasses({ invalid: false })).not.toContain("pm-password-input--invalid")
+    expect(pwdInputClasses({ invalid: true })).toContain("pm-pwd-input--invalid")
+    expect(pwdInputClasses({ invalid: false })).not.toContain("pm-pwd-input--invalid")
   })
 
   it("applies disabled modifier", () => {
-    expect(passwordInputClasses({ disabled: true })).toContain("pm-password-input--disabled")
-    expect(passwordInputClasses({ disabled: false })).not.toContain("pm-password-input--disabled")
+    expect(pwdInputClasses({ disabled: true })).toContain("pm-pwd-input--disabled")
+    expect(pwdInputClasses({ disabled: false })).not.toContain("pm-pwd-input--disabled")
   })
 
   it("always includes base class", () => {
-    expect(passwordInputClasses()).toMatch(/^pm-password-input\s/)
+    expect(pwdInputClasses()).toMatch(/^pm-pwd-input\s/)
   })
 
   it("combines multiple options", () => {
-    const result = passwordInputClasses({
+    const result = pwdInputClasses({
       variant: "filled",
       size: "lg",
       invalid: true,
       disabled: true,
     })
     expect(result).toBe(
-      "pm-password-input pm-password-input--filled pm-password-input--lg pm-password-input--invalid pm-password-input--disabled",
+      "pm-pwd-input pm-pwd-input--filled pm-pwd-input--lg pm-pwd-input--invalid pm-pwd-input--disabled",
     )
   })
 })
 
-describe("passwordInputModuleClasses", () => {
+describe("pwdInputModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-password-input": "pm_abc_passwordInput",
-    "pm-password-input--outline": "pm_abc_outline",
-    "pm-password-input--filled": "pm_abc_filled",
-    "pm-password-input--md": "pm_abc_md",
-    "pm-password-input--sm": "pm_abc_sm",
-    "pm-password-input--lg": "pm_abc_lg",
-    "pm-password-input--invalid": "pm_abc_invalid",
-    "pm-password-input--disabled": "pm_abc_disabled",
+    "pm-pwd-input": "pm_abc_passwordInput",
+    "pm-pwd-input--outline": "pm_abc_outline",
+    "pm-pwd-input--filled": "pm_abc_filled",
+    "pm-pwd-input--md": "pm_abc_md",
+    "pm-pwd-input--sm": "pm_abc_sm",
+    "pm-pwd-input--lg": "pm_abc_lg",
+    "pm-pwd-input--invalid": "pm_abc_invalid",
+    "pm-pwd-input--disabled": "pm_abc_disabled",
   }
 
   it("returns mapped default classes", () => {
-    const result = passwordInputModuleClasses(mockClassMap)
+    const result = pwdInputModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_passwordInput pm_abc_outline pm_abc_md")
   })
 
   it("maps variant classes correctly", () => {
-    const result = passwordInputModuleClasses(mockClassMap, { variant: "filled" })
+    const result = pwdInputModuleClasses(mockClassMap, { variant: "filled" })
     expect(result).toContain("pm_abc_filled")
   })
 
   it("maps invalid class", () => {
-    const result = passwordInputModuleClasses(mockClassMap, { invalid: true })
+    const result = pwdInputModuleClasses(mockClassMap, { invalid: true })
     expect(result).toContain("pm_abc_invalid")
   })
 
   it("maps disabled class", () => {
-    const result = passwordInputModuleClasses(mockClassMap, { disabled: true })
+    const result = pwdInputModuleClasses(mockClassMap, { disabled: true })
     expect(result).toContain("pm_abc_disabled")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-password-input": "pm_abc_passwordInput",
+      "pm-pwd-input": "pm_abc_passwordInput",
     }
-    const result = passwordInputModuleClasses(sparseMap)
+    const result = pwdInputModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_passwordInput")
     expect(result).not.toContain("undefined")
   })

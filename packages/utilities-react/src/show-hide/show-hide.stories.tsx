@@ -5,7 +5,7 @@ import { ShowHide } from "./show-hide.js"
 const meta = {
   title: "Utilities/ShowHide",
   component: ShowHide,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     display: {
       control: "select",

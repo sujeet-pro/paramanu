@@ -1,89 +1,89 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { HoverCard, HoverCardArrow } from "./hover-card.js"
+import { Hovercard, HovercardArrow } from "./hover-card.js"
 
 afterEach(cleanup)
 
-describe("HoverCard", () => {
+describe("Hovercard", () => {
   it("renders children when open", () => {
-    render(<HoverCard open>Hover card content</HoverCard>)
+    render(<Hovercard open>Hover card content</Hovercard>)
     expect(screen.getByText("Hover card content")).toBeInTheDocument()
   })
 
   it("does not render when closed", () => {
-    render(<HoverCard>Hover card content</HoverCard>)
+    render(<Hovercard>Hover card content</Hovercard>)
     expect(screen.queryByText("Hover card content")).not.toBeInTheDocument()
   })
 
   it("applies default classes", () => {
     render(
-      <HoverCard open data-testid="hover-card">
+      <Hovercard open data-testid="hover-card">
         Content
-      </HoverCard>,
+      </Hovercard>,
     )
     const el = screen.getByTestId("hover-card")
-    expect(el.className).toContain("pm-hover-card")
-    expect(el.className).toContain("pm-hover-card--bottom")
+    expect(el.className).toContain("pm-hovercard")
+    expect(el.className).toContain("pm-hovercard--bottom")
   })
 
   it("applies placement class", () => {
     render(
-      <HoverCard open placement="top" data-testid="hover-card">
+      <Hovercard open placement="top" data-testid="hover-card">
         Content
-      </HoverCard>,
+      </Hovercard>,
     )
     const el = screen.getByTestId("hover-card")
-    expect(el.className).toContain("pm-hover-card--top")
+    expect(el.className).toContain("pm-hovercard--top")
   })
 
   it("forwards ref", () => {
     let hoverCardRef: HTMLDivElement | null = null
     render(
-      <HoverCard open ref={(el) => (hoverCardRef = el)}>
+      <Hovercard open ref={(el) => (hoverCardRef = el)}>
         Content
-      </HoverCard>,
+      </Hovercard>,
     )
     expect(hoverCardRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <HoverCard open className="custom-class" data-testid="hover-card">
+      <Hovercard open className="custom-class" data-testid="hover-card">
         Content
-      </HoverCard>,
+      </Hovercard>,
     )
     const el = screen.getByTestId("hover-card")
-    expect(el.className).toContain("pm-hover-card")
+    expect(el.className).toContain("pm-hovercard")
     expect(el.className).toContain("custom-class")
   })
 
   it("passes through additional HTML attributes", () => {
     render(
-      <HoverCard open data-testid="my-hover-card">
+      <Hovercard open data-testid="my-hover-card">
         Content
-      </HoverCard>,
+      </Hovercard>,
     )
     expect(screen.getByTestId("my-hover-card")).toBeInTheDocument()
   })
 })
 
-describe("HoverCardArrow", () => {
+describe("HovercardArrow", () => {
   it("renders with default classes", () => {
-    render(<HoverCardArrow data-testid="arrow" />)
+    render(<HovercardArrow data-testid="arrow" />)
     const el = screen.getByTestId("arrow")
-    expect(el.className).toContain("pm-hover-card__arrow")
+    expect(el.className).toContain("pm-hovercard__arrow")
   })
 
   it("forwards ref", () => {
     let arrowRef: HTMLDivElement | null = null
-    render(<HoverCardArrow ref={(el) => (arrowRef = el)} />)
+    render(<HovercardArrow ref={(el) => (arrowRef = el)} />)
     expect(arrowRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    render(<HoverCardArrow className="custom-arrow" data-testid="arrow" />)
+    render(<HovercardArrow className="custom-arrow" data-testid="arrow" />)
     const el = screen.getByTestId("arrow")
-    expect(el.className).toContain("pm-hover-card__arrow")
+    expect(el.className).toContain("pm-hovercard__arrow")
     expect(el.className).toContain("custom-arrow")
   })
 })

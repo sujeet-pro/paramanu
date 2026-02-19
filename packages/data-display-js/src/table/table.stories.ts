@@ -50,7 +50,7 @@ function createTable(args: TableArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Table",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createTable(args as TableArgs),
   argTypes: {
     variant: { control: "select", options: ["simple", "striped"] },

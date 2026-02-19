@@ -62,7 +62,7 @@ Choose the integration that fits your project:
     ```html
     <link rel="stylesheet" href="https://unpkg.com/@paramanu/cdn/dist/paramanu.css">
 
-    <button class="pm-button pm-button--primary pm-button--md">
+    <button class="pm-btn pm-btn--primary pm-btn--md">
       Get Started
     </button>
     ```
@@ -74,7 +74,7 @@ Choose the integration that fits your project:
     import classes from "@paramanu/buttons-js/modules/button/map"
 
     const btn = document.createElement("button")
-    btn.className = classes["pm-button"] + " " + classes["pm-button--primary"]
+    btn.className = classes["pm-btn"] + " " + classes["pm-btn--primary"]
     btn.textContent = "Get Started"
     ```
   </TabItem>
@@ -82,10 +82,10 @@ Choose the integration that fits your project:
     Import typed React components with full prop autocompletion.
 
     ```tsx
-    import { Button } from "@paramanu/buttons-react"
+    import { Btn } from "@paramanu/buttons-react"
 
     export default function App() {
-      return <Button variant="primary" size="md">Get Started</Button>
+      return <Btn variant="primary" size="md">Get Started</Btn>
     }
     ```
   </TabItem>
@@ -120,7 +120,7 @@ Choose the integration that fits your project:
 
 <CardGrid>
   <LinkCard title="Installation" href="/getting-started/installation/" description="Set up Paramanu in your project in under a minute." />
-  <LinkCard title="Button Component" href="/components/button/" description="Explore the Button — variants, sizes, accessibility, and live editor." />
+  <LinkCard title="Btn Component" href="/components/button/" description="Explore the Btn — variants, sizes, accessibility, and live editor." />
   <LinkCard title="Design Tokens" href="/tokens/colors/" description="Colors, spacing, and typography tokens that power every component." />
   <LinkCard title="React Storybook" href="/storybook/react/" description="Interactive component playground with all variants and states." />
 </CardGrid>

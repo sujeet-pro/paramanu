@@ -4,7 +4,7 @@ import { PinInput } from "./pin-input.js"
 
 const meta = {
   title: "Forms/Pin Input",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: PinInput,
   argTypes: {
     size: {

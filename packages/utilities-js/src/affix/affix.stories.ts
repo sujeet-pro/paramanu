@@ -23,7 +23,7 @@ function createAffix(args: AffixClassesOptions): HTMLElement {
 
 const meta = {
   title: "Utilities/Affix",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createAffix(args as AffixClassesOptions),
   argTypes: {
     position: { control: "select", options: ["top", "bottom"] },

@@ -4,7 +4,7 @@ import { Stack, HStack, VStack } from "./stack.js"
 
 const meta = {
   title: "Primitives/Stack",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Stack,
   argTypes: {
     direction: { control: "select", options: ["vertical", "horizontal"] },

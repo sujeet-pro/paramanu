@@ -7,7 +7,7 @@ export type ScrollbarVisibility = "auto" | "always" | "hover" | "hidden"
 /** Scrollbar width style. */
 export type ScrollbarSize = "thin" | "none"
 
-export interface ScrollAreaClassesOptions {
+export interface ScrollClassesOptions {
   /** Which axes allow scrolling. Defaults to "vertical". */
   direction?: ScrollDirection
   /** When to show scrollbars. Defaults to "auto". */
@@ -18,4 +18,4 @@ export interface ScrollAreaClassesOptions {
   bordered?: boolean
 }
 
-export interface ScrollAreaProps extends ScrollAreaClassesOptions {}
+export interface ScrollProps extends ScrollClassesOptions {}

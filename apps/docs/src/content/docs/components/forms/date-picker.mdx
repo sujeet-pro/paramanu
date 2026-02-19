@@ -1,10 +1,18 @@
 ---
 title: Date Picker
 description: A date input with a calendar popover for selecting dates.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 The Date Picker provides a text input with a calendar popover for selecting dates.
 
@@ -14,8 +22,8 @@ The Date Picker provides a text input with a calendar popover for selecting date
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-date-picker pm-date-picker--outline pm-date-picker--md">\n  <input type="text" class="pm-date-picker__input" role="combobox" aria-expanded="false" aria-haspopup="dialog" placeholder="Select date..." />\n  <span class="pm-date-picker__icon" aria-hidden="true">&#128197;</span>\n</div>`}
-  reactCode={`import { DatePicker } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <DatePicker placeholder="Select date..." />\n}`}
+  htmlCode={`<div class="pm-datepicker pm-datepicker--outline pm-datepicker--md">\n  <input type="text" class="pm-datepicker__input" role="combobox" aria-expanded="false" aria-haspopup="dialog" placeholder="Select date..." />\n  <span class="pm-datepicker__icon" aria-hidden="true">&#128197;</span>\n</div>`}
+  reactCode={`import { Datepicker } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Datepicker placeholder="Select date..." />\n}`}
 />
 
 </TabItem>
@@ -46,10 +54,10 @@ The Date Picker provides a text input with a calendar popover for selecting date
 
 | Class | Description |
 |---|---|
-| `pm-date-picker` | Base class |
-| `pm-date-picker__input` | Text input |
-| `pm-date-picker__icon` | Calendar icon |
-| `pm-date-picker__popover` | Calendar popover |
+| `pm-datepicker` | Base class |
+| `pm-datepicker__input` | Text input |
+| `pm-datepicker__icon` | Calendar icon |
+| `pm-datepicker__popover` | Calendar popover |
 
 </TabItem>
 </Tabs>

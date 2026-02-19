@@ -1,19 +1,19 @@
 import { forwardRef } from "react"
-import { hoverCardClasses, hoverCardArrowClasses } from "@paramanu/overlays-js"
-import type { HoverCardClassesOptions } from "@paramanu/overlays-js"
+import { hovercardClasses, hoverCardArrowClasses } from "@paramanu/overlays-js"
+import type { HovercardClassesOptions } from "@paramanu/overlays-js"
 
-export interface ReactHoverCardProps
-  extends HoverCardClassesOptions,
+export interface ReactHovercardProps
+  extends HovercardClassesOptions,
     React.HTMLAttributes<HTMLDivElement> {
   open?: boolean
   children?: React.ReactNode
 }
 
-export const HoverCard = forwardRef<HTMLDivElement, ReactHoverCardProps>(function HoverCard(
+export const Hovercard = forwardRef<HTMLDivElement, ReactHovercardProps>(function Hovercard(
   { open = false, placement, className, children, ...rest },
   ref,
 ) {
-  const classes = hoverCardClasses({ placement })
+  const classes = hovercardClasses({ placement })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   if (!open) return null
@@ -25,10 +25,10 @@ export const HoverCard = forwardRef<HTMLDivElement, ReactHoverCardProps>(functio
   )
 })
 
-export interface ReactHoverCardArrowProps extends React.HTMLAttributes<HTMLDivElement> {}
+export interface ReactHovercardArrowProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-export const HoverCardArrow = forwardRef<HTMLDivElement, ReactHoverCardArrowProps>(
-  function HoverCardArrow({ className, ...rest }, ref) {
+export const HovercardArrow = forwardRef<HTMLDivElement, ReactHovercardArrowProps>(
+  function HovercardArrow({ className, ...rest }, ref) {
     const classes = hoverCardArrowClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
     return <div ref={ref} className={combinedClassName} {...rest} />

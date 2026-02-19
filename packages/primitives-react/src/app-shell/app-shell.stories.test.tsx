@@ -7,10 +7,10 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("AppShell Stories", () => {
+describe("Shell Stories", () => {
   it("Playground renders without crashing", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-app-shell")).toBeTruthy()
+    expect(container.querySelector(".pm-shell")).toBeTruthy()
   })
 
   it("Playground renders header, sidebar, main, footer", () => {
@@ -23,11 +23,11 @@ describe("AppShell Stories", () => {
 
   it("SidebarEnd applies end position class", () => {
     const { container } = render(<composed.SidebarEnd />)
-    expect(container.querySelector(".pm-app-shell--sidebar-end")).toBeTruthy()
+    expect(container.querySelector(".pm-shell--sidebar-end")).toBeTruthy()
   })
 
   it("CollapsedSidebar applies collapsed class", () => {
     const { container } = render(<composed.CollapsedSidebar />)
-    expect(container.querySelector(".pm-app-shell--sidebar-collapsed")).toBeTruthy()
+    expect(container.querySelector(".pm-shell--sidebar-collapsed")).toBeTruthy()
   })
 })

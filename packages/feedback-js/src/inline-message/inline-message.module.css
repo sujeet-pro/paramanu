@@ -1,5 +1,5 @@
 @layer pm.components {
-  .pm-inline-message {
+  .pm-inline-msg {
     display: flex;
     align-items: flex-start;
     gap: var(--pm-spacing-2);
@@ -12,48 +12,48 @@
   }
 
   /* Variants */
-  .pm-inline-message--info {
-    background-color: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
-    border-left-color: light-dark(var(--pm-color-info-500), var(--pm-color-info-400));
-    color: light-dark(var(--pm-color-info-800), var(--pm-color-info-100));
+  .pm-inline-msg--info {
+    background-color: var(--pm-info-subtle);
+    border-left-color: var(--pm-info-border);
+    color: var(--pm-info-subtle-fg);
   }
 
-  .pm-inline-message--success {
-    background-color: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
-    border-left-color: light-dark(var(--pm-color-success-500), var(--pm-color-success-400));
-    color: light-dark(var(--pm-color-success-800), var(--pm-color-success-100));
+  .pm-inline-msg--success {
+    background-color: var(--pm-success-subtle);
+    border-left-color: var(--pm-success-border);
+    color: var(--pm-success-subtle-fg);
   }
 
-  .pm-inline-message--warning {
-    background-color: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
-    border-left-color: light-dark(var(--pm-color-warning-500), var(--pm-color-warning-400));
-    color: light-dark(var(--pm-color-warning-800), var(--pm-color-warning-100));
+  .pm-inline-msg--warning {
+    background-color: var(--pm-warning-subtle);
+    border-left-color: var(--pm-warning-border);
+    color: var(--pm-warning-subtle-fg);
   }
 
-  .pm-inline-message--danger {
-    background-color: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
-    border-left-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
-    color: light-dark(var(--pm-color-danger-800), var(--pm-color-danger-100));
+  .pm-inline-msg--danger {
+    background-color: var(--pm-danger-subtle);
+    border-left-color: var(--pm-danger-border);
+    color: var(--pm-danger-subtle-fg);
   }
 
   /* Sizes */
-  .pm-inline-message--sm {
+  .pm-inline-msg--sm {
     padding: var(--pm-spacing-2) var(--pm-spacing-3);
     font-size: var(--pm-font-size-sm);
   }
 
-  .pm-inline-message--md {
+  .pm-inline-msg--md {
   }
 
   /* Sub-elements */
-  .pm-inline-message__icon {
+  .pm-inline-msg__icon {
     flex-shrink: 0;
     width: 16px;
     height: 16px;
     margin-top: 2px;
   }
 
-  .pm-inline-message__content {
+  .pm-inline-msg__content {
     flex: 1;
     min-width: 0;
   }

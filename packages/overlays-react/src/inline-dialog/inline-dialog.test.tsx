@@ -1,87 +1,87 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { InlineDialog, InlineDialogBody } from "./inline-dialog.js"
+import { InlineDlg, InlineDlgBody } from "./inline-dialog.js"
 
 afterEach(cleanup)
 
-describe("InlineDialog", () => {
+describe("InlineDlg", () => {
   it("renders with children", () => {
-    render(<InlineDialog>Dialog content</InlineDialog>)
+    render(<InlineDlg>Dialog content</InlineDlg>)
     expect(screen.getByText("Dialog content")).toBeInTheDocument()
   })
 
   it("applies role=dialog without aria-modal", () => {
-    render(<InlineDialog>Content</InlineDialog>)
+    render(<InlineDlg>Content</InlineDlg>)
     const dialog = screen.getByRole("dialog")
     expect(dialog).toHaveAttribute("role", "dialog")
     expect(dialog).not.toHaveAttribute("aria-modal")
   })
 
   it("applies default classes", () => {
-    render(<InlineDialog>Content</InlineDialog>)
+    render(<InlineDlg>Content</InlineDlg>)
     const dialog = screen.getByRole("dialog")
-    expect(dialog.className).toContain("pm-inline-dialog")
+    expect(dialog.className).toContain("pm-inline-dlg")
   })
 
   it("applies visible class when visible", () => {
-    render(<InlineDialog visible>Content</InlineDialog>)
+    render(<InlineDlg visible>Content</InlineDlg>)
     const dialog = screen.getByRole("dialog")
-    expect(dialog.className).toContain("pm-inline-dialog--visible")
+    expect(dialog.className).toContain("pm-inline-dlg--visible")
   })
 
   it("does not apply visible class when not visible", () => {
-    render(<InlineDialog>Content</InlineDialog>)
+    render(<InlineDlg>Content</InlineDlg>)
     const dialog = screen.getByRole("dialog")
-    expect(dialog.className).not.toContain("pm-inline-dialog--visible")
+    expect(dialog.className).not.toContain("pm-inline-dlg--visible")
   })
 
   it("forwards ref", () => {
     let dialogRef: HTMLDivElement | null = null
     render(
-      <InlineDialog ref={(el) => (dialogRef = el)}>Content</InlineDialog>,
+      <InlineDlg ref={(el) => (dialogRef = el)}>Content</InlineDlg>,
     )
     expect(dialogRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    render(<InlineDialog className="custom-class">Content</InlineDialog>)
+    render(<InlineDlg className="custom-class">Content</InlineDlg>)
     const dialog = screen.getByRole("dialog")
-    expect(dialog.className).toContain("pm-inline-dialog")
+    expect(dialog.className).toContain("pm-inline-dlg")
     expect(dialog.className).toContain("custom-class")
   })
 
   it("passes through additional HTML attributes", () => {
-    render(<InlineDialog data-testid="my-inline-dialog">Content</InlineDialog>)
+    render(<InlineDlg data-testid="my-inline-dialog">Content</InlineDlg>)
     expect(screen.getByTestId("my-inline-dialog")).toBeInTheDocument()
   })
 })
 
-describe("InlineDialogBody", () => {
+describe("InlineDlgBody", () => {
   it("renders with children", () => {
-    render(<InlineDialogBody>Body text</InlineDialogBody>)
+    render(<InlineDlgBody>Body text</InlineDlgBody>)
     expect(screen.getByText("Body text")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<InlineDialogBody data-testid="body">Body</InlineDialogBody>)
+    render(<InlineDlgBody data-testid="body">Body</InlineDlgBody>)
     const el = screen.getByTestId("body")
-    expect(el.className).toContain("pm-inline-dialog__body")
+    expect(el.className).toContain("pm-inline-dlg__body")
   })
 
   it("forwards ref", () => {
     let bodyRef: HTMLDivElement | null = null
-    render(<InlineDialogBody ref={(el) => (bodyRef = el)}>Body</InlineDialogBody>)
+    render(<InlineDlgBody ref={(el) => (bodyRef = el)}>Body</InlineDlgBody>)
     expect(bodyRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <InlineDialogBody className="custom-body" data-testid="body">
+      <InlineDlgBody className="custom-body" data-testid="body">
         Body
-      </InlineDialogBody>,
+      </InlineDlgBody>,
     )
     const el = screen.getByTestId("body")
-    expect(el.className).toContain("pm-inline-dialog__body")
+    expect(el.className).toContain("pm-inline-dlg__body")
     expect(el.className).toContain("custom-body")
   })
 })

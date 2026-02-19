@@ -5,7 +5,7 @@ import { SkipNav, SkipNavTarget } from "./skip-nav.js"
 const meta = {
   title: "Utilities/SkipNav",
   component: SkipNav,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     targetId: { control: "text" },
   },

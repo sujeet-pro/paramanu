@@ -59,27 +59,27 @@
       padding: 0 0.125em;
 
       &.pm-highlight--primary {
-        --pm-highlight-border: light-dark(var(--pm-color-primary-400), var(--pm-color-primary-500));
+        --pm-highlight-border: var(--pm-primary-border);
       }
 
       &.pm-highlight--danger {
-        --pm-highlight-border: light-dark(var(--pm-color-danger-400), var(--pm-color-danger-500));
+        --pm-highlight-border: var(--pm-danger-border);
       }
 
       &.pm-highlight--success {
-        --pm-highlight-border: light-dark(var(--pm-color-success-400), var(--pm-color-success-500));
+        --pm-highlight-border: var(--pm-success-border);
       }
 
       &.pm-highlight--warning {
-        --pm-highlight-border: light-dark(var(--pm-color-warning-400), var(--pm-color-warning-500));
+        --pm-highlight-border: var(--pm-warning-border);
       }
 
       &.pm-highlight--info {
-        --pm-highlight-border: light-dark(var(--pm-color-info-400), var(--pm-color-info-500));
+        --pm-highlight-border: var(--pm-info-border);
       }
 
       &.pm-highlight--neutral {
-        --pm-highlight-border: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+        --pm-highlight-border: var(--pm-border-emphasis);
       }
     }
 
@@ -89,32 +89,32 @@
       padding: 0;
 
       &.pm-highlight--primary {
-        --pm-highlight-text: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+        --pm-highlight-text: var(--pm-fg-link);
         font-weight: var(--pm-font-weight-semibold);
       }
 
       &.pm-highlight--danger {
-        --pm-highlight-text: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-400));
+        --pm-highlight-text: var(--pm-danger);
         font-weight: var(--pm-font-weight-semibold);
       }
 
       &.pm-highlight--success {
-        --pm-highlight-text: light-dark(var(--pm-color-success-600), var(--pm-color-success-400));
+        --pm-highlight-text: var(--pm-success);
         font-weight: var(--pm-font-weight-semibold);
       }
 
       &.pm-highlight--warning {
-        --pm-highlight-text: light-dark(var(--pm-color-warning-600), var(--pm-color-warning-400));
+        --pm-highlight-text: var(--pm-warning);
         font-weight: var(--pm-font-weight-semibold);
       }
 
       &.pm-highlight--info {
-        --pm-highlight-text: light-dark(var(--pm-color-info-600), var(--pm-color-info-400));
+        --pm-highlight-text: var(--pm-info);
         font-weight: var(--pm-font-weight-semibold);
       }
 
       &.pm-highlight--neutral {
-        --pm-highlight-text: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+        --pm-highlight-text: var(--pm-fg-muted);
         font-weight: var(--pm-font-weight-semibold);
       }
     }

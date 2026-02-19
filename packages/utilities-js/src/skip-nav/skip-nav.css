@@ -22,15 +22,15 @@
       overflow: visible;
       clip: auto;
       white-space: normal;
-      background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
-      color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+      background-color: var(--pm-bg);
+      color: var(--pm-fg-link);
       font-family: var(--pm-font-family-sans);
       font-size: var(--pm-font-size-md);
       font-weight: var(--pm-font-weight-semibold);
       text-decoration: underline;
       border-radius: var(--pm-radius-md);
       box-shadow: var(--pm-shadow-lg);
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
   }

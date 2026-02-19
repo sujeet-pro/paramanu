@@ -1,18 +1,18 @@
 import { forwardRef } from "react"
-import { aspectRatioClasses } from "@paramanu/primitives-js"
-import type { AspectRatioProps } from "@paramanu/primitives-js"
+import { aspectClasses } from "@paramanu/primitives-js"
+import type { AspectProps } from "@paramanu/primitives-js"
 
-export interface ReactAspectRatioProps
-  extends AspectRatioProps,
+export interface ReactAspectProps
+  extends AspectProps,
     Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
   children?: React.ReactNode
 }
 
-export const AspectRatio = forwardRef<HTMLDivElement, ReactAspectRatioProps>(function AspectRatio(
+export const Aspect = forwardRef<HTMLDivElement, ReactAspectProps>(function Aspect(
   { ratio, className, children, ...rest },
   ref,
 ) {
-  const classes = aspectRatioClasses({ ratio })
+  const classes = aspectClasses({ ratio })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (

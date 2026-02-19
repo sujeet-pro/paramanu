@@ -5,7 +5,7 @@ import { Card, CardHeader, CardBody, CardFooter, CardMedia } from "./card.js"
 const meta = {
   title: "Data Display/Card",
   component: Card,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: {
       control: "select",

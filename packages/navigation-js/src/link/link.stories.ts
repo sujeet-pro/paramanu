@@ -34,7 +34,7 @@ function createLink(args: LinkArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Link",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createLink(args as LinkArgs),
   argTypes: {
     variant: {

@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, within } from "storybook/test"
-import { AppShell, AppShellHeader, AppShellSidebar, AppShellMain, AppShellFooter } from "./app-shell.js"
+import { Shell, ShellHeader, ShellSidebar, ShellMain, ShellFooter } from "./app-shell.js"
 
 const meta = {
   title: "Primitives/App Shell",
-  tags: ["autodocs", "stable"],
-  component: AppShell,
+  tags: ["autodocs", "beta"],
+  component: Shell,
   argTypes: {
     sidebarPosition: { control: "select", options: ["start", "end"] },
   },
   args: {},
-} satisfies Meta<typeof AppShell>
+} satisfies Meta<typeof Shell>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -18,20 +18,20 @@ type Story = StoryObj<typeof meta>
 /** The default playground story. */
 export const Playground: Story = {
   render: (args) => (
-    <AppShell {...args} style={{ height: "400px", border: "1px solid #e2e8f0" }}>
-      <AppShellHeader sticky>
+    <Shell {...args} style={{ height: "400px", border: "1px solid #e2e8f0" }}>
+      <ShellHeader sticky>
         <div style={{ padding: "12px 16px", borderBottom: "1px solid #e2e8f0" }}>Header</div>
-      </AppShellHeader>
-      <AppShellSidebar width="md">
+      </ShellHeader>
+      <ShellSidebar width="md">
         <div style={{ padding: "16px" }}>Sidebar</div>
-      </AppShellSidebar>
-      <AppShellMain>
+      </ShellSidebar>
+      <ShellMain>
         <div style={{ padding: "16px" }}>Main content area</div>
-      </AppShellMain>
-      <AppShellFooter>
+      </ShellMain>
+      <ShellFooter>
         <div style={{ padding: "12px 16px", borderTop: "1px solid #e2e8f0" }}>Footer</div>
-      </AppShellFooter>
-    </AppShell>
+      </ShellFooter>
+    </Shell>
   ),
 }
 
@@ -67,7 +67,7 @@ export const RenderTest: Story = {
   render: Playground.render,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const el = canvasElement.querySelector(".pm-app-shell")
+    const el = canvasElement.querySelector(".pm-shell")
     await expect(el).toBeTruthy()
   },
 }

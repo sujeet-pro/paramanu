@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("ThemeProvider Stories", () => {
+describe("Theme Stories", () => {
   it("Playground renders theme controls", () => {
     const { container } = render(<composed.Playground />)
     expect(container.textContent).toContain("Current theme")

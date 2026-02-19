@@ -33,23 +33,23 @@
     /* Filled variants */
     &.pm-tag--filled {
       &.pm-tag--primary {
-        background-color: light-dark(var(--pm-color-primary-100), var(--pm-color-primary-900));
-        color: light-dark(var(--pm-color-primary-800), var(--pm-color-primary-200));
+        background-color: var(--pm-primary-subtle-hover);
+        color: var(--pm-fg-link-hover);
       }
 
       &.pm-tag--neutral {
-        background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-        color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+        background-color: var(--pm-bg-muted);
+        color: var(--pm-fg);
       }
 
       &.pm-tag--danger {
-        background-color: light-dark(var(--pm-color-danger-100), var(--pm-color-danger-900));
-        color: light-dark(var(--pm-color-danger-800), var(--pm-color-danger-200));
+        background-color: var(--pm-danger-subtle);
+        color: var(--pm-danger-subtle-fg);
       }
 
       &.pm-tag--success {
-        background-color: light-dark(var(--pm-color-success-100), var(--pm-color-success-900));
-        color: light-dark(var(--pm-color-success-800), var(--pm-color-success-200));
+        background-color: var(--pm-success-subtle);
+        color: var(--pm-success-subtle-fg);
       }
     }
 
@@ -58,23 +58,23 @@
       background-color: transparent;
 
       &.pm-tag--primary {
-        border-color: light-dark(var(--pm-color-primary-300), var(--pm-color-primary-700));
-        color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+        border-color: var(--pm-primary-border);
+        color: var(--pm-fg-link-hover);
       }
 
       &.pm-tag--neutral {
-        border-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
-        color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+        border-color: var(--pm-border);
+        color: var(--pm-neutral-fg);
       }
 
       &.pm-tag--danger {
-        border-color: light-dark(var(--pm-color-danger-300), var(--pm-color-danger-700));
-        color: light-dark(var(--pm-color-danger-700), var(--pm-color-danger-300));
+        border-color: var(--pm-danger-border);
+        color: var(--pm-danger-subtle-fg);
       }
 
       &.pm-tag--success {
-        border-color: light-dark(var(--pm-color-success-300), var(--pm-color-success-700));
-        color: light-dark(var(--pm-color-success-700), var(--pm-color-success-300));
+        border-color: var(--pm-success-border);
+        color: var(--pm-success-subtle-fg);
       }
     }
 
@@ -84,19 +84,19 @@
       border-color: transparent;
 
       &.pm-tag--primary {
-        color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+        color: var(--pm-fg-link-hover);
       }
 
       &.pm-tag--neutral {
-        color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+        color: var(--pm-fg-muted);
       }
 
       &.pm-tag--danger {
-        color: light-dark(var(--pm-color-danger-700), var(--pm-color-danger-300));
+        color: var(--pm-danger-subtle-fg);
       }
 
       &.pm-tag--success {
-        color: light-dark(var(--pm-color-success-700), var(--pm-color-success-300));
+        color: var(--pm-success-subtle-fg);
       }
     }
 
@@ -109,7 +109,7 @@
       }
 
       &:focus-visible {
-        outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+        outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
         outline-offset: var(--pm-focus-ring-offset);
       }
     }
@@ -140,7 +140,7 @@
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
   }

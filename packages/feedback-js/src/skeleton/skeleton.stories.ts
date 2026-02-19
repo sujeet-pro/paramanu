@@ -18,7 +18,7 @@ function createSkeleton(args: SkeletonArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Skeleton",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createSkeleton(args as SkeletonArgs),
   argTypes: {
     variant: { control: "select", options: ["text", "circular", "rectangular"] },

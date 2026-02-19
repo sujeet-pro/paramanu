@@ -2,8 +2,8 @@
   .pm-popover {
     position: absolute;
     z-index: var(--pm-overlay-z, 1000);
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    background-color: var(--pm-bg);
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-md);
     box-shadow: var(--pm-shadow-lg);
     opacity: 0;
@@ -99,8 +99,8 @@
     position: absolute;
     width: 8px;
     height: 8px;
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    background-color: var(--pm-bg);
+    border: 1px solid var(--pm-neutral-hover);
     transform: rotate(45deg);
   }
 }

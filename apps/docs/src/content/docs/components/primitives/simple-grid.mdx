@@ -1,12 +1,20 @@
 ---
 title: Simple Grid
 description: A responsive grid that auto-fills columns based on a minimum child width or fixed column count.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-SimpleGrid creates responsive grids using either a minimum child width (auto-fill) or a fixed number of columns.
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
+
+Sgrid creates responsive grids using either a minimum child width (auto-fill) or a fixed number of columns.
 
 <Tabs syncKey="component-tab">
   <TabItem label="Usage">
@@ -14,20 +22,20 @@ SimpleGrid creates responsive grids using either a minimum child width (auto-fil
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-simple-grid pm-simple-grid--cols-3 pm-simple-grid--gap-4">
+  htmlCode={`<div class="pm-sgrid pm-sgrid--cols-3 pm-sgrid--gap-4">
   <div style="background: #e2e8f0; padding: 16px;">1</div>
   <div style="background: #e2e8f0; padding: 16px;">2</div>
   <div style="background: #e2e8f0; padding: 16px;">3</div>
 </div>`}
-  reactCode={`import { SimpleGrid } from "@paramanu/primitives-react"
+  reactCode={`import { Sgrid } from "@paramanu/primitives-react"
 
 export default function App() {
   return (
-    <SimpleGrid columns={3} gap="4">
+    <Sgrid columns={3} gap="4">
       <div>1</div>
       <div>2</div>
       <div>3</div>
-    </SimpleGrid>
+    </Sgrid>
   )
 }`}
 />
@@ -56,10 +64,10 @@ export default function App() {
 
 | Class | Purpose |
 |---|---|
-| `pm-simple-grid` | Base |
-| `pm-simple-grid--min-{size}` | Auto-fill |
-| `pm-simple-grid--cols-{n}` | Fixed columns |
-| `pm-simple-grid--gap-{scale}` | Gap |
+| `pm-sgrid` | Base |
+| `pm-sgrid--min-{size}` | Auto-fill |
+| `pm-sgrid--cols-{n}` | Fixed columns |
+| `pm-sgrid--gap-{scale}` | Gap |
 
 </TabItem>
 </Tabs>

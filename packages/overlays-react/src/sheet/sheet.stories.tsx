@@ -5,7 +5,7 @@ import { Sheet, SheetHeader, SheetBody, SheetHandle } from "./sheet.js"
 const meta = {
   title: "Overlays/Sheet",
   component: Sheet,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg", "full"] },
     dismissible: { control: "boolean" },

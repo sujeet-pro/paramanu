@@ -4,7 +4,7 @@ import { Kbd } from "./kbd.js"
 
 const meta = {
   title: "Typography/Kbd",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Kbd,
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },

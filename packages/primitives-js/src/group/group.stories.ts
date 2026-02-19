@@ -18,7 +18,7 @@ function createGroup(args: GroupClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Group",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createGroup(args as GroupClassesOptions),
   argTypes: {
     orientation: { control: "select", options: ["horizontal", "vertical"] },

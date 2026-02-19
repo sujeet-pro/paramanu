@@ -1,19 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
 import {
-  commandPaletteClasses,
+  cmdPaletteClasses,
   commandPaletteInputClasses,
   commandPaletteListClasses,
-  commandPaletteItemClasses,
+  cmdPaletteItemClasses,
   commandPaletteGroupClasses,
   commandPaletteEmptyClasses,
 } from "./command-palette.classes.js"
 
-function createCommandPalette(): HTMLElement {
+function createCmdPalette(): HTMLElement {
   const wrapper = document.createElement("div")
   wrapper.style.maxWidth = "480px"
 
   const palette = document.createElement("div")
-  palette.className = commandPaletteClasses()
+  palette.className = cmdPaletteClasses()
 
   const input = document.createElement("input")
   input.className = commandPaletteInputClasses()
@@ -34,7 +34,7 @@ function createCommandPalette(): HTMLElement {
   const items = ["New File", "Open File", "Save"]
   items.forEach((text, i) => {
     const item = document.createElement("div")
-    item.className = commandPaletteItemClasses({ active: i === 2 })
+    item.className = cmdPaletteItemClasses({ active: i === 2 })
     item.setAttribute("role", "option")
     item.textContent = text
     group.appendChild(item)
@@ -51,7 +51,7 @@ function createEmptyPalette(): HTMLElement {
   wrapper.style.maxWidth = "480px"
 
   const palette = document.createElement("div")
-  palette.className = commandPaletteClasses()
+  palette.className = cmdPaletteClasses()
 
   const input = document.createElement("input")
   input.className = commandPaletteInputClasses()
@@ -72,15 +72,15 @@ function createEmptyPalette(): HTMLElement {
 }
 
 const meta = {
-  title: "Overlays/CommandPalette",
-  tags: ["autodocs", "stable"],
+  title: "Overlays/CmdPalette",
+  tags: ["autodocs", "beta"],
 } satisfies Meta
 
 export default meta
 type Story = StoryObj
 
 export const Playground: Story = {
-  render: () => createCommandPalette(),
+  render: () => createCmdPalette(),
 }
 
 export const Empty: Story = {
@@ -88,11 +88,11 @@ export const Empty: Story = {
 }
 
 export const Hover: Story = {
-  render: () => createCommandPalette(),
+  render: () => createCmdPalette(),
   parameters: { pseudo: { hover: true } },
 }
 
 export const FocusVisible: Story = {
-  render: () => createCommandPalette(),
+  render: () => createCmdPalette(),
   parameters: { pseudo: { focusVisible: true } },
 }

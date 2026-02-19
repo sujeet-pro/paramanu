@@ -1,20 +1,20 @@
 /** Visual status variant for the inline message. */
-export type InlineMessageVariant = "info" | "success" | "warning" | "danger"
+export type InlineMsgVariant = "info" | "success" | "warning" | "danger"
 
 /** Size of the inline message. */
-export type InlineMessageSize = "sm" | "md"
+export type InlineMsgSize = "sm" | "md"
 
 /** Options for generating inline message class names. */
-export interface InlineMessageClassesOptions {
+export interface InlineMsgClassesOptions {
   /** The status variant of the inline message. Determines color scheme.
    * @default "info"
    */
-  variant?: InlineMessageVariant
+  variant?: InlineMsgVariant
 
   /** The size of the inline message.
    * - `"sm"` -- compact, suitable for form field hints
    * - `"md"` -- standard size (default)
    * @default "md"
    */
-  size?: InlineMessageSize
+  size?: InlineMsgSize
 }

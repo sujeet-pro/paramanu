@@ -1,9 +1,9 @@
-import type { InlineMessageClassesOptions } from "./inline-message.types.js"
+import type { InlineMsgClassesOptions } from "./inline-message.types.js"
 
-const BASE = "pm-inline-message"
+const BASE = "pm-inline-msg"
 
 /** Structured class names for the inline message component and its sub-elements. */
-export interface InlineMessageClassesResult {
+export interface InlineMsgClassesResult {
   /** Root element class names. */
   root: string
   /** Icon container class. */
@@ -18,13 +18,13 @@ export interface InlineMessageClassesResult {
  *
  * @example
  * ```ts
- * const classes = inlineMessageClasses({ variant: "danger", size: "sm" })
- * // classes.root => "pm-inline-message pm-inline-message--danger pm-inline-message--sm"
+ * const classes = inlineMsgClasses({ variant: "danger", size: "sm" })
+ * // classes.root => "pm-inline-msg pm-inline-msg--danger pm-inline-msg--sm"
  * ```
  */
-export function inlineMessageClasses(
-  options: InlineMessageClassesOptions = {},
-): InlineMessageClassesResult {
+export function inlineMsgClasses(
+  options: InlineMsgClassesOptions = {},
+): InlineMsgClassesResult {
   const { variant = "info", size = "md" } = options
   const rootClasses = [BASE, `${BASE}--${variant}`, `${BASE}--${size}`]
 
@@ -39,21 +39,21 @@ export function inlineMessageClasses(
  * Returns CSS module class names for the inline message component (hashed).
  * Used by bundled/template consumers who import CSS modules.
  */
-export function inlineMessageModuleClasses(
+export function inlineMsgModuleClasses(
   classMap: Record<string, string>,
-  options: InlineMessageClassesOptions = {},
-): InlineMessageClassesResult {
+  options: InlineMsgClassesOptions = {},
+): InlineMsgClassesResult {
   const { variant = "info", size = "md" } = options
 
   const rootClasses = [
-    classMap["pm-inline-message"],
-    classMap[`pm-inline-message--${variant}`],
-    classMap[`pm-inline-message--${size}`],
+    classMap["pm-inline-msg"],
+    classMap[`pm-inline-msg--${variant}`],
+    classMap[`pm-inline-msg--${size}`],
   ]
 
   return {
     root: rootClasses.filter(Boolean).join(" "),
-    icon: classMap["pm-inline-message__icon"] ?? "",
-    content: classMap["pm-inline-message__content"] ?? "",
+    icon: classMap["pm-inline-msg__icon"] ?? "",
+    content: classMap["pm-inline-msg__content"] ?? "",
   }
 }

@@ -1,6 +1,6 @@
 import type { FormSize, InputVariant } from "../shared.types.js"
 
-export interface MultiSelectClassesOptions {
+export interface MultiSelClassesOptions {
   variant?: InputVariant
   size?: FormSize
   invalid?: boolean
@@ -9,4 +9,4 @@ export interface MultiSelectClassesOptions {
   fullWidth?: boolean
 }
 
-export interface MultiSelectProps extends MultiSelectClassesOptions {}
+export interface MultiSelProps extends MultiSelClassesOptions {}

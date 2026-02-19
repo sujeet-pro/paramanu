@@ -22,7 +22,7 @@ function createLocaleDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/LocaleProvider",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
 } satisfies Meta
 
 export default meta

@@ -1,11 +1,11 @@
 @layer pm.components {
-  .pm-skip-nav-link {
+  .pm-skip-link {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
     padding: var(--pm-spacing-2) var(--pm-spacing-4);
-    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    background-color: var(--pm-primary);
     color: var(--pm-color-neutral-0);
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-md);
@@ -16,9 +16,9 @@
     transition: transform var(--pm-transition-fast) ease-in-out;
   }
 
-  .pm-skip-nav-link:focus-visible {
+  .pm-skip-link:focus-visible {
     transform: translateY(0);
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 }

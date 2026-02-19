@@ -41,7 +41,7 @@ function createCarouselHTML(
       class="pm-carousel pm-carousel--horizontal pm-carousel--md"
       role="region"
       aria-roledescription="carousel"
-      aria-label="Image carousel"
+      aria-label="Img carousel"
     >
       <button
         class="${prevClasses}"
@@ -113,28 +113,28 @@ describe("carousel accessibility", () => {
   it("prev control has aria-label", () => {
     const dom = new JSDOM(`<!DOCTYPE html><body>${createCarouselHTML(defaultSlides)}</body>`)
     const buttons = dom.window.document.querySelectorAll("button")
-    const prevButton = Array.from(buttons).find(
+    const prevBtn = Array.from(buttons).find(
       (btn) => btn.getAttribute("aria-label") === "Previous slide",
     )
-    expect(prevButton).not.toBeUndefined()
+    expect(prevBtn).not.toBeUndefined()
   })
 
   it("next control has aria-label", () => {
     const dom = new JSDOM(`<!DOCTYPE html><body>${createCarouselHTML(defaultSlides)}</body>`)
     const buttons = dom.window.document.querySelectorAll("button")
-    const nextButton = Array.from(buttons).find(
+    const nextBtn = Array.from(buttons).find(
       (btn) => btn.getAttribute("aria-label") === "Next slide",
     )
-    expect(nextButton).not.toBeUndefined()
+    expect(nextBtn).not.toBeUndefined()
   })
 
   it("first slide active disables prev control", () => {
     const dom = new JSDOM(`<!DOCTYPE html><body>${createCarouselHTML(defaultSlides)}</body>`)
     const buttons = dom.window.document.querySelectorAll("button")
-    const prevButton = Array.from(buttons).find(
+    const prevBtn = Array.from(buttons).find(
       (btn) => btn.getAttribute("aria-label") === "Previous slide",
     )
-    expect(prevButton?.getAttribute("aria-disabled")).toBe("true")
+    expect(prevBtn?.getAttribute("aria-disabled")).toBe("true")
   })
 
   it("last slide active disables next control", () => {
@@ -145,10 +145,10 @@ describe("carousel accessibility", () => {
     ]
     const dom = new JSDOM(`<!DOCTYPE html><body>${createCarouselHTML(slides)}</body>`)
     const buttons = dom.window.document.querySelectorAll("button")
-    const nextButton = Array.from(buttons).find(
+    const nextBtn = Array.from(buttons).find(
       (btn) => btn.getAttribute("aria-label") === "Next slide",
     )
-    expect(nextButton?.getAttribute("aria-disabled")).toBe("true")
+    expect(nextBtn?.getAttribute("aria-disabled")).toBe("true")
   })
 
   it("indicators have role=tablist", () => {

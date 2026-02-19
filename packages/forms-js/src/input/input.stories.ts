@@ -33,7 +33,7 @@ function createInput(args: InputArgs): HTMLInputElement {
 
 const meta = {
   title: "Forms/Input",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createInput(args as InputArgs),
   argTypes: {
     variant: {

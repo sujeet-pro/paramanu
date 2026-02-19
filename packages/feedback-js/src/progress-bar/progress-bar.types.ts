@@ -1,20 +1,20 @@
 /** Height size of the progress bar track. */
-export type ProgressBarSize = "xs" | "sm" | "md" | "lg"
+export type ProgressSize = "xs" | "sm" | "md" | "lg"
 
 /** Color variant of the progress bar fill. */
-export type ProgressBarVariant = "primary" | "success" | "warning" | "danger"
+export type ProgressVariant = "primary" | "success" | "warning" | "danger"
 
 /** Options for generating progress bar class names. */
-export interface ProgressBarClassesOptions {
+export interface ProgressClassesOptions {
   /** Height size of the progress bar.
    * @default "md"
    */
-  size?: ProgressBarSize
+  size?: ProgressSize
 
   /** Color variant of the filled portion.
    * @default "primary"
    */
-  variant?: ProgressBarVariant
+  variant?: ProgressVariant
 
   /** Whether to render a striped pattern on the fill.
    * @default false

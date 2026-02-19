@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("CheckboxCard Stories", () => {
+describe("ChkCard Stories", () => {
   it("Playground renders without crashing", () => {
     render(<composed.Playground />)
     expect(screen.getByRole("checkbox")).toBeTruthy()

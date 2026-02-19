@@ -10,7 +10,7 @@ export function codeClasses(options: CodeClassesOptions = {}): string {
     variant = "default",
     color,
     withLineNumbers = false,
-    withCopyButton = false,
+    withCopyBtn = false,
     language,
   } = options
   const base = block ? BLOCK_BASE : INLINE_BASE
@@ -20,7 +20,7 @@ export function codeClasses(options: CodeClassesOptions = {}): string {
   if (variant !== "default") classes.push(`${base}--${variant}`)
   if (color) classes.push(`${base}--color-${color}`)
   if (block && withLineNumbers) classes.push(`${BLOCK_BASE}--line-numbers`)
-  if (block && withCopyButton) classes.push(`${BLOCK_BASE}--copy`)
+  if (block && withCopyBtn) classes.push(`${BLOCK_BASE}--copy`)
   if (language) classes.push(`${base}--lang-${language}`)
 
   return classes.join(" ")
@@ -36,7 +36,7 @@ export function codeModuleClasses(
     variant = "default",
     color,
     withLineNumbers = false,
-    withCopyButton = false,
+    withCopyBtn = false,
     language,
   } = options
   const base = block ? "pm-code-block" : "pm-code"
@@ -46,7 +46,7 @@ export function codeModuleClasses(
   if (variant !== "default") classes.push(classMap[`${base}--${variant}`])
   if (color) classes.push(classMap[`${base}--color-${color}`])
   if (block && withLineNumbers) classes.push(classMap["pm-code-block--line-numbers"])
-  if (block && withCopyButton) classes.push(classMap["pm-code-block--copy"])
+  if (block && withCopyBtn) classes.push(classMap["pm-code-block--copy"])
   if (language) classes.push(classMap[`${base}--lang-${language}`])
 
   return classes.filter(Boolean).join(" ")

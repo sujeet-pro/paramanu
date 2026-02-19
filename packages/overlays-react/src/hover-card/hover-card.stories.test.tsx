@@ -7,14 +7,14 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("HoverCard Stories", () => {
+describe("Hovercard Stories", () => {
   it("Playground renders when open", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-hover-card")).toBeTruthy()
+    expect(container.querySelector(".pm-hovercard")).toBeTruthy()
   })
 
   it("TopPlacement applies correct class", () => {
     const { container } = render(<composed.TopPlacement />)
-    expect(container.querySelector(".pm-hover-card--top")).toBeTruthy()
+    expect(container.querySelector(".pm-hovercard--top")).toBeTruthy()
   })
 })

@@ -1,20 +1,20 @@
 /** Diameter size of the circular progress. */
-export type CircularProgressSize = "sm" | "md" | "lg" | "xl"
+export type RingProgressSize = "sm" | "md" | "lg" | "xl"
 
 /** Color variant of the circular progress stroke. */
-export type CircularProgressVariant = "primary" | "success" | "warning" | "danger"
+export type RingProgressVariant = "primary" | "success" | "warning" | "danger"
 
 /** Options for generating circular progress class names. */
-export interface CircularProgressClassesOptions {
+export interface RingProgressClassesOptions {
   /** Diameter size of the circular progress indicator.
    * @default "md"
    */
-  size?: CircularProgressSize
+  size?: RingProgressSize
 
   /** Color variant of the progress stroke.
    * @default "primary"
    */
-  variant?: CircularProgressVariant
+  variant?: RingProgressVariant
 
   /** Whether the progress is indeterminate (unknown completion).
    * When true, `value` is ignored and a spinning animation plays.

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { visuallyHiddenClasses } from "./visually-hidden.classes.js"
-import type { VisuallyHiddenClassesOptions } from "./visually-hidden.types.js"
+import { srOnlyClasses } from "./visually-hidden.classes.js"
+import type { SrOnlyClassesOptions } from "./visually-hidden.types.js"
 
-function createVisuallyHidden(args: VisuallyHiddenClassesOptions): HTMLElement {
+function createSrOnly(args: SrOnlyClassesOptions): HTMLElement {
   const wrapper = document.createElement("div")
 
   const label = document.createElement("p")
@@ -10,7 +10,7 @@ function createVisuallyHidden(args: VisuallyHiddenClassesOptions): HTMLElement {
   wrapper.appendChild(label)
 
   const hidden = document.createElement("span")
-  hidden.className = visuallyHiddenClasses(args)
+  hidden.className = srOnlyClasses(args)
   hidden.textContent = "This text is visually hidden"
   wrapper.appendChild(hidden)
 
@@ -18,17 +18,17 @@ function createVisuallyHidden(args: VisuallyHiddenClassesOptions): HTMLElement {
 }
 
 const meta = {
-  title: "Utilities/VisuallyHidden",
-  tags: ["autodocs", "stable"],
-  render: (args) => createVisuallyHidden(args as VisuallyHiddenClassesOptions),
+  title: "Utilities/SrOnly",
+  tags: ["autodocs", "beta"],
+  render: (args) => createSrOnly(args as SrOnlyClassesOptions),
   argTypes: {
     focusable: { control: "boolean" },
   },
   args: {},
-} satisfies Meta<VisuallyHiddenClassesOptions>
+} satisfies Meta<SrOnlyClassesOptions>
 
 export default meta
-type Story = StoryObj<VisuallyHiddenClassesOptions>
+type Story = StoryObj<SrOnlyClassesOptions>
 
 export const Playground: Story = {}
 export const Focusable: Story = { args: { focusable: true } }

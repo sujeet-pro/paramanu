@@ -1,51 +1,51 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { ToggleButton } from "./toggle-button.js"
+import { ToggleBtn } from "./toggle-button.js"
 
 afterEach(cleanup)
 
-describe("ToggleButton", () => {
+describe("ToggleBtn", () => {
   it("renders with text content", () => {
-    render(<ToggleButton>Bold</ToggleButton>)
+    render(<ToggleBtn>Bold</ToggleBtn>)
     expect(screen.getByRole("button", { name: "Bold" })).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<ToggleButton>Bold</ToggleButton>)
+    render(<ToggleBtn>Bold</ToggleBtn>)
     const button = screen.getByRole("button", { name: "Bold" })
-    expect(button.className).toContain("pm-toggle-button")
-    expect(button.className).toContain("pm-toggle-button--default")
-    expect(button.className).toContain("pm-toggle-button--md")
+    expect(button.className).toContain("pm-toggle-btn")
+    expect(button.className).toContain("pm-toggle-btn--default")
+    expect(button.className).toContain("pm-toggle-btn--md")
   })
 
   it("applies variant class", () => {
-    render(<ToggleButton variant="outline">Bold</ToggleButton>)
+    render(<ToggleBtn variant="outline">Bold</ToggleBtn>)
     const button = screen.getByRole("button", { name: "Bold" })
-    expect(button.className).toContain("pm-toggle-button--outline")
+    expect(button.className).toContain("pm-toggle-btn--outline")
   })
 
   it("applies size class", () => {
-    render(<ToggleButton size="lg">Bold</ToggleButton>)
+    render(<ToggleBtn size="lg">Bold</ToggleBtn>)
     const button = screen.getByRole("button", { name: "Bold" })
-    expect(button.className).toContain("pm-toggle-button--lg")
+    expect(button.className).toContain("pm-toggle-btn--lg")
   })
 
   it("applies pressed class and aria-pressed=true", () => {
-    render(<ToggleButton pressed>Bold</ToggleButton>)
+    render(<ToggleBtn pressed>Bold</ToggleBtn>)
     const button = screen.getByRole("button", { name: "Bold" })
-    expect(button.className).toContain("pm-toggle-button--pressed")
+    expect(button.className).toContain("pm-toggle-btn--pressed")
     expect(button).toHaveAttribute("aria-pressed", "true")
   })
 
   it("has aria-pressed=false when not pressed", () => {
-    render(<ToggleButton>Bold</ToggleButton>)
+    render(<ToggleBtn>Bold</ToggleBtn>)
     const button = screen.getByRole("button", { name: "Bold" })
     expect(button).toHaveAttribute("aria-pressed", "false")
-    expect(button.className).not.toContain("pm-toggle-button--pressed")
+    expect(button.className).not.toContain("pm-toggle-btn--pressed")
   })
 
   it("sets disabled attribute and aria-disabled", () => {
-    render(<ToggleButton disabled>Bold</ToggleButton>)
+    render(<ToggleBtn disabled>Bold</ToggleBtn>)
     const button = screen.getByRole("button", { name: "Bold" })
     expect(button).toBeDisabled()
     expect(button).toHaveAttribute("aria-disabled", "true")
@@ -53,37 +53,37 @@ describe("ToggleButton", () => {
 
   it("supports pressed and disabled together", () => {
     render(
-      <ToggleButton pressed disabled>
+      <ToggleBtn pressed disabled>
         Bold
-      </ToggleButton>,
+      </ToggleBtn>,
     )
     const button = screen.getByRole("button", { name: "Bold" })
     expect(button).toHaveAttribute("aria-pressed", "true")
     expect(button).toBeDisabled()
-    expect(button.className).toContain("pm-toggle-button--pressed")
-    expect(button.className).toContain("pm-toggle-button--disabled")
+    expect(button.className).toContain("pm-toggle-btn--pressed")
+    expect(button.className).toContain("pm-toggle-btn--disabled")
   })
 
   it("defaults to type=button", () => {
-    render(<ToggleButton>Bold</ToggleButton>)
+    render(<ToggleBtn>Bold</ToggleBtn>)
     expect(screen.getByRole("button", { name: "Bold" })).toHaveAttribute("type", "button")
   })
 
   it("forwards ref", () => {
     let buttonRef: HTMLButtonElement | null = null
-    render(<ToggleButton ref={(el) => (buttonRef = el)}>Bold</ToggleButton>)
+    render(<ToggleBtn ref={(el) => (buttonRef = el)}>Bold</ToggleBtn>)
     expect(buttonRef).toBeInstanceOf(HTMLButtonElement)
   })
 
   it("merges custom className", () => {
-    render(<ToggleButton className="custom-class">Bold</ToggleButton>)
+    render(<ToggleBtn className="custom-class">Bold</ToggleBtn>)
     const button = screen.getByRole("button", { name: "Bold" })
-    expect(button.className).toContain("pm-toggle-button")
+    expect(button.className).toContain("pm-toggle-btn")
     expect(button.className).toContain("custom-class")
   })
 
   it("passes through additional HTML attributes", () => {
-    render(<ToggleButton data-testid="my-toggle-button">Bold</ToggleButton>)
+    render(<ToggleBtn data-testid="my-toggle-button">Bold</ToggleBtn>)
     expect(screen.getByTestId("my-toggle-button")).toBeInTheDocument()
   })
 })

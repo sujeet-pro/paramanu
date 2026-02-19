@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("Breadcrumbs Stories", () => {
+describe("Breadcrumb Stories", () => {
   it("Playground renders without crashing", () => {
     render(<composed.Playground />)
     expect(screen.getByRole("navigation", { name: "Breadcrumb" })).toBeTruthy()

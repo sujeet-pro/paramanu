@@ -4,7 +4,7 @@ import { Text } from "./text.js"
 
 const meta = {
   title: "Typography/Text",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Text,
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"] },

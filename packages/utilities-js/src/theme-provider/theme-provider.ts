@@ -1,4 +1,4 @@
-import type { ThemeMode, ThemeProviderOptions } from "./theme-provider.types.js"
+import type { ThemeMode, ThemeOptions } from "./theme-provider.types.js"
 
 /**
  * Applies a theme mode to the target element.
@@ -19,7 +19,7 @@ import type { ThemeMode, ThemeProviderOptions } from "./theme-provider.types.js"
  * // <html data-pm-theme="system"> (color-scheme removed, OS preference applies)
  * ```
  */
-export function setTheme(mode: ThemeMode, options: ThemeProviderOptions = {}): void {
+export function setTheme(mode: ThemeMode, options: ThemeOptions = {}): void {
   const { storageKey = "pm-theme", target = document.documentElement } = options
 
   target.setAttribute("data-pm-theme", mode)
@@ -53,7 +53,7 @@ export function setTheme(mode: ThemeMode, options: ThemeProviderOptions = {}): v
  * ```
  */
 export function getTheme(
-  options: Pick<ThemeProviderOptions, "storageKey"> = {},
+  options: Pick<ThemeOptions, "storageKey"> = {},
 ): ThemeMode {
   const { storageKey = "pm-theme" } = options
 
@@ -83,7 +83,7 @@ export function getTheme(
  * // <html> (no data-pm-theme, no color-scheme)
  * ```
  */
-export function clearTheme(options: ThemeProviderOptions = {}): void {
+export function clearTheme(options: ThemeOptions = {}): void {
   const { storageKey = "pm-theme", target = document.documentElement } = options
 
   target.removeAttribute("data-pm-theme")

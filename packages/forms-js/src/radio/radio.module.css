@@ -25,7 +25,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    border: 2px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border: 2px solid var(--pm-neutral-active);
     border-radius: var(--pm-radius-full);
     background-color: transparent;
     transition-property: background-color, border-color;
@@ -48,16 +48,16 @@
   }
 
   .pm-radio--checked .pm-radio__indicator {
-    border-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    border-color: var(--pm-primary);
   }
 
   .pm-radio--invalid .pm-radio__indicator {
-    border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+    border-color: var(--pm-danger-border);
   }
 
   .pm-radio__label {
     font-family: var(--pm-font-family-sans);
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    color: var(--pm-neutral-fg);
     user-select: none;
   }
 

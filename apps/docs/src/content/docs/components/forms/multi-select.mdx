@@ -1,10 +1,18 @@
 ---
 title: Multi Select
 description: A dropdown that allows selecting multiple items from a list of options.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 The Multi Select component allows users to choose multiple values from a dropdown list.
 
@@ -14,8 +22,8 @@ The Multi Select component allows users to choose multiple values from a dropdow
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-multi-select pm-multi-select--outline pm-multi-select--md">\n  <div class="pm-multi-select__trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0">Select items...</div>\n  <div class="pm-multi-select__listbox" role="listbox" aria-multiselectable="true">\n    <div role="option">React</div>\n    <div role="option">Vue</div>\n  </div>\n</div>`}
-  reactCode={`import { MultiSelect } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <MultiSelect placeholder="Select items...">\n      <div role="option">React</div>\n      <div role="option">Vue</div>\n    </MultiSelect>\n  )\n}`}
+  htmlCode={`<div class="pm-multi-sel pm-multi-sel--outline pm-multi-sel--md">\n  <div class="pm-multi-sel__trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0">Select items...</div>\n  <div class="pm-multi-sel__listbox" role="listbox" aria-multiselectable="true">\n    <div role="option">React</div>\n    <div role="option">Vue</div>\n  </div>\n</div>`}
+  reactCode={`import { MultiSel } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <MultiSel placeholder="Select items...">\n      <div role="option">React</div>\n      <div role="option">Vue</div>\n    </MultiSel>\n  )\n}`}
 />
 
 </TabItem>
@@ -47,9 +55,9 @@ The Multi Select component allows users to choose multiple values from a dropdow
 
 | Class | Description |
 |---|---|
-| `pm-multi-select` | Base class |
-| `pm-multi-select__trigger` | Trigger element |
-| `pm-multi-select__listbox` | Options container |
+| `pm-multi-sel` | Base class |
+| `pm-multi-sel__trigger` | Trigger element |
+| `pm-multi-sel__listbox` | Options container |
 
 </TabItem>
 </Tabs>

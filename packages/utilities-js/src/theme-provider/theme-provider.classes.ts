@@ -1,6 +1,6 @@
 import type { ThemeMode } from "./theme-provider.types.js"
 
-const BASE = "pm-theme-provider"
+const BASE = "pm-theme"
 
 /**
  * Returns BEM class names for the theme provider wrapper element.
@@ -13,14 +13,14 @@ const BASE = "pm-theme-provider"
  *
  * @example
  * ```ts
- * themeProviderClasses()
- * // => "pm-theme-provider"
+ * themeClasses()
+ * // => "pm-theme"
  *
- * themeProviderClasses("dark")
- * // => "pm-theme-provider pm-theme-provider--dark"
+ * themeClasses("dark")
+ * // => "pm-theme pm-theme--dark"
  * ```
  */
-export function themeProviderClasses(mode?: ThemeMode): string {
+export function themeClasses(mode?: ThemeMode): string {
   const classes = [BASE]
   if (mode) classes.push(`${BASE}--${mode}`)
   return classes.join(" ")
@@ -33,11 +33,11 @@ export function themeProviderClasses(mode?: ThemeMode): string {
  * @param mode - Optional theme mode modifier
  * @returns Space-separated mapped class string
  */
-export function themeProviderModuleClasses(
+export function themeModuleClasses(
   classMap: Record<string, string>,
   mode?: ThemeMode,
 ): string {
-  const classes = [classMap["pm-theme-provider"]]
-  if (mode) classes.push(classMap[`pm-theme-provider--${mode}`])
+  const classes = [classMap["pm-theme"]]
+  if (mode) classes.push(classMap[`pm-theme--${mode}`])
   return classes.filter(Boolean).join(" ")
 }

@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("InlineDialog Stories", () => {
+describe("InlineDlg Stories", () => {
   it("Playground renders when visible", () => {
     const { container } = render(<composed.Playground />)
     expect(container.querySelector("[role='dialog']")).toBeTruthy()
@@ -15,8 +15,8 @@ describe("InlineDialog Stories", () => {
 
   it("Hidden applies correct class", () => {
     const { container } = render(<composed.Hidden />)
-    const el = container.querySelector(".pm-inline-dialog")
+    const el = container.querySelector(".pm-inline-dlg")
     expect(el).toBeTruthy()
-    expect(el?.className).not.toContain("pm-inline-dialog--visible")
+    expect(el?.className).not.toContain("pm-inline-dlg--visible")
   })
 })

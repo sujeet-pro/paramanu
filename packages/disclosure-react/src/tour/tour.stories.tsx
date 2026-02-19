@@ -5,7 +5,7 @@ import { Tour, TourStep, TourOverlay } from "./tour.js"
 const meta = {
   title: "Disclosure/Tour",
   component: Tour,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     open: { control: "boolean" },
   },

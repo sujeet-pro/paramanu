@@ -4,7 +4,7 @@ import { Truncate } from "./truncate.js"
 
 const meta = {
   title: "Typography/Truncate",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Truncate,
   argTypes: {
     lines: { control: "select", options: [1, 2, 3, 4, 5, 6] },

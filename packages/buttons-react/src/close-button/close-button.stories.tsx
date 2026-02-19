@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { CloseButton } from "./close-button.js"
+import { CloseBtn } from "./close-button.js"
 
 const meta = {
-  title: "Buttons/Close Button",
-  component: CloseButton,
-  tags: ["autodocs", "stable"],
+  title: "Btns/Close Btn",
+  component: CloseBtn,
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: {
       control: "select",
@@ -16,7 +16,7 @@ const meta = {
   args: {
     onClick: fn(),
   },
-} satisfies Meta<typeof CloseButton>
+} satisfies Meta<typeof CloseBtn>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -43,7 +43,7 @@ export const AllSizes: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
       {(["xs", "sm", "md", "lg"] as const).map((size) => (
-        <CloseButton key={size} size={size} aria-label={`Close ${size}`} />
+        <CloseBtn key={size} size={size} aria-label={`Close ${size}`} />
       ))}
     </div>
   ),
@@ -56,8 +56,8 @@ export const Disabled: Story = {
 export const States: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 8 }}>
-      <CloseButton aria-label="Default close" />
-      <CloseButton disabled aria-label="Disabled close" />
+      <CloseBtn aria-label="Default close" />
+      <CloseBtn disabled aria-label="Disabled close" />
     </div>
   ),
 }

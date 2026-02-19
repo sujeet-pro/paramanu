@@ -5,7 +5,7 @@ import { Slider } from "./slider.js"
 const meta = {
   title: "Forms/Slider",
   component: Slider,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
     orientation: { control: "select", options: ["horizontal", "vertical"] },

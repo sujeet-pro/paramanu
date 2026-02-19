@@ -4,7 +4,7 @@ import { Calendar } from "./calendar.js"
 
 const meta = {
   title: "Forms/Calendar",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Calendar,
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },

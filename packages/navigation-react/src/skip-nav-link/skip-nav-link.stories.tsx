@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { SkipNavLink } from "./skip-nav-link.js"
+import { SkipLink } from "./skip-nav-link.js"
 
 const meta = {
   title: "Navigation/Skip Nav Link",
-  component: SkipNavLink,
-  tags: ["autodocs", "stable"],
+  component: SkipLink,
+  tags: ["autodocs", "beta"],
   args: {
     href: "#main-content",
   },
-} satisfies Meta<typeof SkipNavLink>
+} satisfies Meta<typeof SkipLink>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: (args) => (
     <div>
-      <SkipNavLink {...args} />
+      <SkipLink {...args} />
       <p>Tab to reveal the skip link.</p>
       <main id="main-content">
         <p>Main content area</p>
@@ -29,7 +29,7 @@ export const Playground: Story = {
 export const Default: Story = {
   render: () => (
     <div>
-      <SkipNavLink />
+      <SkipLink />
       <main id="main-content">Content</main>
     </div>
   ),
@@ -38,7 +38,7 @@ export const Default: Story = {
 export const CustomText: Story = {
   render: () => (
     <div>
-      <SkipNavLink>Skip to content</SkipNavLink>
+      <SkipLink>Skip to content</SkipLink>
       <main id="main-content">Content</main>
     </div>
   ),
@@ -47,7 +47,7 @@ export const CustomText: Story = {
 export const CustomTarget: Story = {
   render: () => (
     <div>
-      <SkipNavLink href="#content-area">Skip to content area</SkipNavLink>
+      <SkipLink href="#content-area">Skip to content area</SkipLink>
       <div id="content-area">Content area</div>
     </div>
   ),
@@ -56,7 +56,7 @@ export const CustomTarget: Story = {
 export const FocusableOnTab: Story = {
   render: () => (
     <div>
-      <SkipNavLink />
+      <SkipLink />
       <main id="main-content">Content</main>
     </div>
   ),
@@ -71,7 +71,7 @@ export const FocusableOnTab: Story = {
 export const KeyboardActivation: Story = {
   render: () => (
     <div>
-      <SkipNavLink />
+      <SkipLink />
       <main id="main-content">Content</main>
     </div>
   ),
@@ -86,7 +86,7 @@ export const KeyboardActivation: Story = {
 export const Accessibility: Story = {
   render: () => (
     <div>
-      <SkipNavLink />
+      <SkipLink />
       <main id="main-content">Content</main>
     </div>
   ),
@@ -100,7 +100,7 @@ export const Accessibility: Story = {
 export const Hover: Story = {
   render: () => (
     <div>
-      <SkipNavLink />
+      <SkipLink />
       <main id="main-content">Content</main>
     </div>
   ),
@@ -110,7 +110,7 @@ export const Hover: Story = {
 export const FocusVisible: Story = {
   render: () => (
     <div>
-      <SkipNavLink />
+      <SkipLink />
       <main id="main-content">Content</main>
     </div>
   ),

@@ -241,7 +241,7 @@
   .pm-timeline__connector {
     width: 2px;
     height: 100%;
-    background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    background-color: var(--pm-neutral-hover);
   }
 
   .pm-timeline--horizontal .pm-timeline__connector {
@@ -263,51 +263,51 @@
 
   /* Dot filled variants */
   .pm-timeline__dot--filled.pm-timeline__dot--primary {
-    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    background-color: var(--pm-primary);
   }
 
   .pm-timeline__dot--filled.pm-timeline__dot--neutral {
-    background-color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    background-color: var(--pm-fg-subtle);
   }
 
   .pm-timeline__dot--filled.pm-timeline__dot--danger {
-    background-color: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-500));
+    background-color: var(--pm-danger);
   }
 
   .pm-timeline__dot--filled.pm-timeline__dot--success {
-    background-color: light-dark(var(--pm-color-success-600), var(--pm-color-success-500));
+    background-color: var(--pm-success);
   }
 
   /* Dot outline variants */
   .pm-timeline__dot--outline {
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    background-color: var(--pm-bg);
     border: 2px solid;
   }
 
   .pm-timeline__dot--outline.pm-timeline__dot--primary {
-    border-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    border-color: var(--pm-primary);
   }
 
   .pm-timeline__dot--outline.pm-timeline__dot--neutral {
-    border-color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    border-color: var(--pm-border-emphasis);
   }
 
   .pm-timeline__dot--outline.pm-timeline__dot--danger {
-    border-color: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-500));
+    border-color: var(--pm-danger);
   }
 
   .pm-timeline__dot--outline.pm-timeline__dot--success {
-    border-color: light-dark(var(--pm-color-success-600), var(--pm-color-success-500));
+    border-color: var(--pm-success);
   }
 
   /* Content */
   .pm-timeline__content {
     font-size: var(--pm-font-size-md);
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    color: var(--pm-fg);
   }
 
   .pm-timeline__opposite {
     font-size: var(--pm-font-size-sm);
-    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
   }
 }

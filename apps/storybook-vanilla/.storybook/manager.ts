@@ -6,6 +6,8 @@ import {
   type TagBadgeParameters,
 } from "storybook-addon-tag-badges/manager-helpers"
 
+const PARAMANU_VERSION = "0.1.0-alpha.0"
+
 const DARK_THEMES = new Set([
   "default-dark",
   "dark-modern",
@@ -23,8 +25,8 @@ addons.register("paramanu-theme-sync", (api) => {
 
     api.setOptions({
       theme: isDark
-        ? { ...themes.dark, brandTitle: "Paramanu-JS" }
-        : { ...themes.light, brandTitle: "Paramanu-JS" },
+        ? { ...themes.dark, brandTitle: `Paramanu JS v${PARAMANU_VERSION}` }
+        : { ...themes.light, brandTitle: `Paramanu JS v${PARAMANU_VERSION}` },
     })
   })
 })

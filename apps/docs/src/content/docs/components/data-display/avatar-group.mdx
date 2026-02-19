@@ -1,10 +1,18 @@
 ---
 title: Avatar Group
 description: A group of overlapping avatars with overflow count indicator.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 Avatar Group displays a collection of avatars with optional max limit and overflow count indicator.
 
@@ -14,23 +22,23 @@ Avatar Group displays a collection of avatars with optional max limit and overfl
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-avatar-group pm-avatar-group--md pm-avatar-group--normal" role="group" aria-label="Avatars">
+  htmlCode={`<div class="pm-avatar-grp pm-avatar-grp--md pm-avatar-grp--normal" role="group" aria-label="Avatars">
   <span class="pm-avatar pm-avatar--circle pm-avatar--md pm-avatar--primary" role="img"><span class="pm-avatar__fallback">AJ</span></span>
   <span class="pm-avatar pm-avatar--circle pm-avatar--md pm-avatar--primary" role="img"><span class="pm-avatar__fallback">BS</span></span>
-  <span class="pm-avatar-group__overflow">+3</span>
+  <span class="pm-avatar-grp__overflow">+3</span>
 </div>`}
-  reactCode={`import { AvatarGroup } from "@paramanu/data-display-react"
+  reactCode={`import { AvatarGrp } from "@paramanu/data-display-react"
 import { Avatar } from "@paramanu/data-display-react"
 
 export default function App() {
   return (
-    <AvatarGroup max={2}>
+    <AvatarGrp max={2}>
       <Avatar name="Alice Johnson" />
       <Avatar name="Bob Smith" />
       <Avatar name="Carol White" />
       <Avatar name="David Brown" />
       <Avatar name="Eve Davis" />
-    </AvatarGroup>
+    </AvatarGrp>
   )
 }`}
 />
@@ -63,8 +71,8 @@ export default function App() {
 
 | Class | Description |
 |-------|-------------|
-| `pm-avatar-group` | Base group class |
-| `pm-avatar-group__overflow` | Overflow count indicator |
+| `pm-avatar-grp` | Base group class |
+| `pm-avatar-grp__overflow` | Overflow count indicator |
 
 </TabItem>
 </Tabs>

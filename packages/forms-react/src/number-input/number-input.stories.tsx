@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { NumberInput } from "./number-input.js"
+import { NumInput } from "./number-input.js"
 
 const meta = {
   title: "Forms/Number Input",
-  tags: ["autodocs", "stable"],
-  component: NumberInput,
+  tags: ["autodocs", "beta"],
+  component: NumInput,
   argTypes: {
     variant: {
       control: "select",
@@ -27,7 +27,7 @@ const meta = {
     onFocus: fn(),
     onBlur: fn(),
   },
-} satisfies Meta<typeof NumberInput>
+} satisfies Meta<typeof NumInput>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -86,7 +86,7 @@ export const IncrementDecrement: Story = {
 
 export const KeyboardNavigation: Story = {
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-number-input")
+    const el = canvasElement.querySelector(".pm-num-input")
     await expect(el).toBeTruthy()
     await userEvent.tab()
   },

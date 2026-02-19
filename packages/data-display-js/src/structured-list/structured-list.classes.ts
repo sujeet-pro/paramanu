@@ -1,13 +1,13 @@
 import type {
-  StructuredListClassesOptions,
-  StructuredListClassesResult,
-  StructuredListModuleClassesResult,
+  StructListClassesOptions,
+  StructListClassesResult,
+  StructListModuleClassesResult,
 } from "./structured-list.types.js"
 
-const BASE = "pm-structured-list"
+const BASE = "pm-struct-list"
 
 /**
- * Returns BEM class names for the StructuredList component.
+ * Returns BEM class names for the StructList component.
  *
  * A read-only, column-aligned list rendered with CSS `display: table`.
  * Ideal for key-value data that needs column alignment without the
@@ -15,14 +15,14 @@ const BASE = "pm-structured-list"
  *
  * @example
  * ```ts
- * const cls = structuredListClasses({ selectable: true, bordered: true })
- * // cls.root       => "pm-structured-list pm-structured-list--md pm-structured-list--selectable pm-structured-list--bordered"
- * // cls.headerCell => "pm-structured-list__header-cell"
+ * const cls = structListClasses({ selectable: true, bordered: true })
+ * // cls.root       => "pm-struct-list pm-struct-list--md pm-struct-list--selectable pm-struct-list--bordered"
+ * // cls.headerCell => "pm-struct-list__header-cell"
  * ```
  */
-export function structuredListClasses(
-  options: StructuredListClassesOptions = {},
-): StructuredListClassesResult {
+export function structListClasses(
+  options: StructListClassesOptions = {},
+): StructListClassesResult {
   const { size = "md", selectable = false, bordered = false } = options
 
   const rootClasses = [BASE, `${BASE}--${size}`]
@@ -41,13 +41,13 @@ export function structuredListClasses(
 }
 
 /**
- * Returns CSS module class names for the StructuredList component.
+ * Returns CSS module class names for the StructList component.
  * Used by bundled consumers who import CSS modules.
  */
-export function structuredListModuleClasses(
+export function structListModuleClasses(
   classMap: Record<string, string>,
-  options: StructuredListClassesOptions = {},
-): StructuredListModuleClassesResult {
+  options: StructListClassesOptions = {},
+): StructListModuleClassesResult {
   const { size = "md", selectable = false, bordered = false } = options
 
   const rootClasses = [classMap[BASE], classMap[`${BASE}--${size}`]]

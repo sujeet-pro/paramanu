@@ -17,7 +17,7 @@ function createCenter(args: CenterClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Center",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createCenter(args as CenterClassesOptions),
   argTypes: {
     inline: { control: "boolean" },

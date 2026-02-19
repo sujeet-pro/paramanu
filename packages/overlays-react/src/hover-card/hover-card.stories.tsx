@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { HoverCard } from "./hover-card.js"
+import { Hovercard } from "./hover-card.js"
 
 const meta = {
-  title: "Overlays/HoverCard",
-  component: HoverCard,
-  tags: ["autodocs", "stable"],
+  title: "Overlays/Hovercard",
+  component: Hovercard,
+  tags: ["autodocs", "beta"],
   argTypes: {
     placement: {
       control: "select",
@@ -18,10 +18,10 @@ const meta = {
     placement: "bottom",
     children: "Hover card preview content with user details.",
   },
-} satisfies Meta<typeof HoverCard>
+} satisfies Meta<typeof Hovercard>
 
 export default meta
-type Story = StoryObj<typeof HoverCard>
+type Story = StoryObj<typeof Hovercard>
 
 export const Playground: Story = {}
 
@@ -42,7 +42,7 @@ export const TriggerHover: Story = {
   render: (args) => (
     <div style={{ padding: 100 }}>
       <a href="#">Hover over me</a>
-      <HoverCard {...args}>User profile preview</HoverCard>
+      <Hovercard {...args}>User profile preview</Hovercard>
     </div>
   ),
   play: async ({ canvasElement }) => {
@@ -56,9 +56,9 @@ export const Accessibility: Story = {
   render: () => (
     <div style={{ padding: 100 }}>
       <a href="#">Trigger</a>
-      <HoverCard open placement="bottom">
+      <Hovercard open placement="bottom">
         Preview content
-      </HoverCard>
+      </Hovercard>
     </div>
   ),
   play: async ({ canvasElement }) => {

@@ -48,7 +48,7 @@ export interface ReactDialogProps
  *   <DialogHeader>Title</DialogHeader>
  *   <DialogBody>Content here</DialogBody>
  *   <DialogFooter>
- *     <Button onClick={close}>Close</Button>
+ *     <Btn onClick={close}>Close</Btn>
  *   </DialogFooter>
  * </Dialog>
  * ```

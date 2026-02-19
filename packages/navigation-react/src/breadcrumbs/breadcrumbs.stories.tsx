@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { Breadcrumbs, BreadcrumbsItem, BreadcrumbsLink } from "./breadcrumbs.js"
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "./breadcrumbs.js"
 
 const meta = {
-  title: "Navigation/Breadcrumbs",
-  component: Breadcrumbs,
-  tags: ["autodocs", "stable"],
+  title: "Navigation/Breadcrumb",
+  component: Breadcrumb,
+  tags: ["autodocs", "beta"],
   argTypes: {
     separator: {
       control: "select",
@@ -15,90 +15,90 @@ const meta = {
   args: {
     separator: "slash",
   },
-} satisfies Meta<typeof Breadcrumbs>
+} satisfies Meta<typeof Breadcrumb>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   render: (args) => (
-    <Breadcrumbs {...args}>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Home</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Products</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem active>Details</BreadcrumbsItem>
-    </Breadcrumbs>
+    <Breadcrumb {...args}>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Products</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem active>Details</BreadcrumbItem>
+    </Breadcrumb>
   ),
 }
 
 export const Slash: Story = {
   args: { separator: "slash" },
   render: (args) => (
-    <Breadcrumbs {...args}>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Home</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem active>Page</BreadcrumbsItem>
-    </Breadcrumbs>
+    <Breadcrumb {...args}>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem active>Page</BreadcrumbItem>
+    </Breadcrumb>
   ),
 }
 
 export const Chevron: Story = {
   args: { separator: "chevron" },
   render: (args) => (
-    <Breadcrumbs {...args}>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Home</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem active>Page</BreadcrumbsItem>
-    </Breadcrumbs>
+    <Breadcrumb {...args}>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem active>Page</BreadcrumbItem>
+    </Breadcrumb>
   ),
 }
 
 export const Dot: Story = {
   args: { separator: "dot" },
   render: (args) => (
-    <Breadcrumbs {...args}>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Home</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem active>Page</BreadcrumbsItem>
-    </Breadcrumbs>
+    <Breadcrumb {...args}>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem active>Page</BreadcrumbItem>
+    </Breadcrumb>
   ),
 }
 
 export const Arrow: Story = {
   args: { separator: "arrow" },
   render: (args) => (
-    <Breadcrumbs {...args}>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Home</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem active>Page</BreadcrumbsItem>
-    </Breadcrumbs>
+    <Breadcrumb {...args}>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem active>Page</BreadcrumbItem>
+    </Breadcrumb>
   ),
 }
 
 export const LongPath: Story = {
   render: () => (
-    <Breadcrumbs>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Home</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Category</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Subcategory</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Product</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem active>Details</BreadcrumbsItem>
-    </Breadcrumbs>
+    <Breadcrumb>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Category</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Subcategory</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Product</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem active>Details</BreadcrumbItem>
+    </Breadcrumb>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -112,14 +112,14 @@ export const ClickCrumb: Story = {
   render: () => {
     const onClick = fn()
     return (
-      <Breadcrumbs>
-        <BreadcrumbsItem>
-          <BreadcrumbsLink href="#" onClick={onClick}>
+      <Breadcrumb>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="#" onClick={onClick}>
             Home
-          </BreadcrumbsLink>
-        </BreadcrumbsItem>
-        <BreadcrumbsItem active>Current</BreadcrumbsItem>
-      </Breadcrumbs>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbItem active>Current</BreadcrumbItem>
+      </Breadcrumb>
     )
   },
   play: async ({ canvasElement }) => {
@@ -131,12 +131,12 @@ export const ClickCrumb: Story = {
 
 export const Accessibility: Story = {
   render: () => (
-    <Breadcrumbs>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Home</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem active>Page</BreadcrumbsItem>
-    </Breadcrumbs>
+    <Breadcrumb>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem active>Page</BreadcrumbItem>
+    </Breadcrumb>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -146,24 +146,24 @@ export const Accessibility: Story = {
 
 export const Hover: Story = {
   render: (args) => (
-    <Breadcrumbs {...args}>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Home</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem active>Page</BreadcrumbsItem>
-    </Breadcrumbs>
+    <Breadcrumb {...args}>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem active>Page</BreadcrumbItem>
+    </Breadcrumb>
   ),
   parameters: { pseudo: { hover: true } },
 }
 
 export const FocusVisible: Story = {
   render: (args) => (
-    <Breadcrumbs {...args}>
-      <BreadcrumbsItem>
-        <BreadcrumbsLink href="#">Home</BreadcrumbsLink>
-      </BreadcrumbsItem>
-      <BreadcrumbsItem active>Page</BreadcrumbsItem>
-    </Breadcrumbs>
+    <Breadcrumb {...args}>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem active>Page</BreadcrumbItem>
+    </Breadcrumb>
   ),
   parameters: { pseudo: { focusVisible: true } },
 }

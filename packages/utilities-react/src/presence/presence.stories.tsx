@@ -6,7 +6,7 @@ import { Presence } from "./presence.js"
 const meta = {
   title: "Utilities/Presence",
   component: Presence,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     present: { control: "boolean" },
     duration: { control: "number" },

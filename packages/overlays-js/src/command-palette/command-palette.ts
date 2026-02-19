@@ -5,12 +5,12 @@ import type { PortalInstance } from "@paramanu/utilities-js"
 import { createPresence } from "@paramanu/utilities-js"
 import type { PresenceInstance } from "@paramanu/utilities-js"
 import { lockScroll, unlockScroll } from "../_internal/scroll-lock.js"
-import type { CreateCommandPaletteOptions, CommandPaletteInstance } from "./command-palette.types.js"
+import type { CreateCmdPaletteOptions, CmdPaletteInstance } from "./command-palette.types.js"
 
-export function createCommandPalette(
+export function createCmdPalette(
   element: HTMLElement,
-  options: CreateCommandPaletteOptions = {},
-): CommandPaletteInstance {
+  options: CreateCmdPaletteOptions = {},
+): CmdPaletteInstance {
   const { onClose, onSelect, hotkey = "k" } = options
 
   let portal: PortalInstance | null = null

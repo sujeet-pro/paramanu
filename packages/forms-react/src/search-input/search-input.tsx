@@ -1,27 +1,27 @@
 import { forwardRef } from "react"
-import { searchInputClasses, inputClasses } from "@paramanu/forms-js"
-import type { SearchInputProps } from "@paramanu/forms-js"
+import { searchClasses, inputClasses } from "@paramanu/forms-js"
+import type { SearchProps } from "@paramanu/forms-js"
 
-export interface ReactSearchInputProps
-  extends SearchInputProps,
+export interface ReactSearchProps
+  extends SearchProps,
     Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type"> {
   onClear?: () => void
   children?: React.ReactNode
 }
 
-export const SearchInput = forwardRef<HTMLInputElement, ReactSearchInputProps>(
-  function SearchInput(
+export const Search = forwardRef<HTMLInputElement, ReactSearchProps>(
+  function Search(
     { variant, size, disabled, invalid, fullWidth, onClear, className, value, ...rest },
     ref,
   ) {
-    const wrapperClasses = searchInputClasses({ variant, size, invalid, disabled, fullWidth })
+    const wrapperClasses = searchClasses({ variant, size, invalid, disabled, fullWidth })
     const innerClasses = inputClasses({ variant, size, invalid, disabled })
     const combinedWrapperClassName = className ? `${wrapperClasses} ${className}` : wrapperClasses
     const showClear = value !== undefined && value !== ""
 
     return (
       <div className={combinedWrapperClassName} role="search">
-        <span className="pm-search-input__icon" aria-hidden="true">
+        <span className="pm-search__icon" aria-hidden="true">
           <svg
             width="16"
             height="16"
@@ -49,7 +49,7 @@ export const SearchInput = forwardRef<HTMLInputElement, ReactSearchInputProps>(
         {showClear && (
           <button
             type="button"
-            className="pm-search-input__clear"
+            className="pm-search__clear"
             aria-label="Clear search"
             onClick={onClear}
             disabled={disabled}

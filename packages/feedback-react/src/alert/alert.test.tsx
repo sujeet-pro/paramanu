@@ -56,8 +56,8 @@ describe("Alert", () => {
   it("renders close button when dismissible with onClose", () => {
     const onClose = vi.fn()
     render(<Alert dismissible onClose={onClose}>Content</Alert>)
-    const closeButton = screen.getByLabelText("Close")
-    expect(closeButton).toBeInTheDocument()
+    const closeBtn = screen.getByLabelText("Close")
+    expect(closeBtn).toBeInTheDocument()
   })
 
   it("calls onClose when close button is clicked", () => {

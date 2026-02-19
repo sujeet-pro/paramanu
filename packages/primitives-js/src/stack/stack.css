@@ -32,12 +32,12 @@
 
     /* Separator dividers between children */
     &.pm-stack--separator.pm-stack--vertical > * + * {
-      border-block-start: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+      border-block-start: 1px solid var(--pm-neutral-hover);
       padding-block-start: inherit;
     }
 
     &.pm-stack--separator.pm-stack--horizontal > * + * {
-      border-inline-start: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+      border-inline-start: 1px solid var(--pm-neutral-hover);
       padding-inline-start: inherit;
     }
   }

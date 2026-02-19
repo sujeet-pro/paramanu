@@ -15,7 +15,7 @@ function createCalendar(args: CalendarArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Calendar",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createCalendar(args as CalendarArgs),
   argTypes: { size: { control: "select", options: ["xs", "sm", "md", "lg"] } },
   args: { size: "md" },

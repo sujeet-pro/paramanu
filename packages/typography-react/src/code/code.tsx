@@ -11,10 +11,10 @@ export interface ReactCodeProps
 }
 
 export const Code = forwardRef<HTMLElement, ReactCodeProps>(function Code(
-  { block, size, variant, color, withLineNumbers, withCopyButton, language, className, children, ...rest },
+  { block, size, variant, color, withLineNumbers, withCopyBtn, language, className, children, ...rest },
   ref,
 ) {
-  const classes = codeClasses({ block, size, variant, color, withLineNumbers, withCopyButton, language })
+  const classes = codeClasses({ block, size, variant, color, withLineNumbers, withCopyBtn, language })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   if (block) {

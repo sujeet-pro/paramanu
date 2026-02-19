@@ -29,7 +29,7 @@ function createSkipNav(): HTMLElement {
 
 const meta = {
   title: "Utilities/SkipNav",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
 } satisfies Meta
 
 export default meta

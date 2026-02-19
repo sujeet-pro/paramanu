@@ -1,18 +1,18 @@
 import { forwardRef } from "react"
-import { emptyStateClasses } from "@paramanu/data-display-js"
-import type { EmptyStateProps } from "@paramanu/data-display-js"
+import { emptyClasses } from "@paramanu/data-display-js"
+import type { EmptyProps } from "@paramanu/data-display-js"
 
-export interface ReactEmptyStateProps
-  extends EmptyStateProps,
+export interface ReactEmptyProps
+  extends EmptyProps,
     React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const EmptyState = forwardRef<HTMLDivElement, ReactEmptyStateProps>(function EmptyState(
+export const Empty = forwardRef<HTMLDivElement, ReactEmptyProps>(function Empty(
   { size, bordered, className, children, ...rest },
   ref,
 ) {
-  const classes = emptyStateClasses({ size, bordered })
+  const classes = emptyClasses({ size, bordered })
   const combinedClassName = className ? `${classes.root} ${className}` : classes.root
 
   return (
@@ -22,13 +22,13 @@ export const EmptyState = forwardRef<HTMLDivElement, ReactEmptyStateProps>(funct
   )
 })
 
-export interface ReactEmptyStateIconProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactEmptyIconProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const EmptyStateIcon = forwardRef<HTMLDivElement, ReactEmptyStateIconProps>(
-  function EmptyStateIcon({ className, children, ...rest }, ref) {
-    const classes = emptyStateClasses()
+export const EmptyIcon = forwardRef<HTMLDivElement, ReactEmptyIconProps>(
+  function EmptyIcon({ className, children, ...rest }, ref) {
+    const classes = emptyClasses()
     const combinedClassName = className ? `${classes.icon} ${className}` : classes.icon
 
     return (
@@ -39,13 +39,13 @@ export const EmptyStateIcon = forwardRef<HTMLDivElement, ReactEmptyStateIconProp
   },
 )
 
-export interface ReactEmptyStateHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface ReactEmptyHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   children?: React.ReactNode
 }
 
-export const EmptyStateHeading = forwardRef<HTMLHeadingElement, ReactEmptyStateHeadingProps>(
-  function EmptyStateHeading({ className, children, ...rest }, ref) {
-    const classes = emptyStateClasses()
+export const EmptyHeading = forwardRef<HTMLHeadingElement, ReactEmptyHeadingProps>(
+  function EmptyHeading({ className, children, ...rest }, ref) {
+    const classes = emptyClasses()
     const combinedClassName = className ? `${classes.heading} ${className}` : classes.heading
 
     return (
@@ -56,16 +56,16 @@ export const EmptyStateHeading = forwardRef<HTMLHeadingElement, ReactEmptyStateH
   },
 )
 
-export interface ReactEmptyStateDescriptionProps
+export interface ReactEmptyDescriptionProps
   extends React.HTMLAttributes<HTMLParagraphElement> {
   children?: React.ReactNode
 }
 
-export const EmptyStateDescription = forwardRef<
+export const EmptyDescription = forwardRef<
   HTMLParagraphElement,
-  ReactEmptyStateDescriptionProps
->(function EmptyStateDescription({ className, children, ...rest }, ref) {
-  const classes = emptyStateClasses()
+  ReactEmptyDescriptionProps
+>(function EmptyDescription({ className, children, ...rest }, ref) {
+  const classes = emptyClasses()
   const combinedClassName = className ? `${classes.description} ${className}` : classes.description
 
   return (
@@ -75,13 +75,13 @@ export const EmptyStateDescription = forwardRef<
   )
 })
 
-export interface ReactEmptyStateActionsProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactEmptyActionsProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const EmptyStateActions = forwardRef<HTMLDivElement, ReactEmptyStateActionsProps>(
-  function EmptyStateActions({ className, children, ...rest }, ref) {
-    const classes = emptyStateClasses()
+export const EmptyActions = forwardRef<HTMLDivElement, ReactEmptyActionsProps>(
+  function EmptyActions({ className, children, ...rest }, ref) {
+    const classes = emptyClasses()
     const combinedClassName = className ? `${classes.actions} ${className}` : classes.actions
 
     return (

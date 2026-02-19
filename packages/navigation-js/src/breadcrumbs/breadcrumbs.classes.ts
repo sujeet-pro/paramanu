@@ -1,38 +1,38 @@
 import type {
-  BreadcrumbsClassesOptions,
-  BreadcrumbsItemClassesOptions,
-  BreadcrumbsLinkClassesOptions,
+  BreadcrumbClassesOptions,
+  BreadcrumbItemClassesOptions,
+  BreadcrumbLinkClassesOptions,
 } from "./breadcrumbs.types.js"
 
-const BASE = "pm-breadcrumbs"
+const BASE = "pm-breadcrumb"
 
-export function breadcrumbsClasses(options: BreadcrumbsClassesOptions = {}): string {
+export function breadcrumbClasses(options: BreadcrumbClassesOptions = {}): string {
   const { separator = "slash" } = options
   const classes = [BASE, `${BASE}--${separator}`]
   return classes.join(" ")
 }
 
-export function breadcrumbsModuleClasses(
+export function breadcrumbModuleClasses(
   classMap: Record<string, string>,
-  options: BreadcrumbsClassesOptions = {},
+  options: BreadcrumbClassesOptions = {},
 ): string {
   const { separator = "slash" } = options
   const classes = [classMap[BASE], classMap[`${BASE}--${separator}`]]
   return classes.filter(Boolean).join(" ")
 }
 
-const ITEM_BASE = "pm-breadcrumbs__item"
+const ITEM_BASE = "pm-breadcrumb__item"
 
-export function breadcrumbsItemClasses(options: BreadcrumbsItemClassesOptions = {}): string {
+export function breadcrumbItemClasses(options: BreadcrumbItemClassesOptions = {}): string {
   const { active = false } = options
   const classes = [ITEM_BASE]
   if (active) classes.push(`${ITEM_BASE}--active`)
   return classes.join(" ")
 }
 
-export function breadcrumbsItemModuleClasses(
+export function breadcrumbItemModuleClasses(
   classMap: Record<string, string>,
-  options: BreadcrumbsItemClassesOptions = {},
+  options: BreadcrumbItemClassesOptions = {},
 ): string {
   const { active = false } = options
   const classes = [classMap[ITEM_BASE]]
@@ -40,15 +40,15 @@ export function breadcrumbsItemModuleClasses(
   return classes.filter(Boolean).join(" ")
 }
 
-const LINK_BASE = "pm-breadcrumbs__link"
+const LINK_BASE = "pm-breadcrumb__link"
 
-export function breadcrumbsLinkClasses(_options: BreadcrumbsLinkClassesOptions = {}): string {
+export function breadcrumbsLinkClasses(_options: BreadcrumbLinkClassesOptions = {}): string {
   return LINK_BASE
 }
 
 export function breadcrumbsLinkModuleClasses(
   classMap: Record<string, string>,
-  _options: BreadcrumbsLinkClassesOptions = {},
+  _options: BreadcrumbLinkClassesOptions = {},
 ): string {
   return classMap[LINK_BASE] || ""
 }

@@ -18,7 +18,7 @@ function createSlider(args: SliderArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Slider",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createSlider(args as SliderArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },

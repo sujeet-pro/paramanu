@@ -21,7 +21,7 @@ function createPopover(args: PopoverClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Popover",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createPopover(args as PopoverClassesOptions),
   argTypes: {
     placement: { control: "select", options: ["top", "bottom", "left", "right"] },

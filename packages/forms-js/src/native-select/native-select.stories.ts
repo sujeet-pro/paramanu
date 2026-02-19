@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { nativeSelectClasses } from "./native-select.classes.js"
-import type { NativeSelectClassesOptions } from "./native-select.types.js"
+import { nativeSelClasses } from "./native-select.classes.js"
+import type { NativeSelClassesOptions } from "./native-select.types.js"
 
-type NativeSelectArgs = NativeSelectClassesOptions
+type NativeSelArgs = NativeSelClassesOptions
 
-function createNativeSelect(args: NativeSelectArgs): HTMLElement {
+function createNativeSel(args: NativeSelArgs): HTMLElement {
   const wrapper = document.createElement("div")
-  wrapper.className = nativeSelectClasses(args)
+  wrapper.className = nativeSelClasses(args)
 
   const select = document.createElement("select")
-  select.className = "pm-native-select__field"
+  select.className = "pm-native-sel__field"
   if (args.disabled) { select.disabled = true; select.setAttribute("aria-disabled", "true") }
   if (args.invalid) select.setAttribute("aria-invalid", "true")
 
@@ -22,7 +22,7 @@ function createNativeSelect(args: NativeSelectArgs): HTMLElement {
   })
 
   const arrow = document.createElement("span")
-  arrow.className = "pm-native-select__arrow"
+  arrow.className = "pm-native-sel__arrow"
   arrow.setAttribute("aria-hidden", "true")
   arrow.innerHTML = "&#9662;"
 
@@ -33,8 +33,8 @@ function createNativeSelect(args: NativeSelectArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Native Select",
-  tags: ["autodocs", "stable"],
-  render: (args) => createNativeSelect(args as NativeSelectArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createNativeSel(args as NativeSelArgs),
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -43,10 +43,10 @@ const meta = {
     fullWidth: { control: "boolean" },
   },
   args: { variant: "outline", size: "md" },
-} satisfies Meta<NativeSelectArgs>
+} satisfies Meta<NativeSelArgs>
 
 export default meta
-type Story = StoryObj<NativeSelectArgs>
+type Story = StoryObj<NativeSelArgs>
 
 export const Playground: Story = {}
 export const Filled: Story = { args: { variant: "filled" } }

@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { backToTopClasses } from "./back-to-top.classes.js"
-import type { BackToTopClassesOptions } from "./back-to-top.types.js"
+import { bttClasses } from "./back-to-top.classes.js"
+import type { BttClassesOptions } from "./back-to-top.types.js"
 
-interface BackToTopArgs extends BackToTopClassesOptions {}
+interface BttArgs extends BttClassesOptions {}
 
-function createBackToTop(args: BackToTopArgs): HTMLElement {
+function createBtt(args: BttArgs): HTMLElement {
   const btn = document.createElement("button")
-  btn.className = backToTopClasses(args)
+  btn.className = bttClasses(args)
   btn.type = "button"
   btn.setAttribute("aria-label", "Back to top")
   btn.textContent = "\u2191"
@@ -15,8 +15,8 @@ function createBackToTop(args: BackToTopArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Back to Top",
-  tags: ["autodocs", "stable"],
-  render: (args) => createBackToTop(args as BackToTopArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createBtt(args as BttArgs),
   argTypes: {
     size: {
       control: "select",
@@ -33,10 +33,10 @@ const meta = {
     position: "bottom-right",
     visible: true,
   },
-} satisfies Meta<BackToTopArgs>
+} satisfies Meta<BttArgs>
 
 export default meta
-type Story = StoryObj<BackToTopArgs>
+type Story = StoryObj<BttArgs>
 
 export const Playground: Story = {}
 

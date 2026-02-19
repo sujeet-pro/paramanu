@@ -1,18 +1,18 @@
 import { forwardRef } from "react"
-import { datePickerClasses } from "@paramanu/forms-js"
-import type { DatePickerProps } from "@paramanu/forms-js"
+import { datepickerClasses } from "@paramanu/forms-js"
+import type { DatepickerProps } from "@paramanu/forms-js"
 
-export interface ReactDatePickerProps
-  extends DatePickerProps,
+export interface ReactDatepickerProps
+  extends DatepickerProps,
     Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   children?: React.ReactNode
 }
 
-export const DatePicker = forwardRef<HTMLInputElement, ReactDatePickerProps>(function DatePicker(
+export const Datepicker = forwardRef<HTMLInputElement, ReactDatepickerProps>(function Datepicker(
   { variant, size, disabled, invalid, open, className, children, ...rest },
   ref,
 ) {
-  const classes = datePickerClasses({ variant, size, disabled, invalid, open })
+  const classes = datepickerClasses({ variant, size, disabled, invalid, open })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (
@@ -20,7 +20,7 @@ export const DatePicker = forwardRef<HTMLInputElement, ReactDatePickerProps>(fun
       <input
         ref={ref}
         type="text"
-        className="pm-date-picker__input"
+        className="pm-datepicker__input"
         role="combobox"
         aria-expanded={open || false}
         aria-haspopup="dialog"
@@ -28,10 +28,10 @@ export const DatePicker = forwardRef<HTMLInputElement, ReactDatePickerProps>(fun
         disabled={disabled}
         {...rest}
       />
-      <span className="pm-date-picker__icon" aria-hidden="true">
+      <span className="pm-datepicker__icon" aria-hidden="true">
         &#128197;
       </span>
-      <div className="pm-date-picker__popover" role="dialog" aria-label="Calendar">
+      <div className="pm-datepicker__popover" role="dialog" aria-label="Calendar">
         {children}
       </div>
     </div>

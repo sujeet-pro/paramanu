@@ -1,24 +1,24 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup, fireEvent } from "@testing-library/react"
 import {
-  AppShell,
-  AppShellHeader,
-  AppShellSidebar,
-  AppShellMain,
-  AppShellFooter,
+  Shell,
+  ShellHeader,
+  ShellSidebar,
+  ShellMain,
+  ShellFooter,
 } from "./app-shell.js"
 
 afterEach(cleanup)
 
-describe("AppShell", () => {
+describe("Shell", () => {
   it("renders compound component with all sub-components", () => {
     render(
-      <AppShell data-testid="shell">
-        <AppShellHeader data-testid="header">Header</AppShellHeader>
-        <AppShellSidebar data-testid="sidebar">Sidebar</AppShellSidebar>
-        <AppShellMain data-testid="main">Main</AppShellMain>
-        <AppShellFooter data-testid="footer">Footer</AppShellFooter>
-      </AppShell>,
+      <Shell data-testid="shell">
+        <ShellHeader data-testid="header">Header</ShellHeader>
+        <ShellSidebar data-testid="sidebar">Sidebar</ShellSidebar>
+        <ShellMain data-testid="main">Main</ShellMain>
+        <ShellFooter data-testid="footer">Footer</ShellFooter>
+      </Shell>,
     )
     expect(screen.getByTestId("shell")).toBeInTheDocument()
     expect(screen.getByTestId("header")).toBeInTheDocument()
@@ -29,70 +29,70 @@ describe("AppShell", () => {
 
   it("applies default classes (sidebar-start)", () => {
     render(
-      <AppShell data-testid="shell">
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell data-testid="shell">
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
     const shell = screen.getByTestId("shell")
-    expect(shell.className).toContain("pm-app-shell")
-    expect(shell.className).toContain("pm-app-shell--sidebar-start")
+    expect(shell.className).toContain("pm-shell")
+    expect(shell.className).toContain("pm-shell--sidebar-start")
   })
 
   it("applies sidebar-end position", () => {
     render(
-      <AppShell sidebarPosition="end" data-testid="shell">
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell sidebarPosition="end" data-testid="shell">
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
-    expect(screen.getByTestId("shell").className).toContain("pm-app-shell--sidebar-end")
+    expect(screen.getByTestId("shell").className).toContain("pm-shell--sidebar-end")
   })
 
   it("applies sidebar-collapsed class when controlled", () => {
     render(
-      <AppShell sidebarCollapsed data-testid="shell">
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell sidebarCollapsed data-testid="shell">
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
-    expect(screen.getByTestId("shell").className).toContain("pm-app-shell--sidebar-collapsed")
+    expect(screen.getByTestId("shell").className).toContain("pm-shell--sidebar-collapsed")
   })
 
   // --- Semantic elements ---
 
   it("renders header as <header> element", () => {
     render(
-      <AppShell>
-        <AppShellHeader data-testid="header">Header</AppShellHeader>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell>
+        <ShellHeader data-testid="header">Header</ShellHeader>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
     expect(screen.getByTestId("header").tagName).toBe("HEADER")
   })
 
   it("renders sidebar as <aside> element", () => {
     render(
-      <AppShell>
-        <AppShellSidebar data-testid="sidebar">Sidebar</AppShellSidebar>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell>
+        <ShellSidebar data-testid="sidebar">Sidebar</ShellSidebar>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
     expect(screen.getByTestId("sidebar").tagName).toBe("ASIDE")
   })
 
   it("renders main as <main> element", () => {
     render(
-      <AppShell>
-        <AppShellMain data-testid="main">Main</AppShellMain>
-      </AppShell>,
+      <Shell>
+        <ShellMain data-testid="main">Main</ShellMain>
+      </Shell>,
     )
     expect(screen.getByTestId("main").tagName).toBe("MAIN")
   })
 
   it("renders footer as <footer> element", () => {
     render(
-      <AppShell>
-        <AppShellMain>Main</AppShellMain>
-        <AppShellFooter data-testid="footer">Footer</AppShellFooter>
-      </AppShell>,
+      <Shell>
+        <ShellMain>Main</ShellMain>
+        <ShellFooter data-testid="footer">Footer</ShellFooter>
+      </Shell>,
     )
     expect(screen.getByTestId("footer").tagName).toBe("FOOTER")
   })
@@ -101,82 +101,82 @@ describe("AppShell", () => {
 
   it("applies sticky class to header", () => {
     render(
-      <AppShell>
-        <AppShellHeader sticky data-testid="header">
+      <Shell>
+        <ShellHeader sticky data-testid="header">
           Header
-        </AppShellHeader>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+        </ShellHeader>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
-    expect(screen.getByTestId("header").className).toContain("pm-app-shell__header--sticky")
+    expect(screen.getByTestId("header").className).toContain("pm-shell__header--sticky")
   })
 
   it("does not apply sticky class when not set", () => {
     render(
-      <AppShell>
-        <AppShellHeader data-testid="header">Header</AppShellHeader>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell>
+        <ShellHeader data-testid="header">Header</ShellHeader>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
-    expect(screen.getByTestId("header").className).not.toContain("pm-app-shell__header--sticky")
+    expect(screen.getByTestId("header").className).not.toContain("pm-shell__header--sticky")
   })
 
   // --- Sidebar ---
 
   it("applies default md width class to sidebar", () => {
     render(
-      <AppShell>
-        <AppShellSidebar data-testid="sidebar">Sidebar</AppShellSidebar>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell>
+        <ShellSidebar data-testid="sidebar">Sidebar</ShellSidebar>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
-    expect(screen.getByTestId("sidebar").className).toContain("pm-app-shell__sidebar--md")
+    expect(screen.getByTestId("sidebar").className).toContain("pm-shell__sidebar--md")
   })
 
   it("applies sm width class to sidebar", () => {
     render(
-      <AppShell>
-        <AppShellSidebar width="sm" data-testid="sidebar">
+      <Shell>
+        <ShellSidebar width="sm" data-testid="sidebar">
           Sidebar
-        </AppShellSidebar>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+        </ShellSidebar>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
-    expect(screen.getByTestId("sidebar").className).toContain("pm-app-shell__sidebar--sm")
+    expect(screen.getByTestId("sidebar").className).toContain("pm-shell__sidebar--sm")
   })
 
   it("applies lg width class to sidebar", () => {
     render(
-      <AppShell>
-        <AppShellSidebar width="lg" data-testid="sidebar">
+      <Shell>
+        <ShellSidebar width="lg" data-testid="sidebar">
           Sidebar
-        </AppShellSidebar>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+        </ShellSidebar>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
-    expect(screen.getByTestId("sidebar").className).toContain("pm-app-shell__sidebar--lg")
+    expect(screen.getByTestId("sidebar").className).toContain("pm-shell__sidebar--lg")
   })
 
   it("sidebar reads collapsed state from context", () => {
     render(
-      <AppShell sidebarCollapsed>
-        <AppShellSidebar data-testid="sidebar">Sidebar</AppShellSidebar>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell sidebarCollapsed>
+        <ShellSidebar data-testid="sidebar">Sidebar</ShellSidebar>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
-    expect(screen.getByTestId("sidebar").className).toContain("pm-app-shell__sidebar--collapsed")
+    expect(screen.getByTestId("sidebar").className).toContain("pm-shell__sidebar--collapsed")
   })
 
   it("sidebar prop collapsed overrides context", () => {
     render(
-      <AppShell sidebarCollapsed={false}>
-        <AppShellSidebar collapsed data-testid="sidebar">
+      <Shell sidebarCollapsed={false}>
+        <ShellSidebar collapsed data-testid="sidebar">
           Sidebar
-        </AppShellSidebar>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+        </ShellSidebar>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
-    expect(screen.getByTestId("sidebar").className).toContain("pm-app-shell__sidebar--collapsed")
+    expect(screen.getByTestId("sidebar").className).toContain("pm-shell__sidebar--collapsed")
   })
 
   // --- Sidebar toggle ---
@@ -184,153 +184,153 @@ describe("AppShell", () => {
   it("toggles sidebar collapsed state via context", () => {
     function TestApp() {
       return (
-        <AppShell defaultSidebarCollapsed={false}>
-          <AppShellSidebar data-testid="sidebar">Sidebar</AppShellSidebar>
-          <AppShellMain>
-            <ToggleButton />
-          </AppShellMain>
-        </AppShell>
+        <Shell defaultSidebarCollapsed={false}>
+          <ShellSidebar data-testid="sidebar">Sidebar</ShellSidebar>
+          <ShellMain>
+            <ToggleBtn />
+          </ShellMain>
+        </Shell>
       )
     }
 
-    // Access toggle from inside AppShell
-    function ToggleButton() {
+    // Access toggle from inside Shell
+    function ToggleBtn() {
       return null
     }
 
     render(<TestApp />)
     const sidebar = screen.getByTestId("sidebar")
-    expect(sidebar.className).not.toContain("pm-app-shell__sidebar--collapsed")
+    expect(sidebar.className).not.toContain("pm-shell__sidebar--collapsed")
   })
 
   // --- Ref forwarding ---
 
-  it("forwards ref on AppShell container", () => {
+  it("forwards ref on Shell container", () => {
     let shellRef: HTMLDivElement | null = null
     render(
-      <AppShell ref={(el) => (shellRef = el)}>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell ref={(el) => (shellRef = el)}>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
     expect(shellRef).toBeInstanceOf(HTMLDivElement)
   })
 
-  it("forwards ref on AppShellHeader", () => {
+  it("forwards ref on ShellHeader", () => {
     let headerRef: HTMLElement | null = null
     render(
-      <AppShell>
-        <AppShellHeader ref={(el) => (headerRef = el)}>Header</AppShellHeader>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell>
+        <ShellHeader ref={(el) => (headerRef = el)}>Header</ShellHeader>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
     expect(headerRef).toBeInstanceOf(HTMLElement)
   })
 
-  it("forwards ref on AppShellSidebar", () => {
+  it("forwards ref on ShellSidebar", () => {
     let sidebarRef: HTMLElement | null = null
     render(
-      <AppShell>
-        <AppShellSidebar ref={(el) => (sidebarRef = el)}>Sidebar</AppShellSidebar>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell>
+        <ShellSidebar ref={(el) => (sidebarRef = el)}>Sidebar</ShellSidebar>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
     expect(sidebarRef).toBeInstanceOf(HTMLElement)
   })
 
-  it("forwards ref on AppShellMain", () => {
+  it("forwards ref on ShellMain", () => {
     let mainRef: HTMLElement | null = null
     render(
-      <AppShell>
-        <AppShellMain ref={(el) => (mainRef = el)}>Main</AppShellMain>
-      </AppShell>,
+      <Shell>
+        <ShellMain ref={(el) => (mainRef = el)}>Main</ShellMain>
+      </Shell>,
     )
     expect(mainRef).toBeInstanceOf(HTMLElement)
   })
 
-  it("forwards ref on AppShellFooter", () => {
+  it("forwards ref on ShellFooter", () => {
     let footerRef: HTMLElement | null = null
     render(
-      <AppShell>
-        <AppShellMain>Main</AppShellMain>
-        <AppShellFooter ref={(el) => (footerRef = el)}>Footer</AppShellFooter>
-      </AppShell>,
+      <Shell>
+        <ShellMain>Main</ShellMain>
+        <ShellFooter ref={(el) => (footerRef = el)}>Footer</ShellFooter>
+      </Shell>,
     )
     expect(footerRef).toBeInstanceOf(HTMLElement)
   })
 
   // --- className merge ---
 
-  it("merges custom className on AppShell", () => {
+  it("merges custom className on Shell", () => {
     render(
-      <AppShell className="custom-shell" data-testid="shell">
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell className="custom-shell" data-testid="shell">
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
     const el = screen.getByTestId("shell")
-    expect(el.className).toContain("pm-app-shell")
+    expect(el.className).toContain("pm-shell")
     expect(el.className).toContain("custom-shell")
   })
 
-  it("merges custom className on AppShellHeader", () => {
+  it("merges custom className on ShellHeader", () => {
     render(
-      <AppShell>
-        <AppShellHeader className="custom-header" data-testid="header">
+      <Shell>
+        <ShellHeader className="custom-header" data-testid="header">
           Header
-        </AppShellHeader>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+        </ShellHeader>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
     const el = screen.getByTestId("header")
-    expect(el.className).toContain("pm-app-shell__header")
+    expect(el.className).toContain("pm-shell__header")
     expect(el.className).toContain("custom-header")
   })
 
-  it("merges custom className on AppShellSidebar", () => {
+  it("merges custom className on ShellSidebar", () => {
     render(
-      <AppShell>
-        <AppShellSidebar className="custom-sidebar" data-testid="sidebar">
+      <Shell>
+        <ShellSidebar className="custom-sidebar" data-testid="sidebar">
           Sidebar
-        </AppShellSidebar>
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+        </ShellSidebar>
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
     const el = screen.getByTestId("sidebar")
-    expect(el.className).toContain("pm-app-shell__sidebar")
+    expect(el.className).toContain("pm-shell__sidebar")
     expect(el.className).toContain("custom-sidebar")
   })
 
-  it("merges custom className on AppShellMain", () => {
+  it("merges custom className on ShellMain", () => {
     render(
-      <AppShell>
-        <AppShellMain className="custom-main" data-testid="main">
+      <Shell>
+        <ShellMain className="custom-main" data-testid="main">
           Main
-        </AppShellMain>
-      </AppShell>,
+        </ShellMain>
+      </Shell>,
     )
     const el = screen.getByTestId("main")
-    expect(el.className).toContain("pm-app-shell__main")
+    expect(el.className).toContain("pm-shell__main")
     expect(el.className).toContain("custom-main")
   })
 
-  it("merges custom className on AppShellFooter", () => {
+  it("merges custom className on ShellFooter", () => {
     render(
-      <AppShell>
-        <AppShellMain>Main</AppShellMain>
-        <AppShellFooter className="custom-footer" data-testid="footer">
+      <Shell>
+        <ShellMain>Main</ShellMain>
+        <ShellFooter className="custom-footer" data-testid="footer">
           Footer
-        </AppShellFooter>
-      </AppShell>,
+        </ShellFooter>
+      </Shell>,
     )
     const el = screen.getByTestId("footer")
-    expect(el.className).toContain("pm-app-shell__footer")
+    expect(el.className).toContain("pm-shell__footer")
     expect(el.className).toContain("custom-footer")
   })
 
   it("passes through additional HTML attributes", () => {
     render(
-      <AppShell data-testid="my-shell">
-        <AppShellMain>Main</AppShellMain>
-      </AppShell>,
+      <Shell data-testid="my-shell">
+        <ShellMain>Main</ShellMain>
+      </Shell>,
     )
     expect(screen.getByTestId("my-shell")).toBeInTheDocument()
   })

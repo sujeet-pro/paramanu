@@ -44,7 +44,7 @@ describe("clipboard accessibility", () => {
   it("button is keyboard accessible", () => {
     const dom = new JSDOM(`<!DOCTYPE html><body>${createClipboardHTML()}</body>`)
     const button = dom.window.document.querySelector("button")
-    // Buttons are natively focusable and keyboard-operable
+    // Btns are natively focusable and keyboard-operable
     expect(button?.tagName).toBe("BUTTON")
   })
 })

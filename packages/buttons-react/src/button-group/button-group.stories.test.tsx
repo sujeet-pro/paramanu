@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("ButtonGroup Stories", () => {
+describe("BtnGroup Stories", () => {
   it("Playground renders without crashing", () => {
     render(<composed.Playground />)
     expect(screen.getByRole("group")).toBeInTheDocument()
@@ -35,8 +35,8 @@ describe("ButtonGroup Stories", () => {
     expect(screen.getByRole("button", { name: "Delete" })).toBeInTheDocument()
   })
 
-  it("WithDisabledButton has a disabled button", () => {
-    render(<composed.WithDisabledButton />)
+  it("WithDisabledBtn has a disabled button", () => {
+    render(<composed.WithDisabledBtn />)
     expect(screen.getByRole("button", { name: "Share" })).toBeDisabled()
   })
 

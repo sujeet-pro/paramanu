@@ -38,7 +38,7 @@ function createBanner(args: BannerArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Banner",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createBanner(args as BannerArgs),
   argTypes: {
     variant: { control: "select", options: ["info", "success", "warning", "danger"] },

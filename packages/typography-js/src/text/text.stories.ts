@@ -11,7 +11,7 @@ function createText(args: TextClassesOptions): HTMLElement {
 
 const meta = {
   title: "Typography/Text",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createText(args as TextClassesOptions),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"] },

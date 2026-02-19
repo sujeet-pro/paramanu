@@ -1,10 +1,18 @@
 ---
-title: Icon Button
+title: Icon Btn
 description: A square or circular button that renders only an icon with no visible text.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 A button that renders only an icon, requiring `aria-label` for accessibility. Supports square and circle shapes.
 
@@ -14,16 +22,16 @@ A button that renders only an icon, requiring `aria-label` for accessibility. Su
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<button class="pm-icon-button pm-icon-button--primary pm-icon-button--md pm-icon-button--square" aria-label="Search">
+  htmlCode={`<button class="pm-icon-btn pm-icon-btn--primary pm-icon-btn--md pm-icon-btn--square" aria-label="Search">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
 </button>`}
-  reactCode={`import { IconButton } from "@paramanu/buttons-react"
+  reactCode={`import { IconBtn } from "@paramanu/buttons-react"
 
 export default function App() {
   return (
-    <IconButton aria-label="Search">
+    <IconBtn aria-label="Search">
       <SearchIcon />
-    </IconButton>
+    </IconBtn>
   )
 }`}
 />
@@ -32,22 +40,22 @@ export default function App() {
 
 <ComponentPreview
   htmlCode={`<div style="display: flex; gap: 8px;">
-  <button class="pm-icon-button pm-icon-button--primary pm-icon-button--md pm-icon-button--square" aria-label="Primary">+</button>
-  <button class="pm-icon-button pm-icon-button--secondary pm-icon-button--md pm-icon-button--square" aria-label="Secondary">+</button>
-  <button class="pm-icon-button pm-icon-button--danger pm-icon-button--md pm-icon-button--square" aria-label="Danger">+</button>
-  <button class="pm-icon-button pm-icon-button--ghost pm-icon-button--md pm-icon-button--square" aria-label="Ghost">+</button>
-  <button class="pm-icon-button pm-icon-button--outline pm-icon-button--md pm-icon-button--square" aria-label="Outline">+</button>
+  <button class="pm-icon-btn pm-icon-btn--primary pm-icon-btn--md pm-icon-btn--square" aria-label="Primary">+</button>
+  <button class="pm-icon-btn pm-icon-btn--secondary pm-icon-btn--md pm-icon-btn--square" aria-label="Secondary">+</button>
+  <button class="pm-icon-btn pm-icon-btn--danger pm-icon-btn--md pm-icon-btn--square" aria-label="Danger">+</button>
+  <button class="pm-icon-btn pm-icon-btn--ghost pm-icon-btn--md pm-icon-btn--square" aria-label="Ghost">+</button>
+  <button class="pm-icon-btn pm-icon-btn--outline pm-icon-btn--md pm-icon-btn--square" aria-label="Outline">+</button>
 </div>`}
-  reactCode={`import { IconButton } from "@paramanu/buttons-react"
+  reactCode={`import { IconBtn } from "@paramanu/buttons-react"
 
 export default function App() {
   return (
     <div style={{ display: "flex", gap: "8px" }}>
-      <IconButton variant="primary" aria-label="Primary"><PlusIcon /></IconButton>
-      <IconButton variant="secondary" aria-label="Secondary"><PlusIcon /></IconButton>
-      <IconButton variant="danger" aria-label="Danger"><PlusIcon /></IconButton>
-      <IconButton variant="ghost" aria-label="Ghost"><PlusIcon /></IconButton>
-      <IconButton variant="outline" aria-label="Outline"><PlusIcon /></IconButton>
+      <IconBtn variant="primary" aria-label="Primary"><PlusIcon /></IconBtn>
+      <IconBtn variant="secondary" aria-label="Secondary"><PlusIcon /></IconBtn>
+      <IconBtn variant="danger" aria-label="Danger"><PlusIcon /></IconBtn>
+      <IconBtn variant="ghost" aria-label="Ghost"><PlusIcon /></IconBtn>
+      <IconBtn variant="outline" aria-label="Outline"><PlusIcon /></IconBtn>
     </div>
   )
 }`}
@@ -57,16 +65,16 @@ export default function App() {
 
 <ComponentPreview
   htmlCode={`<div style="display: flex; gap: 8px;">
-  <button class="pm-icon-button pm-icon-button--primary pm-icon-button--md pm-icon-button--square" aria-label="Square">+</button>
-  <button class="pm-icon-button pm-icon-button--primary pm-icon-button--md pm-icon-button--circle" aria-label="Circle">+</button>
+  <button class="pm-icon-btn pm-icon-btn--primary pm-icon-btn--md pm-icon-btn--square" aria-label="Square">+</button>
+  <button class="pm-icon-btn pm-icon-btn--primary pm-icon-btn--md pm-icon-btn--circle" aria-label="Circle">+</button>
 </div>`}
-  reactCode={`import { IconButton } from "@paramanu/buttons-react"
+  reactCode={`import { IconBtn } from "@paramanu/buttons-react"
 
 export default function App() {
   return (
     <div style={{ display: "flex", gap: "8px" }}>
-      <IconButton shape="square" aria-label="Square"><PlusIcon /></IconButton>
-      <IconButton shape="circle" aria-label="Circle"><PlusIcon /></IconButton>
+      <IconBtn shape="square" aria-label="Square"><PlusIcon /></IconBtn>
+      <IconBtn shape="circle" aria-label="Circle"><PlusIcon /></IconBtn>
     </div>
   )
 }`}
@@ -100,7 +108,7 @@ Extends all native `<button>` HTML attributes.
 |---|---|---|---|
 | `variant` | `"primary" \| "secondary" \| "danger" \| "ghost" \| "outline"` | `"primary"` | Visual style |
 | `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Size preset |
-| `shape` | `"square" \| "circle"` | `"square"` | Button shape |
+| `shape` | `"square" \| "circle"` | `"square"` | Btn shape |
 | `disabled` | `boolean` | `false` | Disabled state |
 | `loading` | `boolean` | `false` | Loading state |
 | `active` | `boolean` | `false` | Active state |
@@ -111,15 +119,15 @@ Extends all native `<button>` HTML attributes.
 
 | Class | Purpose |
 |---|---|
-| `pm-icon-button` | Base styles |
-| `pm-icon-button--primary` | Primary variant |
-| `pm-icon-button--secondary` | Secondary variant |
-| `pm-icon-button--danger` | Danger variant |
-| `pm-icon-button--ghost` | Ghost variant |
-| `pm-icon-button--outline` | Outline variant |
-| `pm-icon-button--square` | Square shape |
-| `pm-icon-button--circle` | Circle shape |
-| `pm-icon-button--xs` to `--xl` | Size modifiers |
+| `pm-icon-btn` | Base styles |
+| `pm-icon-btn--primary` | Primary variant |
+| `pm-icon-btn--secondary` | Secondary variant |
+| `pm-icon-btn--danger` | Danger variant |
+| `pm-icon-btn--ghost` | Ghost variant |
+| `pm-icon-btn--outline` | Outline variant |
+| `pm-icon-btn--square` | Square shape |
+| `pm-icon-btn--circle` | Circle shape |
+| `pm-icon-btn--xs` to `--xl` | Size modifiers |
 
 </TabItem>
 </Tabs>

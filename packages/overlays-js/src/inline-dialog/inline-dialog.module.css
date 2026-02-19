@@ -1,9 +1,9 @@
 @layer pm.components {
-  .pm-inline-dialog {
+  .pm-inline-dlg {
     position: absolute;
     z-index: var(--pm-overlay-z, 1000);
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    background-color: var(--pm-bg);
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-lg);
     box-shadow: var(--pm-shadow-lg);
     opacity: 0;
@@ -14,35 +14,35 @@
     pointer-events: none;
   }
 
-  .pm-inline-dialog[data-pm-presence="entering"],
-  .pm-inline-dialog[data-pm-presence="entered"] {
+  .pm-inline-dlg[data-pm-presence="entering"],
+  .pm-inline-dlg[data-pm-presence="entered"] {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
   }
 
-  .pm-inline-dialog[data-pm-presence="exiting"] {
+  .pm-inline-dlg[data-pm-presence="exiting"] {
     opacity: 0;
     transform: translateY(4px);
     pointer-events: none;
   }
 
-  .pm-inline-dialog--visible {
+  .pm-inline-dlg--visible {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .pm-inline-dialog {
+    .pm-inline-dlg {
       transition-duration: 0ms;
     }
   }
 
-  .pm-inline-dialog__body {
+  .pm-inline-dlg__body {
     padding: var(--pm-spacing-4);
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-md);
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+    color: var(--pm-neutral-fg);
   }
 }

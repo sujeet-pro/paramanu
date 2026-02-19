@@ -7,19 +7,19 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("SimpleGrid Stories", () => {
+describe("Sgrid Stories", () => {
   it("Playground renders without crashing", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-simple-grid")).toBeTruthy()
+    expect(container.querySelector(".pm-sgrid")).toBeTruthy()
   })
 
   it("FixedColumns applies column class", () => {
     const { container } = render(<composed.FixedColumns />)
-    expect(container.querySelector(".pm-simple-grid--cols-3")).toBeTruthy()
+    expect(container.querySelector(".pm-sgrid--cols-3")).toBeTruthy()
   })
 
   it("Responsive applies minChildWidth class", () => {
     const { container } = render(<composed.Responsive />)
-    expect(container.querySelector(".pm-simple-grid--min-sm")).toBeTruthy()
+    expect(container.querySelector(".pm-sgrid--min-sm")).toBeTruthy()
   })
 })

@@ -4,8 +4,8 @@
   /* ------------------------------------------------------------------ */
 
   .pm-banner {
-    --pm-banner-bg: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
-    --pm-banner-color: light-dark(var(--pm-color-info-800), var(--pm-color-info-100));
+    --pm-banner-bg: var(--pm-info-subtle);
+    --pm-banner-color: var(--pm-info-subtle-fg);
     --pm-banner-icon-color: currentColor;
     --pm-banner-padding-x: var(--pm-spacing-4);
     --pm-banner-padding-y: var(--pm-spacing-3);
@@ -24,27 +24,27 @@
 
     /* Variants */
     &.pm-banner--info {
-      --pm-banner-bg: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
-      --pm-banner-color: light-dark(var(--pm-color-info-800), var(--pm-color-info-100));
-      --pm-banner-icon-color: light-dark(var(--pm-color-info-600), var(--pm-color-info-400));
+      --pm-banner-bg: var(--pm-info-subtle);
+      --pm-banner-color: var(--pm-info-subtle-fg);
+      --pm-banner-icon-color: var(--pm-info);
     }
 
     &.pm-banner--success {
-      --pm-banner-bg: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
-      --pm-banner-color: light-dark(var(--pm-color-success-800), var(--pm-color-success-100));
-      --pm-banner-icon-color: light-dark(var(--pm-color-success-600), var(--pm-color-success-400));
+      --pm-banner-bg: var(--pm-success-subtle);
+      --pm-banner-color: var(--pm-success-subtle-fg);
+      --pm-banner-icon-color: var(--pm-success);
     }
 
     &.pm-banner--warning {
-      --pm-banner-bg: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
-      --pm-banner-color: light-dark(var(--pm-color-warning-800), var(--pm-color-warning-100));
-      --pm-banner-icon-color: light-dark(var(--pm-color-warning-600), var(--pm-color-warning-400));
+      --pm-banner-bg: var(--pm-warning-subtle);
+      --pm-banner-color: var(--pm-warning-subtle-fg);
+      --pm-banner-icon-color: var(--pm-warning);
     }
 
     &.pm-banner--danger {
-      --pm-banner-bg: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
-      --pm-banner-color: light-dark(var(--pm-color-danger-800), var(--pm-color-danger-100));
-      --pm-banner-icon-color: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-400));
+      --pm-banner-bg: var(--pm-danger-subtle);
+      --pm-banner-color: var(--pm-danger-subtle-fg);
+      --pm-banner-icon-color: var(--pm-danger);
     }
 
     /* Sticky */

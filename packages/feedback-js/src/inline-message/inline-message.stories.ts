@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { inlineMessageClasses } from "./inline-message.classes.js"
-import type { InlineMessageClassesOptions, InlineMessageVariant, InlineMessageSize } from "./inline-message.types.js"
+import { inlineMsgClasses } from "./inline-message.classes.js"
+import type { InlineMsgClassesOptions, InlineMsgVariant, InlineMsgSize } from "./inline-message.types.js"
 
-interface InlineMessageArgs extends InlineMessageClassesOptions {
+interface InlineMsgArgs extends InlineMsgClassesOptions {
   text: string
 }
 
-function createInlineMessage(args: InlineMessageArgs): HTMLDivElement {
-  const classes = inlineMessageClasses({ variant: args.variant, size: args.size })
+function createInlineMsg(args: InlineMsgArgs): HTMLDivElement {
+  const classes = inlineMsgClasses({ variant: args.variant, size: args.size })
   const variant = args.variant ?? "info"
   const role = variant === "warning" || variant === "danger" ? "alert" : "status"
 
@@ -25,8 +25,8 @@ function createInlineMessage(args: InlineMessageArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Inline Message",
-  tags: ["autodocs", "stable"],
-  render: (args) => createInlineMessage(args as InlineMessageArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createInlineMsg(args as InlineMsgArgs),
   argTypes: {
     variant: { control: "select", options: ["info", "success", "warning", "danger"] },
     size: { control: "select", options: ["sm", "md"] },
@@ -37,10 +37,10 @@ const meta = {
     size: "md",
     text: "This is an inline message.",
   },
-} satisfies Meta<InlineMessageArgs>
+} satisfies Meta<InlineMsgArgs>
 
 export default meta
-type Story = StoryObj<InlineMessageArgs>
+type Story = StoryObj<InlineMsgArgs>
 
 export const Playground: Story = {}
 
@@ -51,12 +51,12 @@ export const AllVariantsAndSizes: Story = {
     container.style.flexDirection = "column"
     container.style.gap = "8px"
 
-    const variants: InlineMessageVariant[] = ["info", "success", "warning", "danger"]
-    const sizes: InlineMessageSize[] = ["sm", "md"]
+    const variants: InlineMsgVariant[] = ["info", "success", "warning", "danger"]
+    const sizes: InlineMsgSize[] = ["sm", "md"]
 
     for (const variant of variants) {
       for (const size of sizes) {
-        container.appendChild(createInlineMessage({ variant, size, text: `${variant} / ${size}` }))
+        container.appendChild(createInlineMsg({ variant, size, text: `${variant} / ${size}` }))
       }
     }
     return container

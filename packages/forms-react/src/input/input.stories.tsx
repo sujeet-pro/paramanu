@@ -4,7 +4,7 @@ import { Input } from "./input.js"
 
 const meta = {
   title: "Forms/Input",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Input,
   argTypes: {
     variant: {

@@ -1,10 +1,10 @@
 /** Controls cell padding and font size of the data grid. */
-export type DataGridSize = "sm" | "md"
+export type DatagridSize = "sm" | "md"
 
 /** Options for generating data grid CSS class names. */
-export interface DataGridClassesOptions {
+export interface DatagridClassesOptions {
   /** Controls cell padding and font size. @default "md" */
-  size?: DataGridSize
+  size?: DatagridSize
   /** Adds borders around cells and the grid. @default false */
   bordered?: boolean
   /** Highlights rows on hover. @default false */
@@ -19,7 +19,7 @@ export interface DataGridClassesOptions {
  * Object containing BEM class names for each data grid sub-element.
  * The grid uses CSS Grid with `display: contents` rows for virtualization support.
  */
-export interface DataGridClassesResult {
+export interface DatagridClassesResult {
   /** Outermost grid container `<div role="grid">`. */
   root: string
   /** Each row `<div role="row">` with `display: contents`. */
@@ -30,5 +30,5 @@ export interface DataGridClassesResult {
   columnHeader: string
 }
 
-/** Props for the DataGrid component. */
-export interface DataGridProps extends DataGridClassesOptions {}
+/** Props for the Datagrid component. */
+export interface DatagridProps extends DatagridClassesOptions {}

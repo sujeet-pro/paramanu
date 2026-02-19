@@ -15,7 +15,7 @@
     width: 100%;
     border: none;
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
     font-family: var(--pm-font-family-sans);
     font-weight: var(--pm-font-weight-medium);
     line-height: var(--pm-font-lineHeight-normal);
@@ -26,11 +26,11 @@
   }
 
   .pm-collapsible__trigger:hover:not(.pm-collapsible__trigger--disabled) {
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-muted);
   }
 
   .pm-collapsible__trigger:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 

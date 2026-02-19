@@ -1,82 +1,82 @@
 @layer pm.components {
-  .pm-button-group {
-    --pm-button-group-gap: var(--pm-spacing-2);
-    --pm-button-group-radius: var(--pm-radius-md);
+  .pm-btn-group {
+    --pm-btn-group-gap: var(--pm-spacing-2);
+    --pm-btn-group-radius: var(--pm-radius-md);
 
     display: inline-flex;
     flex-wrap: wrap;
   }
 
-  .pm-button-group--horizontal {
+  .pm-btn-group--horizontal {
     flex-direction: row;
-    gap: var(--pm-button-group-gap);
+    gap: var(--pm-btn-group-gap);
   }
 
-  .pm-button-group--vertical {
+  .pm-btn-group--vertical {
     flex-direction: column;
-    gap: var(--pm-button-group-gap);
+    gap: var(--pm-btn-group-gap);
   }
 
-  .pm-button-group--full-width {
+  .pm-btn-group--full-width {
     display: flex;
     width: 100%;
   }
 
-  .pm-button-group--full-width > .pm-button {
+  .pm-btn-group--full-width > .pm-btn {
     flex: 1;
   }
 
   /* Attached: buttons share borders with no gap */
-  .pm-button-group--attached {
+  .pm-btn-group--attached {
     gap: 0;
     flex-wrap: nowrap;
   }
 
-  .pm-button-group--attached > .pm-button,
-  .pm-button-group--attached > .pm-icon-button {
+  .pm-btn-group--attached > .pm-btn,
+  .pm-btn-group--attached > .pm-icon-btn {
     border-radius: 0;
   }
 
-  .pm-button-group--attached.pm-button-group--horizontal > .pm-button:first-child,
-  .pm-button-group--attached.pm-button-group--horizontal > .pm-icon-button:first-child {
-    border-top-left-radius: var(--pm-button-group-radius);
-    border-bottom-left-radius: var(--pm-button-group-radius);
+  .pm-btn-group--attached.pm-btn-group--horizontal > .pm-btn:first-child,
+  .pm-btn-group--attached.pm-btn-group--horizontal > .pm-icon-btn:first-child {
+    border-top-left-radius: var(--pm-btn-group-radius);
+    border-bottom-left-radius: var(--pm-btn-group-radius);
   }
 
-  .pm-button-group--attached.pm-button-group--horizontal > .pm-button:last-child,
-  .pm-button-group--attached.pm-button-group--horizontal > .pm-icon-button:last-child {
-    border-top-right-radius: var(--pm-button-group-radius);
-    border-bottom-right-radius: var(--pm-button-group-radius);
+  .pm-btn-group--attached.pm-btn-group--horizontal > .pm-btn:last-child,
+  .pm-btn-group--attached.pm-btn-group--horizontal > .pm-icon-btn:last-child {
+    border-top-right-radius: var(--pm-btn-group-radius);
+    border-bottom-right-radius: var(--pm-btn-group-radius);
   }
 
-  .pm-button-group--attached.pm-button-group--horizontal > .pm-button + .pm-button,
-  .pm-button-group--attached.pm-button-group--horizontal > .pm-icon-button + .pm-icon-button,
-  .pm-button-group--attached.pm-button-group--horizontal > .pm-button + .pm-icon-button,
-  .pm-button-group--attached.pm-button-group--horizontal > .pm-icon-button + .pm-button {
+  .pm-btn-group--attached.pm-btn-group--horizontal > .pm-btn + .pm-btn,
+  .pm-btn-group--attached.pm-btn-group--horizontal > .pm-icon-btn + .pm-icon-btn,
+  .pm-btn-group--attached.pm-btn-group--horizontal > .pm-btn + .pm-icon-btn,
+  .pm-btn-group--attached.pm-btn-group--horizontal > .pm-icon-btn + .pm-btn {
     margin-left: -1px;
   }
 
-  .pm-button-group--attached.pm-button-group--vertical > .pm-button:first-child,
-  .pm-button-group--attached.pm-button-group--vertical > .pm-icon-button:first-child {
-    border-top-left-radius: var(--pm-button-group-radius);
-    border-top-right-radius: var(--pm-button-group-radius);
+  .pm-btn-group--attached.pm-btn-group--vertical > .pm-btn:first-child,
+  .pm-btn-group--attached.pm-btn-group--vertical > .pm-icon-btn:first-child {
+    border-top-left-radius: var(--pm-btn-group-radius);
+    border-top-right-radius: var(--pm-btn-group-radius);
   }
 
-  .pm-button-group--attached.pm-button-group--vertical > .pm-button:last-child,
-  .pm-button-group--attached.pm-button-group--vertical > .pm-icon-button:last-child {
-    border-bottom-left-radius: var(--pm-button-group-radius);
-    border-bottom-right-radius: var(--pm-button-group-radius);
+  .pm-btn-group--attached.pm-btn-group--vertical > .pm-btn:last-child,
+  .pm-btn-group--attached.pm-btn-group--vertical > .pm-icon-btn:last-child {
+    border-bottom-left-radius: var(--pm-btn-group-radius);
+    border-bottom-right-radius: var(--pm-btn-group-radius);
   }
 
-  .pm-button-group--attached.pm-button-group--vertical > .pm-button + .pm-button,
-  .pm-button-group--attached.pm-button-group--vertical > .pm-icon-button + .pm-icon-button,
-  .pm-button-group--attached.pm-button-group--vertical > .pm-button + .pm-icon-button,
-  .pm-button-group--attached.pm-button-group--vertical > .pm-icon-button + .pm-button {
+  .pm-btn-group--attached.pm-btn-group--vertical > .pm-btn + .pm-btn,
+  .pm-btn-group--attached.pm-btn-group--vertical > .pm-icon-btn + .pm-icon-btn,
+  .pm-btn-group--attached.pm-btn-group--vertical > .pm-btn + .pm-icon-btn,
+  .pm-btn-group--attached.pm-btn-group--vertical > .pm-icon-btn + .pm-btn {
     margin-top: -1px;
   }
 
-  .pm-button-group--attached > .pm-button:focus-visible,
-  .pm-button-group--attached > .pm-icon-button:focus-visible {
+  .pm-btn-group--attached > .pm-btn:focus-visible,
+  .pm-btn-group--attached > .pm-icon-btn:focus-visible {
     z-index: 1;
     position: relative;
   }

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, within } from "storybook/test"
-import { FormControl } from "./form-control.js"
+import { FormCtrl } from "./form-control.js"
 
 const meta = {
   title: "Forms/Form Control",
-  component: FormControl,
-  tags: ["autodocs", "stable"],
+  component: FormCtrl,
+  tags: ["autodocs", "beta"],
   argTypes: {
     orientation: { control: "select", options: ["vertical", "horizontal"] },
     invalid: { control: "boolean" },
@@ -16,7 +16,7 @@ const meta = {
     orientation: "vertical",
     onChange: fn(),
   },
-} satisfies Meta<typeof FormControl>
+} satisfies Meta<typeof FormCtrl>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -46,7 +46,7 @@ export const Disabled: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const group = canvas.getByRole("group")
-    await expect(group).toHaveClass("pm-form-control--disabled")
+    await expect(group).toHaveClass("pm-form-ctrl--disabled")
   },
 }
 

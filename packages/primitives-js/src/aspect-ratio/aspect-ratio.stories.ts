@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { aspectRatioClasses } from "./aspect-ratio.classes.js"
-import type { AspectRatioClassesOptions } from "./aspect-ratio.types.js"
+import { aspectClasses } from "./aspect-ratio.classes.js"
+import type { AspectClassesOptions } from "./aspect-ratio.types.js"
 
-function createAspectRatio(args: AspectRatioClassesOptions): HTMLElement {
+function createAspect(args: AspectClassesOptions): HTMLElement {
   const wrapper = document.createElement("div")
   wrapper.style.width = "400px"
   const el = document.createElement("div")
-  el.className = aspectRatioClasses(args)
+  el.className = aspectClasses(args)
   const inner = document.createElement("div")
   inner.style.background = "#e2e8f0"
   inner.style.width = "100%"
@@ -22,16 +22,16 @@ function createAspectRatio(args: AspectRatioClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Aspect Ratio",
-  tags: ["autodocs", "stable"],
-  render: (args) => createAspectRatio(args as AspectRatioClassesOptions),
+  tags: ["autodocs", "beta"],
+  render: (args) => createAspect(args as AspectClassesOptions),
   argTypes: {
     ratio: { control: "select", options: ["1/1", "2/3", "3/2", "4/3", "3/4", "16/9", "9/16", "21/9"] },
   },
   args: { ratio: "16/9" },
-} satisfies Meta<AspectRatioClassesOptions>
+} satisfies Meta<AspectClassesOptions>
 
 export default meta
-type Story = StoryObj<AspectRatioClassesOptions>
+type Story = StoryObj<AspectClassesOptions>
 
 export const Playground: Story = {}
 export const Square: Story = { args: { ratio: "1/1" } }

@@ -1,80 +1,80 @@
 import { describe, it, expect } from "vitest"
 import {
-  segmentedControlClasses,
-  segmentedControlModuleClasses,
+  segCtrlClasses,
+  segCtrlModuleClasses,
 } from "./segmented-control.classes.js"
 
-describe("segmentedControlClasses", () => {
+describe("segCtrlClasses", () => {
   it("returns default classes (md)", () => {
-    const result = segmentedControlClasses()
-    expect(result).toBe("pm-segmented-control pm-segmented-control--md")
+    const result = segCtrlClasses()
+    expect(result).toBe("pm-seg-ctrl pm-seg-ctrl--md")
   })
 
   it("applies size sm", () => {
-    expect(segmentedControlClasses({ size: "sm" })).toContain("pm-segmented-control--sm")
+    expect(segCtrlClasses({ size: "sm" })).toContain("pm-seg-ctrl--sm")
   })
 
   it("applies size md", () => {
-    expect(segmentedControlClasses({ size: "md" })).toContain("pm-segmented-control--md")
+    expect(segCtrlClasses({ size: "md" })).toContain("pm-seg-ctrl--md")
   })
 
   it("applies size lg", () => {
-    expect(segmentedControlClasses({ size: "lg" })).toContain("pm-segmented-control--lg")
+    expect(segCtrlClasses({ size: "lg" })).toContain("pm-seg-ctrl--lg")
   })
 
   it("applies full-width modifier", () => {
-    expect(segmentedControlClasses({ fullWidth: true })).toContain(
-      "pm-segmented-control--full-width",
+    expect(segCtrlClasses({ fullWidth: true })).toContain(
+      "pm-seg-ctrl--full-width",
     )
-    expect(segmentedControlClasses({ fullWidth: false })).not.toContain(
-      "pm-segmented-control--full-width",
+    expect(segCtrlClasses({ fullWidth: false })).not.toContain(
+      "pm-seg-ctrl--full-width",
     )
   })
 
   it("always includes base class", () => {
-    expect(segmentedControlClasses()).toMatch(/^pm-segmented-control\s/)
+    expect(segCtrlClasses()).toMatch(/^pm-seg-ctrl\s/)
   })
 
   it("combines multiple options", () => {
-    const result = segmentedControlClasses({
+    const result = segCtrlClasses({
       size: "lg",
       fullWidth: true,
     })
     expect(result).toBe(
-      "pm-segmented-control pm-segmented-control--lg pm-segmented-control--full-width",
+      "pm-seg-ctrl pm-seg-ctrl--lg pm-seg-ctrl--full-width",
     )
   })
 })
 
-describe("segmentedControlModuleClasses", () => {
+describe("segCtrlModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-segmented-control": "pm_abc_sc",
-    "pm-segmented-control--sm": "pm_abc_sm",
-    "pm-segmented-control--md": "pm_abc_md",
-    "pm-segmented-control--lg": "pm_abc_lg",
-    "pm-segmented-control--full-width": "pm_abc_fw",
+    "pm-seg-ctrl": "pm_abc_sc",
+    "pm-seg-ctrl--sm": "pm_abc_sm",
+    "pm-seg-ctrl--md": "pm_abc_md",
+    "pm-seg-ctrl--lg": "pm_abc_lg",
+    "pm-seg-ctrl--full-width": "pm_abc_fw",
   }
 
   it("returns mapped default classes", () => {
-    const result = segmentedControlModuleClasses(mockClassMap)
+    const result = segCtrlModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_sc pm_abc_md")
   })
 
   it("maps size classes correctly", () => {
-    const result = segmentedControlModuleClasses(mockClassMap, { size: "lg" })
+    const result = segCtrlModuleClasses(mockClassMap, { size: "lg" })
     expect(result).toContain("pm_abc_lg")
   })
 
   it("maps full-width class", () => {
-    const result = segmentedControlModuleClasses(mockClassMap, { fullWidth: true })
+    const result = segCtrlModuleClasses(mockClassMap, { fullWidth: true })
     expect(result).toContain("pm_abc_fw")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-segmented-control": "pm_abc_sc",
+      "pm-seg-ctrl": "pm_abc_sc",
     }
-    const result = segmentedControlModuleClasses(sparseMap)
+    const result = segCtrlModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_sc")
     expect(result).not.toContain("undefined")
   })

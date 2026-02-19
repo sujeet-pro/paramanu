@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { searchInputClasses } from "./search-input.classes.js"
+import { searchClasses } from "./search-input.classes.js"
 import { inputClasses } from "../input/input.classes.js"
-import type { SearchInputClassesOptions } from "./search-input.types.js"
+import type { SearchClassesOptions } from "./search-input.types.js"
 
-interface SearchInputArgs extends SearchInputClassesOptions {
+interface SearchArgs extends SearchClassesOptions {
   placeholder: string
 }
 
-function createSearchInput(args: SearchInputArgs): HTMLElement {
+function createSearch(args: SearchArgs): HTMLElement {
   const wrapper = document.createElement("div")
-  wrapper.className = searchInputClasses({
+  wrapper.className = searchClasses({
     variant: args.variant,
     size: args.size,
     invalid: args.invalid,
@@ -19,7 +19,7 @@ function createSearchInput(args: SearchInputArgs): HTMLElement {
   wrapper.setAttribute("role", "search")
 
   const icon = document.createElement("span")
-  icon.className = "pm-search-input__icon"
+  icon.className = "pm-search__icon"
   icon.setAttribute("aria-hidden", "true")
   icon.innerHTML =
     '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'
@@ -41,8 +41,8 @@ function createSearchInput(args: SearchInputArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Search Input",
-  tags: ["autodocs", "stable"],
-  render: (args) => createSearchInput(args as SearchInputArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createSearch(args as SearchArgs),
   argTypes: {
     variant: {
       control: "select",
@@ -62,10 +62,10 @@ const meta = {
     variant: "outline",
     size: "md",
   },
-} satisfies Meta<SearchInputArgs>
+} satisfies Meta<SearchArgs>
 
 export default meta
-type Story = StoryObj<SearchInputArgs>
+type Story = StoryObj<SearchArgs>
 
 export const Playground: Story = {}
 

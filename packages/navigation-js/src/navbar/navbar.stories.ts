@@ -46,7 +46,7 @@ function createNavbar(args: NavbarArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Navbar",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createNavbar(args as NavbarArgs),
   argTypes: {
     variant: {

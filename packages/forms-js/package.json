@@ -1,7 +1,9 @@
 {
   "name": "@paramanu/forms-js",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-alpha.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -9,7 +11,41 @@
       "import": "./dist/js/index.js"
     },
     "./css": "./dist/css/forms.css",
-    "./css/layers": "./dist/css/forms.layers.css",
+    "./css/min": "./dist/css/forms.min.css",
+    "./css/calendar": "./dist/css/calendar.css",
+    "./css/cascader": "./dist/css/cascader.css",
+    "./css/checkbox": "./dist/css/checkbox.css",
+    "./css/checkbox-card": "./dist/css/checkbox-card.css",
+    "./css/color-picker": "./dist/css/color-picker.css",
+    "./css/combobox": "./dist/css/combobox.css",
+    "./css/date-picker": "./dist/css/date-picker.css",
+    "./css/date-range-picker": "./dist/css/date-range-picker.css",
+    "./css/dropzone": "./dist/css/dropzone.css",
+    "./css/editable-text": "./dist/css/editable-text.css",
+    "./css/fieldset": "./dist/css/fieldset.css",
+    "./css/file-upload": "./dist/css/file-upload.css",
+    "./css/form": "./dist/css/form.css",
+    "./css/form-control": "./dist/css/form-control.css",
+    "./css/input": "./dist/css/input.css",
+    "./css/label": "./dist/css/label.css",
+    "./css/mentions": "./dist/css/mentions.css",
+    "./css/multi-select": "./dist/css/multi-select.css",
+    "./css/native-select": "./dist/css/native-select.css",
+    "./css/number-input": "./dist/css/number-input.css",
+    "./css/password-input": "./dist/css/password-input.css",
+    "./css/pin-input": "./dist/css/pin-input.css",
+    "./css/radio": "./dist/css/radio.css",
+    "./css/radio-card": "./dist/css/radio-card.css",
+    "./css/rating": "./dist/css/rating.css",
+    "./css/search-input": "./dist/css/search-input.css",
+    "./css/segmented-control": "./dist/css/segmented-control.css",
+    "./css/select": "./dist/css/select.css",
+    "./css/slider": "./dist/css/slider.css",
+    "./css/switch": "./dist/css/switch.css",
+    "./css/tags-input": "./dist/css/tags-input.css",
+    "./css/textarea": "./dist/css/textarea.css",
+    "./css/time-picker": "./dist/css/time-picker.css",
+    "./css/transfer": "./dist/css/transfer.css",
     "./modules/label/map": {
       "types": "./dist/css/label.module.d.ts",
       "import": "./dist/css/label.module.js"
@@ -147,7 +183,9 @@
       "import": "./dist/css/transfer.module.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsx css.build.ts && tsup",
     "test": "vitest run",

@@ -4,7 +4,7 @@ import { Switch } from "./switch.js"
 
 const meta = {
   title: "Forms/Switch",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Switch,
   argTypes: {
     size: {

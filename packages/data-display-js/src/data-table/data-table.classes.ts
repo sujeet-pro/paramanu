@@ -1,25 +1,25 @@
 import type {
-  DataTableClassesOptions,
-  DataTableClassesResult,
-  DataTableHeaderCellClassesOptions,
+  DatatableClassesOptions,
+  DatatableClassesResult,
+  DatatableHeaderCellClassesOptions,
 } from "./data-table.types.js"
 
-const BASE = "pm-data-table"
+const BASE = "pm-datatable"
 
 /**
- * Returns BEM class names for the DataTable component.
+ * Returns BEM class names for the Datatable component.
  *
- * DataTable is an enhanced table with support for sorting indicators,
+ * Datatable is an enhanced table with support for sorting indicators,
  * a toolbar area, pagination, and row selection.
  *
  * @example
  * ```ts
- * const cls = dataTableClasses({ variant: "striped", selectable: true })
- * // cls.root    => "pm-data-table pm-data-table--striped pm-data-table--md pm-data-table--selectable"
- * // cls.toolbar => "pm-data-table__toolbar"
+ * const cls = datatableClasses({ variant: "striped", selectable: true })
+ * // cls.root    => "pm-datatable pm-datatable--striped pm-datatable--md pm-datatable--selectable"
+ * // cls.toolbar => "pm-datatable__toolbar"
  * ```
  */
-export function dataTableClasses(options: DataTableClassesOptions = {}): DataTableClassesResult {
+export function datatableClasses(options: DatatableClassesOptions = {}): DatatableClassesResult {
   const {
     variant = "simple",
     size = "md",
@@ -47,16 +47,16 @@ export function dataTableClasses(options: DataTableClassesOptions = {}): DataTab
 }
 
 /**
- * Returns BEM class names for a DataTable header cell with sort / align modifiers.
+ * Returns BEM class names for a Datatable header cell with sort / align modifiers.
  *
  * @example
  * ```ts
  * dataTableHeaderCellClasses({ sortable: true, sortDirection: "asc" })
- * // => "pm-data-table__header-cell pm-data-table__header-cell--sortable pm-data-table__header-cell--sort-asc"
+ * // => "pm-datatable__header-cell pm-datatable__header-cell--sortable pm-datatable__header-cell--sort-asc"
  * ```
  */
 export function dataTableHeaderCellClasses(
-  options: DataTableHeaderCellClassesOptions = {},
+  options: DatatableHeaderCellClassesOptions = {},
 ): string {
   const { sortable = false, sortDirection = "none", align = "start" } = options
   const classes = [`${BASE}__header-cell`]
@@ -67,13 +67,13 @@ export function dataTableHeaderCellClasses(
 }
 
 /**
- * Returns CSS module class names for the DataTable component.
+ * Returns CSS module class names for the Datatable component.
  * Used by bundled consumers who import CSS modules.
  */
-export function dataTableModuleClasses(
+export function datatableModuleClasses(
   classMap: Record<string, string>,
-  options: DataTableClassesOptions = {},
-): DataTableClassesResult {
+  options: DatatableClassesOptions = {},
+): DatatableClassesResult {
   const {
     variant = "simple",
     size = "md",

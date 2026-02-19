@@ -1,10 +1,18 @@
 ---
 title: Time Picker
 description: A time input with a dropdown for selecting hours and minutes.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 The Time Picker provides an input for selecting time values.
 
@@ -14,8 +22,8 @@ The Time Picker provides an input for selecting time values.
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-time-picker pm-time-picker--outline pm-time-picker--md">\n  <input type="text" class="pm-time-picker__input" placeholder="Select time..." />\n</div>`}
-  reactCode={`import { TimePicker } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <TimePicker />\n}`}
+  htmlCode={`<div class="pm-timepicker pm-timepicker--outline pm-timepicker--md">\n  <input type="text" class="pm-timepicker__input" placeholder="Select time..." />\n</div>`}
+  reactCode={`import { Timepicker } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Timepicker />\n}`}
 />
 
 </TabItem>

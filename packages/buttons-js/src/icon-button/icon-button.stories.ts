@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { iconButtonClasses } from "./icon-button.classes.js"
-import type { IconButtonClassesOptions, IconButtonVariant, IconButtonSize } from "./icon-button.types.js"
+import { iconBtnClasses } from "./icon-button.classes.js"
+import type { IconBtnClassesOptions, IconBtnVariant, IconBtnSize } from "./icon-button.types.js"
 
-interface IconButtonArgs extends IconButtonClassesOptions {
+interface IconBtnArgs extends IconBtnClassesOptions {
   ariaLabel: string
 }
 
@@ -29,9 +29,9 @@ function createSearchIcon(): SVGElement {
   return svg
 }
 
-function createIconButton(args: IconButtonArgs): HTMLButtonElement {
+function createIconBtn(args: IconBtnArgs): HTMLButtonElement {
   const button = document.createElement("button")
-  button.className = iconButtonClasses({
+  button.className = iconBtnClasses({
     variant: args.variant,
     size: args.size,
     shape: args.shape,
@@ -53,9 +53,9 @@ function createIconButton(args: IconButtonArgs): HTMLButtonElement {
 }
 
 const meta = {
-  title: "Buttons/Icon Button",
-  tags: ["autodocs", "stable"],
-  render: (args) => createIconButton(args as IconButtonArgs),
+  title: "Btns/Icon Btn",
+  tags: ["autodocs", "beta"],
+  render: (args) => createIconBtn(args as IconBtnArgs),
   argTypes: {
     variant: {
       control: "select",
@@ -80,10 +80,10 @@ const meta = {
     shape: "square",
     ariaLabel: "Search",
   },
-} satisfies Meta<IconButtonArgs>
+} satisfies Meta<IconBtnArgs>
 
 export default meta
-type Story = StoryObj<IconButtonArgs>
+type Story = StoryObj<IconBtnArgs>
 
 export const Playground: Story = {}
 
@@ -110,8 +110,8 @@ export const AllVariantsAndSizes: Story = {
     container.style.flexDirection = "column"
     container.style.gap = "16px"
 
-    const variants: IconButtonVariant[] = ["primary", "secondary", "danger", "ghost", "outline"]
-    const sizes: IconButtonSize[] = ["xs", "sm", "md", "lg", "xl"]
+    const variants: IconBtnVariant[] = ["primary", "secondary", "danger", "ghost", "outline"]
+    const sizes: IconBtnSize[] = ["xs", "sm", "md", "lg", "xl"]
 
     for (const variant of variants) {
       const row = document.createElement("div")
@@ -120,7 +120,7 @@ export const AllVariantsAndSizes: Story = {
       row.style.alignItems = "center"
 
       for (const size of sizes) {
-        row.appendChild(createIconButton({ variant, size, ariaLabel: `${variant} ${size}` }))
+        row.appendChild(createIconBtn({ variant, size, ariaLabel: `${variant} ${size}` }))
       }
       container.appendChild(row)
     }
@@ -134,10 +134,10 @@ export const States: Story = {
     container.style.display = "flex"
     container.style.gap = "8px"
 
-    container.appendChild(createIconButton({ ariaLabel: "Default" }))
-    container.appendChild(createIconButton({ disabled: true, ariaLabel: "Disabled" }))
-    container.appendChild(createIconButton({ loading: true, ariaLabel: "Loading" }))
-    container.appendChild(createIconButton({ active: true, ariaLabel: "Active" }))
+    container.appendChild(createIconBtn({ ariaLabel: "Default" }))
+    container.appendChild(createIconBtn({ disabled: true, ariaLabel: "Disabled" }))
+    container.appendChild(createIconBtn({ loading: true, ariaLabel: "Loading" }))
+    container.appendChild(createIconBtn({ active: true, ariaLabel: "Active" }))
     return container
   },
 }

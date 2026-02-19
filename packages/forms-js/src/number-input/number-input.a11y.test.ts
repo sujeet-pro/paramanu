@@ -1,13 +1,13 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
-import { numberInputClasses } from "./number-input.classes.js"
+import { numInputClasses } from "./number-input.classes.js"
 import { inputClasses } from "../input/input.classes.js"
 
-function createNumberInputHTML(
-  options: Parameters<typeof numberInputClasses>[0] = {},
+function createNumInputHTML(
+  options: Parameters<typeof numInputClasses>[0] = {},
   attrs: string = "",
 ): string {
-  const wrapperClasses = numberInputClasses(options)
+  const wrapperClasses = numInputClasses(options)
   const innerClasses = inputClasses({
     variant: options?.variant,
     size: options?.size,
@@ -18,17 +18,17 @@ function createNumberInputHTML(
   const invalidAttr = options?.invalid ? ' aria-invalid="true"' : ""
   return `<div class="${wrapperClasses}">
     <input class="${innerClasses}" type="number" inputmode="numeric"${disabledAttr}${invalidAttr}${attrs ? " " + attrs : ""} />
-    <div class="pm-number-input__stepper">
-      <button class="pm-number-input__increment" type="button" aria-label="Increment" tabindex="-1">+</button>
-      <button class="pm-number-input__decrement" type="button" aria-label="Decrement" tabindex="-1">-</button>
+    <div class="pm-num-input__stepper">
+      <button class="pm-num-input__increment" type="button" aria-label="Increment" tabindex="-1">+</button>
+      <button class="pm-num-input__decrement" type="button" aria-label="Decrement" tabindex="-1">-</button>
     </div>
   </div>`
 }
 
 describe("number input accessibility", () => {
   it("renders with a wrapper div and number input", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createNumberInputHTML()}</body>`)
-    const wrapper = dom.window.document.querySelector(".pm-number-input")
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createNumInputHTML()}</body>`)
+    const wrapper = dom.window.document.querySelector(".pm-num-input")
     const input = dom.window.document.querySelector("input")
     expect(wrapper).not.toBeNull()
     expect(input).not.toBeNull()
@@ -36,34 +36,34 @@ describe("number input accessibility", () => {
   })
 
   it("input has inputmode=numeric", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createNumberInputHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createNumInputHTML()}</body>`)
     const input = dom.window.document.querySelector("input")
     expect(input?.getAttribute("inputmode")).toBe("numeric")
   })
 
   it("increment button has aria-label", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createNumberInputHTML()}</body>`)
-    const increment = dom.window.document.querySelector(".pm-number-input__increment")
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createNumInputHTML()}</body>`)
+    const increment = dom.window.document.querySelector(".pm-num-input__increment")
     expect(increment?.getAttribute("aria-label")).toBe("Increment")
   })
 
   it("decrement button has aria-label", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createNumberInputHTML()}</body>`)
-    const decrement = dom.window.document.querySelector(".pm-number-input__decrement")
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createNumInputHTML()}</body>`)
+    const decrement = dom.window.document.querySelector(".pm-num-input__decrement")
     expect(decrement?.getAttribute("aria-label")).toBe("Decrement")
   })
 
   it("stepper buttons are type=button", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createNumberInputHTML()}</body>`)
-    const increment = dom.window.document.querySelector(".pm-number-input__increment")
-    const decrement = dom.window.document.querySelector(".pm-number-input__decrement")
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createNumInputHTML()}</body>`)
+    const increment = dom.window.document.querySelector(".pm-num-input__increment")
+    const decrement = dom.window.document.querySelector(".pm-num-input__decrement")
     expect(increment?.getAttribute("type")).toBe("button")
     expect(decrement?.getAttribute("type")).toBe("button")
   })
 
   it("disabled input has disabled attribute and aria-disabled", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createNumberInputHTML({ disabled: true })}</body>`,
+      `<!DOCTYPE html><body>${createNumInputHTML({ disabled: true })}</body>`,
     )
     const input = dom.window.document.querySelector("input")
     expect(input?.hasAttribute("disabled")).toBe(true)
@@ -72,7 +72,7 @@ describe("number input accessibility", () => {
 
   it("invalid input has aria-invalid", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createNumberInputHTML({ invalid: true })}</body>`,
+      `<!DOCTYPE html><body>${createNumInputHTML({ invalid: true })}</body>`,
     )
     const input = dom.window.document.querySelector("input")
     expect(input?.getAttribute("aria-invalid")).toBe("true")
@@ -80,7 +80,7 @@ describe("number input accessibility", () => {
 
   it("supports min and max attributes", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createNumberInputHTML({}, 'min="0" max="100"')}</body>`,
+      `<!DOCTYPE html><body>${createNumInputHTML({}, 'min="0" max="100"')}</body>`,
     )
     const input = dom.window.document.querySelector("input")
     expect(input?.getAttribute("min")).toBe("0")

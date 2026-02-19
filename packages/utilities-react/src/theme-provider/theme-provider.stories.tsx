@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, within } from "storybook/test"
-import { ThemeProvider, useTheme } from "./theme-provider.js"
+import { Theme, useTheme } from "./theme-provider.js"
 
 function ThemeDisplay() {
   const { mode, setMode } = useTheme()
@@ -21,9 +21,9 @@ function ThemeDisplay() {
 }
 
 const meta = {
-  title: "Utilities/ThemeProvider",
-  component: ThemeProvider,
-  tags: ["autodocs", "stable"],
+  title: "Utilities/Theme",
+  component: Theme,
+  tags: ["autodocs", "beta"],
   argTypes: {
     defaultMode: {
       control: "select",
@@ -34,10 +34,10 @@ const meta = {
     defaultMode: "system",
     children: <ThemeDisplay />,
   },
-} satisfies Meta<typeof ThemeProvider>
+} satisfies Meta<typeof Theme>
 
 export default meta
-type Story = StoryObj<typeof ThemeProvider>
+type Story = StoryObj<typeof Theme>
 
 export const Playground: Story = {}
 

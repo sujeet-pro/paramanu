@@ -1,11 +1,11 @@
-import type { NumberInputClassesOptions } from "./number-input.types.js"
+import type { NumInputClassesOptions } from "./number-input.types.js"
 
-const BASE = "pm-number-input"
+const BASE = "pm-num-input"
 
 /**
  * Returns BEM class names for the number input wrapper (human-readable).
  */
-export function numberInputClasses(options: NumberInputClassesOptions = {}): string {
+export function numInputClasses(options: NumInputClassesOptions = {}): string {
   const { variant = "outline", size = "md", invalid = false, disabled = false } = options
   const classes = [BASE, `${BASE}--${variant}`, `${BASE}--${size}`]
 
@@ -18,20 +18,20 @@ export function numberInputClasses(options: NumberInputClassesOptions = {}): str
 /**
  * Returns CSS module class names for the number input wrapper (hashed).
  */
-export function numberInputModuleClasses(
+export function numInputModuleClasses(
   classMap: Record<string, string>,
-  options: NumberInputClassesOptions = {},
+  options: NumInputClassesOptions = {},
 ): string {
   const { variant = "outline", size = "md", invalid = false, disabled = false } = options
 
   const classes = [
-    classMap["pm-number-input"],
-    classMap[`pm-number-input--${variant}`],
-    classMap[`pm-number-input--${size}`],
+    classMap["pm-num-input"],
+    classMap[`pm-num-input--${variant}`],
+    classMap[`pm-num-input--${size}`],
   ]
 
-  if (invalid) classes.push(classMap["pm-number-input--invalid"])
-  if (disabled) classes.push(classMap["pm-number-input--disabled"])
+  if (invalid) classes.push(classMap["pm-num-input--invalid"])
+  if (disabled) classes.push(classMap["pm-num-input--disabled"])
 
   return classes.filter(Boolean).join(" ")
 }

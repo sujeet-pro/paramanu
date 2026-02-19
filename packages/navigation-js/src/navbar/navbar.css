@@ -4,7 +4,7 @@
     align-items: center;
     width: 100%;
     font-family: var(--pm-font-family-sans);
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-900));
+    background-color: var(--pm-bg-subtle);
     z-index: 100;
   }
 
@@ -27,7 +27,7 @@
 
   /* Variant: default */
   .pm-navbar--default {
-    border-block-end: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-block-end: 1px solid var(--pm-neutral-hover);
   }
 
   /* Variant: floating */
@@ -40,7 +40,7 @@
 
   /* Variant: bordered */
   .pm-navbar--bordered {
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
   }
 
   /* Inner container */
@@ -82,7 +82,7 @@
     gap: var(--pm-spacing-2);
     font-size: var(--pm-font-size-lg);
     font-weight: var(--pm-font-weight-semibold);
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-50));
+    color: var(--pm-bg-inverse);
     text-decoration: none;
     white-space: nowrap;
   }
@@ -95,7 +95,7 @@
     padding: var(--pm-spacing-2);
     border: none;
     background: none;
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    color: var(--pm-neutral-fg);
     cursor: pointer;
     border-radius: var(--pm-radius-sm);
     transition-property: color, background-color;
@@ -103,11 +103,11 @@
     transition-timing-function: ease-in-out;
 
     &:hover {
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      background-color: var(--pm-bg-muted);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
   }
@@ -115,7 +115,7 @@
   /* ---------- Theme overrides ---------- */
 
   .pm-theme-antd .pm-navbar {
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    background-color: var(--pm-bg);
   }
 
   .pm-theme-antd .pm-navbar--floating {
@@ -141,7 +141,7 @@
   }
 
   .pm-theme-dark-modern .pm-navbar {
-    background-color: light-dark(var(--pm-color-neutral-50), rgba(15, 23, 42, 0.95));
+    background-color: var(--pm-bg-subtle);
     backdrop-filter: blur(8px);
   }
 
@@ -155,6 +155,6 @@
   }
 
   .pm-theme-light-modern .pm-navbar--default {
-    border-block-end-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-700));
+    border-block-end-color: var(--pm-neutral);
   }
 }

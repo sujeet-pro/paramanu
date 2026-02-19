@@ -3,7 +3,7 @@
     position: relative;
     overflow: hidden;
     border-radius: var(--pm-radius-md);
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-muted);
 
     /* Ratios */
     &.pm-embed--ratio-1-1 {

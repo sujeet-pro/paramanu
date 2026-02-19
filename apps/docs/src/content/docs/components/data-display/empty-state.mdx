@@ -1,10 +1,18 @@
 ---
 title: Empty State
 description: A placeholder display for empty lists, search results, or views with no data.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 Empty State displays a centered placeholder when a list or view has no content, with optional icon, heading, description, and action buttons.
 
@@ -14,20 +22,20 @@ Empty State displays a centered placeholder when a list or view has no content, 
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-empty-state pm-empty-state--md">
-  <h3 class="pm-empty-state__heading">No items found</h3>
-  <p class="pm-empty-state__description">Get started by creating your first item.</p>
-  <div class="pm-empty-state__actions"><button type="button">Create Item</button></div>
+  htmlCode={`<div class="pm-empty pm-empty--md">
+  <h3 class="pm-empty__heading">No items found</h3>
+  <p class="pm-empty__description">Get started by creating your first item.</p>
+  <div class="pm-empty__actions"><button type="button">Create Item</button></div>
 </div>`}
-  reactCode={`import { EmptyState, EmptyStateHeading, EmptyStateDescription, EmptyStateActions } from "@paramanu/data-display-react"
+  reactCode={`import { Empty, EmptyHeading, EmptyDescription, EmptyActions } from "@paramanu/data-display-react"
 
 export default function App() {
   return (
-    <EmptyState>
-      <EmptyStateHeading>No items found</EmptyStateHeading>
-      <EmptyStateDescription>Get started by creating your first item.</EmptyStateDescription>
-      <EmptyStateActions><button>Create Item</button></EmptyStateActions>
-    </EmptyState>
+    <Empty>
+      <EmptyHeading>No items found</EmptyHeading>
+      <EmptyDescription>Get started by creating your first item.</EmptyDescription>
+      <EmptyActions><button>Create Item</button></EmptyActions>
+    </Empty>
   )
 }`}
 />

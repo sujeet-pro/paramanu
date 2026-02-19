@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { toggleGroupClasses, toggleGroupItemClasses } from "./toggle-group.classes.js"
-import type { ToggleGroupClassesOptions, ToggleGroupSize } from "./toggle-group.types.js"
+import { toggleGrpClasses, toggleGrpItemClasses } from "./toggle-group.classes.js"
+import type { ToggleGrpClassesOptions, ToggleGrpSize } from "./toggle-group.types.js"
 
-interface ToggleGroupArgs extends ToggleGroupClassesOptions {
+interface ToggleGrpArgs extends ToggleGrpClassesOptions {
   type: "single" | "multiple"
   ariaLabel: string
   items: string[]
   activeIndex: number
 }
 
-function createToggleGroup(args: ToggleGroupArgs): HTMLDivElement {
+function createToggleGrp(args: ToggleGrpArgs): HTMLDivElement {
   const group = document.createElement("div")
-  group.className = toggleGroupClasses({
+  group.className = toggleGrpClasses({
     orientation: args.orientation,
     size: args.size,
     attached: args.attached,
@@ -24,7 +24,7 @@ function createToggleGroup(args: ToggleGroupArgs): HTMLDivElement {
   for (let i = 0; i < args.items.length; i++) {
     const button = document.createElement("button")
     const pressed = i === args.activeIndex
-    button.className = toggleGroupItemClasses({
+    button.className = toggleGrpItemClasses({
       size: args.size,
       pressed,
     })
@@ -38,9 +38,9 @@ function createToggleGroup(args: ToggleGroupArgs): HTMLDivElement {
 }
 
 const meta = {
-  title: "Buttons/Toggle Group",
-  tags: ["autodocs", "stable"],
-  render: (args) => createToggleGroup(args as ToggleGroupArgs),
+  title: "Btns/Toggle Group",
+  tags: ["autodocs", "beta"],
+  render: (args) => createToggleGrp(args as ToggleGrpArgs),
   argTypes: {
     type: {
       control: "select",
@@ -67,10 +67,10 @@ const meta = {
     items: ["Left", "Center", "Right"],
     activeIndex: 1,
   },
-} satisfies Meta<ToggleGroupArgs>
+} satisfies Meta<ToggleGrpArgs>
 
 export default meta
-type Story = StoryObj<ToggleGroupArgs>
+type Story = StoryObj<ToggleGrpArgs>
 
 export const Playground: Story = {}
 
@@ -101,10 +101,10 @@ export const AllSizes: Story = {
     container.style.flexDirection = "column"
     container.style.gap = "16px"
 
-    const sizes: ToggleGroupSize[] = ["xs", "sm", "md", "lg", "xl"]
+    const sizes: ToggleGrpSize[] = ["xs", "sm", "md", "lg", "xl"]
     for (const size of sizes) {
       container.appendChild(
-        createToggleGroup({
+        createToggleGrp({
           type: "single",
           size,
           attached: true,

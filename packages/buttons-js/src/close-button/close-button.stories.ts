@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { closeButtonClasses } from "./close-button.classes.js"
-import type { CloseButtonClassesOptions, CloseButtonSize } from "./close-button.types.js"
+import { closeBtnClasses } from "./close-button.classes.js"
+import type { CloseBtnClassesOptions, CloseBtnSize } from "./close-button.types.js"
 
-interface CloseButtonArgs extends CloseButtonClassesOptions {
+interface CloseBtnArgs extends CloseBtnClassesOptions {
   ariaLabel: string
 }
 
-function createCloseButton(args: CloseButtonArgs): HTMLButtonElement {
+function createCloseBtn(args: CloseBtnArgs): HTMLButtonElement {
   const button = document.createElement("button")
-  button.className = closeButtonClasses({
+  button.className = closeBtnClasses({
     size: args.size,
     disabled: args.disabled,
   })
@@ -23,9 +23,9 @@ function createCloseButton(args: CloseButtonArgs): HTMLButtonElement {
 }
 
 const meta = {
-  title: "Buttons/Close Button",
-  tags: ["autodocs", "stable"],
-  render: (args) => createCloseButton(args as CloseButtonArgs),
+  title: "Btns/Close Btn",
+  tags: ["autodocs", "beta"],
+  render: (args) => createCloseBtn(args as CloseBtnArgs),
   argTypes: {
     size: {
       control: "select",
@@ -38,10 +38,10 @@ const meta = {
     size: "md",
     ariaLabel: "Close",
   },
-} satisfies Meta<CloseButtonArgs>
+} satisfies Meta<CloseBtnArgs>
 
 export default meta
-type Story = StoryObj<CloseButtonArgs>
+type Story = StoryObj<CloseBtnArgs>
 
 export const Playground: Story = {}
 
@@ -52,9 +52,9 @@ export const AllSizes: Story = {
     container.style.gap = "8px"
     container.style.alignItems = "center"
 
-    const sizes: CloseButtonSize[] = ["xs", "sm", "md", "lg"]
+    const sizes: CloseBtnSize[] = ["xs", "sm", "md", "lg"]
     for (const size of sizes) {
-      container.appendChild(createCloseButton({ size, ariaLabel: `Close ${size}` }))
+      container.appendChild(createCloseBtn({ size, ariaLabel: `Close ${size}` }))
     }
     return container
   },
@@ -70,8 +70,8 @@ export const States: Story = {
     container.style.display = "flex"
     container.style.gap = "8px"
 
-    container.appendChild(createCloseButton({ ariaLabel: "Default" }))
-    container.appendChild(createCloseButton({ disabled: true, ariaLabel: "Disabled" }))
+    container.appendChild(createCloseBtn({ ariaLabel: "Default" }))
+    container.appendChild(createCloseBtn({ disabled: true, ariaLabel: "Disabled" }))
     return container
   },
 }

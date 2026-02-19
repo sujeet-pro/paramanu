@@ -1,14 +1,14 @@
 import { forwardRef } from "react"
-import { skipNavLinkClasses } from "@paramanu/navigation-js"
+import { skipLinkClasses } from "@paramanu/navigation-js"
 
-export interface ReactSkipNavLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface ReactSkipLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href?: string
   children?: React.ReactNode
 }
 
-export const SkipNavLink = forwardRef<HTMLAnchorElement, ReactSkipNavLinkProps>(
-  function SkipNavLink({ href = "#main-content", className, children, ...rest }, ref) {
-    const classes = skipNavLinkClasses()
+export const SkipLink = forwardRef<HTMLAnchorElement, ReactSkipLinkProps>(
+  function SkipLink({ href = "#main-content", className, children, ...rest }, ref) {
+    const classes = skipLinkClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     return (

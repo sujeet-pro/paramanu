@@ -1,26 +1,26 @@
-export type AppShellSidebarWidth = "sm" | "md" | "lg"
-export type AppShellSidebarPosition = "start" | "end"
+export type ShellSidebarWidth = "sm" | "md" | "lg"
+export type ShellSidebarPosition = "start" | "end"
 
-export interface AppShellClassesOptions {
+export interface ShellClassesOptions {
   sidebarCollapsed?: boolean
-  sidebarPosition?: AppShellSidebarPosition
+  sidebarPosition?: ShellSidebarPosition
 }
 
-export interface AppShellHeaderClassesOptions {
+export interface ShellHeaderClassesOptions {
   sticky?: boolean
 }
 
-export interface AppShellSidebarClassesOptions {
-  width?: AppShellSidebarWidth
+export interface ShellSidebarClassesOptions {
+  width?: ShellSidebarWidth
   collapsed?: boolean
 }
 
-export interface AppShellProps extends AppShellClassesOptions {}
+export interface ShellProps extends ShellClassesOptions {}
 
-export interface AppShellHeaderProps extends AppShellHeaderClassesOptions {}
+export interface ShellHeaderProps extends ShellHeaderClassesOptions {}
 
-export interface AppShellSidebarProps extends AppShellSidebarClassesOptions {}
+export interface ShellSidebarProps extends ShellSidebarClassesOptions {}
 
-export interface AppShellMainProps {}
+export interface ShellMainProps {}
 
-export interface AppShellFooterProps {}
+export interface ShellFooterProps {}

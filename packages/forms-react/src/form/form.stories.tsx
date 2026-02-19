@@ -5,7 +5,7 @@ import { Form } from "./form.js"
 const meta = {
   title: "Forms/Form",
   component: Form,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     layout: { control: "select", options: ["vertical", "horizontal", "inline"] },
     gap: { control: "select", options: ["sm", "md", "lg"] },

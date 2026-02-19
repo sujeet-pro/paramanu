@@ -1,6 +1,6 @@
-import type { CloseButtonClassesOptions } from "./close-button.types.js"
+import type { CloseBtnClassesOptions } from "./close-button.types.js"
 
-const BASE = "pm-close-button"
+const BASE = "pm-close-btn"
 
 /**
  * Returns BEM class names for the close button component (human-readable).
@@ -8,12 +8,12 @@ const BASE = "pm-close-button"
  *
  * @example
  * ```ts
- * closeButtonClasses() // "pm-close-button pm-close-button--md"
- * closeButtonClasses({ size: "sm", disabled: true })
- * // "pm-close-button pm-close-button--sm pm-close-button--disabled"
+ * closeBtnClasses() // "pm-close-btn pm-close-btn--md"
+ * closeBtnClasses({ size: "sm", disabled: true })
+ * // "pm-close-btn pm-close-btn--sm pm-close-btn--disabled"
  * ```
  */
-export function closeButtonClasses(options: CloseButtonClassesOptions = {}): string {
+export function closeBtnClasses(options: CloseBtnClassesOptions = {}): string {
   const { size = "md", disabled = false } = options
   const classes = [BASE, `${BASE}--${size}`]
 
@@ -29,18 +29,18 @@ export function closeButtonClasses(options: CloseButtonClassesOptions = {}): str
  * @example
  * ```ts
  * import styles from "./close-button.module.css"
- * closeButtonModuleClasses(styles, { size: "sm" })
+ * closeBtnModuleClasses(styles, { size: "sm" })
  * ```
  */
-export function closeButtonModuleClasses(
+export function closeBtnModuleClasses(
   classMap: Record<string, string>,
-  options: CloseButtonClassesOptions = {},
+  options: CloseBtnClassesOptions = {},
 ): string {
   const { size = "md", disabled = false } = options
 
-  const classes = [classMap["pm-close-button"], classMap[`pm-close-button--${size}`]]
+  const classes = [classMap["pm-close-btn"], classMap[`pm-close-btn--${size}`]]
 
-  if (disabled) classes.push(classMap["pm-close-button--disabled"])
+  if (disabled) classes.push(classMap["pm-close-btn--disabled"])
 
   return classes.filter(Boolean).join(" ")
 }

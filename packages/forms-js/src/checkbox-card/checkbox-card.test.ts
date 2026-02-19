@@ -1,85 +1,85 @@
 import { describe, it, expect } from "vitest"
-import { checkboxCardClasses, checkboxCardModuleClasses } from "./checkbox-card.classes.js"
+import { chkCardClasses, chkCardModuleClasses } from "./checkbox-card.classes.js"
 
-describe("checkboxCardClasses", () => {
+describe("chkCardClasses", () => {
   it("returns default classes (md)", () => {
-    const result = checkboxCardClasses()
-    expect(result).toBe("pm-checkbox-card pm-checkbox-card--md")
+    const result = chkCardClasses()
+    expect(result).toBe("pm-chk-card pm-chk-card--md")
   })
 
   it("applies size sm", () => {
-    expect(checkboxCardClasses({ size: "sm" })).toContain("pm-checkbox-card--sm")
+    expect(chkCardClasses({ size: "sm" })).toContain("pm-chk-card--sm")
   })
 
   it("applies size md", () => {
-    expect(checkboxCardClasses({ size: "md" })).toContain("pm-checkbox-card--md")
+    expect(chkCardClasses({ size: "md" })).toContain("pm-chk-card--md")
   })
 
   it("applies size lg", () => {
-    expect(checkboxCardClasses({ size: "lg" })).toContain("pm-checkbox-card--lg")
+    expect(chkCardClasses({ size: "lg" })).toContain("pm-chk-card--lg")
   })
 
   it("applies disabled modifier", () => {
-    expect(checkboxCardClasses({ disabled: true })).toContain("pm-checkbox-card--disabled")
-    expect(checkboxCardClasses({ disabled: false })).not.toContain("pm-checkbox-card--disabled")
+    expect(chkCardClasses({ disabled: true })).toContain("pm-chk-card--disabled")
+    expect(chkCardClasses({ disabled: false })).not.toContain("pm-chk-card--disabled")
   })
 
   it("applies checked modifier", () => {
-    expect(checkboxCardClasses({ checked: true })).toContain("pm-checkbox-card--checked")
-    expect(checkboxCardClasses({ checked: false })).not.toContain("pm-checkbox-card--checked")
+    expect(chkCardClasses({ checked: true })).toContain("pm-chk-card--checked")
+    expect(chkCardClasses({ checked: false })).not.toContain("pm-chk-card--checked")
   })
 
   it("always includes base class", () => {
-    expect(checkboxCardClasses()).toMatch(/^pm-checkbox-card\s/)
+    expect(chkCardClasses()).toMatch(/^pm-chk-card\s/)
   })
 
   it("combines multiple options", () => {
-    const result = checkboxCardClasses({
+    const result = chkCardClasses({
       size: "lg",
       disabled: true,
       checked: true,
     })
     expect(result).toBe(
-      "pm-checkbox-card pm-checkbox-card--lg pm-checkbox-card--disabled pm-checkbox-card--checked",
+      "pm-chk-card pm-chk-card--lg pm-chk-card--disabled pm-chk-card--checked",
     )
   })
 })
 
-describe("checkboxCardModuleClasses", () => {
+describe("chkCardModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-checkbox-card": "pm_abc_card",
-    "pm-checkbox-card--sm": "pm_abc_sm",
-    "pm-checkbox-card--md": "pm_abc_md",
-    "pm-checkbox-card--lg": "pm_abc_lg",
-    "pm-checkbox-card--disabled": "pm_abc_disabled",
-    "pm-checkbox-card--checked": "pm_abc_checked",
+    "pm-chk-card": "pm_abc_card",
+    "pm-chk-card--sm": "pm_abc_sm",
+    "pm-chk-card--md": "pm_abc_md",
+    "pm-chk-card--lg": "pm_abc_lg",
+    "pm-chk-card--disabled": "pm_abc_disabled",
+    "pm-chk-card--checked": "pm_abc_checked",
   }
 
   it("returns mapped default classes", () => {
-    const result = checkboxCardModuleClasses(mockClassMap)
+    const result = chkCardModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_card pm_abc_md")
   })
 
   it("maps size classes correctly", () => {
-    const result = checkboxCardModuleClasses(mockClassMap, { size: "lg" })
+    const result = chkCardModuleClasses(mockClassMap, { size: "lg" })
     expect(result).toContain("pm_abc_lg")
   })
 
   it("maps disabled class", () => {
-    const result = checkboxCardModuleClasses(mockClassMap, { disabled: true })
+    const result = chkCardModuleClasses(mockClassMap, { disabled: true })
     expect(result).toContain("pm_abc_disabled")
   })
 
   it("maps checked class", () => {
-    const result = checkboxCardModuleClasses(mockClassMap, { checked: true })
+    const result = chkCardModuleClasses(mockClassMap, { checked: true })
     expect(result).toContain("pm_abc_checked")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-checkbox-card": "pm_abc_card",
+      "pm-chk-card": "pm_abc_card",
     }
-    const result = checkboxCardModuleClasses(sparseMap)
+    const result = chkCardModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_card")
     expect(result).not.toContain("undefined")
   })

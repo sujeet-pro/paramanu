@@ -1,10 +1,18 @@
 ---
 title: Search Input
 description: A search input field with a search icon and optional clear button for search queries.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 The Search Input component provides a search-specific text field with a leading search icon and an optional clear button.
 
@@ -14,15 +22,15 @@ The Search Input component provides a search-specific text field with a leading 
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-search-input pm-search-input--outline pm-search-input--md" role="search">\n  <span class="pm-search-input__icon" aria-hidden="true">&#128269;</span>\n  <input class="pm-input pm-input--outline pm-input--md" type="search" placeholder="Search..." />\n</div>`}
-  reactCode={`import { SearchInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <SearchInput placeholder="Search..." />\n}`}
+  htmlCode={`<div class="pm-search pm-search--outline pm-search--md" role="search">\n  <span class="pm-search__icon" aria-hidden="true">&#128269;</span>\n  <input class="pm-input pm-input--outline pm-input--md" type="search" placeholder="Search..." />\n</div>`}
+  reactCode={`import { Search } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Search placeholder="Search..." />\n}`}
 />
 
 ## Variants
 
 <ComponentPreview
-  htmlCode={`<div class="pm-search-input pm-search-input--filled pm-search-input--md" role="search">\n  <span class="pm-search-input__icon" aria-hidden="true">&#128269;</span>\n  <input class="pm-input pm-input--filled pm-input--md" type="search" placeholder="Filled search..." />\n</div>`}
-  reactCode={`import { SearchInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <SearchInput variant="outline" placeholder="Outline" />\n      <SearchInput variant="filled" placeholder="Filled" />\n    </>\n  )\n}`}
+  htmlCode={`<div class="pm-search pm-search--filled pm-search--md" role="search">\n  <span class="pm-search__icon" aria-hidden="true">&#128269;</span>\n  <input class="pm-input pm-input--filled pm-input--md" type="search" placeholder="Filled search..." />\n</div>`}
+  reactCode={`import { Search } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <Search variant="outline" placeholder="Outline" />\n      <Search variant="filled" placeholder="Filled" />\n    </>\n  )\n}`}
 />
 
 </TabItem>
@@ -59,9 +67,9 @@ The Search Input component provides a search-specific text field with a leading 
 
 | Class | Description |
 |---|---|
-| `pm-search-input` | Wrapper base class |
-| `pm-search-input__icon` | Search icon |
-| `pm-search-input__clear` | Clear button |
+| `pm-search` | Wrapper base class |
+| `pm-search__icon` | Search icon |
+| `pm-search__clear` | Clear button |
 
 </TabItem>
 </Tabs>

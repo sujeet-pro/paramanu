@@ -1,6 +1,6 @@
-import type { VisuallyHiddenClassesOptions } from "./visually-hidden.types.js"
+import type { SrOnlyClassesOptions } from "./visually-hidden.types.js"
 
-const BASE = "pm-visually-hidden"
+const BASE = "pm-sr-only"
 
 /**
  * Returns BEM class names for the visually hidden utility.
@@ -15,14 +15,14 @@ const BASE = "pm-visually-hidden"
  *
  * @example
  * ```ts
- * visuallyHiddenClasses()
- * // => "pm-visually-hidden"
+ * srOnlyClasses()
+ * // => "pm-sr-only"
  *
- * visuallyHiddenClasses({ focusable: true })
- * // => "pm-visually-hidden pm-visually-hidden--focusable"
+ * srOnlyClasses({ focusable: true })
+ * // => "pm-sr-only pm-sr-only--focusable"
  * ```
  */
-export function visuallyHiddenClasses(options: VisuallyHiddenClassesOptions = {}): string {
+export function srOnlyClasses(options: SrOnlyClassesOptions = {}): string {
   const { focusable = false } = options
   const classes = [BASE]
   if (focusable) classes.push(`${BASE}--focusable`)
@@ -42,15 +42,15 @@ export function visuallyHiddenClasses(options: VisuallyHiddenClassesOptions = {}
  * @example
  * ```ts
  * import styles from "@paramanu/utilities-js/modules/visually-hidden/map"
- * visuallyHiddenModuleClasses(styles, { focusable: true })
+ * srOnlyModuleClasses(styles, { focusable: true })
  * ```
  */
-export function visuallyHiddenModuleClasses(
+export function srOnlyModuleClasses(
   classMap: Record<string, string>,
-  options: VisuallyHiddenClassesOptions = {},
+  options: SrOnlyClassesOptions = {},
 ): string {
   const { focusable = false } = options
-  const classes = [classMap["pm-visually-hidden"]]
-  if (focusable) classes.push(classMap["pm-visually-hidden--focusable"])
+  const classes = [classMap["pm-sr-only"]]
+  if (focusable) classes.push(classMap["pm-sr-only--focusable"])
   return classes.filter(Boolean).join(" ")
 }

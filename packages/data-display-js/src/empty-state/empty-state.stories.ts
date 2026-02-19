@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { emptyStateClasses } from "./empty-state.classes.js"
-import type { EmptyStateClassesOptions } from "./empty-state.types.js"
+import { emptyClasses } from "./empty-state.classes.js"
+import type { EmptyClassesOptions } from "./empty-state.types.js"
 
-function createEmptyState(args: EmptyStateClassesOptions): HTMLElement {
-  const cls = emptyStateClasses(args)
+function createEmpty(args: EmptyClassesOptions): HTMLElement {
+  const cls = emptyClasses(args)
   const root = document.createElement("div")
   root.className = cls.root
   const heading = document.createElement("h3")
@@ -26,17 +26,17 @@ function createEmptyState(args: EmptyStateClassesOptions): HTMLElement {
 
 const meta = {
   title: "Data Display/Empty State",
-  tags: ["autodocs", "stable"],
-  render: (args) => createEmptyState(args as EmptyStateClassesOptions),
+  tags: ["autodocs", "beta"],
+  render: (args) => createEmpty(args as EmptyClassesOptions),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },
     bordered: { control: "boolean" },
   },
   args: { size: "md" },
-} satisfies Meta<EmptyStateClassesOptions>
+} satisfies Meta<EmptyClassesOptions>
 
 export default meta
-type Story = StoryObj<EmptyStateClassesOptions>
+type Story = StoryObj<EmptyClassesOptions>
 
 export const Playground: Story = {}
 export const Bordered: Story = { args: { bordered: true } }

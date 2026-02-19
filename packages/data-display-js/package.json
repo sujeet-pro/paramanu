@@ -1,7 +1,9 @@
 {
   "name": "@paramanu/data-display-js",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-alpha.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -9,7 +11,26 @@
       "import": "./dist/js/index.js"
     },
     "./css": "./dist/css/data-display.css",
-    "./css/layers": "./dist/css/data-display.layers.css",
+    "./css/min": "./dist/css/data-display.min.css",
+    "./css/avatar": "./dist/css/avatar.css",
+    "./css/avatar-group": "./dist/css/avatar-group.css",
+    "./css/badge": "./dist/css/badge.css",
+    "./css/card": "./dist/css/card.css",
+    "./css/clipboard": "./dist/css/clipboard.css",
+    "./css/data-grid": "./dist/css/data-grid.css",
+    "./css/data-list": "./dist/css/data-list.css",
+    "./css/data-table": "./dist/css/data-table.css",
+    "./css/embed": "./dist/css/embed.css",
+    "./css/empty-state": "./dist/css/empty-state.css",
+    "./css/icon": "./dist/css/icon.css",
+    "./css/image": "./dist/css/image.css",
+    "./css/qr-code": "./dist/css/qr-code.css",
+    "./css/stat": "./dist/css/stat.css",
+    "./css/structured-list": "./dist/css/structured-list.css",
+    "./css/table": "./dist/css/table.css",
+    "./css/tag": "./dist/css/tag.css",
+    "./css/tile": "./dist/css/tile.css",
+    "./css/timeline": "./dist/css/timeline.css",
     "./modules/badge/map": {
       "types": "./dist/css/badge.module.d.ts",
       "import": "./dist/css/badge.module.js"
@@ -87,7 +108,9 @@
       "import": "./dist/css/embed.module.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsx css.build.ts && tsup",
     "test": "vitest run",

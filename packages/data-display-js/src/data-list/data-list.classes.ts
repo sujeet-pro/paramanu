@@ -1,26 +1,26 @@
 import type {
-  DataListClassesOptions,
-  DataListClassesResult,
-  DataListModuleClassesResult,
+  DatalistClassesOptions,
+  DatalistClassesResult,
+  DatalistModuleClassesResult,
 } from "./data-list.types.js"
 
-const BASE = "pm-data-list"
+const BASE = "pm-datalist"
 
 /**
- * Returns BEM class names for the DataList (description list) component.
+ * Returns BEM class names for the Datalist (description list) component.
  *
  * Renders a semantic `<dl>` with `<dt>` / `<dd>` pairs. Supports
  * vertical (stacked) and horizontal (side-by-side) orientations.
  *
  * @example
  * ```ts
- * const cls = dataListClasses({ orientation: "horizontal", dividers: true })
- * // cls.root   => "pm-data-list pm-data-list--horizontal pm-data-list--md pm-data-list--dividers"
- * // cls.term   => "pm-data-list__term"
- * // cls.detail => "pm-data-list__detail"
+ * const cls = datalistClasses({ orientation: "horizontal", dividers: true })
+ * // cls.root   => "pm-datalist pm-datalist--horizontal pm-datalist--md pm-datalist--dividers"
+ * // cls.term   => "pm-datalist__term"
+ * // cls.detail => "pm-datalist__detail"
  * ```
  */
-export function dataListClasses(options: DataListClassesOptions = {}): DataListClassesResult {
+export function datalistClasses(options: DatalistClassesOptions = {}): DatalistClassesResult {
   const { orientation = "vertical", size = "md", dividers = false } = options
 
   const rootClasses = [BASE, `${BASE}--${orientation}`, `${BASE}--${size}`]
@@ -36,13 +36,13 @@ export function dataListClasses(options: DataListClassesOptions = {}): DataListC
 }
 
 /**
- * Returns CSS module class names for the DataList component.
+ * Returns CSS module class names for the Datalist component.
  * Used by bundled consumers who import CSS modules.
  */
-export function dataListModuleClasses(
+export function datalistModuleClasses(
   classMap: Record<string, string>,
-  options: DataListClassesOptions = {},
-): DataListModuleClassesResult {
+  options: DatalistClassesOptions = {},
+): DatalistModuleClassesResult {
   const { orientation = "vertical", size = "md", dividers = false } = options
 
   const rootClasses = [

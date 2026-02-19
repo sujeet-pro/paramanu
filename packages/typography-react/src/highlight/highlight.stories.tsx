@@ -4,7 +4,7 @@ import { Highlight } from "./highlight.js"
 
 const meta = {
   title: "Typography/Highlight",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Highlight,
   argTypes: {
     color: { control: "select", options: ["primary", "danger", "success", "warning", "info", "neutral"] },

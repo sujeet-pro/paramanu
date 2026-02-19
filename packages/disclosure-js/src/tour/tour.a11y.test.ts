@@ -93,16 +93,16 @@ describe("tour accessibility", () => {
     const dom = new JSDOM(
       `<!DOCTYPE html><body>${createTourHTML(defaultSteps, { open: true })}</body>`,
     )
-    const closeButtons = dom.window.document.querySelectorAll(".pm-tour__step-close")
-    expect(closeButtons.length).toBe(3)
+    const closeBtns = dom.window.document.querySelectorAll(".pm-tour__step-close")
+    expect(closeBtns.length).toBe(3)
   })
 
   it("close button has aria-label", () => {
     const dom = new JSDOM(
       `<!DOCTYPE html><body>${createTourHTML(defaultSteps, { open: true })}</body>`,
     )
-    const closeButtons = dom.window.document.querySelectorAll(".pm-tour__step-close")
-    closeButtons.forEach((btn) => {
+    const closeBtns = dom.window.document.querySelectorAll(".pm-tour__step-close")
+    closeBtns.forEach((btn) => {
       expect(btn.getAttribute("aria-label")).toBe("Close tour")
     })
   })
@@ -125,10 +125,10 @@ describe("tour accessibility", () => {
       `<!DOCTYPE html><body>${createTourHTML(defaultSteps, { open: true })}</body>`,
     )
     const buttons = dom.window.document.querySelectorAll("button")
-    const finishButton = Array.from(buttons).find(
+    const finishBtn = Array.from(buttons).find(
       (btn) => btn.getAttribute("aria-label") === "Finish tour",
     )
-    expect(finishButton).not.toBeUndefined()
+    expect(finishBtn).not.toBeUndefined()
   })
 
   it("step counter shows current position", () => {

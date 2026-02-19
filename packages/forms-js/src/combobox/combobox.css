@@ -21,35 +21,35 @@
     font-family: inherit;
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
   }
 
   .pm-combobox--outline .pm-combobox__input {
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border: 1px solid var(--pm-neutral-active);
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
   }
 
   .pm-combobox--outline .pm-combobox__input::placeholder {
-    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    color: var(--pm-fg-subtle);
   }
 
   .pm-combobox--filled .pm-combobox__input {
     border: 1px solid transparent;
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    background-color: var(--pm-bg-muted);
+    color: var(--pm-fg);
   }
 
   .pm-combobox--filled .pm-combobox__input::placeholder {
-    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    color: var(--pm-fg-subtle);
   }
 
   .pm-combobox--unstyled .pm-combobox__input {
     border: none;
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
   }
 
   .pm-combobox--sm .pm-combobox__input {
@@ -71,7 +71,7 @@
   }
 
   .pm-combobox--invalid .pm-combobox__input {
-    border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+    border-color: var(--pm-danger-border);
   }
 
   .pm-combobox--disabled {
@@ -91,9 +91,9 @@
     right: 0;
     z-index: 10;
     margin-top: var(--pm-spacing-1);
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-md);
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    background-color: var(--pm-bg);
     box-shadow: var(--pm-shadow-md);
     max-height: 240px;
     overflow-y: auto;
@@ -110,28 +110,28 @@
     padding: var(--pm-spacing-2) var(--pm-spacing-3);
     cursor: pointer;
     font-size: inherit;
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    color: var(--pm-fg);
     transition: background-color var(--pm-transition-fast);
 
     &:hover {
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      background-color: var(--pm-bg-muted);
     }
   }
 
   .pm-combobox__option--focused {
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-muted);
   }
 
   .pm-combobox__option--selected {
-    background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
-    color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-200));
+    background-color: var(--pm-primary-subtle);
+    color: var(--pm-fg-link);
     font-weight: var(--pm-font-weight-medium);
   }
 
   .pm-combobox__empty {
     padding: var(--pm-spacing-3);
     text-align: center;
-    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
     font-size: var(--pm-font-size-sm);
   }
 }

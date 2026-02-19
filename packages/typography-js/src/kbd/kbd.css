@@ -1,9 +1,9 @@
 @layer pm.components {
   .pm-kbd {
-    --pm-kbd-bg: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
-    --pm-kbd-text: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
-    --pm-kbd-border: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
-    --pm-kbd-shadow: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    --pm-kbd-bg: var(--pm-bg-subtle);
+    --pm-kbd-text: var(--pm-fg);
+    --pm-kbd-border: var(--pm-border);
+    --pm-kbd-shadow: var(--pm-neutral-hover);
 
     display: inline-flex;
     align-items: center;
@@ -55,7 +55,7 @@
     }
 
     &.pm-kbd--subtle {
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-700));
+      background-color: var(--pm-bg-muted);
       border-color: transparent;
       box-shadow: none;
     }

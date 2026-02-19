@@ -11,7 +11,7 @@ function createMark(args: MarkClassesOptions): HTMLElement {
 
 const meta = {
   title: "Typography/Mark",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createMark(args as MarkClassesOptions),
   argTypes: {
     variant: { control: "select", options: ["default", "underline", "circle", "filled"] },

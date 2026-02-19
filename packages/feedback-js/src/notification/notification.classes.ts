@@ -1,9 +1,9 @@
-import type { NotificationClassesOptions } from "./notification.types.js"
+import type { NotifClassesOptions } from "./notification.types.js"
 
-const BASE = "pm-notification"
+const BASE = "pm-notif"
 
 /** Structured class names for the notification component and its sub-elements. */
-export interface NotificationClassesResult {
+export interface NotifClassesResult {
   /** Root element class names. */
   root: string
   /** Avatar/icon container class. */
@@ -28,13 +28,13 @@ export interface NotificationClassesResult {
  *
  * @example
  * ```ts
- * const classes = notificationClasses({ unread: true, dismissible: true })
- * // classes.root => "pm-notification pm-notification--neutral pm-notification--unread pm-notification--dismissible"
+ * const classes = notifClasses({ unread: true, dismissible: true })
+ * // classes.root => "pm-notif pm-notif--neutral pm-notif--unread pm-notif--dismissible"
  * ```
  */
-export function notificationClasses(
-  options: NotificationClassesOptions = {},
-): NotificationClassesResult {
+export function notifClasses(
+  options: NotifClassesOptions = {},
+): NotifClassesResult {
   const { variant = "neutral", unread = false, dismissible = false } = options
   const rootClasses = [BASE, `${BASE}--${variant}`]
 
@@ -57,25 +57,25 @@ export function notificationClasses(
  * Returns CSS module class names for the notification component (hashed).
  * Used by bundled/template consumers who import CSS modules.
  */
-export function notificationModuleClasses(
+export function notifModuleClasses(
   classMap: Record<string, string>,
-  options: NotificationClassesOptions = {},
-): NotificationClassesResult {
+  options: NotifClassesOptions = {},
+): NotifClassesResult {
   const { variant = "neutral", unread = false, dismissible = false } = options
 
-  const rootClasses = [classMap["pm-notification"], classMap[`pm-notification--${variant}`]]
+  const rootClasses = [classMap["pm-notif"], classMap[`pm-notif--${variant}`]]
 
-  if (unread) rootClasses.push(classMap["pm-notification--unread"])
-  if (dismissible) rootClasses.push(classMap["pm-notification--dismissible"])
+  if (unread) rootClasses.push(classMap["pm-notif--unread"])
+  if (dismissible) rootClasses.push(classMap["pm-notif--dismissible"])
 
   return {
     root: rootClasses.filter(Boolean).join(" "),
-    icon: classMap["pm-notification__icon"] ?? "",
-    content: classMap["pm-notification__content"] ?? "",
-    title: classMap["pm-notification__title"] ?? "",
-    message: classMap["pm-notification__message"] ?? "",
-    timestamp: classMap["pm-notification__timestamp"] ?? "",
-    actions: classMap["pm-notification__actions"] ?? "",
-    close: classMap["pm-notification__close"] ?? "",
+    icon: classMap["pm-notif__icon"] ?? "",
+    content: classMap["pm-notif__content"] ?? "",
+    title: classMap["pm-notif__title"] ?? "",
+    message: classMap["pm-notif__message"] ?? "",
+    timestamp: classMap["pm-notif__timestamp"] ?? "",
+    actions: classMap["pm-notif__actions"] ?? "",
+    close: classMap["pm-notif__close"] ?? "",
   }
 }

@@ -11,7 +11,7 @@ describe("Group", () => {
   })
 
   it("renders with role=group by default", () => {
-    render(<Group aria-label="Actions">Buttons</Group>)
+    render(<Group aria-label="Actions">Btns</Group>)
     expect(screen.getByRole("group", { name: "Actions" })).toBeInTheDocument()
   })
 
@@ -56,7 +56,7 @@ describe("Group", () => {
   })
 
   it("supports aria-label", () => {
-    render(<Group aria-label="Action buttons">Buttons</Group>)
+    render(<Group aria-label="Action buttons">Btns</Group>)
     const el = screen.getByRole("group", { name: "Action buttons" })
     expect(el).toHaveAttribute("aria-label", "Action buttons")
   })

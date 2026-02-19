@@ -4,7 +4,7 @@ import { Container } from "./container.js"
 
 const meta = {
   title: "Primitives/Container",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Container,
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl", "full"] },

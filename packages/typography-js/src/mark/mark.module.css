@@ -15,25 +15,19 @@
 
   .pm-mark--underline {
     background-color: transparent;
-    border-bottom: 3px solid light-dark(
-      var(--pm-color-primary-500),
-      var(--pm-color-primary-400)
-    );
+    border-bottom: 3px solid var(--pm-primary-border);
     padding-bottom: 0.0625em;
   }
 
   .pm-mark--circle {
     background-color: transparent;
     border-radius: 50%;
-    box-shadow: 0 0 0 3px light-dark(
-      var(--pm-color-primary-300),
-      var(--pm-color-primary-600)
-    );
+    box-shadow: 0 0 0 3px var(--pm-primary-border);
     padding: 0.0625em 0.25em;
   }
 
   .pm-mark--filled {
-    background-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+    background-color: var(--pm-primary-border);
     color: var(--pm-color-neutral-0);
     padding: 0.0625em 0.25em;
     border-radius: var(--pm-radius-sm);

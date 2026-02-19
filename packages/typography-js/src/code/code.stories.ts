@@ -19,7 +19,7 @@ function createCode(args: CodeClassesOptions): HTMLElement {
 
 const meta = {
   title: "Typography/Code",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createCode(args as CodeClassesOptions),
   argTypes: {
     block: { control: "boolean" },
@@ -27,7 +27,7 @@ const meta = {
     variant: { control: "select", options: ["default", "outline"] },
     color: { control: "select", options: ["neutral", "primary", "danger", "success", "warning", "info"] },
     withLineNumbers: { control: "boolean" },
-    withCopyButton: { control: "boolean" },
+    withCopyBtn: { control: "boolean" },
   },
   args: {},
 } satisfies Meta<CodeClassesOptions>
@@ -38,7 +38,7 @@ type Story = StoryObj<CodeClassesOptions>
 export const Playground: Story = {}
 export const Block: Story = { args: { block: true } }
 export const BlockWithLineNumbers: Story = { args: { block: true, withLineNumbers: true } }
-export const BlockWithCopyButton: Story = { args: { block: true, withCopyButton: true } }
+export const BlockWithCopyBtn: Story = { args: { block: true, withCopyBtn: true } }
 export const Outline: Story = { args: { variant: "outline" } }
 export const SizeXs: Story = { args: { size: "xs" } }
 export const SizeSm: Story = { args: { size: "sm" } }

@@ -5,7 +5,7 @@ import { Backdrop } from "./backdrop.js"
 const meta = {
   title: "Overlays/Backdrop",
   component: Backdrop,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: {
       control: "select",

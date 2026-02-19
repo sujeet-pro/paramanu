@@ -5,7 +5,7 @@ import { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from "./drawer.js"
 const meta = {
   title: "Overlays/Drawer",
   component: Drawer,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     placement: { control: "select", options: ["start", "end", "top", "bottom"] },
     size: { control: "select", options: ["sm", "md", "lg", "xl", "full"] },
@@ -80,7 +80,7 @@ export const Full: Story = {
   ),
 }
 
-export const CloseButton: Story = {
+export const CloseBtn: Story = {
   args: { onClose: fn() },
   render: (args) => (
     <Drawer {...args}>

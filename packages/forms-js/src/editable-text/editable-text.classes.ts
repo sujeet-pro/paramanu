@@ -1,11 +1,11 @@
-import type { EditableTextClassesOptions } from "./editable-text.types.js"
+import type { EditableClassesOptions } from "./editable-text.types.js"
 
-const BASE = "pm-editable-text"
+const BASE = "pm-editable"
 
 /**
  * Returns BEM class names for the editable text component (human-readable).
  */
-export function editableTextClasses(options: EditableTextClassesOptions = {}): string {
+export function editableClasses(options: EditableClassesOptions = {}): string {
   const { size = "md", disabled = false, editing = false } = options
   const classes = [BASE, `${BASE}--${size}`]
 
@@ -18,16 +18,16 @@ export function editableTextClasses(options: EditableTextClassesOptions = {}): s
 /**
  * Returns CSS module class names for the editable text component (hashed).
  */
-export function editableTextModuleClasses(
+export function editableModuleClasses(
   classMap: Record<string, string>,
-  options: EditableTextClassesOptions = {},
+  options: EditableClassesOptions = {},
 ): string {
   const { size = "md", disabled = false, editing = false } = options
 
-  const classes = [classMap["pm-editable-text"], classMap[`pm-editable-text--${size}`]]
+  const classes = [classMap["pm-editable"], classMap[`pm-editable--${size}`]]
 
-  if (disabled) classes.push(classMap["pm-editable-text--disabled"])
-  if (editing) classes.push(classMap["pm-editable-text--editing"])
+  if (disabled) classes.push(classMap["pm-editable--disabled"])
+  if (editing) classes.push(classMap["pm-editable--editing"])
 
   return classes.filter(Boolean).join(" ")
 }

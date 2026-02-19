@@ -5,7 +5,7 @@ import { Label } from "./label.js"
 const meta = {
   title: "Forms/Label",
   component: Label,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
     disabled: { control: "boolean" },

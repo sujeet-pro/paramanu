@@ -1,10 +1,18 @@
 ---
-title: Toggle Button
+title: Toggle Btn
 description: A two-state toggle button (on/off) using aria-pressed for accessibility.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 A two-state button that toggles between pressed (on) and unpressed (off), using `aria-pressed` for accessibility.
 
@@ -14,13 +22,13 @@ A two-state button that toggles between pressed (on) and unpressed (off), using 
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<button class="pm-toggle-button pm-toggle-button--default pm-toggle-button--md" aria-pressed="false">Bold</button>`}
+  htmlCode={`<button class="pm-toggle-btn pm-toggle-btn--default pm-toggle-btn--md" aria-pressed="false">Bold</button>`}
   reactCode={`import { useState } from "react"
-import { ToggleButton } from "@paramanu/buttons-react"
+import { ToggleBtn } from "@paramanu/buttons-react"
 
 export default function App() {
   const [bold, setBold] = useState(false)
-  return <ToggleButton pressed={bold} onChange={setBold}>Bold</ToggleButton>
+  return <ToggleBtn pressed={bold} onChange={setBold}>Bold</ToggleBtn>
 }`}
 />
 
@@ -28,16 +36,16 @@ export default function App() {
 
 <ComponentPreview
   htmlCode={`<div style="display: flex; gap: 8px;">
-  <button class="pm-toggle-button pm-toggle-button--default pm-toggle-button--md pm-toggle-button--pressed" aria-pressed="true">Default</button>
-  <button class="pm-toggle-button pm-toggle-button--outline pm-toggle-button--md pm-toggle-button--pressed" aria-pressed="true">Outline</button>
+  <button class="pm-toggle-btn pm-toggle-btn--default pm-toggle-btn--md pm-toggle-btn--pressed" aria-pressed="true">Default</button>
+  <button class="pm-toggle-btn pm-toggle-btn--outline pm-toggle-btn--md pm-toggle-btn--pressed" aria-pressed="true">Outline</button>
 </div>`}
-  reactCode={`import { ToggleButton } from "@paramanu/buttons-react"
+  reactCode={`import { ToggleBtn } from "@paramanu/buttons-react"
 
 export default function App() {
   return (
     <div style={{ display: "flex", gap: "8px" }}>
-      <ToggleButton variant="default" pressed>Default</ToggleButton>
-      <ToggleButton variant="outline" pressed>Outline</ToggleButton>
+      <ToggleBtn variant="default" pressed>Default</ToggleBtn>
+      <ToggleBtn variant="outline" pressed>Outline</ToggleBtn>
     </div>
   )
 }`}
@@ -57,7 +65,7 @@ export default function App() {
 
 - Use for binary on/off actions (e.g., Bold, Italic, Mute)
 - Keep labels unchanged between states; the state is communicated via `aria-pressed`
-- Use ToggleGroup for mutually exclusive or multi-select groups
+- Use ToggleGrp for mutually exclusive or multi-select groups
 
 </TabItem>
 
@@ -74,21 +82,21 @@ Extends all native `<button>` HTML attributes.
 | `pressed` | `boolean` | `false` | Whether the button is in the on state |
 | `disabled` | `boolean` | `false` | Disabled state |
 | `fullWidth` | `boolean` | `false` | Stretch to container width |
-| `value` | `string` | -- | Value for use with ToggleGroup |
+| `value` | `string` | -- | Value for use with ToggleGrp |
 | `onChange` | `(pressed: boolean) => void` | -- | Callback when toggle state changes |
-| `children` | `ReactNode` | -- | Button content |
+| `children` | `ReactNode` | -- | Btn content |
 
 ## CSS Classes
 
 | Class | Purpose |
 |---|---|
-| `pm-toggle-button` | Base styles |
-| `pm-toggle-button--default` | Default variant |
-| `pm-toggle-button--outline` | Outline variant |
-| `pm-toggle-button--pressed` | Pressed/on state |
-| `pm-toggle-button--disabled` | Disabled state |
-| `pm-toggle-button--full-width` | Full width |
-| `pm-toggle-button--xs` to `--xl` | Size modifiers |
+| `pm-toggle-btn` | Base styles |
+| `pm-toggle-btn--default` | Default variant |
+| `pm-toggle-btn--outline` | Outline variant |
+| `pm-toggle-btn--pressed` | Pressed/on state |
+| `pm-toggle-btn--disabled` | Disabled state |
+| `pm-toggle-btn--full-width` | Full width |
+| `pm-toggle-btn--xs` to `--xl` | Size modifiers |
 
 </TabItem>
 </Tabs>

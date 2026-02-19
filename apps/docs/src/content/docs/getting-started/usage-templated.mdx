@@ -14,14 +14,14 @@ import "@paramanu/buttons-js/css"
 ## Using CSS Modules
 
 ```ts
-import { buttonModuleClasses } from "@paramanu/buttons-js"
+import { btnModuleClasses } from "@paramanu/buttons-js"
 import classMap from "@paramanu/buttons-js/modules/button/map"
 
-const className = buttonModuleClasses(classMap, {
+const className = btnModuleClasses(classMap, {
   variant: "primary",
   size: "md",
 })
-// Returns hashed class names like "pm_a1b2_pm-button pm_c3d4_pm-button--primary ..."
+// Returns hashed class names like "pm_a1b2_pm-btn pm_c3d4_pm-btn--primary ..."
 ```
 
 ## Using Human-Readable Classes
@@ -29,17 +29,17 @@ const className = buttonModuleClasses(classMap, {
 You can also use the readable class builder in any template:
 
 ```ts
-import { buttonClasses } from "@paramanu/buttons-js"
+import { btnClasses } from "@paramanu/buttons-js"
 
-const className = buttonClasses({ variant: "primary", size: "md" })
-// "pm-button pm-button--primary pm-button--md"
+const className = btnClasses({ variant: "primary", size: "md" })
+// "pm-btn pm-btn--primary pm-btn--md"
 ```
 
 ## Example with a Template Engine
 
 ```html
 <!-- EJS / Handlebars / Nunjucks -->
-<button class="<%= buttonClasses({ variant: 'primary', size: 'md' }) %>">
+<button class="<%= btnClasses({ variant: 'primary', size: 'md' }) %>">
   Click me
 </button>
 ```

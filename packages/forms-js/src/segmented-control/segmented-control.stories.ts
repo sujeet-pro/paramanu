@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { segmentedControlClasses } from "./segmented-control.classes.js"
-import type { SegmentedControlClassesOptions } from "./segmented-control.types.js"
+import { segCtrlClasses } from "./segmented-control.classes.js"
+import type { SegCtrlClassesOptions } from "./segmented-control.types.js"
 
-type SegmentedControlArgs = SegmentedControlClassesOptions & {
+type SegCtrlArgs = SegCtrlClassesOptions & {
   items: string[]
 }
 
-function createSegmentedControl(args: SegmentedControlArgs): HTMLElement {
+function createSegCtrl(args: SegCtrlArgs): HTMLElement {
   const wrapper = document.createElement("div")
-  wrapper.className = segmentedControlClasses({
+  wrapper.className = segCtrlClasses({
     size: args.size,
     fullWidth: args.fullWidth,
   })
@@ -18,7 +18,7 @@ function createSegmentedControl(args: SegmentedControlArgs): HTMLElement {
   items.forEach((item, i) => {
     const button = document.createElement("button")
     button.type = "button"
-    button.className = "pm-segmented-control__item"
+    button.className = "pm-seg-ctrl__item"
     button.textContent = item
     if (i === 0) button.setAttribute("aria-pressed", "true")
     wrapper.appendChild(button)
@@ -29,8 +29,8 @@ function createSegmentedControl(args: SegmentedControlArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Segmented Control",
-  tags: ["autodocs", "stable"],
-  render: (args) => createSegmentedControl(args as SegmentedControlArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createSegCtrl(args as SegCtrlArgs),
   argTypes: {
     size: {
       control: "select",
@@ -42,10 +42,10 @@ const meta = {
     size: "md",
     items: ["Day", "Week", "Month"],
   },
-} satisfies Meta<SegmentedControlArgs>
+} satisfies Meta<SegCtrlArgs>
 
 export default meta
-type Story = StoryObj<SegmentedControlArgs>
+type Story = StoryObj<SegCtrlArgs>
 
 export const Playground: Story = {}
 

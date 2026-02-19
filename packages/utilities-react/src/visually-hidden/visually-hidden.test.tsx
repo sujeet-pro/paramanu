@@ -1,47 +1,47 @@
 import { describe, it, expect } from "vitest"
 import { render, screen } from "@testing-library/react"
-import { VisuallyHidden } from "./visually-hidden.js"
+import { SrOnly } from "./visually-hidden.js"
 
-describe("VisuallyHidden", () => {
+describe("SrOnly", () => {
   it("renders with base class", () => {
-    render(<VisuallyHidden data-testid="vh">Hidden text</VisuallyHidden>)
+    render(<SrOnly data-testid="vh">Hidden text</SrOnly>)
     const el = screen.getByTestId("vh")
-    expect(el).toHaveClass("pm-visually-hidden")
+    expect(el).toHaveClass("pm-sr-only")
     expect(el.tagName).toBe("SPAN")
   })
 
   it("renders as custom element", () => {
     render(
-      <VisuallyHidden as="div" data-testid="vh">
+      <SrOnly as="div" data-testid="vh">
         Hidden
-      </VisuallyHidden>,
+      </SrOnly>,
     )
     expect(screen.getByTestId("vh").tagName).toBe("DIV")
   })
 
   it("applies focusable modifier", () => {
     render(
-      <VisuallyHidden focusable data-testid="vh">
+      <SrOnly focusable data-testid="vh">
         Skip link
-      </VisuallyHidden>,
+      </SrOnly>,
     )
-    expect(screen.getByTestId("vh")).toHaveClass("pm-visually-hidden--focusable")
+    expect(screen.getByTestId("vh")).toHaveClass("pm-sr-only--focusable")
   })
 
   it("merges custom className", () => {
     render(
-      <VisuallyHidden className="custom" data-testid="vh">
+      <SrOnly className="custom" data-testid="vh">
         Text
-      </VisuallyHidden>,
+      </SrOnly>,
     )
     const el = screen.getByTestId("vh")
-    expect(el).toHaveClass("pm-visually-hidden")
+    expect(el).toHaveClass("pm-sr-only")
     expect(el).toHaveClass("custom")
   })
 
   it("forwards ref", () => {
     const ref = { current: null } as React.RefObject<HTMLElement | null>
-    render(<VisuallyHidden ref={ref}>Text</VisuallyHidden>)
+    render(<SrOnly ref={ref}>Text</SrOnly>)
     expect(ref.current).toBeInstanceOf(HTMLElement)
   })
 })

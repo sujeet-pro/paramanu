@@ -4,7 +4,7 @@ import { Prose } from "./prose.js"
 
 const meta = {
   title: "Typography/Prose",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Prose,
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },

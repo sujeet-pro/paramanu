@@ -1,30 +1,30 @@
 import { forwardRef } from "react"
 import {
-  treeViewClasses,
+  treeClasses,
   treeViewBranchClasses,
-  treeViewItemClasses,
+  treeItemClasses,
   treeViewItemContentClasses,
   treeViewIndicatorClasses,
   treeViewGroupClasses,
 } from "@paramanu/navigation-js"
 import type {
-  TreeViewClassesOptions,
-  TreeViewBranchClassesOptions,
-  TreeViewItemClassesOptions,
-  TreeViewIndicatorClassesOptions,
+  TreeClassesOptions,
+  TreeBranchClassesOptions,
+  TreeItemClassesOptions,
+  TreeIndicatorClassesOptions,
 } from "@paramanu/navigation-js"
 
-export interface ReactTreeViewProps
-  extends TreeViewClassesOptions,
+export interface ReactTreeProps
+  extends TreeClassesOptions,
     React.HTMLAttributes<HTMLUListElement> {
   children?: React.ReactNode
 }
 
-export const TreeView = forwardRef<HTMLUListElement, ReactTreeViewProps>(function TreeView(
+export const Tree = forwardRef<HTMLUListElement, ReactTreeProps>(function Tree(
   { size, className, children, ...rest },
   ref,
 ) {
-  const classes = treeViewClasses({ size })
+  const classes = treeClasses({ size })
   const combinedClassName = className ? `${classes} ${className}` : classes
   return (
     <ul ref={ref} role="tree" className={combinedClassName} {...rest}>
@@ -33,14 +33,14 @@ export const TreeView = forwardRef<HTMLUListElement, ReactTreeViewProps>(functio
   )
 })
 
-export interface ReactTreeViewBranchProps
-  extends TreeViewBranchClassesOptions,
+export interface ReactTreeBranchProps
+  extends TreeBranchClassesOptions,
     React.LiHTMLAttributes<HTMLLIElement> {
   children?: React.ReactNode
 }
 
-export const TreeViewBranch = forwardRef<HTMLLIElement, ReactTreeViewBranchProps>(
-  function TreeViewBranch({ expanded, className, children, ...rest }, ref) {
+export const TreeBranch = forwardRef<HTMLLIElement, ReactTreeBranchProps>(
+  function TreeBranch({ expanded, className, children, ...rest }, ref) {
     const classes = treeViewBranchClasses({ expanded })
     const combinedClassName = className ? `${classes} ${className}` : classes
     return (
@@ -57,15 +57,15 @@ export const TreeViewBranch = forwardRef<HTMLLIElement, ReactTreeViewBranchProps
   },
 )
 
-export interface ReactTreeViewItemProps
-  extends TreeViewItemClassesOptions,
+export interface ReactTreeItemProps
+  extends TreeItemClassesOptions,
     React.LiHTMLAttributes<HTMLLIElement> {
   children?: React.ReactNode
 }
 
-export const TreeViewItem = forwardRef<HTMLLIElement, ReactTreeViewItemProps>(
-  function TreeViewItem({ selected, disabled, className, children, ...rest }, ref) {
-    const classes = treeViewItemClasses({ selected, disabled })
+export const TreeItem = forwardRef<HTMLLIElement, ReactTreeItemProps>(
+  function TreeItem({ selected, disabled, className, children, ...rest }, ref) {
+    const classes = treeItemClasses({ selected, disabled })
     const combinedClassName = className ? `${classes} ${className}` : classes
     return (
       <li ref={ref} role="treeitem" className={combinedClassName} {...rest}>
@@ -75,12 +75,12 @@ export const TreeViewItem = forwardRef<HTMLLIElement, ReactTreeViewItemProps>(
   },
 )
 
-export interface ReactTreeViewItemContentProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactTreeItemContentProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const TreeViewItemContent = forwardRef<HTMLDivElement, ReactTreeViewItemContentProps>(
-  function TreeViewItemContent({ className, children, ...rest }, ref) {
+export const TreeItemContent = forwardRef<HTMLDivElement, ReactTreeItemContentProps>(
+  function TreeItemContent({ className, children, ...rest }, ref) {
     const classes = treeViewItemContentClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
     return (
@@ -91,24 +91,24 @@ export const TreeViewItemContent = forwardRef<HTMLDivElement, ReactTreeViewItemC
   },
 )
 
-export interface ReactTreeViewIndicatorProps
-  extends TreeViewIndicatorClassesOptions,
+export interface ReactTreeIndicatorProps
+  extends TreeIndicatorClassesOptions,
     React.HTMLAttributes<HTMLSpanElement> {}
 
-export const TreeViewIndicator = forwardRef<HTMLSpanElement, ReactTreeViewIndicatorProps>(
-  function TreeViewIndicator({ expanded, className, ...rest }, ref) {
+export const TreeIndicator = forwardRef<HTMLSpanElement, ReactTreeIndicatorProps>(
+  function TreeIndicator({ expanded, className, ...rest }, ref) {
     const classes = treeViewIndicatorClasses({ expanded })
     const combinedClassName = className ? `${classes} ${className}` : classes
     return <span ref={ref} aria-hidden="true" className={combinedClassName} {...rest} />
   },
 )
 
-export interface ReactTreeViewGroupProps extends React.HTMLAttributes<HTMLUListElement> {
+export interface ReactTreeGroupProps extends React.HTMLAttributes<HTMLUListElement> {
   children?: React.ReactNode
 }
 
-export const TreeViewGroup = forwardRef<HTMLUListElement, ReactTreeViewGroupProps>(
-  function TreeViewGroup({ className, children, ...rest }, ref) {
+export const TreeGroup = forwardRef<HTMLUListElement, ReactTreeGroupProps>(
+  function TreeGroup({ className, children, ...rest }, ref) {
     const classes = treeViewGroupClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
     return (

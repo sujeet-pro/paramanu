@@ -53,7 +53,7 @@ function createSteps(args: StepsArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Steps",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createSteps(args as StepsArgs),
   argTypes: {
     size: {

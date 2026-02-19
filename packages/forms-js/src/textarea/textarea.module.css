@@ -11,39 +11,39 @@
   }
 
   .pm-textarea:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
   .pm-textarea--outline {
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border: 1px solid var(--pm-neutral-active);
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
   }
 
   .pm-textarea--outline::placeholder {
-    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    color: var(--pm-fg-subtle);
   }
 
   .pm-textarea--filled {
     border: 1px solid transparent;
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    background-color: var(--pm-bg-muted);
+    color: var(--pm-fg);
   }
 
   .pm-textarea--filled::placeholder {
-    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    color: var(--pm-fg-subtle);
   }
 
   .pm-textarea--filled:focus-visible {
     background-color: transparent;
-    border-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-400));
+    border-color: var(--pm-primary-border);
   }
 
   .pm-textarea--unstyled {
     border: none;
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
     border-radius: 0;
     padding: 0;
   }
@@ -98,7 +98,7 @@
   }
 
   .pm-textarea--invalid {
-    border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+    border-color: var(--pm-danger-border);
   }
 
   .pm-textarea--disabled {
@@ -107,7 +107,7 @@
   }
 
   .pm-textarea--read-only {
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-900));
+    background-color: var(--pm-bg-subtle);
     cursor: default;
   }
 

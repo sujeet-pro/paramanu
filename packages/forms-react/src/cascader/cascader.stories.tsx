@@ -4,7 +4,7 @@ import { Cascader } from "./cascader.js"
 
 const meta = {
   title: "Forms/Cascader",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Cascader,
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },

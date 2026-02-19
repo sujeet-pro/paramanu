@@ -1,19 +1,19 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import {
-  breadcrumbsClasses,
-  breadcrumbsItemClasses,
+  breadcrumbClasses,
+  breadcrumbItemClasses,
   breadcrumbsLinkClasses,
 } from "./breadcrumbs.classes.js"
 
-function createBreadcrumbsHTML(
+function createBreadcrumbHTML(
   items: Array<{ label: string; href?: string; active?: boolean }>,
   separator?: "slash" | "chevron" | "dot",
 ): string {
-  const rootClasses = breadcrumbsClasses({ separator })
+  const rootClasses = breadcrumbClasses({ separator })
   const listItems = items
     .map((item) => {
-      const itemClasses = breadcrumbsItemClasses({ active: item.active })
+      const itemClasses = breadcrumbItemClasses({ active: item.active })
       if (item.active) {
         return `<li class="${itemClasses}"><span aria-current="page">${item.label}</span></li>`
       }
@@ -26,7 +26,7 @@ function createBreadcrumbsHTML(
 
 describe("breadcrumbs accessibility", () => {
   it("uses nav element with aria-label", () => {
-    const html = createBreadcrumbsHTML([{ label: "Home", href: "/" }])
+    const html = createBreadcrumbHTML([{ label: "Home", href: "/" }])
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const nav = dom.window.document.querySelector("nav")
     expect(nav).not.toBeNull()
@@ -34,7 +34,7 @@ describe("breadcrumbs accessibility", () => {
   })
 
   it("uses ordered list for breadcrumb items", () => {
-    const html = createBreadcrumbsHTML([
+    const html = createBreadcrumbHTML([
       { label: "Home", href: "/" },
       { label: "Products", href: "/products" },
     ])
@@ -46,7 +46,7 @@ describe("breadcrumbs accessibility", () => {
   })
 
   it("uses anchor elements for links", () => {
-    const html = createBreadcrumbsHTML([{ label: "Home", href: "/" }])
+    const html = createBreadcrumbHTML([{ label: "Home", href: "/" }])
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const link = dom.window.document.querySelector("a")
     expect(link).not.toBeNull()
@@ -55,7 +55,7 @@ describe("breadcrumbs accessibility", () => {
   })
 
   it("marks current page with aria-current", () => {
-    const html = createBreadcrumbsHTML([
+    const html = createBreadcrumbHTML([
       { label: "Home", href: "/" },
       { label: "Current", active: true },
     ])
@@ -66,7 +66,7 @@ describe("breadcrumbs accessibility", () => {
   })
 
   it("active item uses span instead of link", () => {
-    const html = createBreadcrumbsHTML([
+    const html = createBreadcrumbHTML([
       { label: "Home", href: "/" },
       { label: "Current", active: true },
     ])

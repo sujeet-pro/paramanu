@@ -4,7 +4,7 @@ import { Textarea } from "./textarea.js"
 
 const meta = {
   title: "Forms/Textarea",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Textarea,
   argTypes: {
     variant: {

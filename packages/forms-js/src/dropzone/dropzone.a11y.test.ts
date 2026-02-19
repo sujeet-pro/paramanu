@@ -9,7 +9,7 @@ function createDropzoneHTML(
   const classes = dropzoneClasses(options)
   const disabledAttr = options?.disabled ? ' aria-disabled="true"' : ""
   return `<div class="${classes}" role="button" tabindex="0" aria-label="Drop files here or click to upload"${disabledAttr}${attrs ? " " + attrs : ""}>
-    <input type="file" class="pm-file-upload__input" aria-hidden="true" tabindex="-1" />
+    <input type="file" class="pm-upload__input" aria-hidden="true" tabindex="-1" />
     <span class="pm-dropzone__icon">&#128228;</span>
     <span class="pm-dropzone__text">Drag and drop files here</span>
   </div>`

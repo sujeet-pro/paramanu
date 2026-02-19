@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { simpleGridClasses } from "./simple-grid.classes.js"
-import type { SimpleGridClassesOptions } from "./simple-grid.types.js"
+import { sgridClasses } from "./simple-grid.classes.js"
+import type { SgridClassesOptions } from "./simple-grid.types.js"
 
-interface SimpleGridArgs extends SimpleGridClassesOptions {
+interface SgridArgs extends SgridClassesOptions {
   itemCount: number
 }
 
-function createSimpleGrid(args: SimpleGridArgs): HTMLElement {
+function createSgrid(args: SgridArgs): HTMLElement {
   const el = document.createElement("div")
-  el.className = simpleGridClasses({
+  el.className = sgridClasses({
     minChildWidth: args.minChildWidth,
     columns: args.columns,
     gap: args.gap,
@@ -26,8 +26,8 @@ function createSimpleGrid(args: SimpleGridArgs): HTMLElement {
 
 const meta = {
   title: "Primitives/Simple Grid",
-  tags: ["autodocs", "stable"],
-  render: (args) => createSimpleGrid(args as SimpleGridArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createSgrid(args as SgridArgs),
   argTypes: {
     minChildWidth: { control: "select", options: ["2xs", "xs", "sm", "md", "lg", "xl"] },
     columns: { control: "select", options: [1, 2, 3, 4, 5, 6] },
@@ -35,10 +35,10 @@ const meta = {
     itemCount: { control: "number" },
   },
   args: { columns: 3, gap: "4", itemCount: 6 },
-} satisfies Meta<SimpleGridArgs>
+} satisfies Meta<SgridArgs>
 
 export default meta
-type Story = StoryObj<SimpleGridArgs>
+type Story = StoryObj<SgridArgs>
 
 export const Playground: Story = {}
 export const OneColumn: Story = { args: { columns: 1 } }

@@ -21,7 +21,7 @@ function createMasonry(args: MasonryClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Masonry",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createMasonry(args as MasonryClassesOptions),
   argTypes: {
     columns: { control: "select", options: [2, 3, 4, 5, 6] },

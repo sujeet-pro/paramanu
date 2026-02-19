@@ -22,7 +22,7 @@ function createDivider(args: DividerClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Divider",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createDivider(args as DividerClassesOptions),
   argTypes: {
     orientation: { control: "select", options: ["horizontal", "vertical"] },

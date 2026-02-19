@@ -18,7 +18,7 @@ function createSpinner(args: SpinnerClassesOptions): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Spinner",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createSpinner(args as SpinnerClassesOptions),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl"] },

@@ -1,7 +1,7 @@
 @layer pm.components {
   .pm-text {
     font-family: var(--pm-font-family-sans);
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
     margin: 0;
   }
 
@@ -168,35 +168,35 @@
 
   /* Colors */
   .pm-text--color-default {
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
   }
 
   .pm-text--color-muted {
-    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
   }
 
   .pm-text--color-dimmed {
-    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    color: var(--pm-fg-subtle);
   }
 
   .pm-text--color-primary {
-    color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+    color: var(--pm-fg-link);
   }
 
   .pm-text--color-danger {
-    color: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-400));
+    color: var(--pm-danger);
   }
 
   .pm-text--color-success {
-    color: light-dark(var(--pm-color-success-600), var(--pm-color-success-400));
+    color: var(--pm-success);
   }
 
   .pm-text--color-warning {
-    color: light-dark(var(--pm-color-warning-600), var(--pm-color-warning-400));
+    color: var(--pm-warning);
   }
 
   .pm-text--color-info {
-    color: light-dark(var(--pm-color-info-600), var(--pm-color-info-400));
+    color: var(--pm-info);
   }
 
   /* Inherit */

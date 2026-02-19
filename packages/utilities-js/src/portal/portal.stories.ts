@@ -20,7 +20,7 @@ function createPortalDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/Portal",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
 } satisfies Meta
 
 export default meta

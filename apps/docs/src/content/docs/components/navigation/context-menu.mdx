@@ -1,10 +1,18 @@
 ---
 title: Context Menu
 description: A right-click activated menu for contextual actions on elements.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 The Context Menu appears on right-click and provides contextual actions for the target element.
 
@@ -14,20 +22,20 @@ The Context Menu appears on right-click and provides contextual actions for the 
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-context-menu pm-context-menu--md pm-context-menu--open" role="menu">
+  htmlCode={`<div class="pm-ctx-menu pm-ctx-menu--md pm-ctx-menu--open" role="menu">
   <div role="menuitem">Cut</div>
   <div role="menuitem">Copy</div>
   <div role="menuitem">Paste</div>
 </div>`}
-  reactCode={`import { ContextMenu } from "@paramanu/navigation-react"
+  reactCode={`import { CtxMenu } from "@paramanu/navigation-react"
 
 export default function App() {
   return (
-    <ContextMenu open>
+    <CtxMenu open>
       <div role="menuitem">Cut</div>
       <div role="menuitem">Copy</div>
       <div role="menuitem">Paste</div>
-    </ContextMenu>
+    </CtxMenu>
   )
 }`}
 />
@@ -50,7 +58,7 @@ export default function App() {
 </TabItem>
   <TabItem label="API">
 
-## ContextMenu Props
+## CtxMenu Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -61,8 +69,8 @@ export default function App() {
 
 | Class | Description |
 |-------|-------------|
-| `pm-context-menu` | Root element |
-| `pm-context-menu--open` | Open state |
+| `pm-ctx-menu` | Root element |
+| `pm-ctx-menu--open` | Open state |
 
 </TabItem>
 </Tabs>

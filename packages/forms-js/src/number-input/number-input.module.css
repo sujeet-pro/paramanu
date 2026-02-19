@@ -1,34 +1,34 @@
 @layer pm.components {
-  .pm-number-input {
+  .pm-num-input {
     position: relative;
     display: inline-flex;
     align-items: center;
     width: auto;
   }
 
-  .pm-number-input .pm-input {
+  .pm-num-input .pm-input {
     width: 100%;
     -moz-appearance: textfield;
   }
 
-  .pm-number-input .pm-input::-webkit-outer-spin-button,
-  .pm-number-input .pm-input::-webkit-inner-spin-button {
+  .pm-num-input .pm-input::-webkit-outer-spin-button,
+  .pm-num-input .pm-input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  .pm-number-input__stepper {
+  .pm-num-input__stepper {
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
     display: flex;
     flex-direction: column;
-    border-left: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-left: 1px solid var(--pm-neutral-hover);
   }
 
-  .pm-number-input__increment,
-  .pm-number-input__decrement {
+  .pm-num-input__increment,
+  .pm-num-input__decrement {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,27 +37,27 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
     font-size: var(--pm-font-size-xs);
   }
 
-  .pm-number-input__increment:hover,
-  .pm-number-input__decrement:hover {
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+  .pm-num-input__increment:hover,
+  .pm-num-input__decrement:hover {
+    background-color: var(--pm-bg-muted);
   }
 
-  .pm-number-input__increment:focus-visible,
-  .pm-number-input__decrement:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+  .pm-num-input__increment:focus-visible,
+  .pm-num-input__decrement:focus-visible {
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: -1px;
   }
 
-  .pm-number-input__increment {
-    border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+  .pm-num-input__increment {
+    border-bottom: 1px solid var(--pm-neutral-hover);
     border-radius: 0 var(--pm-radius-md) 0 0;
   }
 
-  .pm-number-input__decrement {
+  .pm-num-input__decrement {
     border-radius: 0 0 var(--pm-radius-md) 0;
   }
 }

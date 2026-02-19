@@ -25,7 +25,7 @@ function createDirectionDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/DirectionProvider",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
 } satisfies Meta
 
 export default meta

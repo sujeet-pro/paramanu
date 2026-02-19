@@ -8,7 +8,7 @@
   .pm-spinner {
     display: inline-block;
     border-style: solid;
-    border-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-color: var(--pm-border-muted);
     border-top-color: transparent;
     border-radius: 50%;
     animation: pm-spin 0.6s linear infinite;
@@ -47,13 +47,13 @@
 
     /* Variants */
     &.pm-spinner--primary {
-      border-color: light-dark(var(--pm-color-primary-200), var(--pm-color-primary-800));
-      border-top-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+      border-color: var(--pm-primary-border);
+      border-top-color: var(--pm-fg-link);
     }
 
     &.pm-spinner--neutral {
-      border-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-      border-top-color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-300));
+      border-color: var(--pm-border-muted);
+      border-top-color: var(--pm-fg-muted);
     }
   }
 

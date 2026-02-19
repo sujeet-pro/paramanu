@@ -4,7 +4,7 @@ import { Grid } from "./grid.js"
 
 const meta = {
   title: "Primitives/Grid",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Grid,
   argTypes: {
     columns: { control: "select", options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, "none"] },

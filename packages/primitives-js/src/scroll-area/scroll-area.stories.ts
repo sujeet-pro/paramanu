@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { scrollAreaClasses } from "./scroll-area.classes.js"
-import type { ScrollAreaClassesOptions } from "./scroll-area.types.js"
+import { scrollClasses } from "./scroll-area.classes.js"
+import type { ScrollClassesOptions } from "./scroll-area.types.js"
 
-function createScrollArea(args: ScrollAreaClassesOptions): HTMLElement {
+function createScroll(args: ScrollClassesOptions): HTMLElement {
   const el = document.createElement("div")
-  el.className = scrollAreaClasses(args)
+  el.className = scrollClasses(args)
   el.style.height = "200px"
   el.tabIndex = 0
   el.setAttribute("role", "region")
@@ -19,8 +19,8 @@ function createScrollArea(args: ScrollAreaClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Scroll Area",
-  tags: ["autodocs", "stable"],
-  render: (args) => createScrollArea(args as ScrollAreaClassesOptions),
+  tags: ["autodocs", "beta"],
+  render: (args) => createScroll(args as ScrollClassesOptions),
   argTypes: {
     direction: { control: "select", options: ["vertical", "horizontal", "both"] },
     scrollbar: { control: "select", options: ["auto", "always", "hover", "hidden"] },
@@ -28,10 +28,10 @@ const meta = {
     bordered: { control: "boolean" },
   },
   args: {},
-} satisfies Meta<ScrollAreaClassesOptions>
+} satisfies Meta<ScrollClassesOptions>
 
 export default meta
-type Story = StoryObj<ScrollAreaClassesOptions>
+type Story = StoryObj<ScrollClassesOptions>
 
 export const Playground: Story = {}
 export const Bordered: Story = { args: { bordered: true } }
@@ -40,7 +40,7 @@ export const DirectionHorizontal: Story = {
   args: { direction: "horizontal" },
   render: (args) => {
     const el = document.createElement("div")
-    el.className = scrollAreaClasses(args as ScrollAreaClassesOptions)
+    el.className = scrollClasses(args as ScrollClassesOptions)
     el.style.width = "300px"
     el.tabIndex = 0
     el.setAttribute("role", "region")

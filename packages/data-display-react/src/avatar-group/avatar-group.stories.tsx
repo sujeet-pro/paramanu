@@ -1,105 +1,105 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect } from "storybook/test"
-import { AvatarGroup } from "./avatar-group.js"
+import { AvatarGrp } from "./avatar-group.js"
 import { Avatar } from "../avatar/avatar.js"
 
 const meta = {
   title: "Data Display/Avatar Group",
-  component: AvatarGroup,
-  tags: ["autodocs", "stable"],
+  component: AvatarGrp,
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl"] },
     spacing: { control: "select", options: ["tight", "normal"] },
     max: { control: "number" },
   },
   args: { size: "md", spacing: "normal" },
-} satisfies Meta<typeof AvatarGroup>
+} satisfies Meta<typeof AvatarGrp>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   render: (args) => (
-    <AvatarGroup {...args}>
+    <AvatarGrp {...args}>
       <Avatar name="Alice Johnson" />
       <Avatar name="Bob Smith" />
       <Avatar name="Carol White" />
-    </AvatarGroup>
+    </AvatarGrp>
   ),
 }
 
 export const WithMax: Story = {
   args: { max: 2 },
   render: (args) => (
-    <AvatarGroup {...args}>
+    <AvatarGrp {...args}>
       <Avatar name="Alice Johnson" />
       <Avatar name="Bob Smith" />
       <Avatar name="Carol White" />
       <Avatar name="David Brown" />
-    </AvatarGroup>
+    </AvatarGrp>
   ),
 }
 
 export const Tight: Story = {
   args: { spacing: "tight" },
   render: (args) => (
-    <AvatarGroup {...args}>
+    <AvatarGrp {...args}>
       <Avatar name="Alice" />
       <Avatar name="Bob" />
       <Avatar name="Carol" />
-    </AvatarGroup>
+    </AvatarGrp>
   ),
 }
 
 export const Large: Story = {
   args: { size: "lg" },
   render: (args) => (
-    <AvatarGroup {...args}>
+    <AvatarGrp {...args}>
       <Avatar name="Alice" />
       <Avatar name="Bob" />
-    </AvatarGroup>
+    </AvatarGrp>
   ),
 }
 
 export const Small: Story = {
   args: { size: "sm" },
   render: (args) => (
-    <AvatarGroup {...args}>
+    <AvatarGrp {...args}>
       <Avatar name="Alice" />
       <Avatar name="Bob" />
       <Avatar name="Carol" />
-    </AvatarGroup>
+    </AvatarGrp>
   ),
 }
 
 export const Hover: Story = {
   parameters: { pseudo: { hover: true } },
   render: (args) => (
-    <AvatarGroup {...args}>
+    <AvatarGrp {...args}>
       <Avatar name="Alice" />
       <Avatar name="Bob" />
-    </AvatarGroup>
+    </AvatarGrp>
   ),
 }
 
 export const FocusVisible: Story = {
   parameters: { pseudo: { focusVisible: true } },
   render: (args) => (
-    <AvatarGroup {...args}>
+    <AvatarGrp {...args}>
       <Avatar name="Alice" />
       <Avatar name="Bob" />
-    </AvatarGroup>
+    </AvatarGrp>
   ),
 }
 
 export const RenderTest: Story = {
   render: () => (
-    <AvatarGroup>
+    <AvatarGrp>
       <Avatar name="Test" />
-    </AvatarGroup>
+    </AvatarGrp>
   ),
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-avatar-group")
+    const el = canvasElement.querySelector(".pm-avatar-grp")
     await expect(el).toBeTruthy()
   },
 }

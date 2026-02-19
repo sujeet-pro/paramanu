@@ -1,5 +1,6 @@
 {
   "name": "paramanu",
+  "version": "0.1.0-alpha.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -22,6 +23,8 @@
     "typecheck": "turbo run typecheck",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "ci": "pnpm lint && pnpm format:check && pnpm build && pnpm typecheck && pnpm test",
+    "release": "node scripts/release.mjs",
     "clean": "turbo run clean && rm -rf node_modules"
   },
   "devDependencies": {

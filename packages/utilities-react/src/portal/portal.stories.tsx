@@ -5,7 +5,7 @@ import { Portal } from "./portal.js"
 const meta = {
   title: "Utilities/Portal",
   component: Portal,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     disabled: { control: "boolean" },
   },

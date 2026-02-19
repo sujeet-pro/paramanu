@@ -1,6 +1,6 @@
 import type { FormSize, InputVariant } from "../shared.types.js"
 
-export interface DatePickerClassesOptions {
+export interface DatepickerClassesOptions {
   variant?: InputVariant
   size?: FormSize
   invalid?: boolean
@@ -8,4 +8,4 @@ export interface DatePickerClassesOptions {
   open?: boolean
 }
 
-export interface DatePickerProps extends DatePickerClassesOptions {}
+export interface DatepickerProps extends DatepickerClassesOptions {}

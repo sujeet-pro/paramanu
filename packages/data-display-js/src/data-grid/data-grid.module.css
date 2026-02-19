@@ -1,58 +1,58 @@
 @layer pm.components {
-  .pm-data-grid {
+  .pm-datagrid {
     display: grid;
     width: 100%;
     font-family: var(--pm-font-family-sans);
     overflow: auto;
   }
 
-  .pm-data-grid--sm {
+  .pm-datagrid--sm {
     font-size: var(--pm-font-size-sm);
   }
 
-  .pm-data-grid--md {
+  .pm-datagrid--md {
     font-size: var(--pm-font-size-md);
   }
 
-  .pm-data-grid--bordered {
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+  .pm-datagrid--bordered {
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-md);
   }
 
-  .pm-data-grid--hoverable .pm-data-grid__row:hover {
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
+  .pm-datagrid--hoverable .pm-datagrid__row:hover {
+    background-color: var(--pm-bg-subtle);
   }
 
-  .pm-data-grid--sticky-header .pm-data-grid__column-header {
+  .pm-datagrid--sticky-header .pm-datagrid__column-header {
     position: sticky;
     top: 0;
     z-index: 1;
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    background-color: var(--pm-bg);
   }
 
-  .pm-data-grid--resizable .pm-data-grid__column-header {
+  .pm-datagrid--resizable .pm-datagrid__column-header {
     position: relative;
     overflow: hidden;
     resize: horizontal;
   }
 
-  .pm-data-grid__row {
+  .pm-datagrid__row {
     display: contents;
     transition: background-color var(--pm-transition-fast) ease-in-out;
   }
 
-  .pm-data-grid__column-header {
+  .pm-datagrid__column-header {
     padding: var(--pm-spacing-3) var(--pm-spacing-4);
     font-weight: var(--pm-font-weight-semibold);
-    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
     text-align: start;
     white-space: nowrap;
-    border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-bottom: 1px solid var(--pm-neutral-hover);
   }
 
-  .pm-data-grid__cell {
+  .pm-datagrid__cell {
     padding: var(--pm-spacing-3) var(--pm-spacing-4);
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
-    border-bottom: 1px solid light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    color: var(--pm-fg);
+    border-bottom: 1px solid var(--pm-neutral);
   }
 }

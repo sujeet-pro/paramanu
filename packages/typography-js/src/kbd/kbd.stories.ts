@@ -11,7 +11,7 @@ function createKbd(args: KbdClassesOptions): HTMLElement {
 
 const meta = {
   title: "Typography/Kbd",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createKbd(args as KbdClassesOptions),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },

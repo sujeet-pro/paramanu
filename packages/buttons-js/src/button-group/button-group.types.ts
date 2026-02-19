@@ -1,13 +1,13 @@
 /** Layout orientation for the button group */
-export type ButtonGroupOrientation = "horizontal" | "vertical"
+export type BtnGroupOrientation = "horizontal" | "vertical"
 
 /**
  * Options for generating button group CSS class names.
- * Used by both BEM (`buttonGroupClasses`) and CSS module (`buttonGroupModuleClasses`) builders.
+ * Used by both BEM (`btnGroupClasses`) and CSS module (`btnGroupModuleClasses`) builders.
  */
-export interface ButtonGroupClassesOptions {
+export interface BtnGroupClassesOptions {
   /** Layout direction. @default "horizontal" */
-  orientation?: ButtonGroupOrientation
+  orientation?: BtnGroupOrientation
   /** Whether buttons are visually attached with shared borders. @default false */
   attached?: boolean
   /** Whether the group should stretch to fill its container width. @default false */

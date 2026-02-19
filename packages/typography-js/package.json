@@ -1,7 +1,9 @@
 {
   "name": "@paramanu/typography-js",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-alpha.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -9,7 +11,17 @@
       "import": "./dist/js/index.js"
     },
     "./css": "./dist/css/typography.css",
-    "./css/layers": "./dist/css/typography.layers.css",
+    "./css/min": "./dist/css/typography.min.css",
+    "./css/blockquote": "./dist/css/blockquote.css",
+    "./css/code": "./dist/css/code.css",
+    "./css/heading": "./dist/css/heading.css",
+    "./css/highlight": "./dist/css/highlight.css",
+    "./css/kbd": "./dist/css/kbd.css",
+    "./css/list": "./dist/css/list.css",
+    "./css/mark": "./dist/css/mark.css",
+    "./css/prose": "./dist/css/prose.css",
+    "./css/text": "./dist/css/text.css",
+    "./css/truncate": "./dist/css/truncate.css",
     "./modules/text/map": {
       "types": "./dist/css/text.module.d.ts",
       "import": "./dist/css/text.module.js"
@@ -51,7 +63,9 @@
       "import": "./dist/css/list.module.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsx css.build.ts && tsup",
     "test": "vitest run",

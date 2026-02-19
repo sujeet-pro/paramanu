@@ -1,88 +1,88 @@
 import { describe, it, expect } from "vitest"
-import { numberInputClasses, numberInputModuleClasses } from "./number-input.classes.js"
+import { numInputClasses, numInputModuleClasses } from "./number-input.classes.js"
 
-describe("numberInputClasses", () => {
+describe("numInputClasses", () => {
   it("returns default classes (outline, md)", () => {
-    const result = numberInputClasses()
-    expect(result).toBe("pm-number-input pm-number-input--outline pm-number-input--md")
+    const result = numInputClasses()
+    expect(result).toBe("pm-num-input pm-num-input--outline pm-num-input--md")
   })
 
   it("applies variant", () => {
-    expect(numberInputClasses({ variant: "outline" })).toContain("pm-number-input--outline")
-    expect(numberInputClasses({ variant: "filled" })).toContain("pm-number-input--filled")
-    expect(numberInputClasses({ variant: "unstyled" })).toContain("pm-number-input--unstyled")
+    expect(numInputClasses({ variant: "outline" })).toContain("pm-num-input--outline")
+    expect(numInputClasses({ variant: "filled" })).toContain("pm-num-input--filled")
+    expect(numInputClasses({ variant: "unstyled" })).toContain("pm-num-input--unstyled")
   })
 
   it("applies size", () => {
-    expect(numberInputClasses({ size: "sm" })).toContain("pm-number-input--sm")
-    expect(numberInputClasses({ size: "md" })).toContain("pm-number-input--md")
-    expect(numberInputClasses({ size: "lg" })).toContain("pm-number-input--lg")
+    expect(numInputClasses({ size: "sm" })).toContain("pm-num-input--sm")
+    expect(numInputClasses({ size: "md" })).toContain("pm-num-input--md")
+    expect(numInputClasses({ size: "lg" })).toContain("pm-num-input--lg")
   })
 
   it("applies invalid modifier", () => {
-    expect(numberInputClasses({ invalid: true })).toContain("pm-number-input--invalid")
-    expect(numberInputClasses({ invalid: false })).not.toContain("pm-number-input--invalid")
+    expect(numInputClasses({ invalid: true })).toContain("pm-num-input--invalid")
+    expect(numInputClasses({ invalid: false })).not.toContain("pm-num-input--invalid")
   })
 
   it("applies disabled modifier", () => {
-    expect(numberInputClasses({ disabled: true })).toContain("pm-number-input--disabled")
-    expect(numberInputClasses({ disabled: false })).not.toContain("pm-number-input--disabled")
+    expect(numInputClasses({ disabled: true })).toContain("pm-num-input--disabled")
+    expect(numInputClasses({ disabled: false })).not.toContain("pm-num-input--disabled")
   })
 
   it("always includes base class", () => {
-    expect(numberInputClasses()).toMatch(/^pm-number-input\s/)
+    expect(numInputClasses()).toMatch(/^pm-num-input\s/)
   })
 
   it("combines multiple options", () => {
-    const result = numberInputClasses({
+    const result = numInputClasses({
       variant: "filled",
       size: "lg",
       invalid: true,
       disabled: true,
     })
     expect(result).toBe(
-      "pm-number-input pm-number-input--filled pm-number-input--lg pm-number-input--invalid pm-number-input--disabled",
+      "pm-num-input pm-num-input--filled pm-num-input--lg pm-num-input--invalid pm-num-input--disabled",
     )
   })
 })
 
-describe("numberInputModuleClasses", () => {
+describe("numInputModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-number-input": "pm_abc_numberInput",
-    "pm-number-input--outline": "pm_abc_outline",
-    "pm-number-input--filled": "pm_abc_filled",
-    "pm-number-input--md": "pm_abc_md",
-    "pm-number-input--sm": "pm_abc_sm",
-    "pm-number-input--lg": "pm_abc_lg",
-    "pm-number-input--invalid": "pm_abc_invalid",
-    "pm-number-input--disabled": "pm_abc_disabled",
+    "pm-num-input": "pm_abc_numberInput",
+    "pm-num-input--outline": "pm_abc_outline",
+    "pm-num-input--filled": "pm_abc_filled",
+    "pm-num-input--md": "pm_abc_md",
+    "pm-num-input--sm": "pm_abc_sm",
+    "pm-num-input--lg": "pm_abc_lg",
+    "pm-num-input--invalid": "pm_abc_invalid",
+    "pm-num-input--disabled": "pm_abc_disabled",
   }
 
   it("returns mapped default classes", () => {
-    const result = numberInputModuleClasses(mockClassMap)
+    const result = numInputModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_numberInput pm_abc_outline pm_abc_md")
   })
 
   it("maps variant classes correctly", () => {
-    const result = numberInputModuleClasses(mockClassMap, { variant: "filled" })
+    const result = numInputModuleClasses(mockClassMap, { variant: "filled" })
     expect(result).toContain("pm_abc_filled")
   })
 
   it("maps invalid class", () => {
-    const result = numberInputModuleClasses(mockClassMap, { invalid: true })
+    const result = numInputModuleClasses(mockClassMap, { invalid: true })
     expect(result).toContain("pm_abc_invalid")
   })
 
   it("maps disabled class", () => {
-    const result = numberInputModuleClasses(mockClassMap, { disabled: true })
+    const result = numInputModuleClasses(mockClassMap, { disabled: true })
     expect(result).toContain("pm_abc_disabled")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-number-input": "pm_abc_numberInput",
+      "pm-num-input": "pm_abc_numberInput",
     }
-    const result = numberInputModuleClasses(sparseMap)
+    const result = numInputModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_numberInput")
     expect(result).not.toContain("undefined")
   })

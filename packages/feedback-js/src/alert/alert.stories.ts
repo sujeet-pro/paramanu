@@ -54,7 +54,7 @@ function createAlert(args: AlertArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Alert",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createAlert(args as AlertArgs),
   argTypes: {
     variant: {

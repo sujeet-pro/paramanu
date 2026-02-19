@@ -33,7 +33,7 @@
     position: fixed;
     z-index: 1000;
     border-radius: var(--pm-radius-md);
-    box-shadow: 0 0 0 9999px light-dark(rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.7));
+    box-shadow: 0 0 0 9999px var(--pm-overlay-bg);
     pointer-events: none;
     opacity: 0;
     transition-property: opacity, top, left, width, height;
@@ -53,10 +53,10 @@
     width: max-content;
     max-width: 360px;
     padding: var(--pm-spacing-4);
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-lg);
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-900));
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    background-color: var(--pm-bg-subtle);
+    color: var(--pm-fg);
     box-shadow: 0 4px 12px light-dark(rgb(0 0 0 / 0.15), rgb(0 0 0 / 0.4));
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-sm);
@@ -69,7 +69,7 @@
 
     /* Variant: primary — colored header accent */
     &.pm-tour__step--primary {
-      border-top: 3px solid var(--pm-color-primary-500);
+      border-top: 3px solid var(--pm-focus-ring);
     }
 
     /* Arrow base */
@@ -78,8 +78,8 @@
       position: absolute;
       width: var(--pm-spacing-3);
       height: var(--pm-spacing-3);
-      background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-900));
-      border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+      background-color: var(--pm-bg-subtle);
+      border: 1px solid var(--pm-neutral-hover);
       transform: rotate(45deg);
     }
 
@@ -184,14 +184,14 @@
     margin: 0 0 var(--pm-spacing-1) 0;
     font-size: var(--pm-font-size-md);
     font-weight: var(--pm-font-weight-semibold);
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
     padding-right: var(--pm-spacing-6);
   }
 
   .pm-tour__step-description {
     margin: 0 0 var(--pm-spacing-3) 0;
     font-size: var(--pm-font-size-sm);
-    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
   }
 
   .pm-tour__step-actions {
@@ -213,32 +213,32 @@
     border: none;
     border-radius: var(--pm-radius-sm);
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
     cursor: pointer;
     transition-property: background-color, color;
     transition-duration: var(--pm-transition-fast);
     transition-timing-function: ease-in-out;
 
     &:hover {
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-      color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+      background-color: var(--pm-bg-muted);
+      color: var(--pm-fg);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
 
     /* Primary variant close button — different hover */
     &.pm-tour__step-close--primary:hover {
-      background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
+      background-color: var(--pm-primary-subtle);
       color: var(--pm-color-primary-500);
     }
   }
 
   .pm-tour__step-counter {
     font-size: var(--pm-font-size-xs);
-    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
   }
 
   /* Step progress dots */
@@ -252,7 +252,7 @@
     width: var(--pm-spacing-1-5);
     height: var(--pm-spacing-1-5);
     border-radius: var(--pm-radius-full);
-    background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    background-color: var(--pm-neutral-active);
     transition-property: background-color;
     transition-duration: var(--pm-transition-fast);
     transition-timing-function: ease-in-out;
@@ -263,7 +263,7 @@
   }
 
   .pm-tour__step-dot--completed {
-    background-color: light-dark(var(--pm-color-primary-300), var(--pm-color-primary-700));
+    background-color: var(--pm-primary-border);
   }
 
   /* Step enter animation */
@@ -325,6 +325,6 @@
   /* Light Modern — clean shadow, refined border */
   .pm-theme-light-modern .pm-tour__step {
     box-shadow: var(--pm-shadow-lg);
-    border-color: light-dark(var(--pm-color-neutral-150), var(--pm-color-neutral-700));
+    border-color: var(--pm-border-muted);
   }
 }

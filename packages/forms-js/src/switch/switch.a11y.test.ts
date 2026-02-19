@@ -16,7 +16,7 @@ function createSwitchHTML(
 
 describe("switch accessibility", () => {
   it("renders as a label wrapping a switch input", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createSwitchHTML("Notifications")}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createSwitchHTML("Notifs")}</body>`)
     const label = dom.window.document.querySelector("label")
     expect(label).not.toBeNull()
     const input = label?.querySelector('input[role="switch"]')

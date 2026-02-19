@@ -1,10 +1,10 @@
 import type {
-  ToggleGroupClassesOptions,
-  ToggleGroupItemClassesOptions,
+  ToggleGrpClassesOptions,
+  ToggleGrpItemClassesOptions,
 } from "./toggle-group.types.js"
 
-const BASE = "pm-toggle-group"
-const ITEM_BASE = "pm-toggle-group__item"
+const BASE = "pm-toggle-grp"
+const ITEM_BASE = "pm-toggle-grp__item"
 
 /**
  * Returns BEM class names for the toggle group container (human-readable).
@@ -12,11 +12,11 @@ const ITEM_BASE = "pm-toggle-group__item"
  *
  * @example
  * ```ts
- * toggleGroupClasses() // "pm-toggle-group pm-toggle-group--horizontal pm-toggle-group--md"
- * toggleGroupClasses({ attached: true, orientation: "vertical" })
+ * toggleGrpClasses() // "pm-toggle-grp pm-toggle-grp--horizontal pm-toggle-grp--md"
+ * toggleGrpClasses({ attached: true, orientation: "vertical" })
  * ```
  */
-export function toggleGroupClasses(options: ToggleGroupClassesOptions = {}): string {
+export function toggleGrpClasses(options: ToggleGrpClassesOptions = {}): string {
   const { orientation = "horizontal", size = "md", attached = false, fullWidth = false } = options
   const classes = [BASE, `${BASE}--${orientation}`, `${BASE}--${size}`]
 
@@ -33,23 +33,23 @@ export function toggleGroupClasses(options: ToggleGroupClassesOptions = {}): str
  * @example
  * ```ts
  * import styles from "./toggle-group.module.css"
- * toggleGroupModuleClasses(styles, { attached: true })
+ * toggleGrpModuleClasses(styles, { attached: true })
  * ```
  */
-export function toggleGroupModuleClasses(
+export function toggleGrpModuleClasses(
   classMap: Record<string, string>,
-  options: ToggleGroupClassesOptions = {},
+  options: ToggleGrpClassesOptions = {},
 ): string {
   const { orientation = "horizontal", size = "md", attached = false, fullWidth = false } = options
 
   const classes = [
-    classMap["pm-toggle-group"],
-    classMap[`pm-toggle-group--${orientation}`],
-    classMap[`pm-toggle-group--${size}`],
+    classMap["pm-toggle-grp"],
+    classMap[`pm-toggle-grp--${orientation}`],
+    classMap[`pm-toggle-grp--${size}`],
   ]
 
-  if (attached) classes.push(classMap["pm-toggle-group--attached"])
-  if (fullWidth) classes.push(classMap["pm-toggle-group--full-width"])
+  if (attached) classes.push(classMap["pm-toggle-grp--attached"])
+  if (fullWidth) classes.push(classMap["pm-toggle-grp--full-width"])
 
   return classes.filter(Boolean).join(" ")
 }
@@ -60,11 +60,11 @@ export function toggleGroupModuleClasses(
  *
  * @example
  * ```ts
- * toggleGroupItemClasses() // "pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md"
- * toggleGroupItemClasses({ pressed: true, variant: "outline" })
+ * toggleGrpItemClasses() // "pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md"
+ * toggleGrpItemClasses({ pressed: true, variant: "outline" })
  * ```
  */
-export function toggleGroupItemClasses(options: ToggleGroupItemClassesOptions = {}): string {
+export function toggleGrpItemClasses(options: ToggleGrpItemClassesOptions = {}): string {
   const { size = "md", variant = "default", pressed = false, disabled = false } = options
   const classes = [ITEM_BASE, `${ITEM_BASE}--${variant}`, `${ITEM_BASE}--${size}`]
 
@@ -81,23 +81,23 @@ export function toggleGroupItemClasses(options: ToggleGroupItemClassesOptions = 
  * @example
  * ```ts
  * import styles from "./toggle-group.module.css"
- * toggleGroupItemModuleClasses(styles, { pressed: true })
+ * toggleGrpItemModuleClasses(styles, { pressed: true })
  * ```
  */
-export function toggleGroupItemModuleClasses(
+export function toggleGrpItemModuleClasses(
   classMap: Record<string, string>,
-  options: ToggleGroupItemClassesOptions = {},
+  options: ToggleGrpItemClassesOptions = {},
 ): string {
   const { size = "md", variant = "default", pressed = false, disabled = false } = options
 
   const classes = [
-    classMap["pm-toggle-group__item"],
-    classMap[`pm-toggle-group__item--${variant}`],
-    classMap[`pm-toggle-group__item--${size}`],
+    classMap["pm-toggle-grp__item"],
+    classMap[`pm-toggle-grp__item--${variant}`],
+    classMap[`pm-toggle-grp__item--${size}`],
   ]
 
-  if (pressed) classes.push(classMap["pm-toggle-group__item--pressed"])
-  if (disabled) classes.push(classMap["pm-toggle-group__item--disabled"])
+  if (pressed) classes.push(classMap["pm-toggle-grp__item--pressed"])
+  if (disabled) classes.push(classMap["pm-toggle-grp__item--disabled"])
 
   return classes.filter(Boolean).join(" ")
 }

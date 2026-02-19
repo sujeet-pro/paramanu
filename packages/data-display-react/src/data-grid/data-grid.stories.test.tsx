@@ -7,14 +7,14 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("DataGrid Stories", () => {
+describe("Datagrid Stories", () => {
   it("Playground renders without crashing", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-data-grid")).toBeTruthy()
+    expect(container.querySelector(".pm-datagrid")).toBeTruthy()
   })
 
   it("Bordered applies correct class", () => {
     const { container } = render(<composed.Bordered />)
-    expect(container.querySelector(".pm-data-grid--bordered")).toBeTruthy()
+    expect(container.querySelector(".pm-datagrid--bordered")).toBeTruthy()
   })
 })

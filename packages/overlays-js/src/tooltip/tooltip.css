@@ -4,8 +4,8 @@
     z-index: var(--pm-overlay-z, 1000);
     max-width: 20rem;
     padding: var(--pm-spacing-1) var(--pm-spacing-2);
-    background-color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
-    color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    background-color: var(--pm-fg);
+    color: var(--pm-fg-inverse);
     border-radius: var(--pm-radius-sm);
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-sm);
@@ -34,7 +34,7 @@
     position: absolute;
     width: 6px;
     height: 6px;
-    background-color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    background-color: var(--pm-fg);
     transform: rotate(45deg);
   }
 }

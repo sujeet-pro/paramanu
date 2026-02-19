@@ -1,100 +1,100 @@
 import { describe, it, expect } from "vitest"
-import { iconButtonClasses, iconButtonModuleClasses } from "./icon-button.classes.js"
+import { iconBtnClasses, iconBtnModuleClasses } from "./icon-button.classes.js"
 
-describe("iconButtonClasses", () => {
+describe("iconBtnClasses", () => {
   it("returns default classes (primary, md, square)", () => {
-    const result = iconButtonClasses()
+    const result = iconBtnClasses()
     expect(result).toBe(
-      "pm-icon-button pm-icon-button--primary pm-icon-button--md pm-icon-button--square",
+      "pm-icon-btn pm-icon-btn--primary pm-icon-btn--md pm-icon-btn--square",
     )
   })
 
   it("applies variant", () => {
-    expect(iconButtonClasses({ variant: "primary" })).toContain("pm-icon-button--primary")
-    expect(iconButtonClasses({ variant: "secondary" })).toContain("pm-icon-button--secondary")
-    expect(iconButtonClasses({ variant: "danger" })).toContain("pm-icon-button--danger")
-    expect(iconButtonClasses({ variant: "ghost" })).toContain("pm-icon-button--ghost")
+    expect(iconBtnClasses({ variant: "primary" })).toContain("pm-icon-btn--primary")
+    expect(iconBtnClasses({ variant: "secondary" })).toContain("pm-icon-btn--secondary")
+    expect(iconBtnClasses({ variant: "danger" })).toContain("pm-icon-btn--danger")
+    expect(iconBtnClasses({ variant: "ghost" })).toContain("pm-icon-btn--ghost")
   })
 
   it("applies size", () => {
-    expect(iconButtonClasses({ size: "sm" })).toContain("pm-icon-button--sm")
-    expect(iconButtonClasses({ size: "md" })).toContain("pm-icon-button--md")
-    expect(iconButtonClasses({ size: "lg" })).toContain("pm-icon-button--lg")
+    expect(iconBtnClasses({ size: "sm" })).toContain("pm-icon-btn--sm")
+    expect(iconBtnClasses({ size: "md" })).toContain("pm-icon-btn--md")
+    expect(iconBtnClasses({ size: "lg" })).toContain("pm-icon-btn--lg")
   })
 
   it("applies shape", () => {
-    expect(iconButtonClasses({ shape: "square" })).toContain("pm-icon-button--square")
-    expect(iconButtonClasses({ shape: "circle" })).toContain("pm-icon-button--circle")
+    expect(iconBtnClasses({ shape: "square" })).toContain("pm-icon-btn--square")
+    expect(iconBtnClasses({ shape: "circle" })).toContain("pm-icon-btn--circle")
   })
 
   it("applies disabled modifier", () => {
-    expect(iconButtonClasses({ disabled: true })).toContain("pm-icon-button--disabled")
-    expect(iconButtonClasses({ disabled: false })).not.toContain("pm-icon-button--disabled")
+    expect(iconBtnClasses({ disabled: true })).toContain("pm-icon-btn--disabled")
+    expect(iconBtnClasses({ disabled: false })).not.toContain("pm-icon-btn--disabled")
   })
 
   it("always includes base class", () => {
-    expect(iconButtonClasses()).toMatch(/^pm-icon-button\s/)
+    expect(iconBtnClasses()).toMatch(/^pm-icon-btn\s/)
   })
 
   it("combines multiple options", () => {
-    const result = iconButtonClasses({
+    const result = iconBtnClasses({
       variant: "danger",
       size: "lg",
       shape: "circle",
       disabled: true,
     })
     expect(result).toBe(
-      "pm-icon-button pm-icon-button--danger pm-icon-button--lg pm-icon-button--circle pm-icon-button--disabled",
+      "pm-icon-btn pm-icon-btn--danger pm-icon-btn--lg pm-icon-btn--circle pm-icon-btn--disabled",
     )
   })
 })
 
-describe("iconButtonModuleClasses", () => {
+describe("iconBtnModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-icon-button": "pm_abc_iconButton",
-    "pm-icon-button--primary": "pm_abc_primary",
-    "pm-icon-button--secondary": "pm_abc_secondary",
-    "pm-icon-button--danger": "pm_abc_danger",
-    "pm-icon-button--ghost": "pm_abc_ghost",
-    "pm-icon-button--sm": "pm_abc_sm",
-    "pm-icon-button--md": "pm_abc_md",
-    "pm-icon-button--lg": "pm_abc_lg",
-    "pm-icon-button--square": "pm_abc_square",
-    "pm-icon-button--circle": "pm_abc_circle",
-    "pm-icon-button--disabled": "pm_abc_disabled",
+    "pm-icon-btn": "pm_abc_iconBtn",
+    "pm-icon-btn--primary": "pm_abc_primary",
+    "pm-icon-btn--secondary": "pm_abc_secondary",
+    "pm-icon-btn--danger": "pm_abc_danger",
+    "pm-icon-btn--ghost": "pm_abc_ghost",
+    "pm-icon-btn--sm": "pm_abc_sm",
+    "pm-icon-btn--md": "pm_abc_md",
+    "pm-icon-btn--lg": "pm_abc_lg",
+    "pm-icon-btn--square": "pm_abc_square",
+    "pm-icon-btn--circle": "pm_abc_circle",
+    "pm-icon-btn--disabled": "pm_abc_disabled",
   }
 
   it("returns mapped default classes", () => {
-    const result = iconButtonModuleClasses(mockClassMap)
-    expect(result).toBe("pm_abc_iconButton pm_abc_primary pm_abc_md pm_abc_square")
+    const result = iconBtnModuleClasses(mockClassMap)
+    expect(result).toBe("pm_abc_iconBtn pm_abc_primary pm_abc_md pm_abc_square")
   })
 
   it("maps variant classes correctly", () => {
-    const result = iconButtonModuleClasses(mockClassMap, { variant: "secondary" })
+    const result = iconBtnModuleClasses(mockClassMap, { variant: "secondary" })
     expect(result).toContain("pm_abc_secondary")
   })
 
   it("maps size classes correctly", () => {
-    const result = iconButtonModuleClasses(mockClassMap, { size: "lg" })
+    const result = iconBtnModuleClasses(mockClassMap, { size: "lg" })
     expect(result).toContain("pm_abc_lg")
   })
 
   it("maps shape classes correctly", () => {
-    const result = iconButtonModuleClasses(mockClassMap, { shape: "circle" })
+    const result = iconBtnModuleClasses(mockClassMap, { shape: "circle" })
     expect(result).toContain("pm_abc_circle")
   })
 
   it("maps disabled class", () => {
-    const result = iconButtonModuleClasses(mockClassMap, { disabled: true })
+    const result = iconBtnModuleClasses(mockClassMap, { disabled: true })
     expect(result).toContain("pm_abc_disabled")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-icon-button": "pm_abc_iconButton",
+      "pm-icon-btn": "pm_abc_iconBtn",
     }
-    const result = iconButtonModuleClasses(sparseMap)
-    expect(result).toContain("pm_abc_iconButton")
+    const result = iconBtnModuleClasses(sparseMap)
+    expect(result).toContain("pm_abc_iconBtn")
     expect(result).not.toContain("undefined")
   })
 })

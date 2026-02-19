@@ -12,32 +12,32 @@ export type {
 
 // Progress Bar
 export {
-  progressBarClasses,
-  progressBarModuleClasses,
+  progressClasses,
+  progressModuleClasses,
 } from "./progress-bar/progress-bar.classes.js"
 export type {
-  ProgressBarSize,
-  ProgressBarVariant,
-  ProgressBarClassesOptions,
+  ProgressSize,
+  ProgressVariant,
+  ProgressClassesOptions,
 } from "./progress-bar/progress-bar.types.js"
 
 // Circular Progress
 export {
-  circularProgressClasses,
-  circularProgressModuleClasses,
+  ringProgressClasses,
+  ringProgressModuleClasses,
 } from "./circular-progress/circular-progress.classes.js"
 export type {
-  CircularProgressSize,
-  CircularProgressVariant,
-  CircularProgressClassesOptions,
+  RingProgressSize,
+  RingProgressVariant,
+  RingProgressClassesOptions,
 } from "./circular-progress/circular-progress.types.js"
 
 // Loading Overlay
 export {
-  loadingOverlayClasses,
-  loadingOverlayModuleClasses,
+  loadingClasses,
+  loadingModuleClasses,
 } from "./loading-overlay/loading-overlay.classes.js"
-export type { LoadingOverlayClassesOptions } from "./loading-overlay/loading-overlay.types.js"
+export type { LoadingClassesOptions } from "./loading-overlay/loading-overlay.types.js"
 
 // NProgress
 export {
@@ -52,12 +52,12 @@ export type {
 
 // Inline Message
 export {
-  inlineMessageClasses,
-  inlineMessageModuleClasses,
+  inlineMsgClasses,
+  inlineMsgModuleClasses,
 } from "./inline-message/inline-message.classes.js"
 export type {
-  InlineMessageVariant,
-  InlineMessageClassesOptions,
+  InlineMsgVariant,
+  InlineMsgClassesOptions,
 } from "./inline-message/inline-message.types.js"
 
 // Alert
@@ -70,12 +70,12 @@ export { bannerClasses, bannerModuleClasses } from "./banner/banner.classes.js"
 export type { BannerClassesResult } from "./banner/banner.classes.js"
 export type { BannerVariant, BannerClassesOptions } from "./banner/banner.types.js"
 
-// Notification
+// Notif
 export {
-  notificationClasses,
-  notificationModuleClasses,
+  notifClasses,
+  notifModuleClasses,
 } from "./notification/notification.classes.js"
-export type { NotificationClassesOptions } from "./notification/notification.types.js"
+export type { NotifClassesOptions } from "./notification/notification.types.js"
 
 // Toast
 export {

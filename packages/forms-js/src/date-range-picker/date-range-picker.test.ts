@@ -1,60 +1,60 @@
 import { describe, it, expect } from "vitest"
 import {
-  dateRangePickerClasses,
-  dateRangePickerModuleClasses,
+  daterangeClasses,
+  daterangeModuleClasses,
 } from "./date-range-picker.classes.js"
 
-describe("dateRangePickerClasses", () => {
+describe("daterangeClasses", () => {
   it("returns default classes (outline, md)", () => {
-    const result = dateRangePickerClasses()
+    const result = daterangeClasses()
     expect(result).toBe(
-      "pm-date-range-picker pm-date-range-picker--outline pm-date-range-picker--md",
+      "pm-daterange pm-daterange--outline pm-daterange--md",
     )
   })
 
   it("applies variant", () => {
-    expect(dateRangePickerClasses({ variant: "outline" })).toContain(
-      "pm-date-range-picker--outline",
+    expect(daterangeClasses({ variant: "outline" })).toContain(
+      "pm-daterange--outline",
     )
-    expect(dateRangePickerClasses({ variant: "filled" })).toContain(
-      "pm-date-range-picker--filled",
+    expect(daterangeClasses({ variant: "filled" })).toContain(
+      "pm-daterange--filled",
     )
-    expect(dateRangePickerClasses({ variant: "unstyled" })).toContain(
-      "pm-date-range-picker--unstyled",
+    expect(daterangeClasses({ variant: "unstyled" })).toContain(
+      "pm-daterange--unstyled",
     )
   })
 
   it("applies size", () => {
-    expect(dateRangePickerClasses({ size: "sm" })).toContain("pm-date-range-picker--sm")
-    expect(dateRangePickerClasses({ size: "md" })).toContain("pm-date-range-picker--md")
-    expect(dateRangePickerClasses({ size: "lg" })).toContain("pm-date-range-picker--lg")
+    expect(daterangeClasses({ size: "sm" })).toContain("pm-daterange--sm")
+    expect(daterangeClasses({ size: "md" })).toContain("pm-daterange--md")
+    expect(daterangeClasses({ size: "lg" })).toContain("pm-daterange--lg")
   })
 
   it("applies invalid modifier", () => {
-    expect(dateRangePickerClasses({ invalid: true })).toContain("pm-date-range-picker--invalid")
-    expect(dateRangePickerClasses({ invalid: false })).not.toContain(
-      "pm-date-range-picker--invalid",
+    expect(daterangeClasses({ invalid: true })).toContain("pm-daterange--invalid")
+    expect(daterangeClasses({ invalid: false })).not.toContain(
+      "pm-daterange--invalid",
     )
   })
 
   it("applies disabled modifier", () => {
-    expect(dateRangePickerClasses({ disabled: true })).toContain("pm-date-range-picker--disabled")
-    expect(dateRangePickerClasses({ disabled: false })).not.toContain(
-      "pm-date-range-picker--disabled",
+    expect(daterangeClasses({ disabled: true })).toContain("pm-daterange--disabled")
+    expect(daterangeClasses({ disabled: false })).not.toContain(
+      "pm-daterange--disabled",
     )
   })
 
   it("applies open modifier", () => {
-    expect(dateRangePickerClasses({ open: true })).toContain("pm-date-range-picker--open")
-    expect(dateRangePickerClasses({ open: false })).not.toContain("pm-date-range-picker--open")
+    expect(daterangeClasses({ open: true })).toContain("pm-daterange--open")
+    expect(daterangeClasses({ open: false })).not.toContain("pm-daterange--open")
   })
 
   it("always includes base class", () => {
-    expect(dateRangePickerClasses()).toMatch(/^pm-date-range-picker\s/)
+    expect(daterangeClasses()).toMatch(/^pm-daterange\s/)
   })
 
   it("combines multiple options", () => {
-    const result = dateRangePickerClasses({
+    const result = daterangeClasses({
       variant: "filled",
       size: "lg",
       invalid: true,
@@ -62,38 +62,38 @@ describe("dateRangePickerClasses", () => {
       open: true,
     })
     expect(result).toBe(
-      "pm-date-range-picker pm-date-range-picker--filled pm-date-range-picker--lg pm-date-range-picker--invalid pm-date-range-picker--disabled pm-date-range-picker--open",
+      "pm-daterange pm-daterange--filled pm-daterange--lg pm-daterange--invalid pm-daterange--disabled pm-daterange--open",
     )
   })
 })
 
-describe("dateRangePickerModuleClasses", () => {
+describe("daterangeModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-date-range-picker": "pm_abc_dateRangePicker",
-    "pm-date-range-picker--outline": "pm_abc_outline",
-    "pm-date-range-picker--filled": "pm_abc_filled",
-    "pm-date-range-picker--md": "pm_abc_md",
-    "pm-date-range-picker--lg": "pm_abc_lg",
-    "pm-date-range-picker--invalid": "pm_abc_invalid",
-    "pm-date-range-picker--disabled": "pm_abc_disabled",
-    "pm-date-range-picker--open": "pm_abc_open",
+    "pm-daterange": "pm_abc_dateRangePicker",
+    "pm-daterange--outline": "pm_abc_outline",
+    "pm-daterange--filled": "pm_abc_filled",
+    "pm-daterange--md": "pm_abc_md",
+    "pm-daterange--lg": "pm_abc_lg",
+    "pm-daterange--invalid": "pm_abc_invalid",
+    "pm-daterange--disabled": "pm_abc_disabled",
+    "pm-daterange--open": "pm_abc_open",
   }
 
   it("returns mapped default classes", () => {
-    const result = dateRangePickerModuleClasses(mockClassMap)
+    const result = daterangeModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_dateRangePicker pm_abc_outline pm_abc_md")
   })
 
   it("maps open class", () => {
-    const result = dateRangePickerModuleClasses(mockClassMap, { open: true })
+    const result = daterangeModuleClasses(mockClassMap, { open: true })
     expect(result).toContain("pm_abc_open")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-date-range-picker": "pm_abc_dateRangePicker",
+      "pm-daterange": "pm_abc_dateRangePicker",
     }
-    const result = dateRangePickerModuleClasses(sparseMap)
+    const result = daterangeModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_dateRangePicker")
     expect(result).not.toContain("undefined")
   })

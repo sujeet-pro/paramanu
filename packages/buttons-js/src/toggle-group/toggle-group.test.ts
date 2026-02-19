@@ -1,174 +1,174 @@
 import { describe, it, expect } from "vitest"
 import {
-  toggleGroupClasses,
-  toggleGroupModuleClasses,
-  toggleGroupItemClasses,
-  toggleGroupItemModuleClasses,
+  toggleGrpClasses,
+  toggleGrpModuleClasses,
+  toggleGrpItemClasses,
+  toggleGrpItemModuleClasses,
 } from "./toggle-group.classes.js"
 
-describe("toggleGroupClasses", () => {
+describe("toggleGrpClasses", () => {
   it("returns default classes (horizontal, md)", () => {
-    const result = toggleGroupClasses()
-    expect(result).toBe("pm-toggle-group pm-toggle-group--horizontal pm-toggle-group--md")
+    const result = toggleGrpClasses()
+    expect(result).toBe("pm-toggle-grp pm-toggle-grp--horizontal pm-toggle-grp--md")
   })
 
   it("applies horizontal orientation", () => {
-    expect(toggleGroupClasses({ orientation: "horizontal" })).toContain(
-      "pm-toggle-group--horizontal",
+    expect(toggleGrpClasses({ orientation: "horizontal" })).toContain(
+      "pm-toggle-grp--horizontal",
     )
   })
 
   it("applies vertical orientation", () => {
-    expect(toggleGroupClasses({ orientation: "vertical" })).toContain(
-      "pm-toggle-group--vertical",
+    expect(toggleGrpClasses({ orientation: "vertical" })).toContain(
+      "pm-toggle-grp--vertical",
     )
   })
 
   it("applies size", () => {
-    expect(toggleGroupClasses({ size: "sm" })).toContain("pm-toggle-group--sm")
-    expect(toggleGroupClasses({ size: "md" })).toContain("pm-toggle-group--md")
-    expect(toggleGroupClasses({ size: "lg" })).toContain("pm-toggle-group--lg")
+    expect(toggleGrpClasses({ size: "sm" })).toContain("pm-toggle-grp--sm")
+    expect(toggleGrpClasses({ size: "md" })).toContain("pm-toggle-grp--md")
+    expect(toggleGrpClasses({ size: "lg" })).toContain("pm-toggle-grp--lg")
   })
 
   it("applies attached modifier", () => {
-    expect(toggleGroupClasses({ attached: true })).toContain("pm-toggle-group--attached")
-    expect(toggleGroupClasses({ attached: false })).not.toContain("pm-toggle-group--attached")
+    expect(toggleGrpClasses({ attached: true })).toContain("pm-toggle-grp--attached")
+    expect(toggleGrpClasses({ attached: false })).not.toContain("pm-toggle-grp--attached")
   })
 
   it("always includes base class", () => {
-    expect(toggleGroupClasses()).toMatch(/^pm-toggle-group\s/)
+    expect(toggleGrpClasses()).toMatch(/^pm-toggle-grp\s/)
   })
 
   it("combines multiple options", () => {
-    const result = toggleGroupClasses({
+    const result = toggleGrpClasses({
       orientation: "vertical",
       size: "lg",
       attached: true,
     })
     expect(result).toBe(
-      "pm-toggle-group pm-toggle-group--vertical pm-toggle-group--lg pm-toggle-group--attached",
+      "pm-toggle-grp pm-toggle-grp--vertical pm-toggle-grp--lg pm-toggle-grp--attached",
     )
   })
 })
 
-describe("toggleGroupModuleClasses", () => {
+describe("toggleGrpModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-toggle-group": "pm_abc_toggleGroup",
-    "pm-toggle-group--horizontal": "pm_abc_horizontal",
-    "pm-toggle-group--vertical": "pm_abc_vertical",
-    "pm-toggle-group--sm": "pm_abc_sm",
-    "pm-toggle-group--md": "pm_abc_md",
-    "pm-toggle-group--lg": "pm_abc_lg",
-    "pm-toggle-group--attached": "pm_abc_attached",
+    "pm-toggle-grp": "pm_abc_toggleGroup",
+    "pm-toggle-grp--horizontal": "pm_abc_horizontal",
+    "pm-toggle-grp--vertical": "pm_abc_vertical",
+    "pm-toggle-grp--sm": "pm_abc_sm",
+    "pm-toggle-grp--md": "pm_abc_md",
+    "pm-toggle-grp--lg": "pm_abc_lg",
+    "pm-toggle-grp--attached": "pm_abc_attached",
   }
 
   it("returns mapped default classes", () => {
-    const result = toggleGroupModuleClasses(mockClassMap)
+    const result = toggleGrpModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_toggleGroup pm_abc_horizontal pm_abc_md")
   })
 
   it("maps orientation classes correctly", () => {
-    const result = toggleGroupModuleClasses(mockClassMap, { orientation: "vertical" })
+    const result = toggleGrpModuleClasses(mockClassMap, { orientation: "vertical" })
     expect(result).toContain("pm_abc_vertical")
   })
 
   it("maps size classes correctly", () => {
-    const result = toggleGroupModuleClasses(mockClassMap, { size: "lg" })
+    const result = toggleGrpModuleClasses(mockClassMap, { size: "lg" })
     expect(result).toContain("pm_abc_lg")
   })
 
   it("maps attached class", () => {
-    const result = toggleGroupModuleClasses(mockClassMap, { attached: true })
+    const result = toggleGrpModuleClasses(mockClassMap, { attached: true })
     expect(result).toContain("pm_abc_attached")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-toggle-group": "pm_abc_toggleGroup",
+      "pm-toggle-grp": "pm_abc_toggleGroup",
     }
-    const result = toggleGroupModuleClasses(sparseMap)
+    const result = toggleGrpModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_toggleGroup")
     expect(result).not.toContain("undefined")
   })
 })
 
-describe("toggleGroupItemClasses", () => {
+describe("toggleGrpItemClasses", () => {
   it("returns default classes (md)", () => {
-    const result = toggleGroupItemClasses()
-    expect(result).toBe("pm-toggle-group__item pm-toggle-group__item--md")
+    const result = toggleGrpItemClasses()
+    expect(result).toBe("pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md")
   })
 
   it("applies size", () => {
-    expect(toggleGroupItemClasses({ size: "sm" })).toContain("pm-toggle-group__item--sm")
-    expect(toggleGroupItemClasses({ size: "md" })).toContain("pm-toggle-group__item--md")
-    expect(toggleGroupItemClasses({ size: "lg" })).toContain("pm-toggle-group__item--lg")
+    expect(toggleGrpItemClasses({ size: "sm" })).toContain("pm-toggle-grp__item--sm")
+    expect(toggleGrpItemClasses({ size: "md" })).toContain("pm-toggle-grp__item--md")
+    expect(toggleGrpItemClasses({ size: "lg" })).toContain("pm-toggle-grp__item--lg")
   })
 
   it("applies pressed modifier", () => {
-    expect(toggleGroupItemClasses({ pressed: true })).toContain("pm-toggle-group__item--pressed")
-    expect(toggleGroupItemClasses({ pressed: false })).not.toContain(
-      "pm-toggle-group__item--pressed",
+    expect(toggleGrpItemClasses({ pressed: true })).toContain("pm-toggle-grp__item--pressed")
+    expect(toggleGrpItemClasses({ pressed: false })).not.toContain(
+      "pm-toggle-grp__item--pressed",
     )
   })
 
   it("applies disabled modifier", () => {
-    expect(toggleGroupItemClasses({ disabled: true })).toContain("pm-toggle-group__item--disabled")
-    expect(toggleGroupItemClasses({ disabled: false })).not.toContain(
-      "pm-toggle-group__item--disabled",
+    expect(toggleGrpItemClasses({ disabled: true })).toContain("pm-toggle-grp__item--disabled")
+    expect(toggleGrpItemClasses({ disabled: false })).not.toContain(
+      "pm-toggle-grp__item--disabled",
     )
   })
 
   it("always includes base class", () => {
-    expect(toggleGroupItemClasses()).toMatch(/^pm-toggle-group__item\s/)
+    expect(toggleGrpItemClasses()).toMatch(/^pm-toggle-grp__item\s/)
   })
 
   it("combines multiple options", () => {
-    const result = toggleGroupItemClasses({
+    const result = toggleGrpItemClasses({
       size: "lg",
       pressed: true,
       disabled: true,
     })
     expect(result).toBe(
-      "pm-toggle-group__item pm-toggle-group__item--lg pm-toggle-group__item--pressed pm-toggle-group__item--disabled",
+      "pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--lg pm-toggle-grp__item--pressed pm-toggle-grp__item--disabled",
     )
   })
 })
 
-describe("toggleGroupItemModuleClasses", () => {
+describe("toggleGrpItemModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-toggle-group__item": "pm_abc_item",
-    "pm-toggle-group__item--sm": "pm_abc_itemSm",
-    "pm-toggle-group__item--md": "pm_abc_itemMd",
-    "pm-toggle-group__item--lg": "pm_abc_itemLg",
-    "pm-toggle-group__item--pressed": "pm_abc_itemPressed",
-    "pm-toggle-group__item--disabled": "pm_abc_itemDisabled",
+    "pm-toggle-grp__item": "pm_abc_item",
+    "pm-toggle-grp__item--sm": "pm_abc_itemSm",
+    "pm-toggle-grp__item--md": "pm_abc_itemMd",
+    "pm-toggle-grp__item--lg": "pm_abc_itemLg",
+    "pm-toggle-grp__item--pressed": "pm_abc_itemPressed",
+    "pm-toggle-grp__item--disabled": "pm_abc_itemDisabled",
   }
 
   it("returns mapped default classes", () => {
-    const result = toggleGroupItemModuleClasses(mockClassMap)
+    const result = toggleGrpItemModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_item pm_abc_itemMd")
   })
 
   it("maps size classes correctly", () => {
-    const result = toggleGroupItemModuleClasses(mockClassMap, { size: "sm" })
+    const result = toggleGrpItemModuleClasses(mockClassMap, { size: "sm" })
     expect(result).toContain("pm_abc_itemSm")
   })
 
   it("maps pressed class", () => {
-    const result = toggleGroupItemModuleClasses(mockClassMap, { pressed: true })
+    const result = toggleGrpItemModuleClasses(mockClassMap, { pressed: true })
     expect(result).toContain("pm_abc_itemPressed")
   })
 
   it("maps disabled class", () => {
-    const result = toggleGroupItemModuleClasses(mockClassMap, { disabled: true })
+    const result = toggleGrpItemModuleClasses(mockClassMap, { disabled: true })
     expect(result).toContain("pm_abc_itemDisabled")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-toggle-group__item": "pm_abc_item",
+      "pm-toggle-grp__item": "pm_abc_item",
     }
-    const result = toggleGroupItemModuleClasses(sparseMap)
+    const result = toggleGrpItemModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_item")
     expect(result).not.toContain("undefined")
   })

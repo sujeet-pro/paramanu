@@ -37,7 +37,7 @@ function createTabs(args: TabsArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Tabs",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createTabs(args as TabsArgs),
   argTypes: {
     variant: {

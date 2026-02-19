@@ -4,7 +4,7 @@ import { Center } from "./center.js"
 
 const meta = {
   title: "Primitives/Center",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Center,
   argTypes: {
     inline: { control: "boolean" },

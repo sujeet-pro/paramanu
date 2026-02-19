@@ -13,7 +13,7 @@ function createForm(args: FormArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Form",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createForm(args as FormArgs),
   argTypes: {
     layout: { control: "select", options: ["vertical", "horizontal", "inline"] },

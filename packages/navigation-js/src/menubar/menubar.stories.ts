@@ -32,7 +32,7 @@ function createMenubar(args: MenubarArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Menubar",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createMenubar(args as MenubarArgs),
   args: {
     items: [

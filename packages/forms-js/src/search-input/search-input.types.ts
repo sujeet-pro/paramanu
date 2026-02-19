@@ -1,6 +1,6 @@
 import type { FormSize, InputVariant } from "../shared.types.js"
 
-export interface SearchInputClassesOptions {
+export interface SearchClassesOptions {
   variant?: InputVariant
   size?: FormSize
   invalid?: boolean
@@ -8,4 +8,4 @@ export interface SearchInputClassesOptions {
   fullWidth?: boolean
 }
 
-export interface SearchInputProps extends SearchInputClassesOptions {}
+export interface SearchProps extends SearchClassesOptions {}

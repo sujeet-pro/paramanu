@@ -55,7 +55,7 @@ function createToast(args: ToastArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Toast",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createToast(args as ToastArgs),
   argTypes: {
     variant: { control: "select", options: ["info", "success", "warning", "danger"] },

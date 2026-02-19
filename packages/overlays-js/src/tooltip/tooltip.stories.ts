@@ -22,7 +22,7 @@ function createTooltip(args: TooltipClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Tooltip",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createTooltip(args as TooltipClassesOptions),
   argTypes: {
     placement: { control: "select", options: ["top", "bottom", "left", "right"] },

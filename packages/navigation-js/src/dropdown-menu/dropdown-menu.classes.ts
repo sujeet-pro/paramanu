@@ -1,21 +1,21 @@
-import type { DropdownMenuClassesOptions } from "./dropdown-menu.types.js"
+import type { DropdownClassesOptions } from "./dropdown-menu.types.js"
 
-const BASE = "pm-dropdown-menu"
+const BASE = "pm-dropdown"
 
-export function dropdownMenuClasses(options: DropdownMenuClassesOptions = {}): string {
+export function dropdownClasses(options: DropdownClassesOptions = {}): string {
   const { size = "md", open = false } = options
   const classes = [BASE, `${BASE}--${size}`]
   if (open) classes.push(`${BASE}--open`)
   return classes.join(" ")
 }
 
-export function dropdownMenuModuleClasses(
+export function dropdownModuleClasses(
   classMap: Record<string, string>,
-  options: DropdownMenuClassesOptions = {},
+  options: DropdownClassesOptions = {},
 ): string {
   const { size = "md", open = false } = options
-  const classes = [classMap["pm-dropdown-menu"], classMap[`pm-dropdown-menu--${size}`]]
-  if (open) classes.push(classMap["pm-dropdown-menu--open"])
+  const classes = [classMap["pm-dropdown"], classMap[`pm-dropdown--${size}`]]
+  if (open) classes.push(classMap["pm-dropdown--open"])
   return classes.filter(Boolean).join(" ")
 }
 
@@ -24,7 +24,7 @@ export function dropdownMenuTriggerClasses(): string {
 }
 
 export function dropdownMenuTriggerModuleClasses(classMap: Record<string, string>): string {
-  return classMap["pm-dropdown-menu__trigger"] || ""
+  return classMap["pm-dropdown__trigger"] || ""
 }
 
 export function dropdownMenuContentClasses(): string {
@@ -32,5 +32,5 @@ export function dropdownMenuContentClasses(): string {
 }
 
 export function dropdownMenuContentModuleClasses(classMap: Record<string, string>): string {
-  return classMap["pm-dropdown-menu__content"] || ""
+  return classMap["pm-dropdown__content"] || ""
 }

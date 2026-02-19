@@ -11,7 +11,7 @@ function createBlockquote(args: BlockquoteClassesOptions): HTMLElement {
 
 const meta = {
   title: "Typography/Blockquote",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createBlockquote(args as BlockquoteClassesOptions),
   argTypes: {
     variant: { control: "select", options: ["default", "accent", "filled"] },

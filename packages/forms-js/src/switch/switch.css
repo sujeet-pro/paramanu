@@ -29,7 +29,7 @@
     align-items: center;
     flex-shrink: 0;
     border-radius: var(--pm-radius-full);
-    background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    background-color: var(--pm-neutral-active);
     transition-property: background-color;
     transition-duration: var(--pm-transition-fast);
     position: relative;
@@ -51,7 +51,7 @@
   }
 
   .pm-switch--checked .pm-switch__track {
-    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    background-color: var(--pm-primary);
   }
 
   .pm-switch__thumb {
@@ -97,13 +97,13 @@
   }
 
   .pm-switch__input:focus-visible + .pm-switch__track {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
   .pm-switch__label {
     font-family: var(--pm-font-family-sans);
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    color: var(--pm-neutral-fg);
     user-select: none;
   }
 

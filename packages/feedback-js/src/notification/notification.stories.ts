@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { notificationClasses } from "./notification.classes.js"
-import type { NotificationClassesOptions, NotificationVariant } from "./notification.types.js"
+import { notifClasses } from "./notification.classes.js"
+import type { NotifClassesOptions, NotifVariant } from "./notification.types.js"
 
-interface NotificationArgs extends NotificationClassesOptions {
+interface NotifArgs extends NotifClassesOptions {
   title: string
   message: string
   timestamp: string
 }
 
-function createNotification(args: NotificationArgs): HTMLDivElement {
-  const classes = notificationClasses({
+function createNotif(args: NotifArgs): HTMLDivElement {
+  const classes = notifClasses({
     variant: args.variant,
     unread: args.unread,
     dismissible: args.dismissible,
@@ -54,9 +54,9 @@ function createNotification(args: NotificationArgs): HTMLDivElement {
 }
 
 const meta = {
-  title: "Feedback/Notification",
-  tags: ["autodocs", "stable"],
-  render: (args) => createNotification(args as NotificationArgs),
+  title: "Feedback/Notif",
+  tags: ["autodocs", "beta"],
+  render: (args) => createNotif(args as NotifArgs),
   argTypes: {
     variant: { control: "select", options: ["info", "success", "warning", "danger", "neutral"] },
     unread: { control: "boolean" },
@@ -71,10 +71,10 @@ const meta = {
     message: "You have a new message.",
     timestamp: "2 min ago",
   },
-} satisfies Meta<NotificationArgs>
+} satisfies Meta<NotifArgs>
 
 export default meta
-type Story = StoryObj<NotificationArgs>
+type Story = StoryObj<NotifArgs>
 
 export const Playground: Story = {}
 
@@ -84,9 +84,9 @@ export const AllVariants: Story = {
     container.style.display = "flex"
     container.style.flexDirection = "column"
     container.style.gap = "8px"
-    const variants: NotificationVariant[] = ["info", "success", "warning", "danger", "neutral"]
+    const variants: NotifVariant[] = ["info", "success", "warning", "danger", "neutral"]
     for (const variant of variants) {
-      container.appendChild(createNotification({ variant, title: variant, message: `${variant} notification.`, timestamp: "now" }))
+      container.appendChild(createNotif({ variant, title: variant, message: `${variant} notification.`, timestamp: "now" }))
     }
     return container
   },

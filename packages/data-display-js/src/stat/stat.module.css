@@ -34,13 +34,13 @@
   }
 
   .pm-stat__label {
-    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
     font-weight: var(--pm-font-weight-medium);
     font-size: var(--pm-font-size-sm);
   }
 
   .pm-stat__value {
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-50));
+    color: var(--pm-bg-inverse);
     font-weight: var(--pm-font-weight-bold);
     line-height: var(--pm-font-lineHeight-tight);
     font-size: var(--pm-font-size-2xl);
@@ -55,11 +55,11 @@
   }
 
   .pm-stat__help-text--up {
-    color: light-dark(var(--pm-color-success-600), var(--pm-color-success-400));
+    color: var(--pm-success);
   }
 
   .pm-stat__help-text--down {
-    color: light-dark(var(--pm-color-danger-600), var(--pm-color-danger-400));
+    color: var(--pm-danger);
   }
 
   .pm-stat__arrow {

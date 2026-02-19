@@ -42,10 +42,10 @@ paramanu/
 
 Components are organized into per-group packages following the naming convention `@paramanu/<group>-js` (framework-agnostic) and `@paramanu/<group>-react` (React wrappers). This enables future framework packages (e.g., `<group>-vue`, `<group>-svelte`) and keeps the dependency graph lean.
 
-- `@paramanu/tokens` - CSS custom properties (`--pm-*`), reset CSS, and layer order. Source: `src/tokens.json`, `src/reset.css`, `src/layers.css`. Build: `tsx src/build.ts` -> CSS + JS exports.
-- `@paramanu/<group>-js` - Component logic (`*.classes.ts`) + CSS (`*.css` + `*.module.css`). Exports class-builder functions and types. Depends on `@paramanu/tokens` + cross-package deps. Build: `tsx css.build.ts && tsup`.
+- `@paramanu/tokens` - Three-tier token system: primitive tokens (`src/tokens/primitive/*.json`) + semantic tokens (`src/tokens/semantic/*.json`) + theme overrides (`src/tokens/themes/*/`). Built via DTCG-format JSON → CSS custom properties + JS exports. Outputs: `tokens.css` (combined), `primitives.css`, `semantic.css`, `properties.css` (`@property`), `reset.css`, `layers.css`, `theme-*.css`. Build: `tsx src/build.ts`.
+- `@paramanu/<group>-js` - Component logic (`*.classes.ts`) + CSS (`*.css` + `*.module.css`). Component CSS uses semantic tokens — no primitive color refs or `light-dark()`. Exports class-builder functions and types. Depends on `@paramanu/tokens` + cross-package deps. CSS build via shared `tooling/css-build/`. Build: `tsx css.build.ts && tsup`.
 - `@paramanu/<group>-react` - React components using `@paramanu/<group>-js` class builders. Depends on corresponding `-js` package. Build: `tsup`.
-- `@paramanu/cdn` - Bundled CSS+JS for CDN use. Build: `tsx build.ts` with esbuild.
+- `@paramanu/cdn` - Bundled CSS+JS for CDN use. Combines tokens + all component CSS + theme files. Build: `tsx build.ts` with esbuild + lightningcss.
 
 ### Package Dependency Levels
 
@@ -130,6 +130,12 @@ To add support for a new framework (e.g., Vue):
 
 ### Import Patterns
 ```ts
+// Token CSS (must be imported separately — not bundled into component CSS)
+import "@paramanu/tokens/css/layer-order"   // @layer order (must be first)
+import "@paramanu/tokens/css/reset"          // CSS reset
+import "@paramanu/tokens/css"                // Primitives + semantics
+import "@paramanu/tokens/css/themes"         // All theme overrides (or import individually)
+
 // JS package: import from the group's -js package
 import { buttonClasses } from "@paramanu/buttons-js"
 import type { ButtonProps } from "@paramanu/buttons-js"
@@ -137,23 +143,31 @@ import type { ButtonProps } from "@paramanu/buttons-js"
 // React package: import from the group's -react package
 import { Button } from "@paramanu/buttons-react"
 
-// CSS: import from the group's -js package
-import "@paramanu/buttons-js/css"
+// CSS: import full package or per-component
+import "@paramanu/buttons-js/css"            // All button components
+import "@paramanu/buttons-js/css/button"     // Tree-shakeable: just button
+import "@paramanu/buttons-js/css/min"        // Minified bundle
 
 // Cross-package: import class builders from dependency packages
-// e.g., in feedback-js, reuse Close Button from buttons-js:
 import { closeButtonClasses } from "@paramanu/buttons-js"
-// e.g., in forms-js, reuse Text from typography-js for labels:
 import { textClasses } from "@paramanu/typography-js"
-// e.g., in overlays-js, reuse layout from primitives-js:
 import { flexClasses } from "@paramanu/primitives-js"
 ```
+
+### Token System (Three Tiers)
+- **Primitive tokens** (`@paramanu/tokens`): Raw values — color palettes, spacing, radii, typography, shadows, motion. Source: `packages/tokens/src/tokens/primitive/*.json` (DTCG format).
+- **Semantic tokens** (`@paramanu/tokens`): Purpose-driven — bg, fg, border, interactive states. Carry light/dark values via `$extensions.pm.lightDark` → output as `light-dark()`. Source: `packages/tokens/src/tokens/semantic/*.json`.
+- **Component tokens** (each `-js` package): Per-component theming surface — `--pm-btn-bg`, `--pm-alert-radius`. Defined in component CSS, reference semantic tokens for colors.
+- Component CSS must NEVER use `light-dark()` with primitive refs. All dark mode is handled by semantic tokens.
 
 ### Theming
 - All styling via CSS custom properties (`--pm-*`)
 - Default theme is minimalistic/typographic (no theme class needed)
-- Themes override CSS variables (bundled: dark-modern, light-modern, antd-like, material, bootstrap)
-- `light-dark()` CSS function used for automatic dark/light adaptation
+- Themes override primitive + semantic tokens via class selectors (e.g., `.pm-theme-material`)
+- 5 built-in themes: material, antd, bootstrap, dark-modern, light-modern
+- Theme files: `packages/tokens/src/tokens/themes/<name>/*.json` (DTCG, overrides only)
+- Dark mode: automatic via `color-scheme: light dark` + semantic `light-dark()` tokens
+- Color scheme utilities: `.pm-light`, `.pm-dark`, `.pm-auto`
 
 ### Accessibility
 - WCAG 2.2 AA compliance required

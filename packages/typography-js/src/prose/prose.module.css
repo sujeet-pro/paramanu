@@ -2,7 +2,7 @@
   .pm-prose {
     font-family: var(--pm-font-family-sans);
     line-height: var(--pm-font-lineHeight-relaxed);
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    color: var(--pm-fg);
     max-width: 65ch;
   }
 
@@ -24,7 +24,7 @@
   }
 
   .pm-prose--color-muted {
-    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
   }
 
   /* Trim */

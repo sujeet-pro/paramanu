@@ -7,14 +7,14 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("DataTable Stories", () => {
+describe("Datatable Stories", () => {
   it("Playground renders without crashing", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-data-table")).toBeTruthy()
+    expect(container.querySelector(".pm-datatable")).toBeTruthy()
   })
 
   it("Striped applies correct class", () => {
     const { container } = render(<composed.Striped />)
-    expect(container.querySelector(".pm-data-table--striped")).toBeTruthy()
+    expect(container.querySelector(".pm-datatable--striped")).toBeTruthy()
   })
 })

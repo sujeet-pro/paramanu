@@ -1,70 +1,70 @@
 import { describe, it, expect } from "vitest"
-import { buttonGroupClasses, buttonGroupModuleClasses } from "./button-group.classes.js"
+import { btnGroupClasses, btnGroupModuleClasses } from "./button-group.classes.js"
 
-describe("buttonGroupClasses", () => {
+describe("btnGroupClasses", () => {
   it("returns default classes (horizontal, not attached)", () => {
-    const result = buttonGroupClasses()
-    expect(result).toBe("pm-button-group pm-button-group--horizontal")
+    const result = btnGroupClasses()
+    expect(result).toBe("pm-btn-group pm-btn-group--horizontal")
   })
 
   it("applies horizontal orientation", () => {
-    expect(buttonGroupClasses({ orientation: "horizontal" })).toContain(
-      "pm-button-group--horizontal",
+    expect(btnGroupClasses({ orientation: "horizontal" })).toContain(
+      "pm-btn-group--horizontal",
     )
   })
 
   it("applies vertical orientation", () => {
-    expect(buttonGroupClasses({ orientation: "vertical" })).toContain(
-      "pm-button-group--vertical",
+    expect(btnGroupClasses({ orientation: "vertical" })).toContain(
+      "pm-btn-group--vertical",
     )
   })
 
   it("applies attached modifier", () => {
-    expect(buttonGroupClasses({ attached: true })).toContain("pm-button-group--attached")
-    expect(buttonGroupClasses({ attached: false })).not.toContain("pm-button-group--attached")
+    expect(btnGroupClasses({ attached: true })).toContain("pm-btn-group--attached")
+    expect(btnGroupClasses({ attached: false })).not.toContain("pm-btn-group--attached")
   })
 
   it("always includes base class", () => {
-    expect(buttonGroupClasses()).toMatch(/^pm-button-group\s/)
+    expect(btnGroupClasses()).toMatch(/^pm-btn-group\s/)
   })
 
   it("combines multiple options", () => {
-    const result = buttonGroupClasses({
+    const result = btnGroupClasses({
       orientation: "vertical",
       attached: true,
     })
-    expect(result).toBe("pm-button-group pm-button-group--vertical pm-button-group--attached")
+    expect(result).toBe("pm-btn-group pm-btn-group--vertical pm-btn-group--attached")
   })
 })
 
-describe("buttonGroupModuleClasses", () => {
+describe("btnGroupModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-button-group": "pm_abc_buttonGroup",
-    "pm-button-group--horizontal": "pm_abc_horizontal",
-    "pm-button-group--vertical": "pm_abc_vertical",
-    "pm-button-group--attached": "pm_abc_attached",
+    "pm-btn-group": "pm_abc_buttonGroup",
+    "pm-btn-group--horizontal": "pm_abc_horizontal",
+    "pm-btn-group--vertical": "pm_abc_vertical",
+    "pm-btn-group--attached": "pm_abc_attached",
   }
 
   it("returns mapped default classes", () => {
-    const result = buttonGroupModuleClasses(mockClassMap)
+    const result = btnGroupModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_buttonGroup pm_abc_horizontal")
   })
 
   it("maps orientation classes correctly", () => {
-    const result = buttonGroupModuleClasses(mockClassMap, { orientation: "vertical" })
+    const result = btnGroupModuleClasses(mockClassMap, { orientation: "vertical" })
     expect(result).toContain("pm_abc_vertical")
   })
 
   it("maps attached class", () => {
-    const result = buttonGroupModuleClasses(mockClassMap, { attached: true })
+    const result = btnGroupModuleClasses(mockClassMap, { attached: true })
     expect(result).toContain("pm_abc_attached")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-button-group": "pm_abc_buttonGroup",
+      "pm-btn-group": "pm_abc_buttonGroup",
     }
-    const result = buttonGroupModuleClasses(sparseMap)
+    const result = btnGroupModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_buttonGroup")
     expect(result).not.toContain("undefined")
   })

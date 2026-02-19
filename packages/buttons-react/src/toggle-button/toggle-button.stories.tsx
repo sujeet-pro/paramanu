@@ -1,12 +1,12 @@
 import { useState } from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { ToggleButton } from "./toggle-button.js"
+import { ToggleBtn } from "./toggle-button.js"
 
 const meta = {
-  title: "Buttons/Toggle Button",
-  component: ToggleButton,
-  tags: ["autodocs", "stable"],
+  title: "Btns/Toggle Btn",
+  component: ToggleBtn,
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: {
       control: "select",
@@ -24,7 +24,7 @@ const meta = {
     children: "Toggle",
     onChange: fn(),
   },
-} satisfies Meta<typeof ToggleButton>
+} satisfies Meta<typeof ToggleBtn>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -55,9 +55,9 @@ export const AllVariantsAndSizes: Story = {
       {(["default", "outline"] as const).map((variant) => (
         <div key={variant} style={{ display: "flex", gap: 8, alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
-            <ToggleButton key={size} variant={variant} size={size} pressed>
+            <ToggleBtn key={size} variant={variant} size={size} pressed>
               {variant} {size}
-            </ToggleButton>
+            </ToggleBtn>
           ))}
         </div>
       ))}
@@ -76,12 +76,12 @@ export const FullWidth: Story = {
 export const States: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-      <ToggleButton pressed={false}>Unpressed</ToggleButton>
-      <ToggleButton pressed>Pressed</ToggleButton>
-      <ToggleButton disabled>Disabled</ToggleButton>
-      <ToggleButton pressed disabled>
+      <ToggleBtn pressed={false}>Unpressed</ToggleBtn>
+      <ToggleBtn pressed>Pressed</ToggleBtn>
+      <ToggleBtn disabled>Disabled</ToggleBtn>
+      <ToggleBtn pressed disabled>
         Pressed Disabled
-      </ToggleButton>
+      </ToggleBtn>
     </div>
   ),
 }
@@ -90,9 +90,9 @@ export const Controlled: Story = {
   render: () => {
     const [pressed, setPressed] = useState(false)
     return (
-      <ToggleButton pressed={pressed} onChange={setPressed}>
+      <ToggleBtn pressed={pressed} onChange={setPressed}>
         {pressed ? "On" : "Off"}
-      </ToggleButton>
+      </ToggleBtn>
     )
   },
 }

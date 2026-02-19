@@ -1,13 +1,13 @@
 /** Size preset for the close button */
-export type CloseButtonSize = "xs" | "sm" | "md" | "lg"
+export type CloseBtnSize = "xs" | "sm" | "md" | "lg"
 
 /**
  * Options for generating close button CSS class names.
- * Used by both BEM (`closeButtonClasses`) and CSS module (`closeButtonModuleClasses`) builders.
+ * Used by both BEM (`closeBtnClasses`) and CSS module (`closeBtnModuleClasses`) builders.
  */
-export interface CloseButtonClassesOptions {
+export interface CloseBtnClassesOptions {
   /** Size preset controlling dimensions. @default "md" */
-  size?: CloseButtonSize
+  size?: CloseBtnSize
   /** Whether the button is in a disabled state. @default false */
   disabled?: boolean
 }
@@ -16,7 +16,7 @@ export interface CloseButtonClassesOptions {
  * Full props interface for the close button component.
  * Used in alerts, dialogs, toasts, and other dismissible UI.
  */
-export interface CloseButtonProps extends CloseButtonClassesOptions {
+export interface CloseBtnProps extends CloseBtnClassesOptions {
   /** Accessible label for the close button. @default "Close" */
   "aria-label"?: string
 }

@@ -12,7 +12,7 @@
     border-spacing: 0;
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-md);
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
   }
 
   /* Layout */
@@ -54,22 +54,22 @@
 
   /* Variants */
   .pm-table--striped .pm-table__body .pm-table__row:nth-child(even) {
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-subtle);
   }
 
   /* Hoverable */
   .pm-table--hoverable .pm-table__body .pm-table__row:hover {
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-700));
+    background-color: var(--pm-bg-muted);
   }
 
   /* Bordered */
   .pm-table--bordered {
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
   }
 
   .pm-table--bordered .pm-table__header-cell,
   .pm-table--bordered .pm-table__cell {
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
   }
 
   /* Sticky header */
@@ -77,7 +77,7 @@
     position: sticky;
     top: 0;
     z-index: 1;
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-subtle);
   }
 
   /* Caption */
@@ -85,20 +85,20 @@
     caption-side: bottom;
     padding: var(--pm-spacing-2) var(--pm-spacing-3);
     font-size: var(--pm-font-size-sm);
-    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
     text-align: start;
   }
 
   /* Head */
   .pm-table__head {
-    border-bottom: 2px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-bottom: 2px solid var(--pm-neutral-hover);
   }
 
   /* Header cell */
   .pm-table__header-cell {
     text-align: start;
     font-weight: var(--pm-font-weight-semibold);
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    color: var(--pm-neutral-fg);
   }
 
   /* Cell */
@@ -108,13 +108,13 @@
 
   /* Foot */
   .pm-table__foot {
-    border-top: 2px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-top: 2px solid var(--pm-neutral-hover);
     font-weight: var(--pm-font-weight-medium);
   }
 
   /* Row */
   .pm-table__row {
-    border-bottom: 1px solid light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    border-bottom: 1px solid var(--pm-neutral);
     transition: background-color var(--pm-transition-fast) ease-in-out;
   }
 }

@@ -43,19 +43,19 @@
 
   .pm-steps__indicator--incomplete {
     background-color: transparent;
-    border: 2px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
-    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    border: 2px solid var(--pm-neutral-active);
+    color: var(--pm-fg-muted);
   }
 
   .pm-steps__indicator--active {
-    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
-    border: 2px solid light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    background-color: var(--pm-primary);
+    border: 2px solid var(--pm-primary);
     color: var(--pm-color-neutral-0);
   }
 
   .pm-steps__indicator--complete {
-    background-color: light-dark(var(--pm-color-success-600), var(--pm-color-success-500));
-    border: 2px solid light-dark(var(--pm-color-success-600), var(--pm-color-success-500));
+    background-color: var(--pm-success);
+    border: 2px solid var(--pm-success);
     color: var(--pm-color-neutral-0);
   }
 
@@ -67,15 +67,15 @@
   }
 
   .pm-steps__connector--incomplete {
-    background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    background-color: var(--pm-neutral-active);
   }
 
   .pm-steps__connector--active {
-    background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    background-color: var(--pm-neutral-active);
   }
 
   .pm-steps__connector--complete {
-    background-color: light-dark(var(--pm-color-success-600), var(--pm-color-success-500));
+    background-color: var(--pm-success);
   }
 
   .pm-steps--horizontal .pm-steps__connector {

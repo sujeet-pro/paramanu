@@ -1,10 +1,18 @@
 ---
 title: Toggle Group
 description: A group of toggle buttons supporting single or multiple selection.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 A group of toggle buttons where one or more can be active, supporting single-select and multi-select modes.
 
@@ -14,22 +22,22 @@ A group of toggle buttons where one or more can be active, supporting single-sel
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-toggle-group pm-toggle-group--horizontal pm-toggle-group--md" role="group" aria-label="Alignment">
-  <button class="pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md" aria-pressed="false">Left</button>
-  <button class="pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md pm-toggle-group__item--pressed" aria-pressed="true">Center</button>
-  <button class="pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md" aria-pressed="false">Right</button>
+  htmlCode={`<div class="pm-toggle-grp pm-toggle-grp--horizontal pm-toggle-grp--md" role="group" aria-label="Alignment">
+  <button class="pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md" aria-pressed="false">Left</button>
+  <button class="pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md pm-toggle-grp__item--pressed" aria-pressed="true">Center</button>
+  <button class="pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md" aria-pressed="false">Right</button>
 </div>`}
   reactCode={`import { useState } from "react"
-import { ToggleGroup, ToggleGroupItem } from "@paramanu/buttons-react"
+import { ToggleGrp, ToggleGrpItem } from "@paramanu/buttons-react"
 
 export default function App() {
   const [value, setValue] = useState("center")
   return (
-    <ToggleGroup type="single" value={value} onChange={setValue}>
-      <ToggleGroupItem value="left">Left</ToggleGroupItem>
-      <ToggleGroupItem value="center">Center</ToggleGroupItem>
-      <ToggleGroupItem value="right">Right</ToggleGroupItem>
-    </ToggleGroup>
+    <ToggleGrp type="single" value={value} onChange={setValue}>
+      <ToggleGrpItem value="left">Left</ToggleGrpItem>
+      <ToggleGrpItem value="center">Center</ToggleGrpItem>
+      <ToggleGrpItem value="right">Right</ToggleGrpItem>
+    </ToggleGrp>
   )
 }`}
 />
@@ -37,22 +45,22 @@ export default function App() {
 ## Multiple Selection
 
 <ComponentPreview
-  htmlCode={`<div class="pm-toggle-group pm-toggle-group--horizontal pm-toggle-group--md" role="group" aria-label="Formatting" data-type="multiple">
-  <button class="pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md pm-toggle-group__item--pressed" aria-pressed="true">B</button>
-  <button class="pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md" aria-pressed="false">I</button>
-  <button class="pm-toggle-group__item pm-toggle-group__item--default pm-toggle-group__item--md" aria-pressed="false">U</button>
+  htmlCode={`<div class="pm-toggle-grp pm-toggle-grp--horizontal pm-toggle-grp--md" role="group" aria-label="Formatting" data-type="multiple">
+  <button class="pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md pm-toggle-grp__item--pressed" aria-pressed="true">B</button>
+  <button class="pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md" aria-pressed="false">I</button>
+  <button class="pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md" aria-pressed="false">U</button>
 </div>`}
   reactCode={`import { useState } from "react"
-import { ToggleGroup, ToggleGroupItem } from "@paramanu/buttons-react"
+import { ToggleGrp, ToggleGrpItem } from "@paramanu/buttons-react"
 
 export default function App() {
   const [value, setValue] = useState(["bold"])
   return (
-    <ToggleGroup type="multiple" value={value} onChange={setValue}>
-      <ToggleGroupItem value="bold">B</ToggleGroupItem>
-      <ToggleGroupItem value="italic">I</ToggleGroupItem>
-      <ToggleGroupItem value="underline">U</ToggleGroupItem>
-    </ToggleGroup>
+    <ToggleGrp type="multiple" value={value} onChange={setValue}>
+      <ToggleGrpItem value="bold">B</ToggleGrpItem>
+      <ToggleGrpItem value="italic">I</ToggleGrpItem>
+      <ToggleGrpItem value="underline">U</ToggleGrpItem>
+    </ToggleGrp>
   )
 }`}
 />
@@ -77,7 +85,7 @@ export default function App() {
 
   <TabItem label="API">
 
-## ToggleGroup Props
+## ToggleGrp Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
@@ -89,13 +97,13 @@ export default function App() {
 | `value` | `string \| string[]` | -- | Current selection |
 | `onChange` | `(value) => void` | -- | Selection change callback |
 
-## ToggleGroupItem Props
+## ToggleGrpItem Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `value` | `string` | -- | Item value for tracking |
 | `variant` | `"default" \| "outline"` | `"default"` | Visual style |
-| `size` | `ToggleGroupSize` | Inherited | Size override |
+| `size` | `ToggleGrpSize` | Inherited | Size override |
 | `pressed` | `boolean` | Managed | Toggle state |
 | `disabled` | `boolean` | `false` | Disabled state |
 
@@ -103,12 +111,12 @@ export default function App() {
 
 | Class | Purpose |
 |---|---|
-| `pm-toggle-group` | Container base |
-| `pm-toggle-group--horizontal/vertical` | Layout direction |
-| `pm-toggle-group--attached` | Merged borders |
-| `pm-toggle-group__item` | Item base |
-| `pm-toggle-group__item--pressed` | Active item |
-| `pm-toggle-group__item--disabled` | Disabled item |
+| `pm-toggle-grp` | Container base |
+| `pm-toggle-grp--horizontal/vertical` | Layout direction |
+| `pm-toggle-grp--attached` | Merged borders |
+| `pm-toggle-grp__item` | Item base |
+| `pm-toggle-grp__item--pressed` | Active item |
+| `pm-toggle-grp__item--disabled` | Disabled item |
 
 </TabItem>
 </Tabs>

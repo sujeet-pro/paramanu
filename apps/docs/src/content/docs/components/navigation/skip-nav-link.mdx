@@ -1,10 +1,18 @@
 ---
 title: Skip Nav Link
 description: A visually hidden link that becomes visible on focus, allowing keyboard users to skip navigation.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 The Skip Nav Link is an accessibility component that lets keyboard users bypass repetitive navigation to reach main content.
 
@@ -14,15 +22,15 @@ The Skip Nav Link is an accessibility component that lets keyboard users bypass 
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<a href="#main-content" class="pm-skip-nav-link">Skip to main content</a>
+  htmlCode={`<a href="#main-content" class="pm-skip-link">Skip to main content</a>
 <nav><!-- navigation --></nav>
 <main id="main-content">Main content</main>`}
-  reactCode={`import { SkipNavLink } from "@paramanu/navigation-react"
+  reactCode={`import { SkipLink } from "@paramanu/navigation-react"
 
 export default function App() {
   return (
     <>
-      <SkipNavLink />
+      <SkipLink />
       <nav>{/* navigation */}</nav>
       <main id="main-content">Main content</main>
     </>
@@ -48,7 +56,7 @@ export default function App() {
 </TabItem>
   <TabItem label="API">
 
-## SkipNavLink Props
+## SkipLink Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -59,7 +67,7 @@ export default function App() {
 
 | Class | Description |
 |-------|-------------|
-| `pm-skip-nav-link` | Root element (visually hidden, visible on focus) |
+| `pm-skip-link` | Root element (visually hidden, visible on focus) |
 
 </TabItem>
 </Tabs>

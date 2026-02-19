@@ -54,22 +54,22 @@ export type {
 } from "./grid/grid.types.js"
 
 // Simple Grid
-export { simpleGridClasses, simpleGridModuleClasses } from "./simple-grid/simple-grid.classes.js"
+export { sgridClasses, sgridModuleClasses } from "./simple-grid/simple-grid.classes.js"
 export type {
-  SimpleGridMinChildWidth,
-  SimpleGridClassesOptions,
-  SimpleGridProps,
+  SgridMinChildWidth,
+  SgridClassesOptions,
+  SgridProps,
 } from "./simple-grid/simple-grid.types.js"
 
 // Aspect Ratio
 export {
-  aspectRatioClasses,
-  aspectRatioModuleClasses,
+  aspectClasses,
+  aspectModuleClasses,
 } from "./aspect-ratio/aspect-ratio.classes.js"
 export type {
-  AspectRatioValue,
-  AspectRatioClassesOptions,
-  AspectRatioProps,
+  AspectValue,
+  AspectClassesOptions,
+  AspectProps,
 } from "./aspect-ratio/aspect-ratio.types.js"
 
 // Bleed
@@ -120,12 +120,12 @@ export type {
 } from "./float/float.types.js"
 
 // Scroll Area
-export { scrollAreaClasses, scrollAreaModuleClasses } from "./scroll-area/scroll-area.classes.js"
+export { scrollClasses, scrollModuleClasses } from "./scroll-area/scroll-area.classes.js"
 export type {
   ScrollDirection,
   ScrollbarVisibility,
-  ScrollAreaClassesOptions,
-  ScrollAreaProps,
+  ScrollClassesOptions,
+  ScrollProps,
 } from "./scroll-area/scroll-area.types.js"
 
 // Masonry
@@ -136,10 +136,10 @@ export type {
   MasonryProps,
 } from "./masonry/masonry.types.js"
 
-// AppShell
+// Shell
 export {
-  appShellClasses,
-  appShellModuleClasses,
+  shellClasses,
+  shellModuleClasses,
   appShellHeaderClasses,
   appShellHeaderModuleClasses,
   appShellSidebarClasses,
@@ -150,16 +150,16 @@ export {
   appShellFooterModuleClasses,
 } from "./app-shell/app-shell.classes.js"
 export type {
-  AppShellSidebarWidth,
-  AppShellSidebarPosition,
-  AppShellClassesOptions,
-  AppShellHeaderClassesOptions,
-  AppShellSidebarClassesOptions,
-  AppShellProps,
-  AppShellHeaderProps,
-  AppShellSidebarProps,
-  AppShellMainProps,
-  AppShellFooterProps,
+  ShellSidebarWidth,
+  ShellSidebarPosition,
+  ShellClassesOptions,
+  ShellHeaderClassesOptions,
+  ShellSidebarClassesOptions,
+  ShellProps,
+  ShellHeaderProps,
+  ShellSidebarProps,
+  ShellMainProps,
+  ShellFooterProps,
 } from "./app-shell/app-shell.types.js"
 
 // Shared types

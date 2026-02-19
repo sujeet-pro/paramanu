@@ -62,6 +62,9 @@ importers:
       '@paramanu/primitives-js':
         specifier: workspace:*
         version: link:../../packages/primitives-js
+      '@paramanu/tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
       '@paramanu/typography-js':
         specifier: workspace:*
         version: link:../../packages/typography-js
@@ -343,6 +346,36 @@ importers:
       '@paramanu/buttons-js':
         specifier: workspace:*
         version: link:../buttons-js
+      '@paramanu/data-display-js':
+        specifier: workspace:*
+        version: link:../data-display-js
+      '@paramanu/disclosure-js':
+        specifier: workspace:*
+        version: link:../disclosure-js
+      '@paramanu/feedback-js':
+        specifier: workspace:*
+        version: link:../feedback-js
+      '@paramanu/forms-js':
+        specifier: workspace:*
+        version: link:../forms-js
+      '@paramanu/navigation-js':
+        specifier: workspace:*
+        version: link:../navigation-js
+      '@paramanu/overlays-js':
+        specifier: workspace:*
+        version: link:../overlays-js
+      '@paramanu/primitives-js':
+        specifier: workspace:*
+        version: link:../primitives-js
+      '@paramanu/tokens':
+        specifier: workspace:*
+        version: link:../tokens
+      '@paramanu/typography-js':
+        specifier: workspace:*
+        version: link:../typography-js
+      '@paramanu/utilities-js':
+        specifier: workspace:*
+        version: link:../utilities-js
     devDependencies:
       '@paramanu/tsconfig':
         specifier: workspace:*
@@ -350,6 +383,9 @@ importers:
       esbuild:
         specifier: ^0.24.0
         version: 0.24.2
+      lightningcss:
+        specifier: ^1.28.0
+        version: 1.31.1
       tsx:
         specifier: ^4.19.0
         version: 4.21.0
@@ -977,6 +1013,12 @@ importers:
       vitest:
         specifier: ^4.0.0
         version: 4.0.18(@vitest/browser-playwright@4.0.18)(jsdom@25.0.1)(lightningcss@1.31.1)(tsx@4.21.0)(yaml@2.8.2)
+
+  tooling/css-build:
+    dependencies:
+      lightningcss:
+        specifier: ^1.28.0
+        version: 1.31.1
 
   tooling/eslint-config:
     dependencies:

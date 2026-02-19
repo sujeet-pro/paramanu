@@ -4,7 +4,7 @@ import { TagsInput } from "./tags-input.js"
 
 const meta = {
   title: "Forms/Tags Input",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: TagsInput,
   argTypes: {
     variant: {

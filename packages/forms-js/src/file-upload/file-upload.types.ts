@@ -1,8 +1,8 @@
 import type { FormSize } from "../shared.types.js"
 
-export interface FileUploadClassesOptions {
+export interface UploadClassesOptions {
   size?: FormSize
   disabled?: boolean
 }
 
-export interface FileUploadProps extends FileUploadClassesOptions {}
+export interface UploadProps extends UploadClassesOptions {}

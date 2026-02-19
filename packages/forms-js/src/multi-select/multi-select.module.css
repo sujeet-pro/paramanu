@@ -1,5 +1,5 @@
 @layer pm.components {
-  .pm-multi-select {
+  .pm-multi-sel {
     position: relative;
     display: inline-flex;
     flex-direction: column;
@@ -7,11 +7,11 @@
     font-family: var(--pm-font-family-sans);
   }
 
-  .pm-multi-select--full-width {
+  .pm-multi-sel--full-width {
     width: 100%;
   }
 
-  .pm-multi-select__trigger {
+  .pm-multi-sel__trigger {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -25,80 +25,80 @@
     min-height: var(--pm-spacing-10);
   }
 
-  .pm-multi-select__trigger:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+  .pm-multi-sel__trigger:focus-visible {
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
-  .pm-multi-select--outline .pm-multi-select__trigger {
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+  .pm-multi-sel--outline .pm-multi-sel__trigger {
+    border: 1px solid var(--pm-neutral-active);
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
   }
 
-  .pm-multi-select--filled .pm-multi-select__trigger {
+  .pm-multi-sel--filled .pm-multi-sel__trigger {
     border: 1px solid transparent;
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    background-color: var(--pm-bg-muted);
+    color: var(--pm-fg);
   }
 
-  .pm-multi-select--unstyled .pm-multi-select__trigger {
+  .pm-multi-sel--unstyled .pm-multi-sel__trigger {
     border: none;
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
   }
 
-  .pm-multi-select--sm .pm-multi-select__trigger {
+  .pm-multi-sel--sm .pm-multi-sel__trigger {
     padding: var(--pm-spacing-1) var(--pm-spacing-2);
     font-size: var(--pm-font-size-sm);
     min-height: calc(var(--pm-spacing-8));
   }
 
-  .pm-multi-select--md .pm-multi-select__trigger {
+  .pm-multi-sel--md .pm-multi-sel__trigger {
     padding: var(--pm-spacing-1) var(--pm-spacing-3);
     font-size: var(--pm-font-size-md);
     min-height: calc(var(--pm-spacing-10));
   }
 
-  .pm-multi-select--lg .pm-multi-select__trigger {
+  .pm-multi-sel--lg .pm-multi-sel__trigger {
     padding: var(--pm-spacing-2) var(--pm-spacing-4);
     font-size: var(--pm-font-size-lg);
     min-height: calc(var(--pm-spacing-12));
   }
 
-  .pm-multi-select--invalid .pm-multi-select__trigger {
-    border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+  .pm-multi-sel--invalid .pm-multi-sel__trigger {
+    border-color: var(--pm-danger-border);
   }
 
-  .pm-multi-select--disabled {
+  .pm-multi-sel--disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
 
-  .pm-multi-select--disabled .pm-multi-select__trigger {
+  .pm-multi-sel--disabled .pm-multi-sel__trigger {
     cursor: not-allowed;
     pointer-events: none;
   }
 
-  .pm-multi-select__tag {
+  .pm-multi-sel__tag {
     display: inline-flex;
     align-items: center;
     gap: var(--pm-spacing-1);
     padding: var(--pm-spacing-0-5) var(--pm-spacing-2);
     border-radius: var(--pm-radius-sm);
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-700));
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    background-color: var(--pm-bg-muted);
+    color: var(--pm-fg);
     font-size: var(--pm-font-size-sm);
     line-height: var(--pm-font-lineHeight-tight);
   }
 
-  .pm-multi-select__tag-label {
+  .pm-multi-sel__tag-label {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
-  .pm-multi-select__tag-remove {
+  .pm-multi-sel__tag-remove {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -111,16 +111,16 @@
     border-radius: var(--pm-radius-sm);
   }
 
-  .pm-multi-select__tag-remove:hover {
+  .pm-multi-sel__tag-remove:hover {
     opacity: 1;
   }
 
-  .pm-multi-select__tag-remove:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+  .pm-multi-sel__tag-remove:focus-visible {
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
-  .pm-multi-select__listbox {
+  .pm-multi-sel__listbox {
     display: none;
     position: absolute;
     top: 100%;
@@ -128,40 +128,40 @@
     right: 0;
     z-index: 10;
     margin-top: var(--pm-spacing-1);
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-md);
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    background-color: var(--pm-bg);
     box-shadow: var(--pm-shadow-md);
     max-height: 240px;
     overflow-y: auto;
     padding: var(--pm-spacing-1) 0;
   }
 
-  .pm-multi-select--open .pm-multi-select__listbox {
+  .pm-multi-sel--open .pm-multi-sel__listbox {
     display: block;
   }
 
-  .pm-multi-select__option {
+  .pm-multi-sel__option {
     display: flex;
     align-items: center;
     padding: var(--pm-spacing-2) var(--pm-spacing-3);
     cursor: pointer;
     font-size: inherit;
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    color: var(--pm-fg);
     transition: background-color var(--pm-transition-fast);
   }
 
-  .pm-multi-select__option:hover {
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+  .pm-multi-sel__option:hover {
+    background-color: var(--pm-bg-muted);
   }
 
-  .pm-multi-select__option--focused {
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+  .pm-multi-sel__option--focused {
+    background-color: var(--pm-bg-muted);
   }
 
-  .pm-multi-select__option--selected {
-    background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
-    color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-200));
+  .pm-multi-sel__option--selected {
+    background-color: var(--pm-primary-subtle);
+    color: var(--pm-fg-link);
     font-weight: var(--pm-font-weight-medium);
   }
 }

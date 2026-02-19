@@ -23,7 +23,7 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    color: var(--pm-neutral-active);
     transition-property: color, transform;
     transition-duration: var(--pm-transition-fast);
   }
@@ -33,17 +33,17 @@
   }
 
   .pm-rating__item:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
     border-radius: var(--pm-radius-sm);
   }
 
   .pm-rating__item--filled {
-    color: light-dark(var(--pm-color-warning-500), var(--pm-color-warning-400));
+    color: var(--pm-warning);
   }
 
   .pm-rating__item--half {
-    color: light-dark(var(--pm-color-warning-500), var(--pm-color-warning-400));
+    color: var(--pm-warning);
   }
 
   .pm-rating--sm .pm-rating__item {

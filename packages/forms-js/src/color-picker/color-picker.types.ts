@@ -1,9 +1,9 @@
 import type { FormSize } from "../shared.types.js"
 
-export interface ColorPickerClassesOptions {
+export interface ColorpickerClassesOptions {
   size?: FormSize
   disabled?: boolean
   open?: boolean
 }
 
-export interface ColorPickerProps extends ColorPickerClassesOptions {}
+export interface ColorpickerProps extends ColorpickerClassesOptions {}

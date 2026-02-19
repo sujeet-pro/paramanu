@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { dataListClasses } from "./data-list.classes.js"
-import type { DataListClassesOptions } from "./data-list.types.js"
+import { datalistClasses } from "./data-list.classes.js"
+import type { DatalistClassesOptions } from "./data-list.types.js"
 
-function createDataList(args: DataListClassesOptions): HTMLElement {
-  const cls = dataListClasses(args)
+function createDatalist(args: DatalistClassesOptions): HTMLElement {
+  const cls = datalistClasses(args)
   const dl = document.createElement("dl")
   dl.className = cls.root
 
@@ -26,18 +26,18 @@ function createDataList(args: DataListClassesOptions): HTMLElement {
 
 const meta = {
   title: "Data Display/Data List",
-  tags: ["autodocs", "stable"],
-  render: (args) => createDataList(args as DataListClassesOptions),
+  tags: ["autodocs", "beta"],
+  render: (args) => createDatalist(args as DatalistClassesOptions),
   argTypes: {
     orientation: { control: "select", options: ["vertical", "horizontal"] },
     size: { control: "select", options: ["sm", "md", "lg"] },
     dividers: { control: "boolean" },
   },
   args: { orientation: "vertical", size: "md" },
-} satisfies Meta<DataListClassesOptions>
+} satisfies Meta<DatalistClassesOptions>
 
 export default meta
-type Story = StoryObj<DataListClassesOptions>
+type Story = StoryObj<DatalistClassesOptions>
 
 export const Playground: Story = {}
 export const Horizontal: Story = { args: { orientation: "horizontal" } }

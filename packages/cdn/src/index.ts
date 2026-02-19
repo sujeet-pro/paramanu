@@ -1,12 +1,12 @@
-import { buttonClasses } from "@paramanu/buttons-js"
-import type { ButtonClassesOptions } from "@paramanu/buttons-js"
+import { btnClasses } from "@paramanu/buttons-js"
+import type { BtnClassesOptions } from "@paramanu/buttons-js"
 
 interface ParamanuGlobal {
-  buttonClasses: (options?: ButtonClassesOptions) => string
+  btnClasses: (options?: BtnClassesOptions) => string
 }
 
 const Paramanu: ParamanuGlobal = {
-  buttonClasses,
+  btnClasses,
 }
 
 ;(globalThis as unknown as { Paramanu: ParamanuGlobal }).Paramanu = Paramanu

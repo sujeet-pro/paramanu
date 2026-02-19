@@ -16,7 +16,7 @@ function createTransfer(args: TransferArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Transfer",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createTransfer(args as TransferArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },

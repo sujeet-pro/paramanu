@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { ContextMenu } from "./context-menu.js"
+import { CtxMenu } from "./context-menu.js"
 
 const meta = {
   title: "Navigation/Context Menu",
-  component: ContextMenu,
-  tags: ["autodocs", "stable"],
+  component: CtxMenu,
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: {
       control: "select",
@@ -17,57 +17,57 @@ const meta = {
     size: "md",
     open: true,
   },
-} satisfies Meta<typeof ContextMenu>
+} satisfies Meta<typeof CtxMenu>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   render: (args) => (
-    <ContextMenu {...args}>
+    <CtxMenu {...args}>
       <div role="menuitem">Cut</div>
       <div role="menuitem">Copy</div>
       <div role="menuitem">Paste</div>
-    </ContextMenu>
+    </CtxMenu>
   ),
 }
 
 export const Default: Story = {
   args: { open: true },
   render: (args) => (
-    <ContextMenu {...args}>
+    <CtxMenu {...args}>
       <div role="menuitem">Inspect</div>
       <div role="menuitem">View Source</div>
-    </ContextMenu>
+    </CtxMenu>
   ),
 }
 
 export const Small: Story = {
   args: { size: "sm", open: true },
   render: (args) => (
-    <ContextMenu {...args}>
+    <CtxMenu {...args}>
       <div role="menuitem">Item 1</div>
       <div role="menuitem">Item 2</div>
-    </ContextMenu>
+    </CtxMenu>
   ),
 }
 
 export const Large: Story = {
   args: { size: "lg", open: true },
   render: (args) => (
-    <ContextMenu {...args}>
+    <CtxMenu {...args}>
       <div role="menuitem">Item 1</div>
       <div role="menuitem">Item 2</div>
-    </ContextMenu>
+    </CtxMenu>
   ),
 }
 
 export const Closed: Story = {
   args: { open: false },
   render: (args) => (
-    <ContextMenu {...args}>
+    <CtxMenu {...args}>
       <div role="menuitem">Hidden Item</div>
-    </ContextMenu>
+    </CtxMenu>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -80,12 +80,12 @@ export const SelectItem: Story = {
   render: (args) => {
     const onSelect = fn()
     return (
-      <ContextMenu {...args}>
+      <CtxMenu {...args}>
         <div role="menuitem" onClick={onSelect}>
           Cut
         </div>
         <div role="menuitem">Copy</div>
-      </ContextMenu>
+      </CtxMenu>
     )
   },
   play: async ({ canvasElement }) => {
@@ -98,7 +98,7 @@ export const SelectItem: Story = {
 export const KeyboardNavigation: Story = {
   args: { open: true },
   render: (args) => (
-    <ContextMenu {...args}>
+    <CtxMenu {...args}>
       <div role="menuitem" tabIndex={0}>
         Cut
       </div>
@@ -108,7 +108,7 @@ export const KeyboardNavigation: Story = {
       <div role="menuitem" tabIndex={0}>
         Paste
       </div>
-    </ContextMenu>
+    </CtxMenu>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -121,10 +121,10 @@ export const KeyboardNavigation: Story = {
 export const Accessibility: Story = {
   args: { open: true },
   render: (args) => (
-    <ContextMenu {...args}>
+    <CtxMenu {...args}>
       <div role="menuitem">Cut</div>
       <div role="menuitem">Copy</div>
-    </ContextMenu>
+    </CtxMenu>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -135,10 +135,10 @@ export const Accessibility: Story = {
 export const Hover: Story = {
   args: { open: true },
   render: (args) => (
-    <ContextMenu {...args}>
+    <CtxMenu {...args}>
       <div role="menuitem">Cut</div>
       <div role="menuitem">Copy</div>
-    </ContextMenu>
+    </CtxMenu>
   ),
   parameters: { pseudo: { hover: true } },
 }
@@ -146,10 +146,10 @@ export const Hover: Story = {
 export const FocusVisible: Story = {
   args: { open: true },
   render: (args) => (
-    <ContextMenu {...args}>
+    <CtxMenu {...args}>
       <div role="menuitem">Cut</div>
       <div role="menuitem">Copy</div>
-    </ContextMenu>
+    </CtxMenu>
   ),
   parameters: { pseudo: { focusVisible: true } },
 }

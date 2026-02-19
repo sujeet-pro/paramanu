@@ -4,7 +4,7 @@ import { Checkbox } from "./checkbox.js"
 
 const meta = {
   title: "Forms/Checkbox",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Checkbox,
   argTypes: {
     size: {

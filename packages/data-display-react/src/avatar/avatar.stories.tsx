@@ -5,7 +5,7 @@ import { Avatar } from "./avatar.js"
 const meta = {
   title: "Data Display/Avatar",
   component: Avatar,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl"] },
     variant: { control: "select", options: ["circle", "square"] },
@@ -21,7 +21,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = { args: { name: "John Doe" } }
-export const WithImage: Story = { args: { src: "https://i.pravatar.cc/150?u=a", alt: "User" } }
+export const WithImg: Story = { args: { src: "https://i.pravatar.cc/150?u=a", alt: "User" } }
 export const WithInitials: Story = { args: { name: "Jane Smith" } }
 export const Square: Story = { args: { variant: "square", name: "Alice" } }
 export const ExtraSmall: Story = { args: { size: "xs", name: "A" } }

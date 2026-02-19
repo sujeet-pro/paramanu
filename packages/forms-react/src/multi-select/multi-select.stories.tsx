@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { MultiSelect } from "./multi-select.js"
+import { MultiSel } from "./multi-select.js"
 
 const meta = {
   title: "Forms/Multi Select",
-  tags: ["autodocs", "stable"],
-  component: MultiSelect,
+  tags: ["autodocs", "beta"],
+  component: MultiSel,
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -21,7 +21,7 @@ const meta = {
     onFocus: fn(),
     onBlur: fn(),
   },
-} satisfies Meta<typeof MultiSelect>
+} satisfies Meta<typeof MultiSel>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -79,7 +79,7 @@ export const KeyboardNavigation: Story = {
     ),
   },
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-multi-select")
+    const el = canvasElement.querySelector(".pm-multi-sel")
     await expect(el).toBeTruthy()
     await userEvent.tab()
   },

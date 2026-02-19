@@ -1,79 +1,79 @@
 import { describe, it, expect } from "vitest"
-import { colorPickerClasses, colorPickerModuleClasses } from "./color-picker.classes.js"
+import { colorpickerClasses, colorpickerModuleClasses } from "./color-picker.classes.js"
 
-describe("colorPickerClasses", () => {
+describe("colorpickerClasses", () => {
   it("returns default classes (md)", () => {
-    const result = colorPickerClasses()
-    expect(result).toBe("pm-color-picker pm-color-picker--md")
+    const result = colorpickerClasses()
+    expect(result).toBe("pm-colorpicker pm-colorpicker--md")
   })
 
   it("applies size", () => {
-    expect(colorPickerClasses({ size: "sm" })).toContain("pm-color-picker--sm")
-    expect(colorPickerClasses({ size: "md" })).toContain("pm-color-picker--md")
-    expect(colorPickerClasses({ size: "lg" })).toContain("pm-color-picker--lg")
+    expect(colorpickerClasses({ size: "sm" })).toContain("pm-colorpicker--sm")
+    expect(colorpickerClasses({ size: "md" })).toContain("pm-colorpicker--md")
+    expect(colorpickerClasses({ size: "lg" })).toContain("pm-colorpicker--lg")
   })
 
   it("applies disabled modifier", () => {
-    expect(colorPickerClasses({ disabled: true })).toContain("pm-color-picker--disabled")
-    expect(colorPickerClasses({ disabled: false })).not.toContain("pm-color-picker--disabled")
+    expect(colorpickerClasses({ disabled: true })).toContain("pm-colorpicker--disabled")
+    expect(colorpickerClasses({ disabled: false })).not.toContain("pm-colorpicker--disabled")
   })
 
   it("applies open modifier", () => {
-    expect(colorPickerClasses({ open: true })).toContain("pm-color-picker--open")
-    expect(colorPickerClasses({ open: false })).not.toContain("pm-color-picker--open")
+    expect(colorpickerClasses({ open: true })).toContain("pm-colorpicker--open")
+    expect(colorpickerClasses({ open: false })).not.toContain("pm-colorpicker--open")
   })
 
   it("always includes base class", () => {
-    expect(colorPickerClasses()).toMatch(/^pm-color-picker\s/)
+    expect(colorpickerClasses()).toMatch(/^pm-colorpicker\s/)
   })
 
   it("combines multiple options", () => {
-    const result = colorPickerClasses({
+    const result = colorpickerClasses({
       size: "lg",
       disabled: true,
       open: true,
     })
     expect(result).toBe(
-      "pm-color-picker pm-color-picker--lg pm-color-picker--disabled pm-color-picker--open",
+      "pm-colorpicker pm-colorpicker--lg pm-colorpicker--disabled pm-colorpicker--open",
     )
   })
 })
 
-describe("colorPickerModuleClasses", () => {
+describe("colorpickerModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-color-picker": "pm_abc_colorPicker",
-    "pm-color-picker--md": "pm_abc_md",
-    "pm-color-picker--sm": "pm_abc_sm",
-    "pm-color-picker--lg": "pm_abc_lg",
-    "pm-color-picker--disabled": "pm_abc_disabled",
-    "pm-color-picker--open": "pm_abc_open",
+    "pm-colorpicker": "pm_abc_colorPicker",
+    "pm-colorpicker--md": "pm_abc_md",
+    "pm-colorpicker--sm": "pm_abc_sm",
+    "pm-colorpicker--lg": "pm_abc_lg",
+    "pm-colorpicker--disabled": "pm_abc_disabled",
+    "pm-colorpicker--open": "pm_abc_open",
   }
 
   it("returns mapped default classes", () => {
-    const result = colorPickerModuleClasses(mockClassMap)
+    const result = colorpickerModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_colorPicker pm_abc_md")
   })
 
   it("maps size classes correctly", () => {
-    const result = colorPickerModuleClasses(mockClassMap, { size: "lg" })
+    const result = colorpickerModuleClasses(mockClassMap, { size: "lg" })
     expect(result).toContain("pm_abc_lg")
   })
 
   it("maps disabled class", () => {
-    const result = colorPickerModuleClasses(mockClassMap, { disabled: true })
+    const result = colorpickerModuleClasses(mockClassMap, { disabled: true })
     expect(result).toContain("pm_abc_disabled")
   })
 
   it("maps open class", () => {
-    const result = colorPickerModuleClasses(mockClassMap, { open: true })
+    const result = colorpickerModuleClasses(mockClassMap, { open: true })
     expect(result).toContain("pm_abc_open")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-color-picker": "pm_abc_colorPicker",
+      "pm-colorpicker": "pm_abc_colorPicker",
     }
-    const result = colorPickerModuleClasses(sparseMap)
+    const result = colorpickerModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_colorPicker")
     expect(result).not.toContain("undefined")
   })

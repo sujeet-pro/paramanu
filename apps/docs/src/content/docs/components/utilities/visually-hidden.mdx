@@ -1,13 +1,21 @@
 ---
 title: Visually Hidden
 description: Hides content visually while keeping it accessible to screen readers.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 ## Overview
 
-VisuallyHidden removes content from the visual flow while keeping it accessible to assistive technologies. Uses the clip-rect technique recommended by WebAIM.
+SrOnly removes content from the visual flow while keeping it accessible to assistive technologies. Uses the clip-rect technique recommended by WebAIM.
 
 ## Usage
 
@@ -16,17 +24,17 @@ VisuallyHidden removes content from the visual flow while keeping it accessible 
     ```html
     <button>
       <svg aria-hidden="true">...</svg>
-      <span class="pm-visually-hidden">Close dialog</span>
+      <span class="pm-sr-only">Close dialog</span>
     </button>
     ```
 </TabItem>
   <TabItem label="React">
     ```tsx
-    import { VisuallyHidden } from "@paramanu/utilities-react"
+    import { SrOnly } from "@paramanu/utilities-react"
 
     <button>
       <Icon aria-hidden />
-      <VisuallyHidden>Close dialog</VisuallyHidden>
+      <SrOnly>Close dialog</SrOnly>
     </button>
     ```
 </TabItem>

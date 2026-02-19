@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
 import {
-  CommandPalette,
-  CommandPaletteInput,
-  CommandPaletteList,
-  CommandPaletteItem,
-  CommandPaletteGroup,
-  CommandPaletteEmpty,
+  CmdPalette,
+  CmdPaletteInput,
+  CmdPaletteList,
+  CmdPaletteItem,
+  CmdPaletteGroup,
+  CmdPaletteEmpty,
 } from "./command-palette.js"
 
 const meta = {
-  title: "Overlays/CommandPalette",
-  component: CommandPalette,
-  tags: ["autodocs", "stable"],
+  title: "Overlays/CmdPalette",
+  component: CmdPalette,
+  tags: ["autodocs", "beta"],
   argTypes: {
     open: { control: "boolean" },
   },
@@ -20,23 +20,23 @@ const meta = {
     open: true,
     children: (
       <>
-        <CommandPaletteInput placeholder="Type a command..." />
-        <CommandPaletteList>
-          <CommandPaletteGroup>
-            <CommandPaletteItem value="new-file">New File</CommandPaletteItem>
-            <CommandPaletteItem value="open-file">Open File</CommandPaletteItem>
-            <CommandPaletteItem value="save" active>
+        <CmdPaletteInput placeholder="Type a command..." />
+        <CmdPaletteList>
+          <CmdPaletteGroup>
+            <CmdPaletteItem value="new-file">New File</CmdPaletteItem>
+            <CmdPaletteItem value="open-file">Open File</CmdPaletteItem>
+            <CmdPaletteItem value="save" active>
               Save
-            </CommandPaletteItem>
-          </CommandPaletteGroup>
-        </CommandPaletteList>
+            </CmdPaletteItem>
+          </CmdPaletteGroup>
+        </CmdPaletteList>
       </>
     ),
   },
-} satisfies Meta<typeof CommandPalette>
+} satisfies Meta<typeof CmdPalette>
 
 export default meta
-type Story = StoryObj<typeof CommandPalette>
+type Story = StoryObj<typeof CmdPalette>
 
 export const Playground: Story = {}
 
@@ -44,10 +44,10 @@ export const Empty: Story = {
   args: {
     children: (
       <>
-        <CommandPaletteInput placeholder="Type a command..." />
-        <CommandPaletteList>
-          <CommandPaletteEmpty>No results found.</CommandPaletteEmpty>
-        </CommandPaletteList>
+        <CmdPaletteInput placeholder="Type a command..." />
+        <CmdPaletteList>
+          <CmdPaletteEmpty>No results found.</CmdPaletteEmpty>
+        </CmdPaletteList>
       </>
     ),
   },
@@ -57,17 +57,17 @@ export const SelectItem: Story = {
   render: () => {
     const onSelect = fn()
     return (
-      <CommandPalette open>
-        <CommandPaletteInput placeholder="Type a command..." />
-        <CommandPaletteList>
-          <CommandPaletteGroup>
-            <CommandPaletteItem value="new" onClick={onSelect}>
+      <CmdPalette open>
+        <CmdPaletteInput placeholder="Type a command..." />
+        <CmdPaletteList>
+          <CmdPaletteGroup>
+            <CmdPaletteItem value="new" onClick={onSelect}>
               New File
-            </CommandPaletteItem>
-            <CommandPaletteItem value="open">Open File</CommandPaletteItem>
-          </CommandPaletteGroup>
-        </CommandPaletteList>
-      </CommandPalette>
+            </CmdPaletteItem>
+            <CmdPaletteItem value="open">Open File</CmdPaletteItem>
+          </CmdPaletteGroup>
+        </CmdPaletteList>
+      </CmdPalette>
     )
   },
   play: async ({ canvasElement }) => {
@@ -77,16 +77,16 @@ export const SelectItem: Story = {
   },
 }
 
-export const SearchInput: Story = {
+export const Search: Story = {
   render: () => (
-    <CommandPalette open>
-      <CommandPaletteInput placeholder="Search commands..." />
-      <CommandPaletteList>
-        <CommandPaletteGroup>
-          <CommandPaletteItem value="save">Save</CommandPaletteItem>
-        </CommandPaletteGroup>
-      </CommandPaletteList>
-    </CommandPalette>
+    <CmdPalette open>
+      <CmdPaletteInput placeholder="Search commands..." />
+      <CmdPaletteList>
+        <CmdPaletteGroup>
+          <CmdPaletteItem value="save">Save</CmdPaletteItem>
+        </CmdPaletteGroup>
+      </CmdPaletteList>
+    </CmdPalette>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -98,14 +98,14 @@ export const SearchInput: Story = {
 
 export const Accessibility: Story = {
   render: () => (
-    <CommandPalette open>
-      <CommandPaletteInput placeholder="Type a command..." />
-      <CommandPaletteList>
-        <CommandPaletteGroup>
-          <CommandPaletteItem value="test">Test</CommandPaletteItem>
-        </CommandPaletteGroup>
-      </CommandPaletteList>
-    </CommandPalette>
+    <CmdPalette open>
+      <CmdPaletteInput placeholder="Type a command..." />
+      <CmdPaletteList>
+        <CmdPaletteGroup>
+          <CmdPaletteItem value="test">Test</CmdPaletteItem>
+        </CmdPaletteGroup>
+      </CmdPaletteList>
+    </CmdPalette>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)

@@ -31,8 +31,8 @@ export type {
 
 // Alert Dialog
 export {
-  alertDialogClasses,
-  alertDialogModuleClasses,
+  alertdialogClasses,
+  alertdialogModuleClasses,
   alertDialogHeaderClasses,
   alertDialogHeaderModuleClasses,
   alertDialogBodyClasses,
@@ -40,27 +40,27 @@ export {
   alertDialogFooterClasses,
   alertDialogFooterModuleClasses,
 } from "./alert-dialog/alert-dialog.classes.js"
-export { createAlertDialog } from "./alert-dialog/alert-dialog.js"
+export { createAlertdialog } from "./alert-dialog/alert-dialog.js"
 export type {
-  AlertDialogVariant,
-  AlertDialogClassesOptions,
-  AlertDialogHeaderClassesOptions,
-  AlertDialogBodyClassesOptions,
-  AlertDialogFooterClassesOptions,
-  CreateAlertDialogOptions,
-  AlertDialogInstance,
+  AlertdialogVariant,
+  AlertdialogClassesOptions,
+  AlertdialogHeaderClassesOptions,
+  AlertdialogBodyClassesOptions,
+  AlertdialogFooterClassesOptions,
+  CreateAlertdialogOptions,
+  AlertdialogInstance,
 } from "./alert-dialog/alert-dialog.types.js"
 
 // Inline Dialog
 export {
-  inlineDialogClasses,
-  inlineDialogModuleClasses,
+  inlineDlgClasses,
+  inlineDlgModuleClasses,
   inlineDialogBodyClasses,
   inlineDialogBodyModuleClasses,
 } from "./inline-dialog/inline-dialog.classes.js"
 export type {
-  InlineDialogClassesOptions,
-  InlineDialogBodyClassesOptions,
+  InlineDlgClassesOptions,
+  InlineDlgBodyClassesOptions,
 } from "./inline-dialog/inline-dialog.types.js"
 
 // Drawer
@@ -142,43 +142,43 @@ export type {
 
 // Hover Card
 export {
-  hoverCardClasses,
-  hoverCardModuleClasses,
+  hovercardClasses,
+  hovercardModuleClasses,
   hoverCardArrowClasses,
   hoverCardArrowModuleClasses,
 } from "./hover-card/hover-card.classes.js"
-export { createHoverCard } from "./hover-card/hover-card.js"
+export { createHovercard } from "./hover-card/hover-card.js"
 export type {
-  HoverCardPlacement,
-  HoverCardClassesOptions,
-  HoverCardArrowClassesOptions,
-  CreateHoverCardOptions,
-  HoverCardInstance,
+  HovercardPlacement,
+  HovercardClassesOptions,
+  HovercardArrowClassesOptions,
+  CreateHovercardOptions,
+  HovercardInstance,
 } from "./hover-card/hover-card.types.js"
 
 // Command Palette
 export {
-  commandPaletteClasses,
-  commandPaletteModuleClasses,
+  cmdPaletteClasses,
+  cmdPaletteModuleClasses,
   commandPaletteInputClasses,
   commandPaletteInputModuleClasses,
   commandPaletteListClasses,
   commandPaletteListModuleClasses,
-  commandPaletteItemClasses,
-  commandPaletteItemModuleClasses,
+  cmdPaletteItemClasses,
+  cmdPaletteItemModuleClasses,
   commandPaletteGroupClasses,
   commandPaletteGroupModuleClasses,
   commandPaletteEmptyClasses,
   commandPaletteEmptyModuleClasses,
 } from "./command-palette/command-palette.classes.js"
-export { createCommandPalette } from "./command-palette/command-palette.js"
+export { createCmdPalette } from "./command-palette/command-palette.js"
 export type {
-  CommandPaletteClassesOptions,
-  CommandPaletteInputClassesOptions,
-  CommandPaletteListClassesOptions,
-  CommandPaletteItemClassesOptions,
-  CommandPaletteGroupClassesOptions,
-  CommandPaletteEmptyClassesOptions,
-  CreateCommandPaletteOptions,
-  CommandPaletteInstance,
+  CmdPaletteClassesOptions,
+  CmdPaletteInputClassesOptions,
+  CmdPaletteListClassesOptions,
+  CmdPaletteItemClassesOptions,
+  CmdPaletteGroupClassesOptions,
+  CmdPaletteEmptyClassesOptions,
+  CreateCmdPaletteOptions,
+  CmdPaletteInstance,
 } from "./command-palette/command-palette.types.js"

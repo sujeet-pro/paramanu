@@ -18,7 +18,7 @@ function createBackdrop(args: BackdropClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Backdrop",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createBackdrop(args as BackdropClassesOptions),
   argTypes: {
     variant: { control: "select", options: ["default", "transparent", "blur"] },

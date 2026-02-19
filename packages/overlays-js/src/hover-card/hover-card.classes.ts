@@ -1,15 +1,15 @@
 import type {
-  HoverCardClassesOptions,
-  HoverCardArrowClassesOptions,
+  HovercardClassesOptions,
+  HovercardArrowClassesOptions,
 } from "./hover-card.types.js"
 
-const BASE = "pm-hover-card"
+const BASE = "pm-hovercard"
 
 /**
  * Returns BEM class names for the hover card component (human-readable).
  * Used by CDN and template consumers.
  */
-export function hoverCardClasses(options: HoverCardClassesOptions = {}): string {
+export function hovercardClasses(options: HovercardClassesOptions = {}): string {
   const { placement = "bottom" } = options
   const classes = [BASE, `${BASE}--${placement}`]
 
@@ -20,13 +20,13 @@ export function hoverCardClasses(options: HoverCardClassesOptions = {}): string 
  * Returns CSS module class names for the hover card component (hashed).
  * Used by bundled/template consumers who import CSS modules.
  */
-export function hoverCardModuleClasses(
+export function hovercardModuleClasses(
   classMap: Record<string, string>,
-  options: HoverCardClassesOptions = {},
+  options: HovercardClassesOptions = {},
 ): string {
   const { placement = "bottom" } = options
 
-  const classes = [classMap["pm-hover-card"], classMap[`pm-hover-card--${placement}`]]
+  const classes = [classMap["pm-hovercard"], classMap[`pm-hovercard--${placement}`]]
 
   return classes.filter(Boolean).join(" ")
 }
@@ -34,7 +34,7 @@ export function hoverCardModuleClasses(
 /**
  * Returns BEM class names for the hover card arrow element.
  */
-export function hoverCardArrowClasses(_options: HoverCardArrowClassesOptions = {}): string {
+export function hoverCardArrowClasses(_options: HovercardArrowClassesOptions = {}): string {
   return `${BASE}__arrow`
 }
 
@@ -43,7 +43,7 @@ export function hoverCardArrowClasses(_options: HoverCardArrowClassesOptions = {
  */
 export function hoverCardArrowModuleClasses(
   classMap: Record<string, string>,
-  _options: HoverCardArrowClassesOptions = {},
+  _options: HovercardArrowClassesOptions = {},
 ): string {
-  return classMap["pm-hover-card__arrow"] ?? ""
+  return classMap["pm-hovercard__arrow"] ?? ""
 }

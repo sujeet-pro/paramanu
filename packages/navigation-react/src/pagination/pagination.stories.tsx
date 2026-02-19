@@ -5,7 +5,7 @@ import { Pagination, PaginationItem } from "./pagination.js"
 const meta = {
   title: "Navigation/Pagination",
   component: Pagination,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: {
       control: "select",

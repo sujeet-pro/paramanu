@@ -1,11 +1,11 @@
-import type { FormControlClassesOptions } from "./form-control.types.js"
+import type { FormCtrlClassesOptions } from "./form-control.types.js"
 
-const BASE = "pm-form-control"
+const BASE = "pm-form-ctrl"
 
 /**
  * Returns BEM class names for the form control component (human-readable).
  */
-export function formControlClasses(options: FormControlClassesOptions = {}): string {
+export function formCtrlClasses(options: FormCtrlClassesOptions = {}): string {
   const { orientation = "vertical", invalid = false, disabled = false, required = false } = options
   const classes = [BASE, `${BASE}--${orientation}`]
 
@@ -19,17 +19,17 @@ export function formControlClasses(options: FormControlClassesOptions = {}): str
 /**
  * Returns CSS module class names for the form control component (hashed).
  */
-export function formControlModuleClasses(
+export function formCtrlModuleClasses(
   classMap: Record<string, string>,
-  options: FormControlClassesOptions = {},
+  options: FormCtrlClassesOptions = {},
 ): string {
   const { orientation = "vertical", invalid = false, disabled = false, required = false } = options
 
-  const classes = [classMap["pm-form-control"], classMap[`pm-form-control--${orientation}`]]
+  const classes = [classMap["pm-form-ctrl"], classMap[`pm-form-ctrl--${orientation}`]]
 
-  if (invalid) classes.push(classMap["pm-form-control--invalid"])
-  if (disabled) classes.push(classMap["pm-form-control--disabled"])
-  if (required) classes.push(classMap["pm-form-control--required"])
+  if (invalid) classes.push(classMap["pm-form-ctrl--invalid"])
+  if (disabled) classes.push(classMap["pm-form-ctrl--disabled"])
+  if (required) classes.push(classMap["pm-form-ctrl--required"])
 
   return classes.filter(Boolean).join(" ")
 }

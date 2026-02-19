@@ -27,7 +27,7 @@ function createStack(args: StackArgs): HTMLElement {
 
 const meta = {
   title: "Primitives/Stack",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createStack(args as StackArgs),
   argTypes: {
     direction: { control: "select", options: ["vertical", "horizontal"] },

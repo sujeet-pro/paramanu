@@ -2,8 +2,8 @@
 export { Label } from "./label/label.js"
 export type { ReactLabelProps } from "./label/label.js"
 
-export { FormControl } from "./form-control/form-control.js"
-export type { ReactFormControlProps } from "./form-control/form-control.js"
+export { FormCtrl } from "./form-control/form-control.js"
+export type { ReactFormCtrlProps } from "./form-control/form-control.js"
 
 export { Fieldset } from "./fieldset/fieldset.js"
 export type { ReactFieldsetProps } from "./fieldset/fieldset.js"
@@ -18,21 +18,21 @@ export type { ReactInputProps } from "./input/input.js"
 export { Textarea } from "./textarea/textarea.js"
 export type { ReactTextareaProps } from "./textarea/textarea.js"
 
-export { PasswordInput } from "./password-input/password-input.js"
-export type { ReactPasswordInputProps } from "./password-input/password-input.js"
+export { PwdInput } from "./password-input/password-input.js"
+export type { ReactPwdInputProps } from "./password-input/password-input.js"
 
-export { NumberInput } from "./number-input/number-input.js"
-export type { ReactNumberInputProps } from "./number-input/number-input.js"
+export { NumInput } from "./number-input/number-input.js"
+export type { ReactNumInputProps } from "./number-input/number-input.js"
 
-export { SearchInput } from "./search-input/search-input.js"
-export type { ReactSearchInputProps } from "./search-input/search-input.js"
+export { Search } from "./search-input/search-input.js"
+export type { ReactSearchProps } from "./search-input/search-input.js"
 
 // Wave 3: Selection Controls
 export { Checkbox } from "./checkbox/checkbox.js"
 export type { ReactCheckboxProps } from "./checkbox/checkbox.js"
 
-export { CheckboxCard } from "./checkbox-card/checkbox-card.js"
-export type { ReactCheckboxCardProps } from "./checkbox-card/checkbox-card.js"
+export { ChkCard } from "./checkbox-card/checkbox-card.js"
+export type { ReactChkCardProps } from "./checkbox-card/checkbox-card.js"
 
 export { Radio, RadioGroup } from "./radio/radio.js"
 export type { ReactRadioProps, ReactRadioGroupProps } from "./radio/radio.js"
@@ -43,18 +43,18 @@ export type { ReactRadioCardProps } from "./radio-card/radio-card.js"
 export { Switch } from "./switch/switch.js"
 export type { ReactSwitchProps } from "./switch/switch.js"
 
-export { SegmentedControl } from "./segmented-control/segmented-control.js"
-export type { ReactSegmentedControlProps } from "./segmented-control/segmented-control.js"
+export { SegCtrl } from "./segmented-control/segmented-control.js"
+export type { ReactSegCtrlProps } from "./segmented-control/segmented-control.js"
 
 // Wave 4: Dropdowns & Pickers
-export { NativeSelect } from "./native-select/native-select.js"
-export type { ReactNativeSelectProps } from "./native-select/native-select.js"
+export { NativeSel } from "./native-select/native-select.js"
+export type { ReactNativeSelProps } from "./native-select/native-select.js"
 
 export { Select } from "./select/select.js"
 export type { ReactSelectProps } from "./select/select.js"
 
-export { MultiSelect } from "./multi-select/multi-select.js"
-export type { ReactMultiSelectProps } from "./multi-select/multi-select.js"
+export { MultiSel } from "./multi-select/multi-select.js"
+export type { ReactMultiSelProps } from "./multi-select/multi-select.js"
 
 export { Combobox } from "./combobox/combobox.js"
 export type { ReactComboboxProps } from "./combobox/combobox.js"
@@ -62,17 +62,17 @@ export type { ReactComboboxProps } from "./combobox/combobox.js"
 export { Calendar } from "./calendar/calendar.js"
 export type { ReactCalendarProps } from "./calendar/calendar.js"
 
-export { DatePicker } from "./date-picker/date-picker.js"
-export type { ReactDatePickerProps } from "./date-picker/date-picker.js"
+export { Datepicker } from "./date-picker/date-picker.js"
+export type { ReactDatepickerProps } from "./date-picker/date-picker.js"
 
-export { DateRangePicker } from "./date-range-picker/date-range-picker.js"
-export type { ReactDateRangePickerProps } from "./date-range-picker/date-range-picker.js"
+export { Daterange } from "./date-range-picker/date-range-picker.js"
+export type { ReactDaterangeProps } from "./date-range-picker/date-range-picker.js"
 
-export { TimePicker } from "./time-picker/time-picker.js"
-export type { ReactTimePickerProps } from "./time-picker/time-picker.js"
+export { Timepicker } from "./time-picker/time-picker.js"
+export type { ReactTimepickerProps } from "./time-picker/time-picker.js"
 
-export { ColorPicker } from "./color-picker/color-picker.js"
-export type { ReactColorPickerProps } from "./color-picker/color-picker.js"
+export { Colorpicker } from "./color-picker/color-picker.js"
+export type { ReactColorpickerProps } from "./color-picker/color-picker.js"
 
 export { Cascader } from "./cascader/cascader.js"
 export type { ReactCascaderProps } from "./cascader/cascader.js"
@@ -90,14 +90,14 @@ export type { ReactPinInputProps } from "./pin-input/pin-input.js"
 export { TagsInput } from "./tags-input/tags-input.js"
 export type { ReactTagsInputProps } from "./tags-input/tags-input.js"
 
-export { EditableText } from "./editable-text/editable-text.js"
-export type { ReactEditableTextProps } from "./editable-text/editable-text.js"
+export { Editable } from "./editable-text/editable-text.js"
+export type { ReactEditableProps } from "./editable-text/editable-text.js"
 
 export { Mentions } from "./mentions/mentions.js"
 export type { ReactMentionsProps } from "./mentions/mentions.js"
 
-export { FileUpload } from "./file-upload/file-upload.js"
-export type { ReactFileUploadProps } from "./file-upload/file-upload.js"
+export { Upload } from "./file-upload/file-upload.js"
+export type { ReactUploadProps } from "./file-upload/file-upload.js"
 
 export { Dropzone } from "./dropzone/dropzone.js"
 export type { ReactDropzoneProps } from "./dropzone/dropzone.js"

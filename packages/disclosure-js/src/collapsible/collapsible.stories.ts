@@ -36,7 +36,7 @@ function createCollapsible(args: CollapsibleArgs): HTMLElement {
 
 const meta = {
   title: "Disclosure/Collapsible",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createCollapsible(args as CollapsibleArgs),
   argTypes: {
     open: { control: "boolean" },

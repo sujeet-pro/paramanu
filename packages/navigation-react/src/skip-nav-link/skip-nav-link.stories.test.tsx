@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("SkipNavLink Stories", () => {
+describe("SkipLink Stories", () => {
   it("Playground renders without crashing", () => {
     render(<composed.Playground />)
     expect(screen.getByText("Skip to main content")).toBeTruthy()

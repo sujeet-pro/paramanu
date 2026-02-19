@@ -5,12 +5,12 @@ import type { PortalInstance } from "@paramanu/utilities-js"
 import { createPresence } from "@paramanu/utilities-js"
 import type { PresenceInstance } from "@paramanu/utilities-js"
 import { lockScroll, unlockScroll } from "../_internal/scroll-lock.js"
-import type { CreateAlertDialogOptions, AlertDialogInstance } from "./alert-dialog.types.js"
+import type { CreateAlertdialogOptions, AlertdialogInstance } from "./alert-dialog.types.js"
 
-export function createAlertDialog(
+export function createAlertdialog(
   element: HTMLElement,
-  options: CreateAlertDialogOptions = {},
-): AlertDialogInstance {
+  options: CreateAlertdialogOptions = {},
+): AlertdialogInstance {
   const {
     onClose,
     initialFocus,

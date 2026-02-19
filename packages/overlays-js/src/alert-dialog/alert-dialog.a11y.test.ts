@@ -1,23 +1,23 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import {
-  alertDialogClasses,
+  alertdialogClasses,
   alertDialogHeaderClasses,
   alertDialogBodyClasses,
   alertDialogFooterClasses,
 } from "./alert-dialog.classes.js"
 
-function createAlertDialogHTML(
-  options: Parameters<typeof alertDialogClasses>[0] = {},
+function createAlertdialogHTML(
+  options: Parameters<typeof alertdialogClasses>[0] = {},
   attrs: string = "",
 ): string {
-  const classes = alertDialogClasses(options)
+  const classes = alertdialogClasses(options)
   const headerClasses = alertDialogHeaderClasses()
   const bodyClasses = alertDialogBodyClasses()
   const footerClasses = alertDialogFooterClasses()
   return `
     <div class="${classes}" role="alertdialog" aria-modal="true" aria-labelledby="alert-dialog-title"${attrs ? " " + attrs : ""}>
-      <div class="pm-alert-dialog__panel">
+      <div class="pm-alertdialog__panel">
         <div class="${headerClasses}">
           <h2 id="alert-dialog-title">Confirm Action</h2>
         </div>
@@ -35,19 +35,19 @@ function createAlertDialogHTML(
 
 describe("alert dialog accessibility", () => {
   it("has role='alertdialog'", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertDialogHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertdialogHTML()}</body>`)
     const dialog = dom.window.document.querySelector("[role='alertdialog']")
     expect(dialog).not.toBeNull()
   })
 
   it("has aria-modal='true'", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertDialogHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertdialogHTML()}</body>`)
     const dialog = dom.window.document.querySelector("[role='alertdialog']")
     expect(dialog?.getAttribute("aria-modal")).toBe("true")
   })
 
   it("has aria-labelledby referencing the title", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertDialogHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertdialogHTML()}</body>`)
     const dialog = dom.window.document.querySelector("[role='alertdialog']")
     const labelledBy = dialog?.getAttribute("aria-labelledby")
     expect(labelledBy).toBe("alert-dialog-title")
@@ -58,34 +58,34 @@ describe("alert dialog accessibility", () => {
   })
 
   it("contains action buttons in the footer", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertDialogHTML()}</body>`)
-    const footer = dom.window.document.querySelector(".pm-alert-dialog__footer")
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertdialogHTML()}</body>`)
+    const footer = dom.window.document.querySelector(".pm-alertdialog__footer")
     const buttons = footer?.querySelectorAll("button")
     expect(buttons?.length).toBeGreaterThanOrEqual(2)
   })
 
   it("supports aria-describedby for additional context", () => {
-    const html = createAlertDialogHTML({}, 'aria-describedby="alert-dialog-desc"')
+    const html = createAlertdialogHTML({}, 'aria-describedby="alert-dialog-desc"')
     const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
     const dialog = dom.window.document.querySelector("[role='alertdialog']")
     expect(dialog?.getAttribute("aria-describedby")).toBe("alert-dialog-desc")
   })
 
   it("alert dialog panel is within the container", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertDialogHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertdialogHTML()}</body>`)
     const dialog = dom.window.document.querySelector("[role='alertdialog']")
-    const panel = dialog?.querySelector(".pm-alert-dialog__panel")
+    const panel = dialog?.querySelector(".pm-alertdialog__panel")
     expect(panel).not.toBeNull()
   })
 
   it("uses correct role for different variants", () => {
     const variants = ["info", "danger", "warning"] as const
     for (const variant of variants) {
-      const html = createAlertDialogHTML({ variant })
+      const html = createAlertdialogHTML({ variant })
       const dom = new JSDOM(`<!DOCTYPE html><body>${html}</body>`)
       const dialog = dom.window.document.querySelector("[role='alertdialog']")
       expect(dialog).not.toBeNull()
-      expect(dialog?.classList.contains(`pm-alert-dialog--${variant}`)).toBe(true)
+      expect(dialog?.classList.contains(`pm-alertdialog--${variant}`)).toBe(true)
     }
   })
 })

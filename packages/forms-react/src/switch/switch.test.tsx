@@ -6,9 +6,9 @@ afterEach(cleanup)
 
 describe("Switch", () => {
   it("renders with text content", () => {
-    render(<Switch>Notifications</Switch>)
+    render(<Switch>Notifs</Switch>)
     expect(screen.getByRole("switch")).toBeInTheDocument()
-    expect(screen.getByText("Notifications")).toBeInTheDocument()
+    expect(screen.getByText("Notifs")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {

@@ -1,7 +1,9 @@
 {
   "name": "@paramanu/buttons-js",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-alpha.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -9,7 +11,14 @@
       "import": "./dist/js/index.js"
     },
     "./css": "./dist/css/buttons.css",
-    "./css/layers": "./dist/css/buttons.layers.css",
+    "./css/min": "./dist/css/buttons.min.css",
+    "./css/button": "./dist/css/button.css",
+    "./css/button-group": "./dist/css/button-group.css",
+    "./css/close-button": "./dist/css/close-button.css",
+    "./css/icon-button": "./dist/css/icon-button.css",
+    "./css/toggle-button": "./dist/css/toggle-button.css",
+    "./css/toggle-group": "./dist/css/toggle-group.css",
+    "./css/fab": "./dist/css/fab.css",
     "./modules/button/map": {
       "types": "./dist/css/button.module.d.ts",
       "import": "./dist/css/button.module.js"
@@ -39,7 +48,9 @@
       "import": "./dist/css/fab.module.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsx css.build.ts && tsup",
     "test": "vitest run",

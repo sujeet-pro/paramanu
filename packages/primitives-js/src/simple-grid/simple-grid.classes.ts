@@ -1,13 +1,13 @@
-import type { SimpleGridClassesOptions } from "./simple-grid.types.js"
+import type { SgridClassesOptions } from "./simple-grid.types.js"
 
-const BASE = "pm-simple-grid"
+const BASE = "pm-sgrid"
 
 /**
  * Returns BEM class names for the simple-grid component (human-readable).
  * Used by CDN and template consumers.
  * Note: minChildWidth takes priority over columns when both are specified.
  */
-export function simpleGridClasses(options: SimpleGridClassesOptions = {}): string {
+export function sgridClasses(options: SgridClassesOptions = {}): string {
   const { minChildWidth, columns, gap } = options
   const classes = [BASE]
 
@@ -27,20 +27,20 @@ export function simpleGridClasses(options: SimpleGridClassesOptions = {}): strin
  * Used by bundled/template consumers who import CSS modules.
  * Note: minChildWidth takes priority over columns when both are specified.
  */
-export function simpleGridModuleClasses(
+export function sgridModuleClasses(
   classMap: Record<string, string>,
-  options: SimpleGridClassesOptions = {},
+  options: SgridClassesOptions = {},
 ): string {
   const { minChildWidth, columns, gap } = options
-  const classes = [classMap["pm-simple-grid"]]
+  const classes = [classMap["pm-sgrid"]]
 
   if (minChildWidth) {
-    classes.push(classMap[`pm-simple-grid--min-${minChildWidth}`])
+    classes.push(classMap[`pm-sgrid--min-${minChildWidth}`])
   } else if (columns !== undefined) {
-    classes.push(classMap[`pm-simple-grid--cols-${columns}`])
+    classes.push(classMap[`pm-sgrid--cols-${columns}`])
   }
 
-  if (gap !== undefined) classes.push(classMap[`pm-simple-grid--gap-${gap}`])
+  if (gap !== undefined) classes.push(classMap[`pm-sgrid--gap-${gap}`])
 
   return classes.filter(Boolean).join(" ")
 }

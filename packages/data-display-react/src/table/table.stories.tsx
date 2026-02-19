@@ -14,7 +14,7 @@ import {
 const meta = {
   title: "Data Display/Table",
   component: Table,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: {
       control: "select",

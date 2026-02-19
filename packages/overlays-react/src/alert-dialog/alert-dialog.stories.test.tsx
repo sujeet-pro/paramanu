@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("AlertDialog Stories", () => {
+describe("Alertdialog Stories", () => {
   it("Playground renders when open", () => {
     const { container } = render(<composed.Playground />)
     expect(container.querySelector("[role='alertdialog']")).toBeTruthy()
@@ -15,6 +15,6 @@ describe("AlertDialog Stories", () => {
 
   it("Danger variant applies correct class", () => {
     const { container } = render(<composed.Danger />)
-    expect(container.querySelector(".pm-alert-dialog--danger")).toBeTruthy()
+    expect(container.querySelector(".pm-alertdialog--danger")).toBeTruthy()
   })
 })

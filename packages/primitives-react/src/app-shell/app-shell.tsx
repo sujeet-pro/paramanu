@@ -1,36 +1,36 @@
 import { forwardRef, createContext, useContext, useState, useCallback } from "react"
 import {
-  appShellClasses,
+  shellClasses,
   appShellHeaderClasses,
   appShellSidebarClasses,
   appShellMainClasses,
   appShellFooterClasses,
 } from "@paramanu/primitives-js"
 import type {
-  AppShellProps,
-  AppShellHeaderProps,
-  AppShellSidebarProps,
-  AppShellSidebarWidth,
+  ShellProps,
+  ShellHeaderProps,
+  ShellSidebarProps,
+  ShellSidebarWidth,
 } from "@paramanu/primitives-js"
 
-interface AppShellContextValue {
+interface ShellContextValue {
   sidebarCollapsed: boolean
   toggleSidebar: () => void
 }
 
-const AppShellContext = createContext<AppShellContextValue>({
+const ShellContext = createContext<ShellContextValue>({
   sidebarCollapsed: false,
   toggleSidebar: () => {},
 })
 
-function useAppShellContext() {
-  return useContext(AppShellContext)
+function useShellContext() {
+  return useContext(ShellContext)
 }
 
-// --- AppShell (container) ---
+// --- Shell (container) ---
 
-export interface ReactAppShellProps
-  extends AppShellProps,
+export interface ReactShellProps
+  extends ShellProps,
     React.HTMLAttributes<HTMLDivElement> {
   className?: string
   children?: React.ReactNode
@@ -38,7 +38,7 @@ export interface ReactAppShellProps
   onSidebarToggle?: (collapsed: boolean) => void
 }
 
-export const AppShell = forwardRef<HTMLDivElement, ReactAppShellProps>(function AppShell(
+export const Shell = forwardRef<HTMLDivElement, ReactShellProps>(function Shell(
   {
     sidebarCollapsed: controlledCollapsed,
     sidebarPosition = "start",
@@ -60,29 +60,29 @@ export const AppShell = forwardRef<HTMLDivElement, ReactAppShellProps>(function 
     onSidebarToggle?.(next)
   }, [collapsed, isControlled, onSidebarToggle])
 
-  const classes = appShellClasses({ sidebarCollapsed: collapsed, sidebarPosition })
+  const classes = shellClasses({ sidebarCollapsed: collapsed, sidebarPosition })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (
-    <AppShellContext.Provider value={{ sidebarCollapsed: collapsed, toggleSidebar }}>
+    <ShellContext.Provider value={{ sidebarCollapsed: collapsed, toggleSidebar }}>
       <div ref={ref} className={combinedClassName} {...rest}>
         {children}
       </div>
-    </AppShellContext.Provider>
+    </ShellContext.Provider>
   )
 })
 
-// --- AppShellHeader ---
+// --- ShellHeader ---
 
-export interface ReactAppShellHeaderProps
-  extends AppShellHeaderProps,
+export interface ReactShellHeaderProps
+  extends ShellHeaderProps,
     React.HTMLAttributes<HTMLElement> {
   className?: string
   children?: React.ReactNode
 }
 
-export const AppShellHeader = forwardRef<HTMLElement, ReactAppShellHeaderProps>(
-  function AppShellHeader({ sticky, className, children, ...rest }, ref) {
+export const ShellHeader = forwardRef<HTMLElement, ReactShellHeaderProps>(
+  function ShellHeader({ sticky, className, children, ...rest }, ref) {
     const classes = appShellHeaderClasses({ sticky })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
@@ -94,21 +94,21 @@ export const AppShellHeader = forwardRef<HTMLElement, ReactAppShellHeaderProps>(
   },
 )
 
-// --- AppShellSidebar ---
+// --- ShellSidebar ---
 
-export interface ReactAppShellSidebarProps
-  extends AppShellSidebarProps,
+export interface ReactShellSidebarProps
+  extends ShellSidebarProps,
     React.HTMLAttributes<HTMLElement> {
   className?: string
   children?: React.ReactNode
 }
 
-export const AppShellSidebar = forwardRef<HTMLElement, ReactAppShellSidebarProps>(
-  function AppShellSidebar(
-    { width = "md" as AppShellSidebarWidth, collapsed: propCollapsed, className, children, ...rest },
+export const ShellSidebar = forwardRef<HTMLElement, ReactShellSidebarProps>(
+  function ShellSidebar(
+    { width = "md" as ShellSidebarWidth, collapsed: propCollapsed, className, children, ...rest },
     ref,
   ) {
-    const { sidebarCollapsed } = useAppShellContext()
+    const { sidebarCollapsed } = useShellContext()
     const isCollapsed = propCollapsed !== undefined ? propCollapsed : sidebarCollapsed
     const classes = appShellSidebarClasses({ width, collapsed: isCollapsed })
     const combinedClassName = className ? `${classes} ${className}` : classes
@@ -121,15 +121,15 @@ export const AppShellSidebar = forwardRef<HTMLElement, ReactAppShellSidebarProps
   },
 )
 
-// --- AppShellMain ---
+// --- ShellMain ---
 
-export interface ReactAppShellMainProps extends React.HTMLAttributes<HTMLElement> {
+export interface ReactShellMainProps extends React.HTMLAttributes<HTMLElement> {
   className?: string
   children?: React.ReactNode
 }
 
-export const AppShellMain = forwardRef<HTMLElement, ReactAppShellMainProps>(
-  function AppShellMain({ className, children, ...rest }, ref) {
+export const ShellMain = forwardRef<HTMLElement, ReactShellMainProps>(
+  function ShellMain({ className, children, ...rest }, ref) {
     const classes = appShellMainClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
 
@@ -141,15 +141,15 @@ export const AppShellMain = forwardRef<HTMLElement, ReactAppShellMainProps>(
   },
 )
 
-// --- AppShellFooter ---
+// --- ShellFooter ---
 
-export interface ReactAppShellFooterProps extends React.HTMLAttributes<HTMLElement> {
+export interface ReactShellFooterProps extends React.HTMLAttributes<HTMLElement> {
   className?: string
   children?: React.ReactNode
 }
 
-export const AppShellFooter = forwardRef<HTMLElement, ReactAppShellFooterProps>(
-  function AppShellFooter({ className, children, ...rest }, ref) {
+export const ShellFooter = forwardRef<HTMLElement, ReactShellFooterProps>(
+  function ShellFooter({ className, children, ...rest }, ref) {
     const classes = appShellFooterClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
 

@@ -1,15 +1,15 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { Breadcrumbs, BreadcrumbsItem, BreadcrumbsLink } from "./breadcrumbs.js"
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "./breadcrumbs.js"
 
 afterEach(cleanup)
 
-describe("Breadcrumbs", () => {
+describe("Breadcrumb", () => {
   it("renders with nav element and aria-label", () => {
     render(
-      <Breadcrumbs>
-        <BreadcrumbsItem>Home</BreadcrumbsItem>
-      </Breadcrumbs>,
+      <Breadcrumb>
+        <BreadcrumbItem>Home</BreadcrumbItem>
+      </Breadcrumb>,
     )
     const nav = screen.getByRole("navigation", { name: "Breadcrumb" })
     expect(nav).toBeInTheDocument()
@@ -17,9 +17,9 @@ describe("Breadcrumbs", () => {
 
   it("renders ordered list inside nav", () => {
     render(
-      <Breadcrumbs>
-        <BreadcrumbsItem>Home</BreadcrumbsItem>
-      </Breadcrumbs>,
+      <Breadcrumb>
+        <BreadcrumbItem>Home</BreadcrumbItem>
+      </Breadcrumb>,
     )
     const list = screen.getByRole("list")
     expect(list).toBeInTheDocument()
@@ -28,53 +28,53 @@ describe("Breadcrumbs", () => {
 
   it("applies default classes", () => {
     render(
-      <Breadcrumbs>
-        <BreadcrumbsItem>Home</BreadcrumbsItem>
-      </Breadcrumbs>,
+      <Breadcrumb>
+        <BreadcrumbItem>Home</BreadcrumbItem>
+      </Breadcrumb>,
     )
     const nav = screen.getByRole("navigation")
-    expect(nav.className).toContain("pm-breadcrumbs")
-    expect(nav.className).toContain("pm-breadcrumbs--slash")
+    expect(nav.className).toContain("pm-breadcrumb")
+    expect(nav.className).toContain("pm-breadcrumb--slash")
   })
 
   it("applies separator variant", () => {
     render(
-      <Breadcrumbs separator="chevron">
-        <BreadcrumbsItem>Home</BreadcrumbsItem>
-      </Breadcrumbs>,
+      <Breadcrumb separator="chevron">
+        <BreadcrumbItem>Home</BreadcrumbItem>
+      </Breadcrumb>,
     )
     const nav = screen.getByRole("navigation")
-    expect(nav.className).toContain("pm-breadcrumbs--chevron")
+    expect(nav.className).toContain("pm-breadcrumb--chevron")
   })
 
   it("merges custom className", () => {
     render(
-      <Breadcrumbs className="custom-class">
-        <BreadcrumbsItem>Home</BreadcrumbsItem>
-      </Breadcrumbs>,
+      <Breadcrumb className="custom-class">
+        <BreadcrumbItem>Home</BreadcrumbItem>
+      </Breadcrumb>,
     )
     const nav = screen.getByRole("navigation")
-    expect(nav.className).toContain("pm-breadcrumbs")
+    expect(nav.className).toContain("pm-breadcrumb")
     expect(nav.className).toContain("custom-class")
   })
 
   it("forwards ref", () => {
     let navRef: HTMLElement | null = null
     render(
-      <Breadcrumbs ref={(el) => (navRef = el)}>
-        <BreadcrumbsItem>Home</BreadcrumbsItem>
-      </Breadcrumbs>,
+      <Breadcrumb ref={(el) => (navRef = el)}>
+        <BreadcrumbItem>Home</BreadcrumbItem>
+      </Breadcrumb>,
     )
     expect(navRef).toBeInstanceOf(HTMLElement)
   })
 })
 
-describe("BreadcrumbsItem", () => {
+describe("BreadcrumbItem", () => {
   it("renders list item", () => {
     render(
-      <Breadcrumbs>
-        <BreadcrumbsItem>Home</BreadcrumbsItem>
-      </Breadcrumbs>,
+      <Breadcrumb>
+        <BreadcrumbItem>Home</BreadcrumbItem>
+      </Breadcrumb>,
     )
     const item = screen.getByRole("listitem")
     expect(item).toBeInTheDocument()
@@ -82,19 +82,19 @@ describe("BreadcrumbsItem", () => {
 
   it("applies item classes", () => {
     render(
-      <Breadcrumbs>
-        <BreadcrumbsItem>Home</BreadcrumbsItem>
-      </Breadcrumbs>,
+      <Breadcrumb>
+        <BreadcrumbItem>Home</BreadcrumbItem>
+      </Breadcrumb>,
     )
     const item = screen.getByRole("listitem")
-    expect(item.className).toContain("pm-breadcrumbs__item")
+    expect(item.className).toContain("pm-breadcrumb__item")
   })
 
   it("renders active item with aria-current", () => {
     render(
-      <Breadcrumbs>
-        <BreadcrumbsItem active>Current</BreadcrumbsItem>
-      </Breadcrumbs>,
+      <Breadcrumb>
+        <BreadcrumbItem active>Current</BreadcrumbItem>
+      </Breadcrumb>,
     )
     const current = screen.getByText("Current")
     expect(current.closest("[aria-current='page']")).not.toBeNull()
@@ -103,22 +103,22 @@ describe("BreadcrumbsItem", () => {
   it("forwards ref", () => {
     let itemRef: HTMLLIElement | null = null
     render(
-      <Breadcrumbs>
-        <BreadcrumbsItem ref={(el) => (itemRef = el)}>Home</BreadcrumbsItem>
-      </Breadcrumbs>,
+      <Breadcrumb>
+        <BreadcrumbItem ref={(el) => (itemRef = el)}>Home</BreadcrumbItem>
+      </Breadcrumb>,
     )
     expect(itemRef).toBeInstanceOf(HTMLLIElement)
   })
 })
 
-describe("BreadcrumbsLink", () => {
+describe("BreadcrumbLink", () => {
   it("renders anchor element", () => {
     render(
-      <Breadcrumbs>
-        <BreadcrumbsItem>
-          <BreadcrumbsLink href="/">Home</BreadcrumbsLink>
-        </BreadcrumbsItem>
-      </Breadcrumbs>,
+      <Breadcrumb>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>,
     )
     const link = screen.getByRole("link", { name: "Home" })
     expect(link).toBeInTheDocument()
@@ -127,41 +127,41 @@ describe("BreadcrumbsLink", () => {
 
   it("applies link classes", () => {
     render(
-      <Breadcrumbs>
-        <BreadcrumbsItem>
-          <BreadcrumbsLink href="/">Home</BreadcrumbsLink>
-        </BreadcrumbsItem>
-      </Breadcrumbs>,
+      <Breadcrumb>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>,
     )
     const link = screen.getByRole("link")
-    expect(link.className).toContain("pm-breadcrumbs__link")
+    expect(link.className).toContain("pm-breadcrumb__link")
   })
 
   it("merges custom className", () => {
     render(
-      <Breadcrumbs>
-        <BreadcrumbsItem>
-          <BreadcrumbsLink href="/" className="custom">
+      <Breadcrumb>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/" className="custom">
             Home
-          </BreadcrumbsLink>
-        </BreadcrumbsItem>
-      </Breadcrumbs>,
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>,
     )
     const link = screen.getByRole("link")
-    expect(link.className).toContain("pm-breadcrumbs__link")
+    expect(link.className).toContain("pm-breadcrumb__link")
     expect(link.className).toContain("custom")
   })
 
   it("forwards ref", () => {
     let linkRef: HTMLAnchorElement | null = null
     render(
-      <Breadcrumbs>
-        <BreadcrumbsItem>
-          <BreadcrumbsLink ref={(el) => (linkRef = el)} href="/">
+      <Breadcrumb>
+        <BreadcrumbItem>
+          <BreadcrumbLink ref={(el) => (linkRef = el)} href="/">
             Home
-          </BreadcrumbsLink>
-        </BreadcrumbsItem>
-      </Breadcrumbs>,
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>,
     )
     expect(linkRef).toBeInstanceOf(HTMLAnchorElement)
   })

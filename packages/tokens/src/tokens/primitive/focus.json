@@ -1,0 +1,7 @@
+{
+  "focus": {
+    "$type": "dimension",
+    "ring-width": { "$value": "2px" },
+    "ring-offset": { "$value": "2px" }
+  }
+}

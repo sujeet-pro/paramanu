@@ -7,14 +7,14 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("DataList Stories", () => {
+describe("Datalist Stories", () => {
   it("Playground renders without crashing", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-data-list")).toBeTruthy()
+    expect(container.querySelector(".pm-datalist")).toBeTruthy()
   })
 
   it("Horizontal applies correct class", () => {
     const { container } = render(<composed.Horizontal />)
-    expect(container.querySelector(".pm-data-list--horizontal")).toBeTruthy()
+    expect(container.querySelector(".pm-datalist--horizontal")).toBeTruthy()
   })
 })

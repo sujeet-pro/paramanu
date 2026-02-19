@@ -18,7 +18,7 @@ function createWrap(args: WrapClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Wrap",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createWrap(args as WrapClassesOptions),
   argTypes: {
     gap: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8"] },

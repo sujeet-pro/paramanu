@@ -1,9 +1,9 @@
 import { forwardRef } from "react"
-import { progressBarClasses } from "@paramanu/feedback-js"
-import type { ProgressBarClassesOptions } from "@paramanu/feedback-js"
+import { progressClasses } from "@paramanu/feedback-js"
+import type { ProgressClassesOptions } from "@paramanu/feedback-js"
 
-export interface ReactProgressBarProps
-  extends ProgressBarClassesOptions,
+export interface ReactProgressProps
+  extends ProgressClassesOptions,
     React.HTMLAttributes<HTMLDivElement> {
   /** Format function for the label. Receives the percentage number.
    * @default (pct) => `${Math.round(pct)}%`
@@ -12,11 +12,11 @@ export interface ReactProgressBarProps
 }
 
 /**
- * ProgressBar displays determinate or indeterminate linear progress.
+ * Progress displays determinate or indeterminate linear progress.
  *
  * Uses `role="progressbar"` with `aria-valuenow`, `aria-valuemin`, and `aria-valuemax`.
  */
-export const ProgressBar = forwardRef<HTMLDivElement, ReactProgressBarProps>(function ProgressBar(
+export const Progress = forwardRef<HTMLDivElement, ReactProgressProps>(function Progress(
   {
     size,
     variant,
@@ -33,7 +33,7 @@ export const ProgressBar = forwardRef<HTMLDivElement, ReactProgressBarProps>(fun
   },
   ref,
 ) {
-  const classes = progressBarClasses({ size, variant, striped, animated, indeterminate, showLabel, value, min, max })
+  const classes = progressClasses({ size, variant, striped, animated, indeterminate, showLabel, value, min, max })
   const combinedClassName = className ? `${classes.root} ${className}` : classes.root
   const percentage = max > min ? ((value - min) / (max - min)) * 100 : 0
   const labelText = formatLabel ? formatLabel(percentage) : `${Math.round(percentage)}%`

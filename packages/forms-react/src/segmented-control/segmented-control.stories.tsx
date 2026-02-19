@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { SegmentedControl } from "./segmented-control.js"
+import { SegCtrl } from "./segmented-control.js"
 
 const meta = {
   title: "Forms/Segmented Control",
-  tags: ["autodocs", "stable"],
-  component: SegmentedControl,
+  tags: ["autodocs", "beta"],
+  component: SegCtrl,
   argTypes: {
     size: {
       control: "select",
@@ -16,7 +16,7 @@ const meta = {
   args: {
     onChange: fn(),
   },
-} satisfies Meta<typeof SegmentedControl>
+} satisfies Meta<typeof SegCtrl>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -25,9 +25,9 @@ export const Playground: Story = {
   args: {
     children: (
       <>
-        <button type="button" className="pm-segmented-control__item" aria-pressed="true">Day</button>
-        <button type="button" className="pm-segmented-control__item">Week</button>
-        <button type="button" className="pm-segmented-control__item">Month</button>
+        <button type="button" className="pm-seg-ctrl__item" aria-pressed="true">Day</button>
+        <button type="button" className="pm-seg-ctrl__item">Week</button>
+        <button type="button" className="pm-seg-ctrl__item">Month</button>
       </>
     ),
   },
@@ -38,8 +38,8 @@ export const Small: Story = {
     size: "sm",
     children: (
       <>
-        <button type="button" className="pm-segmented-control__item" aria-pressed="true">List</button>
-        <button type="button" className="pm-segmented-control__item">Grid</button>
+        <button type="button" className="pm-seg-ctrl__item" aria-pressed="true">List</button>
+        <button type="button" className="pm-seg-ctrl__item">Grid</button>
       </>
     ),
   },
@@ -50,9 +50,9 @@ export const Large: Story = {
     size: "lg",
     children: (
       <>
-        <button type="button" className="pm-segmented-control__item" aria-pressed="true">All</button>
-        <button type="button" className="pm-segmented-control__item">Active</button>
-        <button type="button" className="pm-segmented-control__item">Completed</button>
+        <button type="button" className="pm-seg-ctrl__item" aria-pressed="true">All</button>
+        <button type="button" className="pm-seg-ctrl__item">Active</button>
+        <button type="button" className="pm-seg-ctrl__item">Completed</button>
       </>
     ),
   },
@@ -63,8 +63,8 @@ export const ExtraSmall: Story = {
     size: "xs",
     children: (
       <>
-        <button type="button" className="pm-segmented-control__item" aria-pressed="true">A</button>
-        <button type="button" className="pm-segmented-control__item">B</button>
+        <button type="button" className="pm-seg-ctrl__item" aria-pressed="true">A</button>
+        <button type="button" className="pm-seg-ctrl__item">B</button>
       </>
     ),
   },
@@ -75,9 +75,9 @@ export const FullWidth: Story = {
     fullWidth: true,
     children: (
       <>
-        <button type="button" className="pm-segmented-control__item" aria-pressed="true">Tab 1</button>
-        <button type="button" className="pm-segmented-control__item">Tab 2</button>
-        <button type="button" className="pm-segmented-control__item">Tab 3</button>
+        <button type="button" className="pm-seg-ctrl__item" aria-pressed="true">Tab 1</button>
+        <button type="button" className="pm-seg-ctrl__item">Tab 2</button>
+        <button type="button" className="pm-seg-ctrl__item">Tab 3</button>
       </>
     ),
   },
@@ -88,8 +88,8 @@ export const ClickSegment: Story = {
     onChange: fn(),
     children: (
       <>
-        <button type="button" className="pm-segmented-control__item" aria-pressed="true">A</button>
-        <button type="button" className="pm-segmented-control__item">B</button>
+        <button type="button" className="pm-seg-ctrl__item" aria-pressed="true">A</button>
+        <button type="button" className="pm-seg-ctrl__item">B</button>
       </>
     ),
   },
@@ -104,13 +104,13 @@ export const KeyboardNavigation: Story = {
   args: {
     children: (
       <>
-        <button type="button" className="pm-segmented-control__item" aria-pressed="true">A</button>
-        <button type="button" className="pm-segmented-control__item">B</button>
+        <button type="button" className="pm-seg-ctrl__item" aria-pressed="true">A</button>
+        <button type="button" className="pm-seg-ctrl__item">B</button>
       </>
     ),
   },
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-segmented-control")
+    const el = canvasElement.querySelector(".pm-seg-ctrl")
     await expect(el).toBeTruthy()
     await userEvent.tab()
   },
@@ -120,8 +120,8 @@ export const Accessibility: Story = {
   args: {
     children: (
       <>
-        <button type="button" className="pm-segmented-control__item" aria-pressed="true">A</button>
-        <button type="button" className="pm-segmented-control__item">B</button>
+        <button type="button" className="pm-seg-ctrl__item" aria-pressed="true">A</button>
+        <button type="button" className="pm-seg-ctrl__item">B</button>
       </>
     ),
   },

@@ -1,25 +1,25 @@
 import { forwardRef, createContext, useContext, useEffect, useId } from "react"
 import {
-  alertDialogClasses,
+  alertdialogClasses,
   alertDialogHeaderClasses,
   alertDialogBodyClasses,
   alertDialogFooterClasses,
 } from "@paramanu/overlays-js"
-import type { AlertDialogClassesOptions } from "@paramanu/overlays-js"
+import type { AlertdialogClassesOptions } from "@paramanu/overlays-js"
 
-interface AlertDialogContextValue {
+interface AlertdialogContextValue {
   onClose?: () => void
   titleId?: string
   descriptionId?: string
 }
 
-const AlertDialogContext = createContext<AlertDialogContextValue>({})
+const AlertdialogContext = createContext<AlertdialogContextValue>({})
 
-/** Returns the nearest AlertDialog context value. */
-export const useAlertDialogContext = () => useContext(AlertDialogContext)
+/** Returns the nearest Alertdialog context value. */
+export const useAlertdialogContext = () => useContext(AlertdialogContext)
 
-export interface ReactAlertDialogProps
-  extends AlertDialogClassesOptions,
+export interface ReactAlertdialogProps
+  extends AlertdialogClassesOptions,
     Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
   /** Whether the alert dialog is open. @default false */
   open?: boolean
@@ -33,32 +33,32 @@ export interface ReactAlertDialogProps
 }
 
 /**
- * AlertDialog renders a modal that requires explicit user action to dismiss.
+ * Alertdialog renders a modal that requires explicit user action to dismiss.
  * Unlike Dialog, it does not close on backdrop click.
  * Uses `role="alertdialog"` and `aria-modal="true"`.
  *
  * @example
  * ```tsx
- * <AlertDialog open={isOpen} onClose={close} variant="danger">
- *   <AlertDialogHeader>Delete Item?</AlertDialogHeader>
- *   <AlertDialogBody>This action cannot be undone.</AlertDialogBody>
- *   <AlertDialogFooter>
- *     <Button variant="ghost" onClick={close}>Cancel</Button>
- *     <Button variant="danger" onClick={handleDelete}>Delete</Button>
- *   </AlertDialogFooter>
- * </AlertDialog>
+ * <Alertdialog open={isOpen} onClose={close} variant="danger">
+ *   <AlertdialogHeader>Delete Item?</AlertdialogHeader>
+ *   <AlertdialogBody>This action cannot be undone.</AlertdialogBody>
+ *   <AlertdialogFooter>
+ *     <Btn variant="ghost" onClick={close}>Cancel</Btn>
+ *     <Btn variant="danger" onClick={handleDelete}>Delete</Btn>
+ *   </AlertdialogFooter>
+ * </Alertdialog>
  * ```
  */
-export const AlertDialog = forwardRef<HTMLDivElement, ReactAlertDialogProps>(
-  function AlertDialog(
+export const Alertdialog = forwardRef<HTMLDivElement, ReactAlertdialogProps>(
+  function Alertdialog(
     { open = false, onClose, closeOnEscape = false, variant, className, children, ...rest },
     ref,
   ) {
     const uid = useId()
-    const titleId = `pm-alert-dialog-title-${uid}`
-    const descriptionId = `pm-alert-dialog-desc-${uid}`
+    const titleId = `pm-alertdialog-title-${uid}`
+    const descriptionId = `pm-alertdialog-desc-${uid}`
 
-    const classes = alertDialogClasses({ variant })
+    const classes = alertdialogClasses({ variant })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     useEffect(() => {
@@ -73,7 +73,7 @@ export const AlertDialog = forwardRef<HTMLDivElement, ReactAlertDialogProps>(
     if (!open) return null
 
     return (
-      <AlertDialogContext.Provider value={{ onClose, titleId, descriptionId }}>
+      <AlertdialogContext.Provider value={{ onClose, titleId, descriptionId }}>
         <div
           ref={ref}
           role="alertdialog"
@@ -85,18 +85,18 @@ export const AlertDialog = forwardRef<HTMLDivElement, ReactAlertDialogProps>(
         >
           {children}
         </div>
-      </AlertDialogContext.Provider>
+      </AlertdialogContext.Provider>
     )
   },
 )
 
-export interface ReactAlertDialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactAlertdialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const AlertDialogHeader = forwardRef<HTMLDivElement, ReactAlertDialogHeaderProps>(
-  function AlertDialogHeader({ className, children, id, ...rest }, ref) {
-    const ctx = useAlertDialogContext()
+export const AlertdialogHeader = forwardRef<HTMLDivElement, ReactAlertdialogHeaderProps>(
+  function AlertdialogHeader({ className, children, id, ...rest }, ref) {
+    const ctx = useAlertdialogContext()
     const classes = alertDialogHeaderClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
     return (
@@ -107,13 +107,13 @@ export const AlertDialogHeader = forwardRef<HTMLDivElement, ReactAlertDialogHead
   },
 )
 
-export interface ReactAlertDialogBodyProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactAlertdialogBodyProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const AlertDialogBody = forwardRef<HTMLDivElement, ReactAlertDialogBodyProps>(
-  function AlertDialogBody({ className, children, id, ...rest }, ref) {
-    const ctx = useAlertDialogContext()
+export const AlertdialogBody = forwardRef<HTMLDivElement, ReactAlertdialogBodyProps>(
+  function AlertdialogBody({ className, children, id, ...rest }, ref) {
+    const ctx = useAlertdialogContext()
     const classes = alertDialogBodyClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
     return (
@@ -124,12 +124,12 @@ export const AlertDialogBody = forwardRef<HTMLDivElement, ReactAlertDialogBodyPr
   },
 )
 
-export interface ReactAlertDialogFooterProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactAlertdialogFooterProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const AlertDialogFooter = forwardRef<HTMLDivElement, ReactAlertDialogFooterProps>(
-  function AlertDialogFooter({ className, children, ...rest }, ref) {
+export const AlertdialogFooter = forwardRef<HTMLDivElement, ReactAlertdialogFooterProps>(
+  function AlertdialogFooter({ className, children, ...rest }, ref) {
     const classes = alertDialogFooterClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
     return (

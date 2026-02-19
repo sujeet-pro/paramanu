@@ -11,7 +11,7 @@ function createHighlight(args: HighlightClassesOptions): HTMLElement {
 
 const meta = {
   title: "Typography/Highlight",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createHighlight(args as HighlightClassesOptions),
   argTypes: {
     color: { control: "select", options: ["primary", "danger", "success", "warning", "info", "neutral"] },

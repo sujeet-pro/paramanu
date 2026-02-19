@@ -1,18 +1,18 @@
 /** Visual style variant for the button */
-export type ButtonVariant = "primary" | "secondary" | "danger" | "ghost" | "outline" | "link"
+export type BtnVariant = "primary" | "secondary" | "danger" | "ghost" | "outline" | "link"
 
 /** Size preset for the button */
-export type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl"
+export type BtnSize = "xs" | "sm" | "md" | "lg" | "xl"
 
 /**
  * Options for generating button CSS class names.
- * Used by both BEM (`buttonClasses`) and CSS module (`buttonModuleClasses`) builders.
+ * Used by both BEM (`btnClasses`) and CSS module (`btnModuleClasses`) builders.
  */
-export interface ButtonClassesOptions {
+export interface BtnClassesOptions {
   /** Visual style variant. @default "primary" */
-  variant?: ButtonVariant
+  variant?: BtnVariant
   /** Size preset controlling padding and font-size. @default "md" */
-  size?: ButtonSize
+  size?: BtnSize
   /** Whether the button is in a disabled state. @default false */
   disabled?: boolean
   /** Whether the button should stretch to fill its container width. @default false */
@@ -27,7 +27,7 @@ export interface ButtonClassesOptions {
  * Full props interface for the button component.
  * Extends class options with HTML-specific attributes.
  */
-export interface ButtonProps extends ButtonClassesOptions {
+export interface BtnProps extends BtnClassesOptions {
   /** The HTML button type attribute. @default "button" */
   type?: "button" | "submit" | "reset"
   /** Text to display alongside the spinner when loading. */

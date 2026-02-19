@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { dataGridClasses } from "./data-grid.classes.js"
-import type { DataGridClassesOptions } from "./data-grid.types.js"
+import { datagridClasses } from "./data-grid.classes.js"
+import type { DatagridClassesOptions } from "./data-grid.types.js"
 
-function createDataGrid(args: DataGridClassesOptions): HTMLElement {
-  const cls = dataGridClasses(args)
+function createDatagrid(args: DatagridClassesOptions): HTMLElement {
+  const cls = datagridClasses(args)
   const root = document.createElement("div")
   root.className = cls.root
   root.setAttribute("role", "grid")
@@ -40,8 +40,8 @@ function createDataGrid(args: DataGridClassesOptions): HTMLElement {
 
 const meta = {
   title: "Data Display/Data Grid",
-  tags: ["autodocs", "stable"],
-  render: (args) => createDataGrid(args as DataGridClassesOptions),
+  tags: ["autodocs", "beta"],
+  render: (args) => createDatagrid(args as DatagridClassesOptions),
   argTypes: {
     size: { control: "select", options: ["sm", "md"] },
     bordered: { control: "boolean" },
@@ -49,10 +49,10 @@ const meta = {
     resizable: { control: "boolean" },
   },
   args: { size: "md" },
-} satisfies Meta<DataGridClassesOptions>
+} satisfies Meta<DatagridClassesOptions>
 
 export default meta
-type Story = StoryObj<DataGridClassesOptions>
+type Story = StoryObj<DatagridClassesOptions>
 
 export const Playground: Story = {}
 export const Bordered: Story = { args: { bordered: true } }

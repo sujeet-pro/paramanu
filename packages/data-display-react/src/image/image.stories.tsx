@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, within } from "storybook/test"
-import { Image } from "./image.js"
+import { Img } from "./image.js"
 
 const meta = {
-  title: "Data Display/Image",
-  component: Image,
-  tags: ["autodocs", "stable"],
+  title: "Data Display/Img",
+  component: Img,
+  tags: ["autodocs", "beta"],
   argTypes: {
     fit: { control: "select", options: ["cover", "contain", "fill", "none", "scale-down"] },
     radius: { control: "select", options: ["none", "sm", "md", "lg", "xl", "full"] },
@@ -13,7 +13,7 @@ const meta = {
     loading: { control: "boolean" },
   },
   args: { fit: "cover", radius: "none" },
-} satisfies Meta<typeof Image>
+} satisfies Meta<typeof Img>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -67,7 +67,7 @@ export const FocusVisible: Story = {
 export const RenderTest: Story = {
   args: { src: "https://picsum.photos/400/300", alt: "Test image" },
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-image")
+    const el = canvasElement.querySelector(".pm-img")
     await expect(el).toBeTruthy()
   },
 }

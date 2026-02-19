@@ -1,20 +1,20 @@
 import { describe, it, expect, afterEach, vi } from "vitest"
 import { render, screen, cleanup, fireEvent } from "@testing-library/react"
 import {
-  AlertDialog,
-  AlertDialogHeader,
-  AlertDialogBody,
-  AlertDialogFooter,
+  Alertdialog,
+  AlertdialogHeader,
+  AlertdialogBody,
+  AlertdialogFooter,
 } from "./alert-dialog.js"
 
 afterEach(cleanup)
 
-describe("AlertDialog", () => {
+describe("Alertdialog", () => {
   it("renders when open", () => {
     render(
-      <AlertDialog open>
+      <Alertdialog open>
         <p>Alert content</p>
-      </AlertDialog>,
+      </Alertdialog>,
     )
     expect(screen.getByRole("alertdialog")).toBeInTheDocument()
     expect(screen.getByText("Alert content")).toBeInTheDocument()
@@ -22,43 +22,43 @@ describe("AlertDialog", () => {
 
   it("does not render when closed", () => {
     render(
-      <AlertDialog open={false}>
+      <Alertdialog open={false}>
         <p>Alert content</p>
-      </AlertDialog>,
+      </Alertdialog>,
     )
     expect(screen.queryByRole("alertdialog")).not.toBeInTheDocument()
   })
 
   it("applies role=alertdialog and aria-modal", () => {
-    render(<AlertDialog open>Content</AlertDialog>)
+    render(<Alertdialog open>Content</Alertdialog>)
     const dialog = screen.getByRole("alertdialog")
     expect(dialog).toHaveAttribute("role", "alertdialog")
     expect(dialog).toHaveAttribute("aria-modal", "true")
   })
 
   it("applies default classes", () => {
-    render(<AlertDialog open>Content</AlertDialog>)
+    render(<Alertdialog open>Content</Alertdialog>)
     const dialog = screen.getByRole("alertdialog")
-    expect(dialog.className).toContain("pm-alert-dialog")
-    expect(dialog.className).toContain("pm-alert-dialog--info")
+    expect(dialog.className).toContain("pm-alertdialog")
+    expect(dialog.className).toContain("pm-alertdialog--info")
   })
 
   it("applies variant class", () => {
     render(
-      <AlertDialog open variant="danger">
+      <Alertdialog open variant="danger">
         Content
-      </AlertDialog>,
+      </Alertdialog>,
     )
     const dialog = screen.getByRole("alertdialog")
-    expect(dialog.className).toContain("pm-alert-dialog--danger")
+    expect(dialog.className).toContain("pm-alertdialog--danger")
   })
 
   it("does not close on Escape by default", () => {
     const onClose = vi.fn()
     render(
-      <AlertDialog open onClose={onClose}>
+      <Alertdialog open onClose={onClose}>
         Content
-      </AlertDialog>,
+      </Alertdialog>,
     )
     fireEvent.keyDown(document, { key: "Escape" })
     expect(onClose).not.toHaveBeenCalled()
@@ -67,9 +67,9 @@ describe("AlertDialog", () => {
   it("closes on Escape when closeOnEscape is true", () => {
     const onClose = vi.fn()
     render(
-      <AlertDialog open onClose={onClose} closeOnEscape>
+      <Alertdialog open onClose={onClose} closeOnEscape>
         Content
-      </AlertDialog>,
+      </Alertdialog>,
     )
     fireEvent.keyDown(document, { key: "Escape" })
     expect(onClose).toHaveBeenCalledTimes(1)
@@ -78,120 +78,120 @@ describe("AlertDialog", () => {
   it("forwards ref", () => {
     let dialogRef: HTMLDivElement | null = null
     render(
-      <AlertDialog open ref={(el) => (dialogRef = el)}>
+      <Alertdialog open ref={(el) => (dialogRef = el)}>
         Content
-      </AlertDialog>,
+      </Alertdialog>,
     )
     expect(dialogRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <AlertDialog open className="custom-class">
+      <Alertdialog open className="custom-class">
         Content
-      </AlertDialog>,
+      </Alertdialog>,
     )
     const dialog = screen.getByRole("alertdialog")
-    expect(dialog.className).toContain("pm-alert-dialog")
+    expect(dialog.className).toContain("pm-alertdialog")
     expect(dialog.className).toContain("custom-class")
   })
 
   it("passes through additional HTML attributes", () => {
     render(
-      <AlertDialog open data-testid="my-alert-dialog">
+      <Alertdialog open data-testid="my-alert-dialog">
         Content
-      </AlertDialog>,
+      </Alertdialog>,
     )
     expect(screen.getByTestId("my-alert-dialog")).toBeInTheDocument()
   })
 })
 
-describe("AlertDialogHeader", () => {
+describe("AlertdialogHeader", () => {
   it("renders with children", () => {
-    render(<AlertDialogHeader>Header text</AlertDialogHeader>)
+    render(<AlertdialogHeader>Header text</AlertdialogHeader>)
     expect(screen.getByText("Header text")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<AlertDialogHeader data-testid="header">Header</AlertDialogHeader>)
+    render(<AlertdialogHeader data-testid="header">Header</AlertdialogHeader>)
     const el = screen.getByTestId("header")
-    expect(el.className).toContain("pm-alert-dialog__header")
+    expect(el.className).toContain("pm-alertdialog__header")
   })
 
   it("forwards ref", () => {
     let headerRef: HTMLDivElement | null = null
-    render(<AlertDialogHeader ref={(el) => (headerRef = el)}>Header</AlertDialogHeader>)
+    render(<AlertdialogHeader ref={(el) => (headerRef = el)}>Header</AlertdialogHeader>)
     expect(headerRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <AlertDialogHeader className="custom-header" data-testid="header">
+      <AlertdialogHeader className="custom-header" data-testid="header">
         Header
-      </AlertDialogHeader>,
+      </AlertdialogHeader>,
     )
     const el = screen.getByTestId("header")
-    expect(el.className).toContain("pm-alert-dialog__header")
+    expect(el.className).toContain("pm-alertdialog__header")
     expect(el.className).toContain("custom-header")
   })
 })
 
-describe("AlertDialogBody", () => {
+describe("AlertdialogBody", () => {
   it("renders with children", () => {
-    render(<AlertDialogBody>Body text</AlertDialogBody>)
+    render(<AlertdialogBody>Body text</AlertdialogBody>)
     expect(screen.getByText("Body text")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<AlertDialogBody data-testid="body">Body</AlertDialogBody>)
+    render(<AlertdialogBody data-testid="body">Body</AlertdialogBody>)
     const el = screen.getByTestId("body")
-    expect(el.className).toContain("pm-alert-dialog__body")
+    expect(el.className).toContain("pm-alertdialog__body")
   })
 
   it("forwards ref", () => {
     let bodyRef: HTMLDivElement | null = null
-    render(<AlertDialogBody ref={(el) => (bodyRef = el)}>Body</AlertDialogBody>)
+    render(<AlertdialogBody ref={(el) => (bodyRef = el)}>Body</AlertdialogBody>)
     expect(bodyRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <AlertDialogBody className="custom-body" data-testid="body">
+      <AlertdialogBody className="custom-body" data-testid="body">
         Body
-      </AlertDialogBody>,
+      </AlertdialogBody>,
     )
     const el = screen.getByTestId("body")
-    expect(el.className).toContain("pm-alert-dialog__body")
+    expect(el.className).toContain("pm-alertdialog__body")
     expect(el.className).toContain("custom-body")
   })
 })
 
-describe("AlertDialogFooter", () => {
+describe("AlertdialogFooter", () => {
   it("renders with children", () => {
-    render(<AlertDialogFooter>Footer text</AlertDialogFooter>)
+    render(<AlertdialogFooter>Footer text</AlertdialogFooter>)
     expect(screen.getByText("Footer text")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<AlertDialogFooter data-testid="footer">Footer</AlertDialogFooter>)
+    render(<AlertdialogFooter data-testid="footer">Footer</AlertdialogFooter>)
     const el = screen.getByTestId("footer")
-    expect(el.className).toContain("pm-alert-dialog__footer")
+    expect(el.className).toContain("pm-alertdialog__footer")
   })
 
   it("forwards ref", () => {
     let footerRef: HTMLDivElement | null = null
-    render(<AlertDialogFooter ref={(el) => (footerRef = el)}>Footer</AlertDialogFooter>)
+    render(<AlertdialogFooter ref={(el) => (footerRef = el)}>Footer</AlertdialogFooter>)
     expect(footerRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <AlertDialogFooter className="custom-footer" data-testid="footer">
+      <AlertdialogFooter className="custom-footer" data-testid="footer">
         Footer
-      </AlertDialogFooter>,
+      </AlertdialogFooter>,
     )
     const el = screen.getByTestId("footer")
-    expect(el.className).toContain("pm-alert-dialog__footer")
+    expect(el.className).toContain("pm-alertdialog__footer")
     expect(el.className).toContain("custom-footer")
   })
 })

@@ -16,7 +16,7 @@ function createList(args: ListClassesOptions): HTMLElement {
 
 const meta = {
   title: "Typography/List",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createList(args as ListClassesOptions),
   argTypes: {
     type: { control: "select", options: ["ordered", "unordered"] },

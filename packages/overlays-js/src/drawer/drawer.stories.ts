@@ -37,7 +37,7 @@ function createDrawer(args: DrawerClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Drawer",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createDrawer(args as DrawerClassesOptions),
   argTypes: {
     placement: { control: "select", options: ["start", "end", "top", "bottom"] },

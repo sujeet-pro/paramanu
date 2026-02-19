@@ -15,29 +15,29 @@
   .pm-mentions__textarea {
     font-family: inherit;
     border-radius: var(--pm-radius-md);
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
     resize: vertical;
     transition-property: border-color, box-shadow;
     transition-duration: var(--pm-transition-fast);
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
 
     &::placeholder {
-      color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+      color: var(--pm-fg-subtle);
     }
   }
 
   .pm-mentions--outline .pm-mentions__textarea {
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border: 1px solid var(--pm-neutral-active);
     background-color: transparent;
   }
 
   .pm-mentions--filled .pm-mentions__textarea {
     border: 1px solid transparent;
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-muted);
   }
 
   .pm-mentions--unstyled .pm-mentions__textarea {
@@ -64,7 +64,7 @@
   }
 
   .pm-mentions--invalid .pm-mentions__textarea {
-    border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+    border-color: var(--pm-danger-border);
   }
 
   .pm-mentions__dropdown {
@@ -75,8 +75,8 @@
     min-width: 200px;
     max-height: 200px;
     overflow-y: auto;
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-800));
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    background-color: var(--pm-bg);
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-md);
     box-shadow: var(--pm-shadow-lg);
     list-style: none;
@@ -88,19 +88,19 @@
     padding: var(--pm-spacing-2) var(--pm-spacing-3);
     cursor: pointer;
     font-size: var(--pm-font-size-sm);
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+    color: var(--pm-neutral-fg);
     transition-property: background-color;
     transition-duration: var(--pm-transition-fast);
 
     &:hover,
     &.pm-mentions__suggestion--focused {
-      background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-950));
-      color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+      background-color: var(--pm-primary-subtle);
+      color: var(--pm-fg-link-hover);
     }
   }
 
   .pm-mentions__highlight {
-    color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+    color: var(--pm-fg-link);
     font-weight: var(--pm-font-weight-medium);
   }
 }

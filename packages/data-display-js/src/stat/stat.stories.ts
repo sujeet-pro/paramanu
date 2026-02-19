@@ -35,7 +35,7 @@ function createStat(args: StatArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Stat",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createStat(args as StatArgs),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },

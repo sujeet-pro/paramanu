@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { progressBarClasses } from "./progress-bar.classes.js"
-import type { ProgressBarClassesOptions, ProgressBarVariant, ProgressBarSize } from "./progress-bar.types.js"
+import { progressClasses } from "./progress-bar.classes.js"
+import type { ProgressClassesOptions, ProgressVariant, ProgressSize } from "./progress-bar.types.js"
 
-interface ProgressBarArgs extends ProgressBarClassesOptions {}
+interface ProgressArgs extends ProgressClassesOptions {}
 
-function createProgressBar(args: ProgressBarArgs): HTMLDivElement {
-  const classes = progressBarClasses(args)
+function createProgress(args: ProgressArgs): HTMLDivElement {
+  const classes = progressClasses(args)
   const value = args.value ?? 0
   const min = args.min ?? 0
   const max = args.max ?? 100
@@ -43,8 +43,8 @@ function createProgressBar(args: ProgressBarArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Progress Bar",
-  tags: ["autodocs", "stable"],
-  render: (args) => createProgressBar(args as ProgressBarArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createProgress(args as ProgressArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
     variant: { control: "select", options: ["primary", "success", "warning", "danger"] },
@@ -59,10 +59,10 @@ const meta = {
     size: "md",
     value: 60,
   },
-} satisfies Meta<ProgressBarArgs>
+} satisfies Meta<ProgressArgs>
 
 export default meta
-type Story = StoryObj<ProgressBarArgs>
+type Story = StoryObj<ProgressArgs>
 
 export const Playground: Story = {}
 
@@ -72,9 +72,9 @@ export const AllVariants: Story = {
     container.style.display = "flex"
     container.style.flexDirection = "column"
     container.style.gap = "12px"
-    const variants: ProgressBarVariant[] = ["primary", "success", "warning", "danger"]
+    const variants: ProgressVariant[] = ["primary", "success", "warning", "danger"]
     for (const variant of variants) {
-      container.appendChild(createProgressBar({ variant, value: 65 }))
+      container.appendChild(createProgress({ variant, value: 65 }))
     }
     return container
   },
@@ -86,9 +86,9 @@ export const AllSizes: Story = {
     container.style.display = "flex"
     container.style.flexDirection = "column"
     container.style.gap = "12px"
-    const sizes: ProgressBarSize[] = ["xs", "sm", "md", "lg"]
+    const sizes: ProgressSize[] = ["xs", "sm", "md", "lg"]
     for (const size of sizes) {
-      container.appendChild(createProgressBar({ size, value: 50 }))
+      container.appendChild(createProgress({ size, value: 50 }))
     }
     return container
   },

@@ -1,12 +1,20 @@
 ---
 title: Inline Message
 description: Compact feedback message for form fields and inline content areas.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-InlineMessage displays compact feedback within forms or content areas, ideal for field validation hints.
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
+
+InlineMsg displays compact feedback within forms or content areas, ideal for field validation hints.
 
 <Tabs syncKey="component-tab">
   <TabItem label="Usage">
@@ -14,13 +22,13 @@ InlineMessage displays compact feedback within forms or content areas, ideal for
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-inline-message pm-inline-message--info pm-inline-message--md" role="status">
-  <div class="pm-inline-message__content">This field is required.</div>
+  htmlCode={`<div class="pm-inline-msg pm-inline-msg--info pm-inline-msg--md" role="status">
+  <div class="pm-inline-msg__content">This field is required.</div>
 </div>`}
-  reactCode={`import { InlineMessage } from "@paramanu/feedback-react"
+  reactCode={`import { InlineMsg } from "@paramanu/feedback-react"
 
 export default function App() {
-  return <InlineMessage variant="info">This field is required.</InlineMessage>
+  return <InlineMsg variant="info">This field is required.</InlineMsg>
 }`}
 />
 
@@ -28,20 +36,20 @@ export default function App() {
 
 <ComponentPreview
   htmlCode={`<div style="display: flex; flex-direction: column; gap: 4px;">
-  <div class="pm-inline-message pm-inline-message--info pm-inline-message--md" role="status"><div class="pm-inline-message__content">Info</div></div>
-  <div class="pm-inline-message pm-inline-message--success pm-inline-message--md" role="status"><div class="pm-inline-message__content">Success</div></div>
-  <div class="pm-inline-message pm-inline-message--warning pm-inline-message--md" role="alert"><div class="pm-inline-message__content">Warning</div></div>
-  <div class="pm-inline-message pm-inline-message--danger pm-inline-message--md" role="alert"><div class="pm-inline-message__content">Danger</div></div>
+  <div class="pm-inline-msg pm-inline-msg--info pm-inline-msg--md" role="status"><div class="pm-inline-msg__content">Info</div></div>
+  <div class="pm-inline-msg pm-inline-msg--success pm-inline-msg--md" role="status"><div class="pm-inline-msg__content">Success</div></div>
+  <div class="pm-inline-msg pm-inline-msg--warning pm-inline-msg--md" role="alert"><div class="pm-inline-msg__content">Warning</div></div>
+  <div class="pm-inline-msg pm-inline-msg--danger pm-inline-msg--md" role="alert"><div class="pm-inline-msg__content">Danger</div></div>
 </div>`}
-  reactCode={`import { InlineMessage } from "@paramanu/feedback-react"
+  reactCode={`import { InlineMsg } from "@paramanu/feedback-react"
 
 export default function App() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-      <InlineMessage variant="info">Info</InlineMessage>
-      <InlineMessage variant="success">Success</InlineMessage>
-      <InlineMessage variant="warning">Warning</InlineMessage>
-      <InlineMessage variant="danger">Danger</InlineMessage>
+      <InlineMsg variant="info">Info</InlineMsg>
+      <InlineMsg variant="success">Success</InlineMsg>
+      <InlineMsg variant="warning">Warning</InlineMsg>
+      <InlineMsg variant="danger">Danger</InlineMsg>
     </div>
   )
 }`}

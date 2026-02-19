@@ -5,8 +5,8 @@ export type { FormSize, InputVariant } from "./shared.types.js"
 export { labelClasses, labelModuleClasses } from "./label/label.classes.js"
 export type { LabelClassesOptions, LabelProps } from "./label/label.types.js"
 
-export { formControlClasses, formControlModuleClasses } from "./form-control/form-control.classes.js"
-export type { FormControlClassesOptions, FormControlProps } from "./form-control/form-control.types.js"
+export { formCtrlClasses, formCtrlModuleClasses } from "./form-control/form-control.classes.js"
+export type { FormCtrlClassesOptions, FormCtrlProps } from "./form-control/form-control.types.js"
 
 export { fieldsetClasses, fieldsetModuleClasses } from "./fieldset/fieldset.classes.js"
 export type { FieldsetClassesOptions, FieldsetProps } from "./fieldset/fieldset.types.js"
@@ -22,30 +22,30 @@ export { textareaClasses, textareaModuleClasses } from "./textarea/textarea.clas
 export type { TextareaClassesOptions, TextareaProps } from "./textarea/textarea.types.js"
 
 export {
-  passwordInputClasses,
-  passwordInputModuleClasses,
+  pwdInputClasses,
+  pwdInputModuleClasses,
 } from "./password-input/password-input.classes.js"
 export type {
-  PasswordInputClassesOptions,
-  PasswordInputProps,
+  PwdInputClassesOptions,
+  PwdInputProps,
 } from "./password-input/password-input.types.js"
 
 export {
-  numberInputClasses,
-  numberInputModuleClasses,
+  numInputClasses,
+  numInputModuleClasses,
 } from "./number-input/number-input.classes.js"
 export type {
-  NumberInputClassesOptions,
-  NumberInputProps,
+  NumInputClassesOptions,
+  NumInputProps,
 } from "./number-input/number-input.types.js"
 
 export {
-  searchInputClasses,
-  searchInputModuleClasses,
+  searchClasses,
+  searchModuleClasses,
 } from "./search-input/search-input.classes.js"
 export type {
-  SearchInputClassesOptions,
-  SearchInputProps,
+  SearchClassesOptions,
+  SearchProps,
 } from "./search-input/search-input.types.js"
 
 // Wave 3: Selection Controls
@@ -53,12 +53,12 @@ export { checkboxClasses, checkboxModuleClasses } from "./checkbox/checkbox.clas
 export type { CheckboxClassesOptions, CheckboxProps } from "./checkbox/checkbox.types.js"
 
 export {
-  checkboxCardClasses,
-  checkboxCardModuleClasses,
+  chkCardClasses,
+  chkCardModuleClasses,
 } from "./checkbox-card/checkbox-card.classes.js"
 export type {
-  CheckboxCardClassesOptions,
-  CheckboxCardProps,
+  ChkCardClassesOptions,
+  ChkCardProps,
 } from "./checkbox-card/checkbox-card.types.js"
 
 export {
@@ -81,34 +81,34 @@ export { switchClasses, switchModuleClasses } from "./switch/switch.classes.js"
 export type { SwitchClassesOptions, SwitchProps, SwitchLabelPlacement } from "./switch/switch.types.js"
 
 export {
-  segmentedControlClasses,
-  segmentedControlModuleClasses,
+  segCtrlClasses,
+  segCtrlModuleClasses,
 } from "./segmented-control/segmented-control.classes.js"
 export type {
-  SegmentedControlClassesOptions,
-  SegmentedControlProps,
+  SegCtrlClassesOptions,
+  SegCtrlProps,
 } from "./segmented-control/segmented-control.types.js"
 
 // Wave 4: Dropdowns & Pickers
 export {
-  nativeSelectClasses,
-  nativeSelectModuleClasses,
+  nativeSelClasses,
+  nativeSelModuleClasses,
 } from "./native-select/native-select.classes.js"
 export type {
-  NativeSelectClassesOptions,
-  NativeSelectProps,
+  NativeSelClassesOptions,
+  NativeSelProps,
 } from "./native-select/native-select.types.js"
 
 export { selectClasses, selectModuleClasses } from "./select/select.classes.js"
 export type { SelectClassesOptions, SelectProps } from "./select/select.types.js"
 
 export {
-  multiSelectClasses,
-  multiSelectModuleClasses,
+  multiSelClasses,
+  multiSelModuleClasses,
 } from "./multi-select/multi-select.classes.js"
 export type {
-  MultiSelectClassesOptions,
-  MultiSelectProps,
+  MultiSelClassesOptions,
+  MultiSelProps,
 } from "./multi-select/multi-select.types.js"
 
 export { comboboxClasses, comboboxModuleClasses } from "./combobox/combobox.classes.js"
@@ -118,33 +118,33 @@ export { calendarClasses, calendarModuleClasses } from "./calendar/calendar.clas
 export type { CalendarClassesOptions, CalendarProps } from "./calendar/calendar.types.js"
 
 export {
-  datePickerClasses,
-  datePickerModuleClasses,
+  datepickerClasses,
+  datepickerModuleClasses,
 } from "./date-picker/date-picker.classes.js"
-export type { DatePickerClassesOptions, DatePickerProps } from "./date-picker/date-picker.types.js"
+export type { DatepickerClassesOptions, DatepickerProps } from "./date-picker/date-picker.types.js"
 
 export {
-  dateRangePickerClasses,
-  dateRangePickerModuleClasses,
+  daterangeClasses,
+  daterangeModuleClasses,
 } from "./date-range-picker/date-range-picker.classes.js"
 export type {
-  DateRangePickerClassesOptions,
-  DateRangePickerProps,
+  DaterangeClassesOptions,
+  DaterangeProps,
 } from "./date-range-picker/date-range-picker.types.js"
 
 export {
-  timePickerClasses,
-  timePickerModuleClasses,
+  timepickerClasses,
+  timepickerModuleClasses,
 } from "./time-picker/time-picker.classes.js"
-export type { TimePickerClassesOptions, TimePickerProps } from "./time-picker/time-picker.types.js"
+export type { TimepickerClassesOptions, TimepickerProps } from "./time-picker/time-picker.types.js"
 
 export {
-  colorPickerClasses,
-  colorPickerModuleClasses,
+  colorpickerClasses,
+  colorpickerModuleClasses,
 } from "./color-picker/color-picker.classes.js"
 export type {
-  ColorPickerClassesOptions,
-  ColorPickerProps,
+  ColorpickerClassesOptions,
+  ColorpickerProps,
 } from "./color-picker/color-picker.types.js"
 
 export { cascaderClasses, cascaderModuleClasses } from "./cascader/cascader.classes.js"
@@ -164,24 +164,24 @@ export { tagsInputClasses, tagsInputModuleClasses } from "./tags-input/tags-inpu
 export type { TagsInputClassesOptions, TagsInputProps } from "./tags-input/tags-input.types.js"
 
 export {
-  editableTextClasses,
-  editableTextModuleClasses,
+  editableClasses,
+  editableModuleClasses,
 } from "./editable-text/editable-text.classes.js"
 export type {
-  EditableTextClassesOptions,
-  EditableTextProps,
+  EditableClassesOptions,
+  EditableProps,
 } from "./editable-text/editable-text.types.js"
 
 export { mentionsClasses, mentionsModuleClasses } from "./mentions/mentions.classes.js"
 export type { MentionsClassesOptions, MentionsProps } from "./mentions/mentions.types.js"
 
 export {
-  fileUploadClasses,
-  fileUploadModuleClasses,
+  uploadClasses,
+  uploadModuleClasses,
 } from "./file-upload/file-upload.classes.js"
 export type {
-  FileUploadClassesOptions,
-  FileUploadProps,
+  UploadClassesOptions,
+  UploadProps,
 } from "./file-upload/file-upload.types.js"
 
 export { dropzoneClasses, dropzoneModuleClasses } from "./dropzone/dropzone.classes.js"

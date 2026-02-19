@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { TimePicker } from "./time-picker.js"
+import { Timepicker } from "./time-picker.js"
 
 const meta = {
   title: "Forms/Time Picker",
-  tags: ["autodocs", "stable"],
-  component: TimePicker,
+  tags: ["autodocs", "beta"],
+  component: Timepicker,
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -18,7 +18,7 @@ const meta = {
     onFocus: fn(),
     onBlur: fn(),
   },
-} satisfies Meta<typeof TimePicker>
+} satisfies Meta<typeof Timepicker>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -36,14 +36,14 @@ export const ExtraSmall: Story = { args: { size: "xs" } }
 export const SelectTime: Story = {
   args: { onChange: fn() },
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-time-picker")
+    const el = canvasElement.querySelector(".pm-timepicker")
     await expect(el).toBeTruthy()
   },
 }
 
 export const KeyboardNavigation: Story = {
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-time-picker")
+    const el = canvasElement.querySelector(".pm-timepicker")
     await expect(el).toBeTruthy()
     await userEvent.tab()
   },
@@ -51,7 +51,7 @@ export const KeyboardNavigation: Story = {
 
 export const Accessibility: Story = {
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-time-picker")
+    const el = canvasElement.querySelector(".pm-timepicker")
     await expect(el).toBeTruthy()
   },
 }

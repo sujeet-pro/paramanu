@@ -1,9 +1,9 @@
 import type { FormSize } from "../shared.types.js"
 
-export interface EditableTextClassesOptions {
+export interface EditableClassesOptions {
   size?: FormSize
   disabled?: boolean
   editing?: boolean
 }
 
-export interface EditableTextProps extends EditableTextClassesOptions {}
+export interface EditableProps extends EditableClassesOptions {}

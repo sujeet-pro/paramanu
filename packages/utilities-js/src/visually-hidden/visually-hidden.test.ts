@@ -1,44 +1,44 @@
 import { describe, it, expect } from "vitest"
 import {
-  visuallyHiddenClasses,
-  visuallyHiddenModuleClasses,
+  srOnlyClasses,
+  srOnlyModuleClasses,
 } from "./visually-hidden.classes.js"
 
-describe("visuallyHiddenClasses", () => {
+describe("srOnlyClasses", () => {
   it("returns default classes", () => {
-    expect(visuallyHiddenClasses()).toBe("pm-visually-hidden")
+    expect(srOnlyClasses()).toBe("pm-sr-only")
   })
 
   it("applies focusable modifier", () => {
-    expect(visuallyHiddenClasses({ focusable: true })).toBe(
-      "pm-visually-hidden pm-visually-hidden--focusable",
+    expect(srOnlyClasses({ focusable: true })).toBe(
+      "pm-sr-only pm-sr-only--focusable",
     )
   })
 
   it("does not apply focusable when false", () => {
-    expect(visuallyHiddenClasses({ focusable: false })).not.toContain("--focusable")
+    expect(srOnlyClasses({ focusable: false })).not.toContain("--focusable")
   })
 })
 
-describe("visuallyHiddenModuleClasses", () => {
+describe("srOnlyModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-visually-hidden": "pm_abc_vh",
-    "pm-visually-hidden--focusable": "pm_abc_vh_focusable",
+    "pm-sr-only": "pm_abc_vh",
+    "pm-sr-only--focusable": "pm_abc_vh_focusable",
   }
 
   it("returns mapped default classes", () => {
-    expect(visuallyHiddenModuleClasses(mockClassMap)).toBe("pm_abc_vh")
+    expect(srOnlyModuleClasses(mockClassMap)).toBe("pm_abc_vh")
   })
 
   it("maps focusable class correctly", () => {
-    expect(visuallyHiddenModuleClasses(mockClassMap, { focusable: true })).toBe(
+    expect(srOnlyModuleClasses(mockClassMap, { focusable: true })).toBe(
       "pm_abc_vh pm_abc_vh_focusable",
     )
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {}
-    const result = visuallyHiddenModuleClasses(sparseMap)
+    const result = srOnlyModuleClasses(sparseMap)
     expect(result).not.toContain("undefined")
   })
 })

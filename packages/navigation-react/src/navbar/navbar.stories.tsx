@@ -5,7 +5,7 @@ import { Navbar, NavbarInner, NavbarSection, NavbarBrand, NavbarToggle } from ".
 const meta = {
   title: "Navigation/Navbar",
   component: Navbar,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: {
       control: "select",

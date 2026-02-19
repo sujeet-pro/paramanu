@@ -1,8 +1,8 @@
-export interface FormControlClassesOptions {
+export interface FormCtrlClassesOptions {
   orientation?: "vertical" | "horizontal"
   invalid?: boolean
   disabled?: boolean
   required?: boolean
 }
 
-export interface FormControlProps extends FormControlClassesOptions {}
+export interface FormCtrlProps extends FormCtrlClassesOptions {}

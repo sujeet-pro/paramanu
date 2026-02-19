@@ -1,10 +1,18 @@
 ---
-title: Button Group
+title: Btn Group
 description: Groups multiple buttons with consistent spacing and optional attached styling.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 Groups related buttons together with consistent spacing, optional attached borders, and horizontal or vertical layout.
 
@@ -14,20 +22,20 @@ Groups related buttons together with consistent spacing, optional attached borde
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-button-group pm-button-group--horizontal" role="group" aria-label="Actions">
-  <button class="pm-button pm-button--secondary pm-button--md">Left</button>
-  <button class="pm-button pm-button--secondary pm-button--md">Center</button>
-  <button class="pm-button pm-button--secondary pm-button--md">Right</button>
+  htmlCode={`<div class="pm-btn-group pm-btn-group--horizontal" role="group" aria-label="Actions">
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Left</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Center</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Right</button>
 </div>`}
-  reactCode={`import { ButtonGroup, Button } from "@paramanu/buttons-react"
+  reactCode={`import { BtnGroup, Btn } from "@paramanu/buttons-react"
 
 export default function App() {
   return (
-    <ButtonGroup aria-label="Actions">
-      <Button variant="secondary">Left</Button>
-      <Button variant="secondary">Center</Button>
-      <Button variant="secondary">Right</Button>
-    </ButtonGroup>
+    <BtnGroup aria-label="Actions">
+      <Btn variant="secondary">Left</Btn>
+      <Btn variant="secondary">Center</Btn>
+      <Btn variant="secondary">Right</Btn>
+    </BtnGroup>
   )
 }`}
 />
@@ -35,20 +43,20 @@ export default function App() {
 ## Attached
 
 <ComponentPreview
-  htmlCode={`<div class="pm-button-group pm-button-group--horizontal pm-button-group--attached" role="group" aria-label="Actions">
-  <button class="pm-button pm-button--secondary pm-button--md">Left</button>
-  <button class="pm-button pm-button--secondary pm-button--md">Center</button>
-  <button class="pm-button pm-button--secondary pm-button--md">Right</button>
+  htmlCode={`<div class="pm-btn-group pm-btn-group--horizontal pm-btn-group--attached" role="group" aria-label="Actions">
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Left</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Center</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Right</button>
 </div>`}
-  reactCode={`import { ButtonGroup, Button } from "@paramanu/buttons-react"
+  reactCode={`import { BtnGroup, Btn } from "@paramanu/buttons-react"
 
 export default function App() {
   return (
-    <ButtonGroup attached aria-label="Actions">
-      <Button variant="secondary">Left</Button>
-      <Button variant="secondary">Center</Button>
-      <Button variant="secondary">Right</Button>
-    </ButtonGroup>
+    <BtnGroup attached aria-label="Actions">
+      <Btn variant="secondary">Left</Btn>
+      <Btn variant="secondary">Center</Btn>
+      <Btn variant="secondary">Right</Btn>
+    </BtnGroup>
   )
 }`}
 />
@@ -56,20 +64,20 @@ export default function App() {
 ## Vertical
 
 <ComponentPreview
-  htmlCode={`<div class="pm-button-group pm-button-group--vertical" role="group" aria-label="Actions">
-  <button class="pm-button pm-button--secondary pm-button--md">Top</button>
-  <button class="pm-button pm-button--secondary pm-button--md">Middle</button>
-  <button class="pm-button pm-button--secondary pm-button--md">Bottom</button>
+  htmlCode={`<div class="pm-btn-group pm-btn-group--vertical" role="group" aria-label="Actions">
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Top</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Middle</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Bottom</button>
 </div>`}
-  reactCode={`import { ButtonGroup, Button } from "@paramanu/buttons-react"
+  reactCode={`import { BtnGroup, Btn } from "@paramanu/buttons-react"
 
 export default function App() {
   return (
-    <ButtonGroup orientation="vertical" aria-label="Actions">
-      <Button variant="secondary">Top</Button>
-      <Button variant="secondary">Middle</Button>
-      <Button variant="secondary">Bottom</Button>
-    </ButtonGroup>
+    <BtnGroup orientation="vertical" aria-label="Actions">
+      <Btn variant="secondary">Top</Btn>
+      <Btn variant="secondary">Middle</Btn>
+      <Btn variant="secondary">Bottom</Btn>
+    </BtnGroup>
   )
 }`}
 />
@@ -102,17 +110,17 @@ Extends all native `<div>` HTML attributes.
 | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout direction |
 | `attached` | `boolean` | `false` | Merge button borders |
 | `fullWidth` | `boolean` | `false` | Stretch to container width |
-| `children` | `ReactNode` | -- | Button elements |
+| `children` | `ReactNode` | -- | Btn elements |
 
 ## CSS Classes
 
 | Class | Purpose |
 |---|---|
-| `pm-button-group` | Base styles |
-| `pm-button-group--horizontal` | Horizontal layout |
-| `pm-button-group--vertical` | Vertical layout |
-| `pm-button-group--attached` | Merged borders |
-| `pm-button-group--full-width` | Full width |
+| `pm-btn-group` | Base styles |
+| `pm-btn-group--horizontal` | Horizontal layout |
+| `pm-btn-group--vertical` | Vertical layout |
+| `pm-btn-group--attached` | Merged borders |
+| `pm-btn-group--full-width` | Full width |
 
 </TabItem>
 </Tabs>

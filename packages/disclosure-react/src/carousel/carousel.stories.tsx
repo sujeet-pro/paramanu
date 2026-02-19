@@ -5,7 +5,7 @@ import { Carousel, CarouselSlide, CarouselControl, CarouselIndicator } from "./c
 const meta = {
   title: "Disclosure/Carousel",
   component: Carousel,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     orientation: {
       control: "select",

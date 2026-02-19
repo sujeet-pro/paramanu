@@ -12,7 +12,7 @@ export interface ReactBackdropProps
 
 /**
  * Backdrop renders a fixed overlay behind modal content.
- * Used internally by Dialog, AlertDialog, Drawer, Sheet, and CommandPalette.
+ * Used internally by Dialog, Alertdialog, Drawer, Sheet, and CmdPalette.
  *
  * @example
  * ```tsx

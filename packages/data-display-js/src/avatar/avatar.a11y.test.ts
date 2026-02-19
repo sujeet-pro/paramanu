@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import { avatarClasses } from "./avatar.classes.js"
 
-function createAvatarWithImageHTML(
+function createAvatarWithImgHTML(
   name: string,
   options: Parameters<typeof avatarClasses>[0] = {},
 ): string {
@@ -22,7 +22,7 @@ function createAvatarWithFallbackHTML(
 describe("avatar accessibility", () => {
   it("has role=img on the root element", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createAvatarWithImageHTML("John Doe")}</body>`,
+      `<!DOCTYPE html><body>${createAvatarWithImgHTML("John Doe")}</body>`,
     )
     const avatar = dom.window.document.querySelector(".pm-avatar")
     expect(avatar?.getAttribute("role")).toBe("img")
@@ -30,7 +30,7 @@ describe("avatar accessibility", () => {
 
   it("has aria-label with the user name", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createAvatarWithImageHTML("Jane Smith")}</body>`,
+      `<!DOCTYPE html><body>${createAvatarWithImgHTML("Jane Smith")}</body>`,
     )
     const avatar = dom.window.document.querySelector(".pm-avatar")
     expect(avatar?.getAttribute("aria-label")).toBe("Jane Smith")
@@ -38,7 +38,7 @@ describe("avatar accessibility", () => {
 
   it("image has alt text", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createAvatarWithImageHTML("John Doe")}</body>`,
+      `<!DOCTYPE html><body>${createAvatarWithImgHTML("John Doe")}</body>`,
     )
     const img = dom.window.document.querySelector(".pm-avatar__image")
     expect(img?.getAttribute("alt")).toBe("John Doe")

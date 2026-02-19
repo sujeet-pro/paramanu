@@ -1,6 +1,6 @@
 import type { FormSize, InputVariant } from "../shared.types.js"
 
-export interface NativeSelectClassesOptions {
+export interface NativeSelClassesOptions {
   variant?: InputVariant
   size?: FormSize
   invalid?: boolean
@@ -8,4 +8,4 @@ export interface NativeSelectClassesOptions {
   fullWidth?: boolean
 }
 
-export interface NativeSelectProps extends NativeSelectClassesOptions {}
+export interface NativeSelProps extends NativeSelClassesOptions {}

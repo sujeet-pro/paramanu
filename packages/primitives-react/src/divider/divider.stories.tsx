@@ -4,7 +4,7 @@ import { Divider } from "./divider.js"
 
 const meta = {
   title: "Primitives/Divider",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Divider,
   argTypes: {
     orientation: { control: "select", options: ["horizontal", "vertical"] },

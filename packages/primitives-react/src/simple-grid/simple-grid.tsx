@@ -1,18 +1,18 @@
 import { forwardRef } from "react"
-import { simpleGridClasses } from "@paramanu/primitives-js"
-import type { SimpleGridProps } from "@paramanu/primitives-js"
+import { sgridClasses } from "@paramanu/primitives-js"
+import type { SgridProps } from "@paramanu/primitives-js"
 
-export interface ReactSimpleGridProps
-  extends SimpleGridProps,
+export interface ReactSgridProps
+  extends SgridProps,
     React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const SimpleGrid = forwardRef<HTMLDivElement, ReactSimpleGridProps>(function SimpleGrid(
+export const Sgrid = forwardRef<HTMLDivElement, ReactSgridProps>(function Sgrid(
   { minChildWidth, columns, gap, className, children, ...rest },
   ref,
 ) {
-  const classes = simpleGridClasses({ minChildWidth, columns, gap })
+  const classes = sgridClasses({ minChildWidth, columns, gap })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (

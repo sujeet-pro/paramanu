@@ -5,7 +5,7 @@ import { Tag } from "./tag.js"
 const meta = {
   title: "Data Display/Tag",
   component: Tag,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: { control: "select", options: ["filled", "outline", "subtle"] },
     size: { control: "select", options: ["sm", "md", "lg"] },

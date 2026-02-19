@@ -7,16 +7,16 @@ export { Avatar } from "./avatar/avatar.js"
 export type { ReactAvatarProps } from "./avatar/avatar.js"
 
 // Avatar Group
-export { AvatarGroup } from "./avatar-group/avatar-group.js"
-export type { ReactAvatarGroupProps } from "./avatar-group/avatar-group.js"
+export { AvatarGrp } from "./avatar-group/avatar-group.js"
+export type { ReactAvatarGrpProps } from "./avatar-group/avatar-group.js"
 
 // Icon
 export { Icon } from "./icon/icon.js"
 export type { ReactIconProps } from "./icon/icon.js"
 
-// Image
-export { Image } from "./image/image.js"
-export type { ReactImageProps } from "./image/image.js"
+// Img
+export { Img } from "./image/image.js"
+export type { ReactImgProps } from "./image/image.js"
 
 // Card
 export { Card, CardHeader, CardBody, CardFooter, CardMedia } from "./card/card.js"
@@ -71,61 +71,61 @@ export type {
 
 // Data Table
 export {
-  DataTable,
-  DataTableToolbar,
-  DataTableHeaderCell,
-  DataTableRow,
-  DataTableCell,
-  DataTablePagination,
+  Datatable,
+  DatatableToolbar,
+  DatatableHeaderCell,
+  DatatableRow,
+  DatatableCell,
+  DatatablePagination,
 } from "./data-table/data-table.js"
 export type {
-  ReactDataTableProps,
-  ReactDataTableToolbarProps,
-  ReactDataTableHeaderCellProps,
-  ReactDataTableRowProps,
-  ReactDataTableCellProps,
-  ReactDataTablePaginationProps,
+  ReactDatatableProps,
+  ReactDatatableToolbarProps,
+  ReactDatatableHeaderCellProps,
+  ReactDatatableRowProps,
+  ReactDatatableCellProps,
+  ReactDatatablePaginationProps,
 } from "./data-table/data-table.js"
 
 // Data Grid
 export {
-  DataGrid,
-  DataGridRow,
-  DataGridCell,
-  DataGridColumnHeader,
+  Datagrid,
+  DatagridRow,
+  DatagridCell,
+  DatagridColumnHeader,
 } from "./data-grid/data-grid.js"
 export type {
-  ReactDataGridProps,
-  ReactDataGridRowProps,
-  ReactDataGridCellProps,
-  ReactDataGridColumnHeaderProps,
+  ReactDatagridProps,
+  ReactDatagridRowProps,
+  ReactDatagridCellProps,
+  ReactDatagridColumnHeaderProps,
 } from "./data-grid/data-grid.js"
 
 // Data List
-export { DataList, DataListItem, DataListTerm, DataListDetail } from "./data-list/data-list.js"
+export { Datalist, DatalistItem, DatalistTerm, DatalistDetail } from "./data-list/data-list.js"
 export type {
-  ReactDataListProps,
-  ReactDataListItemProps,
-  ReactDataListTermProps,
-  ReactDataListDetailProps,
+  ReactDatalistProps,
+  ReactDatalistItemProps,
+  ReactDatalistTermProps,
+  ReactDatalistDetailProps,
 } from "./data-list/data-list.js"
 
 // Structured List
 export {
-  StructuredList,
-  StructuredListHead,
-  StructuredListBody,
-  StructuredListRow,
-  StructuredListCell,
-  StructuredListHeaderCell,
+  StructList,
+  StructListHead,
+  StructListBody,
+  StructListRow,
+  StructListCell,
+  StructListHeaderCell,
 } from "./structured-list/structured-list.js"
 export type {
-  ReactStructuredListProps,
-  ReactStructuredListHeadProps,
-  ReactStructuredListBodyProps,
-  ReactStructuredListRowProps,
-  ReactStructuredListCellProps,
-  ReactStructuredListHeaderCellProps,
+  ReactStructListProps,
+  ReactStructListHeadProps,
+  ReactStructListBodyProps,
+  ReactStructListRowProps,
+  ReactStructListCellProps,
+  ReactStructListHeaderCellProps,
 } from "./structured-list/structured-list.js"
 
 // Timeline
@@ -156,18 +156,18 @@ export type { ReactQrCodeProps } from "./qr-code/qr-code.js"
 
 // Empty State
 export {
-  EmptyState,
-  EmptyStateIcon,
-  EmptyStateHeading,
-  EmptyStateDescription,
-  EmptyStateActions,
+  Empty,
+  EmptyIcon,
+  EmptyHeading,
+  EmptyDescription,
+  EmptyActions,
 } from "./empty-state/empty-state.js"
 export type {
-  ReactEmptyStateProps,
-  ReactEmptyStateIconProps,
-  ReactEmptyStateHeadingProps,
-  ReactEmptyStateDescriptionProps,
-  ReactEmptyStateActionsProps,
+  ReactEmptyProps,
+  ReactEmptyIconProps,
+  ReactEmptyHeadingProps,
+  ReactEmptyDescriptionProps,
+  ReactEmptyActionsProps,
 } from "./empty-state/empty-state.js"
 
 // Clipboard

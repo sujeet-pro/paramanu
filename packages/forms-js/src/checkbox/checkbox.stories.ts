@@ -40,7 +40,7 @@ function createCheckbox(args: CheckboxArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Checkbox",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createCheckbox(args as CheckboxArgs),
   argTypes: {
     size: {

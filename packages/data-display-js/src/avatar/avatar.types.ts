@@ -31,7 +31,7 @@ export interface AvatarClassesResult {
 
 /** Props for the Avatar component. */
 export interface AvatarProps extends AvatarClassesOptions {
-  /** Image URL for the avatar. When absent, the fallback is shown. */
+  /** Img URL for the avatar. When absent, the fallback is shown. */
   src?: string
   /** Accessible alt text for the image. */
   alt?: string

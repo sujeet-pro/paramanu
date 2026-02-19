@@ -7,7 +7,7 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("LoadingOverlay Stories", () => {
+describe("Loading Stories", () => {
   it("Playground renders without crashing", () => {
     const { container } = render(<composed.Playground />)
     expect(container.firstChild).toBeInTheDocument()

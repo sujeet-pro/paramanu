@@ -1,5 +1,5 @@
 @layer pm.components {
-  .pm-search-input {
+  .pm-search {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -11,29 +11,29 @@
       padding-right: var(--pm-spacing-9);
     }
 
-    &.pm-search-input--sm .pm-input {
+    &.pm-search--sm .pm-input {
       padding-left: var(--pm-spacing-8);
     }
 
-    &.pm-search-input--lg .pm-input {
+    &.pm-search--lg .pm-input {
       padding-left: var(--pm-spacing-10);
     }
 
-    &.pm-search-input--full-width {
+    &.pm-search--full-width {
       width: 100%;
     }
   }
 
-  .pm-search-input__icon {
+  .pm-search__icon {
     position: absolute;
     left: var(--pm-spacing-3);
     display: flex;
     align-items: center;
     pointer-events: none;
-    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    color: var(--pm-fg-subtle);
   }
 
-  .pm-search-input__clear {
+  .pm-search__clear {
     position: absolute;
     right: var(--pm-spacing-2);
     display: inline-flex;
@@ -42,17 +42,17 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    color: var(--pm-fg-subtle);
     padding: var(--pm-spacing-1);
     border-radius: var(--pm-radius-full);
 
     &:hover {
-      color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      color: var(--pm-neutral-fg);
+      background-color: var(--pm-bg-muted);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     }
   }
 }

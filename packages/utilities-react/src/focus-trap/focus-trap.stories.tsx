@@ -5,7 +5,7 @@ import { FocusTrap } from "./focus-trap.js"
 const meta = {
   title: "Utilities/FocusTrap",
   component: FocusTrap,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     active: { control: "boolean" },
   },
@@ -37,19 +37,19 @@ export const TabNavigation: Story = {
     children: (
       <div style={{ padding: "24px", border: "2px solid #007bff" }}>
         <p>Tab cycles through these buttons when trap is active.</p>
-        <button type="button">Button A</button>
+        <button type="button">Btn A</button>
         <button type="button" style={{ marginLeft: "8px" }}>
-          Button B
+          Btn B
         </button>
         <button type="button" style={{ marginLeft: "8px" }}>
-          Button C
+          Btn C
         </button>
       </div>
     ),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const buttonA = canvas.getByText("Button A")
+    const buttonA = canvas.getByText("Btn A")
     await expect(buttonA).toBeInTheDocument()
     await userEvent.tab()
   },

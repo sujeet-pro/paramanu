@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, within } from "storybook/test"
-import { CircularProgress } from "./circular-progress.js"
+import { RingProgress } from "./circular-progress.js"
 
 const meta = {
   title: "Feedback/Circular Progress",
-  component: CircularProgress,
-  tags: ["autodocs", "stable"],
+  component: RingProgress,
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg", "xl"] },
     variant: { control: "select", options: ["primary", "success", "warning", "danger"] },
@@ -16,7 +16,7 @@ const meta = {
   args: {
     value: 60,
   },
-} satisfies Meta<typeof CircularProgress>
+} satisfies Meta<typeof RingProgress>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -32,7 +32,7 @@ export const AllVariants: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 16 }}>
       {(["primary", "success", "warning", "danger"] as const).map((variant) => (
-        <CircularProgress key={variant} variant={variant} value={65} aria-label={`${variant} progress`} />
+        <RingProgress key={variant} variant={variant} value={65} aria-label={`${variant} progress`} />
       ))}
     </div>
   ),
@@ -42,7 +42,7 @@ export const AllSizes: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
       {(["sm", "md", "lg", "xl"] as const).map((size) => (
-        <CircularProgress key={size} size={size} value={50} aria-label={`${size} progress`} />
+        <RingProgress key={size} size={size} value={50} aria-label={`${size} progress`} />
       ))}
     </div>
   ),

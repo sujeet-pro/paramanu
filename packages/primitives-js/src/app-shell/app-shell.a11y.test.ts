@@ -1,19 +1,19 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import {
-  appShellClasses,
+  shellClasses,
   appShellHeaderClasses,
   appShellSidebarClasses,
   appShellMainClasses,
   appShellFooterClasses,
 } from "./app-shell.classes.js"
 
-function createAppShellHTML(options: {
+function createShellHTML(options: {
   sidebarPosition?: "start" | "end"
   sticky?: boolean
   sidebarWidth?: "sm" | "md" | "lg"
 } = {}): string {
-  const containerClasses = appShellClasses({ sidebarPosition: options.sidebarPosition })
+  const containerClasses = shellClasses({ sidebarPosition: options.sidebarPosition })
   const headerClasses = appShellHeaderClasses({ sticky: options.sticky })
   const sidebarClasses = appShellSidebarClasses({ width: options.sidebarWidth })
   const mainClasses = appShellMainClasses()
@@ -31,39 +31,39 @@ function createAppShellHTML(options: {
 
 describe("app-shell accessibility", () => {
   it("header renders in a semantic header element", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createAppShellHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createShellHTML()}</body>`)
     const header = dom.window.document.querySelector("header")
     expect(header).not.toBeNull()
     expect(header?.tagName).toBe("HEADER")
-    expect(header?.className).toContain("pm-app-shell__header")
+    expect(header?.className).toContain("pm-shell__header")
   })
 
   it("sidebar renders in a semantic aside element", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createAppShellHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createShellHTML()}</body>`)
     const aside = dom.window.document.querySelector("aside")
     expect(aside).not.toBeNull()
     expect(aside?.tagName).toBe("ASIDE")
-    expect(aside?.className).toContain("pm-app-shell__sidebar")
+    expect(aside?.className).toContain("pm-shell__sidebar")
   })
 
   it("main content renders in a semantic main element", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createAppShellHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createShellHTML()}</body>`)
     const main = dom.window.document.querySelector("main")
     expect(main).not.toBeNull()
     expect(main?.tagName).toBe("MAIN")
-    expect(main?.className).toContain("pm-app-shell__main")
+    expect(main?.className).toContain("pm-shell__main")
   })
 
   it("footer renders in a semantic footer element", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createAppShellHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createShellHTML()}</body>`)
     const footer = dom.window.document.querySelector("footer")
     expect(footer).not.toBeNull()
     expect(footer?.tagName).toBe("FOOTER")
-    expect(footer?.className).toContain("pm-app-shell__footer")
+    expect(footer?.className).toContain("pm-shell__footer")
   })
 
   it("all landmark elements are present in the shell", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createAppShellHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createShellHTML()}</body>`)
     const doc = dom.window.document
     expect(doc.querySelector("header")).not.toBeNull()
     expect(doc.querySelector("aside")).not.toBeNull()
@@ -72,8 +72,8 @@ describe("app-shell accessibility", () => {
   })
 
   it("landmarks are direct children of the app shell container", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createAppShellHTML()}</body>`)
-    const container = dom.window.document.querySelector(".pm-app-shell")
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createShellHTML()}</body>`)
+    const container = dom.window.document.querySelector(".pm-shell")
     expect(container).not.toBeNull()
     const header = container?.querySelector(":scope > header")
     const aside = container?.querySelector(":scope > aside")
@@ -86,7 +86,7 @@ describe("app-shell accessibility", () => {
   })
 
   it("only one main element exists", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createAppShellHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createShellHTML()}</body>`)
     const mains = dom.window.document.querySelectorAll("main")
     expect(mains.length).toBe(1)
   })

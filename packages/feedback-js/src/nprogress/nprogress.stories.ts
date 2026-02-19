@@ -31,7 +31,7 @@ function createNProgress(args: NProgressArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/NProgress",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createNProgress(args as NProgressArgs),
   argTypes: {
     active: { control: "boolean" },

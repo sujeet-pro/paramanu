@@ -4,7 +4,7 @@ import { Wrap } from "./wrap.js"
 
 const meta = {
   title: "Primitives/Wrap",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Wrap,
   argTypes: {
     gap: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8"] },

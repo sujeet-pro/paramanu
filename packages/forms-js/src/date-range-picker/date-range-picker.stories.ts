@@ -1,27 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { dateRangePickerClasses } from "./date-range-picker.classes.js"
-import type { DateRangePickerClassesOptions } from "./date-range-picker.types.js"
+import { daterangeClasses } from "./date-range-picker.classes.js"
+import type { DaterangeClassesOptions } from "./date-range-picker.types.js"
 
-type DateRangePickerArgs = DateRangePickerClassesOptions
+type DaterangeArgs = DaterangeClassesOptions
 
-function createDateRangePicker(args: DateRangePickerArgs): HTMLElement {
+function createDaterange(args: DaterangeArgs): HTMLElement {
   const wrapper = document.createElement("div")
-  wrapper.className = dateRangePickerClasses(args)
+  wrapper.className = daterangeClasses(args)
 
   const startInput = document.createElement("input")
   startInput.type = "text"
   startInput.placeholder = "Start date"
-  startInput.className = "pm-date-range-picker__start"
+  startInput.className = "pm-daterange__start"
   if (args.disabled) startInput.disabled = true
 
   const separator = document.createElement("span")
-  separator.className = "pm-date-range-picker__separator"
+  separator.className = "pm-daterange__separator"
   separator.textContent = " - "
 
   const endInput = document.createElement("input")
   endInput.type = "text"
   endInput.placeholder = "End date"
-  endInput.className = "pm-date-range-picker__end"
+  endInput.className = "pm-daterange__end"
   if (args.disabled) endInput.disabled = true
 
   wrapper.appendChild(startInput)
@@ -32,8 +32,8 @@ function createDateRangePicker(args: DateRangePickerArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Date Range Picker",
-  tags: ["autodocs", "stable"],
-  render: (args) => createDateRangePicker(args as DateRangePickerArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createDaterange(args as DaterangeArgs),
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -42,10 +42,10 @@ const meta = {
     open: { control: "boolean" },
   },
   args: { variant: "outline", size: "md" },
-} satisfies Meta<DateRangePickerArgs>
+} satisfies Meta<DaterangeArgs>
 
 export default meta
-type Story = StoryObj<DateRangePickerArgs>
+type Story = StoryObj<DaterangeArgs>
 
 export const Playground: Story = {}
 export const Open: Story = { args: { open: true } }

@@ -1,24 +1,24 @@
 import { forwardRef } from "react"
 import {
-  dataTableClasses,
+  datatableClasses,
   dataTableHeaderCellClasses,
 } from "@paramanu/data-display-js"
 import type {
-  DataTableClassesOptions,
-  DataTableHeaderCellClassesOptions,
+  DatatableClassesOptions,
+  DatatableHeaderCellClassesOptions,
 } from "@paramanu/data-display-js"
 
-export interface ReactDataTableProps
-  extends DataTableClassesOptions,
+export interface ReactDatatableProps
+  extends DatatableClassesOptions,
     React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const DataTable = forwardRef<HTMLDivElement, ReactDataTableProps>(function DataTable(
+export const Datatable = forwardRef<HTMLDivElement, ReactDatatableProps>(function Datatable(
   { variant, size, hoverable, bordered, stickyHeader, selectable, className, children, ...rest },
   ref,
 ) {
-  const classes = dataTableClasses({
+  const classes = datatableClasses({
     variant, size, hoverable, bordered, stickyHeader, selectable,
   })
   const combinedClassName = className ? `${classes.root} ${className}` : classes.root
@@ -30,13 +30,13 @@ export const DataTable = forwardRef<HTMLDivElement, ReactDataTableProps>(functio
   )
 })
 
-export interface ReactDataTableToolbarProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactDatatableToolbarProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const DataTableToolbar = forwardRef<HTMLDivElement, ReactDataTableToolbarProps>(
-  function DataTableToolbar({ className, children, ...rest }, ref) {
-    const classes = dataTableClasses()
+export const DatatableToolbar = forwardRef<HTMLDivElement, ReactDatatableToolbarProps>(
+  function DatatableToolbar({ className, children, ...rest }, ref) {
+    const classes = datatableClasses()
     const combinedClassName = className ? `${classes.toolbar} ${className}` : classes.toolbar
 
     return (
@@ -47,14 +47,14 @@ export const DataTableToolbar = forwardRef<HTMLDivElement, ReactDataTableToolbar
   },
 )
 
-export interface ReactDataTableHeaderCellProps
-  extends DataTableHeaderCellClassesOptions,
+export interface ReactDatatableHeaderCellProps
+  extends DatatableHeaderCellClassesOptions,
     Omit<React.ThHTMLAttributes<HTMLTableCellElement>, "align"> {
   children?: React.ReactNode
 }
 
-export const DataTableHeaderCell = forwardRef<HTMLTableCellElement, ReactDataTableHeaderCellProps>(
-  function DataTableHeaderCell(
+export const DatatableHeaderCell = forwardRef<HTMLTableCellElement, ReactDatatableHeaderCellProps>(
+  function DatatableHeaderCell(
     { sortable, sortDirection, align, className, children, ...rest },
     ref,
   ) {
@@ -80,13 +80,13 @@ export const DataTableHeaderCell = forwardRef<HTMLTableCellElement, ReactDataTab
   },
 )
 
-export interface ReactDataTableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
+export interface ReactDatatableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
   children?: React.ReactNode
 }
 
-export const DataTableRow = forwardRef<HTMLTableRowElement, ReactDataTableRowProps>(
-  function DataTableRow({ className, children, ...rest }, ref) {
-    const classes = dataTableClasses()
+export const DatatableRow = forwardRef<HTMLTableRowElement, ReactDatatableRowProps>(
+  function DatatableRow({ className, children, ...rest }, ref) {
+    const classes = datatableClasses()
     const combinedClassName = className ? `${classes.row} ${className}` : classes.row
 
     return (
@@ -97,14 +97,14 @@ export const DataTableRow = forwardRef<HTMLTableRowElement, ReactDataTableRowPro
   },
 )
 
-export interface ReactDataTableCellProps
+export interface ReactDatatableCellProps
   extends React.TdHTMLAttributes<HTMLTableCellElement> {
   children?: React.ReactNode
 }
 
-export const DataTableCell = forwardRef<HTMLTableCellElement, ReactDataTableCellProps>(
-  function DataTableCell({ className, children, ...rest }, ref) {
-    const classes = dataTableClasses()
+export const DatatableCell = forwardRef<HTMLTableCellElement, ReactDatatableCellProps>(
+  function DatatableCell({ className, children, ...rest }, ref) {
+    const classes = datatableClasses()
     const combinedClassName = className ? `${classes.cell} ${className}` : classes.cell
 
     return (
@@ -115,13 +115,13 @@ export const DataTableCell = forwardRef<HTMLTableCellElement, ReactDataTableCell
   },
 )
 
-export interface ReactDataTablePaginationProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactDatatablePaginationProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const DataTablePagination = forwardRef<HTMLDivElement, ReactDataTablePaginationProps>(
-  function DataTablePagination({ className, children, ...rest }, ref) {
-    const classes = dataTableClasses()
+export const DatatablePagination = forwardRef<HTMLDivElement, ReactDatatablePaginationProps>(
+  function DatatablePagination({ className, children, ...rest }, ref) {
+    const classes = datatableClasses()
     const combinedClassName = className
       ? `${classes.pagination} ${className}`
       : classes.pagination

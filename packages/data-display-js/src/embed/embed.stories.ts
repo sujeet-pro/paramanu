@@ -16,7 +16,7 @@ function createEmbed(args: EmbedClassesOptions): HTMLElement {
 
 const meta = {
   title: "Data Display/Embed",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createEmbed(args as EmbedClassesOptions),
   argTypes: {
     ratio: { control: "select", options: ["1/1", "4/3", "16/9", "21/9"] },

@@ -4,7 +4,7 @@ import { Radio, RadioGroup } from "./radio.js"
 
 const meta = {
   title: "Forms/Radio",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Radio,
   argTypes: {
     size: {

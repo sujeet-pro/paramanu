@@ -1,16 +1,16 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { AvatarGroup } from "./avatar-group.js"
+import { AvatarGrp } from "./avatar-group.js"
 
 afterEach(cleanup)
 
-describe("AvatarGroup", () => {
+describe("AvatarGrp", () => {
   it("renders children", () => {
     render(
-      <AvatarGroup>
+      <AvatarGrp>
         <span>A</span>
         <span>B</span>
-      </AvatarGroup>,
+      </AvatarGrp>,
     )
     expect(screen.getByRole("group")).toBeInTheDocument()
     expect(screen.getByText("A")).toBeInTheDocument()
@@ -18,31 +18,31 @@ describe("AvatarGroup", () => {
   })
 
   it("applies default classes", () => {
-    render(<AvatarGroup>children</AvatarGroup>)
+    render(<AvatarGrp>children</AvatarGrp>)
     const group = screen.getByRole("group")
-    expect(group.className).toContain("pm-avatar-group")
-    expect(group.className).toContain("pm-avatar-group--md")
-    expect(group.className).toContain("pm-avatar-group--spacing-normal")
+    expect(group.className).toContain("pm-avatar-grp")
+    expect(group.className).toContain("pm-avatar-grp--md")
+    expect(group.className).toContain("pm-avatar-grp--spacing-normal")
   })
 
   it("applies size class", () => {
-    render(<AvatarGroup size="lg">children</AvatarGroup>)
-    expect(screen.getByRole("group").className).toContain("pm-avatar-group--lg")
+    render(<AvatarGrp size="lg">children</AvatarGrp>)
+    expect(screen.getByRole("group").className).toContain("pm-avatar-grp--lg")
   })
 
   it("applies spacing class", () => {
-    render(<AvatarGroup spacing="tight">children</AvatarGroup>)
-    expect(screen.getByRole("group").className).toContain("pm-avatar-group--spacing-tight")
+    render(<AvatarGrp spacing="tight">children</AvatarGrp>)
+    expect(screen.getByRole("group").className).toContain("pm-avatar-grp--spacing-tight")
   })
 
   it("shows overflow indicator when max is exceeded", () => {
     render(
-      <AvatarGroup max={2}>
+      <AvatarGrp max={2}>
         <span>A</span>
         <span>B</span>
         <span>C</span>
         <span>D</span>
-      </AvatarGroup>,
+      </AvatarGrp>,
     )
     expect(screen.getByText("+2")).toBeInTheDocument()
     expect(screen.queryByText("C")).not.toBeInTheDocument()
@@ -50,35 +50,35 @@ describe("AvatarGroup", () => {
 
   it("does not show overflow when within max", () => {
     render(
-      <AvatarGroup max={5}>
+      <AvatarGrp max={5}>
         <span>A</span>
         <span>B</span>
-      </AvatarGroup>,
+      </AvatarGrp>,
     )
     expect(screen.queryByText(/\+/)).not.toBeInTheDocument()
   })
 
   it("has role=group and aria-label", () => {
-    render(<AvatarGroup>children</AvatarGroup>)
+    render(<AvatarGrp>children</AvatarGrp>)
     const group = screen.getByRole("group")
     expect(group).toHaveAttribute("aria-label", "Avatars")
   })
 
   it("forwards ref", () => {
     let groupRef: HTMLDivElement | null = null
-    render(<AvatarGroup ref={(el) => (groupRef = el)}>children</AvatarGroup>)
+    render(<AvatarGrp ref={(el) => (groupRef = el)}>children</AvatarGrp>)
     expect(groupRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    render(<AvatarGroup className="custom">children</AvatarGroup>)
+    render(<AvatarGrp className="custom">children</AvatarGrp>)
     const group = screen.getByRole("group")
-    expect(group.className).toContain("pm-avatar-group")
+    expect(group.className).toContain("pm-avatar-grp")
     expect(group.className).toContain("custom")
   })
 
   it("passes through additional HTML attributes", () => {
-    render(<AvatarGroup data-testid="my-group">children</AvatarGroup>)
+    render(<AvatarGrp data-testid="my-group">children</AvatarGrp>)
     expect(screen.getByTestId("my-group")).toBeInTheDocument()
   })
 })

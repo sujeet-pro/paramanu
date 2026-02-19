@@ -6,13 +6,13 @@ afterEach(cleanup)
 
 describe("Carousel", () => {
   it("renders with role=region and aria-roledescription", () => {
-    render(<Carousel aria-label="Images">Slides</Carousel>)
+    render(<Carousel aria-label="Imgs">Slides</Carousel>)
     const carousel = screen.getByRole("region")
     expect(carousel).toHaveAttribute("aria-roledescription", "carousel")
   })
 
   it("applies default classes", () => {
-    render(<Carousel aria-label="Images">Slides</Carousel>)
+    render(<Carousel aria-label="Imgs">Slides</Carousel>)
     const carousel = screen.getByRole("region")
     expect(carousel.className).toContain("pm-carousel")
     expect(carousel.className).toContain("pm-carousel--horizontal")
@@ -21,7 +21,7 @@ describe("Carousel", () => {
 
   it("applies orientation class", () => {
     render(
-      <Carousel aria-label="Images" orientation="vertical">
+      <Carousel aria-label="Imgs" orientation="vertical">
         Slides
       </Carousel>,
     )
@@ -31,7 +31,7 @@ describe("Carousel", () => {
   it("forwards ref", () => {
     let carouselRef: HTMLDivElement | null = null
     render(
-      <Carousel aria-label="Images" ref={(el) => (carouselRef = el)}>
+      <Carousel aria-label="Imgs" ref={(el) => (carouselRef = el)}>
         Slides
       </Carousel>,
     )

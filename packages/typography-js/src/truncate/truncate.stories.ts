@@ -13,7 +13,7 @@ function createTruncate(args: TruncateClassesOptions): HTMLElement {
 
 const meta = {
   title: "Typography/Truncate",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createTruncate(args as TruncateClassesOptions),
   argTypes: {
     lines: { control: "select", options: [1, 2, 3, 4, 5, 6] },

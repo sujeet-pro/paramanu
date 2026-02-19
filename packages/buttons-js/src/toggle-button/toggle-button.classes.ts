@@ -1,6 +1,6 @@
-import type { ToggleButtonClassesOptions } from "./toggle-button.types.js"
+import type { ToggleBtnClassesOptions } from "./toggle-button.types.js"
 
-const BASE = "pm-toggle-button"
+const BASE = "pm-toggle-btn"
 
 /**
  * Returns BEM class names for the toggle button component (human-readable).
@@ -8,12 +8,12 @@ const BASE = "pm-toggle-button"
  *
  * @example
  * ```ts
- * toggleButtonClasses() // "pm-toggle-button pm-toggle-button--default pm-toggle-button--md"
- * toggleButtonClasses({ pressed: true, variant: "outline" })
- * // "pm-toggle-button pm-toggle-button--outline pm-toggle-button--md pm-toggle-button--pressed"
+ * toggleBtnClasses() // "pm-toggle-btn pm-toggle-btn--default pm-toggle-btn--md"
+ * toggleBtnClasses({ pressed: true, variant: "outline" })
+ * // "pm-toggle-btn pm-toggle-btn--outline pm-toggle-btn--md pm-toggle-btn--pressed"
  * ```
  */
-export function toggleButtonClasses(options: ToggleButtonClassesOptions = {}): string {
+export function toggleBtnClasses(options: ToggleBtnClassesOptions = {}): string {
   const {
     variant = "default",
     size = "md",
@@ -37,12 +37,12 @@ export function toggleButtonClasses(options: ToggleButtonClassesOptions = {}): s
  * @example
  * ```ts
  * import styles from "./toggle-button.module.css"
- * toggleButtonModuleClasses(styles, { pressed: true })
+ * toggleBtnModuleClasses(styles, { pressed: true })
  * ```
  */
-export function toggleButtonModuleClasses(
+export function toggleBtnModuleClasses(
   classMap: Record<string, string>,
-  options: ToggleButtonClassesOptions = {},
+  options: ToggleBtnClassesOptions = {},
 ): string {
   const {
     variant = "default",
@@ -53,14 +53,14 @@ export function toggleButtonModuleClasses(
   } = options
 
   const classes = [
-    classMap["pm-toggle-button"],
-    classMap[`pm-toggle-button--${variant}`],
-    classMap[`pm-toggle-button--${size}`],
+    classMap["pm-toggle-btn"],
+    classMap[`pm-toggle-btn--${variant}`],
+    classMap[`pm-toggle-btn--${size}`],
   ]
 
-  if (pressed) classes.push(classMap["pm-toggle-button--pressed"])
-  if (disabled) classes.push(classMap["pm-toggle-button--disabled"])
-  if (fullWidth) classes.push(classMap["pm-toggle-button--full-width"])
+  if (pressed) classes.push(classMap["pm-toggle-btn--pressed"])
+  if (disabled) classes.push(classMap["pm-toggle-btn--disabled"])
+  if (fullWidth) classes.push(classMap["pm-toggle-btn--full-width"])
 
   return classes.filter(Boolean).join(" ")
 }

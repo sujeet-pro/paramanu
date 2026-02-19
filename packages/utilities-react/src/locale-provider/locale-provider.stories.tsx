@@ -23,7 +23,7 @@ function LocaleDisplay() {
 const meta = {
   title: "Utilities/LocaleProvider",
   component: LocaleProvider,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     defaultLocale: { control: "text" },
   },

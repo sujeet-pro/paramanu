@@ -5,7 +5,7 @@ import { FormatNumber } from "./format-number.js"
 const meta = {
   title: "Utilities/FormatNumber",
   component: FormatNumber,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     value: { control: "number" },
     locale: { control: "text" },

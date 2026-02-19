@@ -1,16 +1,16 @@
 @layer pm.components {
   .pm-prose {
     --pm-prose-font-family: var(--pm-font-family-sans);
-    --pm-prose-text-color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
-    --pm-prose-heading-color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
-    --pm-prose-link-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
-    --pm-prose-link-hover-color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
-    --pm-prose-border-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-    --pm-prose-code-bg: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    --pm-prose-quote-border: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
-    --pm-prose-quote-text: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
-    --pm-prose-th-bg: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
-    --pm-prose-hr-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    --pm-prose-text-color: var(--pm-fg);
+    --pm-prose-heading-color: var(--pm-fg);
+    --pm-prose-link-color: var(--pm-fg-link);
+    --pm-prose-link-hover-color: var(--pm-fg-link-hover);
+    --pm-prose-border-color: var(--pm-border-muted);
+    --pm-prose-code-bg: var(--pm-bg-muted);
+    --pm-prose-quote-border: var(--pm-border);
+    --pm-prose-quote-text: var(--pm-fg-muted);
+    --pm-prose-th-bg: var(--pm-bg-subtle);
+    --pm-prose-hr-color: var(--pm-neutral-hover);
 
     font-family: var(--pm-prose-font-family);
     line-height: var(--pm-font-lineHeight-relaxed);
@@ -71,7 +71,7 @@
 
     /* Color */
     &.pm-prose--color-muted {
-      --pm-prose-text-color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+      --pm-prose-text-color: var(--pm-fg-muted);
     }
 
     /* Trim margins */
@@ -211,7 +211,7 @@
       margin: var(--pm-spacing-8) 0;
     }
 
-    /* Images */
+    /* Imgs */
     & img {
       max-width: 100%;
       height: auto;

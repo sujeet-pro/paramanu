@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { DateRangePicker } from "./date-range-picker.js"
+import { Daterange } from "./date-range-picker.js"
 
 const meta = {
   title: "Forms/Date Range Picker",
-  tags: ["autodocs", "stable"],
-  component: DateRangePicker,
+  tags: ["autodocs", "beta"],
+  component: Daterange,
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -18,7 +18,7 @@ const meta = {
     onFocus: fn(),
     onBlur: fn(),
   },
-} satisfies Meta<typeof DateRangePicker>
+} satisfies Meta<typeof Daterange>
 
 export default meta
 type Story = StoryObj<typeof meta>

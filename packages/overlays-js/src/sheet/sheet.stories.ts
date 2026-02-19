@@ -32,7 +32,7 @@ function createSheet(args: SheetClassesOptions): HTMLElement {
 
 const meta = {
   title: "Overlays/Sheet",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createSheet(args as SheetClassesOptions),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg", "full"] },

@@ -1,10 +1,18 @@
 ---
 title: Data Grid
 description: A CSS Grid-based data display with column headers, resizable columns, and virtualization support.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 Data Grid uses CSS Grid with `display: contents` rows for high-performance data display with column headers, resizable columns, and virtualization support.
 
@@ -14,30 +22,30 @@ Data Grid uses CSS Grid with `display: contents` rows for high-performance data 
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-data-grid pm-data-grid--md" role="grid" style="grid-template-columns: 1fr 1fr">
-  <div class="pm-data-grid__row" role="row">
-    <div class="pm-data-grid__column-header" role="columnheader">Name</div>
-    <div class="pm-data-grid__column-header" role="columnheader">Role</div>
+  htmlCode={`<div class="pm-datagrid pm-datagrid--md" role="grid" style="grid-template-columns: 1fr 1fr">
+  <div class="pm-datagrid__row" role="row">
+    <div class="pm-datagrid__column-header" role="columnheader">Name</div>
+    <div class="pm-datagrid__column-header" role="columnheader">Role</div>
   </div>
-  <div class="pm-data-grid__row" role="row">
-    <div class="pm-data-grid__cell" role="gridcell">Alice</div>
-    <div class="pm-data-grid__cell" role="gridcell">Engineer</div>
+  <div class="pm-datagrid__row" role="row">
+    <div class="pm-datagrid__cell" role="gridcell">Alice</div>
+    <div class="pm-datagrid__cell" role="gridcell">Engineer</div>
   </div>
 </div>`}
-  reactCode={`import { DataGrid, DataGridRow, DataGridCell, DataGridColumnHeader } from "@paramanu/data-display-react"
+  reactCode={`import { Datagrid, DatagridRow, DatagridCell, DatagridColumnHeader } from "@paramanu/data-display-react"
 
 export default function App() {
   return (
-    <DataGrid style={{ gridTemplateColumns: "1fr 1fr" }}>
-      <DataGridRow>
-        <DataGridColumnHeader>Name</DataGridColumnHeader>
-        <DataGridColumnHeader>Role</DataGridColumnHeader>
-      </DataGridRow>
-      <DataGridRow>
-        <DataGridCell>Alice</DataGridCell>
-        <DataGridCell>Engineer</DataGridCell>
-      </DataGridRow>
-    </DataGrid>
+    <Datagrid style={{ gridTemplateColumns: "1fr 1fr" }}>
+      <DatagridRow>
+        <DatagridColumnHeader>Name</DatagridColumnHeader>
+        <DatagridColumnHeader>Role</DatagridColumnHeader>
+      </DatagridRow>
+      <DatagridRow>
+        <DatagridCell>Alice</DatagridCell>
+        <DatagridCell>Engineer</DatagridCell>
+      </DatagridRow>
+    </Datagrid>
   )
 }`}
 />

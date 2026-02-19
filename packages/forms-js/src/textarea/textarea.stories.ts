@@ -31,7 +31,7 @@ function createTextarea(args: TextareaArgs): HTMLTextAreaElement {
 
 const meta = {
   title: "Forms/Textarea",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createTextarea(args as TextareaArgs),
   argTypes: {
     variant: {

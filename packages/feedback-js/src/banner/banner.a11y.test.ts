@@ -8,13 +8,13 @@ function createBannerHTML(
   options: BannerClassesOptions = {},
 ): string {
   const classes = bannerClasses(options)
-  const closeButton = options?.dismissible
-    ? `<div class="${classes.close}"><button class="pm-close-button pm-close-button--sm" aria-label="Dismiss">\u00d7</button></div>`
+  const closeBtn = options?.dismissible
+    ? `<div class="${classes.close}"><button class="pm-close-btn pm-close-btn--sm" aria-label="Dismiss">\u00d7</button></div>`
     : ""
 
   return `<div class="${classes.root}" role="status">
     <div class="${classes.content}">${text}</div>
-    ${closeButton}
+    ${closeBtn}
   </div>`
 }
 
@@ -39,7 +39,7 @@ describe("banner accessibility", () => {
     const dom = new JSDOM(
       `<!DOCTYPE html><body>${createBannerHTML("Notice", { dismissible: true })}</body>`,
     )
-    const closeBtn = dom.window.document.querySelector(".pm-close-button")
+    const closeBtn = dom.window.document.querySelector(".pm-close-btn")
     expect(closeBtn).not.toBeNull()
     expect(closeBtn?.getAttribute("aria-label")).toBe("Dismiss")
   })
@@ -48,7 +48,7 @@ describe("banner accessibility", () => {
     const dom = new JSDOM(
       `<!DOCTYPE html><body>${createBannerHTML("Notice", { dismissible: false })}</body>`,
     )
-    const closeBtn = dom.window.document.querySelector(".pm-close-button")
+    const closeBtn = dom.window.document.querySelector(".pm-close-btn")
     expect(closeBtn).toBeNull()
   })
 

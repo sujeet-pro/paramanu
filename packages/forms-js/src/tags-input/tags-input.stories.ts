@@ -37,7 +37,7 @@ function createTagsInput(args: TagsInputArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Tags Input",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createTagsInput(args as TagsInputArgs),
   argTypes: {
     variant: {

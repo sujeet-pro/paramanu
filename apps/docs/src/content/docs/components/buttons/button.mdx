@@ -1,10 +1,18 @@
 ---
-title: Button
+title: Btn
 description: A versatile button component with multiple variants, sizes, loading states, and icon support.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 A polymorphic button component supporting six visual variants, five sizes, loading state with spinner, and left/right icon slots.
 
@@ -14,11 +22,11 @@ A polymorphic button component supporting six visual variants, five sizes, loadi
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<button class="pm-button pm-button--primary pm-button--md">Click me</button>`}
-  reactCode={`import { Button } from "@paramanu/buttons-react"
+  htmlCode={`<button class="pm-btn pm-btn--primary pm-btn--md">Click me</button>`}
+  reactCode={`import { Btn } from "@paramanu/buttons-react"
 
 export default function App() {
-  return <Button variant="primary">Click me</Button>
+  return <Btn variant="primary">Click me</Btn>
 }`}
 />
 
@@ -26,24 +34,24 @@ export default function App() {
 
 <ComponentPreview
   htmlCode={`<div style="display: flex; gap: 8px; flex-wrap: wrap;">
-  <button class="pm-button pm-button--primary pm-button--md">Primary</button>
-  <button class="pm-button pm-button--secondary pm-button--md">Secondary</button>
-  <button class="pm-button pm-button--danger pm-button--md">Danger</button>
-  <button class="pm-button pm-button--ghost pm-button--md">Ghost</button>
-  <button class="pm-button pm-button--outline pm-button--md">Outline</button>
-  <button class="pm-button pm-button--link pm-button--md">Link</button>
+  <button class="pm-btn pm-btn--primary pm-btn--md">Primary</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Secondary</button>
+  <button class="pm-btn pm-btn--danger pm-btn--md">Danger</button>
+  <button class="pm-btn pm-btn--ghost pm-btn--md">Ghost</button>
+  <button class="pm-btn pm-btn--outline pm-btn--md">Outline</button>
+  <button class="pm-btn pm-btn--link pm-btn--md">Link</button>
 </div>`}
-  reactCode={`import { Button } from "@paramanu/buttons-react"
+  reactCode={`import { Btn } from "@paramanu/buttons-react"
 
 export default function App() {
   return (
     <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-      <Button variant="primary">Primary</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="danger">Danger</Button>
-      <Button variant="ghost">Ghost</Button>
-      <Button variant="outline">Outline</Button>
-      <Button variant="link">Link</Button>
+      <Btn variant="primary">Primary</Btn>
+      <Btn variant="secondary">Secondary</Btn>
+      <Btn variant="danger">Danger</Btn>
+      <Btn variant="ghost">Ghost</Btn>
+      <Btn variant="outline">Outline</Btn>
+      <Btn variant="link">Link</Btn>
     </div>
   )
 }`}
@@ -53,22 +61,22 @@ export default function App() {
 
 <ComponentPreview
   htmlCode={`<div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-  <button class="pm-button pm-button--primary pm-button--xs">Extra Small</button>
-  <button class="pm-button pm-button--primary pm-button--sm">Small</button>
-  <button class="pm-button pm-button--primary pm-button--md">Medium</button>
-  <button class="pm-button pm-button--primary pm-button--lg">Large</button>
-  <button class="pm-button pm-button--primary pm-button--xl">Extra Large</button>
+  <button class="pm-btn pm-btn--primary pm-btn--xs">Extra Small</button>
+  <button class="pm-btn pm-btn--primary pm-btn--sm">Small</button>
+  <button class="pm-btn pm-btn--primary pm-btn--md">Medium</button>
+  <button class="pm-btn pm-btn--primary pm-btn--lg">Large</button>
+  <button class="pm-btn pm-btn--primary pm-btn--xl">Extra Large</button>
 </div>`}
-  reactCode={`import { Button } from "@paramanu/buttons-react"
+  reactCode={`import { Btn } from "@paramanu/buttons-react"
 
 export default function App() {
   return (
     <div style={{ display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" }}>
-      <Button size="xs">Extra Small</Button>
-      <Button size="sm">Small</Button>
-      <Button size="md">Medium</Button>
-      <Button size="lg">Large</Button>
-      <Button size="xl">Extra Large</Button>
+      <Btn size="xs">Extra Small</Btn>
+      <Btn size="sm">Small</Btn>
+      <Btn size="md">Medium</Btn>
+      <Btn size="lg">Large</Btn>
+      <Btn size="xl">Extra Large</Btn>
     </div>
   )
 }`}
@@ -77,25 +85,25 @@ export default function App() {
 ## Disabled
 
 <ComponentPreview
-  htmlCode={`<button class="pm-button pm-button--primary pm-button--md pm-button--disabled" disabled aria-disabled="true">Disabled</button>`}
-  reactCode={`import { Button } from "@paramanu/buttons-react"
+  htmlCode={`<button class="pm-btn pm-btn--primary pm-btn--md pm-btn--disabled" disabled aria-disabled="true">Disabled</button>`}
+  reactCode={`import { Btn } from "@paramanu/buttons-react"
 
 export default function App() {
-  return <Button disabled>Disabled</Button>
+  return <Btn disabled>Disabled</Btn>
 }`}
 />
 
 ## Loading
 
 <ComponentPreview
-  htmlCode={`<button class="pm-button pm-button--primary pm-button--md pm-button--loading" aria-busy="true" disabled>Loading</button>`}
-  reactCode={`import { Button } from "@paramanu/buttons-react"
+  htmlCode={`<button class="pm-btn pm-btn--primary pm-btn--md pm-btn--loading" aria-busy="true" disabled>Loading</button>`}
+  reactCode={`import { Btn } from "@paramanu/buttons-react"
 
 export default function App() {
   return (
     <div style={{ display: "flex", gap: "8px" }}>
-      <Button loading>Save</Button>
-      <Button loading loadingText="Saving...">Save</Button>
+      <Btn loading>Save</Btn>
+      <Btn loading loadingText="Saving...">Save</Btn>
     </div>
   )
 }`}
@@ -104,11 +112,11 @@ export default function App() {
 ## Full Width
 
 <ComponentPreview
-  htmlCode={`<button class="pm-button pm-button--primary pm-button--md pm-button--full-width">Full Width</button>`}
-  reactCode={`import { Button } from "@paramanu/buttons-react"
+  htmlCode={`<button class="pm-btn pm-btn--primary pm-btn--md pm-btn--full-width">Full Width</button>`}
+  reactCode={`import { Btn } from "@paramanu/buttons-react"
 
 export default function App() {
-  return <Button fullWidth>Full Width</Button>
+  return <Btn fullWidth>Full Width</Btn>
 }`}
 />
 
@@ -147,7 +155,7 @@ export default function App() {
 
 ## React Props
 
-The `Button` component extends all native `<button>` HTML attributes.
+The `Btn` component extends all native `<button>` HTML attributes.
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
@@ -163,28 +171,28 @@ The `Button` component extends all native `<button>` HTML attributes.
 | `leftIcon` | `ReactNode` | -- | Icon before label |
 | `rightIcon` | `ReactNode` | -- | Icon after label |
 | `spinner` | `ReactNode` | -- | Custom spinner element |
-| `children` | `ReactNode` | -- | Button content |
+| `children` | `ReactNode` | -- | Btn content |
 
 ## CSS Classes
 
 | Class | Purpose |
 |---|---|
-| `pm-button` | Base button styles |
-| `pm-button--primary` | Primary variant |
-| `pm-button--secondary` | Secondary variant |
-| `pm-button--danger` | Danger variant |
-| `pm-button--ghost` | Ghost variant |
-| `pm-button--outline` | Outline variant |
-| `pm-button--link` | Link variant |
-| `pm-button--xs` | Extra small size |
-| `pm-button--sm` | Small size |
-| `pm-button--md` | Medium size |
-| `pm-button--lg` | Large size |
-| `pm-button--xl` | Extra large size |
-| `pm-button--disabled` | Disabled state |
-| `pm-button--full-width` | Full width |
-| `pm-button--loading` | Loading state |
-| `pm-button--active` | Active state |
+| `pm-btn` | Base button styles |
+| `pm-btn--primary` | Primary variant |
+| `pm-btn--secondary` | Secondary variant |
+| `pm-btn--danger` | Danger variant |
+| `pm-btn--ghost` | Ghost variant |
+| `pm-btn--outline` | Outline variant |
+| `pm-btn--link` | Link variant |
+| `pm-btn--xs` | Extra small size |
+| `pm-btn--sm` | Small size |
+| `pm-btn--md` | Medium size |
+| `pm-btn--lg` | Large size |
+| `pm-btn--xl` | Extra large size |
+| `pm-btn--disabled` | Disabled state |
+| `pm-btn--full-width` | Full width |
+| `pm-btn--loading` | Loading state |
+| `pm-btn--active` | Active state |
 
 ## CSS Custom Properties
 

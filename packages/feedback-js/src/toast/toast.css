@@ -53,8 +53,8 @@
   /* ------------------------------------------------------------------ */
 
   .pm-toast {
-    --pm-toast-bg: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
-    --pm-toast-border: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    --pm-toast-bg: var(--pm-bg);
+    --pm-toast-border: var(--pm-border-muted);
     --pm-toast-radius: var(--pm-radius-lg);
     --pm-toast-accent: var(--pm-color-info-500);
     --pm-toast-shadow: var(--pm-shadow-lg);
@@ -152,7 +152,7 @@
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-sm);
     font-weight: var(--pm-font-weight-semibold);
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-50));
+    color: var(--pm-bg-inverse);
     line-height: var(--pm-font-lineHeight-tight);
     margin-bottom: var(--pm-spacing-1);
   }
@@ -160,7 +160,7 @@
   .pm-toast__message {
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-sm);
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    color: var(--pm-neutral-fg);
     line-height: var(--pm-font-lineHeight-normal);
   }
 

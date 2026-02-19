@@ -7,14 +7,14 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("DateRangePicker Stories", () => {
+describe("Daterange Stories", () => {
   it("Playground renders without crashing", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-date-range-picker")).toBeTruthy()
+    expect(container.querySelector(".pm-daterange")).toBeTruthy()
   })
 
   it("Disabled variant renders", () => {
     const { container } = render(<composed.Disabled />)
-    expect(container.querySelector(".pm-date-range-picker--disabled")).toBeTruthy()
+    expect(container.querySelector(".pm-daterange--disabled")).toBeTruthy()
   })
 })

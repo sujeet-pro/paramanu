@@ -1,7 +1,7 @@
 import type { FormSize, InputVariant } from "../shared.types.js"
 
 /** Options for generating password input class names */
-export interface PasswordInputClassesOptions {
+export interface PwdInputClassesOptions {
   /** Visual variant of the input */
   variant?: InputVariant
   /** Size of the input */
@@ -17,7 +17,7 @@ export interface PasswordInputClassesOptions {
 }
 
 /** Props for the password input component */
-export interface PasswordInputProps extends PasswordInputClassesOptions {
+export interface PwdInputProps extends PwdInputClassesOptions {
   /** Placeholder text */
   placeholder?: string
   /** Controlled value */

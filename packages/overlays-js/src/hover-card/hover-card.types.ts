@@ -1,4 +1,4 @@
-export type HoverCardPlacement =
+export type HovercardPlacement =
   | "top"
   | "top-start"
   | "top-end"
@@ -12,20 +12,20 @@ export type HoverCardPlacement =
   | "right-start"
   | "right-end"
 
-export interface HoverCardClassesOptions {
-  placement?: HoverCardPlacement
+export interface HovercardClassesOptions {
+  placement?: HovercardPlacement
 }
 
-export interface HoverCardArrowClassesOptions {}
+export interface HovercardArrowClassesOptions {}
 
-export interface CreateHoverCardOptions {
-  placement?: HoverCardPlacement
+export interface CreateHovercardOptions {
+  placement?: HovercardPlacement
   offset?: number
   openDelay?: number
   closeDelay?: number
 }
 
-export interface HoverCardInstance {
+export interface HovercardInstance {
   open: () => void
   close: () => void
   destroy: () => void

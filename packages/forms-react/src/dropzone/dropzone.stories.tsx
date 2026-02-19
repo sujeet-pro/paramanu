@@ -5,7 +5,7 @@ import { Dropzone } from "./dropzone.js"
 const meta = {
   title: "Forms/Dropzone",
   component: Dropzone,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     disabled: { control: "boolean" },
     dragging: { control: "boolean" },

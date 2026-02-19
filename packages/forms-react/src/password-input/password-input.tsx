@@ -1,9 +1,9 @@
 import { forwardRef, useState } from "react"
-import { passwordInputClasses, inputClasses } from "@paramanu/forms-js"
-import type { PasswordInputProps } from "@paramanu/forms-js"
+import { pwdInputClasses, inputClasses } from "@paramanu/forms-js"
+import type { PwdInputProps } from "@paramanu/forms-js"
 
-export interface ReactPasswordInputProps
-  extends Omit<PasswordInputProps, "onChange">,
+export interface ReactPwdInputProps
+  extends Omit<PwdInputProps, "onChange">,
     Omit<
       React.InputHTMLAttributes<HTMLInputElement>,
       "size" | "type" | "value" | "defaultValue"
@@ -11,14 +11,14 @@ export interface ReactPasswordInputProps
   children?: React.ReactNode
 }
 
-export const PasswordInput = forwardRef<HTMLInputElement, ReactPasswordInputProps>(
-  function PasswordInput(
+export const PwdInput = forwardRef<HTMLInputElement, ReactPwdInputProps>(
+  function PwdInput(
     { variant, size, disabled, invalid, className, ...rest },
     ref,
   ) {
     const [visible, setVisible] = useState(false)
 
-    const wrapperClasses = passwordInputClasses({ variant, size, invalid, disabled })
+    const wrapperClasses = pwdInputClasses({ variant, size, invalid, disabled })
     const innerClasses = inputClasses({ variant, size, invalid, disabled })
     const combinedWrapperClassName = className ? `${wrapperClasses} ${className}` : wrapperClasses
 
@@ -35,7 +35,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, ReactPasswordInputProp
         />
         <button
           type="button"
-          className="pm-password-input__toggle"
+          className="pm-pwd-input__toggle"
           aria-label={visible ? "Hide password" : "Show password"}
           onClick={() => setVisible((v) => !v)}
           disabled={disabled}

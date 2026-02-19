@@ -3,8 +3,8 @@
   .pm-code {
     font-family: var(--pm-font-family-mono);
     font-size: 0.875em;
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    background-color: var(--pm-bg-muted);
+    color: var(--pm-fg);
     padding: 0.125em 0.375em;
     border-radius: var(--pm-radius-sm);
     white-space: nowrap;
@@ -28,33 +28,33 @@
 
   .pm-code--outline {
     background-color: transparent;
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
   }
 
   /* Colors */
   .pm-code--color-primary {
-    background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
-    color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+    background-color: var(--pm-primary-subtle);
+    color: var(--pm-fg-link-hover);
   }
 
   .pm-code--color-danger {
-    background-color: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
-    color: light-dark(var(--pm-color-danger-700), var(--pm-color-danger-300));
+    background-color: var(--pm-danger-subtle);
+    color: var(--pm-danger-subtle-fg);
   }
 
   .pm-code--color-success {
-    background-color: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
-    color: light-dark(var(--pm-color-success-700), var(--pm-color-success-300));
+    background-color: var(--pm-success-subtle);
+    color: var(--pm-success-subtle-fg);
   }
 
   .pm-code--color-warning {
-    background-color: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
-    color: light-dark(var(--pm-color-warning-700), var(--pm-color-warning-300));
+    background-color: var(--pm-warning-subtle);
+    color: var(--pm-warning-subtle-fg);
   }
 
   .pm-code--color-info {
-    background-color: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
-    color: light-dark(var(--pm-color-info-700), var(--pm-color-info-300));
+    background-color: var(--pm-info-subtle);
+    color: var(--pm-info-subtle-fg);
   }
 
   .pm-code--color-neutral {
@@ -64,11 +64,11 @@
   .pm-code-block {
     display: block;
     font-family: var(--pm-font-family-mono);
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    background-color: var(--pm-bg-muted);
+    color: var(--pm-fg);
     padding: var(--pm-spacing-4);
     border-radius: var(--pm-radius-md);
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
     overflow-x: auto;
     white-space: pre;
     line-height: var(--pm-font-lineHeight-relaxed);
@@ -100,28 +100,28 @@
   }
 
   .pm-code-block--color-primary {
-    background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
-    border-color: light-dark(var(--pm-color-primary-200), var(--pm-color-primary-700));
+    background-color: var(--pm-primary-subtle);
+    border-color: var(--pm-primary-border);
   }
 
   .pm-code-block--color-danger {
-    background-color: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
-    border-color: light-dark(var(--pm-color-danger-200), var(--pm-color-danger-700));
+    background-color: var(--pm-danger-subtle);
+    border-color: var(--pm-danger-border);
   }
 
   .pm-code-block--color-success {
-    background-color: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
-    border-color: light-dark(var(--pm-color-success-200), var(--pm-color-success-700));
+    background-color: var(--pm-success-subtle);
+    border-color: var(--pm-success-border);
   }
 
   .pm-code-block--color-warning {
-    background-color: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
-    border-color: light-dark(var(--pm-color-warning-200), var(--pm-color-warning-700));
+    background-color: var(--pm-warning-subtle);
+    border-color: var(--pm-warning-border);
   }
 
   .pm-code-block--color-info {
-    background-color: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
-    border-color: light-dark(var(--pm-color-info-200), var(--pm-color-info-700));
+    background-color: var(--pm-info-subtle);
+    border-color: var(--pm-info-border);
   }
 
   .pm-code-block--color-neutral {

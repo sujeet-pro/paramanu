@@ -12,17 +12,17 @@
 
   /* Variants */
   .pm-card--elevated {
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
+    background-color: var(--pm-bg);
     box-shadow: var(--pm-shadow-md);
   }
 
   .pm-card--outline {
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    background-color: var(--pm-bg);
+    border: 1px solid var(--pm-neutral-hover);
   }
 
   .pm-card--filled {
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-subtle);
   }
 
   .pm-card--ghost {
@@ -56,7 +56,7 @@
   }
 
   .pm-card--interactive:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
@@ -81,7 +81,7 @@
   .pm-card__body {
     flex: 1;
     line-height: var(--pm-font-lineHeight-normal);
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-300));
+    color: var(--pm-neutral-fg);
   }
 
   .pm-card__footer {

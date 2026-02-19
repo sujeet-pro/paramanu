@@ -119,10 +119,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-full);
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    background-color: var(--pm-bg-subtle);
+    color: var(--pm-fg);
     cursor: pointer;
     transition-property: background-color, color, opacity, box-shadow;
     transition-duration: var(--pm-transition-fast);
@@ -130,11 +130,11 @@
     z-index: 1;
 
     &:hover:not(.pm-carousel__control--disabled) {
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-700));
+      background-color: var(--pm-bg-muted);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
 
@@ -180,7 +180,7 @@
   .pm-carousel__indicator {
     border: none;
     border-radius: var(--pm-radius-full);
-    background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    background-color: var(--pm-neutral-active);
     cursor: pointer;
     transition-property: background-color, transform;
     transition-duration: var(--pm-transition-fast);
@@ -188,11 +188,11 @@
     padding: 0;
 
     &:hover {
-      background-color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+      background-color: var(--pm-fg-subtle);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
 
@@ -316,7 +316,7 @@
   .pm-theme-light-modern .pm-carousel {
     & .pm-carousel__control {
       box-shadow: var(--pm-shadow-sm);
-      border-color: light-dark(var(--pm-color-neutral-150), var(--pm-color-neutral-700));
+      border-color: var(--pm-border-muted);
     }
 
     & .pm-carousel__control:hover:not(.pm-carousel__control--disabled) {

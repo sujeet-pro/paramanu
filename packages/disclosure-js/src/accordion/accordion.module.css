@@ -5,7 +5,7 @@
 
   /* Variant: default */
   .pm-accordion--default .pm-accordion__item {
-    border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-bottom: 1px solid var(--pm-neutral-hover);
   }
 
   .pm-accordion--default .pm-accordion__item:last-child {
@@ -14,13 +14,13 @@
 
   /* Variant: bordered */
   .pm-accordion--bordered {
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-md);
     overflow: hidden;
   }
 
   .pm-accordion--bordered .pm-accordion__item {
-    border-bottom: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border-bottom: 1px solid var(--pm-neutral-hover);
   }
 
   .pm-accordion--bordered .pm-accordion__item:last-child {
@@ -35,7 +35,7 @@
   }
 
   .pm-accordion--separated .pm-accordion__item {
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-md);
     overflow: hidden;
   }
@@ -49,12 +49,12 @@
 
   .pm-accordion--filled .pm-accordion__item {
     border-radius: var(--pm-radius-md);
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-subtle);
     overflow: hidden;
   }
 
   .pm-accordion--filled .pm-accordion__item--open {
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-750));
+    background-color: var(--pm-bg-muted);
   }
 
   .pm-accordion__item--disabled {
@@ -69,7 +69,7 @@
     width: 100%;
     border: none;
     background-color: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
     font-family: var(--pm-font-family-sans);
     font-weight: var(--pm-font-weight-medium);
     line-height: var(--pm-font-lineHeight-normal);
@@ -80,11 +80,11 @@
   }
 
   .pm-accordion__trigger:hover:not(.pm-accordion__trigger--disabled) {
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-muted);
   }
 
   .pm-accordion__trigger:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
@@ -223,11 +223,11 @@
 
   .pm-theme-bootstrap .pm-accordion .pm-accordion__trigger {
     font-weight: var(--pm-font-weight-normal);
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-850));
+    background-color: var(--pm-bg-subtle);
   }
 
   .pm-theme-bootstrap .pm-accordion .pm-accordion__trigger:hover:not(.pm-accordion__trigger--disabled) {
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-muted);
   }
 
   .pm-theme-dark-modern .pm-accordion .pm-accordion__item--open {
@@ -235,12 +235,12 @@
   }
 
   .pm-theme-dark-modern .pm-accordion .pm-accordion__trigger:hover:not(.pm-accordion__trigger--disabled) {
-    background-color: light-dark(var(--pm-color-neutral-100), rgba(255, 255, 255, 0.05));
+    background-color: var(--pm-bg-muted);
   }
 
   .pm-theme-light-modern .pm-accordion--separated .pm-accordion__item {
     box-shadow: var(--pm-shadow-xs);
-    border-color: light-dark(var(--pm-color-neutral-150), var(--pm-color-neutral-700));
+    border-color: var(--pm-border-muted);
   }
 
   .pm-theme-light-modern .pm-accordion .pm-accordion__trigger {

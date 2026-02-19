@@ -1,10 +1,18 @@
 ---
 title: Checkbox Card
 description: A card-style checkbox for visually rich multi-select options.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 The Checkbox Card renders a checkbox inside a card layout, providing a more visual selection experience than a standard checkbox.
 
@@ -14,15 +22,15 @@ The Checkbox Card renders a checkbox inside a card layout, providing a more visu
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<label class="pm-checkbox-card pm-checkbox-card--md">\n  <input type="checkbox" class="pm-checkbox-card__input" />\n  <div class="pm-checkbox-card__content">Option A</div>\n</label>`}
-  reactCode={`import { CheckboxCard } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <CheckboxCard>Option A</CheckboxCard>\n}`}
+  htmlCode={`<label class="pm-chk-card pm-chk-card--md">\n  <input type="checkbox" class="pm-chk-card__input" />\n  <div class="pm-chk-card__content">Option A</div>\n</label>`}
+  reactCode={`import { ChkCard } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <ChkCard>Option A</ChkCard>\n}`}
 />
 
 ## Checked
 
 <ComponentPreview
-  htmlCode={`<label class="pm-checkbox-card pm-checkbox-card--md pm-checkbox-card--checked">\n  <input type="checkbox" class="pm-checkbox-card__input" checked />\n  <div class="pm-checkbox-card__content">Selected</div>\n</label>`}
-  reactCode={`import { CheckboxCard } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <CheckboxCard checked>Selected</CheckboxCard>\n}`}
+  htmlCode={`<label class="pm-chk-card pm-chk-card--md pm-chk-card--checked">\n  <input type="checkbox" class="pm-chk-card__input" checked />\n  <div class="pm-chk-card__content">Selected</div>\n</label>`}
+  reactCode={`import { ChkCard } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <ChkCard checked>Selected</ChkCard>\n}`}
 />
 
 </TabItem>
@@ -55,11 +63,11 @@ The Checkbox Card renders a checkbox inside a card layout, providing a more visu
 
 | Class | Description |
 |---|---|
-| `pm-checkbox-card` | Base class |
-| `pm-checkbox-card__input` | Hidden input |
-| `pm-checkbox-card__content` | Card content |
-| `pm-checkbox-card--checked` | Checked state |
-| `pm-checkbox-card--disabled` | Disabled state |
+| `pm-chk-card` | Base class |
+| `pm-chk-card__input` | Hidden input |
+| `pm-chk-card__content` | Card content |
+| `pm-chk-card--checked` | Checked state |
+| `pm-chk-card--disabled` | Disabled state |
 
 </TabItem>
 </Tabs>

@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { buttonClasses } from "./button.classes.js"
-import type { ButtonClassesOptions, ButtonVariant, ButtonSize } from "./button.types.js"
+import { btnClasses } from "./button.classes.js"
+import type { BtnClassesOptions, BtnVariant, BtnSize } from "./button.types.js"
 
-interface ButtonArgs extends ButtonClassesOptions {
+interface BtnArgs extends BtnClassesOptions {
   label: string
 }
 
-function createButton(args: ButtonArgs): HTMLButtonElement {
+function createBtn(args: BtnArgs): HTMLButtonElement {
   const button = document.createElement("button")
-  button.className = buttonClasses({
+  button.className = btnClasses({
     variant: args.variant,
     size: args.size,
     disabled: args.disabled,
@@ -29,9 +29,9 @@ function createButton(args: ButtonArgs): HTMLButtonElement {
 }
 
 const meta = {
-  title: "Buttons/Button",
-  tags: ["autodocs", "stable"],
-  render: (args) => createButton(args as ButtonArgs),
+  title: "Btns/Btn",
+  tags: ["autodocs", "beta"],
+  render: (args) => createBtn(args as BtnArgs),
   argTypes: {
     variant: {
       control: "select",
@@ -48,14 +48,14 @@ const meta = {
     label: { control: "text" },
   },
   args: {
-    label: "Button",
+    label: "Btn",
     variant: "primary",
     size: "md",
   },
-} satisfies Meta<ButtonArgs>
+} satisfies Meta<BtnArgs>
 
 export default meta
-type Story = StoryObj<ButtonArgs>
+type Story = StoryObj<BtnArgs>
 
 export const Playground: Story = {}
 
@@ -90,8 +90,8 @@ export const AllVariantsAndSizes: Story = {
     container.style.flexDirection = "column"
     container.style.gap = "16px"
 
-    const variants: ButtonVariant[] = ["primary", "secondary", "danger", "ghost", "outline", "link"]
-    const sizes: ButtonSize[] = ["xs", "sm", "md", "lg", "xl"]
+    const variants: BtnVariant[] = ["primary", "secondary", "danger", "ghost", "outline", "link"]
+    const sizes: BtnSize[] = ["xs", "sm", "md", "lg", "xl"]
 
     for (const variant of variants) {
       const row = document.createElement("div")
@@ -100,7 +100,7 @@ export const AllVariantsAndSizes: Story = {
       row.style.alignItems = "center"
 
       for (const size of sizes) {
-        row.appendChild(createButton({ label: `${variant} ${size}`, variant, size }))
+        row.appendChild(createBtn({ label: `${variant} ${size}`, variant, size }))
       }
       container.appendChild(row)
     }
@@ -115,10 +115,10 @@ export const States: Story = {
     container.style.gap = "8px"
     container.style.flexWrap = "wrap"
 
-    container.appendChild(createButton({ label: "Default" }))
-    container.appendChild(createButton({ label: "Disabled", disabled: true }))
-    container.appendChild(createButton({ label: "Loading", loading: true }))
-    container.appendChild(createButton({ label: "Active", active: true }))
+    container.appendChild(createBtn({ label: "Default" }))
+    container.appendChild(createBtn({ label: "Disabled", disabled: true }))
+    container.appendChild(createBtn({ label: "Loading", loading: true }))
+    container.appendChild(createBtn({ label: "Active", active: true }))
     return container
   },
 }

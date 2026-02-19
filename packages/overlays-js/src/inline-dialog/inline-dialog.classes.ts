@@ -1,15 +1,15 @@
 import type {
-  InlineDialogClassesOptions,
-  InlineDialogBodyClassesOptions,
+  InlineDlgClassesOptions,
+  InlineDlgBodyClassesOptions,
 } from "./inline-dialog.types.js"
 
-const BASE = "pm-inline-dialog"
+const BASE = "pm-inline-dlg"
 
 /**
  * Returns BEM class names for the inline dialog component (human-readable).
  * Used by CDN and template consumers.
  */
-export function inlineDialogClasses(options: InlineDialogClassesOptions = {}): string {
+export function inlineDlgClasses(options: InlineDlgClassesOptions = {}): string {
   const { visible = false } = options
   const classes = [BASE]
 
@@ -22,15 +22,15 @@ export function inlineDialogClasses(options: InlineDialogClassesOptions = {}): s
  * Returns CSS module class names for the inline dialog component (hashed).
  * Used by bundled/template consumers who import CSS modules.
  */
-export function inlineDialogModuleClasses(
+export function inlineDlgModuleClasses(
   classMap: Record<string, string>,
-  options: InlineDialogClassesOptions = {},
+  options: InlineDlgClassesOptions = {},
 ): string {
   const { visible = false } = options
 
-  const classes = [classMap["pm-inline-dialog"]]
+  const classes = [classMap["pm-inline-dlg"]]
 
-  if (visible) classes.push(classMap["pm-inline-dialog--visible"])
+  if (visible) classes.push(classMap["pm-inline-dlg--visible"])
 
   return classes.filter(Boolean).join(" ")
 }
@@ -38,7 +38,7 @@ export function inlineDialogModuleClasses(
 /**
  * Returns BEM class names for the inline dialog body.
  */
-export function inlineDialogBodyClasses(_options: InlineDialogBodyClassesOptions = {}): string {
+export function inlineDialogBodyClasses(_options: InlineDlgBodyClassesOptions = {}): string {
   return `${BASE}__body`
 }
 
@@ -47,7 +47,7 @@ export function inlineDialogBodyClasses(_options: InlineDialogBodyClassesOptions
  */
 export function inlineDialogBodyModuleClasses(
   classMap: Record<string, string>,
-  _options: InlineDialogBodyClassesOptions = {},
+  _options: InlineDlgBodyClassesOptions = {},
 ): string {
-  return classMap["pm-inline-dialog__body"] ?? ""
+  return classMap["pm-inline-dlg__body"] ?? ""
 }

@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { imageClasses } from "./image.classes.js"
-import type { ImageClassesOptions } from "./image.types.js"
+import { imgClasses } from "./image.classes.js"
+import type { ImgClassesOptions } from "./image.types.js"
 
-interface ImageArgs extends ImageClassesOptions {
+interface ImgArgs extends ImgClassesOptions {
   src: string
   alt: string
   captionText: string
 }
 
-function createImage(args: ImageArgs): HTMLElement {
-  const cls = imageClasses({ fit: args.fit, radius: args.radius, fallback: args.fallback, loading: args.loading })
+function createImg(args: ImgArgs): HTMLElement {
+  const cls = imgClasses({ fit: args.fit, radius: args.radius, fallback: args.fallback, loading: args.loading })
   const figure = document.createElement("figure")
   figure.className = cls.root
 
@@ -36,9 +36,9 @@ function createImage(args: ImageArgs): HTMLElement {
 }
 
 const meta = {
-  title: "Data Display/Image",
-  tags: ["autodocs", "stable"],
-  render: (args) => createImage(args as ImageArgs),
+  title: "Data Display/Img",
+  tags: ["autodocs", "beta"],
+  render: (args) => createImg(args as ImgArgs),
   argTypes: {
     fit: { control: "select", options: ["cover", "contain", "fill", "none", "scale-down"] },
     radius: { control: "select", options: ["none", "sm", "md", "lg", "xl", "full"] },
@@ -49,10 +49,10 @@ const meta = {
     captionText: { control: "text" },
   },
   args: { fit: "cover", radius: "none", src: "https://picsum.photos/400/300", alt: "Sample", captionText: "" },
-} satisfies Meta<ImageArgs>
+} satisfies Meta<ImgArgs>
 
 export default meta
-type Story = StoryObj<ImageArgs>
+type Story = StoryObj<ImgArgs>
 
 export const Playground: Story = {}
 export const Rounded: Story = { args: { radius: "lg" } }

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { ColorPicker } from "./color-picker.js"
+import { Colorpicker } from "./color-picker.js"
 
 const meta = {
   title: "Forms/Color Picker",
-  tags: ["autodocs", "stable"],
-  component: ColorPicker,
+  tags: ["autodocs", "beta"],
+  component: Colorpicker,
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
     disabled: { control: "boolean" },
@@ -16,7 +16,7 @@ const meta = {
     onFocus: fn(),
     onBlur: fn(),
   },
-} satisfies Meta<typeof ColorPicker>
+} satisfies Meta<typeof Colorpicker>
 
 export default meta
 type Story = StoryObj<typeof meta>

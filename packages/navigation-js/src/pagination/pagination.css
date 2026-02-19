@@ -18,10 +18,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border: 1px solid var(--pm-neutral-active);
     border-radius: var(--pm-radius-md);
     background: transparent;
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    color: var(--pm-neutral-fg);
     cursor: pointer;
     font-family: inherit;
     font-weight: var(--pm-font-weight-medium);
@@ -31,17 +31,17 @@
     transition-timing-function: ease-in-out;
 
     &:hover:not(.pm-pagination__item--disabled):not(.pm-pagination__item--active):not(.pm-pagination__item--ellipsis) {
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      background-color: var(--pm-bg-muted);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
 
     &.pm-pagination__item--active {
-      background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
-      border-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+      background-color: var(--pm-primary);
+      border-color: var(--pm-primary);
       color: var(--pm-color-neutral-0);
     }
 
@@ -84,8 +84,8 @@
   }
 
   .pm-pagination--minimal .pm-pagination__item.pm-pagination__item--active {
-    background-color: light-dark(var(--pm-color-primary-50), var(--pm-color-primary-900));
-    color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-300));
+    background-color: var(--pm-primary-subtle);
+    color: var(--pm-fg-link-hover);
     border-color: transparent;
   }
 
@@ -96,9 +96,9 @@
   }
 
   .pm-theme-antd .pm-pagination__item.pm-pagination__item--active {
-    border-color: light-dark(var(--pm-color-primary-500), var(--pm-color-primary-500));
+    border-color: var(--pm-primary-border);
     background-color: transparent;
-    color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-400));
+    color: var(--pm-fg-link);
   }
 
   .pm-theme-material .pm-pagination__item {
@@ -107,7 +107,7 @@
   }
 
   .pm-theme-material .pm-pagination__item.pm-pagination__item--active {
-    background-color: light-dark(var(--pm-color-primary-600), var(--pm-color-primary-500));
+    background-color: var(--pm-primary);
     color: var(--pm-color-neutral-0);
   }
 

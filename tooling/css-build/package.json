@@ -1,0 +1,12 @@
+{
+  "name": "@paramanu/css-build",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "dependencies": {
+    "lightningcss": "^1.28.0"
+  }
+}

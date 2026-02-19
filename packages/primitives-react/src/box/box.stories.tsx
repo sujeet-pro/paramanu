@@ -4,7 +4,7 @@ import { Box } from "./box.js"
 
 const meta = {
   title: "Primitives/Box",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Box,
   argTypes: {
     as: {

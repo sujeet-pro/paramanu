@@ -1,20 +1,20 @@
 import { forwardRef } from "react"
 import {
-  dropdownMenuClasses,
+  dropdownClasses,
   dropdownMenuTriggerClasses,
   dropdownMenuContentClasses,
 } from "@paramanu/navigation-js"
-import type { DropdownMenuClassesOptions } from "@paramanu/navigation-js"
+import type { DropdownClassesOptions } from "@paramanu/navigation-js"
 
-export interface ReactDropdownMenuProps
-  extends DropdownMenuClassesOptions,
+export interface ReactDropdownProps
+  extends DropdownClassesOptions,
     React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const DropdownMenu = forwardRef<HTMLDivElement, ReactDropdownMenuProps>(
-  function DropdownMenu({ size, open, className, children, ...rest }, ref) {
-    const classes = dropdownMenuClasses({ size, open })
+export const Dropdown = forwardRef<HTMLDivElement, ReactDropdownProps>(
+  function Dropdown({ size, open, className, children, ...rest }, ref) {
+    const classes = dropdownClasses({ size, open })
     const combinedClassName = className ? `${classes} ${className}` : classes
     return (
       <div ref={ref} className={combinedClassName} {...rest}>
@@ -24,14 +24,14 @@ export const DropdownMenu = forwardRef<HTMLDivElement, ReactDropdownMenuProps>(
   },
 )
 
-export interface ReactDropdownMenuTriggerProps
+export interface ReactDropdownTriggerProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
   expanded?: boolean
 }
 
-export const DropdownMenuTrigger = forwardRef<HTMLButtonElement, ReactDropdownMenuTriggerProps>(
-  function DropdownMenuTrigger({ expanded, className, children, ...rest }, ref) {
+export const DropdownTrigger = forwardRef<HTMLButtonElement, ReactDropdownTriggerProps>(
+  function DropdownTrigger({ expanded, className, children, ...rest }, ref) {
     const classes = dropdownMenuTriggerClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
     return (
@@ -48,12 +48,12 @@ export const DropdownMenuTrigger = forwardRef<HTMLButtonElement, ReactDropdownMe
   },
 )
 
-export interface ReactDropdownMenuContentProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactDropdownContentProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const DropdownMenuContent = forwardRef<HTMLDivElement, ReactDropdownMenuContentProps>(
-  function DropdownMenuContent({ className, children, ...rest }, ref) {
+export const DropdownContent = forwardRef<HTMLDivElement, ReactDropdownContentProps>(
+  function DropdownContent({ className, children, ...rest }, ref) {
     const classes = dropdownMenuContentClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
     return (

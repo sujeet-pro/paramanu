@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { EditableText } from "./editable-text.js"
+import { Editable } from "./editable-text.js"
 
 const meta = {
   title: "Forms/Editable Text",
-  tags: ["autodocs", "stable"],
-  component: EditableText,
+  tags: ["autodocs", "beta"],
+  component: Editable,
   argTypes: {
     size: {
       control: "select",
@@ -19,7 +19,7 @@ const meta = {
     onFocus: fn(),
     onBlur: fn(),
   },
-} satisfies Meta<typeof EditableText>
+} satisfies Meta<typeof Editable>
 
 export default meta
 type Story = StoryObj<typeof meta>

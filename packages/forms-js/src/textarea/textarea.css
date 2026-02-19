@@ -1,48 +1,48 @@
 @layer pm.components {
   .pm-textarea {
-    --_pm-textarea-border-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
-    --_pm-textarea-bg: transparent;
-    --_pm-textarea-color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
-    --_pm-textarea-placeholder: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
-    --_pm-textarea-radius: var(--pm-radius-md);
-    --_pm-textarea-focus-color: var(--pm-color-primary-500);
+    --pm-textarea-border-color: var(--pm-border);
+    --pm-textarea-bg: transparent;
+    --pm-textarea-color: var(--pm-fg);
+    --pm-textarea-placeholder: var(--pm-fg-subtle);
+    --pm-textarea-radius: var(--pm-radius-md);
+    --pm-textarea-focus-color: var(--pm-color-primary-500);
 
     display: block;
     font-family: var(--pm-font-family-sans);
     line-height: var(--pm-font-lineHeight-normal);
-    border-radius: var(--_pm-textarea-radius);
+    border-radius: var(--pm-textarea-radius);
     transition-property: border-color, box-shadow, background-color;
     transition-duration: var(--pm-transition-fast);
     transition-timing-function: ease-in-out;
     width: auto;
-    color: var(--_pm-textarea-color);
+    color: var(--pm-textarea-color);
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--_pm-textarea-focus-color);
+      outline: var(--pm-focus-ring-width) solid var(--pm-textarea-focus-color);
       outline-offset: var(--pm-focus-ring-offset);
     }
 
     /* Variants */
     &.pm-textarea--outline {
-      border: 1px solid var(--_pm-textarea-border-color);
-      background-color: var(--_pm-textarea-bg);
+      border: 1px solid var(--pm-textarea-border-color);
+      background-color: var(--pm-textarea-bg);
 
       &::placeholder {
-        color: var(--_pm-textarea-placeholder);
+        color: var(--pm-textarea-placeholder);
       }
     }
 
     &.pm-textarea--filled {
       border: 1px solid transparent;
-      background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+      background-color: var(--pm-bg-muted);
 
       &::placeholder {
-        color: var(--_pm-textarea-placeholder);
+        color: var(--pm-textarea-placeholder);
       }
 
       &:focus-visible {
         background-color: transparent;
-        border-color: var(--_pm-textarea-focus-color);
+        border-color: var(--pm-textarea-focus-color);
       }
     }
 
@@ -106,7 +106,7 @@
 
     /* States */
     &.pm-textarea--invalid {
-      border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+      border-color: var(--pm-danger-border);
     }
 
     &.pm-textarea--disabled {
@@ -115,7 +115,7 @@
     }
 
     &.pm-textarea--read-only {
-      background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-900));
+      background-color: var(--pm-bg-subtle);
       cursor: default;
     }
 
@@ -127,17 +127,17 @@
   /* ---- Theme overrides ---- */
 
   :where([data-theme="antd"]) .pm-textarea {
-    --_pm-textarea-radius: 4px;
-    --_pm-textarea-focus-color: #1677ff;
+    --pm-textarea-radius: 4px;
+    --pm-textarea-focus-color: #1677ff;
   }
 
   :where([data-theme="material"]) .pm-textarea {
-    --_pm-textarea-radius: 12px;
+    --pm-textarea-radius: 12px;
   }
 
   :where([data-theme="bootstrap"]) .pm-textarea {
-    --_pm-textarea-radius: 6px;
-    --_pm-textarea-focus-color: #0d6efd;
+    --pm-textarea-radius: 6px;
+    --pm-textarea-focus-color: #0d6efd;
   }
 
   :where([data-theme="bootstrap"]) .pm-textarea:focus-visible {
@@ -149,6 +149,6 @@
   }
 
   :where([data-theme="light-modern"]) .pm-textarea:focus-visible {
-    box-shadow: 0 0 0 3px light-dark(var(--pm-color-primary-100), var(--pm-color-primary-900));
+    box-shadow: 0 0 0 3px var(--pm-primary-subtle-hover);
   }
 }

@@ -1,16 +1,16 @@
 import { forwardRef } from "react"
-import { inlineDialogClasses, inlineDialogBodyClasses } from "@paramanu/overlays-js"
-import type { InlineDialogClassesOptions } from "@paramanu/overlays-js"
+import { inlineDlgClasses, inlineDialogBodyClasses } from "@paramanu/overlays-js"
+import type { InlineDlgClassesOptions } from "@paramanu/overlays-js"
 
-export interface ReactInlineDialogProps
-  extends InlineDialogClassesOptions,
+export interface ReactInlineDlgProps
+  extends InlineDlgClassesOptions,
     Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
   children?: React.ReactNode
 }
 
-export const InlineDialog = forwardRef<HTMLDivElement, ReactInlineDialogProps>(
-  function InlineDialog({ visible, className, children, ...rest }, ref) {
-    const classes = inlineDialogClasses({ visible })
+export const InlineDlg = forwardRef<HTMLDivElement, ReactInlineDlgProps>(
+  function InlineDlg({ visible, className, children, ...rest }, ref) {
+    const classes = inlineDlgClasses({ visible })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     return (
@@ -21,12 +21,12 @@ export const InlineDialog = forwardRef<HTMLDivElement, ReactInlineDialogProps>(
   },
 )
 
-export interface ReactInlineDialogBodyProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactInlineDlgBodyProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const InlineDialogBody = forwardRef<HTMLDivElement, ReactInlineDialogBodyProps>(
-  function InlineDialogBody({ className, children, ...rest }, ref) {
+export const InlineDlgBody = forwardRef<HTMLDivElement, ReactInlineDlgBodyProps>(
+  function InlineDlgBody({ className, children, ...rest }, ref) {
     const classes = inlineDialogBodyClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
     return (

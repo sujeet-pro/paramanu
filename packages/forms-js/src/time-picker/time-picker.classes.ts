@@ -1,11 +1,11 @@
-import type { TimePickerClassesOptions } from "./time-picker.types.js"
+import type { TimepickerClassesOptions } from "./time-picker.types.js"
 
-const BASE = "pm-time-picker"
+const BASE = "pm-timepicker"
 
 /**
  * Returns BEM class names for the time picker component (human-readable).
  */
-export function timePickerClasses(options: TimePickerClassesOptions = {}): string {
+export function timepickerClasses(options: TimepickerClassesOptions = {}): string {
   const {
     variant = "outline",
     size = "md",
@@ -25,9 +25,9 @@ export function timePickerClasses(options: TimePickerClassesOptions = {}): strin
 /**
  * Returns CSS module class names for the time picker component (hashed).
  */
-export function timePickerModuleClasses(
+export function timepickerModuleClasses(
   classMap: Record<string, string>,
-  options: TimePickerClassesOptions = {},
+  options: TimepickerClassesOptions = {},
 ): string {
   const {
     variant = "outline",
@@ -38,14 +38,14 @@ export function timePickerModuleClasses(
   } = options
 
   const classes = [
-    classMap["pm-time-picker"],
-    classMap[`pm-time-picker--${variant}`],
-    classMap[`pm-time-picker--${size}`],
+    classMap["pm-timepicker"],
+    classMap[`pm-timepicker--${variant}`],
+    classMap[`pm-timepicker--${size}`],
   ]
 
-  if (invalid) classes.push(classMap["pm-time-picker--invalid"])
-  if (disabled) classes.push(classMap["pm-time-picker--disabled"])
-  if (open) classes.push(classMap["pm-time-picker--open"])
+  if (invalid) classes.push(classMap["pm-timepicker--invalid"])
+  if (disabled) classes.push(classMap["pm-timepicker--disabled"])
+  if (open) classes.push(classMap["pm-timepicker--open"])
 
   return classes.filter(Boolean).join(" ")
 }

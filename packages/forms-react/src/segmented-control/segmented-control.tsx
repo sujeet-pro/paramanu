@@ -1,16 +1,16 @@
 import { forwardRef } from "react"
-import { segmentedControlClasses } from "@paramanu/forms-js"
-import type { SegmentedControlProps } from "@paramanu/forms-js"
+import { segCtrlClasses } from "@paramanu/forms-js"
+import type { SegCtrlProps } from "@paramanu/forms-js"
 
-export interface ReactSegmentedControlProps
-  extends SegmentedControlProps,
+export interface ReactSegCtrlProps
+  extends SegCtrlProps,
     Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
   children?: React.ReactNode
 }
 
-export const SegmentedControl = forwardRef<HTMLDivElement, ReactSegmentedControlProps>(
-  function SegmentedControl({ size, fullWidth, className, children, ...rest }, ref) {
-    const classes = segmentedControlClasses({ size, fullWidth })
+export const SegCtrl = forwardRef<HTMLDivElement, ReactSegCtrlProps>(
+  function SegCtrl({ size, fullWidth, className, children, ...rest }, ref) {
+    const classes = segCtrlClasses({ size, fullWidth })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     return (

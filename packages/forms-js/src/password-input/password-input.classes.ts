@@ -1,11 +1,11 @@
-import type { PasswordInputClassesOptions } from "./password-input.types.js"
+import type { PwdInputClassesOptions } from "./password-input.types.js"
 
-const BASE = "pm-password-input"
+const BASE = "pm-pwd-input"
 
 /**
  * Returns BEM class names for the password input wrapper (human-readable).
  */
-export function passwordInputClasses(options: PasswordInputClassesOptions = {}): string {
+export function pwdInputClasses(options: PwdInputClassesOptions = {}): string {
   const {
     variant = "outline",
     size = "md",
@@ -27,9 +27,9 @@ export function passwordInputClasses(options: PasswordInputClassesOptions = {}):
 /**
  * Returns CSS module class names for the password input wrapper (hashed).
  */
-export function passwordInputModuleClasses(
+export function pwdInputModuleClasses(
   classMap: Record<string, string>,
-  options: PasswordInputClassesOptions = {},
+  options: PwdInputClassesOptions = {},
 ): string {
   const {
     variant = "outline",
@@ -41,15 +41,15 @@ export function passwordInputModuleClasses(
   } = options
 
   const classes = [
-    classMap["pm-password-input"],
-    classMap[`pm-password-input--${variant}`],
-    classMap[`pm-password-input--${size}`],
+    classMap["pm-pwd-input"],
+    classMap[`pm-pwd-input--${variant}`],
+    classMap[`pm-pwd-input--${size}`],
   ]
 
-  if (invalid) classes.push(classMap["pm-password-input--invalid"])
-  if (disabled) classes.push(classMap["pm-password-input--disabled"])
-  if (fullWidth) classes.push(classMap["pm-password-input--full-width"])
-  if (visible) classes.push(classMap["pm-password-input--visible"])
+  if (invalid) classes.push(classMap["pm-pwd-input--invalid"])
+  if (disabled) classes.push(classMap["pm-pwd-input--disabled"])
+  if (fullWidth) classes.push(classMap["pm-pwd-input--full-width"])
+  if (visible) classes.push(classMap["pm-pwd-input--visible"])
 
   return classes.filter(Boolean).join(" ")
 }

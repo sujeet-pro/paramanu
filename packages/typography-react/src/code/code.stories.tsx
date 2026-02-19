@@ -4,7 +4,7 @@ import { Code } from "./code.js"
 
 const meta = {
   title: "Typography/Code",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Code,
   argTypes: {
     block: { control: "boolean" },
@@ -12,7 +12,7 @@ const meta = {
     variant: { control: "select", options: ["default", "outline"] },
     color: { control: "select", options: ["neutral", "primary", "danger", "success", "warning", "info"] },
     withLineNumbers: { control: "boolean" },
-    withCopyButton: { control: "boolean" },
+    withCopyBtn: { control: "boolean" },
     language: { control: "text" },
   },
   args: {},
@@ -94,9 +94,9 @@ export const SizeLg: Story = {
   render: (args) => <Code {...args}>large code</Code>,
 }
 
-export const BlockWithCopyButton: Story = {
+export const BlockWithCopyBtn: Story = {
   render: () => (
-    <Code block withCopyButton>
+    <Code block withCopyBtn>
       {`const greeting = "Hello, World!"`}
     </Code>
   ),

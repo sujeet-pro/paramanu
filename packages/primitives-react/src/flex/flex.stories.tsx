@@ -4,7 +4,7 @@ import { Flex } from "./flex.js"
 
 const meta = {
   title: "Primitives/Flex",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Flex,
   argTypes: {
     direction: { control: "select", options: ["row", "column", "row-reverse", "column-reverse"] },

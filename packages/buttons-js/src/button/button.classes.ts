@@ -1,6 +1,6 @@
-import type { ButtonClassesOptions } from "./button.types.js"
+import type { BtnClassesOptions } from "./button.types.js"
 
-const BASE = "pm-button"
+const BASE = "pm-btn"
 
 /**
  * Returns BEM class names for the button component (human-readable).
@@ -8,12 +8,12 @@ const BASE = "pm-button"
  *
  * @example
  * ```ts
- * buttonClasses() // "pm-button pm-button--primary pm-button--md"
- * buttonClasses({ variant: "danger", size: "lg", loading: true })
- * // "pm-button pm-button--danger pm-button--lg pm-button--loading"
+ * btnClasses() // "pm-btn pm-btn--primary pm-btn--md"
+ * btnClasses({ variant: "danger", size: "lg", loading: true })
+ * // "pm-btn pm-btn--danger pm-btn--lg pm-btn--loading"
  * ```
  */
-export function buttonClasses(options: ButtonClassesOptions = {}): string {
+export function btnClasses(options: BtnClassesOptions = {}): string {
   const {
     variant = "primary",
     size = "md",
@@ -39,12 +39,12 @@ export function buttonClasses(options: ButtonClassesOptions = {}): string {
  * @example
  * ```ts
  * import styles from "./button.module.css"
- * buttonModuleClasses(styles, { variant: "primary" })
+ * btnModuleClasses(styles, { variant: "primary" })
  * ```
  */
-export function buttonModuleClasses(
+export function btnModuleClasses(
   classMap: Record<string, string>,
-  options: ButtonClassesOptions = {},
+  options: BtnClassesOptions = {},
 ): string {
   const {
     variant = "primary",
@@ -56,15 +56,15 @@ export function buttonModuleClasses(
   } = options
 
   const classes = [
-    classMap["pm-button"],
-    classMap[`pm-button--${variant}`],
-    classMap[`pm-button--${size}`],
+    classMap["pm-btn"],
+    classMap[`pm-btn--${variant}`],
+    classMap[`pm-btn--${size}`],
   ]
 
-  if (disabled) classes.push(classMap["pm-button--disabled"])
-  if (fullWidth) classes.push(classMap["pm-button--full-width"])
-  if (loading) classes.push(classMap["pm-button--loading"])
-  if (active) classes.push(classMap["pm-button--active"])
+  if (disabled) classes.push(classMap["pm-btn--disabled"])
+  if (fullWidth) classes.push(classMap["pm-btn--full-width"])
+  if (loading) classes.push(classMap["pm-btn--loading"])
+  if (active) classes.push(classMap["pm-btn--active"])
 
   return classes.filter(Boolean).join(" ")
 }

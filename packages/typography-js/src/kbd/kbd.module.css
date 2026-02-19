@@ -4,11 +4,11 @@
     align-items: center;
     justify-content: center;
     font-family: var(--pm-font-family-mono);
-    background-color: light-dark(var(--pm-color-neutral-50), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    background-color: var(--pm-bg-subtle);
+    color: var(--pm-fg);
+    border: 1px solid var(--pm-neutral-active);
     border-radius: var(--pm-radius-sm);
-    box-shadow: 0 1px 0 1px light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    box-shadow: 0 1px 0 1px var(--pm-neutral-hover);
     white-space: nowrap;
     vertical-align: baseline;
     line-height: 1;
@@ -47,7 +47,7 @@
   }
 
   .pm-kbd--subtle {
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-700));
+    background-color: var(--pm-bg-muted);
     border-color: transparent;
     box-shadow: none;
   }

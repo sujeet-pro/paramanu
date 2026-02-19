@@ -5,7 +5,7 @@ import { Menubar, MenubarItem } from "./menubar.js"
 const meta = {
   title: "Navigation/Menubar",
   component: Menubar,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
 } satisfies Meta<typeof Menubar>
 
 export default meta

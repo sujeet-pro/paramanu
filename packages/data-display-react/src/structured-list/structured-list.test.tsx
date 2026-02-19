@@ -1,87 +1,87 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
 import {
-  StructuredList,
-  StructuredListHead,
-  StructuredListBody,
-  StructuredListRow,
-  StructuredListCell,
-  StructuredListHeaderCell,
+  StructList,
+  StructListHead,
+  StructListBody,
+  StructListRow,
+  StructListCell,
+  StructListHeaderCell,
 } from "./structured-list.js"
 
 afterEach(cleanup)
 
-describe("StructuredList", () => {
+describe("StructList", () => {
   it("renders with role=table", () => {
-    render(<StructuredList>Content</StructuredList>)
+    render(<StructList>Content</StructList>)
     expect(screen.getByRole("table")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<StructuredList>Content</StructuredList>)
+    render(<StructList>Content</StructList>)
     const sl = screen.getByRole("table")
-    expect(sl.className).toContain("pm-structured-list")
-    expect(sl.className).toContain("pm-structured-list--md")
+    expect(sl.className).toContain("pm-struct-list")
+    expect(sl.className).toContain("pm-struct-list--md")
   })
 
   it("applies selectable modifier", () => {
-    render(<StructuredList selectable>Content</StructuredList>)
-    expect(screen.getByRole("table").className).toContain("pm-structured-list--selectable")
+    render(<StructList selectable>Content</StructList>)
+    expect(screen.getByRole("table").className).toContain("pm-struct-list--selectable")
   })
 
   it("applies bordered modifier", () => {
-    render(<StructuredList bordered>Content</StructuredList>)
-    expect(screen.getByRole("table").className).toContain("pm-structured-list--bordered")
+    render(<StructList bordered>Content</StructList>)
+    expect(screen.getByRole("table").className).toContain("pm-struct-list--bordered")
   })
 
   it("forwards ref", () => {
     let slRef: HTMLDivElement | null = null
-    render(<StructuredList ref={(el) => (slRef = el)}>Content</StructuredList>)
+    render(<StructList ref={(el) => (slRef = el)}>Content</StructList>)
     expect(slRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    render(<StructuredList className="custom">Content</StructuredList>)
+    render(<StructList className="custom">Content</StructList>)
     const sl = screen.getByRole("table")
-    expect(sl.className).toContain("pm-structured-list")
+    expect(sl.className).toContain("pm-struct-list")
     expect(sl.className).toContain("custom")
   })
 })
 
-describe("StructuredListHead", () => {
+describe("StructListHead", () => {
   it("renders with head class", () => {
-    render(<StructuredListHead data-testid="head">Head</StructuredListHead>)
-    expect(screen.getByTestId("head").className).toContain("pm-structured-list__head")
+    render(<StructListHead data-testid="head">Head</StructListHead>)
+    expect(screen.getByTestId("head").className).toContain("pm-struct-list__head")
   })
 })
 
-describe("StructuredListBody", () => {
+describe("StructListBody", () => {
   it("renders with body class", () => {
-    render(<StructuredListBody data-testid="body">Body</StructuredListBody>)
-    expect(screen.getByTestId("body").className).toContain("pm-structured-list__body")
+    render(<StructListBody data-testid="body">Body</StructListBody>)
+    expect(screen.getByTestId("body").className).toContain("pm-struct-list__body")
   })
 })
 
-describe("StructuredListRow", () => {
+describe("StructListRow", () => {
   it("renders with role=row and row class", () => {
-    render(<StructuredListRow>Row</StructuredListRow>)
+    render(<StructListRow>Row</StructListRow>)
     const row = screen.getByRole("row")
-    expect(row.className).toContain("pm-structured-list__row")
+    expect(row.className).toContain("pm-struct-list__row")
   })
 })
 
-describe("StructuredListCell", () => {
+describe("StructListCell", () => {
   it("renders with role=cell and cell class", () => {
-    render(<StructuredListCell>Cell</StructuredListCell>)
+    render(<StructListCell>Cell</StructListCell>)
     const cell = screen.getByRole("cell")
-    expect(cell.className).toContain("pm-structured-list__cell")
+    expect(cell.className).toContain("pm-struct-list__cell")
   })
 })
 
-describe("StructuredListHeaderCell", () => {
+describe("StructListHeaderCell", () => {
   it("renders with role=columnheader and header-cell class", () => {
-    render(<StructuredListHeaderCell>Header</StructuredListHeaderCell>)
+    render(<StructListHeaderCell>Header</StructListHeaderCell>)
     const hc = screen.getByRole("columnheader")
-    expect(hc.className).toContain("pm-structured-list__header-cell")
+    expect(hc.className).toContain("pm-struct-list__header-cell")
   })
 })

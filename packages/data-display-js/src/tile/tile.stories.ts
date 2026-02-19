@@ -28,7 +28,7 @@ function createTile(args: TileArgs): HTMLButtonElement {
 
 const meta = {
   title: "Data Display/Tile",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createTile(args as TileArgs),
   argTypes: {
     variant: {

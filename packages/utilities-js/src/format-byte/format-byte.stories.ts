@@ -30,7 +30,7 @@ function createFormatByteDemo(): HTMLElement {
 
 const meta = {
   title: "Utilities/FormatByte",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
 } satisfies Meta
 
 export default meta

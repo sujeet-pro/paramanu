@@ -1,8 +1,8 @@
 // @paramanu/utilities-react — React wrappers for utility components
 
 // Visually Hidden
-export { VisuallyHidden } from "./visually-hidden/visually-hidden.js"
-export type { ReactVisuallyHiddenProps } from "./visually-hidden/visually-hidden.js"
+export { SrOnly } from "./visually-hidden/visually-hidden.js"
+export type { ReactSrOnlyProps } from "./visually-hidden/visually-hidden.js"
 
 // Skip Nav
 export { SkipNav, SkipNavTarget } from "./skip-nav/skip-nav.js"
@@ -33,8 +33,8 @@ export type {
 } from "./presence/presence.js"
 
 // Theme Provider
-export { ThemeProvider, useTheme } from "./theme-provider/theme-provider.js"
-export type { ReactThemeProviderProps } from "./theme-provider/theme-provider.js"
+export { Theme, useTheme } from "./theme-provider/theme-provider.js"
+export type { ReactThemeProps } from "./theme-provider/theme-provider.js"
 
 // Direction Provider
 export { DirectionProvider, useDirection } from "./direction-provider/direction-provider.js"

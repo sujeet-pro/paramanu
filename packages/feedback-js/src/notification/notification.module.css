@@ -1,46 +1,46 @@
 @layer pm.components {
-  .pm-notification {
-    --pm-notification-accent: var(--pm-color-primary-500);
+  .pm-notif {
+    --pm-notif-accent: var(--pm-color-primary-500);
 
     position: relative;
     display: flex;
     gap: var(--pm-spacing-3);
     padding: var(--pm-spacing-4);
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-900));
-    border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    background-color: var(--pm-bg);
+    border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-lg);
     box-shadow: var(--pm-shadow-sm);
   }
 
-  .pm-notification--info {
-    --pm-notification-accent: var(--pm-color-info-500);
+  .pm-notif--info {
+    --pm-notif-accent: var(--pm-color-info-500);
   }
 
-  .pm-notification--success {
-    --pm-notification-accent: var(--pm-color-success-500);
+  .pm-notif--success {
+    --pm-notif-accent: var(--pm-color-success-500);
   }
 
-  .pm-notification--warning {
-    --pm-notification-accent: var(--pm-color-warning-500);
+  .pm-notif--warning {
+    --pm-notif-accent: var(--pm-color-warning-500);
   }
 
-  .pm-notification--danger {
-    --pm-notification-accent: var(--pm-color-danger-500);
+  .pm-notif--danger {
+    --pm-notif-accent: var(--pm-color-danger-500);
   }
 
-  .pm-notification--neutral {
-    --pm-notification-accent: var(--pm-color-primary-500);
+  .pm-notif--neutral {
+    --pm-notif-accent: var(--pm-color-primary-500);
   }
 
-  .pm-notification--unread {
-    border-left: 3px solid var(--pm-notification-accent);
+  .pm-notif--unread {
+    border-left: 3px solid var(--pm-notif-accent);
   }
 
-  .pm-notification--dismissible {
+  .pm-notif--dismissible {
     padding-right: var(--pm-spacing-10);
   }
 
-  .pm-notification__icon {
+  .pm-notif__icon {
     flex-shrink: 0;
     width: 40px;
     height: 40px;
@@ -48,11 +48,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-300));
+    background-color: var(--pm-bg-muted);
+    color: var(--pm-fg-muted);
   }
 
-  .pm-notification__content {
+  .pm-notif__content {
     flex: 1;
     min-width: 0;
     display: flex;
@@ -60,35 +60,35 @@
     gap: var(--pm-spacing-1);
   }
 
-  .pm-notification__title {
+  .pm-notif__title {
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-sm);
     font-weight: var(--pm-font-weight-semibold);
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-50));
+    color: var(--pm-bg-inverse);
     line-height: var(--pm-font-lineHeight-tight);
   }
 
-  .pm-notification__message {
+  .pm-notif__message {
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-sm);
-    color: light-dark(var(--pm-color-neutral-600), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
     line-height: var(--pm-font-lineHeight-normal);
   }
 
-  .pm-notification__timestamp {
+  .pm-notif__timestamp {
     font-family: var(--pm-font-family-sans);
     font-size: var(--pm-font-size-xs);
-    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    color: var(--pm-fg-subtle);
     line-height: var(--pm-font-lineHeight-normal);
   }
 
-  .pm-notification__actions {
+  .pm-notif__actions {
     display: flex;
     gap: var(--pm-spacing-2);
     margin-top: var(--pm-spacing-2);
   }
 
-  .pm-notification__close {
+  .pm-notif__close {
     position: absolute;
     top: var(--pm-spacing-2);
     right: var(--pm-spacing-2);

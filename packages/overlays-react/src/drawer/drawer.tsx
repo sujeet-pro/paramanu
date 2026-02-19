@@ -41,7 +41,7 @@ export interface ReactDrawerProps
  *   <DrawerHeader>Settings</DrawerHeader>
  *   <DrawerBody>Content</DrawerBody>
  *   <DrawerFooter>
- *     <Button onClick={close}>Done</Button>
+ *     <Btn onClick={close}>Done</Btn>
  *   </DrawerFooter>
  * </Drawer>
  * ```

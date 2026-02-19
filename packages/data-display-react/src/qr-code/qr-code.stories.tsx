@@ -5,7 +5,7 @@ import { QrCode } from "./qr-code.js"
 const meta = {
   title: "Data Display/QR Code",
   component: QrCode,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg", "xl"] },
   },

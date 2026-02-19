@@ -5,7 +5,7 @@ import { Menu, MenuItem, MenuGroup, MenuGroupLabel, MenuSeparator } from "./menu
 const meta = {
   title: "Navigation/Menu",
   component: Menu,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: {
       control: "select",

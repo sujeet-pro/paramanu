@@ -1,54 +1,54 @@
 import { describe, it, expect } from "vitest"
 import {
-  inlineDialogClasses,
-  inlineDialogModuleClasses,
+  inlineDlgClasses,
+  inlineDlgModuleClasses,
   inlineDialogBodyClasses,
   inlineDialogBodyModuleClasses,
 } from "./inline-dialog.classes.js"
 
-describe("inlineDialogClasses", () => {
+describe("inlineDlgClasses", () => {
   it("returns default classes", () => {
-    const result = inlineDialogClasses()
-    expect(result).toBe("pm-inline-dialog")
+    const result = inlineDlgClasses()
+    expect(result).toBe("pm-inline-dlg")
   })
 
   it("applies visible modifier", () => {
-    expect(inlineDialogClasses({ visible: true })).toContain("pm-inline-dialog--visible")
-    expect(inlineDialogClasses({ visible: false })).not.toContain("pm-inline-dialog--visible")
+    expect(inlineDlgClasses({ visible: true })).toContain("pm-inline-dlg--visible")
+    expect(inlineDlgClasses({ visible: false })).not.toContain("pm-inline-dlg--visible")
   })
 
   it("always includes base class", () => {
-    expect(inlineDialogClasses()).toBe("pm-inline-dialog")
-    expect(inlineDialogClasses({ visible: true })).toMatch(/^pm-inline-dialog\s/)
+    expect(inlineDlgClasses()).toBe("pm-inline-dlg")
+    expect(inlineDlgClasses({ visible: true })).toMatch(/^pm-inline-dlg\s/)
   })
 
   it("combines options correctly", () => {
-    const result = inlineDialogClasses({ visible: true })
-    expect(result).toBe("pm-inline-dialog pm-inline-dialog--visible")
+    const result = inlineDlgClasses({ visible: true })
+    expect(result).toBe("pm-inline-dlg pm-inline-dlg--visible")
   })
 })
 
-describe("inlineDialogModuleClasses", () => {
+describe("inlineDlgModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-inline-dialog": "pm_abc_inlineDialog",
-    "pm-inline-dialog--visible": "pm_abc_visible",
+    "pm-inline-dlg": "pm_abc_inlineDialog",
+    "pm-inline-dlg--visible": "pm_abc_visible",
   }
 
   it("returns mapped default classes", () => {
-    const result = inlineDialogModuleClasses(mockClassMap)
+    const result = inlineDlgModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_inlineDialog")
   })
 
   it("maps visible class", () => {
-    const result = inlineDialogModuleClasses(mockClassMap, { visible: true })
+    const result = inlineDlgModuleClasses(mockClassMap, { visible: true })
     expect(result).toContain("pm_abc_visible")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-inline-dialog": "pm_abc_inlineDialog",
+      "pm-inline-dlg": "pm_abc_inlineDialog",
     }
-    const result = inlineDialogModuleClasses(sparseMap)
+    const result = inlineDlgModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_inlineDialog")
     expect(result).not.toContain("undefined")
   })
@@ -56,13 +56,13 @@ describe("inlineDialogModuleClasses", () => {
 
 describe("inlineDialogBodyClasses", () => {
   it("returns body class", () => {
-    expect(inlineDialogBodyClasses()).toBe("pm-inline-dialog__body")
+    expect(inlineDialogBodyClasses()).toBe("pm-inline-dlg__body")
   })
 })
 
 describe("inlineDialogBodyModuleClasses", () => {
   it("returns mapped body class", () => {
-    const classMap = { "pm-inline-dialog__body": "pm_abc_body" }
+    const classMap = { "pm-inline-dlg__body": "pm_abc_body" }
     expect(inlineDialogBodyModuleClasses(classMap)).toBe("pm_abc_body")
   })
 

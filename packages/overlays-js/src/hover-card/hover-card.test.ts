@@ -1,27 +1,27 @@
 import { describe, it, expect } from "vitest"
 import {
-  hoverCardClasses,
-  hoverCardModuleClasses,
+  hovercardClasses,
+  hovercardModuleClasses,
   hoverCardArrowClasses,
   hoverCardArrowModuleClasses,
 } from "./hover-card.classes.js"
 
-describe("hoverCardClasses", () => {
+describe("hovercardClasses", () => {
   it("returns default classes", () => {
-    const result = hoverCardClasses()
-    expect(result).toBe("pm-hover-card pm-hover-card--bottom")
+    const result = hovercardClasses()
+    expect(result).toBe("pm-hovercard pm-hovercard--bottom")
   })
 
   it("applies placement modifier", () => {
-    expect(hoverCardClasses({ placement: "top" })).toContain("pm-hover-card--top")
-    expect(hoverCardClasses({ placement: "left" })).toContain("pm-hover-card--left")
-    expect(hoverCardClasses({ placement: "right" })).toContain("pm-hover-card--right")
-    expect(hoverCardClasses({ placement: "bottom-start" })).toContain("pm-hover-card--bottom-start")
-    expect(hoverCardClasses({ placement: "top-end" })).toContain("pm-hover-card--top-end")
+    expect(hovercardClasses({ placement: "top" })).toContain("pm-hovercard--top")
+    expect(hovercardClasses({ placement: "left" })).toContain("pm-hovercard--left")
+    expect(hovercardClasses({ placement: "right" })).toContain("pm-hovercard--right")
+    expect(hovercardClasses({ placement: "bottom-start" })).toContain("pm-hovercard--bottom-start")
+    expect(hovercardClasses({ placement: "top-end" })).toContain("pm-hovercard--top-end")
   })
 
   it("always includes base class", () => {
-    expect(hoverCardClasses()).toMatch(/^pm-hover-card\s/)
+    expect(hovercardClasses()).toMatch(/^pm-hovercard\s/)
   })
 
   it("applies all 12 placement values", () => {
@@ -33,34 +33,34 @@ describe("hoverCardClasses", () => {
     ] as const
 
     for (const placement of placements) {
-      expect(hoverCardClasses({ placement })).toContain(`pm-hover-card--${placement}`)
+      expect(hovercardClasses({ placement })).toContain(`pm-hovercard--${placement}`)
     }
   })
 })
 
-describe("hoverCardModuleClasses", () => {
+describe("hovercardModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-hover-card": "pm_abc_hover_card",
-    "pm-hover-card--bottom": "pm_abc_bottom",
-    "pm-hover-card--top": "pm_abc_top",
-    "pm-hover-card--left-start": "pm_abc_left_start",
+    "pm-hovercard": "pm_abc_hover_card",
+    "pm-hovercard--bottom": "pm_abc_bottom",
+    "pm-hovercard--top": "pm_abc_top",
+    "pm-hovercard--left-start": "pm_abc_left_start",
   }
 
   it("returns mapped default classes", () => {
-    const result = hoverCardModuleClasses(mockClassMap)
+    const result = hovercardModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_hover_card pm_abc_bottom")
   })
 
   it("maps placement classes correctly", () => {
-    const result = hoverCardModuleClasses(mockClassMap, { placement: "top" })
+    const result = hovercardModuleClasses(mockClassMap, { placement: "top" })
     expect(result).toContain("pm_abc_top")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-hover-card": "pm_abc_hover_card",
+      "pm-hovercard": "pm_abc_hover_card",
     }
-    const result = hoverCardModuleClasses(sparseMap)
+    const result = hovercardModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_hover_card")
     expect(result).not.toContain("undefined")
   })
@@ -68,13 +68,13 @@ describe("hoverCardModuleClasses", () => {
 
 describe("hoverCardArrowClasses", () => {
   it("returns arrow class", () => {
-    expect(hoverCardArrowClasses()).toBe("pm-hover-card__arrow")
+    expect(hoverCardArrowClasses()).toBe("pm-hovercard__arrow")
   })
 })
 
 describe("hoverCardArrowModuleClasses", () => {
   it("returns mapped arrow class", () => {
-    const classMap = { "pm-hover-card__arrow": "pm_abc_arrow" }
+    const classMap = { "pm-hovercard__arrow": "pm_abc_arrow" }
     expect(hoverCardArrowModuleClasses(classMap)).toBe("pm_abc_arrow")
   })
 

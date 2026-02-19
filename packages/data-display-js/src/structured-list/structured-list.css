@@ -1,82 +1,79 @@
 @layer pm.components {
-  .pm-structured-list {
+  .pm-struct-list {
     display: table;
     width: 100%;
     font-family: var(--pm-font-family-sans);
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
 
     /* Sizes */
-    &.pm-structured-list--sm {
+    &.pm-struct-list--sm {
       font-size: var(--pm-font-size-sm);
 
-      & .pm-structured-list__cell,
-      & .pm-structured-list__header-cell {
+      & .pm-struct-list__cell,
+      & .pm-struct-list__header-cell {
         padding: var(--pm-spacing-1) var(--pm-spacing-2);
       }
     }
 
-    &.pm-structured-list--md {
+    &.pm-struct-list--md {
       font-size: var(--pm-font-size-md);
 
-      & .pm-structured-list__cell,
-      & .pm-structured-list__header-cell {
+      & .pm-struct-list__cell,
+      & .pm-struct-list__header-cell {
         padding: var(--pm-spacing-2) var(--pm-spacing-3);
       }
     }
 
     /* Selectable */
-    &.pm-structured-list--selectable {
-      & .pm-structured-list__body .pm-structured-list__row {
+    &.pm-struct-list--selectable {
+      & .pm-struct-list__body .pm-struct-list__row {
         cursor: pointer;
       }
 
-      & .pm-structured-list__body .pm-structured-list__row:hover {
-        background-color: light-dark(
-          var(--pm-color-neutral-100),
-          var(--pm-color-neutral-700)
-        );
+      & .pm-struct-list__body .pm-struct-list__row:hover {
+        background-color: var(--pm-bg-muted);
       }
 
-      & .pm-structured-list__body .pm-structured-list__row:focus-visible {
-        outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      & .pm-struct-list__body .pm-struct-list__row:focus-visible {
+        outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
         outline-offset: calc(-1 * var(--pm-focus-ring-width));
       }
     }
 
     /* Bordered */
-    &.pm-structured-list--bordered {
-      border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    &.pm-struct-list--bordered {
+      border: 1px solid var(--pm-neutral-hover);
 
-      & .pm-structured-list__cell,
-      & .pm-structured-list__header-cell {
-        border: 1px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+      & .pm-struct-list__cell,
+      & .pm-struct-list__header-cell {
+        border: 1px solid var(--pm-neutral-hover);
       }
     }
   }
 
-  .pm-structured-list__head {
+  .pm-struct-list__head {
     display: table-header-group;
   }
 
-  .pm-structured-list__body {
+  .pm-struct-list__body {
     display: table-row-group;
   }
 
-  .pm-structured-list__row {
+  .pm-struct-list__row {
     display: table-row;
-    border-bottom: 1px solid light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    border-bottom: 1px solid var(--pm-neutral);
     transition: background-color var(--pm-transition-fast) ease-in-out;
   }
 
-  .pm-structured-list__header-cell {
+  .pm-struct-list__header-cell {
     display: table-cell;
     text-align: start;
     font-weight: var(--pm-font-weight-semibold);
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
-    border-bottom: 2px solid light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    color: var(--pm-neutral-fg);
+    border-bottom: 2px solid var(--pm-neutral-hover);
   }
 
-  .pm-structured-list__cell {
+  .pm-struct-list__cell {
     display: table-cell;
     text-align: start;
     vertical-align: top;

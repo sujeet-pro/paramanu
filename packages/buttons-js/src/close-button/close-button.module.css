@@ -1,12 +1,12 @@
 @layer pm.components {
-  .pm-close-button {
-    --pm-close-button-color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
-    --pm-close-button-hover-bg: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
-    --pm-close-button-hover-color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
-    --pm-close-button-active-bg: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-    --pm-close-button-radius: var(--pm-radius-sm);
-    --pm-close-button-size: 32px;
-    --pm-close-button-icon-size: var(--pm-font-size-sm);
+  .pm-close-btn {
+    --pm-close-btn-color: var(--pm-fg-muted);
+    --pm-close-btn-hover-bg: var(--pm-bg-muted);
+    --pm-close-btn-hover-color: var(--pm-neutral-fg);
+    --pm-close-btn-active-bg: var(--pm-neutral-hover);
+    --pm-close-btn-radius: var(--pm-radius-sm);
+    --pm-close-btn-size: 32px;
+    --pm-close-btn-icon-size: var(--pm-font-size-sm);
 
     display: inline-flex;
     align-items: center;
@@ -14,13 +14,13 @@
     border: none;
     background: transparent;
     cursor: pointer;
-    border-radius: var(--pm-close-button-radius);
-    color: var(--pm-close-button-color);
-    width: var(--pm-close-button-size);
-    height: var(--pm-close-button-size);
+    border-radius: var(--pm-close-btn-radius);
+    color: var(--pm-close-btn-color);
+    width: var(--pm-close-btn-size);
+    height: var(--pm-close-btn-size);
     padding: 0;
     line-height: 1;
-    font-size: var(--pm-close-button-icon-size);
+    font-size: var(--pm-close-btn-icon-size);
     flex-shrink: 0;
     user-select: none;
     transition-property: background-color, color;
@@ -28,50 +28,50 @@
     transition-timing-function: ease-in-out;
   }
 
-  .pm-close-button:hover:not(.pm-close-button--disabled) {
-    background-color: var(--pm-close-button-hover-bg);
-    color: var(--pm-close-button-hover-color);
+  .pm-close-btn:hover:not(.pm-close-btn--disabled) {
+    background-color: var(--pm-close-btn-hover-bg);
+    color: var(--pm-close-btn-hover-color);
   }
 
-  .pm-close-button:active:not(.pm-close-button--disabled) {
-    background-color: var(--pm-close-button-active-bg);
+  .pm-close-btn:active:not(.pm-close-btn--disabled) {
+    background-color: var(--pm-close-btn-active-bg);
   }
 
-  .pm-close-button:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+  .pm-close-btn:focus-visible {
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
   /* Sizes */
-  .pm-close-button--xs {
-    --pm-close-button-size: 20px;
-    --pm-close-button-icon-size: var(--pm-font-size-xs);
+  .pm-close-btn--xs {
+    --pm-close-btn-size: 20px;
+    --pm-close-btn-icon-size: var(--pm-font-size-xs);
   }
 
-  .pm-close-button--sm {
-    --pm-close-button-size: 24px;
-    --pm-close-button-icon-size: var(--pm-font-size-xs);
+  .pm-close-btn--sm {
+    --pm-close-btn-size: 24px;
+    --pm-close-btn-icon-size: var(--pm-font-size-xs);
   }
 
-  .pm-close-button--md {
-    --pm-close-button-size: 32px;
-    --pm-close-button-icon-size: var(--pm-font-size-sm);
+  .pm-close-btn--md {
+    --pm-close-btn-size: 32px;
+    --pm-close-btn-icon-size: var(--pm-font-size-sm);
   }
 
-  .pm-close-button--lg {
-    --pm-close-button-size: 40px;
-    --pm-close-button-icon-size: var(--pm-font-size-md);
+  .pm-close-btn--lg {
+    --pm-close-btn-size: 40px;
+    --pm-close-btn-icon-size: var(--pm-font-size-md);
   }
 
   /* States */
-  .pm-close-button--disabled {
+  .pm-close-btn--disabled {
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
   }
 
   /* Inner icon */
-  .pm-close-button__icon {
+  .pm-close-btn__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;

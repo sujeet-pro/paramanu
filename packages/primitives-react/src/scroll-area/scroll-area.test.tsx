@@ -1,15 +1,15 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { ScrollArea } from "./scroll-area.js"
+import { Scroll } from "./scroll-area.js"
 
 afterEach(cleanup)
 
-describe("ScrollArea", () => {
+describe("Scroll", () => {
   it("renders with children", () => {
     render(
-      <ScrollArea aria-label="Scrollable" data-testid="scroll-area">
+      <Scroll aria-label="Scrollable" data-testid="scroll-area">
         <p>Scrollable content</p>
-      </ScrollArea>,
+      </Scroll>,
     )
     const el = screen.getByTestId("scroll-area")
     expect(el).toBeInTheDocument()
@@ -18,61 +18,61 @@ describe("ScrollArea", () => {
 
   it("applies default classes (vertical, auto)", () => {
     render(
-      <ScrollArea aria-label="Scrollable" data-testid="scroll-area">
+      <Scroll aria-label="Scrollable" data-testid="scroll-area">
         Content
-      </ScrollArea>,
+      </Scroll>,
     )
     const el = screen.getByTestId("scroll-area")
-    expect(el.className).toContain("pm-scroll-area")
-    expect(el.className).toContain("pm-scroll-area--vertical")
-    expect(el.className).toContain("pm-scroll-area--scrollbar-auto")
+    expect(el.className).toContain("pm-scroll")
+    expect(el.className).toContain("pm-scroll--vertical")
+    expect(el.className).toContain("pm-scroll--scrollbar-auto")
   })
 
   it("applies horizontal direction", () => {
     render(
-      <ScrollArea direction="horizontal" aria-label="Scrollable" data-testid="scroll-area">
+      <Scroll direction="horizontal" aria-label="Scrollable" data-testid="scroll-area">
         Content
-      </ScrollArea>,
+      </Scroll>,
     )
     const el = screen.getByTestId("scroll-area")
-    expect(el.className).toContain("pm-scroll-area--horizontal")
+    expect(el.className).toContain("pm-scroll--horizontal")
   })
 
   it("applies both direction", () => {
     render(
-      <ScrollArea direction="both" aria-label="Scrollable" data-testid="scroll-area">
+      <Scroll direction="both" aria-label="Scrollable" data-testid="scroll-area">
         Content
-      </ScrollArea>,
+      </Scroll>,
     )
     const el = screen.getByTestId("scroll-area")
-    expect(el.className).toContain("pm-scroll-area--both")
+    expect(el.className).toContain("pm-scroll--both")
   })
 
   it("applies always scrollbar", () => {
     render(
-      <ScrollArea scrollbar="always" aria-label="Scrollable" data-testid="scroll-area">
+      <Scroll scrollbar="always" aria-label="Scrollable" data-testid="scroll-area">
         Content
-      </ScrollArea>,
+      </Scroll>,
     )
     const el = screen.getByTestId("scroll-area")
-    expect(el.className).toContain("pm-scroll-area--scrollbar-always")
+    expect(el.className).toContain("pm-scroll--scrollbar-always")
   })
 
   it("applies hover scrollbar", () => {
     render(
-      <ScrollArea scrollbar="hover" aria-label="Scrollable" data-testid="scroll-area">
+      <Scroll scrollbar="hover" aria-label="Scrollable" data-testid="scroll-area">
         Content
-      </ScrollArea>,
+      </Scroll>,
     )
     const el = screen.getByTestId("scroll-area")
-    expect(el.className).toContain("pm-scroll-area--scrollbar-hover")
+    expect(el.className).toContain("pm-scroll--scrollbar-hover")
   })
 
   it("has tabIndex 0 for keyboard focus", () => {
     render(
-      <ScrollArea aria-label="Scrollable" data-testid="scroll-area">
+      <Scroll aria-label="Scrollable" data-testid="scroll-area">
         Content
-      </ScrollArea>,
+      </Scroll>,
     )
     const el = screen.getByTestId("scroll-area")
     expect(el.getAttribute("tabindex")).toBe("0")
@@ -80,9 +80,9 @@ describe("ScrollArea", () => {
 
   it("has role=region", () => {
     render(
-      <ScrollArea aria-label="Scrollable" data-testid="scroll-area">
+      <Scroll aria-label="Scrollable" data-testid="scroll-area">
         Content
-      </ScrollArea>,
+      </Scroll>,
     )
     const el = screen.getByTestId("scroll-area")
     expect(el.getAttribute("role")).toBe("region")
@@ -90,9 +90,9 @@ describe("ScrollArea", () => {
 
   it("supports aria-label", () => {
     render(
-      <ScrollArea aria-label="Messages list" data-testid="scroll-area">
+      <Scroll aria-label="Messages list" data-testid="scroll-area">
         Content
-      </ScrollArea>,
+      </Scroll>,
     )
     const el = screen.getByTestId("scroll-area")
     expect(el.getAttribute("aria-label")).toBe("Messages list")
@@ -101,29 +101,29 @@ describe("ScrollArea", () => {
   it("forwards ref", () => {
     let elRef: HTMLDivElement | null = null
     render(
-      <ScrollArea ref={(el) => (elRef = el)} aria-label="Scrollable">
+      <Scroll ref={(el) => (elRef = el)} aria-label="Scrollable">
         Content
-      </ScrollArea>,
+      </Scroll>,
     )
     expect(elRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <ScrollArea className="custom-class" aria-label="Scrollable" data-testid="scroll-area">
+      <Scroll className="custom-class" aria-label="Scrollable" data-testid="scroll-area">
         Content
-      </ScrollArea>,
+      </Scroll>,
     )
     const el = screen.getByTestId("scroll-area")
-    expect(el.className).toContain("pm-scroll-area")
+    expect(el.className).toContain("pm-scroll")
     expect(el.className).toContain("custom-class")
   })
 
   it("passes through additional HTML attributes", () => {
     render(
-      <ScrollArea aria-label="Scrollable" data-testid="my-scroll">
+      <Scroll aria-label="Scrollable" data-testid="my-scroll">
         Content
-      </ScrollArea>,
+      </Scroll>,
     )
     expect(screen.getByTestId("my-scroll")).toBeInTheDocument()
   })

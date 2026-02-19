@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { contextMenuClasses } from "./context-menu.classes.js"
-import type { ContextMenuClassesOptions } from "./context-menu.types.js"
+import { ctxMenuClasses } from "./context-menu.classes.js"
+import type { CtxMenuClassesOptions } from "./context-menu.types.js"
 
-interface ContextMenuArgs extends ContextMenuClassesOptions {}
+interface CtxMenuArgs extends CtxMenuClassesOptions {}
 
-function createContextMenu(args: ContextMenuArgs): HTMLElement {
+function createCtxMenu(args: CtxMenuArgs): HTMLElement {
   const div = document.createElement("div")
-  div.className = contextMenuClasses(args)
+  div.className = ctxMenuClasses(args)
   div.setAttribute("role", "menu")
 
   ;["Cut", "Copy", "Paste"].forEach((text) => {
@@ -21,8 +21,8 @@ function createContextMenu(args: ContextMenuArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Context Menu",
-  tags: ["autodocs", "stable"],
-  render: (args) => createContextMenu(args as ContextMenuArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createCtxMenu(args as CtxMenuArgs),
   argTypes: {
     size: {
       control: "select",
@@ -34,10 +34,10 @@ const meta = {
     size: "md",
     open: true,
   },
-} satisfies Meta<ContextMenuArgs>
+} satisfies Meta<CtxMenuArgs>
 
 export default meta
-type Story = StoryObj<ContextMenuArgs>
+type Story = StoryObj<CtxMenuArgs>
 
 export const Playground: Story = {}
 

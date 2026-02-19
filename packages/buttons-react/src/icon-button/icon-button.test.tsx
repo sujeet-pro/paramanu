@@ -1,59 +1,59 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { IconButton } from "./icon-button.js"
+import { IconBtn } from "./icon-button.js"
 
 afterEach(cleanup)
 
-describe("IconButton", () => {
+describe("IconBtn", () => {
   it("renders with aria-label", () => {
-    render(<IconButton aria-label="Search">S</IconButton>)
+    render(<IconBtn aria-label="Search">S</IconBtn>)
     expect(screen.getByRole("button", { name: "Search" })).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<IconButton aria-label="Search">S</IconButton>)
+    render(<IconBtn aria-label="Search">S</IconBtn>)
     const button = screen.getByRole("button", { name: "Search" })
-    expect(button.className).toContain("pm-icon-button")
-    expect(button.className).toContain("pm-icon-button--primary")
-    expect(button.className).toContain("pm-icon-button--md")
-    expect(button.className).toContain("pm-icon-button--square")
+    expect(button.className).toContain("pm-icon-btn")
+    expect(button.className).toContain("pm-icon-btn--primary")
+    expect(button.className).toContain("pm-icon-btn--md")
+    expect(button.className).toContain("pm-icon-btn--square")
   })
 
   it("applies variant class", () => {
     render(
-      <IconButton aria-label="Delete" variant="danger">
+      <IconBtn aria-label="Delete" variant="danger">
         D
-      </IconButton>,
+      </IconBtn>,
     )
     const button = screen.getByRole("button", { name: "Delete" })
-    expect(button.className).toContain("pm-icon-button--danger")
+    expect(button.className).toContain("pm-icon-btn--danger")
   })
 
   it("applies size class", () => {
     render(
-      <IconButton aria-label="Search" size="lg">
+      <IconBtn aria-label="Search" size="lg">
         S
-      </IconButton>,
+      </IconBtn>,
     )
     const button = screen.getByRole("button", { name: "Search" })
-    expect(button.className).toContain("pm-icon-button--lg")
+    expect(button.className).toContain("pm-icon-btn--lg")
   })
 
   it("applies shape class", () => {
     render(
-      <IconButton aria-label="Profile" shape="circle">
+      <IconBtn aria-label="Profile" shape="circle">
         P
-      </IconButton>,
+      </IconBtn>,
     )
     const button = screen.getByRole("button", { name: "Profile" })
-    expect(button.className).toContain("pm-icon-button--circle")
+    expect(button.className).toContain("pm-icon-btn--circle")
   })
 
   it("sets disabled attribute and aria-disabled", () => {
     render(
-      <IconButton aria-label="Search" disabled>
+      <IconBtn aria-label="Search" disabled>
         S
-      </IconButton>,
+      </IconBtn>,
     )
     const button = screen.getByRole("button", { name: "Search" })
     expect(button).toBeDisabled()
@@ -61,51 +61,51 @@ describe("IconButton", () => {
   })
 
   it("has aria-label attribute", () => {
-    render(<IconButton aria-label="Search">S</IconButton>)
+    render(<IconBtn aria-label="Search">S</IconBtn>)
     const button = screen.getByRole("button", { name: "Search" })
     expect(button).toHaveAttribute("aria-label", "Search")
   })
 
   it("defaults to type=button", () => {
-    render(<IconButton aria-label="Search">S</IconButton>)
+    render(<IconBtn aria-label="Search">S</IconBtn>)
     expect(screen.getByRole("button", { name: "Search" })).toHaveAttribute("type", "button")
   })
 
   it("forwards ref", () => {
     let buttonRef: HTMLButtonElement | null = null
     render(
-      <IconButton aria-label="Search" ref={(el) => (buttonRef = el)}>
+      <IconBtn aria-label="Search" ref={(el) => (buttonRef = el)}>
         S
-      </IconButton>,
+      </IconBtn>,
     )
     expect(buttonRef).toBeInstanceOf(HTMLButtonElement)
   })
 
   it("merges custom className", () => {
     render(
-      <IconButton aria-label="Search" className="custom-class">
+      <IconBtn aria-label="Search" className="custom-class">
         S
-      </IconButton>,
+      </IconBtn>,
     )
     const button = screen.getByRole("button", { name: "Search" })
-    expect(button.className).toContain("pm-icon-button")
+    expect(button.className).toContain("pm-icon-btn")
     expect(button.className).toContain("custom-class")
   })
 
   it("passes through additional HTML attributes", () => {
     render(
-      <IconButton aria-label="Search" data-testid="my-icon-button">
+      <IconBtn aria-label="Search" data-testid="my-icon-button">
         S
-      </IconButton>,
+      </IconBtn>,
     )
     expect(screen.getByTestId("my-icon-button")).toBeInTheDocument()
   })
 
   it("renders children", () => {
     render(
-      <IconButton aria-label="Search">
+      <IconBtn aria-label="Search">
         <svg data-testid="icon" />
-      </IconButton>,
+      </IconBtn>,
     )
     expect(screen.getByTestId("icon")).toBeInTheDocument()
   })

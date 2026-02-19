@@ -1,219 +1,219 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
 import {
-  TreeView,
-  TreeViewBranch,
-  TreeViewItem,
-  TreeViewItemContent,
-  TreeViewIndicator,
-  TreeViewGroup,
+  Tree,
+  TreeBranch,
+  TreeItem,
+  TreeItemContent,
+  TreeIndicator,
+  TreeGroup,
 } from "./tree-view.js"
 
 afterEach(cleanup)
 
-describe("TreeView", () => {
+describe("Tree", () => {
   it("renders children", () => {
-    render(<TreeView aria-label="Files">Content</TreeView>)
+    render(<Tree aria-label="Files">Content</Tree>)
     expect(screen.getByRole("tree", { name: "Files" })).toHaveTextContent("Content")
   })
 
   it("applies default classes", () => {
-    render(<TreeView aria-label="Files">Tree</TreeView>)
+    render(<Tree aria-label="Files">Tree</Tree>)
     const tree = screen.getByRole("tree", { name: "Files" })
-    expect(tree.className).toContain("pm-tree-view")
-    expect(tree.className).toContain("pm-tree-view--md")
+    expect(tree.className).toContain("pm-tree")
+    expect(tree.className).toContain("pm-tree--md")
   })
 
   it("applies size class", () => {
     render(
-      <TreeView aria-label="Files" size="sm">
+      <Tree aria-label="Files" size="sm">
         Tree
-      </TreeView>,
+      </Tree>,
     )
     const tree = screen.getByRole("tree", { name: "Files" })
-    expect(tree.className).toContain("pm-tree-view--sm")
+    expect(tree.className).toContain("pm-tree--sm")
   })
 
   it("has role=tree", () => {
-    render(<TreeView aria-label="Files">Tree</TreeView>)
+    render(<Tree aria-label="Files">Tree</Tree>)
     expect(screen.getByRole("tree")).toBeInTheDocument()
   })
 
   it("forwards ref", () => {
     let ref: HTMLUListElement | null = null
     render(
-      <TreeView aria-label="Files" ref={(el) => (ref = el)}>
+      <Tree aria-label="Files" ref={(el) => (ref = el)}>
         Tree
-      </TreeView>,
+      </Tree>,
     )
     expect(ref).toBeInstanceOf(HTMLUListElement)
   })
 
   it("merges custom className", () => {
     render(
-      <TreeView aria-label="Files" className="custom">
+      <Tree aria-label="Files" className="custom">
         Tree
-      </TreeView>,
+      </Tree>,
     )
     const tree = screen.getByRole("tree", { name: "Files" })
-    expect(tree.className).toContain("pm-tree-view")
+    expect(tree.className).toContain("pm-tree")
     expect(tree.className).toContain("custom")
   })
 })
 
-describe("TreeViewBranch", () => {
+describe("TreeBranch", () => {
   it("renders with role=treeitem", () => {
     render(
-      <TreeView aria-label="Files">
-        <TreeViewBranch expanded>Branch</TreeViewBranch>
-      </TreeView>,
+      <Tree aria-label="Files">
+        <TreeBranch expanded>Branch</TreeBranch>
+      </Tree>,
     )
     expect(screen.getByRole("treeitem")).toHaveTextContent("Branch")
   })
 
   it("applies expanded class and aria-expanded", () => {
     render(
-      <TreeView aria-label="Files">
-        <TreeViewBranch expanded data-testid="branch">
+      <Tree aria-label="Files">
+        <TreeBranch expanded data-testid="branch">
           Branch
-        </TreeViewBranch>
-      </TreeView>,
+        </TreeBranch>
+      </Tree>,
     )
     const branch = screen.getByTestId("branch")
-    expect(branch.className).toContain("pm-tree-view__branch--expanded")
+    expect(branch.className).toContain("pm-tree__branch--expanded")
     expect(branch).toHaveAttribute("aria-expanded", "true")
   })
 
   it("applies collapsed state", () => {
     render(
-      <TreeView aria-label="Files">
-        <TreeViewBranch expanded={false} data-testid="branch">
+      <Tree aria-label="Files">
+        <TreeBranch expanded={false} data-testid="branch">
           Branch
-        </TreeViewBranch>
-      </TreeView>,
+        </TreeBranch>
+      </Tree>,
     )
     const branch = screen.getByTestId("branch")
-    expect(branch.className).not.toContain("pm-tree-view__branch--expanded")
+    expect(branch.className).not.toContain("pm-tree__branch--expanded")
     expect(branch).toHaveAttribute("aria-expanded", "false")
   })
 
   it("forwards ref", () => {
     let ref: HTMLLIElement | null = null
     render(
-      <TreeView aria-label="Files">
-        <TreeViewBranch ref={(el) => (ref = el)}>Branch</TreeViewBranch>
-      </TreeView>,
+      <Tree aria-label="Files">
+        <TreeBranch ref={(el) => (ref = el)}>Branch</TreeBranch>
+      </Tree>,
     )
     expect(ref).toBeInstanceOf(HTMLLIElement)
   })
 })
 
-describe("TreeViewItem", () => {
+describe("TreeItem", () => {
   it("renders with role=treeitem", () => {
     render(
-      <TreeView aria-label="Files">
-        <TreeViewItem>Item</TreeViewItem>
-      </TreeView>,
+      <Tree aria-label="Files">
+        <TreeItem>Item</TreeItem>
+      </Tree>,
     )
     expect(screen.getByRole("treeitem")).toHaveTextContent("Item")
   })
 
   it("applies selected class", () => {
     render(
-      <TreeView aria-label="Files">
-        <TreeViewItem selected data-testid="item">
+      <Tree aria-label="Files">
+        <TreeItem selected data-testid="item">
           Item
-        </TreeViewItem>
-      </TreeView>,
+        </TreeItem>
+      </Tree>,
     )
-    expect(screen.getByTestId("item").className).toContain("pm-tree-view__item--selected")
+    expect(screen.getByTestId("item").className).toContain("pm-tree__item--selected")
   })
 
   it("applies disabled class", () => {
     render(
-      <TreeView aria-label="Files">
-        <TreeViewItem disabled data-testid="item">
+      <Tree aria-label="Files">
+        <TreeItem disabled data-testid="item">
           Item
-        </TreeViewItem>
-      </TreeView>,
+        </TreeItem>
+      </Tree>,
     )
-    expect(screen.getByTestId("item").className).toContain("pm-tree-view__item--disabled")
+    expect(screen.getByTestId("item").className).toContain("pm-tree__item--disabled")
   })
 
   it("forwards ref", () => {
     let ref: HTMLLIElement | null = null
     render(
-      <TreeView aria-label="Files">
-        <TreeViewItem ref={(el) => (ref = el)}>Item</TreeViewItem>
-      </TreeView>,
+      <Tree aria-label="Files">
+        <TreeItem ref={(el) => (ref = el)}>Item</TreeItem>
+      </Tree>,
     )
     expect(ref).toBeInstanceOf(HTMLLIElement)
   })
 })
 
-describe("TreeViewItemContent", () => {
+describe("TreeItemContent", () => {
   it("renders children", () => {
-    render(<TreeViewItemContent data-testid="content">Content</TreeViewItemContent>)
+    render(<TreeItemContent data-testid="content">Content</TreeItemContent>)
     expect(screen.getByTestId("content")).toHaveTextContent("Content")
   })
 
   it("applies class", () => {
-    render(<TreeViewItemContent data-testid="content">Content</TreeViewItemContent>)
-    expect(screen.getByTestId("content").className).toContain("pm-tree-view__item-content")
+    render(<TreeItemContent data-testid="content">Content</TreeItemContent>)
+    expect(screen.getByTestId("content").className).toContain("pm-tree__item-content")
   })
 
   it("forwards ref", () => {
     let ref: HTMLDivElement | null = null
-    render(<TreeViewItemContent ref={(el) => (ref = el)}>Content</TreeViewItemContent>)
+    render(<TreeItemContent ref={(el) => (ref = el)}>Content</TreeItemContent>)
     expect(ref).toBeInstanceOf(HTMLDivElement)
   })
 })
 
-describe("TreeViewIndicator", () => {
+describe("TreeIndicator", () => {
   it("renders with aria-hidden", () => {
-    render(<TreeViewIndicator data-testid="indicator" />)
+    render(<TreeIndicator data-testid="indicator" />)
     expect(screen.getByTestId("indicator")).toHaveAttribute("aria-hidden", "true")
   })
 
   it("applies expanded class", () => {
-    render(<TreeViewIndicator expanded data-testid="indicator" />)
+    render(<TreeIndicator expanded data-testid="indicator" />)
     expect(screen.getByTestId("indicator").className).toContain(
-      "pm-tree-view__indicator--expanded",
+      "pm-tree__indicator--expanded",
     )
   })
 
   it("forwards ref", () => {
     let ref: HTMLSpanElement | null = null
-    render(<TreeViewIndicator ref={(el) => (ref = el)} />)
+    render(<TreeIndicator ref={(el) => (ref = el)} />)
     expect(ref).toBeInstanceOf(HTMLSpanElement)
   })
 })
 
-describe("TreeViewGroup", () => {
+describe("TreeGroup", () => {
   it("renders with role=group", () => {
-    render(<TreeViewGroup>Group</TreeViewGroup>)
+    render(<TreeGroup>Group</TreeGroup>)
     expect(screen.getByRole("group")).toHaveTextContent("Group")
   })
 
   it("applies class", () => {
-    render(<TreeViewGroup data-testid="group">Group</TreeViewGroup>)
-    expect(screen.getByTestId("group").className).toContain("pm-tree-view__group")
+    render(<TreeGroup data-testid="group">Group</TreeGroup>)
+    expect(screen.getByTestId("group").className).toContain("pm-tree__group")
   })
 
   it("forwards ref", () => {
     let ref: HTMLUListElement | null = null
-    render(<TreeViewGroup ref={(el) => (ref = el)}>Group</TreeViewGroup>)
+    render(<TreeGroup ref={(el) => (ref = el)}>Group</TreeGroup>)
     expect(ref).toBeInstanceOf(HTMLUListElement)
   })
 
   it("merges custom className", () => {
     render(
-      <TreeViewGroup data-testid="group" className="custom">
+      <TreeGroup data-testid="group" className="custom">
         Group
-      </TreeViewGroup>,
+      </TreeGroup>,
     )
     const el = screen.getByTestId("group")
-    expect(el.className).toContain("pm-tree-view__group")
+    expect(el.className).toContain("pm-tree__group")
     expect(el.className).toContain("custom")
   })
 })

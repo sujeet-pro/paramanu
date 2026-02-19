@@ -60,23 +60,23 @@
 
   /* Colors */
   .pm-avatar--primary {
-    background-color: light-dark(var(--pm-color-primary-100), var(--pm-color-primary-800));
-    color: light-dark(var(--pm-color-primary-700), var(--pm-color-primary-200));
+    background-color: var(--pm-primary-subtle-hover);
+    color: var(--pm-fg-link);
   }
 
   .pm-avatar--neutral {
-    background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
-    color: light-dark(var(--pm-color-neutral-700), var(--pm-color-neutral-200));
+    background-color: var(--pm-neutral-hover);
+    color: var(--pm-neutral-fg);
   }
 
   .pm-avatar--danger {
-    background-color: light-dark(var(--pm-color-danger-100), var(--pm-color-danger-800));
-    color: light-dark(var(--pm-color-danger-700), var(--pm-color-danger-200));
+    background-color: var(--pm-danger-subtle);
+    color: var(--pm-danger-subtle-fg);
   }
 
   .pm-avatar--success {
-    background-color: light-dark(var(--pm-color-success-100), var(--pm-color-success-800));
-    color: light-dark(var(--pm-color-success-700), var(--pm-color-success-200));
+    background-color: var(--pm-success-subtle);
+    color: var(--pm-success-subtle-fg);
   }
 
   .pm-avatar__image {

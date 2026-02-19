@@ -1,19 +1,19 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
-import { editableTextClasses } from "./editable-text.classes.js"
+import { editableClasses } from "./editable-text.classes.js"
 
-function createEditableTextHTML(
-  options: Parameters<typeof editableTextClasses>[0] = {},
+function createEditableHTML(
+  options: Parameters<typeof editableClasses>[0] = {},
   attrs: string = "",
 ): string {
-  const classes = editableTextClasses(options)
+  const classes = editableClasses(options)
   const disabledAttr = options?.disabled ? ' aria-disabled="true"' : ""
   const isEditing = options?.editing
 
   if (isEditing) {
     return `<div class="${classes}" role="group" aria-label="Editable text"${disabledAttr}${attrs ? " " + attrs : ""}>
-      <input class="pm-editable-text__input" type="text" value="Hello" aria-label="Edit text" />
-      <div class="pm-editable-text__controls">
+      <input class="pm-editable__input" type="text" value="Hello" aria-label="Edit text" />
+      <div class="pm-editable__controls">
         <button aria-label="Confirm">OK</button>
         <button aria-label="Cancel">X</button>
       </div>
@@ -21,34 +21,34 @@ function createEditableTextHTML(
   }
 
   return `<div class="${classes}" role="group" aria-label="Editable text"${disabledAttr}${attrs ? " " + attrs : ""}>
-    <span class="pm-editable-text__preview" tabindex="0" role="button" aria-label="Click to edit">Hello</span>
+    <span class="pm-editable__preview" tabindex="0" role="button" aria-label="Click to edit">Hello</span>
   </div>`
 }
 
 describe("editable-text accessibility", () => {
   it("has role=group on container", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createEditableTextHTML()}</body>`)
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createEditableHTML()}</body>`)
     const group = dom.window.document.querySelector("[role='group']")
     expect(group).not.toBeNull()
     expect(group?.getAttribute("role")).toBe("group")
   })
 
   it("preview has role=button and is focusable", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createEditableTextHTML()}</body>`)
-    const preview = dom.window.document.querySelector(".pm-editable-text__preview")
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createEditableHTML()}</body>`)
+    const preview = dom.window.document.querySelector(".pm-editable__preview")
     expect(preview?.getAttribute("role")).toBe("button")
     expect(preview?.getAttribute("tabindex")).toBe("0")
   })
 
   it("preview has aria-label", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body>${createEditableTextHTML()}</body>`)
-    const preview = dom.window.document.querySelector(".pm-editable-text__preview")
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createEditableHTML()}</body>`)
+    const preview = dom.window.document.querySelector(".pm-editable__preview")
     expect(preview?.getAttribute("aria-label")).toBe("Click to edit")
   })
 
   it("editing mode shows input with aria-label", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createEditableTextHTML({ editing: true })}</body>`,
+      `<!DOCTYPE html><body>${createEditableHTML({ editing: true })}</body>`,
     )
     const input = dom.window.document.querySelector("input")
     expect(input).not.toBeNull()
@@ -57,7 +57,7 @@ describe("editable-text accessibility", () => {
 
   it("editing mode has confirm and cancel buttons", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createEditableTextHTML({ editing: true })}</body>`,
+      `<!DOCTYPE html><body>${createEditableHTML({ editing: true })}</body>`,
     )
     const buttons = dom.window.document.querySelectorAll("button")
     expect(buttons.length).toBe(2)
@@ -67,7 +67,7 @@ describe("editable-text accessibility", () => {
 
   it("disabled state has aria-disabled", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createEditableTextHTML({ disabled: true })}</body>`,
+      `<!DOCTYPE html><body>${createEditableHTML({ disabled: true })}</body>`,
     )
     const group = dom.window.document.querySelector("[role='group']")
     expect(group?.getAttribute("aria-disabled")).toBe("true")

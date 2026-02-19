@@ -31,7 +31,7 @@ function createSpacerDemo(args: SpacerClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Spacer",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createSpacerDemo(args as SpacerClassesOptions),
   argTypes: {
     size: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"] },

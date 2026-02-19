@@ -36,7 +36,7 @@ function createFloat(args: FloatClassesOptions): HTMLElement {
 
 const meta = {
   title: "Primitives/Float",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createFloat(args as FloatClassesOptions),
   argTypes: {
     placement: {

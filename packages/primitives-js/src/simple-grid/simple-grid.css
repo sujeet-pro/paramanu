@@ -1,31 +1,31 @@
 @layer pm.components {
-  .pm-simple-grid {
+  .pm-sgrid {
     display: grid;
 
-    &.pm-simple-grid--min-2xs { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
-    &.pm-simple-grid--min-xs { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-    &.pm-simple-grid--min-sm { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
-    &.pm-simple-grid--min-md { grid-template-columns: repeat(auto-fill, minmax(384px, 1fr)); }
-    &.pm-simple-grid--min-lg { grid-template-columns: repeat(auto-fill, minmax(448px, 1fr)); }
-    &.pm-simple-grid--min-xl { grid-template-columns: repeat(auto-fill, minmax(512px, 1fr)); }
+    &.pm-sgrid--min-2xs { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+    &.pm-sgrid--min-xs { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+    &.pm-sgrid--min-sm { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+    &.pm-sgrid--min-md { grid-template-columns: repeat(auto-fill, minmax(384px, 1fr)); }
+    &.pm-sgrid--min-lg { grid-template-columns: repeat(auto-fill, minmax(448px, 1fr)); }
+    &.pm-sgrid--min-xl { grid-template-columns: repeat(auto-fill, minmax(512px, 1fr)); }
 
-    &.pm-simple-grid--cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-    &.pm-simple-grid--cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    &.pm-simple-grid--cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    &.pm-simple-grid--cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    &.pm-simple-grid--cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-    &.pm-simple-grid--cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    &.pm-sgrid--cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    &.pm-sgrid--cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    &.pm-sgrid--cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    &.pm-sgrid--cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    &.pm-sgrid--cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    &.pm-sgrid--cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 
-    &.pm-simple-grid--gap-0 { gap: var(--pm-spacing-0); }
-    &.pm-simple-grid--gap-1 { gap: var(--pm-spacing-1); }
-    &.pm-simple-grid--gap-2 { gap: var(--pm-spacing-2); }
-    &.pm-simple-grid--gap-3 { gap: var(--pm-spacing-3); }
-    &.pm-simple-grid--gap-4 { gap: var(--pm-spacing-4); }
-    &.pm-simple-grid--gap-5 { gap: var(--pm-spacing-5); }
-    &.pm-simple-grid--gap-6 { gap: var(--pm-spacing-6); }
-    &.pm-simple-grid--gap-8 { gap: var(--pm-spacing-8); }
-    &.pm-simple-grid--gap-10 { gap: var(--pm-spacing-10); }
-    &.pm-simple-grid--gap-12 { gap: var(--pm-spacing-12); }
-    &.pm-simple-grid--gap-16 { gap: var(--pm-spacing-16); }
+    &.pm-sgrid--gap-0 { gap: var(--pm-spacing-0); }
+    &.pm-sgrid--gap-1 { gap: var(--pm-spacing-1); }
+    &.pm-sgrid--gap-2 { gap: var(--pm-spacing-2); }
+    &.pm-sgrid--gap-3 { gap: var(--pm-spacing-3); }
+    &.pm-sgrid--gap-4 { gap: var(--pm-spacing-4); }
+    &.pm-sgrid--gap-5 { gap: var(--pm-spacing-5); }
+    &.pm-sgrid--gap-6 { gap: var(--pm-spacing-6); }
+    &.pm-sgrid--gap-8 { gap: var(--pm-spacing-8); }
+    &.pm-sgrid--gap-10 { gap: var(--pm-spacing-10); }
+    &.pm-sgrid--gap-12 { gap: var(--pm-spacing-12); }
+    &.pm-sgrid--gap-16 { gap: var(--pm-spacing-16); }
   }
 }

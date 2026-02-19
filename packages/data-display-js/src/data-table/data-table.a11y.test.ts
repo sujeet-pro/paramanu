@@ -1,10 +1,10 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
-import { dataTableClasses, dataTableHeaderCellClasses } from "./data-table.classes.js"
+import { datatableClasses, dataTableHeaderCellClasses } from "./data-table.classes.js"
 
 describe("data-table accessibility", () => {
   it("renders with table structure inside wrapper", () => {
-    const classes = dataTableClasses()
+    const classes = datatableClasses()
     const dom = new JSDOM(`<!DOCTYPE html><body>
       <div class="${classes.root}">
         <table class="${classes.table}">
@@ -42,7 +42,7 @@ describe("data-table accessibility", () => {
   })
 
   it("data table can have a caption for context", () => {
-    const classes = dataTableClasses()
+    const classes = datatableClasses()
     const dom = new JSDOM(`<!DOCTYPE html><body>
       <div class="${classes.root}">
         <table class="${classes.table}">

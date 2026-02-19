@@ -1,10 +1,18 @@
 ---
 title: Editable Text
 description: An inline text element that can be clicked to switch into an editing input field.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 The Editable Text component displays text that can be clicked to switch into edit mode, allowing inline editing.
 
@@ -14,15 +22,15 @@ The Editable Text component displays text that can be clicked to switch into edi
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-editable-text pm-editable-text--md" role="group">\n  <span>Click to edit</span>\n</div>`}
-  reactCode={`import { EditableText } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <EditableText>\n      <span>Click to edit</span>\n    </EditableText>\n  )\n}`}
+  htmlCode={`<div class="pm-editable pm-editable--md" role="group">\n  <span>Click to edit</span>\n</div>`}
+  reactCode={`import { Editable } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <Editable>\n      <span>Click to edit</span>\n    </Editable>\n  )\n}`}
 />
 
 ## Editing Mode
 
 <ComponentPreview
-  htmlCode={`<div class="pm-editable-text pm-editable-text--md pm-editable-text--editing" role="group">\n  <input class="pm-input pm-input--outline pm-input--md" value="Editing mode" />\n</div>`}
-  reactCode={`import { EditableText } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <EditableText editing>\n      <input defaultValue="Editing mode" />\n    </EditableText>\n  )\n}`}
+  htmlCode={`<div class="pm-editable pm-editable--md pm-editable--editing" role="group">\n  <input class="pm-input pm-input--outline pm-input--md" value="Editing mode" />\n</div>`}
+  reactCode={`import { Editable } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <Editable editing>\n      <input defaultValue="Editing mode" />\n    </Editable>\n  )\n}`}
 />
 
 </TabItem>
@@ -56,9 +64,9 @@ The Editable Text component displays text that can be clicked to switch into edi
 
 | Class | Description |
 |---|---|
-| `pm-editable-text` | Base class |
-| `pm-editable-text--editing` | Editing state |
-| `pm-editable-text--disabled` | Disabled state |
+| `pm-editable` | Base class |
+| `pm-editable--editing` | Editing state |
+| `pm-editable--disabled` | Disabled state |
 
 </TabItem>
 </Tabs>

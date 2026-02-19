@@ -1,65 +1,65 @@
-export { buttonClasses, buttonModuleClasses } from "./button/button.classes.js"
+export { btnClasses, btnModuleClasses } from "./button/button.classes.js"
 export type {
-  ButtonVariant,
-  ButtonSize,
-  ButtonClassesOptions,
-  ButtonProps,
+  BtnVariant,
+  BtnSize,
+  BtnClassesOptions,
+  BtnProps,
 } from "./button/button.types.js"
 
 export {
-  buttonGroupClasses,
-  buttonGroupModuleClasses,
+  btnGroupClasses,
+  btnGroupModuleClasses,
 } from "./button-group/button-group.classes.js"
 export type {
-  ButtonGroupOrientation,
-  ButtonGroupClassesOptions,
+  BtnGroupOrientation,
+  BtnGroupClassesOptions,
 } from "./button-group/button-group.types.js"
 
 export {
-  closeButtonClasses,
-  closeButtonModuleClasses,
+  closeBtnClasses,
+  closeBtnModuleClasses,
 } from "./close-button/close-button.classes.js"
 export type {
-  CloseButtonSize,
-  CloseButtonClassesOptions,
-  CloseButtonProps,
+  CloseBtnSize,
+  CloseBtnClassesOptions,
+  CloseBtnProps,
 } from "./close-button/close-button.types.js"
 
 export {
-  iconButtonClasses,
-  iconButtonModuleClasses,
+  iconBtnClasses,
+  iconBtnModuleClasses,
 } from "./icon-button/icon-button.classes.js"
 export type {
-  IconButtonVariant,
-  IconButtonSize,
-  IconButtonShape,
-  IconButtonClassesOptions,
-  IconButtonProps,
+  IconBtnVariant,
+  IconBtnSize,
+  IconBtnShape,
+  IconBtnClassesOptions,
+  IconBtnProps,
 } from "./icon-button/icon-button.types.js"
 
 export {
-  toggleButtonClasses,
-  toggleButtonModuleClasses,
+  toggleBtnClasses,
+  toggleBtnModuleClasses,
 } from "./toggle-button/toggle-button.classes.js"
 export type {
-  ToggleButtonVariant,
-  ToggleButtonSize,
-  ToggleButtonClassesOptions,
-  ToggleButtonProps,
+  ToggleBtnVariant,
+  ToggleBtnSize,
+  ToggleBtnClassesOptions,
+  ToggleBtnProps,
 } from "./toggle-button/toggle-button.types.js"
 
 export {
-  toggleGroupClasses,
-  toggleGroupModuleClasses,
-  toggleGroupItemClasses,
-  toggleGroupItemModuleClasses,
+  toggleGrpClasses,
+  toggleGrpModuleClasses,
+  toggleGrpItemClasses,
+  toggleGrpItemModuleClasses,
 } from "./toggle-group/toggle-group.classes.js"
 export type {
-  ToggleGroupType,
-  ToggleGroupOrientation,
-  ToggleGroupSize,
-  ToggleGroupClassesOptions,
-  ToggleGroupItemClassesOptions,
+  ToggleGrpType,
+  ToggleGrpOrientation,
+  ToggleGrpSize,
+  ToggleGrpClassesOptions,
+  ToggleGrpItemClassesOptions,
 } from "./toggle-group/toggle-group.types.js"
 
 export { fabClasses, fabModuleClasses } from "./fab/fab.classes.js"

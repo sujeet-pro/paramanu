@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { skipNavLinkClasses } from "./skip-nav-link.classes.js"
+import { skipLinkClasses } from "./skip-nav-link.classes.js"
 
-interface SkipNavLinkArgs {
+interface SkipLinkArgs {
   href: string
   label: string
 }
 
-function createSkipNavLink(args: SkipNavLinkArgs): HTMLElement {
+function createSkipLink(args: SkipLinkArgs): HTMLElement {
   const wrapper = document.createElement("div")
 
   const link = document.createElement("a")
-  link.className = skipNavLinkClasses()
+  link.className = skipLinkClasses()
   link.href = args.href
   link.textContent = args.label
 
@@ -25,8 +25,8 @@ function createSkipNavLink(args: SkipNavLinkArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Skip Nav Link",
-  tags: ["autodocs", "stable"],
-  render: (args) => createSkipNavLink(args as SkipNavLinkArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createSkipLink(args as SkipLinkArgs),
   argTypes: {
     href: { control: "text" },
     label: { control: "text" },
@@ -35,10 +35,10 @@ const meta = {
     href: "#main-content",
     label: "Skip to main content",
   },
-} satisfies Meta<SkipNavLinkArgs>
+} satisfies Meta<SkipLinkArgs>
 
 export default meta
-type Story = StoryObj<SkipNavLinkArgs>
+type Story = StoryObj<SkipLinkArgs>
 
 export const Playground: Story = {}
 

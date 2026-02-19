@@ -12,7 +12,7 @@ import {
 const meta = {
   title: "Data Display/Timeline",
   component: Timeline,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     orientation: { control: "select", options: ["vertical", "horizontal"] },
     align: { control: "select", options: ["start", "center", "alternate"] },

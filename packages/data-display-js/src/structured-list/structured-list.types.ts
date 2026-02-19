@@ -1,10 +1,10 @@
 /** Controls cell padding and font size. */
-export type StructuredListSize = "sm" | "md"
+export type StructListSize = "sm" | "md"
 
 /** Options for generating structured list CSS class names. */
-export interface StructuredListClassesOptions {
+export interface StructListClassesOptions {
   /** Controls cell padding and font size. @default "md" */
-  size?: StructuredListSize
+  size?: StructListSize
   /** Enables row selection with hover/focus states. @default false */
   selectable?: boolean
   /** Adds borders around cells and the list. @default false */
@@ -15,7 +15,7 @@ export interface StructuredListClassesOptions {
  * Object containing BEM class names for each structured list sub-element.
  * Uses `display: table` for column alignment without a real `<table>` element.
  */
-export interface StructuredListClassesResult {
+export interface StructListClassesResult {
   /** Outermost `<div role="table">` wrapper. */
   root: string
   /** Header group `<div>` (table-header-group). */
@@ -31,7 +31,7 @@ export interface StructuredListClassesResult {
 }
 
 /** CSS module result (same shape). */
-export interface StructuredListModuleClassesResult {
+export interface StructListModuleClassesResult {
   root: string
   head: string
   body: string
@@ -40,5 +40,5 @@ export interface StructuredListModuleClassesResult {
   headerCell: string
 }
 
-/** Props for the StructuredList component. */
-export interface StructuredListProps extends StructuredListClassesOptions {}
+/** Props for the StructList component. */
+export interface StructListProps extends StructListClassesOptions {}

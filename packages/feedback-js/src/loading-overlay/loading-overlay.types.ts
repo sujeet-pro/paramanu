@@ -1,4 +1,4 @@
-export interface LoadingOverlayClassesOptions {
+export interface LoadingClassesOptions {
   visible?: boolean
   blur?: boolean
 }

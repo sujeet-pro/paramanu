@@ -50,9 +50,9 @@ describe("dialog accessibility", () => {
 
   it("contains a close button with accessible label", () => {
     const dom = new JSDOM(`<!DOCTYPE html><body>${createDialogHTML()}</body>`)
-    const closeButton = dom.window.document.querySelector("button[aria-label]")
-    expect(closeButton).not.toBeNull()
-    expect(closeButton?.getAttribute("aria-label")).toBe("Close dialog")
+    const closeBtn = dom.window.document.querySelector("button[aria-label]")
+    expect(closeBtn).not.toBeNull()
+    expect(closeBtn?.getAttribute("aria-label")).toBe("Close dialog")
   })
 
   it("dialog panel is within the dialog container", () => {

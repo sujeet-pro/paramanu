@@ -5,7 +5,7 @@ import { Stat, StatLabel, StatValue, StatHelpText } from "./stat.js"
 const meta = {
   title: "Data Display/Stat",
   component: Stat,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },
     align: { control: "select", options: ["start", "center", "end"] },

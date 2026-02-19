@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { circularProgressClasses } from "./circular-progress.classes.js"
-import type { CircularProgressClassesOptions, CircularProgressVariant, CircularProgressSize } from "./circular-progress.types.js"
+import { ringProgressClasses } from "./circular-progress.classes.js"
+import type { RingProgressClassesOptions, RingProgressVariant, RingProgressSize } from "./circular-progress.types.js"
 
 const SIZE_MAP: Record<string, number> = { sm: 32, md: 48, lg: 64, xl: 80 }
 const RADIUS = 20
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS
 
-interface CircularProgressArgs extends CircularProgressClassesOptions {
+interface RingProgressArgs extends RingProgressClassesOptions {
   thickness: number
 }
 
-function createCircularProgress(args: CircularProgressArgs): HTMLDivElement {
-  const classes = circularProgressClasses(args)
+function createRingProgress(args: RingProgressArgs): HTMLDivElement {
+  const classes = ringProgressClasses(args)
   const value = args.value ?? 0
   const min = args.min ?? 0
   const max = args.max ?? 100
@@ -37,8 +37,8 @@ function createCircularProgress(args: CircularProgressArgs): HTMLDivElement {
 
 const meta = {
   title: "Feedback/Circular Progress",
-  tags: ["autodocs", "stable"],
-  render: (args) => createCircularProgress(args as CircularProgressArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createRingProgress(args as RingProgressArgs),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg", "xl"] },
     variant: { control: "select", options: ["primary", "success", "warning", "danger"] },
@@ -47,10 +47,10 @@ const meta = {
     thickness: { control: { type: "number", min: 1, max: 10 } },
   },
   args: { variant: "primary", size: "md", value: 60, thickness: 4 },
-} satisfies Meta<CircularProgressArgs>
+} satisfies Meta<RingProgressArgs>
 
 export default meta
-type Story = StoryObj<CircularProgressArgs>
+type Story = StoryObj<RingProgressArgs>
 
 export const Playground: Story = {}
 
@@ -59,9 +59,9 @@ export const AllVariants: Story = {
     const container = document.createElement("div")
     container.style.display = "flex"
     container.style.gap = "16px"
-    const variants: CircularProgressVariant[] = ["primary", "success", "warning", "danger"]
+    const variants: RingProgressVariant[] = ["primary", "success", "warning", "danger"]
     for (const variant of variants) {
-      container.appendChild(createCircularProgress({ variant, value: 65, thickness: 4 }))
+      container.appendChild(createRingProgress({ variant, value: 65, thickness: 4 }))
     }
     return container
   },
@@ -73,9 +73,9 @@ export const AllSizes: Story = {
     container.style.display = "flex"
     container.style.gap = "16px"
     container.style.alignItems = "center"
-    const sizes: CircularProgressSize[] = ["sm", "md", "lg", "xl"]
+    const sizes: RingProgressSize[] = ["sm", "md", "lg", "xl"]
     for (const size of sizes) {
-      container.appendChild(createCircularProgress({ size, value: 50, thickness: 4 }))
+      container.appendChild(createRingProgress({ size, value: 50, thickness: 4 }))
     }
     return container
   },

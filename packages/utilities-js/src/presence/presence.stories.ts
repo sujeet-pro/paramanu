@@ -22,7 +22,7 @@ function createPresence(args: PresenceClassesOptions): HTMLElement {
 
 const meta = {
   title: "Utilities/Presence",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createPresence(args as PresenceClassesOptions),
   argTypes: {
     state: {

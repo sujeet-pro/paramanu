@@ -12,23 +12,23 @@
 
   /* Variants */
   .pm-banner--info {
-    background-color: light-dark(var(--pm-color-info-50), var(--pm-color-info-900));
-    color: light-dark(var(--pm-color-info-800), var(--pm-color-info-100));
+    background-color: var(--pm-info-subtle);
+    color: var(--pm-info-subtle-fg);
   }
 
   .pm-banner--success {
-    background-color: light-dark(var(--pm-color-success-50), var(--pm-color-success-900));
-    color: light-dark(var(--pm-color-success-800), var(--pm-color-success-100));
+    background-color: var(--pm-success-subtle);
+    color: var(--pm-success-subtle-fg);
   }
 
   .pm-banner--warning {
-    background-color: light-dark(var(--pm-color-warning-50), var(--pm-color-warning-900));
-    color: light-dark(var(--pm-color-warning-800), var(--pm-color-warning-100));
+    background-color: var(--pm-warning-subtle);
+    color: var(--pm-warning-subtle-fg);
   }
 
   .pm-banner--danger {
-    background-color: light-dark(var(--pm-color-danger-50), var(--pm-color-danger-900));
-    color: light-dark(var(--pm-color-danger-800), var(--pm-color-danger-100));
+    background-color: var(--pm-danger-subtle);
+    color: var(--pm-danger-subtle-fg);
   }
 
   /* Sticky */

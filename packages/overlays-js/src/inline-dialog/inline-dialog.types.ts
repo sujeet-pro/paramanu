@@ -1,5 +1,5 @@
-export interface InlineDialogClassesOptions {
+export interface InlineDlgClassesOptions {
   visible?: boolean
 }
 
-export interface InlineDialogBodyClassesOptions {}
+export interface InlineDlgBodyClassesOptions {}

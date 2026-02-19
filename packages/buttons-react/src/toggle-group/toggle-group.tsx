@@ -1,16 +1,16 @@
 import { forwardRef, useCallback } from "react"
-import { toggleGroupClasses, toggleGroupItemClasses } from "@paramanu/buttons-js"
+import { toggleGrpClasses, toggleGrpItemClasses } from "@paramanu/buttons-js"
 import type {
-  ToggleGroupType,
-  ToggleGroupClassesOptions,
-  ToggleGroupItemClassesOptions,
+  ToggleGrpType,
+  ToggleGrpClassesOptions,
+  ToggleGrpItemClassesOptions,
 } from "@paramanu/buttons-js"
 
-export interface ReactToggleGroupProps
-  extends ToggleGroupClassesOptions,
+export interface ReactToggleGrpProps
+  extends ToggleGrpClassesOptions,
     Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
   /** Selection mode: "single" allows one item, "multiple" allows many. @default "single" */
-  type?: ToggleGroupType
+  type?: ToggleGrpType
   /**
    * Currently selected value(s).
    * For type="single": a string or undefined.
@@ -19,7 +19,7 @@ export interface ReactToggleGroupProps
   value?: string | string[]
   /** Callback fired when the selection changes. */
   onChange?: (value: string | string[]) => void
-  /** Content (ToggleGroupItem elements). */
+  /** Content (ToggleGrpItem elements). */
   children?: React.ReactNode
 }
 
@@ -30,15 +30,15 @@ export interface ReactToggleGroupProps
  *
  * @example
  * ```tsx
- * <ToggleGroup type="single" value={alignment} onChange={setAlignment}>
- *   <ToggleGroupItem value="left">Left</ToggleGroupItem>
- *   <ToggleGroupItem value="center">Center</ToggleGroupItem>
- *   <ToggleGroupItem value="right">Right</ToggleGroupItem>
- * </ToggleGroup>
+ * <ToggleGrp type="single" value={alignment} onChange={setAlignment}>
+ *   <ToggleGrpItem value="left">Left</ToggleGrpItem>
+ *   <ToggleGrpItem value="center">Center</ToggleGrpItem>
+ *   <ToggleGrpItem value="right">Right</ToggleGrpItem>
+ * </ToggleGrp>
  * ```
  */
-export const ToggleGroup = forwardRef<HTMLDivElement, ReactToggleGroupProps>(
-  function ToggleGroup(
+export const ToggleGrp = forwardRef<HTMLDivElement, ReactToggleGrpProps>(
+  function ToggleGrp(
     {
       type = "single",
       orientation,
@@ -53,7 +53,7 @@ export const ToggleGroup = forwardRef<HTMLDivElement, ReactToggleGroupProps>(
     },
     ref,
   ) {
-    const classes = toggleGroupClasses({ orientation, size, attached, fullWidth })
+    const classes = toggleGrpClasses({ orientation, size, attached, fullWidth })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     const handleItemClick = useCallback(
@@ -124,8 +124,8 @@ export const ToggleGroup = forwardRef<HTMLDivElement, ReactToggleGroupProps>(
   },
 )
 
-export interface ReactToggleGroupItemProps
-  extends ToggleGroupItemClassesOptions,
+export interface ReactToggleGrpItemProps
+  extends ToggleGrpItemClassesOptions,
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type" | "value"> {
   /** The value associated with this item (used for selection tracking). */
   value?: string
@@ -134,20 +134,20 @@ export interface ReactToggleGroupItemProps
 }
 
 /**
- * An individual item within a ToggleGroup. Renders a toggle button
+ * An individual item within a ToggleGrp. Renders a toggle button
  * with `aria-pressed` to indicate the selected state.
  *
  * @example
  * ```tsx
- * <ToggleGroupItem value="bold">B</ToggleGroupItem>
+ * <ToggleGrpItem value="bold">B</ToggleGrpItem>
  * ```
  */
-export const ToggleGroupItem = forwardRef<HTMLButtonElement, ReactToggleGroupItemProps>(
-  function ToggleGroupItem(
+export const ToggleGrpItem = forwardRef<HTMLButtonElement, ReactToggleGrpItemProps>(
+  function ToggleGrpItem(
     { size, variant, pressed, disabled, value, className, children, ...rest },
     ref,
   ) {
-    const classes = toggleGroupItemClasses({ size, variant, pressed, disabled })
+    const classes = toggleGrpItemClasses({ size, variant, pressed, disabled })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     return (

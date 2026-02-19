@@ -16,7 +16,7 @@ function createDropzone(args: DropzoneArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Dropzone",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createDropzone(args as DropzoneArgs),
   argTypes: {
     disabled: { control: "boolean" },

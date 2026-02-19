@@ -1,21 +1,21 @@
 /** Controls cell padding and font size of the data table. */
-export type DataTableSize = "sm" | "md" | "lg"
+export type DatatableSize = "sm" | "md" | "lg"
 
 /** Visual style variant for the data table. */
-export type DataTableVariant = "simple" | "striped"
+export type DatatableVariant = "simple" | "striped"
 
 /** Sort direction for a column header. */
-export type DataTableSortDirection = "asc" | "desc" | "none"
+export type DatatableSortDirection = "asc" | "desc" | "none"
 
 /** Text alignment for a cell. */
-export type DataTableCellAlign = "start" | "center" | "end"
+export type DatatableCellAlign = "start" | "center" | "end"
 
 /** Options for generating data table CSS class names. */
-export interface DataTableClassesOptions {
+export interface DatatableClassesOptions {
   /** Visual style variant. @default "simple" */
-  variant?: DataTableVariant
+  variant?: DatatableVariant
   /** Controls cell padding and font size. @default "md" */
-  size?: DataTableSize
+  size?: DatatableSize
   /** Highlights rows on hover. @default false */
   hoverable?: boolean
   /** Adds borders around cells and the table. @default false */
@@ -27,19 +27,19 @@ export interface DataTableClassesOptions {
 }
 
 /** Options for generating data table header cell class names. */
-export interface DataTableHeaderCellClassesOptions {
+export interface DatatableHeaderCellClassesOptions {
   /** Whether the column is sortable. @default false */
   sortable?: boolean
   /** Current sort direction. @default "none" */
-  sortDirection?: DataTableSortDirection
+  sortDirection?: DatatableSortDirection
   /** Text alignment override. @default "start" */
-  align?: DataTableCellAlign
+  align?: DatatableCellAlign
 }
 
 /**
  * Object containing BEM class names for each data table sub-element.
  */
-export interface DataTableClassesResult {
+export interface DatatableClassesResult {
   /** Outermost wrapper `<div>`. */
   root: string
   /** The `<table>` element. */
@@ -56,5 +56,5 @@ export interface DataTableClassesResult {
   pagination: string
 }
 
-/** Props for the DataTable component. */
-export interface DataTableProps extends DataTableClassesOptions {}
+/** Props for the Datatable component. */
+export interface DatatableProps extends DatatableClassesOptions {}

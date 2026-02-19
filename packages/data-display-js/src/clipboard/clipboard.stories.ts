@@ -21,7 +21,7 @@ function createClipboard(args: ClipboardArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Clipboard",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createClipboard(args as ClipboardArgs),
   argTypes: {
     size: { control: "select", options: ["sm", "md", "lg"] },

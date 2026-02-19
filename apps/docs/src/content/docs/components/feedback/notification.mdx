@@ -1,12 +1,20 @@
 ---
-title: Notification
+title: Notif
 description: Rich notification with title, description, timestamp, and actions.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-Notification displays a rich notification item with title, message, timestamp, and optional actions.
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
+
+Notif displays a rich notification item with title, message, timestamp, and optional actions.
 
 <Tabs syncKey="component-tab">
   <TabItem label="Usage">
@@ -14,18 +22,18 @@ Notification displays a rich notification item with title, message, timestamp, a
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-notification pm-notification--neutral" role="article">
-  <div class="pm-notification__content">
-    <div class="pm-notification__title">New message</div>
-    <div class="pm-notification__message">You have a new message.</div>
-    <time class="pm-notification__timestamp">2 min ago</time>
+  htmlCode={`<div class="pm-notif pm-notif--neutral" role="article">
+  <div class="pm-notif__content">
+    <div class="pm-notif__title">New message</div>
+    <div class="pm-notif__message">You have a new message.</div>
+    <time class="pm-notif__timestamp">2 min ago</time>
   </div>
 </div>`}
-  reactCode={`import { Notification } from "@paramanu/feedback-react"
+  reactCode={`import { Notif } from "@paramanu/feedback-react"
 
 export default function App() {
   return (
-    <Notification title="New message" message="You have a new message." timestamp="2 min ago" />
+    <Notif title="New message" message="You have a new message." timestamp="2 min ago" />
   )
 }`}
 />

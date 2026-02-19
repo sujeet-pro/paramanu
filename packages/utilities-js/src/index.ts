@@ -2,12 +2,12 @@
 
 // Visually Hidden
 export {
-  visuallyHiddenClasses,
-  visuallyHiddenModuleClasses,
+  srOnlyClasses,
+  srOnlyModuleClasses,
 } from "./visually-hidden/visually-hidden.classes.js"
 export type {
-  VisuallyHiddenClassesOptions,
-  VisuallyHiddenProps,
+  SrOnlyClassesOptions,
+  SrOnlyProps,
 } from "./visually-hidden/visually-hidden.types.js"
 
 // Skip Nav
@@ -52,10 +52,10 @@ export type {
 // Theme Provider
 export { setTheme, getTheme, clearTheme } from "./theme-provider/theme-provider.js"
 export {
-  themeProviderClasses,
-  themeProviderModuleClasses,
+  themeClasses,
+  themeModuleClasses,
 } from "./theme-provider/theme-provider.classes.js"
-export type { ThemeMode, ThemeProviderOptions } from "./theme-provider/theme-provider.types.js"
+export type { ThemeMode, ThemeOptions } from "./theme-provider/theme-provider.types.js"
 
 // Direction Provider
 export { setDirection, getDirection } from "./direction-provider/direction-provider.js"

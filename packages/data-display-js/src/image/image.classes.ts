@@ -1,22 +1,22 @@
-import type { ImageClassesOptions, ImageClassesResult } from "./image.types.js"
+import type { ImgClassesOptions, ImgClassesResult } from "./image.types.js"
 
-const BASE = "pm-image"
+const BASE = "pm-img"
 
 /**
- * Returns BEM class names for the Image component.
+ * Returns BEM class names for the Img component.
  *
  * Enhanced `<img>` wrapper rendered as a `<figure>` with support for
  * fallback placeholders, loading skeletons, captions, and object-fit control.
  *
  * @example
  * ```ts
- * const cls = imageClasses({ fit: "contain", radius: "lg" })
- * // cls.root    => "pm-image pm-image--fit-contain pm-image--radius-lg"
- * // cls.img     => "pm-image__img"
- * // cls.caption => "pm-image__caption"
+ * const cls = imgClasses({ fit: "contain", radius: "lg" })
+ * // cls.root    => "pm-img pm-img--fit-contain pm-img--radius-lg"
+ * // cls.img     => "pm-img__img"
+ * // cls.caption => "pm-img__caption"
  * ```
  */
-export function imageClasses(options: ImageClassesOptions = {}): ImageClassesResult {
+export function imgClasses(options: ImgClassesOptions = {}): ImgClassesResult {
   const { fit = "cover", radius = "none", fallback = false, loading = false } = options
 
   const rootClasses = [BASE, `${BASE}--fit-${fit}`]
@@ -34,25 +34,25 @@ export function imageClasses(options: ImageClassesOptions = {}): ImageClassesRes
 }
 
 /**
- * Returns CSS module class names for the Image component.
+ * Returns CSS module class names for the Img component.
  * Used by bundled consumers who import CSS modules.
  */
-export function imageModuleClasses(
+export function imgModuleClasses(
   classMap: Record<string, string>,
-  options: ImageClassesOptions = {},
-): ImageClassesResult {
+  options: ImgClassesOptions = {},
+): ImgClassesResult {
   const { fit = "cover", radius = "none", fallback = false, loading = false } = options
 
-  const rootClasses = [classMap["pm-image"], classMap[`pm-image--fit-${fit}`]]
+  const rootClasses = [classMap["pm-img"], classMap[`pm-img--fit-${fit}`]]
 
-  if (radius !== "none") rootClasses.push(classMap[`pm-image--radius-${radius}`])
-  if (fallback) rootClasses.push(classMap["pm-image--fallback"])
-  if (loading) rootClasses.push(classMap["pm-image--loading"])
+  if (radius !== "none") rootClasses.push(classMap[`pm-img--radius-${radius}`])
+  if (fallback) rootClasses.push(classMap["pm-img--fallback"])
+  if (loading) rootClasses.push(classMap["pm-img--loading"])
 
   return {
     root: rootClasses.filter(Boolean).join(" "),
-    img: classMap["pm-image__img"] ?? "",
-    fallback: classMap["pm-image__fallback"] ?? "",
-    caption: classMap["pm-image__caption"] ?? "",
+    img: classMap["pm-img__img"] ?? "",
+    fallback: classMap["pm-img__fallback"] ?? "",
+    caption: classMap["pm-img__caption"] ?? "",
   }
 }

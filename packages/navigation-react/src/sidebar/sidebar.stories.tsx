@@ -5,7 +5,7 @@ import { Sidebar, SidebarSection, SidebarSectionLabel, SidebarItem } from "./sid
 const meta = {
   title: "Navigation/Sidebar",
   component: Sidebar,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     width: {
       control: "select",

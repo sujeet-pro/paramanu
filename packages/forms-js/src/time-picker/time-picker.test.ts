@@ -1,45 +1,45 @@
 import { describe, it, expect } from "vitest"
-import { timePickerClasses, timePickerModuleClasses } from "./time-picker.classes.js"
+import { timepickerClasses, timepickerModuleClasses } from "./time-picker.classes.js"
 
-describe("timePickerClasses", () => {
+describe("timepickerClasses", () => {
   it("returns default classes (outline, md)", () => {
-    const result = timePickerClasses()
-    expect(result).toBe("pm-time-picker pm-time-picker--outline pm-time-picker--md")
+    const result = timepickerClasses()
+    expect(result).toBe("pm-timepicker pm-timepicker--outline pm-timepicker--md")
   })
 
   it("applies variant", () => {
-    expect(timePickerClasses({ variant: "outline" })).toContain("pm-time-picker--outline")
-    expect(timePickerClasses({ variant: "filled" })).toContain("pm-time-picker--filled")
-    expect(timePickerClasses({ variant: "unstyled" })).toContain("pm-time-picker--unstyled")
+    expect(timepickerClasses({ variant: "outline" })).toContain("pm-timepicker--outline")
+    expect(timepickerClasses({ variant: "filled" })).toContain("pm-timepicker--filled")
+    expect(timepickerClasses({ variant: "unstyled" })).toContain("pm-timepicker--unstyled")
   })
 
   it("applies size", () => {
-    expect(timePickerClasses({ size: "sm" })).toContain("pm-time-picker--sm")
-    expect(timePickerClasses({ size: "md" })).toContain("pm-time-picker--md")
-    expect(timePickerClasses({ size: "lg" })).toContain("pm-time-picker--lg")
+    expect(timepickerClasses({ size: "sm" })).toContain("pm-timepicker--sm")
+    expect(timepickerClasses({ size: "md" })).toContain("pm-timepicker--md")
+    expect(timepickerClasses({ size: "lg" })).toContain("pm-timepicker--lg")
   })
 
   it("applies invalid modifier", () => {
-    expect(timePickerClasses({ invalid: true })).toContain("pm-time-picker--invalid")
-    expect(timePickerClasses({ invalid: false })).not.toContain("pm-time-picker--invalid")
+    expect(timepickerClasses({ invalid: true })).toContain("pm-timepicker--invalid")
+    expect(timepickerClasses({ invalid: false })).not.toContain("pm-timepicker--invalid")
   })
 
   it("applies disabled modifier", () => {
-    expect(timePickerClasses({ disabled: true })).toContain("pm-time-picker--disabled")
-    expect(timePickerClasses({ disabled: false })).not.toContain("pm-time-picker--disabled")
+    expect(timepickerClasses({ disabled: true })).toContain("pm-timepicker--disabled")
+    expect(timepickerClasses({ disabled: false })).not.toContain("pm-timepicker--disabled")
   })
 
   it("applies open modifier", () => {
-    expect(timePickerClasses({ open: true })).toContain("pm-time-picker--open")
-    expect(timePickerClasses({ open: false })).not.toContain("pm-time-picker--open")
+    expect(timepickerClasses({ open: true })).toContain("pm-timepicker--open")
+    expect(timepickerClasses({ open: false })).not.toContain("pm-timepicker--open")
   })
 
   it("always includes base class", () => {
-    expect(timePickerClasses()).toMatch(/^pm-time-picker\s/)
+    expect(timepickerClasses()).toMatch(/^pm-timepicker\s/)
   })
 
   it("combines multiple options", () => {
-    const result = timePickerClasses({
+    const result = timepickerClasses({
       variant: "filled",
       size: "lg",
       invalid: true,
@@ -47,49 +47,49 @@ describe("timePickerClasses", () => {
       open: true,
     })
     expect(result).toBe(
-      "pm-time-picker pm-time-picker--filled pm-time-picker--lg pm-time-picker--invalid pm-time-picker--disabled pm-time-picker--open",
+      "pm-timepicker pm-timepicker--filled pm-timepicker--lg pm-timepicker--invalid pm-timepicker--disabled pm-timepicker--open",
     )
   })
 })
 
-describe("timePickerModuleClasses", () => {
+describe("timepickerModuleClasses", () => {
   const mockClassMap: Record<string, string> = {
-    "pm-time-picker": "pm_abc_timePicker",
-    "pm-time-picker--outline": "pm_abc_outline",
-    "pm-time-picker--filled": "pm_abc_filled",
-    "pm-time-picker--md": "pm_abc_md",
-    "pm-time-picker--sm": "pm_abc_sm",
-    "pm-time-picker--lg": "pm_abc_lg",
-    "pm-time-picker--invalid": "pm_abc_invalid",
-    "pm-time-picker--disabled": "pm_abc_disabled",
-    "pm-time-picker--open": "pm_abc_open",
+    "pm-timepicker": "pm_abc_timePicker",
+    "pm-timepicker--outline": "pm_abc_outline",
+    "pm-timepicker--filled": "pm_abc_filled",
+    "pm-timepicker--md": "pm_abc_md",
+    "pm-timepicker--sm": "pm_abc_sm",
+    "pm-timepicker--lg": "pm_abc_lg",
+    "pm-timepicker--invalid": "pm_abc_invalid",
+    "pm-timepicker--disabled": "pm_abc_disabled",
+    "pm-timepicker--open": "pm_abc_open",
   }
 
   it("returns mapped default classes", () => {
-    const result = timePickerModuleClasses(mockClassMap)
+    const result = timepickerModuleClasses(mockClassMap)
     expect(result).toBe("pm_abc_timePicker pm_abc_outline pm_abc_md")
   })
 
   it("maps variant classes correctly", () => {
-    const result = timePickerModuleClasses(mockClassMap, { variant: "filled" })
+    const result = timepickerModuleClasses(mockClassMap, { variant: "filled" })
     expect(result).toContain("pm_abc_filled")
   })
 
   it("maps size classes correctly", () => {
-    const result = timePickerModuleClasses(mockClassMap, { size: "lg" })
+    const result = timepickerModuleClasses(mockClassMap, { size: "lg" })
     expect(result).toContain("pm_abc_lg")
   })
 
   it("maps open class", () => {
-    const result = timePickerModuleClasses(mockClassMap, { open: true })
+    const result = timepickerModuleClasses(mockClassMap, { open: true })
     expect(result).toContain("pm_abc_open")
   })
 
   it("handles missing class map entries gracefully", () => {
     const sparseMap: Record<string, string> = {
-      "pm-time-picker": "pm_abc_timePicker",
+      "pm-timepicker": "pm_abc_timePicker",
     }
-    const result = timePickerModuleClasses(sparseMap)
+    const result = timepickerModuleClasses(sparseMap)
     expect(result).toContain("pm_abc_timePicker")
     expect(result).not.toContain("undefined")
   })

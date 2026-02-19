@@ -32,22 +32,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: light-dark(var(--pm-color-neutral-200), var(--pm-color-neutral-700));
+    background-color: var(--pm-neutral-hover);
     transition: background-color var(--pm-transition-fast) ease-in-out;
     user-select: none;
     touch-action: none;
 
     &:hover {
-      background-color: light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+      background-color: var(--pm-neutral-active);
     }
 
     &:focus-visible {
-      outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+      outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
       outline-offset: var(--pm-focus-ring-offset);
     }
 
     &.pm-splitter__handle--active {
-      background-color: light-dark(var(--pm-color-primary-200), var(--pm-color-primary-700));
+      background-color: var(--pm-primary-subtle-hover);
     }
 
     &.pm-splitter__handle--horizontal {

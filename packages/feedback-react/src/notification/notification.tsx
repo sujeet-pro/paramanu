@@ -1,15 +1,15 @@
 import { forwardRef } from "react"
-import { notificationClasses } from "@paramanu/feedback-js"
-import type { NotificationClassesOptions } from "@paramanu/feedback-js"
+import { notifClasses } from "@paramanu/feedback-js"
+import type { NotifClassesOptions } from "@paramanu/feedback-js"
 
-export interface ReactNotificationProps
-  extends NotificationClassesOptions,
+export interface ReactNotifProps
+  extends NotifClassesOptions,
     Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
   /** Avatar or icon element. */
   icon?: React.ReactNode
-  /** Notification title. */
+  /** Notif title. */
   title?: React.ReactNode
-  /** Notification body message. */
+  /** Notif body message. */
   message?: React.ReactNode
   /** Timestamp string (e.g. "2 min ago"). */
   timestamp?: React.ReactNode
@@ -21,10 +21,10 @@ export interface ReactNotificationProps
 }
 
 /**
- * Notification displays a rich notification with title, description, timestamp, and actions.
+ * Notif displays a rich notification with title, description, timestamp, and actions.
  */
-export const Notification = forwardRef<HTMLDivElement, ReactNotificationProps>(
-  function Notification(
+export const Notif = forwardRef<HTMLDivElement, ReactNotifProps>(
+  function Notif(
     {
       variant,
       unread,
@@ -41,7 +41,7 @@ export const Notification = forwardRef<HTMLDivElement, ReactNotificationProps>(
     },
     ref,
   ) {
-    const classes = notificationClasses({ variant, unread, dismissible })
+    const classes = notifClasses({ variant, unread, dismissible })
     const combinedClassName = className ? `${classes.root} ${className}` : classes.root
 
     return (

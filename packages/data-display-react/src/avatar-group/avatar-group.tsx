@@ -1,17 +1,17 @@
 import { forwardRef, Children } from "react"
-import { avatarGroupClasses } from "@paramanu/data-display-js"
-import type { AvatarGroupClassesOptions } from "@paramanu/data-display-js"
+import { avatarGrpClasses } from "@paramanu/data-display-js"
+import type { AvatarGrpClassesOptions } from "@paramanu/data-display-js"
 
-export interface ReactAvatarGroupProps
-  extends AvatarGroupClassesOptions,
+export interface ReactAvatarGrpProps
+  extends AvatarGrpClassesOptions,
     React.HTMLAttributes<HTMLDivElement> {
   max?: number
   children?: React.ReactNode
 }
 
-export const AvatarGroup = forwardRef<HTMLDivElement, ReactAvatarGroupProps>(
-  function AvatarGroup({ size, spacing, max, className, children, ...rest }, ref) {
-    const classes = avatarGroupClasses({ size, spacing })
+export const AvatarGrp = forwardRef<HTMLDivElement, ReactAvatarGrpProps>(
+  function AvatarGrp({ size, spacing, max, className, children, ...rest }, ref) {
+    const classes = avatarGrpClasses({ size, spacing })
     const combinedClassName = className ? `${classes.root} ${className}` : classes.root
 
     const childArray = Children.toArray(children)

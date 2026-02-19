@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { Button } from "./button.js"
+import { Btn } from "./button.js"
 
 const meta = {
-  title: "Buttons/Button",
-  component: Button,
-  tags: ["autodocs", "stable"],
+  title: "Btns/Btn",
+  component: Btn,
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: {
       control: "select",
@@ -30,12 +30,12 @@ const meta = {
     },
   },
   args: {
-    children: "Button",
+    children: "Btn",
     variant: "primary",
     size: "md",
     onClick: fn(),
   },
-} satisfies Meta<typeof Button>
+} satisfies Meta<typeof Btn>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -43,7 +43,7 @@ type Story = StoryObj<typeof meta>
 /** The default playground story with all controls exposed. */
 export const Playground: Story = {
   args: {
-    children: "Button",
+    children: "Btn",
   },
 }
 
@@ -97,9 +97,9 @@ export const AllVariantsAndSizes: Story = {
       {(["primary", "secondary", "danger", "ghost", "outline", "link"] as const).map((variant) => (
         <div key={variant} style={{ display: "flex", gap: 8, alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
-            <Button key={size} variant={variant} size={size}>
+            <Btn key={size} variant={variant} size={size}>
               {variant} {size}
-            </Button>
+            </Btn>
           ))}
         </div>
       ))}
@@ -134,13 +134,13 @@ export const LoadingSpinnerEnd: Story = {
 export const States: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-      <Button>Default</Button>
-      <Button disabled>Disabled</Button>
-      <Button loading>Loading</Button>
-      <Button loading loadingText="Saving...">
+      <Btn>Default</Btn>
+      <Btn disabled>Disabled</Btn>
+      <Btn loading>Loading</Btn>
+      <Btn loading loadingText="Saving...">
         Save
-      </Button>
-      <Button active>Active</Button>
+      </Btn>
+      <Btn active>Active</Btn>
     </div>
   ),
 }
@@ -214,7 +214,7 @@ export const KeyboardInteraction: Story = {
 
 export const Accessibility: Story = {
   args: {
-    children: "Accessible Button",
+    children: "Accessible Btn",
     "aria-label": "Perform action",
   },
   play: async ({ canvasElement }) => {

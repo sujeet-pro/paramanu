@@ -1,7 +1,9 @@
 {
   "name": "@paramanu/disclosure-js",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-alpha.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -9,7 +11,11 @@
       "import": "./dist/js/index.js"
     },
     "./css": "./dist/css/disclosure.css",
-    "./css/layers": "./dist/css/disclosure.layers.css",
+    "./css/min": "./dist/css/disclosure.min.css",
+    "./css/accordion": "./dist/css/accordion.css",
+    "./css/carousel": "./dist/css/carousel.css",
+    "./css/collapsible": "./dist/css/collapsible.css",
+    "./css/tour": "./dist/css/tour.css",
     "./modules/collapsible/map": {
       "types": "./dist/css/collapsible.module.d.ts",
       "import": "./dist/css/collapsible.module.js"
@@ -27,7 +33,9 @@
       "import": "./dist/css/tour.module.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsx css.build.ts && tsup",
     "test": "vitest run",

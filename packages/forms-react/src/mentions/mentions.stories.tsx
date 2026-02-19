@@ -4,7 +4,7 @@ import { Mentions } from "./mentions.js"
 
 const meta = {
   title: "Forms/Mentions",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Mentions,
   argTypes: {
     variant: {

@@ -1,18 +1,18 @@
 import { forwardRef } from "react"
-import { dataListClasses } from "@paramanu/data-display-js"
-import type { DataListProps } from "@paramanu/data-display-js"
+import { datalistClasses } from "@paramanu/data-display-js"
+import type { DatalistProps } from "@paramanu/data-display-js"
 
-export interface ReactDataListProps
-  extends DataListProps,
+export interface ReactDatalistProps
+  extends DatalistProps,
     React.HTMLAttributes<HTMLDListElement> {
   children?: React.ReactNode
 }
 
-export const DataList = forwardRef<HTMLDListElement, ReactDataListProps>(function DataList(
+export const Datalist = forwardRef<HTMLDListElement, ReactDatalistProps>(function Datalist(
   { orientation, size, dividers, className, children, ...rest },
   ref,
 ) {
-  const classes = dataListClasses({ orientation, size, dividers })
+  const classes = datalistClasses({ orientation, size, dividers })
   const combinedClassName = className ? `${classes.root} ${className}` : classes.root
 
   return (
@@ -22,13 +22,13 @@ export const DataList = forwardRef<HTMLDListElement, ReactDataListProps>(functio
   )
 })
 
-export interface ReactDataListItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ReactDatalistItemProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const DataListItem = forwardRef<HTMLDivElement, ReactDataListItemProps>(
-  function DataListItem({ className, children, ...rest }, ref) {
-    const classes = dataListClasses()
+export const DatalistItem = forwardRef<HTMLDivElement, ReactDatalistItemProps>(
+  function DatalistItem({ className, children, ...rest }, ref) {
+    const classes = datalistClasses()
     const combinedClassName = className ? `${classes.item} ${className}` : classes.item
 
     return (
@@ -39,13 +39,13 @@ export const DataListItem = forwardRef<HTMLDivElement, ReactDataListItemProps>(
   },
 )
 
-export interface ReactDataListTermProps extends React.HTMLAttributes<HTMLElement> {
+export interface ReactDatalistTermProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode
 }
 
-export const DataListTerm = forwardRef<HTMLElement, ReactDataListTermProps>(
-  function DataListTerm({ className, children, ...rest }, ref) {
-    const classes = dataListClasses()
+export const DatalistTerm = forwardRef<HTMLElement, ReactDatalistTermProps>(
+  function DatalistTerm({ className, children, ...rest }, ref) {
+    const classes = datalistClasses()
     const combinedClassName = className ? `${classes.term} ${className}` : classes.term
 
     return (
@@ -56,13 +56,13 @@ export const DataListTerm = forwardRef<HTMLElement, ReactDataListTermProps>(
   },
 )
 
-export interface ReactDataListDetailProps extends React.HTMLAttributes<HTMLElement> {
+export interface ReactDatalistDetailProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode
 }
 
-export const DataListDetail = forwardRef<HTMLElement, ReactDataListDetailProps>(
-  function DataListDetail({ className, children, ...rest }, ref) {
-    const classes = dataListClasses()
+export const DatalistDetail = forwardRef<HTMLElement, ReactDatalistDetailProps>(
+  function DatalistDetail({ className, children, ...rest }, ref) {
+    const classes = datalistClasses()
     const combinedClassName = className ? `${classes.detail} ${className}` : classes.detail
 
     return (

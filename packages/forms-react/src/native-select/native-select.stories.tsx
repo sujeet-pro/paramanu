@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { NativeSelect } from "./native-select.js"
+import { NativeSel } from "./native-select.js"
 
 const meta = {
   title: "Forms/Native Select",
-  tags: ["autodocs", "stable"],
-  component: NativeSelect,
+  tags: ["autodocs", "beta"],
+  component: NativeSel,
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
@@ -18,7 +18,7 @@ const meta = {
     onFocus: fn(),
     onBlur: fn(),
   },
-} satisfies Meta<typeof NativeSelect>
+} satisfies Meta<typeof NativeSel>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -162,7 +162,7 @@ export const KeyboardNavigation: Story = {
     ),
   },
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-native-select")
+    const el = canvasElement.querySelector(".pm-native-sel")
     await expect(el).toBeTruthy()
     await userEvent.tab()
   },

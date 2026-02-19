@@ -1,6 +1,6 @@
 import type { FormSize, InputVariant } from "../shared.types.js"
 
-export interface TimePickerClassesOptions {
+export interface TimepickerClassesOptions {
   variant?: InputVariant
   size?: FormSize
   invalid?: boolean
@@ -8,4 +8,4 @@ export interface TimePickerClassesOptions {
   open?: boolean
 }
 
-export interface TimePickerProps extends TimePickerClassesOptions {}
+export interface TimepickerProps extends TimepickerClassesOptions {}

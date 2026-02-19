@@ -4,7 +4,7 @@ import { Bleed } from "./bleed.js"
 
 const meta = {
   title: "Primitives/Bleed",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Bleed,
   argTypes: {
     inline: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8"] },

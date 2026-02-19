@@ -1,29 +1,29 @@
 /** Visual variant for the alert dialog, indicating severity. */
-export type AlertDialogVariant = "info" | "danger" | "warning"
+export type AlertdialogVariant = "info" | "danger" | "warning"
 
 /**
  * Options for generating alert dialog container CSS class names.
  * Used by both BEM and CSS module builders.
  */
-export interface AlertDialogClassesOptions {
+export interface AlertdialogClassesOptions {
   /** Visual variant indicating the severity of the alert. @default "info" */
-  variant?: AlertDialogVariant
+  variant?: AlertdialogVariant
 }
 
 /** Options for generating alert dialog header CSS class names. */
-export interface AlertDialogHeaderClassesOptions {}
+export interface AlertdialogHeaderClassesOptions {}
 
 /** Options for generating alert dialog body CSS class names. */
-export interface AlertDialogBodyClassesOptions {}
+export interface AlertdialogBodyClassesOptions {}
 
 /** Options for generating alert dialog footer CSS class names. */
-export interface AlertDialogFooterClassesOptions {}
+export interface AlertdialogFooterClassesOptions {}
 
 /**
  * Options for creating a vanilla JS alert dialog instance.
  * Alert dialogs require explicit user action to dismiss (no overlay click to close).
  */
-export interface CreateAlertDialogOptions {
+export interface CreateAlertdialogOptions {
   /** Callback invoked when the alert dialog is closed. */
   onClose?: () => void
   /** Element or CSS selector to receive initial focus when the dialog opens. */
@@ -33,9 +33,9 @@ export interface CreateAlertDialogOptions {
 }
 
 /**
- * Imperative alert dialog instance returned by `createAlertDialog()`.
+ * Imperative alert dialog instance returned by `createAlertdialog()`.
  */
-export interface AlertDialogInstance {
+export interface AlertdialogInstance {
   /** Opens the alert dialog, locks scroll, traps focus. */
   open: () => void
   /** Closes the alert dialog with exit animation. */

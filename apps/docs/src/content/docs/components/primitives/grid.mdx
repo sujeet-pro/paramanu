@@ -1,10 +1,18 @@
 ---
 title: Grid
 description: A CSS grid layout component with controls for columns, rows, gap, alignment, and flow.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 Grid provides a declarative CSS grid container with props for columns, rows, gap, alignment, and auto-flow.
 
@@ -45,7 +53,7 @@ export default function App() {
 ## Best Practices
 
 - Use Grid for two-dimensional layouts. For one-dimensional, use Flex or Stack.
-- Use SimpleGrid for auto-fill responsive grids.
+- Use Sgrid for auto-fill responsive grids.
 
 </TabItem>
 

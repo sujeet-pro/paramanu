@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { avatarGroupClasses } from "./avatar-group.classes.js"
+import { avatarGrpClasses } from "./avatar-group.classes.js"
 import { avatarClasses } from "../avatar/avatar.classes.js"
-import type { AvatarGroupClassesOptions } from "./avatar-group.types.js"
+import type { AvatarGrpClassesOptions } from "./avatar-group.types.js"
 
-interface AvatarGroupArgs extends AvatarGroupClassesOptions {
+interface AvatarGrpArgs extends AvatarGrpClassesOptions {
   count: number
   max: number
 }
 
-function createAvatarGroup(args: AvatarGroupArgs): HTMLElement {
-  const cls = avatarGroupClasses({ size: args.size, spacing: args.spacing })
+function createAvatarGrp(args: AvatarGrpArgs): HTMLElement {
+  const cls = avatarGrpClasses({ size: args.size, spacing: args.spacing })
   const avCls = avatarClasses({ size: args.size })
   const root = document.createElement("div")
   root.className = cls.root
@@ -43,8 +43,8 @@ function createAvatarGroup(args: AvatarGroupArgs): HTMLElement {
 
 const meta = {
   title: "Data Display/Avatar Group",
-  tags: ["autodocs", "stable"],
-  render: (args) => createAvatarGroup(args as AvatarGroupArgs),
+  tags: ["autodocs", "beta"],
+  render: (args) => createAvatarGrp(args as AvatarGrpArgs),
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg", "xl", "2xl"] },
     spacing: { control: "select", options: ["tight", "normal"] },
@@ -52,10 +52,10 @@ const meta = {
     max: { control: "number" },
   },
   args: { size: "md", spacing: "normal", count: 4, max: 0 },
-} satisfies Meta<AvatarGroupArgs>
+} satisfies Meta<AvatarGrpArgs>
 
 export default meta
-type Story = StoryObj<AvatarGroupArgs>
+type Story = StoryObj<AvatarGrpArgs>
 
 export const Playground: Story = {}
 export const WithMax: Story = { args: { count: 5, max: 3 } }

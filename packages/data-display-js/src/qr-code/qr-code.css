@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     padding: var(--pm-spacing-2);
-    background-color: light-dark(var(--pm-color-neutral-0), var(--pm-color-neutral-0));
+    background-color: var(--pm-bg);
     border-radius: var(--pm-radius-md);
 
     /* Sizes */

@@ -40,7 +40,7 @@ function createMenu(args: MenuArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Menu",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createMenu(args as MenuArgs),
   argTypes: {
     size: {

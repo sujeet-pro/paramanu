@@ -20,7 +20,7 @@ function createBadge(args: BadgeArgs): HTMLSpanElement {
 
 const meta = {
   title: "Data Display/Badge",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createBadge(args as BadgeArgs),
   argTypes: {
     variant: { control: "select", options: ["filled", "outline", "subtle"] },

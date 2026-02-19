@@ -42,7 +42,7 @@ function createPagination(args: PaginationArgs): HTMLElement {
 
 const meta = {
   title: "Navigation/Pagination",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createPagination(args as PaginationArgs),
   argTypes: {
     size: {

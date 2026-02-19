@@ -35,7 +35,7 @@ function createSelect(args: SelectArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Select",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createSelect(args as SelectArgs),
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },

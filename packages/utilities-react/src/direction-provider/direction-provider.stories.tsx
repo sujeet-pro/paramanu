@@ -20,7 +20,7 @@ function DirectionDisplay() {
 const meta = {
   title: "Utilities/DirectionProvider",
   component: DirectionProvider,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     defaultDir: {
       control: "select",

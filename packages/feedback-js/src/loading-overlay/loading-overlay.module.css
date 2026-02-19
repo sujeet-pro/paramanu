@@ -1,5 +1,5 @@
 @layer pm.components {
-  .pm-loading-overlay {
+  .pm-loading {
     position: absolute;
     inset: 0;
     z-index: 10;
@@ -7,15 +7,15 @@
     box-sizing: border-box;
   }
 
-  .pm-loading-overlay--visible {
+  .pm-loading--visible {
     display: block;
   }
 
-  .pm-loading-overlay--blur .pm-loading-overlay__backdrop {
+  .pm-loading--blur .pm-loading__backdrop {
     backdrop-filter: blur(4px);
   }
 
-  .pm-loading-overlay__backdrop {
+  .pm-loading__backdrop {
     position: absolute;
     inset: 0;
     background-color: light-dark(
@@ -24,7 +24,7 @@
     );
   }
 
-  .pm-loading-overlay__content {
+  .pm-loading__content {
     position: absolute;
     inset: 0;
     display: flex;

@@ -1,7 +1,9 @@
 {
   "name": "@paramanu/navigation-js",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-alpha.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -9,7 +11,21 @@
       "import": "./dist/js/index.js"
     },
     "./css": "./dist/css/navigation.css",
-    "./css/layers": "./dist/css/navigation.layers.css",
+    "./css/min": "./dist/css/navigation.min.css",
+    "./css/back-to-top": "./dist/css/back-to-top.css",
+    "./css/breadcrumbs": "./dist/css/breadcrumbs.css",
+    "./css/context-menu": "./dist/css/context-menu.css",
+    "./css/dropdown-menu": "./dist/css/dropdown-menu.css",
+    "./css/link": "./dist/css/link.css",
+    "./css/menu": "./dist/css/menu.css",
+    "./css/menubar": "./dist/css/menubar.css",
+    "./css/navbar": "./dist/css/navbar.css",
+    "./css/pagination": "./dist/css/pagination.css",
+    "./css/sidebar": "./dist/css/sidebar.css",
+    "./css/skip-nav-link": "./dist/css/skip-nav-link.css",
+    "./css/steps": "./dist/css/steps.css",
+    "./css/tabs": "./dist/css/tabs.css",
+    "./css/tree-view": "./dist/css/tree-view.css",
     "./modules/link/map": {
       "types": "./dist/css/link.module.d.ts",
       "import": "./dist/css/link.module.js"
@@ -67,7 +83,9 @@
       "import": "./dist/css/tree-view.module.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsx css.build.ts && tsup",
     "test": "vitest run",

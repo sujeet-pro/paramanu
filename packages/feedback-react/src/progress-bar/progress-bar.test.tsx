@@ -1,37 +1,37 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { ProgressBar } from "./progress-bar.js"
+import { Progress } from "./progress-bar.js"
 
 afterEach(cleanup)
 
-describe("ProgressBar", () => {
+describe("Progress", () => {
   it("renders with role=progressbar", () => {
-    render(<ProgressBar />)
+    render(<Progress />)
     expect(screen.getByRole("progressbar")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<ProgressBar />)
+    render(<Progress />)
     const bar = screen.getByRole("progressbar")
-    expect(bar.className).toContain("pm-progress-bar")
-    expect(bar.className).toContain("pm-progress-bar--md")
-    expect(bar.className).toContain("pm-progress-bar--primary")
+    expect(bar.className).toContain("pm-progress")
+    expect(bar.className).toContain("pm-progress--md")
+    expect(bar.className).toContain("pm-progress--primary")
   })
 
   it("applies size class", () => {
-    render(<ProgressBar size="lg" />)
+    render(<Progress size="lg" />)
     const bar = screen.getByRole("progressbar")
-    expect(bar.className).toContain("pm-progress-bar--lg")
+    expect(bar.className).toContain("pm-progress--lg")
   })
 
   it("applies variant class", () => {
-    render(<ProgressBar variant="success" />)
+    render(<Progress variant="success" />)
     const bar = screen.getByRole("progressbar")
-    expect(bar.className).toContain("pm-progress-bar--success")
+    expect(bar.className).toContain("pm-progress--success")
   })
 
   it("sets aria-valuenow, aria-valuemin, aria-valuemax", () => {
-    render(<ProgressBar value={50} min={0} max={100} />)
+    render(<Progress value={50} min={0} max={100} />)
     const bar = screen.getByRole("progressbar")
     expect(bar).toHaveAttribute("aria-valuenow", "50")
     expect(bar).toHaveAttribute("aria-valuemin", "0")
@@ -39,45 +39,45 @@ describe("ProgressBar", () => {
   })
 
   it("calculates fill width percentage", () => {
-    const { container } = render(<ProgressBar value={75} min={0} max={100} />)
-    const fill = container.querySelector(".pm-progress-bar__fill") as HTMLElement
+    const { container } = render(<Progress value={75} min={0} max={100} />)
+    const fill = container.querySelector(".pm-progress__fill") as HTMLElement
     expect(fill.style.width).toBe("75%")
   })
 
   it("omits aria-valuenow when indeterminate", () => {
-    render(<ProgressBar indeterminate />)
+    render(<Progress indeterminate />)
     const bar = screen.getByRole("progressbar")
     expect(bar).not.toHaveAttribute("aria-valuenow")
   })
 
   it("does not set fill width when indeterminate", () => {
-    const { container } = render(<ProgressBar indeterminate />)
-    const fill = container.querySelector(".pm-progress-bar__fill") as HTMLElement
+    const { container } = render(<Progress indeterminate />)
+    const fill = container.querySelector(".pm-progress__fill") as HTMLElement
     expect(fill.style.width).toBe("")
   })
 
   it("applies striped class", () => {
-    render(<ProgressBar striped />)
+    render(<Progress striped />)
     const bar = screen.getByRole("progressbar")
-    expect(bar.className).toContain("pm-progress-bar--striped")
+    expect(bar.className).toContain("pm-progress--striped")
   })
 
   it("applies animated class", () => {
-    render(<ProgressBar animated />)
+    render(<Progress animated />)
     const bar = screen.getByRole("progressbar")
-    expect(bar.className).toContain("pm-progress-bar--animated")
+    expect(bar.className).toContain("pm-progress--animated")
   })
 
   it("forwards ref", () => {
     let barRef: HTMLDivElement | null = null
-    render(<ProgressBar ref={(el) => (barRef = el)} />)
+    render(<Progress ref={(el) => (barRef = el)} />)
     expect(barRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    render(<ProgressBar className="custom-class" />)
+    render(<Progress className="custom-class" />)
     const bar = screen.getByRole("progressbar")
-    expect(bar.className).toContain("pm-progress-bar")
+    expect(bar.className).toContain("pm-progress")
     expect(bar.className).toContain("custom-class")
   })
 })

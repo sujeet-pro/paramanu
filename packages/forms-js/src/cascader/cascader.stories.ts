@@ -21,7 +21,7 @@ function createCascader(args: CascaderArgs): HTMLElement {
 
 const meta = {
   title: "Forms/Cascader",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createCascader(args as CascaderArgs),
   argTypes: {
     variant: { control: "select", options: ["outline", "filled", "unstyled"] },

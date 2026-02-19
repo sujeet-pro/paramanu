@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, within } from "storybook/test"
-import { InlineMessage } from "./inline-message.js"
+import { InlineMsg } from "./inline-message.js"
 
 const meta = {
   title: "Feedback/Inline Message",
-  component: InlineMessage,
-  tags: ["autodocs", "stable"],
+  component: InlineMsg,
+  tags: ["autodocs", "beta"],
   argTypes: {
     variant: { control: "select", options: ["info", "success", "warning", "danger"] },
     size: { control: "select", options: ["sm", "md"] },
@@ -13,7 +13,7 @@ const meta = {
   args: {
     children: "This is an inline message.",
   },
-} satisfies Meta<typeof InlineMessage>
+} satisfies Meta<typeof InlineMsg>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -33,9 +33,9 @@ export const AllVariantsAndSizes: Story = {
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
       {(["info", "success", "warning", "danger"] as const).map((variant) =>
         (["sm", "md"] as const).map((size) => (
-          <InlineMessage key={`${variant}-${size}`} variant={variant} size={size}>
+          <InlineMsg key={`${variant}-${size}`} variant={variant} size={size}>
             {variant} / {size}
-          </InlineMessage>
+          </InlineMsg>
         )),
       )}
     </div>
@@ -60,9 +60,9 @@ export const FormFieldHint: Story = {
     <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
       <label htmlFor="email">Email</label>
       <input id="email" type="email" defaultValue="invalid" style={{ padding: "4px 8px" }} />
-      <InlineMessage variant="danger" size="sm">
+      <InlineMsg variant="danger" size="sm">
         Please enter a valid email address.
-      </InlineMessage>
+      </InlineMsg>
     </div>
   ),
 }
@@ -70,8 +70,8 @@ export const FormFieldHint: Story = {
 export const AccessibilityRoles: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <InlineMessage variant="info">Info uses role=status</InlineMessage>
-      <InlineMessage variant="danger">Danger uses role=alert</InlineMessage>
+      <InlineMsg variant="info">Info uses role=status</InlineMsg>
+      <InlineMsg variant="danger">Danger uses role=alert</InlineMsg>
     </div>
   ),
   play: async ({ canvasElement }) => {

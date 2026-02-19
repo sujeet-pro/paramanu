@@ -1,24 +1,24 @@
-export interface CommandPaletteClassesOptions {}
+export interface CmdPaletteClassesOptions {}
 
-export interface CommandPaletteInputClassesOptions {}
+export interface CmdPaletteInputClassesOptions {}
 
-export interface CommandPaletteListClassesOptions {}
+export interface CmdPaletteListClassesOptions {}
 
-export interface CommandPaletteItemClassesOptions {
+export interface CmdPaletteItemClassesOptions {
   active?: boolean
 }
 
-export interface CommandPaletteGroupClassesOptions {}
+export interface CmdPaletteGroupClassesOptions {}
 
-export interface CommandPaletteEmptyClassesOptions {}
+export interface CmdPaletteEmptyClassesOptions {}
 
-export interface CreateCommandPaletteOptions {
+export interface CreateCmdPaletteOptions {
   onClose?: () => void
   onSelect?: (value: string) => void
   hotkey?: string
 }
 
-export interface CommandPaletteInstance {
+export interface CmdPaletteInstance {
   open: () => void
   close: () => void
   destroy: () => void

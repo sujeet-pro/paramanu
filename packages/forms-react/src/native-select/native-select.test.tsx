@@ -1,56 +1,56 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { NativeSelect } from "./native-select.js"
+import { NativeSel } from "./native-select.js"
 
 afterEach(cleanup)
 
-describe("NativeSelect", () => {
+describe("NativeSel", () => {
   it("renders a select element", () => {
     render(
-      <NativeSelect aria-label="Country">
+      <NativeSel aria-label="Country">
         <option value="us">US</option>
-      </NativeSelect>,
+      </NativeSel>,
     )
     expect(screen.getByRole("combobox", { name: "Country" })).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
     render(
-      <NativeSelect aria-label="Country">
+      <NativeSel aria-label="Country">
         <option value="us">US</option>
-      </NativeSelect>,
+      </NativeSel>,
     )
     const wrapper = screen.getByRole("combobox", { name: "Country" }).closest("div")
-    expect(wrapper?.className).toContain("pm-native-select")
-    expect(wrapper?.className).toContain("pm-native-select--outline")
-    expect(wrapper?.className).toContain("pm-native-select--md")
+    expect(wrapper?.className).toContain("pm-native-sel")
+    expect(wrapper?.className).toContain("pm-native-sel--outline")
+    expect(wrapper?.className).toContain("pm-native-sel--md")
   })
 
   it("applies variant class", () => {
     render(
-      <NativeSelect variant="filled" aria-label="Country">
+      <NativeSel variant="filled" aria-label="Country">
         <option value="us">US</option>
-      </NativeSelect>,
+      </NativeSel>,
     )
     const wrapper = screen.getByRole("combobox", { name: "Country" }).closest("div")
-    expect(wrapper?.className).toContain("pm-native-select--filled")
+    expect(wrapper?.className).toContain("pm-native-sel--filled")
   })
 
   it("applies size class", () => {
     render(
-      <NativeSelect size="lg" aria-label="Country">
+      <NativeSel size="lg" aria-label="Country">
         <option value="us">US</option>
-      </NativeSelect>,
+      </NativeSel>,
     )
     const wrapper = screen.getByRole("combobox", { name: "Country" }).closest("div")
-    expect(wrapper?.className).toContain("pm-native-select--lg")
+    expect(wrapper?.className).toContain("pm-native-sel--lg")
   })
 
   it("sets disabled attribute and aria-disabled", () => {
     render(
-      <NativeSelect disabled aria-label="Country">
+      <NativeSel disabled aria-label="Country">
         <option value="us">US</option>
-      </NativeSelect>,
+      </NativeSel>,
     )
     const select = screen.getByRole("combobox", { name: "Country" })
     expect(select).toBeDisabled()
@@ -59,9 +59,9 @@ describe("NativeSelect", () => {
 
   it("sets aria-invalid when invalid", () => {
     render(
-      <NativeSelect invalid aria-label="Country">
+      <NativeSel invalid aria-label="Country">
         <option value="us">US</option>
-      </NativeSelect>,
+      </NativeSel>,
     )
     const select = screen.getByRole("combobox", { name: "Country" })
     expect(select).toHaveAttribute("aria-invalid", "true")
@@ -69,30 +69,30 @@ describe("NativeSelect", () => {
 
   it("applies full-width modifier", () => {
     render(
-      <NativeSelect fullWidth aria-label="Country">
+      <NativeSel fullWidth aria-label="Country">
         <option value="us">US</option>
-      </NativeSelect>,
+      </NativeSel>,
     )
     const wrapper = screen.getByRole("combobox", { name: "Country" }).closest("div")
-    expect(wrapper?.className).toContain("pm-native-select--full-width")
+    expect(wrapper?.className).toContain("pm-native-sel--full-width")
   })
 
   it("forwards ref to select element", () => {
     let selectRef: HTMLSelectElement | null = null
     render(
-      <NativeSelect ref={(el) => (selectRef = el)} aria-label="Country">
+      <NativeSel ref={(el) => (selectRef = el)} aria-label="Country">
         <option value="us">US</option>
-      </NativeSelect>,
+      </NativeSel>,
     )
     expect(selectRef).toBeInstanceOf(HTMLSelectElement)
   })
 
   it("renders children as options", () => {
     render(
-      <NativeSelect aria-label="Country">
+      <NativeSel aria-label="Country">
         <option value="us">US</option>
         <option value="uk">UK</option>
-      </NativeSelect>,
+      </NativeSel>,
     )
     const options = screen.getAllByRole("option")
     expect(options).toHaveLength(2)
@@ -100,19 +100,19 @@ describe("NativeSelect", () => {
 
   it("hides arrow from screen readers", () => {
     const { container } = render(
-      <NativeSelect aria-label="Country">
+      <NativeSel aria-label="Country">
         <option value="us">US</option>
-      </NativeSelect>,
+      </NativeSel>,
     )
-    const arrow = container.querySelector(".pm-native-select__arrow")
+    const arrow = container.querySelector(".pm-native-sel__arrow")
     expect(arrow).toHaveAttribute("aria-hidden", "true")
   })
 
   it("passes through additional HTML attributes", () => {
     render(
-      <NativeSelect data-testid="my-select" aria-label="Country">
+      <NativeSel data-testid="my-select" aria-label="Country">
         <option value="us">US</option>
-      </NativeSelect>,
+      </NativeSel>,
     )
     expect(screen.getByTestId("my-select")).toBeInTheDocument()
   })

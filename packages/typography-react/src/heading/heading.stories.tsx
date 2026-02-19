@@ -4,7 +4,7 @@ import { Heading } from "./heading.js"
 
 const meta = {
   title: "Typography/Heading",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Heading,
   argTypes: {
     level: { control: "select", options: [1, 2, 3, 4, 5, 6] },

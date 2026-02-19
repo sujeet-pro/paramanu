@@ -1,10 +1,18 @@
 ---
 title: Number Input
 description: A numeric input with increment and decrement stepper buttons for precise number entry.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 The Number Input component provides a numeric text field with stepper buttons for incrementing and decrementing values.
 
@@ -14,15 +22,15 @@ The Number Input component provides a numeric text field with stepper buttons fo
 ## Basic Usage
 
 <ComponentPreview
-  htmlCode={`<div class="pm-number-input pm-number-input--outline pm-number-input--md">\n  <input class="pm-input pm-input--outline pm-input--md" type="number" inputmode="numeric" />\n  <div class="pm-number-input__stepper">\n    <button type="button" class="pm-number-input__increment" aria-label="Increment">&#9650;</button>\n    <button type="button" class="pm-number-input__decrement" aria-label="Decrement">&#9660;</button>\n  </div>\n</div>`}
-  reactCode={`import { NumberInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <NumberInput />\n}`}
+  htmlCode={`<div class="pm-num-input pm-num-input--outline pm-num-input--md">\n  <input class="pm-input pm-input--outline pm-input--md" type="number" inputmode="numeric" />\n  <div class="pm-num-input__stepper">\n    <button type="button" class="pm-num-input__increment" aria-label="Increment">&#9650;</button>\n    <button type="button" class="pm-num-input__decrement" aria-label="Decrement">&#9660;</button>\n  </div>\n</div>`}
+  reactCode={`import { NumInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <NumInput />\n}`}
 />
 
 ## With Min/Max
 
 <ComponentPreview
-  htmlCode={`<div class="pm-number-input pm-number-input--outline pm-number-input--md">\n  <input class="pm-input pm-input--outline pm-input--md" type="number" min="0" max="100" step="5" />\n  <div class="pm-number-input__stepper">\n    <button type="button" class="pm-number-input__increment" aria-label="Increment">&#9650;</button>\n    <button type="button" class="pm-number-input__decrement" aria-label="Decrement">&#9660;</button>\n  </div>\n</div>`}
-  reactCode={`import { NumberInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <NumberInput min={0} max={100} step={5} />\n}`}
+  htmlCode={`<div class="pm-num-input pm-num-input--outline pm-num-input--md">\n  <input class="pm-input pm-input--outline pm-input--md" type="number" min="0" max="100" step="5" />\n  <div class="pm-num-input__stepper">\n    <button type="button" class="pm-num-input__increment" aria-label="Increment">&#9650;</button>\n    <button type="button" class="pm-num-input__decrement" aria-label="Decrement">&#9660;</button>\n  </div>\n</div>`}
+  reactCode={`import { NumInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <NumInput min={0} max={100} step={5} />\n}`}
 />
 
 </TabItem>
@@ -60,10 +68,10 @@ The Number Input component provides a numeric text field with stepper buttons fo
 
 | Class | Description |
 |---|---|
-| `pm-number-input` | Wrapper base class |
-| `pm-number-input__stepper` | Stepper container |
-| `pm-number-input__increment` | Increment button |
-| `pm-number-input__decrement` | Decrement button |
+| `pm-num-input` | Wrapper base class |
+| `pm-num-input__stepper` | Stepper container |
+| `pm-num-input__increment` | Increment button |
+| `pm-num-input__decrement` | Decrement button |
 
 </TabItem>
 </Tabs>

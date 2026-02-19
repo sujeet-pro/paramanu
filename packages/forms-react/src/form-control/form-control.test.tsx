@@ -1,107 +1,107 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { FormControl } from "./form-control.js"
+import { FormCtrl } from "./form-control.js"
 
 afterEach(cleanup)
 
-describe("FormControl", () => {
+describe("FormCtrl", () => {
   it("renders with children", () => {
     render(
-      <FormControl>
+      <FormCtrl>
         <label>Name</label>
-      </FormControl>,
+      </FormCtrl>,
     )
     expect(screen.getByText("Name")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
     render(
-      <FormControl data-testid="fc">
+      <FormCtrl data-testid="fc">
         <input />
-      </FormControl>,
+      </FormCtrl>,
     )
     const el = screen.getByTestId("fc")
-    expect(el.className).toContain("pm-form-control")
-    expect(el.className).toContain("pm-form-control--vertical")
+    expect(el.className).toContain("pm-form-ctrl")
+    expect(el.className).toContain("pm-form-ctrl--vertical")
   })
 
   it("applies horizontal orientation", () => {
     render(
-      <FormControl orientation="horizontal" data-testid="fc">
+      <FormCtrl orientation="horizontal" data-testid="fc">
         <input />
-      </FormControl>,
+      </FormCtrl>,
     )
     const el = screen.getByTestId("fc")
-    expect(el.className).toContain("pm-form-control--horizontal")
+    expect(el.className).toContain("pm-form-ctrl--horizontal")
   })
 
   it("applies invalid modifier", () => {
     render(
-      <FormControl invalid data-testid="fc">
+      <FormCtrl invalid data-testid="fc">
         <input />
-      </FormControl>,
+      </FormCtrl>,
     )
     const el = screen.getByTestId("fc")
-    expect(el.className).toContain("pm-form-control--invalid")
+    expect(el.className).toContain("pm-form-ctrl--invalid")
   })
 
   it("applies disabled modifier", () => {
     render(
-      <FormControl disabled data-testid="fc">
+      <FormCtrl disabled data-testid="fc">
         <input />
-      </FormControl>,
+      </FormCtrl>,
     )
     const el = screen.getByTestId("fc")
-    expect(el.className).toContain("pm-form-control--disabled")
+    expect(el.className).toContain("pm-form-ctrl--disabled")
   })
 
   it("renders helper text when not invalid", () => {
     render(
-      <FormControl helperText="Enter your name">
+      <FormCtrl helperText="Enter your name">
         <input />
-      </FormControl>,
+      </FormCtrl>,
     )
     expect(screen.getByText("Enter your name")).toBeInTheDocument()
     expect(screen.getByText("Enter your name").className).toContain(
-      "pm-form-control__helper-text",
+      "pm-form-ctrl__helper-text",
     )
   })
 
   it("does not render helper text when invalid", () => {
     render(
-      <FormControl invalid helperText="Enter your name">
+      <FormCtrl invalid helperText="Enter your name">
         <input />
-      </FormControl>,
+      </FormCtrl>,
     )
     expect(screen.queryByText("Enter your name")).not.toBeInTheDocument()
   })
 
   it("renders error text when invalid", () => {
     render(
-      <FormControl invalid errorText="This field is required">
+      <FormCtrl invalid errorText="This field is required">
         <input />
-      </FormControl>,
+      </FormCtrl>,
     )
     expect(screen.getByText("This field is required")).toBeInTheDocument()
     expect(screen.getByText("This field is required").className).toContain(
-      "pm-form-control__error-text",
+      "pm-form-ctrl__error-text",
     )
   })
 
   it("does not render error text when not invalid", () => {
     render(
-      <FormControl errorText="This field is required">
+      <FormCtrl errorText="This field is required">
         <input />
-      </FormControl>,
+      </FormCtrl>,
     )
     expect(screen.queryByText("This field is required")).not.toBeInTheDocument()
   })
 
   it("has group role", () => {
     render(
-      <FormControl data-testid="fc">
+      <FormCtrl data-testid="fc">
         <input />
-      </FormControl>,
+      </FormCtrl>,
     )
     expect(screen.getByRole("group")).toBeInTheDocument()
   })
@@ -109,29 +109,29 @@ describe("FormControl", () => {
   it("forwards ref", () => {
     let divRef: HTMLDivElement | null = null
     render(
-      <FormControl ref={(el) => (divRef = el)}>
+      <FormCtrl ref={(el) => (divRef = el)}>
         <input />
-      </FormControl>,
+      </FormCtrl>,
     )
     expect(divRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
     render(
-      <FormControl className="custom-class" data-testid="fc">
+      <FormCtrl className="custom-class" data-testid="fc">
         <input />
-      </FormControl>,
+      </FormCtrl>,
     )
     const el = screen.getByTestId("fc")
-    expect(el.className).toContain("pm-form-control")
+    expect(el.className).toContain("pm-form-ctrl")
     expect(el.className).toContain("custom-class")
   })
 
   it("passes through additional HTML attributes", () => {
     render(
-      <FormControl data-testid="my-fc">
+      <FormCtrl data-testid="my-fc">
         <input />
-      </FormControl>,
+      </FormCtrl>,
     )
     expect(screen.getByTestId("my-fc")).toBeInTheDocument()
   })

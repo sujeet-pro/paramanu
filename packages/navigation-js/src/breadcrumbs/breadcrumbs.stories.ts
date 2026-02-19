@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { breadcrumbsClasses, breadcrumbsItemClasses, breadcrumbsLinkClasses } from "./breadcrumbs.classes.js"
-import type { BreadcrumbsClassesOptions } from "./breadcrumbs.types.js"
+import { breadcrumbClasses, breadcrumbItemClasses, breadcrumbsLinkClasses } from "./breadcrumbs.classes.js"
+import type { BreadcrumbClassesOptions } from "./breadcrumbs.types.js"
 
-interface BreadcrumbsArgs extends BreadcrumbsClassesOptions {}
+interface BreadcrumbArgs extends BreadcrumbClassesOptions {}
 
-function createBreadcrumbs(args: BreadcrumbsArgs): HTMLElement {
+function createBreadcrumb(args: BreadcrumbArgs): HTMLElement {
   const nav = document.createElement("nav")
-  nav.className = breadcrumbsClasses(args)
+  nav.className = breadcrumbClasses(args)
   nav.setAttribute("aria-label", "Breadcrumb")
 
   const ol = document.createElement("ol")
@@ -19,7 +19,7 @@ function createBreadcrumbs(args: BreadcrumbsArgs): HTMLElement {
 
   items.forEach((item) => {
     const li = document.createElement("li")
-    li.className = breadcrumbsItemClasses({ active: item.active })
+    li.className = breadcrumbItemClasses({ active: item.active })
 
     if (item.active) {
       const span = document.createElement("span")
@@ -42,9 +42,9 @@ function createBreadcrumbs(args: BreadcrumbsArgs): HTMLElement {
 }
 
 const meta = {
-  title: "Navigation/Breadcrumbs",
-  tags: ["autodocs", "stable"],
-  render: (args) => createBreadcrumbs(args as BreadcrumbsArgs),
+  title: "Navigation/Breadcrumb",
+  tags: ["autodocs", "beta"],
+  render: (args) => createBreadcrumb(args as BreadcrumbArgs),
   argTypes: {
     separator: {
       control: "select",
@@ -54,10 +54,10 @@ const meta = {
   args: {
     separator: "slash",
   },
-} satisfies Meta<BreadcrumbsArgs>
+} satisfies Meta<BreadcrumbArgs>
 
 export default meta
-type Story = StoryObj<BreadcrumbsArgs>
+type Story = StoryObj<BreadcrumbArgs>
 
 export const Playground: Story = {}
 

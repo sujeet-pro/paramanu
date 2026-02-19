@@ -1,25 +1,25 @@
 import { forwardRef } from "react"
 import {
-  breadcrumbsClasses,
-  breadcrumbsItemClasses,
+  breadcrumbClasses,
+  breadcrumbItemClasses,
   breadcrumbsLinkClasses,
 } from "@paramanu/navigation-js"
 import type {
-  BreadcrumbsClassesOptions,
-  BreadcrumbsItemClassesOptions,
+  BreadcrumbClassesOptions,
+  BreadcrumbItemClassesOptions,
 } from "@paramanu/navigation-js"
 
-export interface ReactBreadcrumbsProps
-  extends BreadcrumbsClassesOptions,
+export interface ReactBreadcrumbProps
+  extends BreadcrumbClassesOptions,
     Omit<React.HTMLAttributes<HTMLElement>, "children"> {
   children?: React.ReactNode
 }
 
-export const Breadcrumbs = forwardRef<HTMLElement, ReactBreadcrumbsProps>(function Breadcrumbs(
+export const Breadcrumb = forwardRef<HTMLElement, ReactBreadcrumbProps>(function Breadcrumb(
   { separator, className, children, ...rest },
   ref,
 ) {
-  const classes = breadcrumbsClasses({ separator })
+  const classes = breadcrumbClasses({ separator })
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (
@@ -29,15 +29,15 @@ export const Breadcrumbs = forwardRef<HTMLElement, ReactBreadcrumbsProps>(functi
   )
 })
 
-export interface ReactBreadcrumbsItemProps
-  extends BreadcrumbsItemClassesOptions,
+export interface ReactBreadcrumbItemProps
+  extends BreadcrumbItemClassesOptions,
     React.LiHTMLAttributes<HTMLLIElement> {
   children?: React.ReactNode
 }
 
-export const BreadcrumbsItem = forwardRef<HTMLLIElement, ReactBreadcrumbsItemProps>(
-  function BreadcrumbsItem({ active, className, children, ...rest }, ref) {
-    const classes = breadcrumbsItemClasses({ active })
+export const BreadcrumbItem = forwardRef<HTMLLIElement, ReactBreadcrumbItemProps>(
+  function BreadcrumbItem({ active, className, children, ...rest }, ref) {
+    const classes = breadcrumbItemClasses({ active })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     return (
@@ -48,12 +48,12 @@ export const BreadcrumbsItem = forwardRef<HTMLLIElement, ReactBreadcrumbsItemPro
   },
 )
 
-export interface ReactBreadcrumbsLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface ReactBreadcrumbLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children?: React.ReactNode
 }
 
-export const BreadcrumbsLink = forwardRef<HTMLAnchorElement, ReactBreadcrumbsLinkProps>(
-  function BreadcrumbsLink({ className, children, ...rest }, ref) {
+export const BreadcrumbLink = forwardRef<HTMLAnchorElement, ReactBreadcrumbLinkProps>(
+  function BreadcrumbLink({ className, children, ...rest }, ref) {
     const classes = breadcrumbsLinkClasses()
     const combinedClassName = className ? `${classes} ${className}` : classes
 

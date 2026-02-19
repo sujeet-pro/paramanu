@@ -1,15 +1,15 @@
 import { forwardRef } from "react"
-import { visuallyHiddenClasses } from "@paramanu/utilities-js"
-import type { VisuallyHiddenClassesOptions } from "@paramanu/utilities-js"
+import { srOnlyClasses } from "@paramanu/utilities-js"
+import type { SrOnlyClassesOptions } from "@paramanu/utilities-js"
 
 /**
- * Props for the `VisuallyHidden` React component.
+ * Props for the `SrOnly` React component.
  *
  * Visually hides content while keeping it accessible to screen readers.
  * Uses the clip-rect technique recommended by WebAIM.
  */
-export interface ReactVisuallyHiddenProps
-  extends VisuallyHiddenClassesOptions,
+export interface ReactSrOnlyProps
+  extends SrOnlyClassesOptions,
     React.HTMLAttributes<HTMLElement> {
   /**
    * The HTML element to render.
@@ -33,17 +33,17 @@ export interface ReactVisuallyHiddenProps
  * @example
  * ```tsx
  * // Hide supplementary text for screen readers
- * <VisuallyHidden>Additional context for screen readers</VisuallyHidden>
+ * <SrOnly>Additional context for screen readers</SrOnly>
  *
  * // Focusable skip link
- * <VisuallyHidden as="a" href="#main" focusable>
+ * <SrOnly as="a" href="#main" focusable>
  *   Skip to content
- * </VisuallyHidden>
+ * </SrOnly>
  * ```
  */
-export const VisuallyHidden = forwardRef<HTMLElement, ReactVisuallyHiddenProps>(
-  function VisuallyHidden({ as: Component = "span", focusable, className, children, ...rest }, ref) {
-    const classes = visuallyHiddenClasses({ focusable })
+export const SrOnly = forwardRef<HTMLElement, ReactSrOnlyProps>(
+  function SrOnly({ as: Component = "span", focusable, className, children, ...rest }, ref) {
+    const classes = srOnlyClasses({ focusable })
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     return (

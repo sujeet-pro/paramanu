@@ -1,18 +1,31 @@
 {
   "name": "@paramanu/cdn",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-alpha.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "scripts": {
     "build": "tsx build.ts",
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@paramanu/buttons-js": "workspace:*"
+    "@paramanu/tokens": "workspace:*",
+    "@paramanu/primitives-js": "workspace:*",
+    "@paramanu/typography-js": "workspace:*",
+    "@paramanu/utilities-js": "workspace:*",
+    "@paramanu/buttons-js": "workspace:*",
+    "@paramanu/data-display-js": "workspace:*",
+    "@paramanu/feedback-js": "workspace:*",
+    "@paramanu/forms-js": "workspace:*",
+    "@paramanu/navigation-js": "workspace:*",
+    "@paramanu/disclosure-js": "workspace:*",
+    "@paramanu/overlays-js": "workspace:*"
   },
   "devDependencies": {
     "@paramanu/tsconfig": "workspace:*",
     "esbuild": "^0.24.0",
+    "lightningcss": "^1.28.0",
     "tsx": "^4.19.0"
   }
 }

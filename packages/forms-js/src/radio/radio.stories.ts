@@ -69,7 +69,7 @@ function createHorizontalRadioGroup(): HTMLElement {
 
 const meta = {
   title: "Forms/Radio",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createRadio(args as RadioArgs),
   argTypes: {
     size: {

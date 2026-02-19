@@ -1,13 +1,13 @@
-import type { LoadingOverlayClassesOptions } from "./loading-overlay.types.js"
+import type { LoadingClassesOptions } from "./loading-overlay.types.js"
 
-const BASE = "pm-loading-overlay"
+const BASE = "pm-loading"
 
 /**
  * Returns BEM class names for the loading overlay component (human-readable).
  * Returns an object with classes for root, backdrop, and content sub-elements.
  * Used by CDN and template consumers.
  */
-export function loadingOverlayClasses(options: LoadingOverlayClassesOptions = {}): {
+export function loadingClasses(options: LoadingClassesOptions = {}): {
   root: string
   backdrop: string
   content: string
@@ -31,9 +31,9 @@ export function loadingOverlayClasses(options: LoadingOverlayClassesOptions = {}
  * Returns an object with classes for root, backdrop, and content sub-elements.
  * Used by bundled/template consumers who import CSS modules.
  */
-export function loadingOverlayModuleClasses(
+export function loadingModuleClasses(
   classMap: Record<string, string>,
-  options: LoadingOverlayClassesOptions = {},
+  options: LoadingClassesOptions = {},
 ): {
   root: string
   backdrop: string
@@ -41,14 +41,14 @@ export function loadingOverlayModuleClasses(
 } {
   const { visible = false, blur = false } = options
 
-  const rootClasses = [classMap["pm-loading-overlay"]]
+  const rootClasses = [classMap["pm-loading"]]
 
-  if (visible) rootClasses.push(classMap["pm-loading-overlay--visible"])
-  if (blur) rootClasses.push(classMap["pm-loading-overlay--blur"])
+  if (visible) rootClasses.push(classMap["pm-loading--visible"])
+  if (blur) rootClasses.push(classMap["pm-loading--blur"])
 
   return {
     root: rootClasses.filter(Boolean).join(" "),
-    backdrop: classMap["pm-loading-overlay__backdrop"] || "",
-    content: classMap["pm-loading-overlay__content"] || "",
+    backdrop: classMap["pm-loading__backdrop"] || "",
+    content: classMap["pm-loading__content"] || "",
   }
 }

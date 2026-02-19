@@ -7,14 +7,14 @@ const composed = composeStories(stories)
 
 afterEach(cleanup)
 
-describe("VisuallyHidden Stories", () => {
+describe("SrOnly Stories", () => {
   it("Playground renders", () => {
     const { container } = render(<composed.Playground />)
-    expect(container.querySelector(".pm-visually-hidden")).toBeTruthy()
+    expect(container.querySelector(".pm-sr-only")).toBeTruthy()
   })
 
   it("Focusable applies correct class", () => {
     const { container } = render(<composed.Focusable />)
-    expect(container.querySelector(".pm-visually-hidden--focusable")).toBeTruthy()
+    expect(container.querySelector(".pm-sr-only--focusable")).toBeTruthy()
   })
 })

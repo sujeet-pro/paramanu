@@ -1,27 +1,35 @@
 ---
 title: Command Palette
 description: A keyboard-driven command launcher for searching and executing actions.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 ## Overview
 
-CommandPalette provides a keyboard-driven interface for searching and executing commands, similar to VS Code's command palette or Spotlight search. Typically opened with a hotkey.
+CmdPalette provides a keyboard-driven interface for searching and executing commands, similar to VS Code's command palette or Spotlight search. Typically opened with a hotkey.
 
 ## Usage
 
 <Tabs>
   <TabItem label="HTML">
     ```html
-    <div class="pm-command-palette">
-      <input class="pm-command-palette__input" role="combobox"
+    <div class="pm-cmd-palette">
+      <input class="pm-cmd-palette__input" role="combobox"
         aria-expanded="true" aria-autocomplete="list"
         placeholder="Type a command..." />
-      <div class="pm-command-palette__list" role="listbox">
-        <div class="pm-command-palette__group" role="group">
-          <div class="pm-command-palette__item" role="option">New File</div>
-          <div class="pm-command-palette__item pm-command-palette__item--active"
+      <div class="pm-cmd-palette__list" role="listbox">
+        <div class="pm-cmd-palette__group" role="group">
+          <div class="pm-cmd-palette__item" role="option">New File</div>
+          <div class="pm-cmd-palette__item pm-cmd-palette__item--active"
             role="option" aria-selected="true">Save</div>
         </div>
       </div>
@@ -31,16 +39,16 @@ CommandPalette provides a keyboard-driven interface for searching and executing 
   <TabItem label="React">
     ```tsx
     import {
-      CommandPalette, CommandPaletteInput,
-      CommandPaletteList, CommandPaletteItem,
+      CmdPalette, CmdPaletteInput,
+      CmdPaletteList, CmdPaletteItem,
     } from "@paramanu/overlays-react"
 
-    <CommandPalette open={isOpen} onClose={handleClose}>
-      <CommandPaletteInput placeholder="Type a command..." />
-      <CommandPaletteList>
-        <CommandPaletteItem value="save" active>Save</CommandPaletteItem>
-      </CommandPaletteList>
-    </CommandPalette>
+    <CmdPalette open={isOpen} onClose={handleClose}>
+      <CmdPaletteInput placeholder="Type a command..." />
+      <CmdPaletteList>
+        <CmdPaletteItem value="save" active>Save</CmdPaletteItem>
+      </CmdPaletteList>
+    </CmdPalette>
     ```
 </TabItem>
 </Tabs>

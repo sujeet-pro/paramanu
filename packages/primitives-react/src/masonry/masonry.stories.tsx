@@ -4,7 +4,7 @@ import { Masonry } from "./masonry.js"
 
 const meta = {
   title: "Primitives/Masonry",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   component: Masonry,
   argTypes: {
     columns: { control: "select", options: [2, 3, 4, 5, 6] },

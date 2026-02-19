@@ -1,13 +1,13 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
-import { progressBarClasses } from "./progress-bar.classes.js"
-import type { ProgressBarClassesOptions } from "./progress-bar.types.js"
+import { progressClasses } from "./progress-bar.classes.js"
+import type { ProgressClassesOptions } from "./progress-bar.types.js"
 
-function createProgressBarHTML(
+function createProgressHTML(
   value: number | null = 50,
-  options: ProgressBarClassesOptions = {},
+  options: ProgressClassesOptions = {},
 ): string {
-  const classes = progressBarClasses(options)
+  const classes = progressClasses(options)
   const valueAttrs =
     value !== null
       ? ` aria-valuenow="${value}"`
@@ -19,34 +19,34 @@ function createProgressBarHTML(
 describe("progress bar accessibility", () => {
   it("has role=progressbar", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createProgressBarHTML()}</body>`,
+      `<!DOCTYPE html><body>${createProgressHTML()}</body>`,
     )
-    const el = dom.window.document.querySelector(".pm-progress-bar")
+    const el = dom.window.document.querySelector(".pm-progress")
     expect(el?.getAttribute("role")).toBe("progressbar")
   })
 
   it("has aria-valuenow attribute", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createProgressBarHTML(50)}</body>`,
+      `<!DOCTYPE html><body>${createProgressHTML(50)}</body>`,
     )
-    const el = dom.window.document.querySelector(".pm-progress-bar")
+    const el = dom.window.document.querySelector(".pm-progress")
     expect(el?.getAttribute("aria-valuenow")).toBe("50")
   })
 
   it("has aria-valuemin and aria-valuemax", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createProgressBarHTML(50)}</body>`,
+      `<!DOCTYPE html><body>${createProgressHTML(50)}</body>`,
     )
-    const el = dom.window.document.querySelector(".pm-progress-bar")
+    const el = dom.window.document.querySelector(".pm-progress")
     expect(el?.getAttribute("aria-valuemin")).toBe("0")
     expect(el?.getAttribute("aria-valuemax")).toBe("100")
   })
 
   it("indeterminate mode can omit aria-valuenow", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createProgressBarHTML(null, { indeterminate: true })}</body>`,
+      `<!DOCTYPE html><body>${createProgressHTML(null, { indeterminate: true })}</body>`,
     )
-    const el = dom.window.document.querySelector(".pm-progress-bar")
+    const el = dom.window.document.querySelector(".pm-progress")
     expect(el?.getAttribute("role")).toBe("progressbar")
     expect(el?.hasAttribute("aria-valuenow")).toBe(false)
   })

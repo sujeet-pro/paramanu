@@ -1,17 +1,17 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
-import { segmentedControlClasses } from "./segmented-control.classes.js"
+import { segCtrlClasses } from "./segmented-control.classes.js"
 
-function createSegmentedControlHTML(
+function createSegCtrlHTML(
   items: string[],
   activeIndex: number = 0,
-  options: Parameters<typeof segmentedControlClasses>[0] = {},
+  options: Parameters<typeof segCtrlClasses>[0] = {},
 ): string {
-  const classes = segmentedControlClasses(options)
+  const classes = segCtrlClasses(options)
   const buttons = items
     .map(
       (item, i) =>
-        `<button type="button" role="radio" aria-checked="${i === activeIndex}" class="pm-segmented-control__item${i === activeIndex ? " pm-segmented-control__item--active" : ""}">${item}</button>`,
+        `<button type="button" role="radio" aria-checked="${i === activeIndex}" class="pm-seg-ctrl__item${i === activeIndex ? " pm-seg-ctrl__item--active" : ""}">${item}</button>`,
     )
     .join("")
   return `<div role="radiogroup" class="${classes}">${buttons}</div>`
@@ -20,7 +20,7 @@ function createSegmentedControlHTML(
 describe("segmented control accessibility", () => {
   it("renders with role=radiogroup", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSegmentedControlHTML(["Day", "Week", "Month"])}</body>`,
+      `<!DOCTYPE html><body>${createSegCtrlHTML(["Day", "Week", "Month"])}</body>`,
     )
     const control = dom.window.document.querySelector('[role="radiogroup"]')
     expect(control).not.toBeNull()
@@ -28,7 +28,7 @@ describe("segmented control accessibility", () => {
 
   it("items use role=radio", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSegmentedControlHTML(["A", "B", "C"])}</body>`,
+      `<!DOCTYPE html><body>${createSegCtrlHTML(["A", "B", "C"])}</body>`,
     )
     const items = dom.window.document.querySelectorAll('[role="radio"]')
     expect(items.length).toBe(3)
@@ -36,7 +36,7 @@ describe("segmented control accessibility", () => {
 
   it("active item has aria-checked=true", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSegmentedControlHTML(["Day", "Week", "Month"], 1)}</body>`,
+      `<!DOCTYPE html><body>${createSegCtrlHTML(["Day", "Week", "Month"], 1)}</body>`,
     )
     const items = dom.window.document.querySelectorAll('[role="radio"]')
     expect(items[0].getAttribute("aria-checked")).toBe("false")
@@ -46,16 +46,16 @@ describe("segmented control accessibility", () => {
 
   it("active item has active class", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSegmentedControlHTML(["A", "B"], 0)}</body>`,
+      `<!DOCTYPE html><body>${createSegCtrlHTML(["A", "B"], 0)}</body>`,
     )
     const items = dom.window.document.querySelectorAll("button")
-    expect(items[0].className).toContain("pm-segmented-control__item--active")
-    expect(items[1].className).not.toContain("pm-segmented-control__item--active")
+    expect(items[0].className).toContain("pm-seg-ctrl__item--active")
+    expect(items[1].className).not.toContain("pm-seg-ctrl__item--active")
   })
 
   it("items are buttons", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSegmentedControlHTML(["X", "Y"])}</body>`,
+      `<!DOCTYPE html><body>${createSegCtrlHTML(["X", "Y"])}</body>`,
     )
     const buttons = dom.window.document.querySelectorAll("button")
     expect(buttons.length).toBe(2)
@@ -64,7 +64,7 @@ describe("segmented control accessibility", () => {
 
   it("has accessible text content on items", () => {
     const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSegmentedControlHTML(["Daily", "Weekly"])}</body>`,
+      `<!DOCTYPE html><body>${createSegCtrlHTML(["Daily", "Weekly"])}</body>`,
     )
     const items = dom.window.document.querySelectorAll("button")
     expect(items[0].textContent).toBe("Daily")

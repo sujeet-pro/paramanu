@@ -5,7 +5,7 @@ import { Rating } from "./rating.js"
 const meta = {
   title: "Forms/Rating",
   component: Rating,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
     disabled: { control: "boolean" },

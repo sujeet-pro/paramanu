@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, within } from "storybook/test"
-import { AspectRatio } from "./aspect-ratio.js"
+import { Aspect } from "./aspect-ratio.js"
 
 const meta = {
   title: "Primitives/Aspect Ratio",
-  tags: ["autodocs", "stable"],
-  component: AspectRatio,
+  tags: ["autodocs", "beta"],
+  component: Aspect,
   argTypes: {
     ratio: { control: "select", options: ["1/1", "2/3", "3/2", "4/3", "3/4", "16/9", "9/16", "21/9"] },
   },
   args: { ratio: "16/9" },
-} satisfies Meta<typeof AspectRatio>
+} satisfies Meta<typeof Aspect>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -19,11 +19,11 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: (args) => (
     <div style={{ width: "400px" }}>
-      <AspectRatio {...args}>
+      <Aspect {...args}>
         <div style={{ background: "#e2e8f0", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
           {args.ratio}
         </div>
-      </AspectRatio>
+      </Aspect>
     </div>
   ),
 }
@@ -33,11 +33,11 @@ export const Square: Story = {
   args: { ratio: "1/1" },
   render: (args) => (
     <div style={{ width: "200px" }}>
-      <AspectRatio {...args}>
+      <Aspect {...args}>
         <div style={{ background: "#e2e8f0", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
           1:1
         </div>
-      </AspectRatio>
+      </Aspect>
     </div>
   ),
 }
@@ -47,11 +47,11 @@ export const Widescreen: Story = {
   args: { ratio: "16/9" },
   render: (args) => (
     <div style={{ width: "400px" }}>
-      <AspectRatio {...args}>
+      <Aspect {...args}>
         <div style={{ background: "#e2e8f0", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
           16:9
         </div>
-      </AspectRatio>
+      </Aspect>
     </div>
   ),
 }
@@ -61,11 +61,11 @@ export const Portrait: Story = {
   args: { ratio: "3/4" },
   render: (args) => (
     <div style={{ width: "200px" }}>
-      <AspectRatio {...args}>
+      <Aspect {...args}>
         <div style={{ background: "#e2e8f0", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
           3:4
         </div>
-      </AspectRatio>
+      </Aspect>
     </div>
   ),
 }
@@ -113,7 +113,7 @@ export const FocusVisible: Story = {
 export const RenderTest: Story = {
   render: Playground.render,
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector(".pm-aspect-ratio")
+    const el = canvasElement.querySelector(".pm-aspect")
     await expect(el).toBeTruthy()
   },
 }

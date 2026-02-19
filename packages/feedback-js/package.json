@@ -1,7 +1,9 @@
 {
   "name": "@paramanu/feedback-js",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-alpha.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -9,7 +11,18 @@
       "import": "./dist/js/index.js"
     },
     "./css": "./dist/css/feedback.css",
-    "./css/layers": "./dist/css/feedback.layers.css",
+    "./css/min": "./dist/css/feedback.min.css",
+    "./css/alert": "./dist/css/alert.css",
+    "./css/banner": "./dist/css/banner.css",
+    "./css/circular-progress": "./dist/css/circular-progress.css",
+    "./css/inline-message": "./dist/css/inline-message.css",
+    "./css/loading-overlay": "./dist/css/loading-overlay.css",
+    "./css/notification": "./dist/css/notification.css",
+    "./css/nprogress": "./dist/css/nprogress.css",
+    "./css/progress-bar": "./dist/css/progress-bar.css",
+    "./css/skeleton": "./dist/css/skeleton.css",
+    "./css/spinner": "./dist/css/spinner.css",
+    "./css/toast": "./dist/css/toast.css",
     "./modules/spinner/map": {
       "types": "./dist/css/spinner.module.d.ts",
       "import": "./dist/css/spinner.module.js"
@@ -55,7 +68,9 @@
       "import": "./dist/css/toast.module.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsx css.build.ts && tsup",
     "test": "vitest run",

@@ -1,10 +1,18 @@
 ---
 title: Avatar
 description: A visual representation of a user or entity with image, initials, or icon fallback.
+badge:
+  text: In Development
+  variant: caution
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
+
+
+<Aside type="caution" title="In Development">
+This component is currently in development. The API is not yet stable and may change in future releases.
+</Aside>
 
 Avatar displays a user image with automatic fallback to initials or icons. Supports multiple sizes, shapes, and color palettes.
 
@@ -49,7 +57,7 @@ export default function App() {
 ## Accessibility
 
 - Uses `role="img"` with `aria-label` for screen readers.
-- Image avatars include meaningful `alt` text.
+- Img avatars include meaningful `alt` text.
 
 ## Best Practices
 
@@ -66,8 +74,8 @@ export default function App() {
 | `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"` | Width, height, font size |
 | `variant` | `"circle" \| "square"` | `"circle"` | Shape |
 | `color` | `"primary" \| "neutral" \| "danger" \| "success"` | `"primary"` | Fallback background color |
-| `src` | `string` | - | Image URL |
-| `alt` | `string` | - | Image alt text |
+| `src` | `string` | - | Img URL |
+| `alt` | `string` | - | Img alt text |
 | `name` | `string` | - | Name for initials fallback |
 
 ## CSS Classes
@@ -77,7 +85,7 @@ export default function App() {
 | `pm-avatar` | Base avatar class |
 | `pm-avatar--{size}` | Size modifier |
 | `pm-avatar--{variant}` | Shape modifier |
-| `pm-avatar__image` | Image element |
+| `pm-avatar__image` | Img element |
 | `pm-avatar__fallback` | Fallback element |
 
 </TabItem>

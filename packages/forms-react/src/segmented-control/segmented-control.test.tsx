@@ -1,57 +1,57 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import { SegmentedControl } from "./segmented-control.js"
+import { SegCtrl } from "./segmented-control.js"
 
 afterEach(cleanup)
 
-describe("SegmentedControl", () => {
+describe("SegCtrl", () => {
   it("renders with role=radiogroup", () => {
     render(
-      <SegmentedControl>
+      <SegCtrl>
         <button type="button">Day</button>
         <button type="button">Week</button>
-      </SegmentedControl>,
+      </SegCtrl>,
     )
     expect(screen.getByRole("radiogroup")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
-    render(<SegmentedControl>Content</SegmentedControl>)
+    render(<SegCtrl>Content</SegCtrl>)
     const control = screen.getByRole("radiogroup")
-    expect(control.className).toContain("pm-segmented-control")
-    expect(control.className).toContain("pm-segmented-control--md")
+    expect(control.className).toContain("pm-seg-ctrl")
+    expect(control.className).toContain("pm-seg-ctrl--md")
   })
 
   it("applies size class", () => {
-    render(<SegmentedControl size="lg">Content</SegmentedControl>)
+    render(<SegCtrl size="lg">Content</SegCtrl>)
     const control = screen.getByRole("radiogroup")
-    expect(control.className).toContain("pm-segmented-control--lg")
+    expect(control.className).toContain("pm-seg-ctrl--lg")
   })
 
   it("applies full-width class", () => {
-    render(<SegmentedControl fullWidth>Content</SegmentedControl>)
+    render(<SegCtrl fullWidth>Content</SegCtrl>)
     const control = screen.getByRole("radiogroup")
-    expect(control.className).toContain("pm-segmented-control--full-width")
+    expect(control.className).toContain("pm-seg-ctrl--full-width")
   })
 
   it("forwards ref", () => {
     let divRef: HTMLDivElement | null = null
-    render(<SegmentedControl ref={(el) => (divRef = el)}>Content</SegmentedControl>)
+    render(<SegCtrl ref={(el) => (divRef = el)}>Content</SegCtrl>)
     expect(divRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    render(<SegmentedControl className="custom-class">Content</SegmentedControl>)
+    render(<SegCtrl className="custom-class">Content</SegCtrl>)
     const control = screen.getByRole("radiogroup")
-    expect(control.className).toContain("pm-segmented-control")
+    expect(control.className).toContain("pm-seg-ctrl")
     expect(control.className).toContain("custom-class")
   })
 
   it("passes through additional HTML attributes", () => {
     render(
-      <SegmentedControl data-testid="my-control" aria-label="View options">
+      <SegCtrl data-testid="my-control" aria-label="View options">
         Content
-      </SegmentedControl>,
+      </SegCtrl>,
     )
     expect(screen.getByTestId("my-control")).toBeInTheDocument()
     expect(screen.getByRole("radiogroup")).toHaveAttribute("aria-label", "View options")
@@ -59,11 +59,11 @@ describe("SegmentedControl", () => {
 
   it("renders children", () => {
     render(
-      <SegmentedControl>
+      <SegCtrl>
         <button type="button">A</button>
         <button type="button">B</button>
         <button type="button">C</button>
-      </SegmentedControl>,
+      </SegCtrl>,
     )
     expect(screen.getByText("A")).toBeInTheDocument()
     expect(screen.getByText("B")).toBeInTheDocument()

@@ -12,7 +12,7 @@
   }
 
   .pm-tags-input:focus-within:not(.pm-tags-input--disabled) {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
@@ -23,13 +23,13 @@
   }
 
   .pm-tags-input--outline {
-    border: 1px solid light-dark(var(--pm-color-neutral-300), var(--pm-color-neutral-600));
+    border: 1px solid var(--pm-neutral-active);
     background-color: transparent;
   }
 
   .pm-tags-input--filled {
     border: 1px solid transparent;
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-800));
+    background-color: var(--pm-bg-muted);
   }
 
   .pm-tags-input--unstyled {
@@ -56,7 +56,7 @@
   }
 
   .pm-tags-input--invalid {
-    border-color: light-dark(var(--pm-color-danger-500), var(--pm-color-danger-400));
+    border-color: var(--pm-danger-border);
   }
 
   .pm-tags-input__tag {
@@ -65,8 +65,8 @@
     gap: var(--pm-spacing-1);
     padding: var(--pm-spacing-0-5) var(--pm-spacing-2);
     border-radius: var(--pm-radius-full);
-    background-color: light-dark(var(--pm-color-neutral-100), var(--pm-color-neutral-700));
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-200));
+    background-color: var(--pm-bg-muted);
+    color: var(--pm-fg);
     font-size: inherit;
     line-height: var(--pm-font-lineHeight-tight);
   }
@@ -83,18 +83,18 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    color: light-dark(var(--pm-color-neutral-500), var(--pm-color-neutral-400));
+    color: var(--pm-fg-muted);
     font-size: 0.75em;
     line-height: 1;
     border-radius: var(--pm-radius-full);
   }
 
   .pm-tags-input__tag-close:hover {
-    color: light-dark(var(--pm-color-neutral-800), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
   }
 
   .pm-tags-input__tag-close:focus-visible {
-    outline: var(--pm-focus-ring-width) solid var(--pm-color-primary-500);
+    outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: var(--pm-focus-ring-offset);
   }
 
@@ -104,13 +104,13 @@
     border: none;
     outline: none;
     background: transparent;
-    color: light-dark(var(--pm-color-neutral-900), var(--pm-color-neutral-100));
+    color: var(--pm-fg);
     font-family: inherit;
     font-size: inherit;
     padding: 0;
   }
 
   .pm-tags-input__field::placeholder {
-    color: light-dark(var(--pm-color-neutral-400), var(--pm-color-neutral-500));
+    color: var(--pm-fg-subtle);
   }
 }

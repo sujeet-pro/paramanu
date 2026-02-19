@@ -1,7 +1,9 @@
 {
   "name": "@paramanu/tokens",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-alpha.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -9,12 +11,21 @@
       "import": "./dist/js/tokens.js"
     },
     "./css": "./dist/css/tokens.css",
-    "./css/layers": "./dist/css/tokens.layers.css",
+    "./css/primitives": "./dist/css/primitives.css",
+    "./css/semantic": "./dist/css/semantic.css",
+    "./css/properties": "./dist/css/properties.css",
     "./css/reset": "./dist/css/reset.css",
     "./css/layer-order": "./dist/css/layers.css",
-    "./css/themes": "./src/themes/index.css"
+    "./css/themes": "./dist/css/themes.css",
+    "./css/themes/material": "./dist/css/theme-material.css",
+    "./css/themes/antd": "./dist/css/theme-antd.css",
+    "./css/themes/bootstrap": "./dist/css/theme-bootstrap.css",
+    "./css/themes/dark-modern": "./dist/css/theme-dark-modern.css",
+    "./css/themes/light-modern": "./dist/css/theme-light-modern.css"
   },
-  "files": ["dist", "src/themes"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsx src/build.ts",
     "clean": "rm -rf dist"

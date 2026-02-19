@@ -5,7 +5,7 @@ import { Popover } from "./popover.js"
 const meta = {
   title: "Overlays/Popover",
   component: Popover,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     placement: {
       control: "select",

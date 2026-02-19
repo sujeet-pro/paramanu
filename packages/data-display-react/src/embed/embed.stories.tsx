@@ -5,7 +5,7 @@ import { Embed } from "./embed.js"
 const meta = {
   title: "Data Display/Embed",
   component: Embed,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     ratio: { control: "select", options: ["1/1", "4/3", "16/9", "21/9"] },
     fullWidth: { control: "boolean" },

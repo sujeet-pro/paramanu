@@ -5,7 +5,7 @@ import { Transfer } from "./transfer.js"
 const meta = {
   title: "Forms/Transfer",
   component: Transfer,
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   argTypes: {
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
     disabled: { control: "boolean" },

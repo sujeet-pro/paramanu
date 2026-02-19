@@ -54,7 +54,7 @@ function createAccordion(args: AccordionArgs): HTMLElement {
 
 const meta = {
   title: "Disclosure/Accordion",
-  tags: ["autodocs", "stable"],
+  tags: ["autodocs", "beta"],
   render: (args) => createAccordion(args as AccordionArgs),
   argTypes: {
     variant: {

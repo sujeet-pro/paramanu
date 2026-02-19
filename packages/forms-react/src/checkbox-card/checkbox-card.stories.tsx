@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { CheckboxCard } from "./checkbox-card.js"
+import { ChkCard } from "./checkbox-card.js"
 
 const meta = {
   title: "Forms/Checkbox Card",
-  tags: ["autodocs", "stable"],
-  component: CheckboxCard,
+  tags: ["autodocs", "beta"],
+  component: ChkCard,
   argTypes: {
     size: {
       control: "select",
@@ -20,7 +20,7 @@ const meta = {
     onFocus: fn(),
     onBlur: fn(),
   },
-} satisfies Meta<typeof CheckboxCard>
+} satisfies Meta<typeof ChkCard>
 
 export default meta
 type Story = StoryObj<typeof meta>

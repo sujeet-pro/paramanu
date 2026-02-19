@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect } from "storybook/test"
-import { VisuallyHidden } from "./visually-hidden.js"
+import { SrOnly } from "./visually-hidden.js"
 
 const meta = {
-  title: "Utilities/VisuallyHidden",
-  component: VisuallyHidden,
-  tags: ["autodocs", "stable"],
+  title: "Utilities/SrOnly",
+  component: SrOnly,
+  tags: ["autodocs", "beta"],
   argTypes: {
     focusable: { control: "boolean" },
     as: { control: "select", options: ["span", "div", "a"] },
@@ -13,10 +13,10 @@ const meta = {
   args: {
     children: "This text is only visible to screen readers",
   },
-} satisfies Meta<typeof VisuallyHidden>
+} satisfies Meta<typeof SrOnly>
 
 export default meta
-type Story = StoryObj<typeof VisuallyHidden>
+type Story = StoryObj<typeof SrOnly>
 
 export const Playground: Story = {}
 

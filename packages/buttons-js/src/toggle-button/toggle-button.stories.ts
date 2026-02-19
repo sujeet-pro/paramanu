@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { toggleButtonClasses } from "./toggle-button.classes.js"
+import { toggleBtnClasses } from "./toggle-button.classes.js"
 import type {
-  ToggleButtonClassesOptions,
-  ToggleButtonVariant,
-  ToggleButtonSize,
+  ToggleBtnClassesOptions,
+  ToggleBtnVariant,
+  ToggleBtnSize,
 } from "./toggle-button.types.js"
 
-interface ToggleButtonArgs extends ToggleButtonClassesOptions {
+interface ToggleBtnArgs extends ToggleBtnClassesOptions {
   label: string
 }
 
-function createToggleButton(args: ToggleButtonArgs): HTMLButtonElement {
+function createToggleBtn(args: ToggleBtnArgs): HTMLButtonElement {
   const button = document.createElement("button")
-  button.className = toggleButtonClasses({
+  button.className = toggleBtnClasses({
     variant: args.variant,
     size: args.size,
     pressed: args.pressed,
@@ -34,9 +34,9 @@ function createToggleButton(args: ToggleButtonArgs): HTMLButtonElement {
 }
 
 const meta = {
-  title: "Buttons/Toggle Button",
-  tags: ["autodocs", "stable"],
-  render: (args) => createToggleButton(args as ToggleButtonArgs),
+  title: "Btns/Toggle Btn",
+  tags: ["autodocs", "beta"],
+  render: (args) => createToggleBtn(args as ToggleBtnArgs),
   argTypes: {
     variant: {
       control: "select",
@@ -57,10 +57,10 @@ const meta = {
     size: "md",
     pressed: false,
   },
-} satisfies Meta<ToggleButtonArgs>
+} satisfies Meta<ToggleBtnArgs>
 
 export default meta
-type Story = StoryObj<ToggleButtonArgs>
+type Story = StoryObj<ToggleBtnArgs>
 
 export const Playground: Story = {}
 
@@ -83,8 +83,8 @@ export const AllVariantsAndSizes: Story = {
     container.style.flexDirection = "column"
     container.style.gap = "16px"
 
-    const variants: ToggleButtonVariant[] = ["default", "outline"]
-    const sizes: ToggleButtonSize[] = ["xs", "sm", "md", "lg", "xl"]
+    const variants: ToggleBtnVariant[] = ["default", "outline"]
+    const sizes: ToggleBtnSize[] = ["xs", "sm", "md", "lg", "xl"]
 
     for (const variant of variants) {
       const row = document.createElement("div")
@@ -94,7 +94,7 @@ export const AllVariantsAndSizes: Story = {
 
       for (const size of sizes) {
         row.appendChild(
-          createToggleButton({ label: `${variant} ${size}`, variant, size, pressed: true }),
+          createToggleBtn({ label: `${variant} ${size}`, variant, size, pressed: true }),
         )
       }
       container.appendChild(row)
@@ -113,11 +113,11 @@ export const States: Story = {
     container.style.display = "flex"
     container.style.gap = "8px"
 
-    container.appendChild(createToggleButton({ label: "Unpressed", pressed: false }))
-    container.appendChild(createToggleButton({ label: "Pressed", pressed: true }))
-    container.appendChild(createToggleButton({ label: "Disabled", disabled: true }))
+    container.appendChild(createToggleBtn({ label: "Unpressed", pressed: false }))
+    container.appendChild(createToggleBtn({ label: "Pressed", pressed: true }))
+    container.appendChild(createToggleBtn({ label: "Disabled", disabled: true }))
     container.appendChild(
-      createToggleButton({ label: "Pressed Disabled", pressed: true, disabled: true }),
+      createToggleBtn({ label: "Pressed Disabled", pressed: true, disabled: true }),
     )
     return container
   },
