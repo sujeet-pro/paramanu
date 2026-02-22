@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { tableClasses } from "@paramanu/data-display-js"
 import type { TableProps } from "@paramanu/data-display-js"
 
-export interface ReactTableProps
-  extends TableProps,
-    React.TableHTMLAttributes<HTMLTableElement> {
+export interface ReactTableProps extends TableProps, React.TableHTMLAttributes<HTMLTableElement> {
   children?: React.ReactNode
 }
 
@@ -56,8 +54,7 @@ export const TableCaption = forwardRef<HTMLTableCaptionElement, ReactTableCaptio
   },
 )
 
-export interface ReactTableHeadProps
-  extends React.HTMLAttributes<HTMLTableSectionElement> {
+export interface ReactTableHeadProps extends React.HTMLAttributes<HTMLTableSectionElement> {
   children?: React.ReactNode
 }
 
@@ -74,8 +71,7 @@ export const TableHead = forwardRef<HTMLTableSectionElement, ReactTableHeadProps
   },
 )
 
-export interface ReactTableBodyProps
-  extends React.HTMLAttributes<HTMLTableSectionElement> {
+export interface ReactTableBodyProps extends React.HTMLAttributes<HTMLTableSectionElement> {
   children?: React.ReactNode
 }
 
@@ -92,8 +88,7 @@ export const TableBody = forwardRef<HTMLTableSectionElement, ReactTableBodyProps
   },
 )
 
-export interface ReactTableFootProps
-  extends React.HTMLAttributes<HTMLTableSectionElement> {
+export interface ReactTableFootProps extends React.HTMLAttributes<HTMLTableSectionElement> {
   children?: React.ReactNode
 }
 
@@ -114,30 +109,28 @@ export interface ReactTableRowProps extends React.HTMLAttributes<HTMLTableRowEle
   children?: React.ReactNode
 }
 
-export const TableRow = forwardRef<HTMLTableRowElement, ReactTableRowProps>(
-  function TableRow({ className, children, ...rest }, ref) {
-    const classes = tableClasses()
-    const combinedClassName = className ? `${classes.row} ${className}` : classes.row
+export const TableRow = forwardRef<HTMLTableRowElement, ReactTableRowProps>(function TableRow(
+  { className, children, ...rest },
+  ref,
+) {
+  const classes = tableClasses()
+  const combinedClassName = className ? `${classes.row} ${className}` : classes.row
 
-    return (
-      <tr ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </tr>
-    )
-  },
-)
+  return (
+    <tr ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </tr>
+  )
+})
 
-export interface ReactTableHeaderCellProps
-  extends React.ThHTMLAttributes<HTMLTableCellElement> {
+export interface ReactTableHeaderCellProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
   children?: React.ReactNode
 }
 
 export const TableHeaderCell = forwardRef<HTMLTableCellElement, ReactTableHeaderCellProps>(
   function TableHeaderCell({ className, children, ...rest }, ref) {
     const classes = tableClasses()
-    const combinedClassName = className
-      ? `${classes.headerCell} ${className}`
-      : classes.headerCell
+    const combinedClassName = className ? `${classes.headerCell} ${className}` : classes.headerCell
 
     return (
       <th ref={ref} className={combinedClassName} {...rest}>
@@ -147,20 +140,20 @@ export const TableHeaderCell = forwardRef<HTMLTableCellElement, ReactTableHeader
   },
 )
 
-export interface ReactTableCellProps
-  extends React.TdHTMLAttributes<HTMLTableCellElement> {
+export interface ReactTableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {
   children?: React.ReactNode
 }
 
-export const TableCell = forwardRef<HTMLTableCellElement, ReactTableCellProps>(
-  function TableCell({ className, children, ...rest }, ref) {
-    const classes = tableClasses()
-    const combinedClassName = className ? `${classes.cell} ${className}` : classes.cell
+export const TableCell = forwardRef<HTMLTableCellElement, ReactTableCellProps>(function TableCell(
+  { className, children, ...rest },
+  ref,
+) {
+  const classes = tableClasses()
+  const combinedClassName = className ? `${classes.cell} ${className}` : classes.cell
 
-    return (
-      <td ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </td>
-    )
-  },
-)
+  return (
+    <td ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </td>
+  )
+})

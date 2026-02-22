@@ -27,8 +27,7 @@ function useSplitterContext() {
 // --- Splitter (container) ---
 
 export interface ReactSplitterProps
-  extends SplitterProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+  extends SplitterProps, Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
   className?: string
   children?: React.ReactNode
   onResize?: (sizes: number[]) => void
@@ -72,14 +71,16 @@ export const Splitter = forwardRef<HTMLDivElement, ReactSplitterProps>(function 
 // --- SplitterPanel ---
 
 export interface ReactSplitterPanelProps
-  extends SplitterPanelProps,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends SplitterPanelProps, React.HTMLAttributes<HTMLDivElement> {
   className?: string
   children?: React.ReactNode
 }
 
 export const SplitterPanel = forwardRef<HTMLDivElement, ReactSplitterPanelProps>(
-  function SplitterPanel({ collapsed, collapsible, defaultSize, className, style, children, ...rest }, ref) {
+  function SplitterPanel(
+    { collapsed, collapsible, defaultSize, className, style, children, ...rest },
+    ref,
+  ) {
     const { orientation } = useSplitterContext()
     const classes = splitterPanelClasses({ collapsed, collapsible })
     const combinedClassName = className ? `${classes} ${className}` : classes
@@ -103,8 +104,7 @@ export const SplitterPanel = forwardRef<HTMLDivElement, ReactSplitterPanelProps>
 // --- SplitterHandle ---
 
 export interface ReactSplitterHandleProps
-  extends SplitterHandleProps,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends SplitterHandleProps, React.HTMLAttributes<HTMLDivElement> {
   className?: string
   children?: React.ReactNode
 }

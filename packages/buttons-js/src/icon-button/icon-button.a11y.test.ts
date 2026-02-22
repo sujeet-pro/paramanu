@@ -33,9 +33,7 @@ describe("icon button accessibility", () => {
   })
 
   it("disabled button has aria-disabled", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createIconBtnHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createIconBtnHTML({ disabled: true })}</body>`)
     const button = dom.window.document.querySelector("button")
     expect(button?.getAttribute("aria-disabled")).toBe("true")
   })

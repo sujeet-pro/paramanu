@@ -1,12 +1,6 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup, fireEvent } from "@testing-library/react"
-import {
-  Shell,
-  ShellHeader,
-  ShellSidebar,
-  ShellMain,
-  ShellFooter,
-} from "./app-shell.js"
+import { Shell, ShellHeader, ShellSidebar, ShellMain, ShellFooter } from "./app-shell.js"
 
 afterEach(cleanup)
 

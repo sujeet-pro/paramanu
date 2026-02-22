@@ -2,9 +2,7 @@ import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import { multiSelClasses } from "./multi-select.classes.js"
 
-function createMultiSelHTML(
-  options: Parameters<typeof multiSelClasses>[0] = {},
-): string {
+function createMultiSelHTML(options: Parameters<typeof multiSelClasses>[0] = {}): string {
   const classes = multiSelClasses(options)
   const disabledAttr = options?.disabled ? ' aria-disabled="true"' : ""
   const expandedAttr = options?.open ? 'aria-expanded="true"' : 'aria-expanded="false"'
@@ -52,9 +50,7 @@ describe("multi-select accessibility", () => {
   })
 
   it("disabled multi-select has aria-disabled", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createMultiSelHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createMultiSelHTML({ disabled: true })}</body>`)
     const trigger = dom.window.document.querySelector(".pm-multi-sel__trigger")
     expect(trigger?.getAttribute("aria-disabled")).toBe("true")
   })

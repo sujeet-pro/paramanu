@@ -32,9 +32,7 @@ export interface NotifClassesResult {
  * // classes.root => "pm-notif pm-notif--neutral pm-notif--unread pm-notif--dismissible"
  * ```
  */
-export function notifClasses(
-  options: NotifClassesOptions = {},
-): NotifClassesResult {
+export function notifClasses(options: NotifClassesOptions = {}): NotifClassesResult {
   const { variant = "neutral", unread = false, dismissible = false } = options
   const rootClasses = [BASE, `${BASE}--${variant}`]
 

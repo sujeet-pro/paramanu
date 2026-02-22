@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Pin Input component renders a group of individual character inputs for entering PINs, OTPs, or verification codes.
@@ -31,11 +31,11 @@ The Pin Input component renders a group of individual character inputs for enter
 
 ## Accessibility
 
-| Feature | Detail |
-|---|---|
-| `role="group"` | Container groups the inputs |
-| `aria-label` | Each input labeled with its digit position |
-| Keyboard | Auto-advance focus on input |
+| Feature        | Detail                                     |
+| -------------- | ------------------------------------------ |
+| `role="group"` | Container groups the inputs                |
+| `aria-label`   | Each input labeled with its digit position |
+| Keyboard       | Auto-advance focus on input                |
 
 ## Best Practices
 
@@ -47,21 +47,21 @@ The Pin Input component renders a group of individual character inputs for enter
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Input size |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `invalid` | `boolean` | `false` | Invalid state |
-| `length` | `number` | `4` | Number of input fields |
+| Prop       | Type                           | Default | Description            |
+| ---------- | ------------------------------ | ------- | ---------------------- |
+| `size`     | `"xs" \| "sm" \| "md" \| "lg"` | `"md"`  | Input size             |
+| `disabled` | `boolean`                      | `false` | Disabled state         |
+| `invalid`  | `boolean`                      | `false` | Invalid state          |
+| `length`   | `number`                       | `4`     | Number of input fields |
 
 ## CSS Classes
 
-| Class | Description |
-|---|---|
-| `pm-pin-input` | Wrapper base class |
-| `pm-pin-input--md` | Medium size |
-| `pm-pin-input--disabled` | Disabled state |
-| `pm-pin-input--invalid` | Invalid state |
+| Class                    | Description        |
+| ------------------------ | ------------------ |
+| `pm-pin-input`           | Wrapper base class |
+| `pm-pin-input--md`       | Medium size        |
+| `pm-pin-input--disabled` | Disabled state     |
+| `pm-pin-input--invalid`  | Invalid state      |
 
 </TabItem>
 </Tabs>

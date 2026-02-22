@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, AccordionIcon } from "./accordion.js"
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+  AccordionIcon,
+} from "./accordion.js"
 
 const meta = {
   title: "Disclosure/Accordion",
@@ -65,11 +71,17 @@ export const Default: Story = {
   render: () => (
     <Accordion defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Open Section<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Open Section
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>This section is open by default.</AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <AccordionTrigger>Closed Section<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Closed Section
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>This section is closed.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -81,11 +93,15 @@ export const Bordered: Story = {
   render: (args) => (
     <Accordion {...args} defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Bordered 1<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Bordered 1<AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Bordered content.</AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <AccordionTrigger>Bordered 2<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Bordered 2<AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>More content.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -97,11 +113,15 @@ export const Separated: Story = {
   render: (args) => (
     <Accordion {...args} defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Separated 1<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Separated 1<AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Content.</AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <AccordionTrigger>Separated 2<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Separated 2<AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Content.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -113,7 +133,9 @@ export const Filled: Story = {
   render: (args) => (
     <Accordion {...args} defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Filled 1<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Filled 1<AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Content.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -125,11 +147,15 @@ export const Multiple: Story = {
   render: (args) => (
     <Accordion {...args} defaultValue={["item-1", "item-2"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Section 1<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Section 1<AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Content 1.</AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <AccordionTrigger>Section 2<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Section 2<AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Content 2.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -141,7 +167,10 @@ export const Collapsible: Story = {
   render: (args) => (
     <Accordion {...args} defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Collapsible<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Collapsible
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Can collapse all items.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -152,11 +181,17 @@ export const WithDisabled: Story = {
   render: () => (
     <Accordion defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Enabled<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Enabled
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Content.</AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2" disabled>
-        <AccordionTrigger>Disabled<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Disabled
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Cannot open.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -167,11 +202,17 @@ export const KeyboardNavigation: Story = {
   render: () => (
     <Accordion collapsible defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>First<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          First
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>First content.</AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <AccordionTrigger>Second<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Second
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Second content.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -188,7 +229,10 @@ export const ExpandCollapse: Story = {
   render: () => (
     <Accordion collapsible defaultValue={[]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Click to expand<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Click to expand
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Expanded content.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -206,7 +250,10 @@ export const Accessibility: Story = {
   render: () => (
     <Accordion defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Accessible Section<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Accessible Section
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Content region.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -225,7 +272,10 @@ export const SmallSize: Story = {
   render: (args) => (
     <Accordion {...args} defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Small<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Small
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Small content.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -237,7 +287,10 @@ export const LargeSize: Story = {
   render: (args) => (
     <Accordion {...args} defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Large<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Large
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Large content.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -248,7 +301,10 @@ export const Hover: Story = {
   render: () => (
     <Accordion defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Hover test<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Hover test
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Content.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -260,7 +316,10 @@ export const FocusVisible: Story = {
   render: () => (
     <Accordion defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Focus test<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Focus test
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Content.</AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -272,7 +331,10 @@ export const ActiveState: Story = {
   render: () => (
     <Accordion defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Active test<AccordionIcon /></AccordionTrigger>
+        <AccordionTrigger>
+          Active test
+          <AccordionIcon />
+        </AccordionTrigger>
         <AccordionContent>Content.</AccordionContent>
       </AccordionItem>
     </Accordion>

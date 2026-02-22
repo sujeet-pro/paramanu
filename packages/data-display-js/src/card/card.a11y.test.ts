@@ -22,9 +22,7 @@ function createInteractiveCardHTML(
 
 describe("card accessibility", () => {
   it("renders as a div by default", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createCardHTML("Card content")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createCardHTML("Card content")}</body>`)
     const card = dom.window.document.querySelector(".pm-card")
     expect(card).not.toBeNull()
     expect(card?.tagName).toBe("DIV")
@@ -39,17 +37,13 @@ describe("card accessibility", () => {
   })
 
   it("interactive card is focusable", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createInteractiveCardHTML("Click me")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createInteractiveCardHTML("Click me")}</body>`)
     const card = dom.window.document.querySelector(".pm-card")
     expect(card?.getAttribute("tabindex")).toBe("0")
   })
 
   it("interactive card has accessible role and label", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createInteractiveCardHTML("Click me")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createInteractiveCardHTML("Click me")}</body>`)
     const card = dom.window.document.querySelector(".pm-card")
     expect(card?.getAttribute("role")).toBe("link")
     expect(card?.getAttribute("aria-label")).toBe("View details")

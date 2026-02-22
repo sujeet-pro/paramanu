@@ -6,8 +6,7 @@ import type {
 } from "@paramanu/navigation-js"
 
 export interface ReactPaginationProps
-  extends PaginationClassesOptions,
-    Omit<React.HTMLAttributes<HTMLElement>, "children"> {
+  extends PaginationClassesOptions, Omit<React.HTMLAttributes<HTMLElement>, "children"> {
   children?: React.ReactNode
 }
 
@@ -26,7 +25,8 @@ export const Pagination = forwardRef<HTMLElement, ReactPaginationProps>(function
 })
 
 export interface ReactPaginationItemProps
-  extends PaginationItemClassesOptions,
+  extends
+    PaginationItemClassesOptions,
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
   children?: React.ReactNode
 }

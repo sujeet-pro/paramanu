@@ -27,7 +27,10 @@ const meta = {
   render: (args) => createAffix(args as AffixClassesOptions),
   argTypes: {
     position: { control: "select", options: ["top", "bottom"] },
-    offset: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"] },
+    offset: {
+      control: "select",
+      options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"],
+    },
   },
   args: { position: "top" },
 } satisfies Meta<AffixClassesOptions>

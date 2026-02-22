@@ -22,9 +22,7 @@ function createToastHTML(message: string, options: ToastClassesOptions = {}): st
 
 describe("toast accessibility", () => {
   it("has role=status for info variant", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createToastHTML("File uploaded")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createToastHTML("File uploaded")}</body>`)
     const el = dom.window.document.querySelector(".pm-toast")
     expect(el?.getAttribute("role")).toBe("status")
   })
@@ -54,9 +52,7 @@ describe("toast accessibility", () => {
   })
 
   it("has message content", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createToastHTML("Operation completed")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createToastHTML("Operation completed")}</body>`)
     const message = dom.window.document.querySelector(".pm-toast__message")
     expect(message?.textContent).toBe("Operation completed")
   })

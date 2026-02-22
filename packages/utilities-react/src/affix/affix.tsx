@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { affixClasses } from "@paramanu/utilities-js"
 import type { AffixClassesOptions } from "@paramanu/utilities-js"
 
-export interface ReactAffixProps
-  extends AffixClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactAffixProps extends AffixClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

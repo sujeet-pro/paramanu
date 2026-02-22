@@ -3,8 +3,7 @@ import { skeletonClasses } from "@paramanu/feedback-js"
 import type { SkeletonClassesOptions } from "@paramanu/feedback-js"
 
 export interface ReactSkeletonProps
-  extends SkeletonClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends SkeletonClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   width?: string | number
   height?: string | number
 }

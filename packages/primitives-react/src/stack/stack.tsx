@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { stackClasses } from "@paramanu/primitives-js"
 import type { StackProps } from "@paramanu/primitives-js"
 
-export interface ReactStackProps
-  extends StackProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactStackProps extends StackProps, React.HTMLAttributes<HTMLDivElement> {
   /** Child elements. */
   children?: React.ReactNode
 }

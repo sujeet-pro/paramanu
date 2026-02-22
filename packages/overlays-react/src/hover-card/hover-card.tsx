@@ -3,8 +3,7 @@ import { hovercardClasses, hoverCardArrowClasses } from "@paramanu/overlays-js"
 import type { HovercardClassesOptions } from "@paramanu/overlays-js"
 
 export interface ReactHovercardProps
-  extends HovercardClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends HovercardClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   open?: boolean
   children?: React.ReactNode
 }

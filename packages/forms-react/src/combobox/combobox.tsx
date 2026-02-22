@@ -3,8 +3,7 @@ import { comboboxClasses } from "@paramanu/forms-js"
 import type { ComboboxProps } from "@paramanu/forms-js"
 
 export interface ReactComboboxProps
-  extends ComboboxProps,
-    Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
+  extends ComboboxProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   children?: React.ReactNode
 }
 

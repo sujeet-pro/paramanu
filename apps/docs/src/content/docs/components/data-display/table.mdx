@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Table wraps standard HTML table elements with styling for variants, sizes, hoverable rows, bordered cells, and sticky headers.
@@ -80,26 +80,26 @@ export default function App() {
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `"simple" \| "striped"` | `"simple"` | Visual style |
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Cell padding and font size |
-| `layout` | `"auto" \| "fixed"` | `"auto"` | Column width algorithm |
-| `hoverable` | `boolean` | `false` | Row hover highlight |
-| `bordered` | `boolean` | `false` | Cell borders |
-| `stickyHeader` | `boolean` | `false` | Sticky header row |
+| Prop           | Type                    | Default    | Description                |
+| -------------- | ----------------------- | ---------- | -------------------------- |
+| `variant`      | `"simple" \| "striped"` | `"simple"` | Visual style               |
+| `size`         | `"sm" \| "md" \| "lg"`  | `"md"`     | Cell padding and font size |
+| `layout`       | `"auto" \| "fixed"`     | `"auto"`   | Column width algorithm     |
+| `hoverable`    | `boolean`               | `false`    | Row hover highlight        |
+| `bordered`     | `boolean`               | `false`    | Cell borders               |
+| `stickyHeader` | `boolean`               | `false`    | Sticky header row          |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-table` | Base table class |
-| `pm-table__container` | Scrollable wrapper |
-| `pm-table__head` | `<thead>` element |
-| `pm-table__body` | `<tbody>` element |
-| `pm-table__row` | `<tr>` element |
-| `pm-table__header-cell` | `<th>` element |
-| `pm-table__cell` | `<td>` element |
+| Class                   | Description        |
+| ----------------------- | ------------------ |
+| `pm-table`              | Base table class   |
+| `pm-table__container`   | Scrollable wrapper |
+| `pm-table__head`        | `<thead>` element  |
+| `pm-table__body`        | `<tbody>` element  |
+| `pm-table__row`         | `<tr>` element     |
+| `pm-table__header-cell` | `<th>` element     |
+| `pm-table__cell`        | `<td>` element     |
 
 </TabItem>
 </Tabs>

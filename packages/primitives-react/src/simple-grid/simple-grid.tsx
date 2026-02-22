@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { sgridClasses } from "@paramanu/primitives-js"
 import type { SgridProps } from "@paramanu/primitives-js"
 
-export interface ReactSgridProps
-  extends SgridProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactSgridProps extends SgridProps, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

@@ -109,9 +109,7 @@ describe("radioGroupClasses", () => {
   })
 
   it("applies horizontal orientation", () => {
-    expect(radioGroupClasses({ orientation: "horizontal" })).toContain(
-      "pm-radio-group--horizontal",
-    )
+    expect(radioGroupClasses({ orientation: "horizontal" })).toContain("pm-radio-group--horizontal")
   })
 
   it("applies vertical orientation", () => {

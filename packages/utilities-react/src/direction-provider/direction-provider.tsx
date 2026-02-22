@@ -24,10 +24,7 @@ export interface ReactDirectionProviderProps {
   children: React.ReactNode
 }
 
-export function DirectionProvider({
-  defaultDir,
-  children,
-}: ReactDirectionProviderProps) {
+export function DirectionProvider({ defaultDir, children }: ReactDirectionProviderProps) {
   const [dir, setDirState] = useState<Direction>(() => {
     try {
       return defaultDir ?? jsGetDirection()
@@ -44,9 +41,5 @@ export function DirectionProvider({
     setDirState(newDir)
   }, [])
 
-  return (
-    <DirectionContext.Provider value={{ dir, setDir }}>
-      {children}
-    </DirectionContext.Provider>
-  )
+  return <DirectionContext.Provider value={{ dir, setDir }}>{children}</DirectionContext.Provider>
 }

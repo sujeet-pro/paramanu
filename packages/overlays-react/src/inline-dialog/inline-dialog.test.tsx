@@ -37,9 +37,7 @@ describe("InlineDlg", () => {
 
   it("forwards ref", () => {
     let dialogRef: HTMLDivElement | null = null
-    render(
-      <InlineDlg ref={(el) => (dialogRef = el)}>Content</InlineDlg>,
-    )
+    render(<InlineDlg ref={(el) => (dialogRef = el)}>Content</InlineDlg>)
     expect(dialogRef).toBeInstanceOf(HTMLDivElement)
   })
 

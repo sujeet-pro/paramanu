@@ -28,9 +28,7 @@ export const Cascader = forwardRef<HTMLDivElement, ReactCascaderProps>(function 
       >
         {placeholder ?? "Select..."}
       </button>
-      <div className="pm-cascader__dropdown">
-        {children}
-      </div>
+      <div className="pm-cascader__dropdown">{children}</div>
     </div>
   )
 })

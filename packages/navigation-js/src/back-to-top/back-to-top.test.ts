@@ -14,9 +14,7 @@ describe("bttClasses", () => {
 
   it("applies position", () => {
     expect(bttClasses({ position: "bottom-left" })).toContain("pm-btt--bottom-left")
-    expect(bttClasses({ position: "bottom-center" })).toContain(
-      "pm-btt--bottom-center",
-    )
+    expect(bttClasses({ position: "bottom-center" })).toContain("pm-btt--bottom-center")
   })
 
   it("applies visible modifier", () => {

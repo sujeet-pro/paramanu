@@ -3,8 +3,7 @@ import { dividerClasses } from "@paramanu/primitives-js"
 import type { DividerProps } from "@paramanu/primitives-js"
 
 export interface ReactDividerProps
-  extends DividerProps,
-    Omit<React.HTMLAttributes<HTMLElement>, "children"> {
+  extends DividerProps, Omit<React.HTMLAttributes<HTMLElement>, "children"> {
   /** Additional CSS class names. */
   className?: string
   /** Label text displayed inside the divider line. Only works with horizontal dividers. */
@@ -14,7 +13,17 @@ export interface ReactDividerProps
 }
 
 export const Divider = forwardRef<HTMLElement, ReactDividerProps>(function Divider(
-  { orientation = "horizontal", variant, withLabel, labelPosition, my, label, className, children, ...rest },
+  {
+    orientation = "horizontal",
+    variant,
+    withLabel,
+    labelPosition,
+    my,
+    label,
+    className,
+    children,
+    ...rest
+  },
   ref,
 ) {
   const content = label || children

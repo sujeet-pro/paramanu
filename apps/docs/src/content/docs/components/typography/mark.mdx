@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Mark annotates text with various visual styles: translucent highlight, underline, circle outline, or solid fill.
@@ -44,18 +44,18 @@ Renders as a `<mark>` element. Screen readers may announce the content as marked
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `"default" \| "underline" \| "circle" \| "filled"` | `"default"` | Visual variant |
-| `color` | `"yellow" \| "primary" \| "danger" \| "success" \| "info"` | -- | Color |
+| Prop      | Type                                                       | Default     | Description    |
+| --------- | ---------------------------------------------------------- | ----------- | -------------- |
+| `variant` | `"default" \| "underline" \| "circle" \| "filled"`         | `"default"` | Visual variant |
+| `color`   | `"yellow" \| "primary" \| "danger" \| "success" \| "info"` | --          | Color          |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-mark` | Base |
+| Class                | Purpose        |
+| -------------------- | -------------- |
+| `pm-mark`            | Base           |
 | `pm-mark--{variant}` | Visual variant |
-| `pm-mark--color-{c}` | Color |
+| `pm-mark--color-{c}` | Color          |
 
 </TabItem>
 </Tabs>

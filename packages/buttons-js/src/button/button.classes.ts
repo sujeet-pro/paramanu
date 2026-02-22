@@ -55,11 +55,7 @@ export function btnModuleClasses(
     active = false,
   } = options
 
-  const classes = [
-    classMap["pm-btn"],
-    classMap[`pm-btn--${variant}`],
-    classMap[`pm-btn--${size}`],
-  ]
+  const classes = [classMap["pm-btn"], classMap[`pm-btn--${variant}`], classMap[`pm-btn--${size}`]]
 
   if (disabled) classes.push(classMap["pm-btn--disabled"])
   if (fullWidth) classes.push(classMap["pm-btn--full-width"])

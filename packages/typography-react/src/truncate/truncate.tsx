@@ -3,8 +3,7 @@ import { truncateClasses } from "@paramanu/typography-js"
 import type { TruncateClassesOptions } from "@paramanu/typography-js"
 
 export interface ReactTruncateProps
-  extends TruncateClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends TruncateClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   /** The HTML element to render. Defaults to "div". */
   as?: "div" | "span" | "p"
   children?: React.ReactNode

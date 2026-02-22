@@ -11,10 +11,7 @@
   .pm-tour__overlay {
     position: fixed;
     inset: 0;
-    background-color: light-dark(
-      rgb(0 0 0 / 0.5),
-      rgb(0 0 0 / 0.7)
-    );
+    background-color: light-dark(rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.7));
     opacity: 0;
     pointer-events: none;
     transition-property: opacity;

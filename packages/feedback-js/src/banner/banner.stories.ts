@@ -79,7 +79,9 @@ export const Info: Story = { args: { variant: "info", text: "Info banner." } }
 export const Success: Story = { args: { variant: "success", text: "Success banner." } }
 export const Warning: Story = { args: { variant: "warning", text: "Warning banner." } }
 export const Danger: Story = { args: { variant: "danger", text: "Danger banner." } }
-export const BottomPosition: Story = { args: { position: "bottom", sticky: true, text: "Bottom banner." } }
+export const BottomPosition: Story = {
+  args: { position: "bottom", sticky: true, text: "Bottom banner." },
+}
 
 export const Hover: Story = {
   parameters: { pseudo: { hover: true } },

@@ -10,10 +10,18 @@ function createNativeSel(args: NativeSelArgs): HTMLElement {
 
   const select = document.createElement("select")
   select.className = "pm-native-sel__field"
-  if (args.disabled) { select.disabled = true; select.setAttribute("aria-disabled", "true") }
+  if (args.disabled) {
+    select.disabled = true
+    select.setAttribute("aria-disabled", "true")
+  }
   if (args.invalid) select.setAttribute("aria-invalid", "true")
 
-  const options = [["", "Select..."], ["apple", "Apple"], ["banana", "Banana"], ["cherry", "Cherry"]]
+  const options = [
+    ["", "Select..."],
+    ["apple", "Apple"],
+    ["banana", "Banana"],
+    ["cherry", "Cherry"],
+  ]
   options.forEach(([value, text]) => {
     const opt = document.createElement("option")
     opt.value = value

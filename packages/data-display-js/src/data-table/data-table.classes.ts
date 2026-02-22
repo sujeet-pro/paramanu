@@ -83,7 +83,11 @@ export function datatableModuleClasses(
     selectable = false,
   } = options
 
-  const rootClasses = [classMap[BASE], classMap[`${BASE}--${variant}`], classMap[`${BASE}--${size}`]]
+  const rootClasses = [
+    classMap[BASE],
+    classMap[`${BASE}--${variant}`],
+    classMap[`${BASE}--${size}`],
+  ]
   if (hoverable) rootClasses.push(classMap[`${BASE}--hoverable`])
   if (bordered) rootClasses.push(classMap[`${BASE}--bordered`])
   if (stickyHeader) rootClasses.push(classMap[`${BASE}--sticky-header`])

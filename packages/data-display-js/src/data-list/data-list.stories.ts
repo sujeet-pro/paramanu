@@ -7,7 +7,11 @@ function createDatalist(args: DatalistClassesOptions): HTMLElement {
   const dl = document.createElement("dl")
   dl.className = cls.root
 
-  for (const [term, detail] of [["Name", "John Doe"], ["Email", "john@example.com"], ["Role", "Engineer"]]) {
+  for (const [term, detail] of [
+    ["Name", "John Doe"],
+    ["Email", "john@example.com"],
+    ["Role", "Engineer"],
+  ]) {
     const item = document.createElement("div")
     item.className = cls.item
     const dt = document.createElement("dt")

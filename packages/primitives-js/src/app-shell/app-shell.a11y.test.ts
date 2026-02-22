@@ -8,11 +8,13 @@ import {
   appShellFooterClasses,
 } from "./app-shell.classes.js"
 
-function createShellHTML(options: {
-  sidebarPosition?: "start" | "end"
-  sticky?: boolean
-  sidebarWidth?: "sm" | "md" | "lg"
-} = {}): string {
+function createShellHTML(
+  options: {
+    sidebarPosition?: "start" | "end"
+    sticky?: boolean
+    sidebarWidth?: "sm" | "md" | "lg"
+  } = {},
+): string {
   const containerClasses = shellClasses({ sidebarPosition: options.sidebarPosition })
   const headerClasses = appShellHeaderClasses({ sticky: options.sticky })
   const sidebarClasses = appShellSidebarClasses({ width: options.sidebarWidth })

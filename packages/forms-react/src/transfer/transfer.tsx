@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { transferClasses } from "@paramanu/forms-js"
 import type { TransferProps } from "@paramanu/forms-js"
 
-export interface ReactTransferProps
-  extends TransferProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactTransferProps extends TransferProps, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

@@ -36,11 +36,19 @@ export const Playground: Story = {
   render: (args) => (
     <Tabs {...args}>
       <TabList>
-        <Tab active aria-controls="panel-1" id="tab-1">Tab 1</Tab>
-        <Tab aria-controls="panel-2" id="tab-2">Tab 2</Tab>
-        <Tab aria-controls="panel-3" id="tab-3">Tab 3</Tab>
+        <Tab active aria-controls="panel-1" id="tab-1">
+          Tab 1
+        </Tab>
+        <Tab aria-controls="panel-2" id="tab-2">
+          Tab 2
+        </Tab>
+        <Tab aria-controls="panel-3" id="tab-3">
+          Tab 3
+        </Tab>
       </TabList>
-      <TabPanel id="panel-1" aria-labelledby="tab-1">Content 1</TabPanel>
+      <TabPanel id="panel-1" aria-labelledby="tab-1">
+        Content 1
+      </TabPanel>
     </Tabs>
   ),
 }

@@ -19,17 +19,29 @@ describe("Icon", () => {
   })
 
   it("applies size class", () => {
-    render(<Icon size="lg" data-testid="icon">SVG</Icon>)
+    render(
+      <Icon size="lg" data-testid="icon">
+        SVG
+      </Icon>,
+    )
     expect(screen.getByTestId("icon").className).toContain("pm-icon--lg")
   })
 
   it("applies color class", () => {
-    render(<Icon color="primary" data-testid="icon">SVG</Icon>)
+    render(
+      <Icon color="primary" data-testid="icon">
+        SVG
+      </Icon>,
+    )
     expect(screen.getByTestId("icon").className).toContain("pm-icon--primary")
   })
 
   it("applies spin modifier", () => {
-    render(<Icon spin data-testid="icon">SVG</Icon>)
+    render(
+      <Icon spin data-testid="icon">
+        SVG
+      </Icon>,
+    )
     expect(screen.getByTestId("icon").className).toContain("pm-icon--spin")
   })
 
@@ -51,7 +63,11 @@ describe("Icon", () => {
   })
 
   it("merges custom className", () => {
-    render(<Icon className="custom" data-testid="icon">SVG</Icon>)
+    render(
+      <Icon className="custom" data-testid="icon">
+        SVG
+      </Icon>,
+    )
     const icon = screen.getByTestId("icon")
     expect(icon.className).toContain("pm-icon")
     expect(icon.className).toContain("custom")

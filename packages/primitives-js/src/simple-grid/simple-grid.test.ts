@@ -11,9 +11,7 @@ describe("sgridClasses", () => {
   })
 
   it("adds minChildWidth modifier", () => {
-    expect(sgridClasses({ minChildWidth: "sm" })).toBe(
-      "pm-sgrid pm-sgrid--min-sm",
-    )
+    expect(sgridClasses({ minChildWidth: "sm" })).toBe("pm-sgrid pm-sgrid--min-sm")
   })
 
   it("adds all minChildWidth variants", () => {

@@ -18,25 +18,41 @@ describe("QrCode", () => {
   })
 
   it("applies size class", () => {
-    render(<QrCode size="lg" aria-label="QR Code">SVG</QrCode>)
+    render(
+      <QrCode size="lg" aria-label="QR Code">
+        SVG
+      </QrCode>,
+    )
     expect(screen.getByRole("img").className).toContain("pm-qr-code--lg")
   })
 
   it("forwards ref", () => {
     let qrRef: HTMLDivElement | null = null
-    render(<QrCode ref={(el) => (qrRef = el)} aria-label="QR Code">SVG</QrCode>)
+    render(
+      <QrCode ref={(el) => (qrRef = el)} aria-label="QR Code">
+        SVG
+      </QrCode>,
+    )
     expect(qrRef).toBeInstanceOf(HTMLDivElement)
   })
 
   it("merges custom className", () => {
-    render(<QrCode className="custom" aria-label="QR Code">SVG</QrCode>)
+    render(
+      <QrCode className="custom" aria-label="QR Code">
+        SVG
+      </QrCode>,
+    )
     const qr = screen.getByRole("img")
     expect(qr.className).toContain("pm-qr-code")
     expect(qr.className).toContain("custom")
   })
 
   it("passes through additional HTML attributes", () => {
-    render(<QrCode data-testid="my-qr" aria-label="QR Code">SVG</QrCode>)
+    render(
+      <QrCode data-testid="my-qr" aria-label="QR Code">
+        SVG
+      </QrCode>,
+    )
     expect(screen.getByTestId("my-qr")).toBeInTheDocument()
   })
 })

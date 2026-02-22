@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Mentions component provides a text area that triggers a suggestion dropdown when the user types a mention trigger character like `@`.
@@ -31,10 +31,10 @@ The Mentions component provides a text area that triggers a suggestion dropdown 
 
 ## Accessibility
 
-| Feature | Detail |
-|---|---|
-| `aria-disabled` | Applied when `disabled` is true |
-| Keyboard | Arrow keys navigate suggestions, Enter selects |
+| Feature         | Detail                                                 |
+| --------------- | ------------------------------------------------------ |
+| `aria-disabled` | Applied when `disabled` is true                        |
+| Keyboard        | Arrow keys navigate suggestions, Enter selects         |
 | Suggestion list | Should use `role="listbox"` with `role="option"` items |
 
 ## Best Practices
@@ -47,22 +47,22 @@ The Mentions component provides a text area that triggers a suggestion dropdown 
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Input size |
-| `invalid` | `boolean` | `false` | Invalid state |
-| `disabled` | `boolean` | `false` | Disabled state |
+| Prop       | Type                                  | Default     | Description    |
+| ---------- | ------------------------------------- | ----------- | -------------- |
+| `variant`  | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size`     | `"xs" \| "sm" \| "md" \| "lg"`        | `"md"`      | Input size     |
+| `invalid`  | `boolean`                             | `false`     | Invalid state  |
+| `disabled` | `boolean`                             | `false`     | Disabled state |
 
 ## CSS Classes
 
-| Class | Description |
-|---|---|
-| `pm-mentions` | Base class |
-| `pm-mentions--outline` | Outline variant |
-| `pm-mentions--filled` | Filled variant |
-| `pm-mentions--disabled` | Disabled state |
-| `pm-mentions--invalid` | Invalid state |
+| Class                   | Description     |
+| ----------------------- | --------------- |
+| `pm-mentions`           | Base class      |
+| `pm-mentions--outline`  | Outline variant |
+| `pm-mentions--filled`   | Filled variant  |
+| `pm-mentions--disabled` | Disabled state  |
+| `pm-mentions--invalid`  | Invalid state   |
 
 </TabItem>
 </Tabs>

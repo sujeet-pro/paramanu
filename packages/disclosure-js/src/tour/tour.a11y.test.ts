@@ -50,7 +50,12 @@ function createTourHTML(
 
 describe("tour accessibility", () => {
   const defaultSteps = [
-    { title: "Welcome", description: "Welcome to the tour", placement: "bottom" as const, active: true },
+    {
+      title: "Welcome",
+      description: "Welcome to the tour",
+      placement: "bottom" as const,
+      active: true,
+    },
     { title: "Features", description: "Explore features", placement: "right" as const },
     { title: "Done", description: "You are all set", placement: "top" as const },
   ]

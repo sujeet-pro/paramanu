@@ -11,10 +11,7 @@ export type {
 } from "./skeleton/skeleton.types.js"
 
 // Progress Bar
-export {
-  progressClasses,
-  progressModuleClasses,
-} from "./progress-bar/progress-bar.classes.js"
+export { progressClasses, progressModuleClasses } from "./progress-bar/progress-bar.classes.js"
 export type {
   ProgressSize,
   ProgressVariant,
@@ -33,10 +30,7 @@ export type {
 } from "./circular-progress/circular-progress.types.js"
 
 // Loading Overlay
-export {
-  loadingClasses,
-  loadingModuleClasses,
-} from "./loading-overlay/loading-overlay.classes.js"
+export { loadingClasses, loadingModuleClasses } from "./loading-overlay/loading-overlay.classes.js"
 export type { LoadingClassesOptions } from "./loading-overlay/loading-overlay.types.js"
 
 // NProgress
@@ -45,10 +39,7 @@ export {
   nprogressModuleClasses,
   createNProgress,
 } from "./nprogress/nprogress.classes.js"
-export type {
-  NProgressClassesOptions,
-  NProgressInstance,
-} from "./nprogress/nprogress.types.js"
+export type { NProgressClassesOptions, NProgressInstance } from "./nprogress/nprogress.types.js"
 
 // Inline Message
 export {
@@ -71,10 +62,7 @@ export type { BannerClassesResult } from "./banner/banner.classes.js"
 export type { BannerVariant, BannerClassesOptions } from "./banner/banner.types.js"
 
 // Notif
-export {
-  notifClasses,
-  notifModuleClasses,
-} from "./notification/notification.classes.js"
+export { notifClasses, notifModuleClasses } from "./notification/notification.classes.js"
 export type { NotifClassesOptions } from "./notification/notification.types.js"
 
 // Toast

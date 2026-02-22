@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Switch component provides a toggle control for binary on/off settings, using `role="switch"` for proper semantics.
@@ -38,11 +38,11 @@ The Switch component provides a toggle control for binary on/off settings, using
 
 ## Accessibility
 
-| Feature | Detail |
-|---|---|
-| `role="switch"` | Input uses switch role |
-| `aria-checked` | Reflects checked state |
-| Keyboard | Space toggles the switch |
+| Feature         | Detail                   |
+| --------------- | ------------------------ |
+| `role="switch"` | Input uses switch role   |
+| `aria-checked`  | Reflects checked state   |
+| Keyboard        | Space toggles the switch |
 
 ## Best Practices
 
@@ -54,23 +54,23 @@ The Switch component provides a toggle control for binary on/off settings, using
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Switch size |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `checked` | `boolean` | `false` | Checked state |
-| `labelPlacement` | `"start" \| "end"` | `"end"` | Label position |
+| Prop             | Type                           | Default | Description    |
+| ---------------- | ------------------------------ | ------- | -------------- |
+| `size`           | `"xs" \| "sm" \| "md" \| "lg"` | `"md"`  | Switch size    |
+| `disabled`       | `boolean`                      | `false` | Disabled state |
+| `checked`        | `boolean`                      | `false` | Checked state  |
+| `labelPlacement` | `"start" \| "end"`             | `"end"` | Label position |
 
 ## CSS Classes
 
-| Class | Description |
-|---|---|
-| `pm-switch` | Base class |
-| `pm-switch__input` | Hidden input |
-| `pm-switch__track` | Track element |
-| `pm-switch__thumb` | Thumb element |
-| `pm-switch__label` | Label text |
-| `pm-switch--checked` | Checked state |
+| Class                    | Description         |
+| ------------------------ | ------------------- |
+| `pm-switch`              | Base class          |
+| `pm-switch__input`       | Hidden input        |
+| `pm-switch__track`       | Track element       |
+| `pm-switch__thumb`       | Thumb element       |
+| `pm-switch__label`       | Label text          |
+| `pm-switch--checked`     | Checked state       |
 | `pm-switch--label-start` | Label before switch |
 
 </TabItem>

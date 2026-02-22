@@ -46,12 +46,7 @@ export type { StackDirection, StackClassesOptions, StackProps } from "./stack/st
 
 // Grid
 export { gridClasses, gridModuleClasses } from "./grid/grid.classes.js"
-export type {
-  GridColumns,
-  GridRows,
-  GridClassesOptions,
-  GridProps,
-} from "./grid/grid.types.js"
+export type { GridColumns, GridRows, GridClassesOptions, GridProps } from "./grid/grid.types.js"
 
 // Simple Grid
 export { sgridClasses, sgridModuleClasses } from "./simple-grid/simple-grid.classes.js"
@@ -62,10 +57,7 @@ export type {
 } from "./simple-grid/simple-grid.types.js"
 
 // Aspect Ratio
-export {
-  aspectClasses,
-  aspectModuleClasses,
-} from "./aspect-ratio/aspect-ratio.classes.js"
+export { aspectClasses, aspectModuleClasses } from "./aspect-ratio/aspect-ratio.classes.js"
 export type {
   AspectValue,
   AspectClassesOptions,
@@ -104,11 +96,7 @@ export type { WrapDirection, WrapClassesOptions, WrapProps } from "./wrap/wrap.t
 
 // Group
 export { groupClasses, groupModuleClasses } from "./group/group.classes.js"
-export type {
-  GroupOrientation,
-  GroupClassesOptions,
-  GroupProps,
-} from "./group/group.types.js"
+export type { GroupOrientation, GroupClassesOptions, GroupProps } from "./group/group.types.js"
 
 // Float
 export { floatClasses, floatModuleClasses } from "./float/float.classes.js"

@@ -129,14 +129,16 @@
     & .pm-alertdialog__panel {
       background-color: var(--pm-color-neutral-800);
       border: 1px solid var(--pm-color-neutral-700);
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.05),
         0 8px 24px rgba(0, 0, 0, 0.5);
     }
   }
 
   :root[data-theme="light-modern"] {
     & .pm-alertdialog__panel {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05),
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.05),
         0 20px 40px rgba(0, 0, 0, 0.08);
       border: 1px solid var(--pm-color-neutral-200);
     }

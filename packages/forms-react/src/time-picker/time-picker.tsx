@@ -3,8 +3,7 @@ import { timepickerClasses } from "@paramanu/forms-js"
 import type { TimepickerProps } from "@paramanu/forms-js"
 
 export interface ReactTimepickerProps
-  extends TimepickerProps,
-    Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
+  extends TimepickerProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   children?: React.ReactNode
 }
 

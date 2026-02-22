@@ -3,8 +3,7 @@ import { bttClasses } from "@paramanu/navigation-js"
 import type { BttProps } from "@paramanu/navigation-js"
 
 export interface ReactBttProps
-  extends BttProps,
-    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
+  extends BttProps, Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
   children?: React.ReactNode
 }
 

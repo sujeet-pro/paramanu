@@ -3,8 +3,7 @@ import { ctxMenuClasses } from "@paramanu/navigation-js"
 import type { CtxMenuClassesOptions } from "@paramanu/navigation-js"
 
 export interface ReactCtxMenuProps
-  extends CtxMenuClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends CtxMenuClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

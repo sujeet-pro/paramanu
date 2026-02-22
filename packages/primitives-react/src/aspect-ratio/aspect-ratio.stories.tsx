@@ -7,7 +7,10 @@ const meta = {
   tags: ["autodocs", "beta"],
   component: Aspect,
   argTypes: {
-    ratio: { control: "select", options: ["1/1", "2/3", "3/2", "4/3", "3/4", "16/9", "9/16", "21/9"] },
+    ratio: {
+      control: "select",
+      options: ["1/1", "2/3", "3/2", "4/3", "3/4", "16/9", "9/16", "21/9"],
+    },
   },
   args: { ratio: "16/9" },
 } satisfies Meta<typeof Aspect>
@@ -20,7 +23,16 @@ export const Playground: Story = {
   render: (args) => (
     <div style={{ width: "400px" }}>
       <Aspect {...args}>
-        <div style={{ background: "#e2e8f0", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div
+          style={{
+            background: "#e2e8f0",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           {args.ratio}
         </div>
       </Aspect>
@@ -34,7 +46,16 @@ export const Square: Story = {
   render: (args) => (
     <div style={{ width: "200px" }}>
       <Aspect {...args}>
-        <div style={{ background: "#e2e8f0", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div
+          style={{
+            background: "#e2e8f0",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           1:1
         </div>
       </Aspect>
@@ -48,7 +69,16 @@ export const Widescreen: Story = {
   render: (args) => (
     <div style={{ width: "400px" }}>
       <Aspect {...args}>
-        <div style={{ background: "#e2e8f0", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div
+          style={{
+            background: "#e2e8f0",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           16:9
         </div>
       </Aspect>
@@ -62,7 +92,16 @@ export const Portrait: Story = {
   render: (args) => (
     <div style={{ width: "200px" }}>
       <Aspect {...args}>
-        <div style={{ background: "#e2e8f0", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div
+          style={{
+            background: "#e2e8f0",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           3:4
         </div>
       </Aspect>

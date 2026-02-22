@@ -13,6 +13,7 @@ Multi-agent workflows enable parallelism. By splitting work by task type, agents
 ## 2. Agent Roles
 
 ### Role: Researcher
+
 **Guideline**: `agents-guidelines/component-api-research.md`
 
 Survey design systems, build feature comparison matrices, design API proposals, research accessibility requirements. Produces a requirements document.
@@ -22,6 +23,7 @@ Survey design systems, build feature comparison matrices, design API proposals, 
 **Blocks**: All other roles — implementation cannot start until research is approved.
 
 ### Role: Implementer (JS)
+
 **Guideline**: `agents-guidelines/writing-code.md` + `agents-guidelines/theming.md`
 
 Create types (`*.types.ts`), class builders (`*.classes.ts`), CSS (`*.css`, `*.module.css`), package exports, and theme overrides in all 5 theme files.
@@ -31,6 +33,7 @@ Create types (`*.types.ts`), class builders (`*.classes.ts`), CSS (`*.css`, `*.m
 **Blocks**: Implementer (React), Test Writer (JS), Story Writer (JS).
 
 ### Role: Implementer (React)
+
 **Guideline**: `agents-guidelines/writing-code.md`
 
 Create React component (`*.tsx`) with `forwardRef`, JSDoc, package exports.
@@ -41,6 +44,7 @@ Create React component (`*.tsx`) with `forwardRef`, JSDoc, package exports.
 **Blocks**: Test Writer (React), Story Writer (React).
 
 ### Role: Test Writer
+
 **Guideline**: `agents-guidelines/writing-tests.md`
 
 Class builder unit tests, accessibility tests (JSDOM + axe-core), React component tests.
@@ -50,6 +54,7 @@ Class builder unit tests, accessibility tests (JSDOM + axe-core), React componen
 **Depends on**: Implementer (JS) for JS tests; Implementer (React) for React tests.
 
 ### Role: Story Writer
+
 **Guideline**: `agents-guidelines/writing-stories.md`
 
 Vanilla stories and React stories with all required story types and play functions.
@@ -59,6 +64,7 @@ Vanilla stories and React stories with all required story types and play functio
 **Depends on**: Implementer (JS) for vanilla stories; Implementer (React) for React stories.
 
 ### Role: Doc Writer
+
 **Guideline**: `agents-guidelines/writing-docs.md`
 
 Create MDX documentation page with 3 tabs (Usage, Guidelines, API), update sidebar.
@@ -69,6 +75,7 @@ Create MDX documentation page with 3 tabs (Usage, Guidelines, API), update sideb
 **Can start early**: Guidelines tab (accessibility, keyboard) can be written from research output.
 
 ### Role: Reviewer
+
 **Guideline**: `agents-guidelines/consistency-review.md`
 
 Review all output for consistency across components. Verify naming, CSS, tests, stories, docs.
@@ -146,14 +153,14 @@ Agent 3: Update documentation (writing-docs.md)
 
 ### File Ownership
 
-| Agent | Owns |
-|---|---|
-| Implementer JS | `*.types.ts`, `*.classes.ts`, `*.css`, `*.module.css` |
-| Implementer React | `*.tsx` |
-| Test Writer | `*.test.ts`, `*.a11y.test.ts`, `*.test.tsx` |
-| Story Writer | `*.stories.ts`, `*.stories.tsx` |
-| Doc Writer | `apps/docs/.../<component>.mdx` |
-| Theme Updater | `packages/tokens/src/themes/*.css` |
+| Agent             | Owns                                                  |
+| ----------------- | ----------------------------------------------------- |
+| Implementer JS    | `*.types.ts`, `*.classes.ts`, `*.css`, `*.module.css` |
+| Implementer React | `*.tsx`                                               |
+| Test Writer       | `*.test.ts`, `*.a11y.test.ts`, `*.test.tsx`           |
+| Story Writer      | `*.stories.ts`, `*.stories.tsx`                       |
+| Doc Writer        | `apps/docs/.../<component>.mdx`                       |
+| Theme Updater     | `packages/tokens/src/themes/*.css`                    |
 
 ### Shared Files (coordinate sequential writes)
 

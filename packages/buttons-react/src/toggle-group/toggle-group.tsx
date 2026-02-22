@@ -7,8 +7,7 @@ import type {
 } from "@paramanu/buttons-js"
 
 export interface ReactToggleGrpProps
-  extends ToggleGrpClassesOptions,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
+  extends ToggleGrpClassesOptions, Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
   /** Selection mode: "single" allows one item, "multiple" allows many. @default "single" */
   type?: ToggleGrpType
   /**
@@ -37,95 +36,94 @@ export interface ReactToggleGrpProps
  * </ToggleGrp>
  * ```
  */
-export const ToggleGrp = forwardRef<HTMLDivElement, ReactToggleGrpProps>(
-  function ToggleGrp(
-    {
-      type = "single",
-      orientation,
-      size,
-      attached,
-      fullWidth,
-      value,
-      onChange,
-      className,
-      children,
-      ...rest
-    },
-    ref,
-  ) {
-    const classes = toggleGrpClasses({ orientation, size, attached, fullWidth })
-    const combinedClassName = className ? `${classes} ${className}` : classes
-
-    const handleItemClick = useCallback(
-      (itemValue: string) => {
-        if (!onChange) return
-
-        if (type === "single") {
-          onChange(value === itemValue ? "" : itemValue)
-        } else {
-          const currentValues = Array.isArray(value) ? value : []
-          if (currentValues.includes(itemValue)) {
-            onChange(currentValues.filter((v) => v !== itemValue))
-          } else {
-            onChange([...currentValues, itemValue])
-          }
-        }
-      },
-      [type, value, onChange],
-    )
-
-    const isPressed = useCallback(
-      (itemValue: string): boolean => {
-        if (type === "single") {
-          return value === itemValue
-        }
-        return Array.isArray(value) ? value.includes(itemValue) : false
-      },
-      [type, value],
-    )
-
-    return (
-      <div
-        ref={ref}
-        role="group"
-        className={combinedClassName}
-        data-type={type}
-        data-orientation={orientation ?? "horizontal"}
-        {...rest}
-      >
-        {typeof children === "object" && children !== null
-          ? (Array.isArray(children) ? children : [children]).map((child) => {
-              if (
-                child &&
-                typeof child === "object" &&
-                "props" in child &&
-                child.props?.value != null
-              ) {
-                const itemValue = String(child.props.value)
-                return {
-                  ...child,
-                  props: {
-                    ...child.props,
-                    pressed: isPressed(itemValue),
-                    onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-                      child.props?.onClick?.(e)
-                      if (!e.defaultPrevented) {
-                        handleItemClick(itemValue)
-                      }
-                    },
-                  },
-                }
-              }
-              return child
-            })
-          : children}
-      </div>
-    )
+export const ToggleGrp = forwardRef<HTMLDivElement, ReactToggleGrpProps>(function ToggleGrp(
+  {
+    type = "single",
+    orientation,
+    size,
+    attached,
+    fullWidth,
+    value,
+    onChange,
+    className,
+    children,
+    ...rest
   },
-)
+  ref,
+) {
+  const classes = toggleGrpClasses({ orientation, size, attached, fullWidth })
+  const combinedClassName = className ? `${classes} ${className}` : classes
+
+  const handleItemClick = useCallback(
+    (itemValue: string) => {
+      if (!onChange) return
+
+      if (type === "single") {
+        onChange(value === itemValue ? "" : itemValue)
+      } else {
+        const currentValues = Array.isArray(value) ? value : []
+        if (currentValues.includes(itemValue)) {
+          onChange(currentValues.filter((v) => v !== itemValue))
+        } else {
+          onChange([...currentValues, itemValue])
+        }
+      }
+    },
+    [type, value, onChange],
+  )
+
+  const isPressed = useCallback(
+    (itemValue: string): boolean => {
+      if (type === "single") {
+        return value === itemValue
+      }
+      return Array.isArray(value) ? value.includes(itemValue) : false
+    },
+    [type, value],
+  )
+
+  return (
+    <div
+      ref={ref}
+      role="group"
+      className={combinedClassName}
+      data-type={type}
+      data-orientation={orientation ?? "horizontal"}
+      {...rest}
+    >
+      {typeof children === "object" && children !== null
+        ? (Array.isArray(children) ? children : [children]).map((child) => {
+            if (
+              child &&
+              typeof child === "object" &&
+              "props" in child &&
+              child.props?.value != null
+            ) {
+              const itemValue = String(child.props.value)
+              return {
+                ...child,
+                props: {
+                  ...child.props,
+                  pressed: isPressed(itemValue),
+                  onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+                    child.props?.onClick?.(e)
+                    if (!e.defaultPrevented) {
+                      handleItemClick(itemValue)
+                    }
+                  },
+                },
+              }
+            }
+            return child
+          })
+        : children}
+    </div>
+  )
+})
 
 export interface ReactToggleGrpItemProps
-  extends ToggleGrpItemClassesOptions,
+  extends
+    ToggleGrpItemClassesOptions,
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type" | "value"> {
   /** The value associated with this item (used for selection tracking). */
   value?: string

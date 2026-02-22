@@ -3,8 +3,7 @@ import { timelineClasses, timelineDotClasses } from "@paramanu/data-display-js"
 import type { TimelineProps, TimelineDotProps } from "@paramanu/data-display-js"
 
 export interface ReactTimelineProps
-  extends TimelineProps,
-    React.OlHTMLAttributes<HTMLOListElement> {
+  extends TimelineProps, React.OlHTMLAttributes<HTMLOListElement> {
   children?: React.ReactNode
 }
 
@@ -26,18 +25,19 @@ export interface ReactTimelineItemProps extends React.LiHTMLAttributes<HTMLLIEle
   children?: React.ReactNode
 }
 
-export const TimelineItem = forwardRef<HTMLLIElement, ReactTimelineItemProps>(
-  function TimelineItem({ className, children, ...rest }, ref) {
-    const classes = timelineClasses()
-    const combinedClassName = className ? `${classes.item} ${className}` : classes.item
+export const TimelineItem = forwardRef<HTMLLIElement, ReactTimelineItemProps>(function TimelineItem(
+  { className, children, ...rest },
+  ref,
+) {
+  const classes = timelineClasses()
+  const combinedClassName = className ? `${classes.item} ${className}` : classes.item
 
-    return (
-      <li ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </li>
-    )
-  },
-)
+  return (
+    <li ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </li>
+  )
+})
 
 export interface ReactTimelineConnectorProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
@@ -57,23 +57,23 @@ export const TimelineConnector = forwardRef<HTMLDivElement, ReactTimelineConnect
 )
 
 export interface ReactTimelineDotProps
-  extends TimelineDotProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "color"> {
+  extends TimelineDotProps, Omit<React.HTMLAttributes<HTMLDivElement>, "color"> {
   children?: React.ReactNode
 }
 
-export const TimelineDot = forwardRef<HTMLDivElement, ReactTimelineDotProps>(
-  function TimelineDot({ variant, color, className, children, ...rest }, ref) {
-    const classes = timelineDotClasses({ variant, color })
-    const combinedClassName = className ? `${classes} ${className}` : classes
+export const TimelineDot = forwardRef<HTMLDivElement, ReactTimelineDotProps>(function TimelineDot(
+  { variant, color, className, children, ...rest },
+  ref,
+) {
+  const classes = timelineDotClasses({ variant, color })
+  const combinedClassName = className ? `${classes} ${className}` : classes
 
-    return (
-      <div ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </div>
-    )
-  },
-)
+  return (
+    <div ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </div>
+  )
+})
 
 export interface ReactTimelineContentProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode

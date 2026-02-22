@@ -12,9 +12,7 @@ function createBlockquoteHTML(
 
 describe("blockquote accessibility", () => {
   it("renders as a blockquote element", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createBlockquoteHTML("A wise quote")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createBlockquoteHTML("A wise quote")}</body>`)
     const el = dom.window.document.querySelector("blockquote")
     expect(el).not.toBeNull()
     expect(el?.tagName).toBe("BLOCKQUOTE")

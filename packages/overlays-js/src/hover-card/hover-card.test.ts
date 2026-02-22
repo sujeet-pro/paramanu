@@ -26,10 +26,18 @@ describe("hovercardClasses", () => {
 
   it("applies all 12 placement values", () => {
     const placements = [
-      "top", "top-start", "top-end",
-      "bottom", "bottom-start", "bottom-end",
-      "left", "left-start", "left-end",
-      "right", "right-start", "right-end",
+      "top",
+      "top-start",
+      "top-end",
+      "bottom",
+      "bottom-start",
+      "bottom-end",
+      "left",
+      "left-start",
+      "left-end",
+      "right",
+      "right-start",
+      "right-end",
     ] as const
 
     for (const placement of placements) {

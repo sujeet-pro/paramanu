@@ -36,13 +36,21 @@ describe("Banner", () => {
 
   it("renders close button when dismissible with onClose", () => {
     const onClose = vi.fn()
-    render(<Banner dismissible onClose={onClose}>Content</Banner>)
+    render(
+      <Banner dismissible onClose={onClose}>
+        Content
+      </Banner>,
+    )
     expect(screen.getByLabelText("Close")).toBeInTheDocument()
   })
 
   it("calls onClose when close button is clicked", () => {
     const onClose = vi.fn()
-    render(<Banner dismissible onClose={onClose}>Content</Banner>)
+    render(
+      <Banner dismissible onClose={onClose}>
+        Content
+      </Banner>,
+    )
     fireEvent.click(screen.getByLabelText("Close"))
     expect(onClose).toHaveBeenCalledTimes(1)
   })
@@ -54,7 +62,11 @@ describe("Banner", () => {
 
   it("applies dismissible class", () => {
     const onClose = vi.fn()
-    render(<Banner dismissible onClose={onClose}>Content</Banner>)
+    render(
+      <Banner dismissible onClose={onClose}>
+        Content
+      </Banner>,
+    )
     const banner = screen.getByRole("status")
     expect(banner.className).toContain("pm-banner--dismissible")
   })

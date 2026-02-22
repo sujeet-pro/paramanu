@@ -32,9 +32,7 @@ describe("progressClasses", () => {
   })
 
   it("applies indeterminate modifier", () => {
-    expect(progressClasses({ indeterminate: true }).root).toContain(
-      "pm-progress--indeterminate",
-    )
+    expect(progressClasses({ indeterminate: true }).root).toContain("pm-progress--indeterminate")
     expect(progressClasses({ indeterminate: false }).root).not.toContain(
       "pm-progress--indeterminate",
     )

@@ -18,11 +18,7 @@ const BASE = "pm-timeline"
  */
 export function timelineDotClasses(options: TimelineDotClassesOptions = {}): string {
   const { variant = "filled", color = "primary" } = options
-  return [
-    `${BASE}__dot`,
-    `${BASE}__dot--${variant}`,
-    `${BASE}__dot--${color}`,
-  ].join(" ")
+  return [`${BASE}__dot`, `${BASE}__dot--${variant}`, `${BASE}__dot--${color}`].join(" ")
 }
 
 /**

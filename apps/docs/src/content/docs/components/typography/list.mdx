@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 List renders ordered or unordered lists with configurable marker style, spacing, and an unstyled option.
@@ -54,23 +54,23 @@ Renders semantic `<ul>` or `<ol>` elements. Screen readers announce list items a
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `type` | `"ordered" \| "unordered"` | `"unordered"` | List type |
-| `styleType` | `"disc" \| "circle" \| "square" \| "decimal" \| ...` | -- | Marker style |
-| `spacing` | `"sm" \| "md" \| "lg"` | `"md"` | Item spacing |
-| `unstyled` | `boolean` | `false` | Remove markers |
+| Prop        | Type                                                 | Default       | Description    |
+| ----------- | ---------------------------------------------------- | ------------- | -------------- |
+| `type`      | `"ordered" \| "unordered"`                           | `"unordered"` | List type      |
+| `styleType` | `"disc" \| "circle" \| "square" \| "decimal" \| ...` | --            | Marker style   |
+| `spacing`   | `"sm" \| "md" \| "lg"`                               | `"md"`        | Item spacing   |
+| `unstyled`  | `boolean`                                            | `false`       | Remove markers |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-list` | Base |
-| `pm-list--ordered` | Ordered list |
-| `pm-list--unordered` | Unordered list |
-| `pm-list--spacing-{s}` | Spacing |
-| `pm-list--style-{t}` | Marker style |
-| `pm-list--unstyled` | Remove markers |
+| Class                  | Purpose        |
+| ---------------------- | -------------- |
+| `pm-list`              | Base           |
+| `pm-list--ordered`     | Ordered list   |
+| `pm-list--unordered`   | Unordered list |
+| `pm-list--spacing-{s}` | Spacing        |
+| `pm-list--style-{t}`   | Marker style   |
+| `pm-list--unstyled`    | Remove markers |
 
 </TabItem>
 </Tabs>

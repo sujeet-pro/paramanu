@@ -105,7 +105,8 @@ export const FocusVisible: Story = {
 export const Accessibility: Story = {
   render: Playground.render,
   play: async ({ canvasElement }) => {
-    const el = canvasElement.querySelector("[role='separator']") || canvasElement.querySelector("hr")
+    const el =
+      canvasElement.querySelector("[role='separator']") || canvasElement.querySelector("hr")
     await expect(el).toBeTruthy()
   },
 }

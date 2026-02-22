@@ -3,8 +3,7 @@ import { scrollClasses } from "@paramanu/primitives-js"
 import type { ScrollProps } from "@paramanu/primitives-js"
 
 export interface ReactScrollProps
-  extends ScrollProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+  extends ScrollProps, Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
   /** Child elements. */
   children?: React.ReactNode
 }

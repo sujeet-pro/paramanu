@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { wrapClasses } from "@paramanu/primitives-js"
 import type { WrapProps } from "@paramanu/primitives-js"
 
-export interface ReactWrapProps
-  extends WrapProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactWrapProps extends WrapProps, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

@@ -1,8 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback } from "react"
-import {
-  setLocale as jsSetLocale,
-  getLocale as jsGetLocale,
-} from "@paramanu/utilities-js"
+import { setLocale as jsSetLocale, getLocale as jsGetLocale } from "@paramanu/utilities-js"
 
 interface LocaleContextValue {
   locale: string
@@ -23,10 +20,7 @@ export interface ReactLocaleProviderProps {
   children: React.ReactNode
 }
 
-export function LocaleProvider({
-  defaultLocale,
-  children,
-}: ReactLocaleProviderProps) {
+export function LocaleProvider({ defaultLocale, children }: ReactLocaleProviderProps) {
   const [locale, setLocaleState] = useState<string>(() => {
     try {
       return defaultLocale ?? jsGetLocale()
@@ -43,9 +37,5 @@ export function LocaleProvider({
     setLocaleState(newLocale)
   }, [])
 
-  return (
-    <LocaleContext.Provider value={{ locale, setLocale }}>
-      {children}
-    </LocaleContext.Provider>
-  )
+  return <LocaleContext.Provider value={{ locale, setLocale }}>{children}</LocaleContext.Provider>
 }

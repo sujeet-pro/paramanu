@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { tagsInputClasses } from "@paramanu/forms-js"
 import type { TagsInputProps } from "@paramanu/forms-js"
 
-export interface ReactTagsInputProps
-  extends TagsInputProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactTagsInputProps extends TagsInputProps, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

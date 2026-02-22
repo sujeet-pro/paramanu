@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Code renders inline code snippets or block-level code with optional line numbers and copy button.
@@ -50,24 +50,24 @@ Inline code renders as `<code>`. Block code renders as `<pre><code>`. Use the `l
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `block` | `boolean` | `false` | Block mode (`<pre><code>`) |
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | -- | Font size |
-| `variant` | `"default" \| "outline"` | `"default"` | Visual variant |
-| `color` | `"neutral" \| "primary" \| "danger" \| "success" \| "warning" \| "info"` | -- | Color |
-| `withLineNumbers` | `boolean` | `false` | Line numbers (block) |
-| `withCopyBtn` | `boolean` | `false` | Copy button (block) |
-| `language` | `string` | -- | Language hint |
+| Prop              | Type                                                                     | Default     | Description                |
+| ----------------- | ------------------------------------------------------------------------ | ----------- | -------------------------- |
+| `block`           | `boolean`                                                                | `false`     | Block mode (`<pre><code>`) |
+| `size`            | `"xs" \| "sm" \| "md" \| "lg"`                                           | --          | Font size                  |
+| `variant`         | `"default" \| "outline"`                                                 | `"default"` | Visual variant             |
+| `color`           | `"neutral" \| "primary" \| "danger" \| "success" \| "warning" \| "info"` | --          | Color                      |
+| `withLineNumbers` | `boolean`                                                                | `false`     | Line numbers (block)       |
+| `withCopyBtn`     | `boolean`                                                                | `false`     | Copy button (block)        |
+| `language`        | `string`                                                                 | --          | Language hint              |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-code` | Inline code |
-| `pm-code-block` | Block code |
+| Class                         | Purpose      |
+| ----------------------------- | ------------ |
+| `pm-code`                     | Inline code  |
+| `pm-code-block`               | Block code   |
 | `pm-code-block--line-numbers` | Line numbers |
-| `pm-code-block--copy` | Copy button |
+| `pm-code-block--copy`         | Copy button  |
 
 </TabItem>
 </Tabs>

@@ -16,7 +16,8 @@ function createShell(args: ShellClassesOptions): HTMLElement {
 
   const header = document.createElement("header")
   header.className = appShellHeaderClasses({ sticky: true })
-  header.innerHTML = '<div style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0;">Header</div>'
+  header.innerHTML =
+    '<div style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0;">Header</div>'
 
   const sidebar = document.createElement("aside")
   sidebar.className = appShellSidebarClasses({ width: "md", collapsed: args.sidebarCollapsed })

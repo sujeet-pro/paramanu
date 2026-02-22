@@ -15,32 +15,32 @@ export interface ReactCmdPaletteProps extends React.HTMLAttributes<HTMLDivElemen
   children?: React.ReactNode
 }
 
-export const CmdPalette = forwardRef<HTMLDivElement, ReactCmdPaletteProps>(
-  function CmdPalette({ open = false, onClose, className, children, ...rest }, ref) {
-    const classes = cmdPaletteClasses()
-    const combinedClassName = className ? `${classes} ${className}` : classes
+export const CmdPalette = forwardRef<HTMLDivElement, ReactCmdPaletteProps>(function CmdPalette(
+  { open = false, onClose, className, children, ...rest },
+  ref,
+) {
+  const classes = cmdPaletteClasses()
+  const combinedClassName = className ? `${classes} ${className}` : classes
 
-    useEffect(() => {
-      if (!open) return
-      const handler = (e: KeyboardEvent) => {
-        if (e.key === "Escape") onClose?.()
-      }
-      document.addEventListener("keydown", handler)
-      return () => document.removeEventListener("keydown", handler)
-    }, [open, onClose])
+  useEffect(() => {
+    if (!open) return
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose?.()
+    }
+    document.addEventListener("keydown", handler)
+    return () => document.removeEventListener("keydown", handler)
+  }, [open, onClose])
 
-    if (!open) return null
+  if (!open) return null
 
-    return (
-      <div ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </div>
-    )
-  },
-)
+  return (
+    <div ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </div>
+  )
+})
 
-export interface ReactCmdPaletteInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+export interface ReactCmdPaletteInputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 export const CmdPaletteInput = forwardRef<HTMLInputElement, ReactCmdPaletteInputProps>(
   function CmdPaletteInput({ className, ...rest }, ref) {
@@ -78,8 +78,7 @@ export const CmdPaletteList = forwardRef<HTMLDivElement, ReactCmdPaletteListProp
 )
 
 export interface ReactCmdPaletteItemProps
-  extends CmdPaletteItemClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends CmdPaletteItemClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   value?: string
   children?: React.ReactNode
 }

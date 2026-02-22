@@ -20,10 +20,7 @@ function refToCssVar(ref: string): string {
 }
 
 /** Resolve a reference value — either a direct value or a token reference */
-function resolveRef(
-  value: string,
-  allTokensByPath: Map<string, TransformedToken>,
-): string {
+function resolveRef(value: string, allTokensByPath: Map<string, TransformedToken>): string {
   if (value.startsWith("{") && value.endsWith("}")) {
     return refToCssVar(value)
   }
@@ -124,7 +121,9 @@ function flattenTokens(
 function loadJsonDir(dir: string): TokenGroup {
   const merged: TokenGroup = {}
   try {
-    const files = readdirSync(dir).filter((f) => f.endsWith(".json")).sort()
+    const files = readdirSync(dir)
+      .filter((f) => f.endsWith(".json"))
+      .sort()
     for (const file of files) {
       const content = JSON.parse(readFileSync(resolve(dir, file), "utf-8"))
       Object.assign(merged, content)

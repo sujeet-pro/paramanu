@@ -13,15 +13,11 @@ describe("toggleGrpClasses", () => {
   })
 
   it("applies horizontal orientation", () => {
-    expect(toggleGrpClasses({ orientation: "horizontal" })).toContain(
-      "pm-toggle-grp--horizontal",
-    )
+    expect(toggleGrpClasses({ orientation: "horizontal" })).toContain("pm-toggle-grp--horizontal")
   })
 
   it("applies vertical orientation", () => {
-    expect(toggleGrpClasses({ orientation: "vertical" })).toContain(
-      "pm-toggle-grp--vertical",
-    )
+    expect(toggleGrpClasses({ orientation: "vertical" })).toContain("pm-toggle-grp--vertical")
   })
 
   it("applies size", () => {
@@ -106,16 +102,12 @@ describe("toggleGrpItemClasses", () => {
 
   it("applies pressed modifier", () => {
     expect(toggleGrpItemClasses({ pressed: true })).toContain("pm-toggle-grp__item--pressed")
-    expect(toggleGrpItemClasses({ pressed: false })).not.toContain(
-      "pm-toggle-grp__item--pressed",
-    )
+    expect(toggleGrpItemClasses({ pressed: false })).not.toContain("pm-toggle-grp__item--pressed")
   })
 
   it("applies disabled modifier", () => {
     expect(toggleGrpItemClasses({ disabled: true })).toContain("pm-toggle-grp__item--disabled")
-    expect(toggleGrpItemClasses({ disabled: false })).not.toContain(
-      "pm-toggle-grp__item--disabled",
-    )
+    expect(toggleGrpItemClasses({ disabled: false })).not.toContain("pm-toggle-grp__item--disabled")
   })
 
   it("always includes base class", () => {

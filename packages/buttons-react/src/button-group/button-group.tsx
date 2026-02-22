@@ -3,8 +3,7 @@ import { btnGroupClasses } from "@paramanu/buttons-js"
 import type { BtnGroupClassesOptions } from "@paramanu/buttons-js"
 
 export interface ReactBtnGroupProps
-  extends BtnGroupClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends BtnGroupClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   /** Btn elements to render inside the group. */
   children?: React.ReactNode
 }

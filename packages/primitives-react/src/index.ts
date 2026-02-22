@@ -55,13 +55,7 @@ export type {
   ReactSplitterHandleProps,
 } from "./splitter/splitter.js"
 
-export {
-  Shell,
-  ShellHeader,
-  ShellSidebar,
-  ShellMain,
-  ShellFooter,
-} from "./app-shell/app-shell.js"
+export { Shell, ShellHeader, ShellSidebar, ShellMain, ShellFooter } from "./app-shell/app-shell.js"
 export type {
   ReactShellProps,
   ReactShellHeaderProps,

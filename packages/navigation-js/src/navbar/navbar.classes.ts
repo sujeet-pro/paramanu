@@ -13,7 +13,11 @@ export function navbarModuleClasses(
   options: NavbarClassesOptions = {},
 ): string {
   const { variant = "default", position = "static" } = options
-  const classes = [classMap[BASE], classMap[`${BASE}--${variant}`], classMap[`${BASE}--${position}`]]
+  const classes = [
+    classMap[BASE],
+    classMap[`${BASE}--${variant}`],
+    classMap[`${BASE}--${position}`],
+  ]
   return classes.filter(Boolean).join(" ")
 }
 

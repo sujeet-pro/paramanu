@@ -42,9 +42,7 @@ describe("image accessibility", () => {
   })
 
   it("supports empty alt for decorative images", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createImgHTML("bg.jpg", "")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createImgHTML("bg.jpg", "")}</body>`)
     const img = dom.window.document.querySelector("img")
     expect(img?.getAttribute("alt")).toBe("")
   })
@@ -59,9 +57,7 @@ describe("image accessibility", () => {
   })
 
   it("fallback has role=img and aria-label", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createImgFallbackHTML("Profile picture")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createImgFallbackHTML("Profile picture")}</body>`)
     const fallback = dom.window.document.querySelector("[role='img']")
     expect(fallback).not.toBeNull()
     expect(fallback?.getAttribute("aria-label")).toBe("Profile picture")

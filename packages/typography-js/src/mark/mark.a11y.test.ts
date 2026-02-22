@@ -2,10 +2,7 @@ import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import { markClasses } from "./mark.classes.js"
 
-function createMarkHTML(
-  text: string,
-  options: Parameters<typeof markClasses>[0] = {},
-): string {
+function createMarkHTML(text: string, options: Parameters<typeof markClasses>[0] = {}): string {
   const classes = markClasses(options)
   return `<mark class="${classes}">${text}</mark>`
 }

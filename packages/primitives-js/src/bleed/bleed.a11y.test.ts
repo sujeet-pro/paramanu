@@ -13,9 +13,7 @@ describe("bleed accessibility", () => {
   })
 
   it("preserves class attribute for styling", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><div class="${bleedClasses()}">Test</div></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><div class="${bleedClasses()}">Test</div></body>`)
     const el = dom.window.document.querySelector("div")
     expect(el?.classList.contains("pm-bleed")).toBe(true)
   })

@@ -3,8 +3,7 @@ import { datagridClasses } from "@paramanu/data-display-js"
 import type { DatagridClassesOptions } from "@paramanu/data-display-js"
 
 export interface ReactDatagridProps
-  extends DatagridClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends DatagridClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
@@ -26,18 +25,19 @@ export interface ReactDatagridRowProps extends React.HTMLAttributes<HTMLDivEleme
   children?: React.ReactNode
 }
 
-export const DatagridRow = forwardRef<HTMLDivElement, ReactDatagridRowProps>(
-  function DatagridRow({ className, children, ...rest }, ref) {
-    const classes = datagridClasses()
-    const combinedClassName = className ? `${classes.row} ${className}` : classes.row
+export const DatagridRow = forwardRef<HTMLDivElement, ReactDatagridRowProps>(function DatagridRow(
+  { className, children, ...rest },
+  ref,
+) {
+  const classes = datagridClasses()
+  const combinedClassName = className ? `${classes.row} ${className}` : classes.row
 
-    return (
-      <div ref={ref} role="row" className={combinedClassName} {...rest}>
-        {children}
-      </div>
-    )
-  },
-)
+  return (
+    <div ref={ref} role="row" className={combinedClassName} {...rest}>
+      {children}
+    </div>
+  )
+})
 
 export interface ReactDatagridCellProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode

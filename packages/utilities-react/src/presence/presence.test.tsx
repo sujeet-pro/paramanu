@@ -47,9 +47,7 @@ describe("Presence", () => {
 
   it("supports render prop children", () => {
     render(
-      <Presence present>
-        {(state) => <div data-testid="content">State: {state}</div>}
-      </Presence>,
+      <Presence present>{(state) => <div data-testid="content">State: {state}</div>}</Presence>,
     )
     expect(screen.getByTestId("content")).toBeInTheDocument()
   })

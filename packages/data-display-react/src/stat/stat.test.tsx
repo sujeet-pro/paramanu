@@ -19,12 +19,20 @@ describe("Stat", () => {
   })
 
   it("applies size class", () => {
-    render(<Stat size="lg" data-testid="stat">Content</Stat>)
+    render(
+      <Stat size="lg" data-testid="stat">
+        Content
+      </Stat>,
+    )
     expect(screen.getByTestId("stat").className).toContain("pm-stat--lg")
   })
 
   it("applies align class", () => {
-    render(<Stat align="center" data-testid="stat">Content</Stat>)
+    render(
+      <Stat align="center" data-testid="stat">
+        Content
+      </Stat>,
+    )
     expect(screen.getByTestId("stat").className).toContain("pm-stat--align-center")
   })
 
@@ -35,7 +43,11 @@ describe("Stat", () => {
   })
 
   it("merges custom className", () => {
-    render(<Stat className="custom" data-testid="stat">Content</Stat>)
+    render(
+      <Stat className="custom" data-testid="stat">
+        Content
+      </Stat>,
+    )
     const stat = screen.getByTestId("stat")
     expect(stat.className).toContain("pm-stat")
     expect(stat.className).toContain("custom")
@@ -74,7 +86,11 @@ describe("StatHelpText", () => {
   })
 
   it("applies trend modifier", () => {
-    render(<StatHelpText trend="up" data-testid="help">+5%</StatHelpText>)
+    render(
+      <StatHelpText trend="up" data-testid="help">
+        +5%
+      </StatHelpText>,
+    )
     expect(screen.getByTestId("help").className).toContain("pm-stat__help-text--up")
   })
 })

@@ -30,9 +30,15 @@ export const Playground: Story = {
   render: (args) => (
     <Carousel {...args} aria-label="Example carousel">
       <CarouselControl direction="prev">Prev</CarouselControl>
-      <CarouselSlide active index={0} total={3}>Slide 1</CarouselSlide>
-      <CarouselSlide index={1} total={3}>Slide 2</CarouselSlide>
-      <CarouselSlide index={2} total={3}>Slide 3</CarouselSlide>
+      <CarouselSlide active index={0} total={3}>
+        Slide 1
+      </CarouselSlide>
+      <CarouselSlide index={1} total={3}>
+        Slide 2
+      </CarouselSlide>
+      <CarouselSlide index={2} total={3}>
+        Slide 3
+      </CarouselSlide>
       <CarouselControl direction="next">Next</CarouselControl>
       <div>
         <CarouselIndicator active index={0} />
@@ -46,8 +52,12 @@ export const Playground: Story = {
 export const Default: Story = {
   render: () => (
     <Carousel aria-label="Demo carousel">
-      <CarouselSlide active index={0} total={2}>First Slide</CarouselSlide>
-      <CarouselSlide index={1} total={2}>Second Slide</CarouselSlide>
+      <CarouselSlide active index={0} total={2}>
+        First Slide
+      </CarouselSlide>
+      <CarouselSlide index={1} total={2}>
+        Second Slide
+      </CarouselSlide>
     </Carousel>
   ),
 }
@@ -55,10 +65,18 @@ export const Default: Story = {
 export const WithControls: Story = {
   render: () => (
     <Carousel aria-label="Controlled carousel">
-      <CarouselControl direction="prev" disabled>Prev</CarouselControl>
-      <CarouselSlide active index={0} total={3}>Slide 1</CarouselSlide>
-      <CarouselSlide index={1} total={3}>Slide 2</CarouselSlide>
-      <CarouselSlide index={2} total={3}>Slide 3</CarouselSlide>
+      <CarouselControl direction="prev" disabled>
+        Prev
+      </CarouselControl>
+      <CarouselSlide active index={0} total={3}>
+        Slide 1
+      </CarouselSlide>
+      <CarouselSlide index={1} total={3}>
+        Slide 2
+      </CarouselSlide>
+      <CarouselSlide index={2} total={3}>
+        Slide 3
+      </CarouselSlide>
       <CarouselControl direction="next">Next</CarouselControl>
     </Carousel>
   ),
@@ -67,9 +85,15 @@ export const WithControls: Story = {
 export const WithIndicators: Story = {
   render: () => (
     <Carousel aria-label="Indicator carousel">
-      <CarouselSlide active index={0} total={3}>Slide 1</CarouselSlide>
-      <CarouselSlide index={1} total={3}>Slide 2</CarouselSlide>
-      <CarouselSlide index={2} total={3}>Slide 3</CarouselSlide>
+      <CarouselSlide active index={0} total={3}>
+        Slide 1
+      </CarouselSlide>
+      <CarouselSlide index={1} total={3}>
+        Slide 2
+      </CarouselSlide>
+      <CarouselSlide index={2} total={3}>
+        Slide 3
+      </CarouselSlide>
       <div role="tablist" aria-label="Slides">
         <CarouselIndicator active index={0} />
         <CarouselIndicator index={1} />
@@ -100,9 +124,15 @@ export const Large: Story = {
 export const NavigationInteraction: Story = {
   render: () => (
     <Carousel aria-label="Nav carousel">
-      <CarouselControl direction="prev" disabled>Prev</CarouselControl>
-      <CarouselSlide active index={0} total={2}>Slide 1</CarouselSlide>
-      <CarouselSlide index={1} total={2}>Slide 2</CarouselSlide>
+      <CarouselControl direction="prev" disabled>
+        Prev
+      </CarouselControl>
+      <CarouselSlide active index={0} total={2}>
+        Slide 1
+      </CarouselSlide>
+      <CarouselSlide index={1} total={2}>
+        Slide 2
+      </CarouselSlide>
       <CarouselControl direction="next">Next</CarouselControl>
     </Carousel>
   ),
@@ -118,8 +148,12 @@ export const Accessibility: Story = {
   render: () => (
     <Carousel aria-label="Accessible carousel">
       <CarouselControl direction="prev">Previous slide</CarouselControl>
-      <CarouselSlide active index={0} total={2}>Slide 1</CarouselSlide>
-      <CarouselSlide index={1} total={2}>Slide 2</CarouselSlide>
+      <CarouselSlide active index={0} total={2}>
+        Slide 1
+      </CarouselSlide>
+      <CarouselSlide index={1} total={2}>
+        Slide 2
+      </CarouselSlide>
       <CarouselControl direction="next">Next slide</CarouselControl>
     </Carousel>
   ),

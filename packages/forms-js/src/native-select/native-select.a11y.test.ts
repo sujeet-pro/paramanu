@@ -27,18 +27,14 @@ describe("native select accessibility", () => {
   })
 
   it("disabled select has disabled attribute and aria-disabled", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createNativeSelHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createNativeSelHTML({ disabled: true })}</body>`)
     const select = dom.window.document.querySelector("select")
     expect(select?.hasAttribute("disabled")).toBe(true)
     expect(select?.getAttribute("aria-disabled")).toBe("true")
   })
 
   it("invalid select has aria-invalid", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createNativeSelHTML({ invalid: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createNativeSelHTML({ invalid: true })}</body>`)
     const select = dom.window.document.querySelector("select")
     expect(select?.getAttribute("aria-invalid")).toBe("true")
   })

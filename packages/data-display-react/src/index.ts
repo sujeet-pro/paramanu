@@ -88,12 +88,7 @@ export type {
 } from "./data-table/data-table.js"
 
 // Data Grid
-export {
-  Datagrid,
-  DatagridRow,
-  DatagridCell,
-  DatagridColumnHeader,
-} from "./data-grid/data-grid.js"
+export { Datagrid, DatagridRow, DatagridCell, DatagridColumnHeader } from "./data-grid/data-grid.js"
 export type {
   ReactDatagridProps,
   ReactDatagridRowProps,

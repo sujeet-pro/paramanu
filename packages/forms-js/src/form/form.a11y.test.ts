@@ -13,18 +13,14 @@ function createFormHTML(
 
 describe("form accessibility", () => {
   it("renders as a form element", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createFormHTML("<input />")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createFormHTML("<input />")}</body>`)
     const form = dom.window.document.querySelector("form")
     expect(form).not.toBeNull()
     expect(form?.tagName).toBe("FORM")
   })
 
   it("has implicit form role", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createFormHTML("<input />")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createFormHTML("<input />")}</body>`)
     const form = dom.window.document.querySelector("form")
     expect(form?.tagName).toBe("FORM")
   })

@@ -1,12 +1,6 @@
 import { describe, it, expect, afterEach } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
-import {
-  Empty,
-  EmptyIcon,
-  EmptyHeading,
-  EmptyDescription,
-  EmptyActions,
-} from "./empty-state.js"
+import { Empty, EmptyIcon, EmptyHeading, EmptyDescription, EmptyActions } from "./empty-state.js"
 
 afterEach(cleanup)
 
@@ -24,12 +18,20 @@ describe("Empty", () => {
   })
 
   it("applies size class", () => {
-    render(<Empty size="lg" data-testid="es">Content</Empty>)
+    render(
+      <Empty size="lg" data-testid="es">
+        Content
+      </Empty>,
+    )
     expect(screen.getByTestId("es").className).toContain("pm-empty--lg")
   })
 
   it("applies bordered modifier", () => {
-    render(<Empty bordered data-testid="es">Content</Empty>)
+    render(
+      <Empty bordered data-testid="es">
+        Content
+      </Empty>,
+    )
     expect(screen.getByTestId("es").className).toContain("pm-empty--bordered")
   })
 
@@ -40,7 +42,11 @@ describe("Empty", () => {
   })
 
   it("merges custom className", () => {
-    render(<Empty className="custom" data-testid="es">Content</Empty>)
+    render(
+      <Empty className="custom" data-testid="es">
+        Content
+      </Empty>,
+    )
     const es = screen.getByTestId("es")
     expect(es.className).toContain("pm-empty")
     expect(es.className).toContain("custom")

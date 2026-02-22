@@ -3,8 +3,7 @@ import { labelClasses } from "@paramanu/forms-js"
 import type { LabelProps } from "@paramanu/forms-js"
 
 export interface ReactLabelProps
-  extends LabelProps,
-    Omit<React.LabelHTMLAttributes<HTMLLabelElement>, "form"> {
+  extends LabelProps, Omit<React.LabelHTMLAttributes<HTMLLabelElement>, "form"> {
   children?: React.ReactNode
 }
 

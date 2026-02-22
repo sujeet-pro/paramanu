@@ -61,7 +61,9 @@ export const Weights: Story = {
 export const Colors: Story = {
   render: () => (
     <div>
-      {(["default", "muted", "dimmed", "primary", "danger", "success", "warning", "info"] as const).map((c) => (
+      {(
+        ["default", "muted", "dimmed", "primary", "danger", "success", "warning", "info"] as const
+      ).map((c) => (
         <Text key={c} color={c}>
           Color {c}
         </Text>
@@ -73,7 +75,9 @@ export const Colors: Story = {
 export const Truncated: Story = {
   render: () => (
     <div style={{ width: 200 }}>
-      <Text truncate>This is a very long text that should be truncated with an ellipsis at the end.</Text>
+      <Text truncate>
+        This is a very long text that should be truncated with an ellipsis at the end.
+      </Text>
     </div>
   ),
 }
@@ -97,7 +101,11 @@ export const Italic: Story = {
 export const Inline: Story = {
   render: () => (
     <p>
-      This is a paragraph with <Text inline weight="bold">inline bold</Text> text.
+      This is a paragraph with{" "}
+      <Text inline weight="bold">
+        inline bold
+      </Text>{" "}
+      text.
     </p>
   ),
 }

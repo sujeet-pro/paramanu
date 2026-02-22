@@ -10,26 +10,20 @@ function createSpinnerHTML(options: SpinnerClassesOptions = {}): string {
 
 describe("spinner accessibility", () => {
   it("has role=status", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSpinnerHTML()}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createSpinnerHTML()}</body>`)
     const el = dom.window.document.querySelector(".pm-spinner")
     expect(el?.getAttribute("role")).toBe("status")
   })
 
   it("has visually hidden loading text", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSpinnerHTML()}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createSpinnerHTML()}</body>`)
     const label = dom.window.document.querySelector(".pm-spinner__label")
     expect(label).not.toBeNull()
     expect(label?.textContent).toBe("Loading")
   })
 
   it("spinner element is not a button or interactive element", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSpinnerHTML()}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createSpinnerHTML()}</body>`)
     const el = dom.window.document.querySelector(".pm-spinner")
     expect(el?.tagName.toLowerCase()).toBe("div")
     expect(el?.tagName.toLowerCase()).not.toBe("button")

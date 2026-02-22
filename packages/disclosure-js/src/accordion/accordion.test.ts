@@ -70,9 +70,7 @@ describe("accordionItemClasses", () => {
   })
 
   it("applies variant", () => {
-    expect(accordionItemClasses({ variant: "bordered" })).toContain(
-      "pm-accordion__item--bordered",
-    )
+    expect(accordionItemClasses({ variant: "bordered" })).toContain("pm-accordion__item--bordered")
   })
 
   it("applies open modifier", () => {
@@ -127,9 +125,7 @@ describe("accordionTriggerClasses", () => {
   })
 
   it("applies disabled modifier", () => {
-    expect(accordionTriggerClasses({ disabled: true })).toContain(
-      "pm-accordion__trigger--disabled",
-    )
+    expect(accordionTriggerClasses({ disabled: true })).toContain("pm-accordion__trigger--disabled")
   })
 })
 

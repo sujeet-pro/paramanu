@@ -54,9 +54,15 @@ export const Disabled: Story = {
 export const CardGroup: Story = {
   render: () => (
     <div style={{ display: "flex", gap: "1rem" }}>
-      <RadioCard name="plan" value="basic">Basic</RadioCard>
-      <RadioCard name="plan" value="pro">Pro</RadioCard>
-      <RadioCard name="plan" value="enterprise">Enterprise</RadioCard>
+      <RadioCard name="plan" value="basic">
+        Basic
+      </RadioCard>
+      <RadioCard name="plan" value="pro">
+        Pro
+      </RadioCard>
+      <RadioCard name="plan" value="enterprise">
+        Enterprise
+      </RadioCard>
     </div>
   ),
   play: async ({ canvasElement }) => {
@@ -70,8 +76,12 @@ export const CardGroup: Story = {
 export const SelectCard: Story = {
   render: () => (
     <div style={{ display: "flex", gap: "1rem" }}>
-      <RadioCard name="select-card" value="a">Card A</RadioCard>
-      <RadioCard name="select-card" value="b">Card B</RadioCard>
+      <RadioCard name="select-card" value="a">
+        Card A
+      </RadioCard>
+      <RadioCard name="select-card" value="b">
+        Card B
+      </RadioCard>
     </div>
   ),
   play: async ({ canvasElement }) => {

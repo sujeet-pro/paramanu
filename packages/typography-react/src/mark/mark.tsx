@@ -3,8 +3,7 @@ import { markClasses } from "@paramanu/typography-js"
 import type { MarkClassesOptions } from "@paramanu/typography-js"
 
 export interface ReactMarkProps
-  extends MarkClassesOptions,
-    Omit<React.HTMLAttributes<HTMLElement>, "color"> {
+  extends MarkClassesOptions, Omit<React.HTMLAttributes<HTMLElement>, "color"> {
   children?: React.ReactNode
 }
 

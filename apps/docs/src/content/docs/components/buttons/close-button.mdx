@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 A compact dismiss button with a close icon, intended for use inside alerts, dialogs, toasts, and banners.
@@ -78,23 +78,23 @@ export default function App() {
 
 Extends all native `<button>` HTML attributes.
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Size preset |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `aria-label` | `string` | `"Close"` | Accessible label |
-| `children` | `ReactNode` | -- | Custom icon override |
+| Prop         | Type                           | Default   | Description          |
+| ------------ | ------------------------------ | --------- | -------------------- |
+| `size`       | `"xs" \| "sm" \| "md" \| "lg"` | `"md"`    | Size preset          |
+| `disabled`   | `boolean`                      | `false`   | Disabled state       |
+| `aria-label` | `string`                       | `"Close"` | Accessible label     |
+| `children`   | `ReactNode`                    | --        | Custom icon override |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-close-btn` | Base styles |
-| `pm-close-btn--xs` | Extra small size |
-| `pm-close-btn--sm` | Small size |
-| `pm-close-btn--md` | Medium size |
-| `pm-close-btn--lg` | Large size |
-| `pm-close-btn--disabled` | Disabled state |
+| Class                    | Purpose          |
+| ------------------------ | ---------------- |
+| `pm-close-btn`           | Base styles      |
+| `pm-close-btn--xs`       | Extra small size |
+| `pm-close-btn--sm`       | Small size       |
+| `pm-close-btn--md`       | Medium size      |
+| `pm-close-btn--lg`       | Large size       |
+| `pm-close-btn--disabled` | Disabled state   |
 
 </TabItem>
 </Tabs>

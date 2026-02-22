@@ -36,7 +36,9 @@ describe("bannerClasses", () => {
       sticky: true,
       dismissible: true,
     })
-    expect(result.root).toBe("pm-banner pm-banner--warning pm-banner--sticky pm-banner--dismissible")
+    expect(result.root).toBe(
+      "pm-banner pm-banner--warning pm-banner--sticky pm-banner--dismissible",
+    )
   })
 
   it("returns all sub-element classes", () => {

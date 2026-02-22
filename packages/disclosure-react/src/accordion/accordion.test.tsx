@@ -1,12 +1,7 @@
 import { describe, it, expect, afterEach, vi } from "vitest"
 import { render, screen, cleanup } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "./accordion.js"
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion.js"
 
 afterEach(cleanup)
 

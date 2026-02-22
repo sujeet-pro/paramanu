@@ -43,9 +43,7 @@ describe("tile accessibility", () => {
 
   it("has accessible text content", () => {
     const classes = tileClasses()
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><button class="${classes}">Reports</button></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><button class="${classes}">Reports</button></body>`)
     const tile = dom.window.document.querySelector("button")
     expect(tile?.textContent).toBe("Reports")
   })

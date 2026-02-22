@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 A button that renders only an icon, requiring `aria-label` for accessibility. Supports square and circle shapes.
@@ -104,30 +104,30 @@ export default function App() {
 
 Extends all native `<button>` HTML attributes.
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `"primary" \| "secondary" \| "danger" \| "ghost" \| "outline"` | `"primary"` | Visual style |
-| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Size preset |
-| `shape` | `"square" \| "circle"` | `"square"` | Btn shape |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `loading` | `boolean` | `false` | Loading state |
-| `active` | `boolean` | `false` | Active state |
-| `aria-label` | `string` | **required** | Accessible label |
-| `children` | `ReactNode` | -- | Icon element |
+| Prop         | Type                                                           | Default      | Description      |
+| ------------ | -------------------------------------------------------------- | ------------ | ---------------- |
+| `variant`    | `"primary" \| "secondary" \| "danger" \| "ghost" \| "outline"` | `"primary"`  | Visual style     |
+| `size`       | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`                         | `"md"`       | Size preset      |
+| `shape`      | `"square" \| "circle"`                                         | `"square"`   | Btn shape        |
+| `disabled`   | `boolean`                                                      | `false`      | Disabled state   |
+| `loading`    | `boolean`                                                      | `false`      | Loading state    |
+| `active`     | `boolean`                                                      | `false`      | Active state     |
+| `aria-label` | `string`                                                       | **required** | Accessible label |
+| `children`   | `ReactNode`                                                    | --           | Icon element     |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-icon-btn` | Base styles |
-| `pm-icon-btn--primary` | Primary variant |
-| `pm-icon-btn--secondary` | Secondary variant |
-| `pm-icon-btn--danger` | Danger variant |
-| `pm-icon-btn--ghost` | Ghost variant |
-| `pm-icon-btn--outline` | Outline variant |
-| `pm-icon-btn--square` | Square shape |
-| `pm-icon-btn--circle` | Circle shape |
-| `pm-icon-btn--xs` to `--xl` | Size modifiers |
+| Class                       | Purpose           |
+| --------------------------- | ----------------- |
+| `pm-icon-btn`               | Base styles       |
+| `pm-icon-btn--primary`      | Primary variant   |
+| `pm-icon-btn--secondary`    | Secondary variant |
+| `pm-icon-btn--danger`       | Danger variant    |
+| `pm-icon-btn--ghost`        | Ghost variant     |
+| `pm-icon-btn--outline`      | Outline variant   |
+| `pm-icon-btn--square`       | Square shape      |
+| `pm-icon-btn--circle`       | Circle shape      |
+| `pm-icon-btn--xs` to `--xl` | Size modifiers    |
 
 </TabItem>
 </Tabs>

@@ -22,9 +22,7 @@ export interface InlineMsgClassesResult {
  * // classes.root => "pm-inline-msg pm-inline-msg--danger pm-inline-msg--sm"
  * ```
  */
-export function inlineMsgClasses(
-  options: InlineMsgClassesOptions = {},
-): InlineMsgClassesResult {
+export function inlineMsgClasses(options: InlineMsgClassesOptions = {}): InlineMsgClassesResult {
   const { variant = "info", size = "md" } = options
   const rootClasses = [BASE, `${BASE}--${variant}`, `${BASE}--${size}`]
 

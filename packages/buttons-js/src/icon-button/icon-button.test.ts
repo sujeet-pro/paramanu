@@ -4,9 +4,7 @@ import { iconBtnClasses, iconBtnModuleClasses } from "./icon-button.classes.js"
 describe("iconBtnClasses", () => {
   it("returns default classes (primary, md, square)", () => {
     const result = iconBtnClasses()
-    expect(result).toBe(
-      "pm-icon-btn pm-icon-btn--primary pm-icon-btn--md pm-icon-btn--square",
-    )
+    expect(result).toBe("pm-icon-btn pm-icon-btn--primary pm-icon-btn--md pm-icon-btn--square")
   })
 
   it("applies variant", () => {

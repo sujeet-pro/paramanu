@@ -1,14 +1,8 @@
 // @paramanu/utilities-js — Utilities & Providers
 
 // Visually Hidden
-export {
-  srOnlyClasses,
-  srOnlyModuleClasses,
-} from "./visually-hidden/visually-hidden.classes.js"
-export type {
-  SrOnlyClassesOptions,
-  SrOnlyProps,
-} from "./visually-hidden/visually-hidden.types.js"
+export { srOnlyClasses, srOnlyModuleClasses } from "./visually-hidden/visually-hidden.classes.js"
+export type { SrOnlyClassesOptions, SrOnlyProps } from "./visually-hidden/visually-hidden.types.js"
 
 // Skip Nav
 export {
@@ -25,11 +19,7 @@ export type { ShowHideDisplay, ShowHideClassesOptions } from "./show-hide/show-h
 
 // Affix
 export { affixClasses, affixModuleClasses } from "./affix/affix.classes.js"
-export type {
-  AffixPosition,
-  SpacingScale,
-  AffixClassesOptions,
-} from "./affix/affix.types.js"
+export type { AffixPosition, SpacingScale, AffixClassesOptions } from "./affix/affix.types.js"
 
 // Focus Trap
 export { createFocusTrap, FOCUSABLE_SELECTOR } from "./focus-trap/focus-trap.js"
@@ -51,10 +41,7 @@ export type {
 
 // Theme Provider
 export { setTheme, getTheme, clearTheme } from "./theme-provider/theme-provider.js"
-export {
-  themeClasses,
-  themeModuleClasses,
-} from "./theme-provider/theme-provider.classes.js"
+export { themeClasses, themeModuleClasses } from "./theme-provider/theme-provider.classes.js"
 export type { ThemeMode, ThemeOptions } from "./theme-provider/theme-provider.types.js"
 
 // Direction Provider

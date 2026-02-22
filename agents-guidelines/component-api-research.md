@@ -21,27 +21,27 @@ Before writing any code for a new component, follow this systematic research pro
 
 ### Tier 1 — Major Systems (ALWAYS check all of these)
 
-| System | URL | Notes |
-|---|---|---|
-| Ant Design | https://ant.design/components/ | Largest component library, most features |
-| Material UI (MUI) | https://mui.com/material-ui/ | Material Design, comprehensive API |
-| Carbon (IBM) | https://carbondesignsystem.com/components/ | Enterprise-focused, strong a11y |
-| Chakra UI | https://chakra-ui.com/docs/components/ | DX-focused, composable |
-| Radix UI | https://www.radix-ui.com/primitives | Headless, best-in-class a11y |
-| Mantine | https://mantine.dev/ | Feature-rich, modern API |
+| System            | URL                                        | Notes                                    |
+| ----------------- | ------------------------------------------ | ---------------------------------------- |
+| Ant Design        | https://ant.design/components/             | Largest component library, most features |
+| Material UI (MUI) | https://mui.com/material-ui/               | Material Design, comprehensive API       |
+| Carbon (IBM)      | https://carbondesignsystem.com/components/ | Enterprise-focused, strong a11y          |
+| Chakra UI         | https://chakra-ui.com/docs/components/     | DX-focused, composable                   |
+| Radix UI          | https://www.radix-ui.com/primitives        | Headless, best-in-class a11y             |
+| Mantine           | https://mantine.dev/                       | Feature-rich, modern API                 |
 
 ### Tier 2 — Reference Implementations (check for specific patterns)
 
-| System | URL | Notes |
-|---|---|---|
-| Headless UI | https://headlessui.com/ | Headless patterns for complex components |
-| shadcn/ui | https://ui.shadcn.com/docs/components | Copy-paste approach, Tailwind-based |
-| React Aria (Adobe) | https://react-aria.adobe.com/ | Most thorough a11y implementation |
-| Ariakit | https://ariakit.org/ | Lightweight, a11y-first |
-| Base UI (MUI) | https://mui.com/base-ui/ | Headless MUI components |
-| Ark UI | https://ark-ui.com/ | Framework-agnostic state machines |
-| Spectrum (Adobe) | https://spectrum.adobe.com/ | Design guidelines + component patterns |
-| Kobalte | https://kobalte.dev/ | Solid.js — API inspiration |
+| System             | URL                                   | Notes                                    |
+| ------------------ | ------------------------------------- | ---------------------------------------- |
+| Headless UI        | https://headlessui.com/               | Headless patterns for complex components |
+| shadcn/ui          | https://ui.shadcn.com/docs/components | Copy-paste approach, Tailwind-based      |
+| React Aria (Adobe) | https://react-aria.adobe.com/         | Most thorough a11y implementation        |
+| Ariakit            | https://ariakit.org/                  | Lightweight, a11y-first                  |
+| Base UI (MUI)      | https://mui.com/base-ui/              | Headless MUI components                  |
+| Ark UI             | https://ark-ui.com/                   | Framework-agnostic state machines        |
+| Spectrum (Adobe)   | https://spectrum.adobe.com/           | Design guidelines + component patterns   |
+| Kobalte            | https://kobalte.dev/                  | Solid.js — API inspiration               |
 
 ### What to Document Per System
 
@@ -49,6 +49,7 @@ For each system that implements the component, record:
 
 ```markdown
 ### [System Name]
+
 - **Props/API**: List main props and their types
 - **Variants**: What variants are offered
 - **Sizes**: What sizes are available
@@ -66,15 +67,15 @@ For each system that implements the component, record:
 Create a comparison table for all features found across the surveyed systems:
 
 ```markdown
-| Feature | Ant | MUI | Carbon | Chakra | Radix | Mantine | Paramanu Decision |
-|---------|-----|-----|--------|--------|-------|---------|-------------------|
-| Variants | 5 | 3 | 2 | 6 | N/A | 6 | ? |
-| Sizes | 3 | 3 | 3 | 4 | N/A | 5 | ? |
-| Loading state | Yes | Yes | Yes | Yes | No | Yes | ? |
-| Icon support | Yes | Yes | Yes | Yes | No | Yes | ? |
-| Compound | No | No | No | Yes | Yes | No | ? |
-| Polymorphic | No | No | No | Yes | Yes | Yes | ? |
-| ... | | | | | | | |
+| Feature       | Ant | MUI | Carbon | Chakra | Radix | Mantine | Paramanu Decision |
+| ------------- | --- | --- | ------ | ------ | ----- | ------- | ----------------- |
+| Variants      | 5   | 3   | 2      | 6      | N/A   | 6       | ?                 |
+| Sizes         | 3   | 3   | 3      | 4      | N/A   | 5       | ?                 |
+| Loading state | Yes | Yes | Yes    | Yes    | No    | Yes     | ?                 |
+| Icon support  | Yes | Yes | Yes    | Yes    | No    | Yes     | ?                 |
+| Compound      | No  | No  | No     | Yes    | Yes   | No      | ?                 |
+| Polymorphic   | No  | No  | No     | Yes    | Yes   | Yes     | ?                 |
+| ...           |     |     |        |        |       |         |                   |
 ```
 
 ### Decision Criteria
@@ -90,6 +91,7 @@ Create a comparison table for all features found across the surveyed systems:
 ### DX-Friendly API
 
 1. **Sensible defaults** — Most common usage requires minimal props
+
    ```tsx
    // Good: works with zero props
    <Button>Submit</Button>
@@ -98,6 +100,7 @@ Create a comparison table for all features found across the surveyed systems:
    ```
 
 2. **Flat props for simple cases** — No nested objects for common config
+
    ```tsx
    // Good
    <Alert variant="success" size="md" dismissible>Done!</Alert>
@@ -106,6 +109,7 @@ Create a comparison table for all features found across the surveyed systems:
    ```
 
 3. **Compound components for complex cases** — Sub-components when composition is needed
+
    ```tsx
    // Flat is fine for simple Dialog:
    <Dialog title="Confirm" description="Are you sure?">
@@ -167,6 +171,7 @@ Check https://www.w3.org/WAI/ARIA/apg/patterns/ for the component's ARIA pattern
 
 ```markdown
 ### ARIA Pattern: [Pattern Name]
+
 - **Role**: `role="<role>"`
 - **States**: `aria-expanded`, `aria-selected`, etc.
 - **Properties**: `aria-labelledby`, `aria-describedby`, etc.
@@ -177,12 +182,12 @@ Check https://www.w3.org/WAI/ARIA/apg/patterns/ for the component's ARIA pattern
 Document the expected keyboard behavior:
 
 ```markdown
-| Key | Action |
-|-----|--------|
-| Enter | Activates the button |
-| Space | Activates the button |
-| Tab | Moves focus to next focusable element |
-| Escape | Closes the dialog |
+| Key    | Action                                |
+| ------ | ------------------------------------- |
+| Enter  | Activates the button                  |
+| Space  | Activates the button                  |
+| Tab    | Moves focus to next focusable element |
+| Escape | Closes the dialog                     |
 ```
 
 ### Focus Management
@@ -205,6 +210,7 @@ Document the expected keyboard behavior:
 
 ```markdown
 #### Paramanu Provides
+
 - [x] Correct semantic element
 - [x] ARIA roles and states
 - [x] Keyboard navigation
@@ -212,6 +218,7 @@ Document the expected keyboard behavior:
 - [x] Disabled state (visual + ARIA)
 
 #### Consumer Must Provide
+
 - [ ] aria-label for icon-only usage
 - [ ] Accessible label for the component
 - [ ] Color contrast for custom content
@@ -224,14 +231,14 @@ Document the expected keyboard behavior:
 
 Evaluate the proposed API against these DX metrics:
 
-| Metric | Question |
-|---|---|
-| **Discoverability** | Can developers find the right prop without reading docs? |
-| **Predictability** | Do prop names match what other components use? |
-| **Minimal boilerplate** | Can the simplest use case be one line? |
-| **Progressive complexity** | Can users start simple and add features incrementally? |
-| **Type safety** | Do TypeScript types guide usage and catch errors? |
-| **IDE experience** | Do JSDoc comments show useful hints on hover? |
+| Metric                     | Question                                                 |
+| -------------------------- | -------------------------------------------------------- |
+| **Discoverability**        | Can developers find the right prop without reading docs? |
+| **Predictability**         | Do prop names match what other components use?           |
+| **Minimal boilerplate**    | Can the simplest use case be one line?                   |
+| **Progressive complexity** | Can users start simple and add features incrementally?   |
+| **Type safety**            | Do TypeScript types guide usage and catch errors?        |
+| **IDE experience**         | Do JSDoc comments show useful hints on hover?            |
 
 ---
 
@@ -255,26 +262,33 @@ After research, produce a requirements document:
 # [Component Name] Requirements
 
 ## API
+
 [Final TypeScript interfaces with JSDoc]
 
 ## Features
+
 - Feature 1 (priority: must)
 - Feature 2 (priority: should)
 - Feature 3 (priority: won't have initially)
 
 ## Accessibility
+
 [Summary of ARIA pattern, keyboard interactions, focus management]
 
 ## CSS Variables
+
 [List of component-specific --pm-* variables to expose]
 
 ## Interactions
+
 [Description of hover, focus, active, disabled states]
 
 ## Responsive Behavior
+
 [How the component adapts to different screen sizes]
 
 ## Open Questions
+
 [Anything that needs discussion or decision]
 ```
 

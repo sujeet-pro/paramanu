@@ -130,10 +130,7 @@ describe("Tab", () => {
       </Tabs>,
     )
     expect(screen.getByRole("tab", { name: "Active" })).toHaveAttribute("aria-selected", "true")
-    expect(screen.getByRole("tab", { name: "Inactive" })).toHaveAttribute(
-      "aria-selected",
-      "false",
-    )
+    expect(screen.getByRole("tab", { name: "Inactive" })).toHaveAttribute("aria-selected", "false")
   })
 
   it("sets disabled and aria-disabled", () => {

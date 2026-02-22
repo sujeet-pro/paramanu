@@ -3,8 +3,7 @@ import { bannerClasses } from "@paramanu/feedback-js"
 import type { BannerClassesOptions } from "@paramanu/feedback-js"
 
 export interface ReactBannerProps
-  extends BannerClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends BannerClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   /** Icon rendered before the content. */
   icon?: React.ReactNode
   /** Action buttons or links rendered after the content. */
@@ -30,12 +29,7 @@ export const Banner = forwardRef<HTMLDivElement, ReactBannerProps>(function Bann
       <div className={classes.content}>{children}</div>
       {actions && <div className={classes.actions}>{actions}</div>}
       {dismissible && onClose && (
-        <button
-          className={classes.close}
-          onClick={onClose}
-          aria-label="Close"
-          type="button"
-        >
+        <button className={classes.close} onClick={onClose} aria-label="Close" type="button">
           {"\u00d7"}
         </button>
       )}

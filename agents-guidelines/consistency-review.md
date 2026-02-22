@@ -16,52 +16,52 @@ Consistency is critical for design system DX. Consumers should be able to predic
 
 These props MUST use the exact same name and type across ALL components that support them:
 
-| Prop | Type | Meaning | Used By |
-|------|------|---------|---------|
-| `variant` | Component-specific union | Visual style variation | All visible components |
-| `size` | `"sm" \| "md" \| "lg"` | Component size scale | All sized components |
-| `disabled` | `boolean` | Disabled state | All interactive components |
-| `fullWidth` | `boolean` | Stretch to container width | Button, Input, Select, etc. |
-| `orientation` | `"horizontal" \| "vertical"` | Layout direction | ButtonGroup, Tabs, Stack, etc. |
-| `className` | `string` | Additional CSS classes (React) | All React components |
+| Prop          | Type                         | Meaning                        | Used By                        |
+| ------------- | ---------------------------- | ------------------------------ | ------------------------------ |
+| `variant`     | Component-specific union     | Visual style variation         | All visible components         |
+| `size`        | `"sm" \| "md" \| "lg"`       | Component size scale           | All sized components           |
+| `disabled`    | `boolean`                    | Disabled state                 | All interactive components     |
+| `fullWidth`   | `boolean`                    | Stretch to container width     | Button, Input, Select, etc.    |
+| `orientation` | `"horizontal" \| "vertical"` | Layout direction               | ButtonGroup, Tabs, Stack, etc. |
+| `className`   | `string`                     | Additional CSS classes (React) | All React components           |
 
 ### Forbidden Aliases
 
 Never use these alternative names — they break consistency:
 
-| WRONG | CORRECT |
-|-------|---------|
-| `type` (for visual style) | `variant` |
-| `kind` | `variant` |
-| `appearance` | `variant` |
-| `scale` / `dimension` | `size` |
-| `isDisabled` | `disabled` |
-| `block` / `fluid` | `fullWidth` |
-| `direction` (for layout) | `orientation` |
-| `color` (for semantic variants) | `variant` |
+| WRONG                           | CORRECT       |
+| ------------------------------- | ------------- |
+| `type` (for visual style)       | `variant`     |
+| `kind`                          | `variant`     |
+| `appearance`                    | `variant`     |
+| `scale` / `dimension`           | `size`        |
+| `isDisabled`                    | `disabled`    |
+| `block` / `fluid`               | `fullWidth`   |
+| `direction` (for layout)        | `orientation` |
+| `color` (for semantic variants) | `variant`     |
 
 ### Variant Naming Patterns
 
 Semantic variant names should be consistent across components:
 
-| Variant Name | Meaning | Components |
-|---|---|---|
-| `"primary"` | High emphasis, main action | Button, Badge, Alert |
-| `"secondary"` | Medium emphasis, supporting | Button, Badge |
-| `"danger"` | Destructive / error | Button, Alert, Badge |
-| `"ghost"` | Minimal emphasis | Button, IconButton |
-| `"info"` | Informational | Alert, Toast, Banner |
-| `"success"` | Positive outcome | Alert, Toast, Badge |
-| `"warning"` | Caution | Alert, Toast, Banner |
+| Variant Name  | Meaning                     | Components           |
+| ------------- | --------------------------- | -------------------- |
+| `"primary"`   | High emphasis, main action  | Button, Badge, Alert |
+| `"secondary"` | Medium emphasis, supporting | Button, Badge        |
+| `"danger"`    | Destructive / error         | Button, Alert, Badge |
+| `"ghost"`     | Minimal emphasis            | Button, IconButton   |
+| `"info"`      | Informational               | Alert, Toast, Banner |
+| `"success"`   | Positive outcome            | Alert, Toast, Badge  |
+| `"warning"`   | Caution                     | Alert, Toast, Banner |
 
 ### Size Scale
 
 All components use the same 3-level size scale:
 
-| Size | Token Reference | Typical Use |
-|---|---|---|
-| `"sm"` | Compact density | Tables, toolbars, dense UI |
-| `"md"` | Default density | Standard forms and content |
+| Size   | Token Reference  | Typical Use                  |
+| ------ | ---------------- | ---------------------------- |
+| `"sm"` | Compact density  | Tables, toolbars, dense UI   |
+| `"md"` | Default density  | Standard forms and content   |
 | `"lg"` | Spacious density | Hero sections, touch targets |
 
 Some components may extend this with `"xs"` or `"xl"` only when there is a clear need documented across 4+ reference design systems.
@@ -97,6 +97,7 @@ export interface <Component>Props extends <Component>ClassesOptions {
 ### Class Builder Pattern
 
 Every class builder MUST:
+
 1. Accept a single options object with all fields optional
 2. Return a space-separated string of BEM classes
 3. Start with the base class (`pm-<component>`)
@@ -106,6 +107,7 @@ Every class builder MUST:
 ### React Component Pattern
 
 Every React component MUST:
+
 1. Use `forwardRef` with named function (not arrow)
 2. Extend the HTML element's attributes (via `React.HTMLAttributes<...>`)
 3. Accept `className` and merge it with generated classes
@@ -127,6 +129,7 @@ Component-specific CSS variables follow:
 ```
 
 Examples:
+
 ```css
 --pm-button-padding-x
 --pm-button-primary-bg
@@ -169,6 +172,7 @@ transition:
 When reviewing a component (or all components), verify each of these:
 
 ### Naming
+
 - [ ] `variant` prop name used (not `type`, `kind`, `appearance`)
 - [ ] `size` prop name used (not `scale`, `dimension`)
 - [ ] `disabled` prop name used (not `isDisabled`)
@@ -177,6 +181,7 @@ When reviewing a component (or all components), verify each of these:
 - [ ] Size values are `"sm" | "md" | "lg"` (with `"md"` default)
 
 ### Types
+
 - [ ] `<Component>Variant` type exported
 - [ ] `<Component>Size` type exported
 - [ ] `<Component>ClassesOptions` interface exported
@@ -184,6 +189,7 @@ When reviewing a component (or all components), verify each of these:
 - [ ] All props have JSDoc with `@default` tags
 
 ### Class Builders
+
 - [ ] `<component>Classes()` function exported
 - [ ] `<component>ModuleClasses()` function exported
 - [ ] Default returns base class + default variant + default size
@@ -191,6 +197,7 @@ When reviewing a component (or all components), verify each of these:
 - [ ] Class string starts with base class
 
 ### CSS
+
 - [ ] Wrapped in `@layer pm.components`
 - [ ] All values use `--pm-*` tokens (no hardcoded values)
 - [ ] `:focus-visible` used (not `:focus`)
@@ -199,6 +206,7 @@ When reviewing a component (or all components), verify each of these:
 - [ ] Dark mode via `light-dark()` where applicable
 
 ### React
+
 - [ ] `forwardRef` with named function
 - [ ] `className` merged correctly
 - [ ] `...rest` spread on DOM element
@@ -206,6 +214,7 @@ When reviewing a component (or all components), verify each of these:
 - [ ] `disabled` + `aria-disabled` for disabled state
 
 ### Accessibility
+
 - [ ] Semantic HTML element used
 - [ ] ARIA attributes present where needed
 - [ ] Keyboard navigation works
@@ -213,12 +222,14 @@ When reviewing a component (or all components), verify each of these:
 - [ ] Screen reader announces correctly
 
 ### Tests
+
 - [ ] Unit tests cover all variants, sizes, modifiers
 - [ ] A11y tests verify semantic element and ARIA
 - [ ] React tests cover rendering, props, ref, className, disabled
 - [ ] Play function interaction tests in stories
 
 ### Stories
+
 - [ ] Playground story with all controls
 - [ ] Story per variant, per size, per modifier
 - [ ] Matrix story (variant x size)
@@ -227,6 +238,7 @@ When reviewing a component (or all components), verify each of these:
 - [ ] autodocs enabled
 
 ### Documentation
+
 - [ ] Usage tab complete (imports, examples, all variants/sizes/states)
 - [ ] Guidelines tab complete (a11y, performance, design)
 - [ ] API tab complete (props from JSDoc, CSS variables, CSS classes)
@@ -235,18 +247,18 @@ When reviewing a component (or all components), verify each of these:
 
 ## 6. Common Inconsistencies to Watch For
 
-| Issue | Example | Fix |
-|---|---|---|
-| Mixed prop naming | `Alert` uses `type` while `Badge` uses `variant` | Standardize to `variant` |
-| Inconsistent defaults | `Button` defaults to `"md"` but `Input` defaults to `"lg"` | All default to `"md"` |
-| Missing disabled ARIA | Component sets `disabled` but not `aria-disabled` | Add both |
-| Hardcoded CSS values | `border-radius: 4px` instead of `var(--pm-radius-sm)` | Use tokens |
-| `:focus` instead of `:focus-visible` | `:focus { outline: ... }` | Change to `:focus-visible` |
-| `transition: all` | `transition: all 150ms` | List specific properties |
-| Default export | `export default Button` | Use named export |
-| Missing forwardRef | `function Button(props)` | Wrap with `forwardRef` |
-| Generic className handling | `className={classes}` ignoring user className | Merge: `${classes} ${className}` |
-| Arrow function in forwardRef | `forwardRef((props, ref) => ...)` | Use named function |
+| Issue                                | Example                                                    | Fix                              |
+| ------------------------------------ | ---------------------------------------------------------- | -------------------------------- |
+| Mixed prop naming                    | `Alert` uses `type` while `Badge` uses `variant`           | Standardize to `variant`         |
+| Inconsistent defaults                | `Button` defaults to `"md"` but `Input` defaults to `"lg"` | All default to `"md"`            |
+| Missing disabled ARIA                | Component sets `disabled` but not `aria-disabled`          | Add both                         |
+| Hardcoded CSS values                 | `border-radius: 4px` instead of `var(--pm-radius-sm)`      | Use tokens                       |
+| `:focus` instead of `:focus-visible` | `:focus { outline: ... }`                                  | Change to `:focus-visible`       |
+| `transition: all`                    | `transition: all 150ms`                                    | List specific properties         |
+| Default export                       | `export default Button`                                    | Use named export                 |
+| Missing forwardRef                   | `function Button(props)`                                   | Wrap with `forwardRef`           |
+| Generic className handling           | `className={classes}` ignoring user className              | Merge: `${classes} ${className}` |
+| Arrow function in forwardRef         | `forwardRef((props, ref) => ...)`                          | Use named function               |
 
 ---
 

@@ -51,17 +51,13 @@ describe("rating accessibility", () => {
   })
 
   it("disabled rating has aria-disabled on container", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createRatingHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createRatingHTML({ disabled: true })}</body>`)
     const rating = dom.window.document.querySelector("[role='radiogroup']")
     expect(rating?.getAttribute("aria-disabled")).toBe("true")
   })
 
   it("disabled stars have disabled attribute", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createRatingHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createRatingHTML({ disabled: true })}</body>`)
     const buttons = dom.window.document.querySelectorAll("button")
     buttons.forEach((btn) => {
       expect(btn.hasAttribute("disabled")).toBe(true)

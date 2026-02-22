@@ -3,8 +3,7 @@ import { spinnerClasses } from "@paramanu/feedback-js"
 import type { SpinnerClassesOptions } from "@paramanu/feedback-js"
 
 export interface ReactSpinnerProps
-  extends SpinnerClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {}
+  extends SpinnerClassesOptions, React.HTMLAttributes<HTMLDivElement> {}
 
 export const Spinner = forwardRef<HTMLDivElement, ReactSpinnerProps>(function Spinner(
   { size, variant, className, ...rest },

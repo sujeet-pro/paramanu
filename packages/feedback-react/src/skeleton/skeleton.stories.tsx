@@ -63,7 +63,9 @@ export const TextLines: Story = {
 
 export const CardPlaceholder: Story = {
   render: () => (
-    <div style={{ display: "flex", gap: 12, padding: 16, border: "1px solid #eee", borderRadius: 8 }}>
+    <div
+      style={{ display: "flex", gap: 12, padding: 16, border: "1px solid #eee", borderRadius: 8 }}
+    >
       <Skeleton variant="circular" size="lg" />
       <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8 }}>
         <Skeleton variant="text" width="40%" />

@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { dropzoneClasses } from "@paramanu/forms-js"
 import type { DropzoneProps } from "@paramanu/forms-js"
 
-export interface ReactDropzoneProps
-  extends DropzoneProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactDropzoneProps extends DropzoneProps, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

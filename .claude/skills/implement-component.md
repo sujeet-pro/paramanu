@@ -7,6 +7,7 @@ description: Apply when implementing a new component in the Paramanu design syst
 Read and follow `agents-guidelines/single-agent-workflow.md` for the step-by-step plan.
 
 Each step references the specific guideline to read:
+
 - Step 1 Research: `agents-guidelines/component-api-research.md`
 - Step 2 JS Implementation: `agents-guidelines/writing-code.md`
 - Step 3 React Implementation: `agents-guidelines/writing-code.md`

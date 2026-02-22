@@ -5,9 +5,7 @@ import { codeClasses } from "./code.classes.js"
 describe("code accessibility", () => {
   it("inline code renders as a code element", () => {
     const classes = codeClasses()
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><code class="${classes}">const x = 1</code></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><code class="${classes}">const x = 1</code></body>`)
     const el = dom.window.document.querySelector("code")
     expect(el).not.toBeNull()
     expect(el?.tagName).toBe("CODE")
@@ -26,18 +24,14 @@ describe("code accessibility", () => {
 
   it("has readable text content", () => {
     const classes = codeClasses()
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><code class="${classes}">npm install</code></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><code class="${classes}">npm install</code></body>`)
     const el = dom.window.document.querySelector("code")
     expect(el?.textContent).toBe("npm install")
   })
 
   it("uses monospace font family class", () => {
     const classes = codeClasses()
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><code class="${classes}">code</code></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><code class="${classes}">code</code></body>`)
     const el = dom.window.document.querySelector("code")
     expect(el?.classList.contains("pm-code")).toBe(true)
   })

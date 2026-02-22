@@ -18,7 +18,16 @@ type Story = StoryObj<typeof meta>
 
 const heights = [120, 200, 160, 80, 240, 100, 180, 140, 220]
 const items = heights.map((h, i) => (
-  <div key={i} style={{ background: "#e2e8f0", height: `${h}px`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+  <div
+    key={i}
+    style={{
+      background: "#e2e8f0",
+      height: `${h}px`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
     {i + 1}
   </div>
 ))

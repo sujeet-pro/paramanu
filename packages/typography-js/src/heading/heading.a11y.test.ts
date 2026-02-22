@@ -23,9 +23,7 @@ describe("heading accessibility", () => {
   it("uses correct heading level tag", () => {
     const levels: HeadingLevel[] = [1, 2, 3, 4, 5, 6]
     for (const level of levels) {
-      const dom = new JSDOM(
-        `<!DOCTYPE html><body>${createHeadingHTML("Title", { level })}</body>`,
-      )
+      const dom = new JSDOM(`<!DOCTYPE html><body>${createHeadingHTML("Title", { level })}</body>`)
       const el = dom.window.document.querySelector(`h${level}`)
       expect(el).not.toBeNull()
       expect(el?.tagName).toBe(`H${level}`)

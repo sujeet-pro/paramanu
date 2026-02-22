@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Box is the most basic layout building block. It maps common CSS layout properties to BEM modifier classes using the design token spacing scale.
@@ -111,36 +111,36 @@ Box renders a `<div>` by default which has no semantic meaning. Use the `as` pro
 
 The `Box` component extends all native `<div>` HTML attributes (or the chosen `as` element).
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `as` | `string` | `"div"` | The HTML element to render |
-| `display` | `"block" \| "inline-block" \| "inline" \| "flex" \| "inline-flex" \| "grid" \| "inline-grid" \| "none"` | -- | CSS display property |
-| `p` | `SpacingScale` | -- | Padding on all sides |
-| `px` | `SpacingScale` | -- | Horizontal (inline) padding |
-| `py` | `SpacingScale` | -- | Vertical (block) padding |
-| `m` | `SpacingScale` | -- | Margin on all sides |
-| `mx` | `SpacingScale` | -- | Horizontal (inline) margin |
-| `my` | `SpacingScale` | -- | Vertical (block) margin |
-| `overflow` | `"visible" \| "hidden" \| "scroll" \| "auto"` | -- | Overflow behavior |
-| `position` | `"static" \| "relative" \| "absolute" \| "fixed" \| "sticky"` | -- | CSS position property |
-| `className` | `string` | -- | Additional CSS class names |
-| `children` | `ReactNode` | -- | Child elements |
-| `ref` | `Ref<HTMLDivElement>` | -- | Forwarded ref |
+| Prop        | Type                                                                                                    | Default | Description                 |
+| ----------- | ------------------------------------------------------------------------------------------------------- | ------- | --------------------------- |
+| `as`        | `string`                                                                                                | `"div"` | The HTML element to render  |
+| `display`   | `"block" \| "inline-block" \| "inline" \| "flex" \| "inline-flex" \| "grid" \| "inline-grid" \| "none"` | --      | CSS display property        |
+| `p`         | `SpacingScale`                                                                                          | --      | Padding on all sides        |
+| `px`        | `SpacingScale`                                                                                          | --      | Horizontal (inline) padding |
+| `py`        | `SpacingScale`                                                                                          | --      | Vertical (block) padding    |
+| `m`         | `SpacingScale`                                                                                          | --      | Margin on all sides         |
+| `mx`        | `SpacingScale`                                                                                          | --      | Horizontal (inline) margin  |
+| `my`        | `SpacingScale`                                                                                          | --      | Vertical (block) margin     |
+| `overflow`  | `"visible" \| "hidden" \| "scroll" \| "auto"`                                                           | --      | Overflow behavior           |
+| `position`  | `"static" \| "relative" \| "absolute" \| "fixed" \| "sticky"`                                           | --      | CSS position property       |
+| `className` | `string`                                                                                                | --      | Additional CSS class names  |
+| `children`  | `ReactNode`                                                                                             | --      | Child elements              |
+| `ref`       | `Ref<HTMLDivElement>`                                                                                   | --      | Forwarded ref               |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-box` | Base box styles |
-| `pm-box--d-{value}` | Display modifier |
-| `pm-box--p-{scale}` | Padding all sides |
-| `pm-box--px-{scale}` | Padding inline |
-| `pm-box--py-{scale}` | Padding block |
-| `pm-box--m-{scale}` | Margin all sides |
-| `pm-box--mx-{scale}` | Margin inline |
-| `pm-box--my-{scale}` | Margin block |
+| Class                      | Purpose           |
+| -------------------------- | ----------------- |
+| `pm-box`                   | Base box styles   |
+| `pm-box--d-{value}`        | Display modifier  |
+| `pm-box--p-{scale}`        | Padding all sides |
+| `pm-box--px-{scale}`       | Padding inline    |
+| `pm-box--py-{scale}`       | Padding block     |
+| `pm-box--m-{scale}`        | Margin all sides  |
+| `pm-box--mx-{scale}`       | Margin inline     |
+| `pm-box--my-{scale}`       | Margin block      |
 | `pm-box--overflow-{value}` | Overflow modifier |
-| `pm-box--pos-{value}` | Position modifier |
+| `pm-box--pos-{value}`      | Position modifier |
 
 </TabItem>
 </Tabs>

@@ -7,7 +7,10 @@ const meta = {
   tags: ["autodocs", "beta"],
   component: Spacer,
   argTypes: {
-    size: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"] },
+    size: {
+      control: "select",
+      options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"],
+    },
     axis: { control: "select", options: ["horizontal", "vertical"] },
   },
   args: {},
@@ -19,7 +22,9 @@ type Story = StoryObj<typeof meta>
 /** Spacer fills available space between items. */
 export const Playground: Story = {
   render: (args) => (
-    <div style={{ display: "flex", border: "1px dashed #ccc", height: "50px", alignItems: "center" }}>
+    <div
+      style={{ display: "flex", border: "1px dashed #ccc", height: "50px", alignItems: "center" }}
+    >
       <div style={{ background: "#e2e8f0", padding: "8px 16px" }}>Left</div>
       <Spacer {...args} />
       <div style={{ background: "#e2e8f0", padding: "8px 16px" }}>Right</div>

@@ -4,7 +4,9 @@ import { textareaClasses, textareaModuleClasses } from "./textarea.classes.js"
 describe("textareaClasses", () => {
   it("returns default classes (outline, md, resize-vertical)", () => {
     const result = textareaClasses()
-    expect(result).toBe("pm-textarea pm-textarea--outline pm-textarea--md pm-textarea--resize-vertical")
+    expect(result).toBe(
+      "pm-textarea pm-textarea--outline pm-textarea--md pm-textarea--resize-vertical",
+    )
   })
 
   it("applies variant", () => {

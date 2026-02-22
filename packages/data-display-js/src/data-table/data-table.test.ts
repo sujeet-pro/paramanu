@@ -36,9 +36,7 @@ describe("datatableClasses", () => {
   })
 
   it("applies stickyHeader modifier", () => {
-    expect(datatableClasses({ stickyHeader: true }).root).toContain(
-      "pm-datatable--sticky-header",
-    )
+    expect(datatableClasses({ stickyHeader: true }).root).toContain("pm-datatable--sticky-header")
   })
 
   it("applies selectable modifier", () => {

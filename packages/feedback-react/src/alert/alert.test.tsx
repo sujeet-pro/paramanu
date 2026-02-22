@@ -55,14 +55,22 @@ describe("Alert", () => {
 
   it("renders close button when dismissible with onClose", () => {
     const onClose = vi.fn()
-    render(<Alert dismissible onClose={onClose}>Content</Alert>)
+    render(
+      <Alert dismissible onClose={onClose}>
+        Content
+      </Alert>,
+    )
     const closeBtn = screen.getByLabelText("Close")
     expect(closeBtn).toBeInTheDocument()
   })
 
   it("calls onClose when close button is clicked", () => {
     const onClose = vi.fn()
-    render(<Alert dismissible onClose={onClose}>Content</Alert>)
+    render(
+      <Alert dismissible onClose={onClose}>
+        Content
+      </Alert>,
+    )
     fireEvent.click(screen.getByLabelText("Close"))
     expect(onClose).toHaveBeenCalledTimes(1)
   })
@@ -74,7 +82,11 @@ describe("Alert", () => {
 
   it("applies dismissible class", () => {
     const onClose = vi.fn()
-    render(<Alert dismissible onClose={onClose}>Content</Alert>)
+    render(
+      <Alert dismissible onClose={onClose}>
+        Content
+      </Alert>,
+    )
     const alert = screen.getByRole("status")
     expect(alert.className).toContain("pm-alert--dismissible")
   })

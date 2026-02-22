@@ -7,25 +7,24 @@ import {
 import type { DropdownClassesOptions } from "@paramanu/navigation-js"
 
 export interface ReactDropdownProps
-  extends DropdownClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends DropdownClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const Dropdown = forwardRef<HTMLDivElement, ReactDropdownProps>(
-  function Dropdown({ size, open, className, children, ...rest }, ref) {
-    const classes = dropdownClasses({ size, open })
-    const combinedClassName = className ? `${classes} ${className}` : classes
-    return (
-      <div ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </div>
-    )
-  },
-)
+export const Dropdown = forwardRef<HTMLDivElement, ReactDropdownProps>(function Dropdown(
+  { size, open, className, children, ...rest },
+  ref,
+) {
+  const classes = dropdownClasses({ size, open })
+  const combinedClassName = className ? `${classes} ${className}` : classes
+  return (
+    <div ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </div>
+  )
+})
 
-export interface ReactDropdownTriggerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ReactDropdownTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
   expanded?: boolean
 }

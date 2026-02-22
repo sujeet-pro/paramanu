@@ -28,7 +28,9 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: (args) => (
     <Pagination {...args}>
-      <PaginationItem type="prev" disabled>Prev</PaginationItem>
+      <PaginationItem type="prev" disabled>
+        Prev
+      </PaginationItem>
       <PaginationItem active>1</PaginationItem>
       <PaginationItem>2</PaginationItem>
       <PaginationItem>3</PaginationItem>

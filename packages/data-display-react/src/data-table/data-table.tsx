@@ -1,16 +1,12 @@
 import { forwardRef } from "react"
-import {
-  datatableClasses,
-  dataTableHeaderCellClasses,
-} from "@paramanu/data-display-js"
+import { datatableClasses, dataTableHeaderCellClasses } from "@paramanu/data-display-js"
 import type {
   DatatableClassesOptions,
   DatatableHeaderCellClassesOptions,
 } from "@paramanu/data-display-js"
 
 export interface ReactDatatableProps
-  extends DatatableClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends DatatableClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
@@ -19,7 +15,12 @@ export const Datatable = forwardRef<HTMLDivElement, ReactDatatableProps>(functio
   ref,
 ) {
   const classes = datatableClasses({
-    variant, size, hoverable, bordered, stickyHeader, selectable,
+    variant,
+    size,
+    hoverable,
+    bordered,
+    stickyHeader,
+    selectable,
   })
   const combinedClassName = className ? `${classes.root} ${className}` : classes.root
 
@@ -48,7 +49,8 @@ export const DatatableToolbar = forwardRef<HTMLDivElement, ReactDatatableToolbar
 )
 
 export interface ReactDatatableHeaderCellProps
-  extends DatatableHeaderCellClassesOptions,
+  extends
+    DatatableHeaderCellClassesOptions,
     Omit<React.ThHTMLAttributes<HTMLTableCellElement>, "align"> {
   children?: React.ReactNode
 }
@@ -97,8 +99,7 @@ export const DatatableRow = forwardRef<HTMLTableRowElement, ReactDatatableRowPro
   },
 )
 
-export interface ReactDatatableCellProps
-  extends React.TdHTMLAttributes<HTMLTableCellElement> {
+export interface ReactDatatableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {
   children?: React.ReactNode
 }
 
@@ -122,9 +123,7 @@ export interface ReactDatatablePaginationProps extends React.HTMLAttributes<HTML
 export const DatatablePagination = forwardRef<HTMLDivElement, ReactDatatablePaginationProps>(
   function DatatablePagination({ className, children, ...rest }, ref) {
     const classes = datatableClasses()
-    const combinedClassName = className
-      ? `${classes.pagination} ${className}`
-      : classes.pagination
+    const combinedClassName = className ? `${classes.pagination} ${className}` : classes.pagination
 
     return (
       <div ref={ref} className={combinedClassName} {...rest}>

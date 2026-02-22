@@ -118,7 +118,11 @@ export const Disabled: Story = {
     children: (
       <>
         <span className="pm-tag">Disabled</span>
-        <input className="pm-input pm-input--outline pm-input--md" placeholder="Add tag..." disabled />
+        <input
+          className="pm-input pm-input--outline pm-input--md"
+          placeholder="Add tag..."
+          disabled
+        />
       </>
     ),
   },

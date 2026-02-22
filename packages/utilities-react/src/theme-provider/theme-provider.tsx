@@ -49,12 +49,9 @@ export function Theme({
     jsSetTheme(mode, { storageKey })
   }, [mode, storageKey])
 
-  const setMode = useCallback(
-    (newMode: ThemeMode) => {
-      setModeState(newMode)
-    },
-    [],
-  )
+  const setMode = useCallback((newMode: ThemeMode) => {
+    setModeState(newMode)
+  }, [])
 
   const clearMode = useCallback(() => {
     jsClearTheme({ storageKey })
@@ -62,8 +59,6 @@ export function Theme({
   }, [storageKey])
 
   return (
-    <ThemeContext.Provider value={{ mode, setMode, clearMode }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={{ mode, setMode, clearMode }}>{children}</ThemeContext.Provider>
   )
 }

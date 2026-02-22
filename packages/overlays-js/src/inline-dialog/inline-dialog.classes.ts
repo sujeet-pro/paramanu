@@ -1,7 +1,4 @@
-import type {
-  InlineDlgClassesOptions,
-  InlineDlgBodyClassesOptions,
-} from "./inline-dialog.types.js"
+import type { InlineDlgClassesOptions, InlineDlgBodyClassesOptions } from "./inline-dialog.types.js"
 
 const BASE = "pm-inline-dlg"
 

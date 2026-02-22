@@ -10,8 +10,7 @@ import type {
 } from "@paramanu/navigation-js"
 
 export interface ReactBreadcrumbProps
-  extends BreadcrumbClassesOptions,
-    Omit<React.HTMLAttributes<HTMLElement>, "children"> {
+  extends BreadcrumbClassesOptions, Omit<React.HTMLAttributes<HTMLElement>, "children"> {
   children?: React.ReactNode
 }
 
@@ -30,8 +29,7 @@ export const Breadcrumb = forwardRef<HTMLElement, ReactBreadcrumbProps>(function
 })
 
 export interface ReactBreadcrumbItemProps
-  extends BreadcrumbItemClassesOptions,
-    React.LiHTMLAttributes<HTMLLIElement> {
+  extends BreadcrumbItemClassesOptions, React.LiHTMLAttributes<HTMLLIElement> {
   children?: React.ReactNode
 }
 

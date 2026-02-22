@@ -3,7 +3,8 @@ import { blockquoteClasses } from "@paramanu/typography-js"
 import type { BlockquoteClassesOptions } from "@paramanu/typography-js"
 
 export interface ReactBlockquoteProps
-  extends BlockquoteClassesOptions,
+  extends
+    BlockquoteClassesOptions,
     Omit<React.BlockquoteHTMLAttributes<HTMLQuoteElement>, "color" | "cite"> {
   /** The source/attribution text displayed below the quote. */
   cite?: React.ReactNode

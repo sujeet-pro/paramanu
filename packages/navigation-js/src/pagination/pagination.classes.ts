@@ -1,7 +1,4 @@
-import type {
-  PaginationClassesOptions,
-  PaginationItemClassesOptions,
-} from "./pagination.types.js"
+import type { PaginationClassesOptions, PaginationItemClassesOptions } from "./pagination.types.js"
 
 const BASE = "pm-pagination"
 

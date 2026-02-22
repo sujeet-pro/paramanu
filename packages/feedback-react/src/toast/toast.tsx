@@ -3,8 +3,7 @@ import { toastClasses, toastContainerClasses } from "@paramanu/feedback-js"
 import type { ToastClassesOptions, ToastContainerClassesOptions } from "@paramanu/feedback-js"
 
 export interface ReactToastProps
-  extends ToastClassesOptions,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
+  extends ToastClassesOptions, Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
   /** Icon rendered before the content. */
   icon?: React.ReactNode
   /** Toast title rendered above the message. */
@@ -59,12 +58,7 @@ export const Toast = forwardRef<HTMLDivElement, ReactToastProps>(function Toast(
         {children}
       </div>
       {dismissible && onClose && (
-        <button
-          className={classes.close}
-          onClick={onClose}
-          aria-label="Close"
-          type="button"
-        >
+        <button className={classes.close} onClick={onClose} aria-label="Close" type="button">
           {"\u00d7"}
         </button>
       )}
@@ -73,8 +67,7 @@ export const Toast = forwardRef<HTMLDivElement, ReactToastProps>(function Toast(
 })
 
 export interface ReactToastContainerProps
-  extends ToastContainerClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends ToastContainerClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

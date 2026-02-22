@@ -15,9 +15,7 @@ describe("datalistClasses", () => {
   })
 
   it("applies orientation", () => {
-    expect(datalistClasses({ orientation: "horizontal" }).root).toContain(
-      "pm-datalist--horizontal",
-    )
+    expect(datalistClasses({ orientation: "horizontal" }).root).toContain("pm-datalist--horizontal")
     expect(datalistClasses({ orientation: "vertical" }).root).toContain("pm-datalist--vertical")
   })
 

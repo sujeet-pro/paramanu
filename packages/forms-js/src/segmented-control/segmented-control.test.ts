@@ -1,8 +1,5 @@
 import { describe, it, expect } from "vitest"
-import {
-  segCtrlClasses,
-  segCtrlModuleClasses,
-} from "./segmented-control.classes.js"
+import { segCtrlClasses, segCtrlModuleClasses } from "./segmented-control.classes.js"
 
 describe("segCtrlClasses", () => {
   it("returns default classes (md)", () => {
@@ -23,12 +20,8 @@ describe("segCtrlClasses", () => {
   })
 
   it("applies full-width modifier", () => {
-    expect(segCtrlClasses({ fullWidth: true })).toContain(
-      "pm-seg-ctrl--full-width",
-    )
-    expect(segCtrlClasses({ fullWidth: false })).not.toContain(
-      "pm-seg-ctrl--full-width",
-    )
+    expect(segCtrlClasses({ fullWidth: true })).toContain("pm-seg-ctrl--full-width")
+    expect(segCtrlClasses({ fullWidth: false })).not.toContain("pm-seg-ctrl--full-width")
   })
 
   it("always includes base class", () => {
@@ -40,9 +33,7 @@ describe("segCtrlClasses", () => {
       size: "lg",
       fullWidth: true,
     })
-    expect(result).toBe(
-      "pm-seg-ctrl pm-seg-ctrl--lg pm-seg-ctrl--full-width",
-    )
+    expect(result).toBe("pm-seg-ctrl pm-seg-ctrl--lg pm-seg-ctrl--full-width")
   })
 })
 

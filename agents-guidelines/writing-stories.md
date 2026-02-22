@@ -8,23 +8,19 @@ Apply when creating or modifying Storybook stories for Paramanu components, whet
 
 Stories live **inside component packages**, not inside the Storybook apps.
 
-| Framework | Story Location | Extension |
-|---|---|---|
-| Vanilla (HTML) | `packages/<group>-js/src/<component>/<component>.stories.ts` | `.stories.ts` |
-| React | `packages/<group>-react/src/<component>/<component>.stories.tsx` | `.stories.tsx` |
+| Framework      | Story Location                                                   | Extension      |
+| -------------- | ---------------------------------------------------------------- | -------------- |
+| Vanilla (HTML) | `packages/<group>-js/src/<component>/<component>.stories.ts`     | `.stories.ts`  |
+| React          | `packages/<group>-react/src/<component>/<component>.stories.tsx` | `.stories.tsx` |
 
 Storybook apps load stories from packages using workspace-aware glob patterns:
 
 ```typescript
 // apps/storybook-react/.storybook/main.ts
-stories: [
-  "../../../packages/*-react/src/**/*.stories.@(ts|tsx)",
-]
+stories: ["../../../packages/*-react/src/**/*.stories.@(ts|tsx)"]
 
 // apps/storybook-vanilla/.storybook/main.ts
-stories: [
-  "../../../packages/*-js/src/**/*.stories.@(ts|tsx)",
-]
+stories: ["../../../packages/*-js/src/**/*.stories.@(ts|tsx)"]
 ```
 
 ---

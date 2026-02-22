@@ -3,11 +3,9 @@ import { textareaClasses } from "@paramanu/forms-js"
 import type { TextareaProps } from "@paramanu/forms-js"
 
 export interface ReactTextareaProps
-  extends Omit<TextareaProps, "onChange" | "onFocus" | "onBlur">,
-    Omit<
-      React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-      "size" | "value" | "defaultValue"
-    > {
+  extends
+    Omit<TextareaProps, "onChange" | "onFocus" | "onBlur">,
+    Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "size" | "value" | "defaultValue"> {
   children?: React.ReactNode
 }
 

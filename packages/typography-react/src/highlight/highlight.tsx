@@ -3,8 +3,7 @@ import { highlightClasses } from "@paramanu/typography-js"
 import type { HighlightClassesOptions } from "@paramanu/typography-js"
 
 export interface ReactHighlightProps
-  extends HighlightClassesOptions,
-    Omit<React.HTMLAttributes<HTMLElement>, "color"> {
+  extends HighlightClassesOptions, Omit<React.HTMLAttributes<HTMLElement>, "color"> {
   children?: React.ReactNode
 }
 

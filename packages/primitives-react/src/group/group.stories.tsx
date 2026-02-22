@@ -13,7 +13,10 @@ const meta = {
     wrap: { control: "boolean" },
     grow: { control: "boolean" },
     align: { control: "select", options: ["start", "center", "end", "stretch", "baseline"] },
-    justify: { control: "select", options: ["start", "center", "end", "between", "around", "evenly"] },
+    justify: {
+      control: "select",
+      options: ["start", "center", "end", "between", "around", "evenly"],
+    },
   },
   args: {},
 } satisfies Meta<typeof Group>
@@ -23,9 +26,15 @@ type Story = StoryObj<typeof meta>
 
 const buttons = (
   <>
-    <button type="button" style={{ padding: "8px 16px" }}>Action 1</button>
-    <button type="button" style={{ padding: "8px 16px" }}>Action 2</button>
-    <button type="button" style={{ padding: "8px 16px" }}>Action 3</button>
+    <button type="button" style={{ padding: "8px 16px" }}>
+      Action 1
+    </button>
+    <button type="button" style={{ padding: "8px 16px" }}>
+      Action 2
+    </button>
+    <button type="button" style={{ padding: "8px 16px" }}>
+      Action 3
+    </button>
   </>
 )
 
@@ -112,7 +121,11 @@ export const RenderTest: Story = {
 
 export const Accessibility: Story = {
   args: { gap: "3" },
-  render: (args) => <Group {...args} role="group" aria-label="Actions">{buttons}</Group>,
+  render: (args) => (
+    <Group {...args} role="group" aria-label="Actions">
+      {buttons}
+    </Group>
+  ),
   play: async ({ canvasElement }) => {
     const el = canvasElement.querySelector("[role='group']")
     await expect(el).toBeTruthy()

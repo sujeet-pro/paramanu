@@ -9,7 +9,12 @@ interface ImgArgs extends ImgClassesOptions {
 }
 
 function createImg(args: ImgArgs): HTMLElement {
-  const cls = imgClasses({ fit: args.fit, radius: args.radius, fallback: args.fallback, loading: args.loading })
+  const cls = imgClasses({
+    fit: args.fit,
+    radius: args.radius,
+    fallback: args.fallback,
+    loading: args.loading,
+  })
   const figure = document.createElement("figure")
   figure.className = cls.root
 
@@ -48,7 +53,13 @@ const meta = {
     alt: { control: "text" },
     captionText: { control: "text" },
   },
-  args: { fit: "cover", radius: "none", src: "https://picsum.photos/400/300", alt: "Sample", captionText: "" },
+  args: {
+    fit: "cover",
+    radius: "none",
+    src: "https://picsum.photos/400/300",
+    alt: "Sample",
+    captionText: "",
+  },
 } satisfies Meta<ImgArgs>
 
 export default meta

@@ -18,12 +18,7 @@ export type {
   ReactAccordionContentProps,
 } from "./accordion/accordion.js"
 
-export {
-  Carousel,
-  CarouselSlide,
-  CarouselControl,
-  CarouselIndicator,
-} from "./carousel/carousel.js"
+export { Carousel, CarouselSlide, CarouselControl, CarouselIndicator } from "./carousel/carousel.js"
 export type {
   ReactCarouselProps,
   ReactCarouselSlideProps,
@@ -32,8 +27,4 @@ export type {
 } from "./carousel/carousel.js"
 
 export { Tour, TourStep, TourOverlay } from "./tour/tour.js"
-export type {
-  ReactTourProps,
-  ReactTourStepProps,
-  ReactTourOverlayProps,
-} from "./tour/tour.js"
+export type { ReactTourProps, ReactTourStepProps, ReactTourOverlayProps } from "./tour/tour.js"

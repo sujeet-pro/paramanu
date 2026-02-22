@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Collapsible provides a single toggle to show or hide a content section with controlled and uncontrolled modes.
@@ -45,8 +45,8 @@ export default function App() {
 
 ## Accessibility
 
-| Key | Action |
-|-----|--------|
+| Key               | Action             |
+| ----------------- | ------------------ |
 | `Enter` / `Space` | Toggle open/closed |
 
 - Trigger uses `aria-expanded` and `aria-controls`.
@@ -57,23 +57,23 @@ export default function App() {
 
 ## Collapsible Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `open` | `boolean` | - | Controlled open state |
-| `defaultOpen` | `boolean` | `false` | Initial open state |
-| `onOpenChange` | `(open: boolean) => void` | - | Change callback |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+| Prop           | Type                      | Default | Description           |
+| -------------- | ------------------------- | ------- | --------------------- |
+| `open`         | `boolean`                 | -       | Controlled open state |
+| `defaultOpen`  | `boolean`                 | `false` | Initial open state    |
+| `onOpenChange` | `(open: boolean) => void` | -       | Change callback       |
+| `disabled`     | `boolean`                 | `false` | Disabled state        |
+| `size`         | `"sm" \| "md" \| "lg"`    | `"md"`  | Size preset           |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-collapsible` | Root element |
-| `pm-collapsible--open` | Open state |
+| Class                      | Description    |
+| -------------------------- | -------------- |
+| `pm-collapsible`           | Root element   |
+| `pm-collapsible--open`     | Open state     |
 | `pm-collapsible--disabled` | Disabled state |
-| `pm-collapsible__trigger` | Toggle button |
-| `pm-collapsible__content` | Content panel |
+| `pm-collapsible__trigger`  | Toggle button  |
+| `pm-collapsible__content`  | Content panel  |
 
 </TabItem>
 </Tabs>

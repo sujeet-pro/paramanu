@@ -34,7 +34,10 @@ const meta = {
   tags: ["autodocs", "beta"],
   render: (args) => createSpacerDemo(args as SpacerClassesOptions),
   argTypes: {
-    size: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"] },
+    size: {
+      control: "select",
+      options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"],
+    },
     axis: { control: "select", options: ["horizontal", "vertical"] },
   },
   args: {},

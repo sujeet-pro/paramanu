@@ -1,7 +1,4 @@
-import type {
-  AvatarGrpClassesOptions,
-  AvatarGrpClassesResult,
-} from "./avatar-group.types.js"
+import type { AvatarGrpClassesOptions, AvatarGrpClassesResult } from "./avatar-group.types.js"
 
 const BASE = "pm-avatar-grp"
 
@@ -18,9 +15,7 @@ const BASE = "pm-avatar-grp"
  * // cls.overflow => "pm-avatar-grp__overflow"
  * ```
  */
-export function avatarGrpClasses(
-  options: AvatarGrpClassesOptions = {},
-): AvatarGrpClassesResult {
+export function avatarGrpClasses(options: AvatarGrpClassesOptions = {}): AvatarGrpClassesResult {
   const { size = "md", spacing = "normal" } = options
 
   return {

@@ -18,9 +18,7 @@ describe("timelineClasses", () => {
   })
 
   it("applies orientation", () => {
-    expect(timelineClasses({ orientation: "horizontal" }).root).toContain(
-      "pm-timeline--horizontal",
-    )
+    expect(timelineClasses({ orientation: "horizontal" }).root).toContain("pm-timeline--horizontal")
     expect(timelineClasses({ orientation: "vertical" }).root).toContain("pm-timeline--vertical")
   })
 

@@ -3,8 +3,7 @@ import { floatClasses } from "@paramanu/primitives-js"
 import type { FloatProps } from "@paramanu/primitives-js"
 
 export interface ReactFloatProps
-  extends FloatProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+  extends FloatProps, Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
   children?: React.ReactNode
 }
 

@@ -100,7 +100,10 @@ export interface ReactAccordionItemProps extends React.HTMLAttributes<HTMLDivEle
 }
 
 export const AccordionItem = forwardRef<HTMLDivElement, ReactAccordionItemProps>(
-  function AccordionItem({ value: itemValue, disabled = false, className, children, ...rest }, ref) {
+  function AccordionItem(
+    { value: itemValue, disabled = false, className, children, ...rest },
+    ref,
+  ) {
     const { value, variant } = useAccordionContext()
     const isOpen = value.includes(itemValue)
 
@@ -112,10 +115,13 @@ export const AccordionItem = forwardRef<HTMLDivElement, ReactAccordionItemProps>
     const combinedClassName = className ? `${classes} ${className}` : classes
 
     return (
-      <AccordionItemContext.Provider
-        value={{ itemValue, isOpen, disabled, contentId, triggerId }}
-      >
-        <div ref={ref} className={combinedClassName} data-state={isOpen ? "open" : "closed"} {...rest}>
+      <AccordionItemContext.Provider value={{ itemValue, isOpen, disabled, contentId, triggerId }}>
+        <div
+          ref={ref}
+          className={combinedClassName}
+          data-state={isOpen ? "open" : "closed"}
+          {...rest}
+        >
           {children}
         </div>
       </AccordionItemContext.Provider>
@@ -123,8 +129,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, ReactAccordionItemProps>
   },
 )
 
-export interface ReactAccordionTriggerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ReactAccordionTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
 }
 

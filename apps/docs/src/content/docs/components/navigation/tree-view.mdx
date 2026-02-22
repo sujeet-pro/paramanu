@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Tree View displays hierarchical data with expandable/collapsible branches and selectable items.
@@ -59,14 +59,14 @@ export default function App() {
 
 ## Accessibility
 
-| Key | Action |
-|-----|--------|
-| `ArrowDown` | Move to next visible item |
-| `ArrowUp` | Move to previous visible item |
+| Key          | Action                              |
+| ------------ | ----------------------------------- |
+| `ArrowDown`  | Move to next visible item           |
+| `ArrowUp`    | Move to previous visible item       |
 | `ArrowRight` | Expand branch / move to first child |
-| `ArrowLeft` | Collapse branch / move to parent |
-| `Home` | Move to first item |
-| `End` | Move to last visible item |
+| `ArrowLeft`  | Collapse branch / move to parent    |
+| `Home`       | Move to first item                  |
+| `End`        | Move to last visible item           |
 
 - Uses `role="tree"`, `role="treeitem"`, and `role="group"`.
 - Branches use `aria-expanded`.
@@ -76,34 +76,34 @@ export default function App() {
 
 ## Tree Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `size` | `"sm" \| "md"` | `"md"` | Size preset |
+| Prop   | Type           | Default | Description |
+| ------ | -------------- | ------- | ----------- |
+| `size` | `"sm" \| "md"` | `"md"`  | Size preset |
 
 ## TreeItem Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop       | Type      | Default | Description    |
+| ---------- | --------- | ------- | -------------- |
 | `selected` | `boolean` | `false` | Selected state |
 | `disabled` | `boolean` | `false` | Disabled state |
 
 ## TreeBranch Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop       | Type      | Default | Description    |
+| ---------- | --------- | ------- | -------------- |
 | `expanded` | `boolean` | `false` | Expanded state |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-tree` | Root element |
-| `pm-tree__branch` | Branch node |
-| `pm-tree__branch--expanded` | Expanded branch |
-| `pm-tree__item` | Leaf item |
-| `pm-tree__item--selected` | Selected item |
-| `pm-tree__group` | Nested group |
-| `pm-tree__indicator` | Expand/collapse icon |
+| Class                       | Description          |
+| --------------------------- | -------------------- |
+| `pm-tree`                   | Root element         |
+| `pm-tree__branch`           | Branch node          |
+| `pm-tree__branch--expanded` | Expanded branch      |
+| `pm-tree__item`             | Leaf item            |
+| `pm-tree__item--selected`   | Selected item        |
+| `pm-tree__group`            | Nested group         |
+| `pm-tree__indicator`        | Expand/collapse icon |
 
 </TabItem>
 </Tabs>

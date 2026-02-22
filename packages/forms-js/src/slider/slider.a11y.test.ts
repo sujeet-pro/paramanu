@@ -49,9 +49,7 @@ describe("slider accessibility", () => {
   })
 
   it("disabled slider has aria-disabled", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSliderHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createSliderHTML({ disabled: true })}</body>`)
     const slider = dom.window.document.querySelector("[role='slider']")
     expect(slider?.getAttribute("aria-disabled")).toBe("true")
   })

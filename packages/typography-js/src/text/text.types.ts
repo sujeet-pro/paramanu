@@ -17,7 +17,15 @@ export type TextTransform = "uppercase" | "lowercase" | "capitalize" | "none"
 export type TextDecoration = "underline" | "line-through" | "none"
 
 /** Semantic color options from the design token palette */
-export type TextColor = "default" | "muted" | "dimmed" | "primary" | "danger" | "success" | "warning" | "info"
+export type TextColor =
+  | "default"
+  | "muted"
+  | "dimmed"
+  | "primary"
+  | "danger"
+  | "success"
+  | "warning"
+  | "info"
 
 /** Number of lines to clamp before showing ellipsis. Use 1 for single-line truncation. */
 export type TextLineClamp = 1 | 2 | 3 | 4 | 5 | 6

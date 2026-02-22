@@ -101,9 +101,7 @@ describe("command palette accessibility", () => {
 
   it("active item has aria-selected='true'", () => {
     const dom = new JSDOM(`<!DOCTYPE html><body>${createCmdPaletteHTML()}</body>`)
-    const activeItem = dom.window.document.querySelector(
-      ".pm-cmd-palette__item--active",
-    )
+    const activeItem = dom.window.document.querySelector(".pm-cmd-palette__item--active")
     expect(activeItem).not.toBeNull()
     expect(activeItem?.getAttribute("aria-selected")).toBe("true")
   })
@@ -130,8 +128,7 @@ describe("command palette accessibility", () => {
     const dom = new JSDOM(`<!DOCTYPE html><body>${createCmdPaletteHTML()}</body>`)
     const listbox = dom.window.document.querySelector("[role='listbox']")
     expect(listbox).not.toBeNull()
-    const hasLabel =
-      listbox?.hasAttribute("aria-label") || listbox?.hasAttribute("aria-labelledby")
+    const hasLabel = listbox?.hasAttribute("aria-label") || listbox?.hasAttribute("aria-labelledby")
     expect(hasLabel).toBe(true)
   })
 

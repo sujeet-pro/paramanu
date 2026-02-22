@@ -3,8 +3,7 @@ import { checkboxClasses } from "@paramanu/forms-js"
 import type { CheckboxProps } from "@paramanu/forms-js"
 
 export interface ReactCheckboxProps
-  extends CheckboxProps,
-    Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type"> {
+  extends CheckboxProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type"> {
   children?: React.ReactNode
 }
 
@@ -15,7 +14,8 @@ export const Checkbox = forwardRef<HTMLInputElement, ReactCheckboxProps>(functio
   const internalRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    const input = typeof ref === "function" ? internalRef.current : (ref?.current ?? internalRef.current)
+    const input =
+      typeof ref === "function" ? internalRef.current : (ref?.current ?? internalRef.current)
     if (input) {
       input.indeterminate = indeterminate ?? false
     }

@@ -27,9 +27,7 @@ describe("segmented control accessibility", () => {
   })
 
   it("items use role=radio", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSegCtrlHTML(["A", "B", "C"])}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createSegCtrlHTML(["A", "B", "C"])}</body>`)
     const items = dom.window.document.querySelectorAll('[role="radio"]')
     expect(items.length).toBe(3)
   })
@@ -45,27 +43,21 @@ describe("segmented control accessibility", () => {
   })
 
   it("active item has active class", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSegCtrlHTML(["A", "B"], 0)}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createSegCtrlHTML(["A", "B"], 0)}</body>`)
     const items = dom.window.document.querySelectorAll("button")
     expect(items[0].className).toContain("pm-seg-ctrl__item--active")
     expect(items[1].className).not.toContain("pm-seg-ctrl__item--active")
   })
 
   it("items are buttons", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSegCtrlHTML(["X", "Y"])}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createSegCtrlHTML(["X", "Y"])}</body>`)
     const buttons = dom.window.document.querySelectorAll("button")
     expect(buttons.length).toBe(2)
     expect(buttons[0].getAttribute("type")).toBe("button")
   })
 
   it("has accessible text content on items", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSegCtrlHTML(["Daily", "Weekly"])}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createSegCtrlHTML(["Daily", "Weekly"])}</body>`)
     const items = dom.window.document.querySelectorAll("button")
     expect(items[0].textContent).toBe("Daily")
     expect(items[1].textContent).toBe("Weekly")

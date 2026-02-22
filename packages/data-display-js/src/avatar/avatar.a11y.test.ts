@@ -21,25 +21,19 @@ function createAvatarWithFallbackHTML(
 
 describe("avatar accessibility", () => {
   it("has role=img on the root element", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createAvatarWithImgHTML("John Doe")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createAvatarWithImgHTML("John Doe")}</body>`)
     const avatar = dom.window.document.querySelector(".pm-avatar")
     expect(avatar?.getAttribute("role")).toBe("img")
   })
 
   it("has aria-label with the user name", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createAvatarWithImgHTML("Jane Smith")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createAvatarWithImgHTML("Jane Smith")}</body>`)
     const avatar = dom.window.document.querySelector(".pm-avatar")
     expect(avatar?.getAttribute("aria-label")).toBe("Jane Smith")
   })
 
   it("image has alt text", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createAvatarWithImgHTML("John Doe")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createAvatarWithImgHTML("John Doe")}</body>`)
     const img = dom.window.document.querySelector(".pm-avatar__image")
     expect(img?.getAttribute("alt")).toBe("John Doe")
   })

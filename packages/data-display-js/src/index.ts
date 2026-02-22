@@ -20,10 +20,7 @@ export type {
 } from "./avatar/avatar.types.js"
 
 // Avatar Group
-export {
-  avatarGrpClasses,
-  avatarGrpModuleClasses,
-} from "./avatar-group/avatar-group.classes.js"
+export { avatarGrpClasses, avatarGrpModuleClasses } from "./avatar-group/avatar-group.classes.js"
 export type {
   AvatarGrpSize,
   AvatarGrpSpacing,
@@ -34,12 +31,7 @@ export type {
 
 // Icon
 export { iconClasses, iconModuleClasses } from "./icon/icon.classes.js"
-export type {
-  IconSize,
-  IconColor,
-  IconClassesOptions,
-  IconProps,
-} from "./icon/icon.types.js"
+export type { IconSize, IconColor, IconClassesOptions, IconProps } from "./icon/icon.types.js"
 
 // Img
 export { imgClasses, imgModuleClasses } from "./image/image.classes.js"
@@ -81,12 +73,7 @@ export type {
 
 // Tile
 export { tileClasses, tileModuleClasses } from "./tile/tile.classes.js"
-export type {
-  TileVariant,
-  TileSize,
-  TileClassesOptions,
-  TileProps,
-} from "./tile/tile.types.js"
+export type { TileVariant, TileSize, TileClassesOptions, TileProps } from "./tile/tile.types.js"
 
 // Stat
 export {
@@ -208,10 +195,7 @@ export type {
 } from "./qr-code/qr-code.types.js"
 
 // Empty State
-export {
-  emptyClasses,
-  emptyModuleClasses,
-} from "./empty-state/empty-state.classes.js"
+export { emptyClasses, emptyModuleClasses } from "./empty-state/empty-state.classes.js"
 export type {
   EmptySize,
   EmptyClassesOptions,

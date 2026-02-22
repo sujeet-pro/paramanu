@@ -174,10 +174,7 @@ export function tourCloseModuleClasses(
 ): string {
   const { variant = "default" } = options
 
-  const classes = [
-    classMap[`${BASE}__step-close`],
-    classMap[`${BASE}__step-close--${variant}`],
-  ]
+  const classes = [classMap[`${BASE}__step-close`], classMap[`${BASE}__step-close--${variant}`]]
 
   return classes.filter(Boolean).join(" ")
 }

@@ -7,10 +7,7 @@ import {
   sidebarItemClasses,
 } from "./sidebar.classes.js"
 
-function createSidebarHTML(options?: {
-  position?: "left" | "right"
-  ariaLabel?: string
-}): string {
+function createSidebarHTML(options?: { position?: "left" | "right"; ariaLabel?: string }): string {
   const rootClasses = sidebarClasses({ position: options?.position })
   const sectionClasses = sidebarSectionClasses()
   const labelClasses = sidebarSectionLabelClasses()

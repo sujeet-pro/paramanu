@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Link component provides styled anchor elements with variants for inline, subtle, and navigation links.
@@ -63,24 +63,24 @@ export default function App() {
 
 ## Link Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `"default" \| "subtle" \| "nav"` | `"default"` | Visual variant |
-| `active` | `boolean` | `false` | Current page |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `external` | `boolean` | `false` | External URL |
-| `underline` | `"auto" \| "always" \| "hover" \| "never"` | `"auto"` | Underline style |
+| Prop        | Type                                       | Default     | Description     |
+| ----------- | ------------------------------------------ | ----------- | --------------- |
+| `variant`   | `"default" \| "subtle" \| "nav"`           | `"default"` | Visual variant  |
+| `active`    | `boolean`                                  | `false`     | Current page    |
+| `disabled`  | `boolean`                                  | `false`     | Disabled state  |
+| `external`  | `boolean`                                  | `false`     | External URL    |
+| `underline` | `"auto" \| "always" \| "hover" \| "never"` | `"auto"`    | Underline style |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-link` | Root element |
-| `pm-link--subtle` | Subtle variant |
-| `pm-link--nav` | Navigation variant |
-| `pm-link--active` | Active state |
-| `pm-link--disabled` | Disabled state |
-| `pm-link--external` | External link |
+| Class               | Description        |
+| ------------------- | ------------------ |
+| `pm-link`           | Root element       |
+| `pm-link--subtle`   | Subtle variant     |
+| `pm-link--nav`      | Navigation variant |
+| `pm-link--active`   | Active state       |
+| `pm-link--disabled` | Disabled state     |
+| `pm-link--external` | External link      |
 
 </TabItem>
 </Tabs>

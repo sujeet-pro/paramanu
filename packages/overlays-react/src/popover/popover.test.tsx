@@ -48,7 +48,11 @@ describe("Popover", () => {
 
   it("calls onClose when Escape is pressed", () => {
     const onClose = vi.fn()
-    render(<Popover open onClose={onClose}>Content</Popover>)
+    render(
+      <Popover open onClose={onClose}>
+        Content
+      </Popover>,
+    )
     fireEvent.keyDown(document, { key: "Escape" })
     expect(onClose).toHaveBeenCalledTimes(1)
   })

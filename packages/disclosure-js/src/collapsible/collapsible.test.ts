@@ -35,7 +35,9 @@ describe("collapsibleClasses", () => {
 
   it("combines multiple options", () => {
     const result = collapsibleClasses({ open: true, disabled: true, size: "lg" })
-    expect(result).toBe("pm-collapsible pm-collapsible--lg pm-collapsible--open pm-collapsible--disabled")
+    expect(result).toBe(
+      "pm-collapsible pm-collapsible--lg pm-collapsible--open pm-collapsible--disabled",
+    )
   })
 })
 

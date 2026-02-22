@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Tags Input component provides a text field for adding and managing a collection of tags or tokens.
@@ -31,11 +31,11 @@ The Tags Input component provides a text field for adding and managing a collect
 
 ## Accessibility
 
-| Feature | Detail |
-|---|---|
-| `role="group"` | Container groups the tags and input |
-| Keyboard | Enter adds a tag, Backspace removes the last |
-| `aria-disabled` | Applied when `disabled` is true |
+| Feature         | Detail                                       |
+| --------------- | -------------------------------------------- |
+| `role="group"`  | Container groups the tags and input          |
+| Keyboard        | Enter adds a tag, Backspace removes the last |
+| `aria-disabled` | Applied when `disabled` is true              |
 
 ## Best Practices
 
@@ -47,22 +47,22 @@ The Tags Input component provides a text field for adding and managing a collect
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Input size |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `invalid` | `boolean` | `false` | Invalid state |
+| Prop       | Type                                  | Default     | Description    |
+| ---------- | ------------------------------------- | ----------- | -------------- |
+| `variant`  | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size`     | `"xs" \| "sm" \| "md" \| "lg"`        | `"md"`      | Input size     |
+| `disabled` | `boolean`                             | `false`     | Disabled state |
+| `invalid`  | `boolean`                             | `false`     | Invalid state  |
 
 ## CSS Classes
 
-| Class | Description |
-|---|---|
-| `pm-tags-input` | Wrapper base class |
-| `pm-tags-input--outline` | Outline variant |
-| `pm-tags-input--filled` | Filled variant |
-| `pm-tags-input--disabled` | Disabled state |
-| `pm-tags-input--invalid` | Invalid state |
+| Class                     | Description        |
+| ------------------------- | ------------------ |
+| `pm-tags-input`           | Wrapper base class |
+| `pm-tags-input--outline`  | Outline variant    |
+| `pm-tags-input--filled`   | Filled variant     |
+| `pm-tags-input--disabled` | Disabled state     |
+| `pm-tags-input--invalid`  | Invalid state      |
 
 </TabItem>
 </Tabs>

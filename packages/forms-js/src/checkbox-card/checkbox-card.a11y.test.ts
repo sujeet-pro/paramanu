@@ -15,9 +15,7 @@ function createChkCardHTML(
 
 describe("checkbox card accessibility", () => {
   it("renders as a label wrapping a checkbox input", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createChkCardHTML("Plan A")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createChkCardHTML("Plan A")}</body>`)
     const label = dom.window.document.querySelector("label")
     expect(label).not.toBeNull()
     const input = label?.querySelector('input[type="checkbox"]')
@@ -25,17 +23,13 @@ describe("checkbox card accessibility", () => {
   })
 
   it("has card content", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createChkCardHTML("Premium Plan")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createChkCardHTML("Premium Plan")}</body>`)
     const content = dom.window.document.querySelector(".pm-chk-card__content")
     expect(content?.textContent).toBe("Premium Plan")
   })
 
   it("hidden input is present", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createChkCardHTML("Option")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createChkCardHTML("Option")}</body>`)
     const input = dom.window.document.querySelector(".pm-chk-card__input")
     expect(input).not.toBeNull()
     expect(input?.tagName).toBe("INPUT")

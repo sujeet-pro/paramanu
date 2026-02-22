@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Highlight applies visual emphasis to text with filled, outline, or text-only color styles.
@@ -44,19 +44,19 @@ Renders as a `<mark>` element, which screen readers may announce as highlighted 
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `color` | `"primary" \| "danger" \| "success" \| "warning" \| "info" \| "neutral"` | `"primary"` | Color |
-| `variant` | `"filled" \| "outline" \| "text"` | `"filled"` | Visual variant |
+| Prop      | Type                                                                     | Default     | Description    |
+| --------- | ------------------------------------------------------------------------ | ----------- | -------------- |
+| `color`   | `"primary" \| "danger" \| "success" \| "warning" \| "info" \| "neutral"` | `"primary"` | Color          |
+| `variant` | `"filled" \| "outline" \| "text"`                                        | `"filled"`  | Visual variant |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-highlight` | Base |
-| `pm-highlight--{color}` | Color |
-| `pm-highlight--outline` | Outline variant |
-| `pm-highlight--text` | Text-only variant |
+| Class                   | Purpose           |
+| ----------------------- | ----------------- |
+| `pm-highlight`          | Base              |
+| `pm-highlight--{color}` | Color             |
+| `pm-highlight--outline` | Outline variant   |
+| `pm-highlight--text`    | Text-only variant |
 
 </TabItem>
 </Tabs>

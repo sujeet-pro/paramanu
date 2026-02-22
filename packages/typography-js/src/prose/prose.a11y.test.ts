@@ -29,9 +29,7 @@ describe("prose accessibility", () => {
   })
 
   it("has readable text content", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createProseHTML("Some readable content")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createProseHTML("Some readable content")}</body>`)
     const el = dom.window.document.querySelector("article")
     expect(el?.textContent).toBe("Some readable content")
   })

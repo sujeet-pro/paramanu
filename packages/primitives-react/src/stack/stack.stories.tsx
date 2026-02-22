@@ -10,7 +10,10 @@ const meta = {
     direction: { control: "select", options: ["vertical", "horizontal"] },
     gap: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"] },
     align: { control: "select", options: ["start", "center", "end", "stretch", "baseline"] },
-    justify: { control: "select", options: ["start", "center", "end", "between", "around", "evenly"] },
+    justify: {
+      control: "select",
+      options: ["start", "center", "end", "between", "around", "evenly"],
+    },
     separator: { control: "boolean" },
   },
   args: {},

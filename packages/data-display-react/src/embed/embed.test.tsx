@@ -31,9 +31,7 @@ describe("Embed", () => {
 
   it("forwards ref", () => {
     let embedRef: HTMLDivElement | null = null
-    render(
-      <Embed ref={(el) => (embedRef = el)} src="https://example.com" title="Example" />,
-    )
+    render(<Embed ref={(el) => (embedRef = el)} src="https://example.com" title="Example" />)
     expect(embedRef).toBeInstanceOf(HTMLDivElement)
   })
 

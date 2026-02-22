@@ -13,9 +13,7 @@ describe("simple-grid accessibility", () => {
   })
 
   it("preserves class attribute for styling", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><div class="${sgridClasses()}">Test</div></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><div class="${sgridClasses()}">Test</div></body>`)
     const el = dom.window.document.querySelector("div")
     expect(el?.classList.contains("pm-sgrid")).toBe(true)
   })

@@ -9,12 +9,7 @@ export function createTooltip(
   tooltip: HTMLElement,
   options: CreateTooltipOptions = {},
 ): TooltipInstance {
-  const {
-    placement = "top",
-    offset = 8,
-    showDelay = 500,
-    hideDelay = 0,
-  } = options
+  const { placement = "top", offset = 8, showDelay = 500, hideDelay = 0 } = options
 
   let presence: PresenceInstance | null = null
   let showTimeout: ReturnType<typeof setTimeout> | null = null

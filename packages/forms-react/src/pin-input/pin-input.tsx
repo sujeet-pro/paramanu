@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { pinInputClasses } from "@paramanu/forms-js"
 import type { PinInputProps } from "@paramanu/forms-js"
 
-export interface ReactPinInputProps
-  extends PinInputProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactPinInputProps extends PinInputProps, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

@@ -8,16 +8,14 @@ The CDN bundle provides human-readable BEM-like class names. No build step requi
 ## Setup
 
 ```html
-<link rel="stylesheet" href="paramanu.min.css">
+<link rel="stylesheet" href="paramanu.min.css" />
 <script src="paramanu.min.js"></script>
 ```
 
 ## Btn
 
 ```html
-<button class="pm-btn pm-btn--primary pm-btn--md">
-  Click me
-</button>
+<button class="pm-btn pm-btn--primary pm-btn--md">Click me</button>
 ```
 
 ### Variants
@@ -40,8 +38,7 @@ The CDN bundle provides human-readable BEM-like class names. No build step requi
 ### Disabled
 
 ```html
-<button class="pm-btn pm-btn--primary pm-btn--md pm-btn--disabled"
-        disabled aria-disabled="true">
+<button class="pm-btn pm-btn--primary pm-btn--md pm-btn--disabled" disabled aria-disabled="true">
   Disabled
 </button>
 ```
@@ -52,7 +49,7 @@ The CDN bundle also exposes `window.Paramanu` with class builder functions:
 
 ```html
 <script>
-  const classes = Paramanu.btnClasses({ variant: 'danger', size: 'lg' })
+  const classes = Paramanu.btnClasses({ variant: "danger", size: "lg" })
   // "pm-btn pm-btn--danger pm-btn--lg"
 </script>
 ```

@@ -3,20 +3,46 @@
     flex: 1 1 0%;
 
     /* Fixed-size spacer overrides flex grow */
-    &.pm-spacer--size-0 { flex: 0 0 var(--pm-spacing-0); }
-    &.pm-spacer--size-1 { flex: 0 0 var(--pm-spacing-1); }
-    &.pm-spacer--size-2 { flex: 0 0 var(--pm-spacing-2); }
-    &.pm-spacer--size-3 { flex: 0 0 var(--pm-spacing-3); }
-    &.pm-spacer--size-4 { flex: 0 0 var(--pm-spacing-4); }
-    &.pm-spacer--size-5 { flex: 0 0 var(--pm-spacing-5); }
-    &.pm-spacer--size-6 { flex: 0 0 var(--pm-spacing-6); }
-    &.pm-spacer--size-8 { flex: 0 0 var(--pm-spacing-8); }
-    &.pm-spacer--size-10 { flex: 0 0 var(--pm-spacing-10); }
-    &.pm-spacer--size-12 { flex: 0 0 var(--pm-spacing-12); }
-    &.pm-spacer--size-16 { flex: 0 0 var(--pm-spacing-16); }
+    &.pm-spacer--size-0 {
+      flex: 0 0 var(--pm-spacing-0);
+    }
+    &.pm-spacer--size-1 {
+      flex: 0 0 var(--pm-spacing-1);
+    }
+    &.pm-spacer--size-2 {
+      flex: 0 0 var(--pm-spacing-2);
+    }
+    &.pm-spacer--size-3 {
+      flex: 0 0 var(--pm-spacing-3);
+    }
+    &.pm-spacer--size-4 {
+      flex: 0 0 var(--pm-spacing-4);
+    }
+    &.pm-spacer--size-5 {
+      flex: 0 0 var(--pm-spacing-5);
+    }
+    &.pm-spacer--size-6 {
+      flex: 0 0 var(--pm-spacing-6);
+    }
+    &.pm-spacer--size-8 {
+      flex: 0 0 var(--pm-spacing-8);
+    }
+    &.pm-spacer--size-10 {
+      flex: 0 0 var(--pm-spacing-10);
+    }
+    &.pm-spacer--size-12 {
+      flex: 0 0 var(--pm-spacing-12);
+    }
+    &.pm-spacer--size-16 {
+      flex: 0 0 var(--pm-spacing-16);
+    }
 
     /* Axis-specific spacers */
-    &.pm-spacer--horizontal { height: 0; }
-    &.pm-spacer--vertical { width: 0; }
+    &.pm-spacer--horizontal {
+      height: 0;
+    }
+    &.pm-spacer--vertical {
+      width: 0;
+    }
   }
 }

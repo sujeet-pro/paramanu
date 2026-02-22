@@ -1,8 +1,5 @@
 import { describe, it, expect } from "vitest"
-import {
-  loadingClasses,
-  loadingModuleClasses,
-} from "./loading-overlay.classes.js"
+import { loadingClasses, loadingModuleClasses } from "./loading-overlay.classes.js"
 
 describe("loadingClasses", () => {
   it("returns default classes (hidden, no blur)", () => {
@@ -13,12 +10,8 @@ describe("loadingClasses", () => {
   })
 
   it("applies visible modifier", () => {
-    expect(loadingClasses({ visible: true }).root).toContain(
-      "pm-loading--visible",
-    )
-    expect(loadingClasses({ visible: false }).root).not.toContain(
-      "pm-loading--visible",
-    )
+    expect(loadingClasses({ visible: true }).root).toContain("pm-loading--visible")
+    expect(loadingClasses({ visible: false }).root).not.toContain("pm-loading--visible")
   })
 
   it("applies blur modifier", () => {
@@ -32,9 +25,7 @@ describe("loadingClasses", () => {
 
   it("combines visible and blur", () => {
     const result = loadingClasses({ visible: true, blur: true })
-    expect(result.root).toBe(
-      "pm-loading pm-loading--visible pm-loading--blur",
-    )
+    expect(result.root).toBe("pm-loading pm-loading--visible pm-loading--blur")
   })
 
   it("sub-element classes are always the same", () => {

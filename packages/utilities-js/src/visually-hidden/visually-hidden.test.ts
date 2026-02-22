@@ -1,8 +1,5 @@
 import { describe, it, expect } from "vitest"
-import {
-  srOnlyClasses,
-  srOnlyModuleClasses,
-} from "./visually-hidden.classes.js"
+import { srOnlyClasses, srOnlyModuleClasses } from "./visually-hidden.classes.js"
 
 describe("srOnlyClasses", () => {
   it("returns default classes", () => {
@@ -10,9 +7,7 @@ describe("srOnlyClasses", () => {
   })
 
   it("applies focusable modifier", () => {
-    expect(srOnlyClasses({ focusable: true })).toBe(
-      "pm-sr-only pm-sr-only--focusable",
-    )
+    expect(srOnlyClasses({ focusable: true })).toBe("pm-sr-only pm-sr-only--focusable")
   })
 
   it("does not apply focusable when false", () => {

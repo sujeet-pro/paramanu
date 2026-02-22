@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Text renders body text with control over size, weight, color, alignment, truncation, and more.
@@ -44,32 +44,32 @@ Text renders as a `<p>` by default. Use the `as` prop to change the element for 
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `as` | `"p" \| "span" \| "div" \| "label" \| ...` | `"p"` | HTML element |
-| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl"` | -- | Font size |
-| `weight` | `"normal" \| "medium" \| "semibold" \| "bold"` | -- | Font weight |
-| `align` | `"left" \| "center" \| "right" \| "justify"` | -- | Text alignment |
-| `color` | `"default" \| "muted" \| "dimmed" \| "primary" \| ...` | -- | Semantic color |
-| `truncate` | `boolean` | `false` | Single-line truncation |
-| `lineClamp` | `1-6` | -- | Multi-line truncation |
-| `italic` | `boolean` | `false` | Italic style |
-| `transform` | `"uppercase" \| "lowercase" \| "capitalize" \| "none"` | -- | Text transform |
-| `decoration` | `"underline" \| "line-through" \| "none"` | -- | Text decoration |
-| `inherit` | `boolean` | `false` | Inherit parent font styles |
-| `inline` | `boolean` | `false` | Render inline |
+| Prop         | Type                                                     | Default | Description                |
+| ------------ | -------------------------------------------------------- | ------- | -------------------------- |
+| `as`         | `"p" \| "span" \| "div" \| "label" \| ...`               | `"p"`   | HTML element               |
+| `size`       | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl"` | --      | Font size                  |
+| `weight`     | `"normal" \| "medium" \| "semibold" \| "bold"`           | --      | Font weight                |
+| `align`      | `"left" \| "center" \| "right" \| "justify"`             | --      | Text alignment             |
+| `color`      | `"default" \| "muted" \| "dimmed" \| "primary" \| ...`   | --      | Semantic color             |
+| `truncate`   | `boolean`                                                | `false` | Single-line truncation     |
+| `lineClamp`  | `1-6`                                                    | --      | Multi-line truncation      |
+| `italic`     | `boolean`                                                | `false` | Italic style               |
+| `transform`  | `"uppercase" \| "lowercase" \| "capitalize" \| "none"`   | --      | Text transform             |
+| `decoration` | `"underline" \| "line-through" \| "none"`                | --      | Text decoration            |
+| `inherit`    | `boolean`                                                | `false` | Inherit parent font styles |
+| `inline`     | `boolean`                                                | `false` | Render inline              |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-text` | Base |
-| `pm-text--size-{s}` | Font size |
-| `pm-text--weight-{w}` | Font weight |
-| `pm-text--color-{c}` | Color |
-| `pm-text--truncate` | Truncation |
-| `pm-text--italic` | Italic |
-| `pm-text--inline` | Inline display |
+| Class                 | Purpose        |
+| --------------------- | -------------- |
+| `pm-text`             | Base           |
+| `pm-text--size-{s}`   | Font size      |
+| `pm-text--weight-{w}` | Font weight    |
+| `pm-text--color-{c}`  | Color          |
+| `pm-text--truncate`   | Truncation     |
+| `pm-text--italic`     | Italic         |
+| `pm-text--inline`     | Inline display |
 
 </TabItem>
 </Tabs>

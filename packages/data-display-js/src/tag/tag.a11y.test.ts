@@ -5,9 +5,7 @@ import { tagClasses } from "./tag.classes.js"
 describe("tag accessibility", () => {
   it("renders as a span by default", () => {
     const classes = tagClasses()
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><span class="${classes.root}">Status</span></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><span class="${classes.root}">Status</span></body>`)
     const tag = dom.window.document.querySelector(".pm-tag")
     expect(tag).not.toBeNull()
     expect(tag?.textContent).toBe("Status")

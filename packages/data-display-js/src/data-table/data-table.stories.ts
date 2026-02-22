@@ -30,7 +30,10 @@ function createDatatable(args: DatatableArgs): HTMLElement {
   table.appendChild(thead)
 
   const tbody = document.createElement("tbody")
-  for (const [name, email] of [["Alice", "alice@example.com"], ["Bob", "bob@example.com"]]) {
+  for (const [name, email] of [
+    ["Alice", "alice@example.com"],
+    ["Bob", "bob@example.com"],
+  ]) {
     const tr = document.createElement("tr")
     tr.className = cls.row
     for (const text of [name, email]) {

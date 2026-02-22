@@ -62,9 +62,7 @@ describe("FormCtrl", () => {
       </FormCtrl>,
     )
     expect(screen.getByText("Enter your name")).toBeInTheDocument()
-    expect(screen.getByText("Enter your name").className).toContain(
-      "pm-form-ctrl__helper-text",
-    )
+    expect(screen.getByText("Enter your name").className).toContain("pm-form-ctrl__helper-text")
   })
 
   it("does not render helper text when invalid", () => {

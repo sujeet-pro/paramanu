@@ -12,9 +12,7 @@ describe("aspect-ratio accessibility", () => {
   })
 
   it("preserves class attribute for styling", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><div class="${aspectClasses()}">Test</div></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><div class="${aspectClasses()}">Test</div></body>`)
     const el = dom.window.document.querySelector("div")
     expect(el?.classList.contains("pm-aspect")).toBe(true)
   })

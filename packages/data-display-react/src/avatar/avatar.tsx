@@ -3,8 +3,7 @@ import { avatarClasses } from "@paramanu/data-display-js"
 import type { AvatarProps } from "@paramanu/data-display-js"
 
 export interface ReactAvatarProps
-  extends AvatarProps,
-    Omit<React.HTMLAttributes<HTMLSpanElement>, "color"> {
+  extends AvatarProps, Omit<React.HTMLAttributes<HTMLSpanElement>, "color"> {
   children?: React.ReactNode
 }
 

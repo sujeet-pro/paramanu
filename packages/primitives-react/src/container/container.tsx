@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { containerClasses } from "@paramanu/primitives-js"
 import type { ContainerProps } from "@paramanu/primitives-js"
 
-export interface ReactContainerProps
-  extends ContainerProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactContainerProps extends ContainerProps, React.HTMLAttributes<HTMLDivElement> {
   /** Child elements. */
   children?: React.ReactNode
 }

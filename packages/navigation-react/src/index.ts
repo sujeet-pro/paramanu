@@ -55,11 +55,7 @@ export { Menubar, MenubarItem } from "./menubar/menubar.js"
 export type { ReactMenubarProps, ReactMenubarItemProps } from "./menubar/menubar.js"
 
 // Dropdown Menu
-export {
-  Dropdown,
-  DropdownTrigger,
-  DropdownContent,
-} from "./dropdown-menu/dropdown-menu.js"
+export { Dropdown, DropdownTrigger, DropdownContent } from "./dropdown-menu/dropdown-menu.js"
 export type {
   ReactDropdownProps,
   ReactDropdownTriggerProps,
@@ -71,13 +67,7 @@ export { CtxMenu } from "./context-menu/context-menu.js"
 export type { ReactCtxMenuProps } from "./context-menu/context-menu.js"
 
 // Navbar
-export {
-  Navbar,
-  NavbarInner,
-  NavbarSection,
-  NavbarBrand,
-  NavbarToggle,
-} from "./navbar/navbar.js"
+export { Navbar, NavbarInner, NavbarSection, NavbarBrand, NavbarToggle } from "./navbar/navbar.js"
 export type {
   ReactNavbarProps,
   ReactNavbarInnerProps,
@@ -87,12 +77,7 @@ export type {
 } from "./navbar/navbar.js"
 
 // Sidebar
-export {
-  Sidebar,
-  SidebarSection,
-  SidebarSectionLabel,
-  SidebarItem,
-} from "./sidebar/sidebar.js"
+export { Sidebar, SidebarSection, SidebarSectionLabel, SidebarItem } from "./sidebar/sidebar.js"
 export type {
   ReactSidebarProps,
   ReactSidebarSectionProps,

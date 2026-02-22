@@ -61,9 +61,7 @@ describe("sheet accessibility", () => {
   })
 
   it("renders with correct size class", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createSheetHTML({ size: "lg" })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createSheetHTML({ size: "lg" })}</body>`)
     const sheet = dom.window.document.querySelector(".pm-sheet")
     expect(sheet?.classList.contains("pm-sheet--lg")).toBe(true)
   })

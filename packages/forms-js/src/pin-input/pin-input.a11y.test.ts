@@ -55,9 +55,7 @@ describe("pin-input accessibility", () => {
   })
 
   it("disabled fields have disabled attribute", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createPinInputHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createPinInputHTML({ disabled: true })}</body>`)
     const inputs = dom.window.document.querySelectorAll("input")
     inputs.forEach((input) => {
       expect(input.hasAttribute("disabled")).toBe(true)
@@ -65,9 +63,7 @@ describe("pin-input accessibility", () => {
   })
 
   it("invalid fields have aria-invalid", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createPinInputHTML({ invalid: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createPinInputHTML({ invalid: true })}</body>`)
     const inputs = dom.window.document.querySelectorAll("input")
     inputs.forEach((input) => {
       expect(input.getAttribute("aria-invalid")).toBe("true")

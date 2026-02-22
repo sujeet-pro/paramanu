@@ -9,9 +9,7 @@ function createLinkHTML(
 ): string {
   const classes = linkClasses(options)
   const disabledAttr = options?.disabled ? ' aria-disabled="true" tabindex="-1"' : ""
-  const externalAttrs = options?.external
-    ? ' target="_blank" rel="noopener noreferrer"'
-    : ""
+  const externalAttrs = options?.external ? ' target="_blank" rel="noopener noreferrer"' : ""
   return `<a href="#" class="${classes}"${disabledAttr}${externalAttrs}${attrs ? " " + attrs : ""}>${text}</a>`
 }
 

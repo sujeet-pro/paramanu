@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Bleed applies negative margins so content can extend into its parent's padding area.
@@ -46,22 +46,22 @@ export default function App() {
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `inline` | `SpacingScale` | -- | Inline (horizontal) bleed |
-| `block` | `SpacingScale` | -- | Block (vertical) bleed |
-| `inlineStart` | `SpacingScale` | -- | Start side bleed |
-| `inlineEnd` | `SpacingScale` | -- | End side bleed |
-| `blockStart` | `SpacingScale` | -- | Top bleed |
-| `blockEnd` | `SpacingScale` | -- | Bottom bleed |
+| Prop          | Type           | Default | Description               |
+| ------------- | -------------- | ------- | ------------------------- |
+| `inline`      | `SpacingScale` | --      | Inline (horizontal) bleed |
+| `block`       | `SpacingScale` | --      | Block (vertical) bleed    |
+| `inlineStart` | `SpacingScale` | --      | Start side bleed          |
+| `inlineEnd`   | `SpacingScale` | --      | End side bleed            |
+| `blockStart`  | `SpacingScale` | --      | Top bleed                 |
+| `blockEnd`    | `SpacingScale` | --      | Bottom bleed              |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-bleed` | Base |
+| Class                      | Purpose      |
+| -------------------------- | ------------ |
+| `pm-bleed`                 | Base         |
 | `pm-bleed--inline-{scale}` | Inline bleed |
-| `pm-bleed--block-{scale}` | Block bleed |
+| `pm-bleed--block-{scale}`  | Block bleed  |
 
 </TabItem>
 </Tabs>

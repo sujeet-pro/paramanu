@@ -46,7 +46,12 @@ export const Single: Story = {
   render: () => {
     const [value, setValue] = useState("center")
     return (
-      <ToggleGrp type="single" value={value} onChange={setValue as (v: string | string[]) => void} aria-label="Alignment">
+      <ToggleGrp
+        type="single"
+        value={value}
+        onChange={setValue as (v: string | string[]) => void}
+        aria-label="Alignment"
+      >
         <ToggleGrpItem value="left">Left</ToggleGrpItem>
         <ToggleGrpItem value="center">Center</ToggleGrpItem>
         <ToggleGrpItem value="right">Right</ToggleGrpItem>
@@ -59,7 +64,12 @@ export const Multiple: Story = {
   render: () => {
     const [value, setValue] = useState<string[]>(["bold"])
     return (
-      <ToggleGrp type="multiple" value={value} onChange={setValue as (v: string | string[]) => void} aria-label="Formatting">
+      <ToggleGrp
+        type="multiple"
+        value={value}
+        onChange={setValue as (v: string | string[]) => void}
+        aria-label="Formatting"
+      >
         <ToggleGrpItem value="bold">B</ToggleGrpItem>
         <ToggleGrpItem value="italic">I</ToggleGrpItem>
         <ToggleGrpItem value="underline">U</ToggleGrpItem>
@@ -102,7 +112,14 @@ export const AllVariantsAndSizes: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
       {(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
-        <ToggleGrp key={size} type="single" size={size} attached value="b" aria-label={`Size ${size}`}>
+        <ToggleGrp
+          key={size}
+          type="single"
+          size={size}
+          attached
+          value="b"
+          aria-label={`Size ${size}`}
+        >
           <ToggleGrpItem value="a">A</ToggleGrpItem>
           <ToggleGrpItem value="b">B</ToggleGrpItem>
           <ToggleGrpItem value="c">C</ToggleGrpItem>

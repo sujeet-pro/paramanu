@@ -7,14 +7,23 @@ const RADIUS = 20
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS
 
 export interface ReactRingProgressProps
-  extends RingProgressClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends RingProgressClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   thickness?: number
 }
 
 export const RingProgress = forwardRef<HTMLDivElement, ReactRingProgressProps>(
   function RingProgress(
-    { size = "md", variant, indeterminate, value = 0, min = 0, max = 100, thickness = 4, className, ...rest },
+    {
+      size = "md",
+      variant,
+      indeterminate,
+      value = 0,
+      min = 0,
+      max = 100,
+      thickness = 4,
+      className,
+      ...rest
+    },
     ref,
   ) {
     const classes = ringProgressClasses({ size, variant, indeterminate, value, min, max })
@@ -33,12 +42,7 @@ export const RingProgress = forwardRef<HTMLDivElement, ReactRingProgressProps>(
         aria-valuemax={max}
         {...rest}
       >
-        <svg
-          className={classes.svg}
-          viewBox="0 0 44 44"
-          width={svgSize}
-          height={svgSize}
-        >
+        <svg className={classes.svg} viewBox="0 0 44 44" width={svgSize} height={svgSize}>
           <circle
             className={classes.track}
             cx="22"

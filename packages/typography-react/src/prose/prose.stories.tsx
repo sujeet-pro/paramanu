@@ -22,8 +22,8 @@ const sampleContent = (
   <>
     <h2>Article Title</h2>
     <p>
-      This is a prose container that applies typographic styles to its child HTML elements
-      including headings, paragraphs, lists, and more.
+      This is a prose container that applies typographic styles to its child HTML elements including
+      headings, paragraphs, lists, and more.
     </p>
     <ul>
       <li>First item</li>

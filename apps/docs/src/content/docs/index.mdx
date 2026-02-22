@@ -34,16 +34,20 @@ This design system carries the same idea: **the smallest, composable building bl
 
 <CardGrid>
   <Card title="CSS-First, Zero Runtime" icon="seti:css">
-    Built entirely on CSS custom properties and `@layer` cascade ordering. No JavaScript is needed for styling — your buttons, inputs, and layouts work without a framework.
+    Built entirely on CSS custom properties and `@layer` cascade ordering. No JavaScript is needed
+    for styling — your buttons, inputs, and layouts work without a framework.
   </Card>
   <Card title="Three Consumption Modes" icon="puzzle">
-    Drop in via **CDN** with human-readable classes, use as **CSS Modules** in bundled apps for scoped styles, or import **React components** with full type safety.
+    Drop in via **CDN** with human-readable classes, use as **CSS Modules** in bundled apps for
+    scoped styles, or import **React components** with full type safety.
   </Card>
   <Card title="Accessible by Default" icon="heart">
-    Every component ships WCAG 2.2 AA compliant. Focus-visible indicators, semantic HTML, `aria` attributes, and automated testing with axe-core — accessibility isn't an afterthought.
+    Every component ships WCAG 2.2 AA compliant. Focus-visible indicators, semantic HTML, `aria`
+    attributes, and automated testing with axe-core — accessibility isn't an afterthought.
   </Card>
   <Card title="Modern CSS" icon="star">
-    CSS nesting, `light-dark()` for automatic dark mode, `@layer` for predictable cascade, container queries, and `@scope` — built for how CSS works today.
+    CSS nesting, `light-dark()` for automatic dark mode, `@layer` for predictable cascade, container
+    queries, and `@scope` — built for how CSS works today.
   </Card>
 </CardGrid>
 
@@ -66,6 +70,7 @@ Choose the integration that fits your project:
       Get Started
     </button>
     ```
+
   </TabItem>
   <TabItem label="CSS Modules">
     Import as CSS Modules for scoped class names in bundled applications.
@@ -77,6 +82,7 @@ Choose the integration that fits your project:
     btn.className = classes["pm-btn"] + " " + classes["pm-btn--primary"]
     btn.textContent = "Get Started"
     ```
+
   </TabItem>
   <TabItem label="React">
     Import typed React components with full prop autocompletion.
@@ -88,6 +94,7 @@ Choose the integration that fits your project:
       return <Btn variant="primary" size="md">Get Started</Btn>
     }
     ```
+
   </TabItem>
 </Tabs>
 
@@ -99,16 +106,20 @@ Choose the integration that fits your project:
 
 <CardGrid>
   <Card title="Minimal by Design">
-    Every component does one thing well. No bloated bundles, no hidden dependencies, no surprise side effects. Ship only what you use.
+    Every component does one thing well. No bloated bundles, no hidden dependencies, no surprise
+    side effects. Ship only what you use.
   </Card>
   <Card title="Composable">
-    Tokens feed into components, components combine into patterns. Override any layer without fighting specificity wars.
+    Tokens feed into components, components combine into patterns. Override any layer without
+    fighting specificity wars.
   </Card>
   <Card title="Progressive Enhancement">
-    Starts with semantic HTML and CSS. Layer on JavaScript interactivity only when needed. Works without JS, shines with it.
+    Starts with semantic HTML and CSS. Layer on JavaScript interactivity only when needed. Works
+    without JS, shines with it.
   </Card>
   <Card title="Themeable">
-    Swap design tokens at the root level to re-skin everything. Built-in `light-dark()` support means dark mode with one CSS property.
+    Swap design tokens at the root level to re-skin everything. Built-in `light-dark()` support
+    means dark mode with one CSS property.
   </Card>
 </CardGrid>
 
@@ -119,10 +130,26 @@ Choose the integration that fits your project:
 ## Start Building
 
 <CardGrid>
-  <LinkCard title="Installation" href="/getting-started/installation/" description="Set up Paramanu in your project in under a minute." />
-  <LinkCard title="Btn Component" href="/components/button/" description="Explore the Btn — variants, sizes, accessibility, and live editor." />
-  <LinkCard title="Design Tokens" href="/tokens/colors/" description="Colors, spacing, and typography tokens that power every component." />
-  <LinkCard title="React Storybook" href="/storybook/react/" description="Interactive component playground with all variants and states." />
+  <LinkCard
+    title="Installation"
+    href="/getting-started/installation/"
+    description="Set up Paramanu in your project in under a minute."
+  />
+  <LinkCard
+    title="Btn Component"
+    href="/components/button/"
+    description="Explore the Btn — variants, sizes, accessibility, and live editor."
+  />
+  <LinkCard
+    title="Design Tokens"
+    href="/tokens/colors/"
+    description="Colors, spacing, and typography tokens that power every component."
+  />
+  <LinkCard
+    title="React Storybook"
+    href="/storybook/react/"
+    description="Interactive component playground with all variants and states."
+  />
 </CardGrid>
 
 </section>

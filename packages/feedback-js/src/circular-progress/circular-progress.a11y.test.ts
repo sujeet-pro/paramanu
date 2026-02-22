@@ -13,17 +13,13 @@ function createRingProgressHTML(
 
 describe("circular progress accessibility", () => {
   it("has role=progressbar", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createRingProgressHTML()}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createRingProgressHTML()}</body>`)
     const el = dom.window.document.querySelector(".pm-ring-progress")
     expect(el?.getAttribute("role")).toBe("progressbar")
   })
 
   it("has aria-valuenow, aria-valuemin, and aria-valuemax", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createRingProgressHTML(75)}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createRingProgressHTML(75)}</body>`)
     const el = dom.window.document.querySelector(".pm-ring-progress")
     expect(el?.getAttribute("aria-valuenow")).toBe("75")
     expect(el?.getAttribute("aria-valuemin")).toBe("0")
@@ -31,9 +27,7 @@ describe("circular progress accessibility", () => {
   })
 
   it("contains SVG element", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createRingProgressHTML()}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createRingProgressHTML()}</body>`)
     const svg = dom.window.document.querySelector(".pm-ring-progress svg")
     expect(svg).not.toBeNull()
     expect(svg?.tagName.toLowerCase()).toBe("svg")

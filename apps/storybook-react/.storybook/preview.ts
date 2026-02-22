@@ -37,7 +37,13 @@ const DARK_THEMES = new Set(
     .map(([k]) => k),
 )
 
-const THEME_CLASSES = [...new Set(Object.values(THEME_MAP).map((t) => t.className).filter(Boolean))]
+const THEME_CLASSES = [
+  ...new Set(
+    Object.values(THEME_MAP)
+      .map((t) => t.className)
+      .filter(Boolean),
+  ),
+]
 
 function getInitialThemeKey(): string {
   const params = new URLSearchParams(window.location.search)

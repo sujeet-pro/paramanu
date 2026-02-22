@@ -8,11 +8,11 @@ Apply when writing unit tests, accessibility tests, or React component tests in 
 
 ### File Naming
 
-| Test Type | Location | Naming |
-|---|---|---|
-| Class builder unit tests | `packages/<group>-js/src/<component>/` | `<component>.test.ts` |
-| Accessibility tests | `packages/<group>-js/src/<component>/` | `<component>.a11y.test.ts` |
-| React component tests | `packages/<group>-react/src/<component>/` | `<component>.test.tsx` |
+| Test Type                | Location                                  | Naming                     |
+| ------------------------ | ----------------------------------------- | -------------------------- |
+| Class builder unit tests | `packages/<group>-js/src/<component>/`    | `<component>.test.ts`      |
+| Accessibility tests      | `packages/<group>-js/src/<component>/`    | `<component>.a11y.test.ts` |
+| React component tests    | `packages/<group>-react/src/<component>/` | `<component>.test.tsx`     |
 
 ### Test Structure
 
@@ -48,6 +48,7 @@ Test the `<component>Classes()` and `<component>ModuleClasses()` functions exhau
 For every component, test ALL of the following:
 
 #### Defaults
+
 ```typescript
 it("returns default classes", () => {
   const result = buttonClasses()
@@ -56,6 +57,7 @@ it("returns default classes", () => {
 ```
 
 #### Every Variant Value
+
 ```typescript
 it("applies each variant", () => {
   expect(buttonClasses({ variant: "primary" })).toContain("pm-button--primary")
@@ -66,6 +68,7 @@ it("applies each variant", () => {
 ```
 
 #### Every Size Value
+
 ```typescript
 it("applies each size", () => {
   expect(buttonClasses({ size: "sm" })).toContain("pm-button--sm")
@@ -75,6 +78,7 @@ it("applies each size", () => {
 ```
 
 #### Every Boolean Modifier (true AND false)
+
 ```typescript
 it("applies disabled modifier", () => {
   expect(buttonClasses({ disabled: true })).toContain("pm-button--disabled")
@@ -83,6 +87,7 @@ it("applies disabled modifier", () => {
 ```
 
 #### Combined Options
+
 ```typescript
 it("combines multiple options correctly", () => {
   const result = buttonClasses({
@@ -98,6 +103,7 @@ it("combines multiple options correctly", () => {
 ```
 
 #### Base Class Always Present
+
 ```typescript
 it("always includes base class first", () => {
   expect(buttonClasses()).toMatch(/^pm-button\s/)
@@ -156,6 +162,7 @@ function createAlertHTML(
 ### Required A11y Test Cases
 
 #### Correct Semantic Element
+
 ```typescript
 it("renders as correct semantic element", () => {
   const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertHTML("Info")}</body>`)
@@ -165,6 +172,7 @@ it("renders as correct semantic element", () => {
 ```
 
 #### ARIA Attributes
+
 ```typescript
 it("has correct ARIA role", () => {
   const dom = new JSDOM(...)
@@ -174,6 +182,7 @@ it("has correct ARIA role", () => {
 ```
 
 #### Disabled State
+
 ```typescript
 it("disabled state has aria-disabled", () => {
   const html = createButtonHTML("Click", { disabled: true })
@@ -184,6 +193,7 @@ it("disabled state has aria-disabled", () => {
 ```
 
 #### Accessible Name
+
 ```typescript
 it("has accessible text content", () => {
   const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertHTML("Error occurred")}</body>`)
@@ -193,6 +203,7 @@ it("has accessible text content", () => {
 ```
 
 #### aria-label Support for Icon-Only Elements
+
 ```typescript
 it("supports aria-label for icon-only usage", () => {
   const html = createButtonHTML("X", {}, 'aria-label="Close dialog"')
@@ -259,6 +270,7 @@ Test with `@testing-library/react`. Focus on behavior, not implementation detail
 For every React component, test ALL of the following:
 
 #### Renders with Content
+
 ```typescript
 it("renders with text content", () => {
   render(<Button>Click me</Button>)
@@ -267,6 +279,7 @@ it("renders with text content", () => {
 ```
 
 #### Applies Default Classes
+
 ```typescript
 it("applies default classes", () => {
   render(<Button>Default</Button>)
@@ -278,6 +291,7 @@ it("applies default classes", () => {
 ```
 
 #### Variant/Size/Modifier Props
+
 ```typescript
 it("applies variant class", () => {
   render(<Button variant="danger">Danger</Button>)
@@ -286,6 +300,7 @@ it("applies variant class", () => {
 ```
 
 #### Forwards Ref
+
 ```typescript
 it("forwards ref", () => {
   let ref: HTMLButtonElement | null = null
@@ -295,6 +310,7 @@ it("forwards ref", () => {
 ```
 
 #### Merges Custom className
+
 ```typescript
 it("merges custom className", () => {
   render(<Button className="custom">Custom</Button>)
@@ -305,6 +321,7 @@ it("merges custom className", () => {
 ```
 
 #### Passes Through HTML Attributes
+
 ```typescript
 it("passes through data attributes", () => {
   render(<Button data-testid="my-button">Test</Button>)
@@ -313,6 +330,7 @@ it("passes through data attributes", () => {
 ```
 
 #### Disabled State
+
 ```typescript
 it("sets disabled and aria-disabled", () => {
   render(<Button disabled>Disabled</Button>)
@@ -323,6 +341,7 @@ it("sets disabled and aria-disabled", () => {
 ```
 
 #### Event Handlers
+
 ```typescript
 it("calls onClick handler", async () => {
   const onClick = vi.fn()
@@ -342,6 +361,7 @@ it("does not call onClick when disabled", async () => {
 ### Query Priority
 
 Follow Testing Library's query priority:
+
 1. `getByRole` (preferred for a11y)
 2. `getByLabelText` (form inputs)
 3. `getByText` (text content)
@@ -400,16 +420,17 @@ export const ClickInteraction: Story = {
 
 ### Minimum Required Coverage Per Component
 
-| Test Type | What Must Be Covered |
-|---|---|
-| Class builder | All variants, all sizes, all boolean modifiers (true + false), combinations, base class presence |
-| Module classes | Mapped defaults, each variant, missing map entries |
-| Accessibility | Semantic element, ARIA role, ARIA attributes, disabled state, accessible name, aria-label support |
+| Test Type       | What Must Be Covered                                                                                             |
+| --------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Class builder   | All variants, all sizes, all boolean modifiers (true + false), combinations, base class presence                 |
+| Module classes  | Mapped defaults, each variant, missing map entries                                                               |
+| Accessibility   | Semantic element, ARIA role, ARIA attributes, disabled state, accessible name, aria-label support                |
 | React component | Rendering, default classes, each prop, ref forwarding, className merge, HTML passthrough, disabled state, events |
 
 ### Combination Matrix
 
 For components with multiple axes (variant x size), test at least:
+
 - Each variant with default size
 - Each size with default variant
 - At least one non-default combination (e.g., `danger` + `lg` + `disabled`)
@@ -435,6 +456,7 @@ afterEach(cleanup)
 ### Vitest Configuration
 
 Each package has its own `vitest.config.ts`:
+
 ```typescript
 import { defineConfig } from "vitest/config"
 

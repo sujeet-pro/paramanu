@@ -14,9 +14,7 @@ import type {
   TreeIndicatorClassesOptions,
 } from "@paramanu/navigation-js"
 
-export interface ReactTreeProps
-  extends TreeClassesOptions,
-    React.HTMLAttributes<HTMLUListElement> {
+export interface ReactTreeProps extends TreeClassesOptions, React.HTMLAttributes<HTMLUListElement> {
   children?: React.ReactNode
 }
 
@@ -34,46 +32,40 @@ export const Tree = forwardRef<HTMLUListElement, ReactTreeProps>(function Tree(
 })
 
 export interface ReactTreeBranchProps
-  extends TreeBranchClassesOptions,
-    React.LiHTMLAttributes<HTMLLIElement> {
+  extends TreeBranchClassesOptions, React.LiHTMLAttributes<HTMLLIElement> {
   children?: React.ReactNode
 }
 
-export const TreeBranch = forwardRef<HTMLLIElement, ReactTreeBranchProps>(
-  function TreeBranch({ expanded, className, children, ...rest }, ref) {
-    const classes = treeViewBranchClasses({ expanded })
-    const combinedClassName = className ? `${classes} ${className}` : classes
-    return (
-      <li
-        ref={ref}
-        role="treeitem"
-        aria-expanded={expanded}
-        className={combinedClassName}
-        {...rest}
-      >
-        {children}
-      </li>
-    )
-  },
-)
+export const TreeBranch = forwardRef<HTMLLIElement, ReactTreeBranchProps>(function TreeBranch(
+  { expanded, className, children, ...rest },
+  ref,
+) {
+  const classes = treeViewBranchClasses({ expanded })
+  const combinedClassName = className ? `${classes} ${className}` : classes
+  return (
+    <li ref={ref} role="treeitem" aria-expanded={expanded} className={combinedClassName} {...rest}>
+      {children}
+    </li>
+  )
+})
 
 export interface ReactTreeItemProps
-  extends TreeItemClassesOptions,
-    React.LiHTMLAttributes<HTMLLIElement> {
+  extends TreeItemClassesOptions, React.LiHTMLAttributes<HTMLLIElement> {
   children?: React.ReactNode
 }
 
-export const TreeItem = forwardRef<HTMLLIElement, ReactTreeItemProps>(
-  function TreeItem({ selected, disabled, className, children, ...rest }, ref) {
-    const classes = treeItemClasses({ selected, disabled })
-    const combinedClassName = className ? `${classes} ${className}` : classes
-    return (
-      <li ref={ref} role="treeitem" className={combinedClassName} {...rest}>
-        {children}
-      </li>
-    )
-  },
-)
+export const TreeItem = forwardRef<HTMLLIElement, ReactTreeItemProps>(function TreeItem(
+  { selected, disabled, className, children, ...rest },
+  ref,
+) {
+  const classes = treeItemClasses({ selected, disabled })
+  const combinedClassName = className ? `${classes} ${className}` : classes
+  return (
+    <li ref={ref} role="treeitem" className={combinedClassName} {...rest}>
+      {children}
+    </li>
+  )
+})
 
 export interface ReactTreeItemContentProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
@@ -92,8 +84,7 @@ export const TreeItemContent = forwardRef<HTMLDivElement, ReactTreeItemContentPr
 )
 
 export interface ReactTreeIndicatorProps
-  extends TreeIndicatorClassesOptions,
-    React.HTMLAttributes<HTMLSpanElement> {}
+  extends TreeIndicatorClassesOptions, React.HTMLAttributes<HTMLSpanElement> {}
 
 export const TreeIndicator = forwardRef<HTMLSpanElement, ReactTreeIndicatorProps>(
   function TreeIndicator({ expanded, className, ...rest }, ref) {
@@ -107,14 +98,15 @@ export interface ReactTreeGroupProps extends React.HTMLAttributes<HTMLUListEleme
   children?: React.ReactNode
 }
 
-export const TreeGroup = forwardRef<HTMLUListElement, ReactTreeGroupProps>(
-  function TreeGroup({ className, children, ...rest }, ref) {
-    const classes = treeViewGroupClasses()
-    const combinedClassName = className ? `${classes} ${className}` : classes
-    return (
-      <ul ref={ref} role="group" className={combinedClassName} {...rest}>
-        {children}
-      </ul>
-    )
-  },
-)
+export const TreeGroup = forwardRef<HTMLUListElement, ReactTreeGroupProps>(function TreeGroup(
+  { className, children, ...rest },
+  ref,
+) {
+  const classes = treeViewGroupClasses()
+  const combinedClassName = className ? `${classes} ${className}` : classes
+  return (
+    <ul ref={ref} role="group" className={combinedClassName} {...rest}>
+      {children}
+    </ul>
+  )
+})

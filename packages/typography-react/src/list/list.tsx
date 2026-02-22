@@ -3,8 +3,7 @@ import { listClasses } from "@paramanu/typography-js"
 import type { ListClassesOptions } from "@paramanu/typography-js"
 
 export interface ReactListProps
-  extends ListClassesOptions,
-    React.HTMLAttributes<HTMLUListElement | HTMLOListElement> {
+  extends ListClassesOptions, React.HTMLAttributes<HTMLUListElement | HTMLOListElement> {
   children?: React.ReactNode
 }
 

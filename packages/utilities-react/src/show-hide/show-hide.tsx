@@ -10,8 +10,7 @@ import type { ShowHideClassesOptions } from "@paramanu/utilities-js"
  * in the DOM when hidden, preserving state and scroll position.
  */
 export interface ReactShowHideProps
-  extends ShowHideClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends ShowHideClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   /** Content to show or hide. */
   children?: React.ReactNode
 }

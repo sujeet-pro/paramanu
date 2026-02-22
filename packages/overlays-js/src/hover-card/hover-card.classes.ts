@@ -1,7 +1,4 @@
-import type {
-  HovercardClassesOptions,
-  HovercardArrowClassesOptions,
-} from "./hover-card.types.js"
+import type { HovercardClassesOptions, HovercardArrowClassesOptions } from "./hover-card.types.js"
 
 const BASE = "pm-hovercard"
 

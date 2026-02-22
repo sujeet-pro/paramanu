@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Blockquote displays quoted text with optional citation attribution. Supports default, accent, and filled variants.
@@ -50,25 +50,25 @@ Uses the semantic `<blockquote>` element. The `cite` prop renders a `<cite>` chi
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `"default" \| "accent" \| "filled"` | `"default"` | Visual variant |
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size |
-| `color` | `"primary" \| "neutral" \| "danger" \| "success" \| "warning" \| "info"` | -- | Accent color |
-| `cite` | `ReactNode` | -- | Attribution text |
-| `citeUrl` | `string` | -- | Source URL |
-| `withIcon` | `boolean` | `false` | Decorative quote icon |
+| Prop       | Type                                                                     | Default     | Description           |
+| ---------- | ------------------------------------------------------------------------ | ----------- | --------------------- |
+| `variant`  | `"default" \| "accent" \| "filled"`                                      | `"default"` | Visual variant        |
+| `size`     | `"sm" \| "md" \| "lg"`                                                   | `"md"`      | Size                  |
+| `color`    | `"primary" \| "neutral" \| "danger" \| "success" \| "warning" \| "info"` | --          | Accent color          |
+| `cite`     | `ReactNode`                                                              | --          | Attribution text      |
+| `citeUrl`  | `string`                                                                 | --          | Source URL            |
+| `withIcon` | `boolean`                                                                | `false`     | Decorative quote icon |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-blockquote` | Base |
+| Class                      | Purpose        |
+| -------------------------- | -------------- |
+| `pm-blockquote`            | Base           |
 | `pm-blockquote--{variant}` | Visual variant |
-| `pm-blockquote--{size}` | Size |
-| `pm-blockquote--color-{c}` | Color |
-| `pm-blockquote--with-cite` | With citation |
-| `pm-blockquote--with-icon` | With icon |
+| `pm-blockquote--{size}`    | Size           |
+| `pm-blockquote--color-{c}` | Color          |
+| `pm-blockquote--with-cite` | With citation  |
+| `pm-blockquote--with-icon` | With icon      |
 
 </TabItem>
 </Tabs>

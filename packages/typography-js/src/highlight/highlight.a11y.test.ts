@@ -5,9 +5,7 @@ import { highlightClasses } from "./highlight.classes.js"
 describe("highlight accessibility", () => {
   it("renders as a mark element", () => {
     const classes = highlightClasses()
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><mark class="${classes}">important</mark></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><mark class="${classes}">important</mark></body>`)
     const el = dom.window.document.querySelector("mark")
     expect(el).not.toBeNull()
     expect(el?.tagName).toBe("MARK")

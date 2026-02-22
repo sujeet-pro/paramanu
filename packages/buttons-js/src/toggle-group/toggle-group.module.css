@@ -63,9 +63,7 @@
     border-bottom-right-radius: var(--pm-toggle-grp-radius);
   }
 
-  .pm-toggle-grp--attached.pm-toggle-grp--horizontal
-    > .pm-toggle-grp__item
-    + .pm-toggle-grp__item {
+  .pm-toggle-grp--attached.pm-toggle-grp--horizontal > .pm-toggle-grp__item + .pm-toggle-grp__item {
     margin-left: -1px;
   }
 
@@ -79,9 +77,7 @@
     border-bottom-right-radius: var(--pm-toggle-grp-radius);
   }
 
-  .pm-toggle-grp--attached.pm-toggle-grp--vertical
-    > .pm-toggle-grp__item
-    + .pm-toggle-grp__item {
+  .pm-toggle-grp--attached.pm-toggle-grp--vertical > .pm-toggle-grp__item + .pm-toggle-grp__item {
     margin-top: -1px;
   }
 

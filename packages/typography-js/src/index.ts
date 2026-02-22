@@ -53,9 +53,4 @@ export type { TruncateLines, TruncateClassesOptions } from "./truncate/truncate.
 
 // List
 export { listClasses, listModuleClasses } from "./list/list.classes.js"
-export type {
-  ListType,
-  ListStyleType,
-  ListSpacing,
-  ListClassesOptions,
-} from "./list/list.types.js"
+export type { ListType, ListStyleType, ListSpacing, ListClassesOptions } from "./list/list.types.js"

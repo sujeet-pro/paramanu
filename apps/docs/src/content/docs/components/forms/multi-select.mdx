@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Multi Select component allows users to choose multiple values from a dropdown list.
@@ -31,32 +31,32 @@ The Multi Select component allows users to choose multiple values from a dropdow
 
 ## Accessibility
 
-| Feature | Detail |
-|---|---|
+| Feature                | Detail                              |
+| ---------------------- | ----------------------------------- |
 | `aria-multiselectable` | Listbox supports multiple selection |
-| `role="combobox"` | Trigger role |
-| Keyboard | Space/Enter toggles selection |
+| `role="combobox"`      | Trigger role                        |
+| Keyboard               | Space/Enter toggles selection       |
 
 </TabItem>
   <TabItem label="API">
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Size |
-| `invalid` | `boolean` | `false` | Invalid state |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `open` | `boolean` | `false` | Open state |
-| `fullWidth` | `boolean` | `false` | Full-width layout |
+| Prop        | Type                                  | Default     | Description       |
+| ----------- | ------------------------------------- | ----------- | ----------------- |
+| `variant`   | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant    |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg"`        | `"md"`      | Size              |
+| `invalid`   | `boolean`                             | `false`     | Invalid state     |
+| `disabled`  | `boolean`                             | `false`     | Disabled state    |
+| `open`      | `boolean`                             | `false`     | Open state        |
+| `fullWidth` | `boolean`                             | `false`     | Full-width layout |
 
 ## CSS Classes
 
-| Class | Description |
-|---|---|
-| `pm-multi-sel` | Base class |
-| `pm-multi-sel__trigger` | Trigger element |
+| Class                   | Description       |
+| ----------------------- | ----------------- |
+| `pm-multi-sel`          | Base class        |
+| `pm-multi-sel__trigger` | Trigger element   |
 | `pm-multi-sel__listbox` | Options container |
 
 </TabItem>

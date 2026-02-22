@@ -21,9 +21,7 @@ describe("truncate accessibility", () => {
   })
 
   it("has readable text content", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createTruncateHTML("Truncated content")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createTruncateHTML("Truncated content")}</body>`)
     const el = dom.window.document.querySelector("p")
     expect(el?.textContent).toBe("Truncated content")
   })

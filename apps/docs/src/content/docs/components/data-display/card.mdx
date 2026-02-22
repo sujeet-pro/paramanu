@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 A Card groups related information in a visually distinct container. It supports multiple visual variants, sizes, and layouts including horizontal orientation and media areas.
@@ -127,13 +127,13 @@ export default function App() {
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `"elevated" \| "outline" \| "filled" \| "ghost"` | `"elevated"` | Visual style variant |
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Controls internal padding |
-| `interactive` | `boolean` | `false` | Enables hover/focus interactions |
-| `fullWidth` | `boolean` | `false` | Stretches to fill parent width |
-| `horizontal` | `boolean` | `false` | Horizontal (row) layout |
+| Prop          | Type                                             | Default      | Description                      |
+| ------------- | ------------------------------------------------ | ------------ | -------------------------------- |
+| `variant`     | `"elevated" \| "outline" \| "filled" \| "ghost"` | `"elevated"` | Visual style variant             |
+| `size`        | `"sm" \| "md" \| "lg"`                           | `"md"`       | Controls internal padding        |
+| `interactive` | `boolean`                                        | `false`      | Enables hover/focus interactions |
+| `fullWidth`   | `boolean`                                        | `false`      | Stretches to fill parent width   |
+| `horizontal`  | `boolean`                                        | `false`      | Horizontal (row) layout          |
 
 ## Sub-components
 
@@ -144,18 +144,18 @@ export default function App() {
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-card` | Base card class |
-| `pm-card--{variant}` | Variant modifier |
-| `pm-card--{size}` | Size modifier |
-| `pm-card--interactive` | Interactive state |
-| `pm-card--full-width` | Full width modifier |
-| `pm-card--horizontal` | Horizontal layout |
-| `pm-card__header` | Header element |
-| `pm-card__body` | Body element |
-| `pm-card__footer` | Footer element |
-| `pm-card__media` | Media element |
+| Class                  | Description         |
+| ---------------------- | ------------------- |
+| `pm-card`              | Base card class     |
+| `pm-card--{variant}`   | Variant modifier    |
+| `pm-card--{size}`      | Size modifier       |
+| `pm-card--interactive` | Interactive state   |
+| `pm-card--full-width`  | Full width modifier |
+| `pm-card--horizontal`  | Horizontal layout   |
+| `pm-card__header`      | Header element      |
+| `pm-card__body`        | Body element        |
+| `pm-card__footer`      | Footer element      |
+| `pm-card__media`       | Media element       |
 
 </TabItem>
 </Tabs>

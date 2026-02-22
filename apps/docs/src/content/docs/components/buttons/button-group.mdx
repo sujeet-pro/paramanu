@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Groups related buttons together with consistent spacing, optional attached borders, and horizontal or vertical layout.
@@ -105,22 +105,22 @@ export default function App() {
 
 Extends all native `<div>` HTML attributes.
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout direction |
-| `attached` | `boolean` | `false` | Merge button borders |
-| `fullWidth` | `boolean` | `false` | Stretch to container width |
-| `children` | `ReactNode` | -- | Btn elements |
+| Prop          | Type                         | Default        | Description                |
+| ------------- | ---------------------------- | -------------- | -------------------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout direction           |
+| `attached`    | `boolean`                    | `false`        | Merge button borders       |
+| `fullWidth`   | `boolean`                    | `false`        | Stretch to container width |
+| `children`    | `ReactNode`                  | --             | Btn elements               |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-btn-group` | Base styles |
+| Class                      | Purpose           |
+| -------------------------- | ----------------- |
+| `pm-btn-group`             | Base styles       |
 | `pm-btn-group--horizontal` | Horizontal layout |
-| `pm-btn-group--vertical` | Vertical layout |
-| `pm-btn-group--attached` | Merged borders |
-| `pm-btn-group--full-width` | Full width |
+| `pm-btn-group--vertical`   | Vertical layout   |
+| `pm-btn-group--attached`   | Merged borders    |
+| `pm-btn-group--full-width` | Full width        |
 
 </TabItem>
 </Tabs>

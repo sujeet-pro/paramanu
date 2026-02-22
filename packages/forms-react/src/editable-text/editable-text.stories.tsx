@@ -33,7 +33,9 @@ export const Playground: Story = {
 export const Editing: Story = {
   args: {
     editing: true,
-    children: <input className="pm-input pm-input--outline pm-input--md" defaultValue="Editing mode" />,
+    children: (
+      <input className="pm-input pm-input--outline pm-input--md" defaultValue="Editing mode" />
+    ),
   },
 }
 

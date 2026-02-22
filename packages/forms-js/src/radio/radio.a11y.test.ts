@@ -72,9 +72,7 @@ describe("radio accessibility", () => {
   })
 
   it("supports name attribute for grouping", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createRadioHTML("A", {}, 'name="color"')}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createRadioHTML("A", {}, 'name="color"')}</body>`)
     const input = dom.window.document.querySelector("input")
     expect(input?.getAttribute("name")).toBe("color")
   })
@@ -89,18 +87,14 @@ describe("radio accessibility", () => {
 describe("radio group accessibility", () => {
   it("renders with role=radiogroup", () => {
     const radios = createRadioHTML("A") + createRadioHTML("B")
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createRadioGroupHTML(radios)}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createRadioGroupHTML(radios)}</body>`)
     const group = dom.window.document.querySelector('[role="radiogroup"]')
     expect(group).not.toBeNull()
   })
 
   it("contains radio inputs", () => {
     const radios = createRadioHTML("A") + createRadioHTML("B")
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createRadioGroupHTML(radios)}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createRadioGroupHTML(radios)}</body>`)
     const inputs = dom.window.document.querySelectorAll('input[type="radio"]')
     expect(inputs.length).toBe(2)
   })

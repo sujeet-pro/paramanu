@@ -33,11 +33,7 @@ export function iconModuleClasses(
 ): string {
   const { size = "md", color = "inherit", spin = false } = options
 
-  const classes = [
-    classMap["pm-icon"],
-    classMap[`pm-icon--${size}`],
-    classMap[`pm-icon--${color}`],
-  ]
+  const classes = [classMap["pm-icon"], classMap[`pm-icon--${size}`], classMap[`pm-icon--${color}`]]
 
   if (spin) classes.push(classMap["pm-icon--spin"])
 

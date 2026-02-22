@@ -16,41 +16,47 @@ export interface ReactCollapsibleProps extends React.HTMLAttributes<HTMLDivEleme
   children?: React.ReactNode
 }
 
-export const Collapsible = forwardRef<HTMLDivElement, ReactCollapsibleProps>(
-  function Collapsible(
-    { open: controlledOpen, defaultOpen = false, onOpenChange, disabled = false, size = "md", className, children, ...rest },
-    ref,
-  ) {
-    const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen)
-    const isControlled = controlledOpen !== undefined
-    const isOpen = isControlled ? controlledOpen : uncontrolledOpen
-
-    const uniqueId = useId()
-    const contentId = `pm-collapsible-content-${uniqueId}`
-    const triggerId = `pm-collapsible-trigger-${uniqueId}`
-
-    const toggle = useCallback(() => {
-      if (disabled) return
-      const next = !isOpen
-      if (!isControlled) setUncontrolledOpen(next)
-      onOpenChange?.(next)
-    }, [disabled, isOpen, isControlled, onOpenChange])
-
-    const classes = collapsibleClasses({ open: isOpen, disabled, size })
-    const combinedClassName = className ? `${classes} ${className}` : classes
-
-    return (
-      <CollapsibleContext.Provider value={{ isOpen, toggle, disabled, size, contentId, triggerId }}>
-        <div ref={ref} className={combinedClassName} {...rest}>
-          {children}
-        </div>
-      </CollapsibleContext.Provider>
-    )
+export const Collapsible = forwardRef<HTMLDivElement, ReactCollapsibleProps>(function Collapsible(
+  {
+    open: controlledOpen,
+    defaultOpen = false,
+    onOpenChange,
+    disabled = false,
+    size = "md",
+    className,
+    children,
+    ...rest
   },
-)
+  ref,
+) {
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen)
+  const isControlled = controlledOpen !== undefined
+  const isOpen = isControlled ? controlledOpen : uncontrolledOpen
 
-export interface ReactCollapsibleTriggerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  const uniqueId = useId()
+  const contentId = `pm-collapsible-content-${uniqueId}`
+  const triggerId = `pm-collapsible-trigger-${uniqueId}`
+
+  const toggle = useCallback(() => {
+    if (disabled) return
+    const next = !isOpen
+    if (!isControlled) setUncontrolledOpen(next)
+    onOpenChange?.(next)
+  }, [disabled, isOpen, isControlled, onOpenChange])
+
+  const classes = collapsibleClasses({ open: isOpen, disabled, size })
+  const combinedClassName = className ? `${classes} ${className}` : classes
+
+  return (
+    <CollapsibleContext.Provider value={{ isOpen, toggle, disabled, size, contentId, triggerId }}>
+      <div ref={ref} className={combinedClassName} {...rest}>
+        {children}
+      </div>
+    </CollapsibleContext.Provider>
+  )
+})
+
+export interface ReactCollapsibleTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
 }
 

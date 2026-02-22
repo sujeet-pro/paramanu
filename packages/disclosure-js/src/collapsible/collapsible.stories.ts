@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { collapsibleClasses, collapsibleTriggerClasses, collapsibleContentClasses } from "./collapsible.classes.js"
+import {
+  collapsibleClasses,
+  collapsibleTriggerClasses,
+  collapsibleContentClasses,
+} from "./collapsible.classes.js"
 import type { CollapsibleClassesOptions } from "./collapsible.types.js"
 
 interface CollapsibleArgs extends CollapsibleClassesOptions {}
@@ -9,7 +13,11 @@ function createCollapsible(args: CollapsibleArgs): HTMLElement {
   root.className = collapsibleClasses(args)
 
   const trigger = document.createElement("button")
-  trigger.className = collapsibleTriggerClasses({ open: args.open, disabled: args.disabled, size: args.size })
+  trigger.className = collapsibleTriggerClasses({
+    open: args.open,
+    disabled: args.disabled,
+    size: args.size,
+  })
   trigger.type = "button"
   trigger.textContent = "Toggle Content"
   trigger.setAttribute("aria-expanded", String(args.open ?? false))

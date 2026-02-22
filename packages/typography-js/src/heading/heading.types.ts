@@ -14,7 +14,15 @@ export type HeadingAlign = "left" | "center" | "right"
 export type HeadingLineHeight = "tight" | "normal" | "relaxed"
 
 /** Semantic color options for headings */
-export type HeadingColor = "default" | "muted" | "dimmed" | "primary" | "danger" | "success" | "warning" | "info"
+export type HeadingColor =
+  | "default"
+  | "muted"
+  | "dimmed"
+  | "primary"
+  | "danger"
+  | "success"
+  | "warning"
+  | "info"
 
 export interface HeadingClassesOptions {
   /** Semantic heading level (1-6). Determines the HTML tag (h1-h6). Defaults to 2. */

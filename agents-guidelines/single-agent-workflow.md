@@ -19,6 +19,7 @@ When a single agent works on a component or feature, it MUST create an implement
 When implementing a new component from scratch, create a plan with these steps **in this exact order**:
 
 ### Step 1: Research
+
 **Guideline**: `agents-guidelines/component-api-research.md`
 
 - Survey Tier 1 design systems (Ant Design, MUI, Carbon, Chakra, Radix, Mantine)
@@ -29,6 +30,7 @@ When implementing a new component from scratch, create a plan with these steps *
 - **Gate**: Do not proceed until requirements are approved
 
 ### Step 2: Implement JS Package
+
 **Guideline**: `agents-guidelines/writing-code.md`
 
 - Create types file (`*.types.ts`) with JSDoc on every type and prop
@@ -38,6 +40,7 @@ When implementing a new component from scratch, create a plan with these steps *
 - Export from package index (`src/index.ts`)
 
 ### Step 3: Implement React Package
+
 **Guideline**: `agents-guidelines/writing-code.md`
 
 - Create React component (`*.tsx`) with `forwardRef`, className merge, rest spread
@@ -45,6 +48,7 @@ When implementing a new component from scratch, create a plan with these steps *
 - Export from package index
 
 ### Step 4: Write Tests
+
 **Guideline**: `agents-guidelines/writing-tests.md`
 
 - Class builder unit tests (`*.test.ts`) — all variants, sizes, modifiers, combinations
@@ -52,6 +56,7 @@ When implementing a new component from scratch, create a plan with these steps *
 - React component tests (`*.test.tsx`) — rendering, props, ref, className, disabled, events
 
 ### Step 5: Write Stories
+
 **Guideline**: `agents-guidelines/writing-stories.md`
 
 - Vanilla stories (`*.stories.ts` in `-js` package)
@@ -60,6 +65,7 @@ When implementing a new component from scratch, create a plan with these steps *
 - Play functions for interaction tests
 
 ### Step 6: Update Themes
+
 **Guideline**: `agents-guidelines/theming.md`
 
 - Verify component renders correctly in all 5 pre-built themes + default
@@ -67,6 +73,7 @@ When implementing a new component from scratch, create a plan with these steps *
 - Test in Storybook theme switcher
 
 ### Step 7: Write Documentation
+
 **Guideline**: `agents-guidelines/writing-docs.md`
 
 - Create MDX file with 3 tabs: Usage, Guidelines, API
@@ -74,7 +81,9 @@ When implementing a new component from scratch, create a plan with these steps *
 - Add to Starlight sidebar
 
 ### Step 8: Verify
+
 Run full verification:
+
 ```bash
 pnpm build && pnpm test && pnpm typecheck && pnpm lint
 ```
@@ -86,6 +95,7 @@ pnpm build && pnpm test && pnpm typecheck && pnpm lint
 When modifying an existing component, the plan adapts based on what changed:
 
 ### Adding a new prop/variant
+
 1. **Code** (`writing-code.md`): Update types, class builder, CSS
 2. **Tests** (`writing-tests.md`): Add test cases for the new prop/variant
 3. **Stories** (`writing-stories.md`): Add stories for the new prop/variant
@@ -94,12 +104,14 @@ When modifying an existing component, the plan adapts based on what changed:
 6. **Verify**: `pnpm build && pnpm test && pnpm typecheck`
 
 ### Fixing a bug
+
 1. **Reproduce**: Write a failing test first
 2. **Fix** (`writing-code.md`): Apply the fix
 3. **Verify**: Run tests, check all themes
 4. **Update**: Stories/docs if behavior changed
 
 ### Refactoring
+
 1. **Code** (`writing-code.md`): Refactor with no API changes
 2. **Tests** (`writing-tests.md`): All existing tests must still pass
 3. **Consistency** (`consistency-review.md`): Verify refactored code follows patterns
@@ -130,7 +142,9 @@ When creating a plan, use this structure:
 # Implementation Plan: [Component/Feature Name]
 
 ## Step 1: Research
+
 **Guideline**: `agents-guidelines/component-api-research.md`
+
 - [ ] Survey design systems
 - [ ] Build comparison matrix
 - [ ] Design API
@@ -138,7 +152,9 @@ When creating a plan, use this structure:
 - [ ] Get approval
 
 ## Step 2: Implement JS
+
 **Guideline**: `agents-guidelines/writing-code.md`
+
 - [ ] Types with JSDoc
 - [ ] Class builders
 - [ ] CSS
@@ -146,35 +162,46 @@ When creating a plan, use this structure:
 - [ ] Package exports
 
 ## Step 3: Implement React
+
 **Guideline**: `agents-guidelines/writing-code.md`
+
 - [ ] forwardRef component
 - [ ] Package exports
 
 ## Step 4: Tests
+
 **Guideline**: `agents-guidelines/writing-tests.md`
+
 - [ ] Class builder tests
 - [ ] A11y tests (JSDOM + axe)
 - [ ] React tests
 
 ## Step 5: Stories
+
 **Guideline**: `agents-guidelines/writing-stories.md`
+
 - [ ] Vanilla stories
 - [ ] React stories
 - [ ] Play functions
 
 ## Step 6: Themes
+
 **Guideline**: `agents-guidelines/theming.md`
+
 - [ ] Default theme
 - [ ] All 5 pre-built themes
 - [ ] Dark mode
 
 ## Step 7: Documentation
+
 **Guideline**: `agents-guidelines/writing-docs.md`
+
 - [ ] Usage tab
 - [ ] Guidelines tab
 - [ ] API tab
 
 ## Step 8: Verify
+
 - [ ] pnpm build
 - [ ] pnpm test
 - [ ] pnpm typecheck

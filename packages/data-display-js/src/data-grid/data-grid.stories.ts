@@ -21,7 +21,10 @@ function createDatagrid(args: DatagridClassesOptions): HTMLElement {
   }
   root.appendChild(headerRow)
 
-  for (const [name, role, status] of [["Alice", "Engineer", "Active"], ["Bob", "Designer", "Away"]]) {
+  for (const [name, role, status] of [
+    ["Alice", "Engineer", "Active"],
+    ["Bob", "Designer", "Away"],
+  ]) {
     const row = document.createElement("div")
     row.className = cls.row
     row.setAttribute("role", "row")

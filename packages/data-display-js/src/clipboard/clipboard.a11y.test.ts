@@ -26,9 +26,7 @@ describe("clipboard accessibility", () => {
   })
 
   it("has aria-label reflecting copied state", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createClipboardHTML({ copied: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createClipboardHTML({ copied: true })}</body>`)
     const button = dom.window.document.querySelector("button")
     expect(button?.getAttribute("aria-label")).toBe("Copied")
   })

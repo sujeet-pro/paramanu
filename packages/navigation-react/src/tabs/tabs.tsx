@@ -1,15 +1,8 @@
 import { forwardRef } from "react"
-import {
-  tabsClasses,
-  tabListClasses,
-  tabClasses,
-  tabPanelClasses,
-} from "@paramanu/navigation-js"
+import { tabsClasses, tabListClasses, tabClasses, tabPanelClasses } from "@paramanu/navigation-js"
 import type { TabsClassesOptions, TabClassesOptions } from "@paramanu/navigation-js"
 
-export interface ReactTabsProps
-  extends TabsClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactTabsProps extends TabsClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
@@ -46,8 +39,7 @@ export const TabList = forwardRef<HTMLDivElement, ReactTabListProps>(function Ta
 })
 
 export interface ReactTabProps
-  extends TabClassesOptions,
-    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
+  extends TabClassesOptions, Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
   children?: React.ReactNode
 }
 

@@ -3,7 +3,8 @@ import { radioCardClasses } from "@paramanu/forms-js"
 import type { RadioCardProps } from "@paramanu/forms-js"
 
 export interface ReactRadioCardProps
-  extends RadioCardProps,
+  extends
+    RadioCardProps,
     Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type" | "value"> {
   children?: React.ReactNode
 }

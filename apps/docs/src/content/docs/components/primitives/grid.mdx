@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Grid provides a declarative CSS grid container with props for columns, rows, gap, alignment, and auto-flow.
@@ -61,27 +61,27 @@ export default function App() {
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `columns` | `1-12 \| "none"` | -- | Grid columns |
-| `rows` | `1-6 \| "none"` | -- | Grid rows |
-| `gap` | `SpacingScale` | -- | Gap |
-| `rowGap` | `SpacingScale` | -- | Row gap |
-| `columnGap` | `SpacingScale` | -- | Column gap |
-| `align` | `FlexAlign` | -- | Align items |
-| `justify` | `FlexJustify` | -- | Justify content |
-| `inline` | `boolean` | `false` | Inline grid |
-| `flow` | `GridFlow` | -- | Auto-flow |
+| Prop        | Type             | Default | Description     |
+| ----------- | ---------------- | ------- | --------------- |
+| `columns`   | `1-12 \| "none"` | --      | Grid columns    |
+| `rows`      | `1-6 \| "none"`  | --      | Grid rows       |
+| `gap`       | `SpacingScale`   | --      | Gap             |
+| `rowGap`    | `SpacingScale`   | --      | Row gap         |
+| `columnGap` | `SpacingScale`   | --      | Column gap      |
+| `align`     | `FlexAlign`      | --      | Align items     |
+| `justify`   | `FlexJustify`    | --      | Justify content |
+| `inline`    | `boolean`        | `false` | Inline grid     |
+| `flow`      | `GridFlow`       | --      | Auto-flow       |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-grid` | Base |
-| `pm-grid--cols-{n}` | Columns |
-| `pm-grid--rows-{n}` | Rows |
-| `pm-grid--gap-{scale}` | Gap |
-| `pm-grid--inline` | Inline grid |
+| Class                  | Purpose     |
+| ---------------------- | ----------- |
+| `pm-grid`              | Base        |
+| `pm-grid--cols-{n}`    | Columns     |
+| `pm-grid--rows-{n}`    | Rows        |
+| `pm-grid--gap-{scale}` | Gap         |
+| `pm-grid--inline`      | Inline grid |
 
 </TabItem>
 </Tabs>

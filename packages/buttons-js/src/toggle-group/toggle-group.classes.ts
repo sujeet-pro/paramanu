@@ -1,7 +1,4 @@
-import type {
-  ToggleGrpClassesOptions,
-  ToggleGrpItemClassesOptions,
-} from "./toggle-group.types.js"
+import type { ToggleGrpClassesOptions, ToggleGrpItemClassesOptions } from "./toggle-group.types.js"
 
 const BASE = "pm-toggle-grp"
 const ITEM_BASE = "pm-toggle-grp__item"

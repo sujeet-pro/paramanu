@@ -36,7 +36,9 @@ type Story = StoryObj<GroupClassesOptions>
 export const Playground: Story = {}
 export const Vertical: Story = { args: { orientation: "vertical" } }
 export const Attached: Story = { args: { attached: true, gap: undefined } }
-export const AttachedVertical: Story = { args: { attached: true, orientation: "vertical", gap: undefined } }
+export const AttachedVertical: Story = {
+  args: { attached: true, orientation: "vertical", gap: undefined },
+}
 export const WithWrap: Story = { args: { wrap: true } }
 export const Grow: Story = { args: { grow: true } }
 export const AlignCenter: Story = { args: { align: "center" } }

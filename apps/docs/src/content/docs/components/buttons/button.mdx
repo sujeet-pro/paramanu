@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 A polymorphic button component supporting six visual variants, five sizes, loading state with spinner, and left/right icon slots.
@@ -142,12 +142,12 @@ export default function App() {
 
 ## Do's and Don'ts
 
-| Do | Don't |
-|---|---|
-| Use `variant="danger"` for destructive actions | Style primary buttons red with custom CSS |
-| Disable buttons when action is unavailable | Hide buttons and confuse users |
-| Use `fullWidth` for mobile or single-action layouts | Use `fullWidth` for every button |
-| Provide `aria-label` when using icon-only buttons | Leave icon-only buttons without accessible names |
+| Do                                                  | Don't                                            |
+| --------------------------------------------------- | ------------------------------------------------ |
+| Use `variant="danger"` for destructive actions      | Style primary buttons red with custom CSS        |
+| Disable buttons when action is unavailable          | Hide buttons and confuse users                   |
+| Use `fullWidth` for mobile or single-action layouts | Use `fullWidth` for every button                 |
+| Provide `aria-label` when using icon-only buttons   | Leave icon-only buttons without accessible names |
 
 </TabItem>
 
@@ -157,42 +157,42 @@ export default function App() {
 
 The `Btn` component extends all native `<button>` HTML attributes.
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `"primary" \| "secondary" \| "danger" \| "ghost" \| "outline" \| "link"` | `"primary"` | Visual style variant |
-| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Size preset |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `fullWidth` | `boolean` | `false` | Stretch to container width |
-| `loading` | `boolean` | `false` | Loading state with spinner |
-| `active` | `boolean` | `false` | Active/pressed visual state |
-| `loadingText` | `string` | -- | Text shown alongside spinner |
-| `spinnerPlacement` | `"start" \| "end"` | `"start"` | Spinner position relative to text |
-| `type` | `"button" \| "submit" \| "reset"` | `"button"` | HTML button type |
-| `leftIcon` | `ReactNode` | -- | Icon before label |
-| `rightIcon` | `ReactNode` | -- | Icon after label |
-| `spinner` | `ReactNode` | -- | Custom spinner element |
-| `children` | `ReactNode` | -- | Btn content |
+| Prop               | Type                                                                     | Default     | Description                       |
+| ------------------ | ------------------------------------------------------------------------ | ----------- | --------------------------------- |
+| `variant`          | `"primary" \| "secondary" \| "danger" \| "ghost" \| "outline" \| "link"` | `"primary"` | Visual style variant              |
+| `size`             | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`                                   | `"md"`      | Size preset                       |
+| `disabled`         | `boolean`                                                                | `false`     | Disabled state                    |
+| `fullWidth`        | `boolean`                                                                | `false`     | Stretch to container width        |
+| `loading`          | `boolean`                                                                | `false`     | Loading state with spinner        |
+| `active`           | `boolean`                                                                | `false`     | Active/pressed visual state       |
+| `loadingText`      | `string`                                                                 | --          | Text shown alongside spinner      |
+| `spinnerPlacement` | `"start" \| "end"`                                                       | `"start"`   | Spinner position relative to text |
+| `type`             | `"button" \| "submit" \| "reset"`                                        | `"button"`  | HTML button type                  |
+| `leftIcon`         | `ReactNode`                                                              | --          | Icon before label                 |
+| `rightIcon`        | `ReactNode`                                                              | --          | Icon after label                  |
+| `spinner`          | `ReactNode`                                                              | --          | Custom spinner element            |
+| `children`         | `ReactNode`                                                              | --          | Btn content                       |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-btn` | Base button styles |
-| `pm-btn--primary` | Primary variant |
-| `pm-btn--secondary` | Secondary variant |
-| `pm-btn--danger` | Danger variant |
-| `pm-btn--ghost` | Ghost variant |
-| `pm-btn--outline` | Outline variant |
-| `pm-btn--link` | Link variant |
-| `pm-btn--xs` | Extra small size |
-| `pm-btn--sm` | Small size |
-| `pm-btn--md` | Medium size |
-| `pm-btn--lg` | Large size |
-| `pm-btn--xl` | Extra large size |
-| `pm-btn--disabled` | Disabled state |
-| `pm-btn--full-width` | Full width |
-| `pm-btn--loading` | Loading state |
-| `pm-btn--active` | Active state |
+| Class                | Purpose            |
+| -------------------- | ------------------ |
+| `pm-btn`             | Base button styles |
+| `pm-btn--primary`    | Primary variant    |
+| `pm-btn--secondary`  | Secondary variant  |
+| `pm-btn--danger`     | Danger variant     |
+| `pm-btn--ghost`      | Ghost variant      |
+| `pm-btn--outline`    | Outline variant    |
+| `pm-btn--link`       | Link variant       |
+| `pm-btn--xs`         | Extra small size   |
+| `pm-btn--sm`         | Small size         |
+| `pm-btn--md`         | Medium size        |
+| `pm-btn--lg`         | Large size         |
+| `pm-btn--xl`         | Extra large size   |
+| `pm-btn--disabled`   | Disabled state     |
+| `pm-btn--full-width` | Full width         |
+| `pm-btn--loading`    | Loading state      |
+| `pm-btn--active`     | Active state       |
 
 ## CSS Custom Properties
 

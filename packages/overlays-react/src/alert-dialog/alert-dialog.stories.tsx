@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect, fn, userEvent, within } from "storybook/test"
-import { Alertdialog, AlertdialogHeader, AlertdialogBody, AlertdialogFooter } from "./alert-dialog.js"
+import {
+  Alertdialog,
+  AlertdialogHeader,
+  AlertdialogBody,
+  AlertdialogFooter,
+} from "./alert-dialog.js"
 
 const meta = {
   title: "Overlays/Alert Dialog",
@@ -23,7 +28,9 @@ export const Playground: Story = {
       <AlertdialogHeader>Confirm Action</AlertdialogHeader>
       <AlertdialogBody>Are you sure you want to proceed?</AlertdialogBody>
       <AlertdialogFooter>
-        <button type="button" onClick={args.onClose}>Cancel</button>
+        <button type="button" onClick={args.onClose}>
+          Cancel
+        </button>
         <button type="button">Confirm</button>
       </AlertdialogFooter>
     </Alertdialog>
@@ -37,7 +44,9 @@ export const Danger: Story = {
       <AlertdialogHeader>Delete Item?</AlertdialogHeader>
       <AlertdialogBody>This action cannot be undone.</AlertdialogBody>
       <AlertdialogFooter>
-        <button type="button" onClick={args.onClose}>Cancel</button>
+        <button type="button" onClick={args.onClose}>
+          Cancel
+        </button>
         <button type="button">Delete</button>
       </AlertdialogFooter>
     </Alertdialog>
@@ -51,7 +60,9 @@ export const Warning: Story = {
       <AlertdialogHeader>Unsaved Changes</AlertdialogHeader>
       <AlertdialogBody>You have unsaved changes. Discard them?</AlertdialogBody>
       <AlertdialogFooter>
-        <button type="button" onClick={args.onClose}>Keep Editing</button>
+        <button type="button" onClick={args.onClose}>
+          Keep Editing
+        </button>
         <button type="button">Discard</button>
       </AlertdialogFooter>
     </Alertdialog>
@@ -65,7 +76,9 @@ export const ClickCancel: Story = {
       <AlertdialogHeader>Confirm</AlertdialogHeader>
       <AlertdialogBody>Proceed?</AlertdialogBody>
       <AlertdialogFooter>
-        <button type="button" onClick={args.onClose}>Cancel</button>
+        <button type="button" onClick={args.onClose}>
+          Cancel
+        </button>
         <button type="button">OK</button>
       </AlertdialogFooter>
     </Alertdialog>

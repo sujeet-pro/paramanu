@@ -8,7 +8,6 @@ function createCtxMenu(args: CtxMenuArgs): HTMLElement {
   const div = document.createElement("div")
   div.className = ctxMenuClasses(args)
   div.setAttribute("role", "menu")
-
   ;["Cut", "Copy", "Paste"].forEach((text) => {
     const item = document.createElement("div")
     item.setAttribute("role", "menuitem")

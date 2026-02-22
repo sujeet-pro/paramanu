@@ -75,12 +75,8 @@ describe("cardMediaClasses", () => {
   })
 
   it("applies position", () => {
-    expect(cardMediaClasses({ position: "bottom" })).toBe(
-      "pm-card__media pm-card__media--bottom",
-    )
-    expect(cardMediaClasses({ position: "start" })).toBe(
-      "pm-card__media pm-card__media--start",
-    )
+    expect(cardMediaClasses({ position: "bottom" })).toBe("pm-card__media pm-card__media--bottom")
+    expect(cardMediaClasses({ position: "start" })).toBe("pm-card__media pm-card__media--start")
     expect(cardMediaClasses({ position: "end" })).toBe("pm-card__media pm-card__media--end")
   })
 })

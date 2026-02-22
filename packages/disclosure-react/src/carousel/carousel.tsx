@@ -13,8 +13,7 @@ import type {
 } from "@paramanu/disclosure-js"
 
 export interface ReactCarouselProps
-  extends CarouselClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends CarouselClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
@@ -39,8 +38,7 @@ export const Carousel = forwardRef<HTMLDivElement, ReactCarouselProps>(function 
 })
 
 export interface ReactCarouselSlideProps
-  extends CarouselSlideClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends CarouselSlideClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   index?: number
   total?: number
   children?: React.ReactNode
@@ -56,7 +54,9 @@ export const CarouselSlide = forwardRef<HTMLDivElement, ReactCarouselSlideProps>
         ref={ref}
         role="group"
         aria-roledescription="slide"
-        aria-label={index !== undefined && total !== undefined ? `Slide ${index + 1} of ${total}` : undefined}
+        aria-label={
+          index !== undefined && total !== undefined ? `Slide ${index + 1} of ${total}` : undefined
+        }
         className={combinedClassName}
         {...rest}
       >
@@ -67,7 +67,8 @@ export const CarouselSlide = forwardRef<HTMLDivElement, ReactCarouselSlideProps>
 )
 
 export interface ReactCarouselControlProps
-  extends CarouselControlClassesOptions,
+  extends
+    CarouselControlClassesOptions,
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
   children?: React.ReactNode
 }
@@ -94,7 +95,8 @@ export const CarouselControl = forwardRef<HTMLButtonElement, ReactCarouselContro
 )
 
 export interface ReactCarouselIndicatorProps
-  extends CarouselIndicatorClassesOptions,
+  extends
+    CarouselIndicatorClassesOptions,
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
   index?: number
   children?: React.ReactNode

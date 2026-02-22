@@ -39,9 +39,7 @@ describe("btnClasses", () => {
       disabled: true,
       fullWidth: true,
     })
-    expect(result).toBe(
-      "pm-btn pm-btn--danger pm-btn--lg pm-btn--disabled pm-btn--full-width",
-    )
+    expect(result).toBe("pm-btn pm-btn--danger pm-btn--lg pm-btn--disabled pm-btn--full-width")
   })
 })
 

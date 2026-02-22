@@ -13,9 +13,7 @@ describe("center accessibility", () => {
   })
 
   it("preserves class attribute for styling", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><div class="${centerClasses()}">Test</div></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><div class="${centerClasses()}">Test</div></body>`)
     const el = dom.window.document.querySelector("div")
     expect(el?.classList.contains("pm-center")).toBe(true)
   })
@@ -41,9 +39,7 @@ describe("center accessibility", () => {
   })
 
   it("does not introduce unwanted roles or aria attributes", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><div class="${centerClasses()}">Test</div></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><div class="${centerClasses()}">Test</div></body>`)
     const el = dom.window.document.querySelector(".pm-center")
     expect(el?.getAttribute("role")).toBeNull()
     expect(el?.getAttribute("aria-hidden")).toBeNull()

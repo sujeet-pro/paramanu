@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Icon is a container for SVG icons with consistent sizing, color inheritance, and optional spin animation. Supports accessible and decorative modes.
@@ -49,12 +49,12 @@ export default function App() {
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Width and height |
-| `color` | `"inherit" \| "primary" \| "neutral" \| "danger" \| "success"` | `"inherit"` | Icon color |
-| `spin` | `boolean` | `false` | Continuous rotation animation |
-| `label` | `string` | - | Accessible label (omit for decorative) |
+| Prop    | Type                                                           | Default     | Description                            |
+| ------- | -------------------------------------------------------------- | ----------- | -------------------------------------- |
+| `size`  | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`                         | `"md"`      | Width and height                       |
+| `color` | `"inherit" \| "primary" \| "neutral" \| "danger" \| "success"` | `"inherit"` | Icon color                             |
+| `spin`  | `boolean`                                                      | `false`     | Continuous rotation animation          |
+| `label` | `string`                                                       | -           | Accessible label (omit for decorative) |
 
 </TabItem>
 </Tabs>

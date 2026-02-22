@@ -18,8 +18,7 @@ const DrawerContext = createContext<DrawerContextValue>({})
 export const useDrawerContext = () => useContext(DrawerContext)
 
 export interface ReactDrawerProps
-  extends DrawerClassesOptions,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
+  extends DrawerClassesOptions, Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
   /** Whether the drawer is open. @default false */
   open?: boolean
   /** Callback invoked when the drawer requests to close. */
@@ -47,16 +46,7 @@ export interface ReactDrawerProps
  * ```
  */
 export const Drawer = forwardRef<HTMLDivElement, ReactDrawerProps>(function Drawer(
-  {
-    open = false,
-    onClose,
-    closeOnEscape = true,
-    placement,
-    size,
-    className,
-    children,
-    ...rest
-  },
+  { open = false, onClose, closeOnEscape = true, placement, size, className, children, ...rest },
   ref,
 ) {
   const uid = useId()

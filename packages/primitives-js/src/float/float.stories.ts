@@ -41,7 +41,17 @@ const meta = {
   argTypes: {
     placement: {
       control: "select",
-      options: ["top-start", "top-center", "top-end", "middle-start", "middle-center", "middle-end", "bottom-start", "bottom-center", "bottom-end"],
+      options: [
+        "top-start",
+        "top-center",
+        "top-end",
+        "middle-start",
+        "middle-center",
+        "middle-end",
+        "bottom-start",
+        "bottom-center",
+        "bottom-end",
+      ],
     },
     offset: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6"] },
   },

@@ -378,7 +378,6 @@ if (unmatchedPatterns.size > 0) {
     for (const o of occurrences.slice(0, 2)) {
       console.log(`    - ${o.file}`)
     }
-    if (occurrences.length > 2)
-      console.log(`    ... and ${occurrences.length - 2} more`)
+    if (occurrences.length > 2) console.log(`    ... and ${occurrences.length - 2} more`)
   }
 }

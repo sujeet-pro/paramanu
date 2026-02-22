@@ -32,9 +32,13 @@ export const Playground: Story = {
     <Sidebar {...args}>
       <SidebarSection>
         <SidebarSectionLabel>Main</SidebarSectionLabel>
-        <SidebarItem href="#" active>Dashboard</SidebarItem>
+        <SidebarItem href="#" active>
+          Dashboard
+        </SidebarItem>
         <SidebarItem href="#">Settings</SidebarItem>
-        <SidebarItem href="#" disabled>Disabled</SidebarItem>
+        <SidebarItem href="#" disabled>
+          Disabled
+        </SidebarItem>
       </SidebarSection>
     </Sidebar>
   ),
@@ -45,7 +49,9 @@ export const Default: Story = {
     <Sidebar>
       <SidebarSection>
         <SidebarSectionLabel>Navigation</SidebarSectionLabel>
-        <SidebarItem href="#" active>Home</SidebarItem>
+        <SidebarItem href="#" active>
+          Home
+        </SidebarItem>
         <SidebarItem href="#">About</SidebarItem>
       </SidebarSection>
     </Sidebar>
@@ -104,9 +110,15 @@ export const WithIndentation: Story = {
       <SidebarSection>
         <SidebarSectionLabel>Files</SidebarSectionLabel>
         <SidebarItem href="#">Root</SidebarItem>
-        <SidebarItem href="#" indent={1}>Level 1</SidebarItem>
-        <SidebarItem href="#" indent={2}>Level 2</SidebarItem>
-        <SidebarItem href="#" indent={3}>Level 3</SidebarItem>
+        <SidebarItem href="#" indent={1}>
+          Level 1
+        </SidebarItem>
+        <SidebarItem href="#" indent={2}>
+          Level 2
+        </SidebarItem>
+        <SidebarItem href="#" indent={3}>
+          Level 3
+        </SidebarItem>
       </SidebarSection>
     </Sidebar>
   ),
@@ -142,7 +154,9 @@ export const Accessibility: Story = {
   render: () => (
     <Sidebar>
       <SidebarSection>
-        <SidebarItem href="#" active>Home</SidebarItem>
+        <SidebarItem href="#" active>
+          Home
+        </SidebarItem>
         <SidebarItem href="#">About</SidebarItem>
       </SidebarSection>
     </Sidebar>

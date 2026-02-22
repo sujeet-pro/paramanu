@@ -2,9 +2,7 @@ import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import { timepickerClasses } from "./time-picker.classes.js"
 
-function createTimepickerHTML(
-  options: Parameters<typeof timepickerClasses>[0] = {},
-): string {
+function createTimepickerHTML(options: Parameters<typeof timepickerClasses>[0] = {}): string {
   const classes = timepickerClasses(options)
   const disabledAttr = options?.disabled ? " disabled" : ""
   const expandedAttr = options?.open ? 'aria-expanded="true"' : 'aria-expanded="false"'
@@ -45,7 +43,7 @@ describe("time picker accessibility", () => {
 
   it("columns have role group with aria-label", () => {
     const dom = new JSDOM(`<!DOCTYPE html><body>${createTimepickerHTML()}</body>`)
-    const columns = dom.window.document.querySelectorAll('.pm-timepicker__column')
+    const columns = dom.window.document.querySelectorAll(".pm-timepicker__column")
     expect(columns[0]?.getAttribute("role")).toBe("group")
     expect(columns[0]?.getAttribute("aria-label")).toBe("Hours")
     expect(columns[1]?.getAttribute("aria-label")).toBe("Minutes")
@@ -64,17 +62,13 @@ describe("time picker accessibility", () => {
   })
 
   it("disabled input has disabled attribute", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createTimepickerHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createTimepickerHTML({ disabled: true })}</body>`)
     const input = dom.window.document.querySelector(".pm-timepicker__input")
     expect(input?.hasAttribute("disabled")).toBe(true)
   })
 
   it("invalid input has aria-invalid", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createTimepickerHTML({ invalid: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createTimepickerHTML({ invalid: true })}</body>`)
     const input = dom.window.document.querySelector(".pm-timepicker__input")
     expect(input?.getAttribute("aria-invalid")).toBe("true")
   })

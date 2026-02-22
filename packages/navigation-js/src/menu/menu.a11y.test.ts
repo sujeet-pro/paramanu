@@ -1,6 +1,11 @@
 import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
-import { menuClasses, menuItemClasses, menuGroupClasses, menuSeparatorClasses } from "./menu.classes.js"
+import {
+  menuClasses,
+  menuItemClasses,
+  menuGroupClasses,
+  menuSeparatorClasses,
+} from "./menu.classes.js"
 
 function createMenuHTML(size?: "sm" | "md" | "lg"): string {
   const rootClasses = menuClasses({ size })

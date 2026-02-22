@@ -14,9 +14,7 @@ const meta = {
   args: {
     present: true,
     duration: 200,
-    children: (
-      <div style={{ padding: "16px", background: "#e0ffe0" }}>Animated content</div>
-    ),
+    children: <div style={{ padding: "16px", background: "#e0ffe0" }}>Animated content</div>,
   },
 } satisfies Meta<typeof Presence>
 

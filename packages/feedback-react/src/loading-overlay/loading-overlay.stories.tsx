@@ -50,11 +50,27 @@ export const WithCustomContent: Story = {
 export const States: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 16 }}>
-      <div style={{ position: "relative", width: 200, height: 150, border: "1px solid #ccc", padding: 8 }}>
+      <div
+        style={{
+          position: "relative",
+          width: 200,
+          height: 150,
+          border: "1px solid #ccc",
+          padding: 8,
+        }}
+      >
         <p>Visible overlay</p>
         <Loading visible />
       </div>
-      <div style={{ position: "relative", width: 200, height: 150, border: "1px solid #ccc", padding: 8 }}>
+      <div
+        style={{
+          position: "relative",
+          width: 200,
+          height: 150,
+          border: "1px solid #ccc",
+          padding: 8,
+        }}
+      >
         <p>With blur</p>
         <Loading visible blur />
       </div>

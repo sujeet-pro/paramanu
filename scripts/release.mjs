@@ -251,7 +251,9 @@ async function main() {
     }
   } catch (error) {
     console.error("\nPublish failed! Reverting version bump...")
-    console.error("Note: Some packages may have been published already. Check npm for partial publishes.")
+    console.error(
+      "Note: Some packages may have been published already. Check npm for partial publishes.",
+    )
     exec("git reset --hard HEAD~1")
     console.error("Version bump commit reverted.")
     console.error(`Error: ${error.message}`)

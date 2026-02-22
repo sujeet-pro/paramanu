@@ -4234,4 +4234,6 @@ export interface TimepickerProps extends TimepickerClassesOptions {
 `,
 })
 
-console.log("\\nAll form component types, classes, CSS, and module.css files generated successfully!")
+console.log(
+  "\\nAll form component types, classes, CSS, and module.css files generated successfully!",
+)

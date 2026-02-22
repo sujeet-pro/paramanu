@@ -16,11 +16,7 @@ export function bttModuleClasses(
   options: BttClassesOptions = {},
 ): string {
   const { size = "md", position = "bottom-right", visible = true } = options
-  const classes = [
-    classMap["pm-btt"],
-    classMap[`pm-btt--${size}`],
-    classMap[`pm-btt--${position}`],
-  ]
+  const classes = [classMap["pm-btt"], classMap[`pm-btt--${size}`], classMap[`pm-btt--${position}`]]
 
   if (visible) classes.push(classMap["pm-btt--visible"])
 

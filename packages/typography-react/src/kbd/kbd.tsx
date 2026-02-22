@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { kbdClasses } from "@paramanu/typography-js"
 import type { KbdClassesOptions } from "@paramanu/typography-js"
 
-export interface ReactKbdProps
-  extends KbdClassesOptions,
-    React.HTMLAttributes<HTMLElement> {
+export interface ReactKbdProps extends KbdClassesOptions, React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode
 }
 

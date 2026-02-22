@@ -1,27 +1,16 @@
 import { describe, it, expect } from "vitest"
-import {
-  daterangeClasses,
-  daterangeModuleClasses,
-} from "./date-range-picker.classes.js"
+import { daterangeClasses, daterangeModuleClasses } from "./date-range-picker.classes.js"
 
 describe("daterangeClasses", () => {
   it("returns default classes (outline, md)", () => {
     const result = daterangeClasses()
-    expect(result).toBe(
-      "pm-daterange pm-daterange--outline pm-daterange--md",
-    )
+    expect(result).toBe("pm-daterange pm-daterange--outline pm-daterange--md")
   })
 
   it("applies variant", () => {
-    expect(daterangeClasses({ variant: "outline" })).toContain(
-      "pm-daterange--outline",
-    )
-    expect(daterangeClasses({ variant: "filled" })).toContain(
-      "pm-daterange--filled",
-    )
-    expect(daterangeClasses({ variant: "unstyled" })).toContain(
-      "pm-daterange--unstyled",
-    )
+    expect(daterangeClasses({ variant: "outline" })).toContain("pm-daterange--outline")
+    expect(daterangeClasses({ variant: "filled" })).toContain("pm-daterange--filled")
+    expect(daterangeClasses({ variant: "unstyled" })).toContain("pm-daterange--unstyled")
   })
 
   it("applies size", () => {
@@ -32,16 +21,12 @@ describe("daterangeClasses", () => {
 
   it("applies invalid modifier", () => {
     expect(daterangeClasses({ invalid: true })).toContain("pm-daterange--invalid")
-    expect(daterangeClasses({ invalid: false })).not.toContain(
-      "pm-daterange--invalid",
-    )
+    expect(daterangeClasses({ invalid: false })).not.toContain("pm-daterange--invalid")
   })
 
   it("applies disabled modifier", () => {
     expect(daterangeClasses({ disabled: true })).toContain("pm-daterange--disabled")
-    expect(daterangeClasses({ disabled: false })).not.toContain(
-      "pm-daterange--disabled",
-    )
+    expect(daterangeClasses({ disabled: false })).not.toContain("pm-daterange--disabled")
   })
 
   it("applies open modifier", () => {

@@ -31,7 +31,16 @@ const meta = {
   argTypes: {
     display: {
       control: "select",
-      options: ["block", "inline-block", "inline", "flex", "inline-flex", "grid", "inline-grid", "none"],
+      options: [
+        "block",
+        "inline-block",
+        "inline",
+        "flex",
+        "inline-flex",
+        "grid",
+        "inline-grid",
+        "none",
+      ],
     },
     p: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"] },
     px: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"] },
@@ -89,7 +98,8 @@ export const OverflowHidden: Story = {
   args: {
     overflow: "hidden",
     p: "4",
-    content: "This is a long text that will overflow the container boundary and get clipped by overflow hidden.",
+    content:
+      "This is a long text that will overflow the container boundary and get clipped by overflow hidden.",
   },
   render: (args) => {
     const el = createBox(args as BoxArgs)
@@ -100,7 +110,9 @@ export const OverflowHidden: Story = {
 }
 
 export const DisplayBlock: Story = { args: { display: "block", content: "Block display" } }
-export const DisplayInlineBlock: Story = { args: { display: "inline-block", content: "Inline block" } }
+export const DisplayInlineBlock: Story = {
+  args: { display: "inline-block", content: "Inline block" },
+}
 export const DisplayInline: Story = { args: { display: "inline", content: "Inline" } }
 export const DisplayGrid: Story = { args: { display: "grid", content: "Grid display" } }
 export const DisplayNone: Story = { args: { display: "none", content: "Hidden" } }
@@ -115,7 +127,9 @@ export const OverflowScroll: Story = {
   },
 }
 
-export const PositionRelative: Story = { args: { position: "relative", p: "4", content: "Relative" } }
+export const PositionRelative: Story = {
+  args: { position: "relative", p: "4", content: "Relative" },
+}
 export const PositionSticky: Story = { args: { position: "sticky", p: "4", content: "Sticky" } }
 
 export const Hover: Story = {

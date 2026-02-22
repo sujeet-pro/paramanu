@@ -1,8 +1,5 @@
 import { describe, it, expect } from "vitest"
-import {
-  structListClasses,
-  structListModuleClasses,
-} from "./structured-list.classes.js"
+import { structListClasses, structListModuleClasses } from "./structured-list.classes.js"
 
 describe("structListClasses", () => {
   it("returns default classes (md)", () => {
@@ -25,21 +22,15 @@ describe("structListClasses", () => {
   })
 
   it("applies selectable modifier", () => {
-    expect(structListClasses({ selectable: true }).root).toContain(
-      "pm-struct-list--selectable",
-    )
+    expect(structListClasses({ selectable: true }).root).toContain("pm-struct-list--selectable")
     expect(structListClasses({ selectable: false }).root).not.toContain(
       "pm-struct-list--selectable",
     )
   })
 
   it("applies bordered modifier", () => {
-    expect(structListClasses({ bordered: true }).root).toContain(
-      "pm-struct-list--bordered",
-    )
-    expect(structListClasses({ bordered: false }).root).not.toContain(
-      "pm-struct-list--bordered",
-    )
+    expect(structListClasses({ bordered: true }).root).toContain("pm-struct-list--bordered")
+    expect(structListClasses({ bordered: false }).root).not.toContain("pm-struct-list--bordered")
   })
 
   it("always includes base class", () => {

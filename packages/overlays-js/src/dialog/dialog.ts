@@ -11,12 +11,7 @@ export function createDialog(
   element: HTMLElement,
   options: CreateDialogOptions = {},
 ): DialogInstance {
-  const {
-    onClose,
-    initialFocus,
-    closeOnBackdropClick = true,
-    closeOnEscape = true,
-  } = options
+  const { onClose, initialFocus, closeOnBackdropClick = true, closeOnEscape = true } = options
 
   let portal: PortalInstance | null = null
   let focusTrap: FocusTrapInstance | null = null

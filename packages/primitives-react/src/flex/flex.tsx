@@ -3,8 +3,7 @@ import { flexClasses } from "@paramanu/primitives-js"
 import type { FlexProps } from "@paramanu/primitives-js"
 
 export interface ReactFlexProps
-  extends FlexProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "wrap"> {
+  extends FlexProps, Omit<React.HTMLAttributes<HTMLDivElement>, "wrap"> {
   children?: React.ReactNode
 }
 

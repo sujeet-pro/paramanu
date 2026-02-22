@@ -19,9 +19,7 @@ describe("shellClasses", () => {
   })
 
   it("applies sidebar-start position", () => {
-    expect(shellClasses({ sidebarPosition: "start" })).toContain(
-      "pm-shell--sidebar-start",
-    )
+    expect(shellClasses({ sidebarPosition: "start" })).toContain("pm-shell--sidebar-start")
   })
 
   it("applies sidebar-end position", () => {
@@ -29,15 +27,11 @@ describe("shellClasses", () => {
   })
 
   it("applies sidebar-collapsed modifier", () => {
-    expect(shellClasses({ sidebarCollapsed: true })).toContain(
-      "pm-shell--sidebar-collapsed",
-    )
+    expect(shellClasses({ sidebarCollapsed: true })).toContain("pm-shell--sidebar-collapsed")
   })
 
   it("does not include sidebar-collapsed when false", () => {
-    expect(shellClasses({ sidebarCollapsed: false })).not.toContain(
-      "pm-shell--sidebar-collapsed",
-    )
+    expect(shellClasses({ sidebarCollapsed: false })).not.toContain("pm-shell--sidebar-collapsed")
   })
 
   it("always includes base class", () => {
@@ -46,9 +40,7 @@ describe("shellClasses", () => {
 
   it("combines multiple options", () => {
     const result = shellClasses({ sidebarPosition: "end", sidebarCollapsed: true })
-    expect(result).toBe(
-      "pm-shell pm-shell--sidebar-end pm-shell--sidebar-collapsed",
-    )
+    expect(result).toBe("pm-shell pm-shell--sidebar-end pm-shell--sidebar-collapsed")
   })
 })
 
@@ -145,9 +137,7 @@ describe("appShellSidebarClasses", () => {
   })
 
   it("applies collapsed modifier", () => {
-    expect(appShellSidebarClasses({ collapsed: true })).toContain(
-      "pm-shell__sidebar--collapsed",
-    )
+    expect(appShellSidebarClasses({ collapsed: true })).toContain("pm-shell__sidebar--collapsed")
   })
 
   it("does not include collapsed when false", () => {
@@ -158,9 +148,7 @@ describe("appShellSidebarClasses", () => {
 
   it("combines multiple options", () => {
     const result = appShellSidebarClasses({ width: "lg", collapsed: true })
-    expect(result).toBe(
-      "pm-shell__sidebar pm-shell__sidebar--lg pm-shell__sidebar--collapsed",
-    )
+    expect(result).toBe("pm-shell__sidebar pm-shell__sidebar--lg pm-shell__sidebar--collapsed")
   })
 })
 

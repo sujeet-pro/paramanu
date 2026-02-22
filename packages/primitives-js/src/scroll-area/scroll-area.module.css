@@ -9,18 +9,40 @@
     outline-offset: var(--pm-focus-ring-offset);
   }
 
-  .pm-scroll--vertical { overflow-x: hidden; overflow-y: auto; }
-  .pm-scroll--horizontal { overflow-x: auto; overflow-y: hidden; }
-  .pm-scroll--both { overflow: auto; }
+  .pm-scroll--vertical {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .pm-scroll--horizontal {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .pm-scroll--both {
+    overflow: auto;
+  }
 
-  .pm-scroll--scrollbar-auto { /* browser default */ }
-  .pm-scroll--scrollbar-always { overflow: scroll; }
-  .pm-scroll--scrollbar-hover { overflow: hidden; }
-  .pm-scroll--scrollbar-hover:hover { overflow: auto; }
-  .pm-scroll--scrollbar-hidden { scrollbar-width: none; }
+  .pm-scroll--scrollbar-auto {
+    /* browser default */
+  }
+  .pm-scroll--scrollbar-always {
+    overflow: scroll;
+  }
+  .pm-scroll--scrollbar-hover {
+    overflow: hidden;
+  }
+  .pm-scroll--scrollbar-hover:hover {
+    overflow: auto;
+  }
+  .pm-scroll--scrollbar-hidden {
+    scrollbar-width: none;
+  }
 
-  .pm-scroll--scrollbar-thin { scrollbar-width: thin; }
-  .pm-scroll--scrollbar-none { scrollbar-width: none; }
+  .pm-scroll--scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .pm-scroll--scrollbar-none {
+    scrollbar-width: none;
+  }
 
   .pm-scroll--bordered {
     border: 1px solid var(--pm-neutral-hover);

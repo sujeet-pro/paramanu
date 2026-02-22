@@ -54,17 +54,13 @@ describe("file-upload accessibility", () => {
   })
 
   it("disabled input has disabled attribute", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createUploadHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createUploadHTML({ disabled: true })}</body>`)
     const input = dom.window.document.querySelector("input[type='file']")
     expect(input?.hasAttribute("disabled")).toBe(true)
   })
 
   it("disabled trigger has disabled attribute", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createUploadHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createUploadHTML({ disabled: true })}</body>`)
     const trigger = dom.window.document.querySelector(".pm-upload__trigger")
     expect(trigger?.hasAttribute("disabled")).toBe(true)
   })

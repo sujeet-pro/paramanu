@@ -8,9 +8,9 @@ badge:
 
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 ## Overview
@@ -39,6 +39,7 @@ SkipNav provides a keyboard-accessible link that allows users to bypass navigati
       <main>Main content</main>
     </SkipNavTarget>
     ```
+
 </TabItem>
 </Tabs>
 
@@ -52,12 +53,12 @@ SkipNav provides a keyboard-accessible link that allows users to bypass navigati
 
 ### SkipNav
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop       | Type     | Default          | Description                        |
+| ---------- | -------- | ---------------- | ---------------------------------- |
 | `targetId` | `string` | `"main-content"` | The `id` of the element to skip to |
 
 ### SkipNavTarget
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop | Type     | Default          | Description                      |
+| ---- | -------- | ---------------- | -------------------------------- |
 | `id` | `string` | `"main-content"` | The `id` the skip link points to |

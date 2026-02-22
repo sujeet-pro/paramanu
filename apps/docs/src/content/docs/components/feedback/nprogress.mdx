@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 NProgress displays a slim, animated progress bar at the top of the page, commonly used for route transitions.
@@ -77,31 +77,31 @@ export default function App() {
 
 ## NProgress Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
+| Prop     | Type      | Default | Description               |
+| -------- | --------- | ------- | ------------------------- |
 | `active` | `boolean` | `false` | Whether the bar is active |
-| `value` | `number` | `0` | Progress value (0 to 1) |
+| `value`  | `number`  | `0`     | Progress value (0 to 1)   |
 
 ## useNProgress Hook
 
 Returns an object with:
 
-| Property | Type | Description |
-|---|---|---|
-| `start` | `() => void` | Start the progress bar |
-| `done` | `() => void` | Complete and hide the bar |
-| `value` | `number` | Current progress value |
-| `active` | `boolean` | Whether active |
-| `nprogressProps` | `object` | Props to spread onto NProgress |
+| Property         | Type         | Description                    |
+| ---------------- | ------------ | ------------------------------ |
+| `start`          | `() => void` | Start the progress bar         |
+| `done`           | `() => void` | Complete and hide the bar      |
+| `value`          | `number`     | Current progress value         |
+| `active`         | `boolean`    | Whether active                 |
+| `nprogressProps` | `object`     | Props to spread onto NProgress |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-nprogress` | Container base |
-| `pm-nprogress--active` | Active state |
-| `pm-nprogress__bar` | Progress bar |
-| `pm-nprogress__peg` | Glowing peg at bar end |
+| Class                  | Purpose                |
+| ---------------------- | ---------------------- |
+| `pm-nprogress`         | Container base         |
+| `pm-nprogress--active` | Active state           |
+| `pm-nprogress__bar`    | Progress bar           |
+| `pm-nprogress__peg`    | Glowing peg at bar end |
 
 </TabItem>
 </Tabs>

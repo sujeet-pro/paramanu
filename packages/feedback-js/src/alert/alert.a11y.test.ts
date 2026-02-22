@@ -27,9 +27,7 @@ function createAlertHTML(
 
 describe("alert accessibility", () => {
   it("has role=status for info variant", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createAlertHTML("Info", "Message")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createAlertHTML("Info", "Message")}</body>`)
     const el = dom.window.document.querySelector(".pm-alert")
     expect(el?.getAttribute("role")).toBe("status")
   })

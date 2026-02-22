@@ -9,7 +9,10 @@ const meta = {
   argTypes: {
     variant: { control: "select", options: ["default", "accent", "filled"] },
     size: { control: "select", options: ["sm", "md", "lg"] },
-    color: { control: "select", options: ["primary", "neutral", "danger", "success", "warning", "info"] },
+    color: {
+      control: "select",
+      options: ["primary", "neutral", "danger", "success", "warning", "info"],
+    },
     withCite: { control: "boolean" },
     withIcon: { control: "boolean" },
   },

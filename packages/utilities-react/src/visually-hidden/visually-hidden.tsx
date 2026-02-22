@@ -8,9 +8,7 @@ import type { SrOnlyClassesOptions } from "@paramanu/utilities-js"
  * Visually hides content while keeping it accessible to screen readers.
  * Uses the clip-rect technique recommended by WebAIM.
  */
-export interface ReactSrOnlyProps
-  extends SrOnlyClassesOptions,
-    React.HTMLAttributes<HTMLElement> {
+export interface ReactSrOnlyProps extends SrOnlyClassesOptions, React.HTMLAttributes<HTMLElement> {
   /**
    * The HTML element to render.
    *
@@ -41,15 +39,16 @@ export interface ReactSrOnlyProps
  * </SrOnly>
  * ```
  */
-export const SrOnly = forwardRef<HTMLElement, ReactSrOnlyProps>(
-  function SrOnly({ as: Component = "span", focusable, className, children, ...rest }, ref) {
-    const classes = srOnlyClasses({ focusable })
-    const combinedClassName = className ? `${classes} ${className}` : classes
+export const SrOnly = forwardRef<HTMLElement, ReactSrOnlyProps>(function SrOnly(
+  { as: Component = "span", focusable, className, children, ...rest },
+  ref,
+) {
+  const classes = srOnlyClasses({ focusable })
+  const combinedClassName = className ? `${classes} ${className}` : classes
 
-    return (
-      <Component ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </Component>
-    )
-  },
-)
+  return (
+    <Component ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </Component>
+  )
+})

@@ -3,8 +3,7 @@ import { proseClasses } from "@paramanu/typography-js"
 import type { ProseClassesOptions } from "@paramanu/typography-js"
 
 export interface ReactProseProps
-  extends ProseClassesOptions,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "color"> {
+  extends ProseClassesOptions, Omit<React.HTMLAttributes<HTMLDivElement>, "color"> {
   /** The HTML element to render. Defaults to "div". Use "article" for standalone content. */
   as?: "div" | "article" | "section"
   children?: React.ReactNode

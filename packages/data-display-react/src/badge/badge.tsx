@@ -3,8 +3,7 @@ import { badgeClasses } from "@paramanu/data-display-js"
 import type { BadgeProps } from "@paramanu/data-display-js"
 
 export interface ReactBadgeProps
-  extends BadgeProps,
-    Omit<React.HTMLAttributes<HTMLSpanElement>, "color"> {
+  extends BadgeProps, Omit<React.HTMLAttributes<HTMLSpanElement>, "color"> {
   children?: React.ReactNode
 }
 

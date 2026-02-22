@@ -3,8 +3,7 @@ import { iconClasses } from "@paramanu/data-display-js"
 import type { IconProps } from "@paramanu/data-display-js"
 
 export interface ReactIconProps
-  extends IconProps,
-    Omit<React.HTMLAttributes<HTMLSpanElement>, "color"> {
+  extends IconProps, Omit<React.HTMLAttributes<HTMLSpanElement>, "color"> {
   children?: React.ReactNode
 }
 

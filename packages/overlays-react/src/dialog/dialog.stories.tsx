@@ -25,7 +25,9 @@ export const Playground: Story = {
       <DialogHeader>Dialog Title</DialogHeader>
       <DialogBody>This is the dialog content.</DialogBody>
       <DialogFooter>
-        <button type="button" onClick={args.onClose}>Close</button>
+        <button type="button" onClick={args.onClose}>
+          Close
+        </button>
       </DialogFooter>
     </Dialog>
   ),
@@ -38,7 +40,9 @@ export const Centered: Story = {
       <DialogHeader>Centered Dialog</DialogHeader>
       <DialogBody>Vertically centered in the viewport.</DialogBody>
       <DialogFooter>
-        <button type="button" onClick={args.onClose}>Close</button>
+        <button type="button" onClick={args.onClose}>
+          Close
+        </button>
       </DialogFooter>
     </Dialog>
   ),

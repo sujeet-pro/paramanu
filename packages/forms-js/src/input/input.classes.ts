@@ -40,7 +40,11 @@ export function inputModuleClasses(
     fullWidth = false,
   } = options
 
-  const classes = [classMap["pm-input"], classMap[`pm-input--${variant}`], classMap[`pm-input--${size}`]]
+  const classes = [
+    classMap["pm-input"],
+    classMap[`pm-input--${variant}`],
+    classMap[`pm-input--${size}`],
+  ]
 
   if (invalid) classes.push(classMap["pm-input--invalid"])
   if (disabled) classes.push(classMap["pm-input--disabled"])

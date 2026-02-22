@@ -25,7 +25,10 @@ const meta = {
   tags: ["autodocs", "beta"],
   render: (args) => createAspect(args as AspectClassesOptions),
   argTypes: {
-    ratio: { control: "select", options: ["1/1", "2/3", "3/2", "4/3", "3/4", "16/9", "9/16", "21/9"] },
+    ratio: {
+      control: "select",
+      options: ["1/1", "2/3", "3/2", "4/3", "3/4", "16/9", "9/16", "21/9"],
+    },
   },
   args: { ratio: "16/9" },
 } satisfies Meta<AspectClassesOptions>

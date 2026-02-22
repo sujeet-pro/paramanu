@@ -8,15 +8,11 @@ describe("formCtrlClasses", () => {
   })
 
   it("applies vertical orientation", () => {
-    expect(formCtrlClasses({ orientation: "vertical" })).toContain(
-      "pm-form-ctrl--vertical",
-    )
+    expect(formCtrlClasses({ orientation: "vertical" })).toContain("pm-form-ctrl--vertical")
   })
 
   it("applies horizontal orientation", () => {
-    expect(formCtrlClasses({ orientation: "horizontal" })).toContain(
-      "pm-form-ctrl--horizontal",
-    )
+    expect(formCtrlClasses({ orientation: "horizontal" })).toContain("pm-form-ctrl--horizontal")
   })
 
   it("applies invalid modifier", () => {

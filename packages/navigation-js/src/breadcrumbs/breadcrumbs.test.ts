@@ -59,15 +59,11 @@ describe("breadcrumbItemClasses", () => {
   })
 
   it("applies active modifier", () => {
-    expect(breadcrumbItemClasses({ active: true })).toContain(
-      "pm-breadcrumb__item--active",
-    )
+    expect(breadcrumbItemClasses({ active: true })).toContain("pm-breadcrumb__item--active")
   })
 
   it("does not apply active modifier when false", () => {
-    expect(breadcrumbItemClasses({ active: false })).not.toContain(
-      "pm-breadcrumb__item--active",
-    )
+    expect(breadcrumbItemClasses({ active: false })).not.toContain("pm-breadcrumb__item--active")
   })
 })
 
@@ -82,9 +78,7 @@ describe("breadcrumbItemModuleClasses", () => {
   })
 
   it("maps active class", () => {
-    expect(breadcrumbItemModuleClasses(mockClassMap, { active: true })).toContain(
-      "pm_abc_active",
-    )
+    expect(breadcrumbItemModuleClasses(mockClassMap, { active: true })).toContain("pm_abc_active")
   })
 })
 

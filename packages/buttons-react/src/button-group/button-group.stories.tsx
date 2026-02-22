@@ -97,9 +97,7 @@ export const AllVariantsAndSizes: Story = {
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
       {(["horizontal", "vertical"] as const).map((orientation) => (
         <div key={orientation}>
-          <p style={{ marginBottom: 8 }}>
-            {orientation} / attached
-          </p>
+          <p style={{ marginBottom: 8 }}>{orientation} / attached</p>
           <BtnGroup orientation={orientation} attached aria-label={`${orientation} group`}>
             <Btn variant="primary">One</Btn>
             <Btn variant="primary">Two</Btn>

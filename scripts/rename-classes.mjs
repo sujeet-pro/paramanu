@@ -225,10 +225,9 @@ function walkDir(dir) {
 // ──────────── APPLY REPLACEMENTS ────────────
 
 const SELF = path.resolve(__dirname, "rename-classes.mjs")
-const files = [
-  ...walkDir(path.join(ROOT, "packages")),
-  ...walkDir(path.join(ROOT, "apps")),
-].filter((f) => f !== SELF)
+const files = [...walkDir(path.join(ROOT, "packages")), ...walkDir(path.join(ROOT, "apps"))].filter(
+  (f) => f !== SELF,
+)
 
 console.log(`Processing ${files.length} files...`)
 if (DRY_RUN) console.log("(DRY RUN — no files will be modified)\n")

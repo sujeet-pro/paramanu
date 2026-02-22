@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Banner displays a full-width message with optional icon, actions, and dismiss button. Can be sticky-positioned.
@@ -76,15 +76,15 @@ export default function App() {
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `"info" \| "success" \| "warning" \| "danger"` | `"info"` | Color variant |
-| `sticky` | `boolean` | `false` | Stick to viewport edge |
-| `dismissible` | `boolean` | `false` | Show close button |
-| `position` | `"top" \| "bottom"` | `"top"` | Viewport position |
-| `icon` | `ReactNode` | -- | Icon element |
-| `actions` | `ReactNode` | -- | Action buttons |
-| `onClose` | `() => void` | -- | Dismiss callback |
+| Prop          | Type                                           | Default  | Description            |
+| ------------- | ---------------------------------------------- | -------- | ---------------------- |
+| `variant`     | `"info" \| "success" \| "warning" \| "danger"` | `"info"` | Color variant          |
+| `sticky`      | `boolean`                                      | `false`  | Stick to viewport edge |
+| `dismissible` | `boolean`                                      | `false`  | Show close button      |
+| `position`    | `"top" \| "bottom"`                            | `"top"`  | Viewport position      |
+| `icon`        | `ReactNode`                                    | --       | Icon element           |
+| `actions`     | `ReactNode`                                    | --       | Action buttons         |
+| `onClose`     | `() => void`                                   | --       | Dismiss callback       |
 
 </TabItem>
 </Tabs>

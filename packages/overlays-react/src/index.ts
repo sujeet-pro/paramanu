@@ -3,7 +3,13 @@
 export { Backdrop } from "./backdrop/backdrop.js"
 export type { ReactBackdropProps } from "./backdrop/backdrop.js"
 
-export { Dialog, DialogHeader, DialogBody, DialogFooter, useDialogContext } from "./dialog/dialog.js"
+export {
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+  useDialogContext,
+} from "./dialog/dialog.js"
 export type {
   ReactDialogProps,
   ReactDialogHeaderProps,
@@ -25,10 +31,7 @@ export type {
 } from "./alert-dialog/alert-dialog.js"
 
 export { InlineDlg, InlineDlgBody } from "./inline-dialog/inline-dialog.js"
-export type {
-  ReactInlineDlgProps,
-  ReactInlineDlgBodyProps,
-} from "./inline-dialog/inline-dialog.js"
+export type { ReactInlineDlgProps, ReactInlineDlgBodyProps } from "./inline-dialog/inline-dialog.js"
 
 export { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from "./drawer/drawer.js"
 export type {

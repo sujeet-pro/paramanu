@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Pagination lets users navigate through multi-page content with previous/next buttons and page numbers.
@@ -49,10 +49,10 @@ export default function App() {
 
 ## Accessibility
 
-| Key | Action |
-|-----|--------|
-| `Tab` | Move between pagination buttons |
-| `Enter` | Activate focused button |
+| Key     | Action                          |
+| ------- | ------------------------------- |
+| `Tab`   | Move between pagination buttons |
+| `Enter` | Activate focused button         |
 
 - Uses `<nav aria-label="Pagination">`.
 - Active page uses `aria-current="page"`.
@@ -63,28 +63,28 @@ export default function App() {
 
 ## Pagination Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+| Prop      | Type                     | Default     | Description    |
+| --------- | ------------------------ | ----------- | -------------- |
+| `size`    | `"sm" \| "md" \| "lg"`   | `"md"`      | Size preset    |
 | `variant` | `"default" \| "minimal"` | `"default"` | Visual variant |
 
 ## PaginationItem Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `type` | `"page" \| "prev" \| "next" \| "ellipsis"` | `"page"` | Item type |
-| `active` | `boolean` | `false` | Current page |
-| `disabled` | `boolean` | `false` | Disabled state |
+| Prop       | Type                                       | Default  | Description    |
+| ---------- | ------------------------------------------ | -------- | -------------- |
+| `type`     | `"page" \| "prev" \| "next" \| "ellipsis"` | `"page"` | Item type      |
+| `active`   | `boolean`                                  | `false`  | Current page   |
+| `disabled` | `boolean`                                  | `false`  | Disabled state |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-pagination` | Root element |
-| `pm-pagination__item` | Item element |
-| `pm-pagination__item--active` | Active page |
-| `pm-pagination__item--prev` | Previous button |
-| `pm-pagination__item--next` | Next button |
+| Class                           | Description        |
+| ------------------------------- | ------------------ |
+| `pm-pagination`                 | Root element       |
+| `pm-pagination__item`           | Item element       |
+| `pm-pagination__item--active`   | Active page        |
+| `pm-pagination__item--prev`     | Previous button    |
+| `pm-pagination__item--next`     | Next button        |
 | `pm-pagination__item--ellipsis` | Ellipsis indicator |
 
 </TabItem>

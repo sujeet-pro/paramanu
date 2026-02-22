@@ -39,9 +39,7 @@ describe("chkCardClasses", () => {
       disabled: true,
       checked: true,
     })
-    expect(result).toBe(
-      "pm-chk-card pm-chk-card--lg pm-chk-card--disabled pm-chk-card--checked",
-    )
+    expect(result).toBe("pm-chk-card pm-chk-card--lg pm-chk-card--disabled pm-chk-card--checked")
   })
 })
 

@@ -8,9 +8,9 @@ badge:
 
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 ## Overview
@@ -27,6 +27,7 @@ LocaleProvider manages the `lang` HTML attribute which affects browser behavior 
     setLocale("fr-FR")
     console.log(getLocale()) // "fr-FR"
     ```
+
 </TabItem>
   <TabItem label="React">
     ```tsx
@@ -39,6 +40,7 @@ LocaleProvider manages the `lang` HTML attribute which affects browser behavior 
     // Inside a component:
     const { locale, setLocale } = useLocale()
     ```
+
 </TabItem>
 </Tabs>
 
@@ -51,6 +53,6 @@ LocaleProvider manages the `lang` HTML attribute which affects browser behavior 
 
 ## API
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `defaultLocale` | `string` | `"en"` | Initial BCP 47 language tag |
+| Prop            | Type     | Default | Description                 |
+| --------------- | -------- | ------- | --------------------------- |
+| `defaultLocale` | `string` | `"en"`  | Initial BCP 47 language tag |

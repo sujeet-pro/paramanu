@@ -33,9 +33,7 @@ describe("editableClasses", () => {
       disabled: true,
       editing: true,
     })
-    expect(result).toBe(
-      "pm-editable pm-editable--lg pm-editable--disabled pm-editable--editing",
-    )
+    expect(result).toBe("pm-editable pm-editable--lg pm-editable--disabled pm-editable--editing")
   })
 })
 

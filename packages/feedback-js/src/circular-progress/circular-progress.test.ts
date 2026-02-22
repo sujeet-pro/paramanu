@@ -1,15 +1,10 @@
 import { describe, it, expect } from "vitest"
-import {
-  ringProgressClasses,
-  ringProgressModuleClasses,
-} from "./circular-progress.classes.js"
+import { ringProgressClasses, ringProgressModuleClasses } from "./circular-progress.classes.js"
 
 describe("ringProgressClasses", () => {
   it("returns default classes (primary, md)", () => {
     const result = ringProgressClasses()
-    expect(result.root).toBe(
-      "pm-ring-progress pm-ring-progress--md pm-ring-progress--primary",
-    )
+    expect(result.root).toBe("pm-ring-progress pm-ring-progress--md pm-ring-progress--primary")
     expect(result.svg).toBe("pm-ring-progress__svg")
     expect(result.track).toBe("pm-ring-progress__track")
     expect(result.fill).toBe("pm-ring-progress__fill")
@@ -22,15 +17,9 @@ describe("ringProgressClasses", () => {
   })
 
   it("applies variant", () => {
-    expect(ringProgressClasses({ variant: "success" }).root).toContain(
-      "pm-ring-progress--success",
-    )
-    expect(ringProgressClasses({ variant: "warning" }).root).toContain(
-      "pm-ring-progress--warning",
-    )
-    expect(ringProgressClasses({ variant: "danger" }).root).toContain(
-      "pm-ring-progress--danger",
-    )
+    expect(ringProgressClasses({ variant: "success" }).root).toContain("pm-ring-progress--success")
+    expect(ringProgressClasses({ variant: "warning" }).root).toContain("pm-ring-progress--warning")
+    expect(ringProgressClasses({ variant: "danger" }).root).toContain("pm-ring-progress--danger")
   })
 
   it("applies indeterminate modifier", () => {

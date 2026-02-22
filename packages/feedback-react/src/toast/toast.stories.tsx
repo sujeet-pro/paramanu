@@ -47,7 +47,12 @@ export const AllVariants: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
       {(["info", "success", "warning", "danger"] as const).map((variant) => (
-        <Toast key={variant} variant={variant} title={variant} message={`${variant} toast message.`} />
+        <Toast
+          key={variant}
+          variant={variant}
+          title={variant}
+          message={`${variant} toast message.`}
+        />
       ))}
     </div>
   ),
@@ -68,7 +73,14 @@ export const Exiting: Story = {
 export const WithIcon: Story = {
   args: {
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
         <polyline points="22 4 12 14.01 9 11.01" />
       </svg>

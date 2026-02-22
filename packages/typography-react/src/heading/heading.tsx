@@ -3,8 +3,7 @@ import { headingClasses } from "@paramanu/typography-js"
 import type { HeadingClassesOptions } from "@paramanu/typography-js"
 
 export interface ReactHeadingProps
-  extends HeadingClassesOptions,
-    Omit<React.HTMLAttributes<HTMLHeadingElement>, "color"> {
+  extends HeadingClassesOptions, Omit<React.HTMLAttributes<HTMLHeadingElement>, "color"> {
   children?: React.ReactNode
 }
 

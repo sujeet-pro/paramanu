@@ -97,12 +97,8 @@ describe("stepIndicatorClasses", () => {
   })
 
   it("applies status", () => {
-    expect(stepIndicatorClasses({ status: "active" })).toContain(
-      "pm-steps__indicator--active",
-    )
-    expect(stepIndicatorClasses({ status: "complete" })).toContain(
-      "pm-steps__indicator--complete",
-    )
+    expect(stepIndicatorClasses({ status: "active" })).toContain("pm-steps__indicator--active")
+    expect(stepIndicatorClasses({ status: "complete" })).toContain("pm-steps__indicator--complete")
   })
 })
 
@@ -131,12 +127,8 @@ describe("stepConnectorClasses", () => {
   })
 
   it("applies status", () => {
-    expect(stepConnectorClasses({ status: "complete" })).toContain(
-      "pm-steps__connector--complete",
-    )
-    expect(stepConnectorClasses({ status: "active" })).toContain(
-      "pm-steps__connector--active",
-    )
+    expect(stepConnectorClasses({ status: "complete" })).toContain("pm-steps__connector--complete")
+    expect(stepConnectorClasses({ status: "active" })).toContain("pm-steps__connector--active")
   })
 })
 

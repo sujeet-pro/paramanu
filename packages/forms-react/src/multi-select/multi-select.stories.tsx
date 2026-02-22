@@ -39,7 +39,15 @@ export const Playground: Story = {
 }
 
 export const Open: Story = {
-  args: { open: true, children: (<><div role="option">React</div><div role="option">Vue</div></>) },
+  args: {
+    open: true,
+    children: (
+      <>
+        <div role="option">React</div>
+        <div role="option">Vue</div>
+      </>
+    ),
+  },
 }
 
 export const Disabled: Story = { args: { disabled: true } }

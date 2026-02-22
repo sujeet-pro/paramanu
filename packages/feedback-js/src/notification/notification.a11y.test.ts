@@ -45,9 +45,7 @@ describe("notification accessibility", () => {
   })
 
   it("has timestamp content", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createNotifHTML("Title", "Message")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createNotifHTML("Title", "Message")}</body>`)
     const timestamp = dom.window.document.querySelector(".pm-notif__timestamp")
     expect(timestamp?.textContent).toBe("2 minutes ago")
   })

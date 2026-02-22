@@ -18,8 +18,7 @@ const SheetContext = createContext<SheetContextValue>({})
 export const useSheetContext = () => useContext(SheetContext)
 
 export interface ReactSheetProps
-  extends SheetClassesOptions,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
+  extends SheetClassesOptions, Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
   /** Whether the sheet is open. @default false */
   open?: boolean
   /** Callback invoked when the sheet requests to close. */
@@ -87,30 +86,32 @@ export interface ReactSheetHandleProps extends React.HTMLAttributes<HTMLDivEleme
 /**
  * SheetHandle renders a drag indicator at the top of the sheet.
  */
-export const SheetHandle = forwardRef<HTMLDivElement, ReactSheetHandleProps>(
-  function SheetHandle({ className, ...rest }, ref) {
-    const classes = sheetHandleClasses()
-    const combinedClassName = className ? `${classes} ${className}` : classes
-    return <div ref={ref} className={combinedClassName} aria-hidden="true" {...rest} />
-  },
-)
+export const SheetHandle = forwardRef<HTMLDivElement, ReactSheetHandleProps>(function SheetHandle(
+  { className, ...rest },
+  ref,
+) {
+  const classes = sheetHandleClasses()
+  const combinedClassName = className ? `${classes} ${className}` : classes
+  return <div ref={ref} className={combinedClassName} aria-hidden="true" {...rest} />
+})
 
 export interface ReactSheetHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const SheetHeader = forwardRef<HTMLDivElement, ReactSheetHeaderProps>(
-  function SheetHeader({ className, children, id, ...rest }, ref) {
-    const ctx = useSheetContext()
-    const classes = sheetHeaderClasses()
-    const combinedClassName = className ? `${classes} ${className}` : classes
-    return (
-      <div ref={ref} id={id ?? ctx.titleId} className={combinedClassName} {...rest}>
-        {children}
-      </div>
-    )
-  },
-)
+export const SheetHeader = forwardRef<HTMLDivElement, ReactSheetHeaderProps>(function SheetHeader(
+  { className, children, id, ...rest },
+  ref,
+) {
+  const ctx = useSheetContext()
+  const classes = sheetHeaderClasses()
+  const combinedClassName = className ? `${classes} ${className}` : classes
+  return (
+    <div ref={ref} id={id ?? ctx.titleId} className={combinedClassName} {...rest}>
+      {children}
+    </div>
+  )
+})
 
 export interface ReactSheetBodyProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode

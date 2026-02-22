@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Sgrid creates responsive grids using either a minimum child width (auto-fill) or a fixed number of columns.
@@ -54,20 +54,20 @@ export default function App() {
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `minChildWidth` | `"2xs" \| "xs" \| "sm" \| "md" \| "lg" \| "xl"` | -- | Min child width |
-| `columns` | `1-6` | -- | Fixed columns |
-| `gap` | `SpacingScale` | -- | Gap |
+| Prop            | Type                                            | Default | Description     |
+| --------------- | ----------------------------------------------- | ------- | --------------- |
+| `minChildWidth` | `"2xs" \| "xs" \| "sm" \| "md" \| "lg" \| "xl"` | --      | Min child width |
+| `columns`       | `1-6`                                           | --      | Fixed columns   |
+| `gap`           | `SpacingScale`                                  | --      | Gap             |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-sgrid` | Base |
-| `pm-sgrid--min-{size}` | Auto-fill |
-| `pm-sgrid--cols-{n}` | Fixed columns |
-| `pm-sgrid--gap-{scale}` | Gap |
+| Class                   | Purpose       |
+| ----------------------- | ------------- |
+| `pm-sgrid`              | Base          |
+| `pm-sgrid--min-{size}`  | Auto-fill     |
+| `pm-sgrid--cols-{n}`    | Fixed columns |
+| `pm-sgrid--gap-{scale}` | Gap           |
 
 </TabItem>
 </Tabs>

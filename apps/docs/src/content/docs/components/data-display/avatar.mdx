@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Avatar displays a user image with automatic fallback to initials or icons. Supports multiple sizes, shapes, and color palettes.
@@ -69,24 +69,24 @@ export default function App() {
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"` | Width, height, font size |
-| `variant` | `"circle" \| "square"` | `"circle"` | Shape |
-| `color` | `"primary" \| "neutral" \| "danger" \| "success"` | `"primary"` | Fallback background color |
-| `src` | `string` | - | Img URL |
-| `alt` | `string` | - | Img alt text |
-| `name` | `string` | - | Name for initials fallback |
+| Prop      | Type                                              | Default     | Description                |
+| --------- | ------------------------------------------------- | ----------- | -------------------------- |
+| `size`    | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"`   | `"md"`      | Width, height, font size   |
+| `variant` | `"circle" \| "square"`                            | `"circle"`  | Shape                      |
+| `color`   | `"primary" \| "neutral" \| "danger" \| "success"` | `"primary"` | Fallback background color  |
+| `src`     | `string`                                          | -           | Img URL                    |
+| `alt`     | `string`                                          | -           | Img alt text               |
+| `name`    | `string`                                          | -           | Name for initials fallback |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-avatar` | Base avatar class |
-| `pm-avatar--{size}` | Size modifier |
-| `pm-avatar--{variant}` | Shape modifier |
-| `pm-avatar__image` | Img element |
-| `pm-avatar__fallback` | Fallback element |
+| Class                  | Description       |
+| ---------------------- | ----------------- |
+| `pm-avatar`            | Base avatar class |
+| `pm-avatar--{size}`    | Size modifier     |
+| `pm-avatar--{variant}` | Shape modifier    |
+| `pm-avatar__image`     | Img element       |
+| `pm-avatar__fallback`  | Fallback element  |
 
 </TabItem>
 </Tabs>

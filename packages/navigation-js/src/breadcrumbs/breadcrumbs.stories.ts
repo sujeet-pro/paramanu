@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { breadcrumbClasses, breadcrumbItemClasses, breadcrumbsLinkClasses } from "./breadcrumbs.classes.js"
+import {
+  breadcrumbClasses,
+  breadcrumbItemClasses,
+  breadcrumbsLinkClasses,
+} from "./breadcrumbs.classes.js"
 import type { BreadcrumbClassesOptions } from "./breadcrumbs.types.js"
 
 interface BreadcrumbArgs extends BreadcrumbClassesOptions {}

@@ -177,9 +177,7 @@ describe("TreeIndicator", () => {
 
   it("applies expanded class", () => {
     render(<TreeIndicator expanded data-testid="indicator" />)
-    expect(screen.getByTestId("indicator").className).toContain(
-      "pm-tree__indicator--expanded",
-    )
+    expect(screen.getByTestId("indicator").className).toContain("pm-tree__indicator--expanded")
   })
 
   it("forwards ref", () => {

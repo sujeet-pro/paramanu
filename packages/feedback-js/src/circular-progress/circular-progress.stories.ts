@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
 import { ringProgressClasses } from "./circular-progress.classes.js"
-import type { RingProgressClassesOptions, RingProgressVariant, RingProgressSize } from "./circular-progress.types.js"
+import type {
+  RingProgressClassesOptions,
+  RingProgressVariant,
+  RingProgressSize,
+} from "./circular-progress.types.js"
 
 const SIZE_MAP: Record<string, number> = { sm: 32, md: 48, lg: 64, xl: 80 }
 const RADIUS = 20

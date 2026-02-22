@@ -3,8 +3,7 @@ import { progressClasses } from "@paramanu/feedback-js"
 import type { ProgressClassesOptions } from "@paramanu/feedback-js"
 
 export interface ReactProgressProps
-  extends ProgressClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends ProgressClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   /** Format function for the label. Receives the percentage number.
    * @default (pct) => `${Math.round(pct)}%`
    */
@@ -33,7 +32,17 @@ export const Progress = forwardRef<HTMLDivElement, ReactProgressProps>(function 
   },
   ref,
 ) {
-  const classes = progressClasses({ size, variant, striped, animated, indeterminate, showLabel, value, min, max })
+  const classes = progressClasses({
+    size,
+    variant,
+    striped,
+    animated,
+    indeterminate,
+    showLabel,
+    value,
+    min,
+    max,
+  })
   const combinedClassName = className ? `${classes.root} ${className}` : classes.root
   const percentage = max > min ? ((value - min) / (max - min)) * 100 : 0
   const labelText = formatLabel ? formatLabel(percentage) : `${Math.round(percentage)}%`

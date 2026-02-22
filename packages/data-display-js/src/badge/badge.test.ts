@@ -40,9 +40,7 @@ describe("badgeClasses", () => {
       color: "danger",
       pill: true,
     })
-    expect(result).toBe(
-      "pm-badge pm-badge--outline pm-badge--lg pm-badge--danger pm-badge--pill",
-    )
+    expect(result).toBe("pm-badge pm-badge--outline pm-badge--lg pm-badge--danger pm-badge--pill")
   })
 })
 

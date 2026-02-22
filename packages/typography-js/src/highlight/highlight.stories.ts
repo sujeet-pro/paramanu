@@ -14,7 +14,10 @@ const meta = {
   tags: ["autodocs", "beta"],
   render: (args) => createHighlight(args as HighlightClassesOptions),
   argTypes: {
-    color: { control: "select", options: ["primary", "danger", "success", "warning", "info", "neutral"] },
+    color: {
+      control: "select",
+      options: ["primary", "danger", "success", "warning", "info", "neutral"],
+    },
     variant: { control: "select", options: ["filled", "outline", "text"] },
   },
   args: {},

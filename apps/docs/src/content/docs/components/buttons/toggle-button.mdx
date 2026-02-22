@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 A two-state button that toggles between pressed (on) and unpressed (off), using `aria-pressed` for accessibility.
@@ -75,28 +75,28 @@ export default function App() {
 
 Extends all native `<button>` HTML attributes.
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `"default" \| "outline"` | `"default"` | Visual style |
-| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Size preset |
-| `pressed` | `boolean` | `false` | Whether the button is in the on state |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `fullWidth` | `boolean` | `false` | Stretch to container width |
-| `value` | `string` | -- | Value for use with ToggleGrp |
-| `onChange` | `(pressed: boolean) => void` | -- | Callback when toggle state changes |
-| `children` | `ReactNode` | -- | Btn content |
+| Prop        | Type                                   | Default     | Description                           |
+| ----------- | -------------------------------------- | ----------- | ------------------------------------- |
+| `variant`   | `"default" \| "outline"`               | `"default"` | Visual style                          |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`      | Size preset                           |
+| `pressed`   | `boolean`                              | `false`     | Whether the button is in the on state |
+| `disabled`  | `boolean`                              | `false`     | Disabled state                        |
+| `fullWidth` | `boolean`                              | `false`     | Stretch to container width            |
+| `value`     | `string`                               | --          | Value for use with ToggleGrp          |
+| `onChange`  | `(pressed: boolean) => void`           | --          | Callback when toggle state changes    |
+| `children`  | `ReactNode`                            | --          | Btn content                           |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-toggle-btn` | Base styles |
-| `pm-toggle-btn--default` | Default variant |
-| `pm-toggle-btn--outline` | Outline variant |
-| `pm-toggle-btn--pressed` | Pressed/on state |
-| `pm-toggle-btn--disabled` | Disabled state |
-| `pm-toggle-btn--full-width` | Full width |
-| `pm-toggle-btn--xs` to `--xl` | Size modifiers |
+| Class                         | Purpose          |
+| ----------------------------- | ---------------- |
+| `pm-toggle-btn`               | Base styles      |
+| `pm-toggle-btn--default`      | Default variant  |
+| `pm-toggle-btn--outline`      | Outline variant  |
+| `pm-toggle-btn--pressed`      | Pressed/on state |
+| `pm-toggle-btn--disabled`     | Disabled state   |
+| `pm-toggle-btn--full-width`   | Full width       |
+| `pm-toggle-btn--xs` to `--xl` | Size modifiers   |
 
 </TabItem>
 </Tabs>

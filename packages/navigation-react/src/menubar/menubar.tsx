@@ -20,8 +20,7 @@ export const Menubar = forwardRef<HTMLUListElement, ReactMenubarProps>(function 
 })
 
 export interface ReactMenubarItemProps
-  extends MenubarItemClassesOptions,
-    React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends MenubarItemClassesOptions, React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
 }
 

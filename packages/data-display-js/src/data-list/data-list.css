@@ -63,8 +63,7 @@
     /* Dividers */
     &.pm-datalist--dividers {
       & .pm-datalist__item + .pm-datalist__item {
-        border-top: 1px solid
-          var(--pm-neutral-hover);
+        border-top: 1px solid var(--pm-neutral-hover);
         padding-top: var(--pm-spacing-3);
       }
     }

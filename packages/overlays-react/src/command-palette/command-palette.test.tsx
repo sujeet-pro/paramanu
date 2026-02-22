@@ -270,9 +270,7 @@ describe("CmdPaletteEmpty", () => {
 
   it("forwards ref", () => {
     let emptyRef: HTMLDivElement | null = null
-    render(
-      <CmdPaletteEmpty ref={(el) => (emptyRef = el)}>No results</CmdPaletteEmpty>,
-    )
+    render(<CmdPaletteEmpty ref={(el) => (emptyRef = el)}>No results</CmdPaletteEmpty>)
     expect(emptyRef).toBeInstanceOf(HTMLDivElement)
   })
 

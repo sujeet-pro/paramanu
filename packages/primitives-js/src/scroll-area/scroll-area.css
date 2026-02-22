@@ -8,28 +8,48 @@
       outline-offset: var(--pm-focus-ring-offset);
     }
 
-    &.pm-scroll--vertical { overflow-x: hidden; overflow-y: auto; }
-    &.pm-scroll--horizontal { overflow-x: auto; overflow-y: hidden; }
-    &.pm-scroll--both { overflow: auto; }
+    &.pm-scroll--vertical {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    &.pm-scroll--horizontal {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    &.pm-scroll--both {
+      overflow: auto;
+    }
 
-    &.pm-scroll--scrollbar-auto { /* browser default, handled by direction */ }
-    &.pm-scroll--scrollbar-always { overflow: scroll; }
+    &.pm-scroll--scrollbar-auto {
+      /* browser default, handled by direction */
+    }
+    &.pm-scroll--scrollbar-always {
+      overflow: scroll;
+    }
     &.pm-scroll--scrollbar-hover {
       overflow: hidden;
 
-      &:hover { overflow: auto; }
+      &:hover {
+        overflow: auto;
+      }
     }
     &.pm-scroll--scrollbar-hidden {
       scrollbar-width: none;
 
-      &::-webkit-scrollbar { display: none; }
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
-    &.pm-scroll--scrollbar-thin { scrollbar-width: thin; }
+    &.pm-scroll--scrollbar-thin {
+      scrollbar-width: thin;
+    }
     &.pm-scroll--scrollbar-none {
       scrollbar-width: none;
 
-      &::-webkit-scrollbar { display: none; }
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     &.pm-scroll--bordered {

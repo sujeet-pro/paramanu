@@ -90,17 +90,13 @@ describe("transfer accessibility", () => {
   })
 
   it("disabled state has aria-disabled on container", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createTransferHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createTransferHTML({ disabled: true })}</body>`)
     const group = dom.window.document.querySelector("[role='group']")
     expect(group?.getAttribute("aria-disabled")).toBe("true")
   })
 
   it("disabled buttons have disabled attribute", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createTransferHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createTransferHTML({ disabled: true })}</body>`)
     const buttons = dom.window.document.querySelectorAll(".pm-transfer__actions button")
     buttons.forEach((btn) => {
       expect(btn.hasAttribute("disabled")).toBe(true)

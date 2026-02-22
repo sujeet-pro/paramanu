@@ -3,8 +3,7 @@ import { spacerClasses } from "@paramanu/primitives-js"
 import type { SpacerProps } from "@paramanu/primitives-js"
 
 export interface ReactSpacerProps
-  extends SpacerProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+  extends SpacerProps, Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
   /** Additional CSS class names. */
   className?: string
 }

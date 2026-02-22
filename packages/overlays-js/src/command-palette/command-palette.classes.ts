@@ -29,9 +29,7 @@ export function cmdPaletteModuleClasses(
 /**
  * Returns BEM class names for the command palette input.
  */
-export function commandPaletteInputClasses(
-  _options: CmdPaletteInputClassesOptions = {},
-): string {
+export function commandPaletteInputClasses(_options: CmdPaletteInputClassesOptions = {}): string {
   return `${BASE}__input`
 }
 
@@ -48,9 +46,7 @@ export function commandPaletteInputModuleClasses(
 /**
  * Returns BEM class names for the command palette list.
  */
-export function commandPaletteListClasses(
-  _options: CmdPaletteListClassesOptions = {},
-): string {
+export function commandPaletteListClasses(_options: CmdPaletteListClassesOptions = {}): string {
   return `${BASE}__list`
 }
 
@@ -67,9 +63,7 @@ export function commandPaletteListModuleClasses(
 /**
  * Returns BEM class names for the command palette item.
  */
-export function cmdPaletteItemClasses(
-  options: CmdPaletteItemClassesOptions = {},
-): string {
+export function cmdPaletteItemClasses(options: CmdPaletteItemClassesOptions = {}): string {
   const { active = false } = options
   const classes = [`${BASE}__item`]
 
@@ -96,9 +90,7 @@ export function cmdPaletteItemModuleClasses(
 /**
  * Returns BEM class names for the command palette group.
  */
-export function commandPaletteGroupClasses(
-  _options: CmdPaletteGroupClassesOptions = {},
-): string {
+export function commandPaletteGroupClasses(_options: CmdPaletteGroupClassesOptions = {}): string {
   return `${BASE}__group`
 }
 
@@ -115,9 +107,7 @@ export function commandPaletteGroupModuleClasses(
 /**
  * Returns BEM class names for the command palette empty state.
  */
-export function commandPaletteEmptyClasses(
-  _options: CmdPaletteEmptyClassesOptions = {},
-): string {
+export function commandPaletteEmptyClasses(_options: CmdPaletteEmptyClassesOptions = {}): string {
   return `${BASE}__empty`
 }
 

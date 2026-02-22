@@ -48,9 +48,7 @@ describe("tabsClasses", () => {
       orientation: "vertical",
       fitted: true,
     })
-    expect(result).toBe(
-      "pm-tabs pm-tabs--pill pm-tabs--lg pm-tabs--vertical pm-tabs--fitted",
-    )
+    expect(result).toBe("pm-tabs pm-tabs--pill pm-tabs--lg pm-tabs--vertical pm-tabs--fitted")
   })
 })
 

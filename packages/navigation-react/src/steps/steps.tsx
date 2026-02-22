@@ -13,9 +13,7 @@ import type {
   StepConnectorClassesOptions,
 } from "@paramanu/navigation-js"
 
-export interface ReactStepsProps
-  extends StepsClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactStepsProps extends StepsClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
@@ -33,9 +31,7 @@ export const Steps = forwardRef<HTMLDivElement, ReactStepsProps>(function Steps(
   )
 })
 
-export interface ReactStepProps
-  extends StepClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactStepProps extends StepClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
@@ -55,8 +51,7 @@ export const Step = forwardRef<HTMLDivElement, ReactStepProps>(function Step(
 })
 
 export interface ReactStepIndicatorProps
-  extends StepIndicatorClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends StepIndicatorClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
@@ -74,8 +69,7 @@ export const StepIndicator = forwardRef<HTMLDivElement, ReactStepIndicatorProps>
 )
 
 export interface ReactStepConnectorProps
-  extends StepConnectorClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {}
+  extends StepConnectorClassesOptions, React.HTMLAttributes<HTMLDivElement> {}
 
 export const StepConnector = forwardRef<HTMLDivElement, ReactStepConnectorProps>(
   function StepConnector({ status, className, ...rest }, ref) {
@@ -90,15 +84,16 @@ export interface ReactStepContentProps extends React.HTMLAttributes<HTMLDivEleme
   children?: React.ReactNode
 }
 
-export const StepContent = forwardRef<HTMLDivElement, ReactStepContentProps>(
-  function StepContent({ className, children, ...rest }, ref) {
-    const classes = stepContentClasses()
-    const combinedClassName = className ? `${classes} ${className}` : classes
+export const StepContent = forwardRef<HTMLDivElement, ReactStepContentProps>(function StepContent(
+  { className, children, ...rest },
+  ref,
+) {
+  const classes = stepContentClasses()
+  const combinedClassName = className ? `${classes} ${className}` : classes
 
-    return (
-      <div ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </div>
-    )
-  },
-)
+  return (
+    <div ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </div>
+  )
+})

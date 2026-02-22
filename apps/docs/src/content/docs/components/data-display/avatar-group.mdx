@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Avatar Group displays a collection of avatars with optional max limit and overflow count indicator.
@@ -61,17 +61,17 @@ export default function App() {
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"` | Size of child avatars |
-| `spacing` | `"tight" \| "normal"` | `"normal"` | Overlap spacing |
-| `max` | `number` | - | Maximum visible avatars before overflow |
+| Prop      | Type                                            | Default    | Description                             |
+| --------- | ----------------------------------------------- | ---------- | --------------------------------------- |
+| `size`    | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"`     | Size of child avatars                   |
+| `spacing` | `"tight" \| "normal"`                           | `"normal"` | Overlap spacing                         |
+| `max`     | `number`                                        | -          | Maximum visible avatars before overflow |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-avatar-grp` | Base group class |
+| Class                     | Description              |
+| ------------------------- | ------------------------ |
+| `pm-avatar-grp`           | Base group class         |
 | `pm-avatar-grp__overflow` | Overflow count indicator |
 
 </TabItem>

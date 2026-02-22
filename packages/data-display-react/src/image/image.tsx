@@ -3,8 +3,7 @@ import { imgClasses } from "@paramanu/data-display-js"
 import type { ImgProps } from "@paramanu/data-display-js"
 
 export interface ReactImgProps
-  extends ImgProps,
-    Omit<React.HTMLAttributes<HTMLElement>, "children"> {
+  extends ImgProps, Omit<React.HTMLAttributes<HTMLElement>, "children"> {
   children?: React.ReactNode
 }
 
@@ -24,12 +23,7 @@ export const Img = forwardRef<HTMLElement, ReactImgProps>(function Img(
       ) : showFallback ? (
         <div className={classes.fallback}>{children}</div>
       ) : (
-        <img
-          className={classes.img}
-          src={src}
-          alt={alt || ""}
-          onError={() => setHasError(true)}
-        />
+        <img className={classes.img} src={src} alt={alt || ""} onError={() => setHasError(true)} />
       )}
       {caption && <figcaption className={classes.caption}>{caption}</figcaption>}
     </figure>

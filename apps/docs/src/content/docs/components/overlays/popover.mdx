@@ -8,9 +8,9 @@ badge:
 
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 ## Overview
@@ -38,6 +38,7 @@ Popover displays a floating panel positioned relative to a trigger element. Usef
       <PopoverArrow />
     </Popover>
     ```
+
 </TabItem>
 </Tabs>
 
@@ -50,9 +51,9 @@ Popover displays a floating panel positioned relative to a trigger element. Usef
 
 ## API
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `placement` | `PopoverPlacement` | `"bottom"` | Positioning relative to trigger |
-| `hasArrow` | `boolean` | `false` | Whether to show a directional arrow |
-| `open` | `boolean` | `false` | Whether the popover is visible |
-| `onClose` | `() => void` | - | Callback when the popover should close |
+| Prop        | Type               | Default    | Description                            |
+| ----------- | ------------------ | ---------- | -------------------------------------- |
+| `placement` | `PopoverPlacement` | `"bottom"` | Positioning relative to trigger        |
+| `hasArrow`  | `boolean`          | `false`    | Whether to show a directional arrow    |
+| `open`      | `boolean`          | `false`    | Whether the popover is visible         |
+| `onClose`   | `() => void`       | -          | Callback when the popover should close |

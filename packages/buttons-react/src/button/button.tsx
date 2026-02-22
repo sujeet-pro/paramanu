@@ -3,8 +3,7 @@ import { btnClasses } from "@paramanu/buttons-js"
 import type { BtnProps } from "@paramanu/buttons-js"
 
 export interface ReactBtnProps
-  extends BtnProps,
-    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
+  extends BtnProps, Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
   /** The HTML button type attribute. @default "button" */
   type?: "button" | "submit" | "reset"
   /** Content to render inside the button. */
@@ -87,18 +86,24 @@ export const Btn = forwardRef<HTMLButtonElement, ReactBtnProps>(function Btn(
       return (
         <>
           {spinnerElement}
-          <span style={{ visibility: "hidden", height: 0, overflow: "hidden" }}>
-            {children}
-          </span>
+          <span style={{ visibility: "hidden", height: 0, overflow: "hidden" }}>{children}</span>
         </>
       )
     }
 
     return (
       <>
-        {leftIcon && <span className="pm-btn__icon" aria-hidden="true">{leftIcon}</span>}
+        {leftIcon && (
+          <span className="pm-btn__icon" aria-hidden="true">
+            {leftIcon}
+          </span>
+        )}
         {children}
-        {rightIcon && <span className="pm-btn__icon" aria-hidden="true">{rightIcon}</span>}
+        {rightIcon && (
+          <span className="pm-btn__icon" aria-hidden="true">
+            {rightIcon}
+          </span>
+        )}
       </>
     )
   }

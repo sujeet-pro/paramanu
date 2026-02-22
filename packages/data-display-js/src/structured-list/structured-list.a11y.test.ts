@@ -71,9 +71,7 @@ describe("structured list accessibility", () => {
     const dom = new JSDOM(
       `<!DOCTYPE html><body>${createStructListHTML({ selectable: true })}</body>`,
     )
-    const bodyRows = dom.window.document.querySelectorAll(
-      ".pm-struct-list__body [role='row']",
-    )
+    const bodyRows = dom.window.document.querySelectorAll(".pm-struct-list__body [role='row']")
     bodyRows.forEach((row) => {
       expect(row.getAttribute("tabindex")).toBe("0")
     })
@@ -83,9 +81,7 @@ describe("structured list accessibility", () => {
     const dom = new JSDOM(
       `<!DOCTYPE html><body>${createStructListHTML({ selectable: false })}</body>`,
     )
-    const bodyRows = dom.window.document.querySelectorAll(
-      ".pm-struct-list__body [role='row']",
-    )
+    const bodyRows = dom.window.document.querySelectorAll(".pm-struct-list__body [role='row']")
     bodyRows.forEach((row) => {
       expect(row.hasAttribute("tabindex")).toBe(false)
     })

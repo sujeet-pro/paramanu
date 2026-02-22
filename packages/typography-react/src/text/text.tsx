@@ -3,10 +3,21 @@ import { textClasses } from "@paramanu/typography-js"
 import type { TextClassesOptions } from "@paramanu/typography-js"
 
 export interface ReactTextProps
-  extends TextClassesOptions,
-    Omit<React.HTMLAttributes<HTMLElement>, "color"> {
+  extends TextClassesOptions, Omit<React.HTMLAttributes<HTMLElement>, "color"> {
   /** The HTML element to render. Defaults to "p". */
-  as?: "p" | "span" | "div" | "label" | "em" | "strong" | "small" | "abbr" | "del" | "ins" | "sub" | "sup"
+  as?:
+    | "p"
+    | "span"
+    | "div"
+    | "label"
+    | "em"
+    | "strong"
+    | "small"
+    | "abbr"
+    | "del"
+    | "ins"
+    | "sub"
+    | "sup"
   children?: React.ReactNode
 }
 

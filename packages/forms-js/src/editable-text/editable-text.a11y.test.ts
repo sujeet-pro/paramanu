@@ -47,18 +47,14 @@ describe("editable-text accessibility", () => {
   })
 
   it("editing mode shows input with aria-label", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createEditableHTML({ editing: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createEditableHTML({ editing: true })}</body>`)
     const input = dom.window.document.querySelector("input")
     expect(input).not.toBeNull()
     expect(input?.getAttribute("aria-label")).toBe("Edit text")
   })
 
   it("editing mode has confirm and cancel buttons", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createEditableHTML({ editing: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createEditableHTML({ editing: true })}</body>`)
     const buttons = dom.window.document.querySelectorAll("button")
     expect(buttons.length).toBe(2)
     expect(buttons[0]?.getAttribute("aria-label")).toBe("Confirm")
@@ -66,9 +62,7 @@ describe("editable-text accessibility", () => {
   })
 
   it("disabled state has aria-disabled", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createEditableHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createEditableHTML({ disabled: true })}</body>`)
     const group = dom.window.document.querySelector("[role='group']")
     expect(group?.getAttribute("aria-disabled")).toBe("true")
   })

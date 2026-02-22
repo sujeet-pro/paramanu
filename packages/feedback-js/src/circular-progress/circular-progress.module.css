@@ -91,10 +91,7 @@
 
   .pm-ring-progress__fill {
     fill: none;
-    stroke: var(
-      --pm-ring-progress-fill-color,
-      var(--pm-primary)
-    );
+    stroke: var(--pm-ring-progress-fill-color, var(--pm-primary));
     stroke-width: 4;
     stroke-linecap: round;
     transform-origin: center;

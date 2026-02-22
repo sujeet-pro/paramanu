@@ -68,17 +68,13 @@ describe("mentions accessibility", () => {
   })
 
   it("disabled textarea has disabled attribute", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createMentionsHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createMentionsHTML({ disabled: true })}</body>`)
     const textarea = dom.window.document.querySelector("textarea")
     expect(textarea?.hasAttribute("disabled")).toBe(true)
   })
 
   it("invalid textarea has aria-invalid", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createMentionsHTML({ invalid: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createMentionsHTML({ invalid: true })}</body>`)
     const textarea = dom.window.document.querySelector("textarea")
     expect(textarea?.getAttribute("aria-invalid")).toBe("true")
   })

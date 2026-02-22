@@ -69,22 +69,16 @@ describe("paginationItemClasses", () => {
   it("applies item type", () => {
     expect(paginationItemClasses({ type: "prev" })).toContain("pm-pagination__item--prev")
     expect(paginationItemClasses({ type: "next" })).toContain("pm-pagination__item--next")
-    expect(paginationItemClasses({ type: "ellipsis" })).toContain(
-      "pm-pagination__item--ellipsis",
-    )
+    expect(paginationItemClasses({ type: "ellipsis" })).toContain("pm-pagination__item--ellipsis")
   })
 
   it("applies active modifier", () => {
     expect(paginationItemClasses({ active: true })).toContain("pm-pagination__item--active")
-    expect(paginationItemClasses({ active: false })).not.toContain(
-      "pm-pagination__item--active",
-    )
+    expect(paginationItemClasses({ active: false })).not.toContain("pm-pagination__item--active")
   })
 
   it("applies disabled modifier", () => {
-    expect(paginationItemClasses({ disabled: true })).toContain(
-      "pm-pagination__item--disabled",
-    )
+    expect(paginationItemClasses({ disabled: true })).toContain("pm-pagination__item--disabled")
     expect(paginationItemClasses({ disabled: false })).not.toContain(
       "pm-pagination__item--disabled",
     )

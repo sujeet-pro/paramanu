@@ -81,13 +81,14 @@ import buttonClasses from "./button.classes"
 ## 2. JSDoc Conventions
 
 Every exported function, type, interface, and component MUST have JSDoc. This serves three purposes:
+
 1. **Editor IntelliSense** — hover documentation in VS Code / IDEs
 2. **API doc generation** — extracted to build the API Reference tab in docs
 3. **Storybook autodocs** — populates the Docs tab in Storybook
 
 ### Function JSDoc Template
 
-```typescript
+````typescript
 /**
  * Generates BEM class names for the Button component.
  *
@@ -104,11 +105,11 @@ Every exported function, type, interface, and component MUST have JSDoc. This se
  * @since 1.0.0
  */
 export function buttonClasses(options: ButtonClassesOptions = {}): string { ... }
-```
+````
 
 ### Type/Interface JSDoc Template
 
-```typescript
+````typescript
 /**
  * Visual style variants for the Button component.
  *
@@ -155,11 +156,11 @@ export interface ButtonClassesOptions {
    */
   fullWidth?: boolean
 }
-```
+````
 
 ### React Component JSDoc Template
 
-```typescript
+````typescript
 /**
  * A clickable button element for triggering actions.
  *
@@ -176,7 +177,7 @@ export interface ButtonClassesOptions {
  * @since 1.0.0
  */
 export const Button = forwardRef<HTMLButtonElement, ReactButtonProps>(...)
-```
+````
 
 ### JSDoc Rules
 
@@ -195,19 +196,19 @@ export const Button = forwardRef<HTMLButtonElement, ReactButtonProps>(...)
 
 All files follow the pattern: `<component-name>.<type>.<ext>`
 
-| Type | Description | Example |
-|------|-------------|---------|
-| `types` | TypeScript interfaces and types | `button.types.ts` |
-| `classes` | Class builder functions (core) | `button.classes.ts` |
-| `css` | Component CSS (both `.css` and `.module.css`) | `button.css`, `button.module.css` |
-| `component` | Framework component (vanilla) | `button.component.ts` |
-| `tsx` / no suffix | React component | `button.tsx` |
-| `hook` | React hooks | `use-button.hook.ts` |
-| `provider` | React context providers | `theme.provider.tsx` |
-| `constant` | Constants | `button.constant.ts` |
-| `test` | Unit tests | `button.test.ts` |
-| `a11y.test` | Accessibility tests | `button.a11y.test.ts` |
-| `stories` | Storybook stories | `button.stories.tsx` |
+| Type              | Description                                   | Example                           |
+| ----------------- | --------------------------------------------- | --------------------------------- |
+| `types`           | TypeScript interfaces and types               | `button.types.ts`                 |
+| `classes`         | Class builder functions (core)                | `button.classes.ts`               |
+| `css`             | Component CSS (both `.css` and `.module.css`) | `button.css`, `button.module.css` |
+| `component`       | Framework component (vanilla)                 | `button.component.ts`             |
+| `tsx` / no suffix | React component                               | `button.tsx`                      |
+| `hook`            | React hooks                                   | `use-button.hook.ts`              |
+| `provider`        | React context providers                       | `theme.provider.tsx`              |
+| `constant`        | Constants                                     | `button.constant.ts`              |
+| `test`            | Unit tests                                    | `button.test.ts`                  |
+| `a11y.test`       | Accessibility tests                           | `button.a11y.test.ts`             |
+| `stories`         | Storybook stories                             | `button.stories.tsx`              |
 
 ---
 
@@ -337,13 +338,13 @@ Layer order (declared in `packages/tokens/src/layers.css`):
 @layer pm.reset, pm.tokens, pm.base, pm.components, pm.utilities;
 ```
 
-| Layer | Purpose |
-|---|---|
-| `pm.reset` | CSS reset/normalize |
-| `pm.tokens` | CSS custom property definitions (primitives + semantics) |
-| `pm.base` | Base element styles (body, headings, links) |
-| `pm.components` | Component styles (`.pm-button`, `.pm-card`, etc.) |
-| `pm.utilities` | Utility classes |
+| Layer           | Purpose                                                  |
+| --------------- | -------------------------------------------------------- |
+| `pm.reset`      | CSS reset/normalize                                      |
+| `pm.tokens`     | CSS custom property definitions (primitives + semantics) |
+| `pm.base`       | Base element styles (body, headings, links)              |
+| `pm.components` | Component styles (`.pm-button`, `.pm-card`, etc.)        |
+| `pm.utilities`  | Utility classes                                          |
 
 ### BEM Naming
 
@@ -440,16 +441,16 @@ Component-specific CSS variables defined on the root element of each component. 
 
 ### Token Usage Rules
 
-| Need | Use | NOT |
-|---|---|---|
-| Background color | `var(--pm-bg)`, `var(--pm-primary)` | `var(--pm-color-neutral-0)` |
-| Text color | `var(--pm-fg)`, `var(--pm-fg-muted)` | `var(--pm-color-neutral-900)` |
-| Border color | `var(--pm-border)` | `var(--pm-color-neutral-300)` |
-| Button bg | `var(--pm-primary)` | `light-dark(var(--pm-color-primary-600), ...)` |
-| Status color | `var(--pm-danger)`, `var(--pm-success)` | `var(--pm-color-danger-600)` |
-| Spacing | `var(--pm-spacing-4)` | `16px` |
-| Radius | `var(--pm-radius-md)` | `6px` |
-| Focus ring | `var(--pm-focus-ring)` | `var(--pm-color-primary-500)` |
+| Need             | Use                                     | NOT                                            |
+| ---------------- | --------------------------------------- | ---------------------------------------------- |
+| Background color | `var(--pm-bg)`, `var(--pm-primary)`     | `var(--pm-color-neutral-0)`                    |
+| Text color       | `var(--pm-fg)`, `var(--pm-fg-muted)`    | `var(--pm-color-neutral-900)`                  |
+| Border color     | `var(--pm-border)`                      | `var(--pm-color-neutral-300)`                  |
+| Button bg        | `var(--pm-primary)`                     | `light-dark(var(--pm-color-primary-600), ...)` |
+| Status color     | `var(--pm-danger)`, `var(--pm-success)` | `var(--pm-color-danger-600)`                   |
+| Spacing          | `var(--pm-spacing-4)`                   | `16px`                                         |
+| Radius           | `var(--pm-radius-md)`                   | `6px`                                          |
+| Focus ring       | `var(--pm-focus-ring)`                  | `var(--pm-color-primary-500)`                  |
 
 **Key rule**: Component CSS must NEVER use `light-dark()` with primitive token references. All light/dark adaptation is handled by semantic tokens. The only acceptable `light-dark()` in component CSS is for raw values in exceptional cases (e.g., theme-specific glow effects with `rgba()`).
 
@@ -472,6 +473,7 @@ Dark mode is automatic via `color-scheme: light dark` on `:root` and semantic to
 ```
 
 Color scheme utility classes are available:
+
 - `.pm-light` — forces light mode
 - `.pm-dark` — forces dark mode
 - `.pm-auto` — follows system preference (default)
@@ -521,6 +523,7 @@ buildCss({
 ```
 
 Outputs per package:
+
 - `dist/css/{package}.css` — all components combined
 - `dist/css/{package}.min.css` — minified
 - `dist/css/{component}.css` — per-component (tree-shakeable)
@@ -542,12 +545,12 @@ import "@paramanu/buttons-js/css"
 
 When building a component, **always reuse existing class builders** from dependency packages rather than reimplementing:
 
-| Need | Use From | Example |
-|------|----------|---------|
-| Layout | `primitives-js` | `flexClasses()`, `stackClasses()`, `groupClasses()` |
-| Text | `typography-js` | `textClasses()`, `headingClasses()` |
-| Close action | `buttons-js` | `closeButtonClasses()` |
-| Portal/Focus | `utilities-js` | `Portal`, `FocusTrap`, `Presence` |
+| Need         | Use From        | Example                                             |
+| ------------ | --------------- | --------------------------------------------------- |
+| Layout       | `primitives-js` | `flexClasses()`, `stackClasses()`, `groupClasses()` |
+| Text         | `typography-js` | `textClasses()`, `headingClasses()`                 |
+| Close action | `buttons-js`    | `closeButtonClasses()`                              |
+| Portal/Focus | `utilities-js`  | `Portal`, `FocusTrap`, `Presence`                   |
 
 ```typescript
 // In feedback-js alert:
@@ -562,18 +565,21 @@ import { flexClasses } from "@paramanu/primitives-js"
 ## 7. Performance
 
 ### CSS
+
 - Use CSS containment (`contain`) for complex components
 - Prefer CSS-only solutions over JS for visual states
 - Minimize specificity — rely on layers, not selector weight
 - Use `will-change` sparingly and only when proven necessary
 
 ### JavaScript
+
 - Class builder functions must be pure and allocation-minimal
 - Avoid unnecessary array/object allocations in hot paths
 - React: use `forwardRef`, avoid inline object literals in render
 - Memoize only when profiling proves it's needed
 
 ### Bundle Size
+
 - Every export must be tree-shakeable
 - No side effects in module scope (declare in package.json `sideEffects` if needed)
 - CSS is separate from JS — consumers import what they need
@@ -602,16 +608,16 @@ import { flexClasses } from "@paramanu/primitives-js"
 
 ### Semantic Element Reference
 
-| Component | Element |
-|-----------|---------|
-| Button | `<button>` |
-| Link | `<a>` |
-| Navigation | `<nav>` |
-| Dialog | `<dialog>` |
-| Input | `<input>` |
-| Checkbox | `<input type="checkbox">` |
-| Alert | `<div role="alert">` |
-| Progress | `<progress>` |
+| Component  | Element                   |
+| ---------- | ------------------------- |
+| Button     | `<button>`                |
+| Link       | `<a>`                     |
+| Navigation | `<nav>`                   |
+| Dialog     | `<dialog>`                |
+| Input      | `<input>`                 |
+| Checkbox   | `<input type="checkbox">` |
+| Alert      | `<div role="alert">`      |
+| Progress   | `<progress>`              |
 
 ---
 

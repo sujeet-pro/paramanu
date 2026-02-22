@@ -3,8 +3,7 @@ import { linkClasses } from "@paramanu/navigation-js"
 import type { LinkProps } from "@paramanu/navigation-js"
 
 export interface ReactLinkProps
-  extends LinkProps,
-    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href"> {
+  extends LinkProps, Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href"> {
   href?: string
   children?: React.ReactNode
 }

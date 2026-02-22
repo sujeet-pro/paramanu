@@ -29,9 +29,7 @@ function useShellContext() {
 
 // --- Shell (container) ---
 
-export interface ReactShellProps
-  extends ShellProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactShellProps extends ShellProps, React.HTMLAttributes<HTMLDivElement> {
   className?: string
   children?: React.ReactNode
   defaultSidebarCollapsed?: boolean
@@ -74,52 +72,48 @@ export const Shell = forwardRef<HTMLDivElement, ReactShellProps>(function Shell(
 
 // --- ShellHeader ---
 
-export interface ReactShellHeaderProps
-  extends ShellHeaderProps,
-    React.HTMLAttributes<HTMLElement> {
+export interface ReactShellHeaderProps extends ShellHeaderProps, React.HTMLAttributes<HTMLElement> {
   className?: string
   children?: React.ReactNode
 }
 
-export const ShellHeader = forwardRef<HTMLElement, ReactShellHeaderProps>(
-  function ShellHeader({ sticky, className, children, ...rest }, ref) {
-    const classes = appShellHeaderClasses({ sticky })
-    const combinedClassName = className ? `${classes} ${className}` : classes
+export const ShellHeader = forwardRef<HTMLElement, ReactShellHeaderProps>(function ShellHeader(
+  { sticky, className, children, ...rest },
+  ref,
+) {
+  const classes = appShellHeaderClasses({ sticky })
+  const combinedClassName = className ? `${classes} ${className}` : classes
 
-    return (
-      <header ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </header>
-    )
-  },
-)
+  return (
+    <header ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </header>
+  )
+})
 
 // --- ShellSidebar ---
 
 export interface ReactShellSidebarProps
-  extends ShellSidebarProps,
-    React.HTMLAttributes<HTMLElement> {
+  extends ShellSidebarProps, React.HTMLAttributes<HTMLElement> {
   className?: string
   children?: React.ReactNode
 }
 
-export const ShellSidebar = forwardRef<HTMLElement, ReactShellSidebarProps>(
-  function ShellSidebar(
-    { width = "md" as ShellSidebarWidth, collapsed: propCollapsed, className, children, ...rest },
-    ref,
-  ) {
-    const { sidebarCollapsed } = useShellContext()
-    const isCollapsed = propCollapsed !== undefined ? propCollapsed : sidebarCollapsed
-    const classes = appShellSidebarClasses({ width, collapsed: isCollapsed })
-    const combinedClassName = className ? `${classes} ${className}` : classes
+export const ShellSidebar = forwardRef<HTMLElement, ReactShellSidebarProps>(function ShellSidebar(
+  { width = "md" as ShellSidebarWidth, collapsed: propCollapsed, className, children, ...rest },
+  ref,
+) {
+  const { sidebarCollapsed } = useShellContext()
+  const isCollapsed = propCollapsed !== undefined ? propCollapsed : sidebarCollapsed
+  const classes = appShellSidebarClasses({ width, collapsed: isCollapsed })
+  const combinedClassName = className ? `${classes} ${className}` : classes
 
-    return (
-      <aside ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </aside>
-    )
-  },
-)
+  return (
+    <aside ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </aside>
+  )
+})
 
 // --- ShellMain ---
 
@@ -128,18 +122,19 @@ export interface ReactShellMainProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode
 }
 
-export const ShellMain = forwardRef<HTMLElement, ReactShellMainProps>(
-  function ShellMain({ className, children, ...rest }, ref) {
-    const classes = appShellMainClasses()
-    const combinedClassName = className ? `${classes} ${className}` : classes
+export const ShellMain = forwardRef<HTMLElement, ReactShellMainProps>(function ShellMain(
+  { className, children, ...rest },
+  ref,
+) {
+  const classes = appShellMainClasses()
+  const combinedClassName = className ? `${classes} ${className}` : classes
 
-    return (
-      <main ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </main>
-    )
-  },
-)
+  return (
+    <main ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </main>
+  )
+})
 
 // --- ShellFooter ---
 
@@ -148,15 +143,16 @@ export interface ReactShellFooterProps extends React.HTMLAttributes<HTMLElement>
   children?: React.ReactNode
 }
 
-export const ShellFooter = forwardRef<HTMLElement, ReactShellFooterProps>(
-  function ShellFooter({ className, children, ...rest }, ref) {
-    const classes = appShellFooterClasses()
-    const combinedClassName = className ? `${classes} ${className}` : classes
+export const ShellFooter = forwardRef<HTMLElement, ReactShellFooterProps>(function ShellFooter(
+  { className, children, ...rest },
+  ref,
+) {
+  const classes = appShellFooterClasses()
+  const combinedClassName = className ? `${classes} ${className}` : classes
 
-    return (
-      <footer ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </footer>
-    )
-  },
-)
+  return (
+    <footer ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </footer>
+  )
+})

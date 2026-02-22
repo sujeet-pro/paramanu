@@ -35,7 +35,9 @@ type Story = StoryObj<SkeletonArgs>
 export const Playground: Story = {}
 export const Text: Story = { args: { variant: "text", width: "60%" } }
 export const Circular: Story = { args: { variant: "circular", size: "md" } }
-export const Rectangular: Story = { args: { variant: "rectangular", width: "200px", height: "100px" } }
+export const Rectangular: Story = {
+  args: { variant: "rectangular", width: "200px", height: "100px" },
+}
 
 export const AllVariants: Story = {
   render: () => {
@@ -45,7 +47,9 @@ export const AllVariants: Story = {
     container.style.gap = "16px"
     container.appendChild(createSkeleton({ variant: "text", width: "60%" }))
     container.appendChild(createSkeleton({ variant: "circular", size: "md" }))
-    container.appendChild(createSkeleton({ variant: "rectangular", width: "200px", height: "100px" }))
+    container.appendChild(
+      createSkeleton({ variant: "rectangular", width: "200px", height: "100px" }),
+    )
     return container
   },
 }

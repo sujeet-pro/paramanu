@@ -148,9 +148,7 @@ describe("NavbarToggle", () => {
 
   it("applies class", () => {
     render(<NavbarToggle aria-label="Toggle">Menu</NavbarToggle>)
-    expect(screen.getByRole("button", { name: "Toggle" }).className).toContain(
-      "pm-navbar__toggle",
-    )
+    expect(screen.getByRole("button", { name: "Toggle" }).className).toContain("pm-navbar__toggle")
   })
 
   it("defaults to type=button", () => {

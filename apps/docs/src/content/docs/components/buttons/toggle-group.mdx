@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 A group of toggle buttons where one or more can be active, supporting single-select and multi-select modes.
@@ -87,36 +87,36 @@ export default function App() {
 
 ## ToggleGrp Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `type` | `"single" \| "multiple"` | `"single"` | Selection mode |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout direction |
-| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Shared size for items |
-| `attached` | `boolean` | `false` | Merge item borders |
-| `fullWidth` | `boolean` | `false` | Stretch to container |
-| `value` | `string \| string[]` | -- | Current selection |
-| `onChange` | `(value) => void` | -- | Selection change callback |
+| Prop          | Type                                   | Default        | Description               |
+| ------------- | -------------------------------------- | -------------- | ------------------------- |
+| `type`        | `"single" \| "multiple"`               | `"single"`     | Selection mode            |
+| `orientation` | `"horizontal" \| "vertical"`           | `"horizontal"` | Layout direction          |
+| `size`        | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`         | Shared size for items     |
+| `attached`    | `boolean`                              | `false`        | Merge item borders        |
+| `fullWidth`   | `boolean`                              | `false`        | Stretch to container      |
+| `value`       | `string \| string[]`                   | --             | Current selection         |
+| `onChange`    | `(value) => void`                      | --             | Selection change callback |
 
 ## ToggleGrpItem Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `value` | `string` | -- | Item value for tracking |
-| `variant` | `"default" \| "outline"` | `"default"` | Visual style |
-| `size` | `ToggleGrpSize` | Inherited | Size override |
-| `pressed` | `boolean` | Managed | Toggle state |
-| `disabled` | `boolean` | `false` | Disabled state |
+| Prop       | Type                     | Default     | Description             |
+| ---------- | ------------------------ | ----------- | ----------------------- |
+| `value`    | `string`                 | --          | Item value for tracking |
+| `variant`  | `"default" \| "outline"` | `"default"` | Visual style            |
+| `size`     | `ToggleGrpSize`          | Inherited   | Size override           |
+| `pressed`  | `boolean`                | Managed     | Toggle state            |
+| `disabled` | `boolean`                | `false`     | Disabled state          |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-toggle-grp` | Container base |
+| Class                                | Purpose          |
+| ------------------------------------ | ---------------- |
+| `pm-toggle-grp`                      | Container base   |
 | `pm-toggle-grp--horizontal/vertical` | Layout direction |
-| `pm-toggle-grp--attached` | Merged borders |
-| `pm-toggle-grp__item` | Item base |
-| `pm-toggle-grp__item--pressed` | Active item |
-| `pm-toggle-grp__item--disabled` | Disabled item |
+| `pm-toggle-grp--attached`            | Merged borders   |
+| `pm-toggle-grp__item`                | Item base        |
+| `pm-toggle-grp__item--pressed`       | Active item      |
+| `pm-toggle-grp__item--disabled`      | Disabled item    |
 
 </TabItem>
 </Tabs>

@@ -2,7 +2,8 @@ import { forwardRef } from "react"
 import { colorpickerClasses } from "@paramanu/forms-js"
 import type { ColorpickerProps } from "@paramanu/forms-js"
 
-export interface ReactColorpickerProps extends ColorpickerProps, React.HTMLAttributes<HTMLDivElement> {
+export interface ReactColorpickerProps
+  extends ColorpickerProps, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

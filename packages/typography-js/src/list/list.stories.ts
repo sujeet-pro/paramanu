@@ -22,7 +22,16 @@ const meta = {
     type: { control: "select", options: ["ordered", "unordered"] },
     styleType: {
       control: "select",
-      options: ["disc", "circle", "square", "decimal", "lower-alpha", "upper-alpha", "lower-roman", "upper-roman"],
+      options: [
+        "disc",
+        "circle",
+        "square",
+        "decimal",
+        "lower-alpha",
+        "upper-alpha",
+        "lower-roman",
+        "upper-roman",
+      ],
     },
     spacing: { control: "select", options: ["sm", "md", "lg"] },
     unstyled: { control: "boolean" },

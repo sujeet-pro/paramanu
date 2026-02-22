@@ -44,9 +44,7 @@ describe("dropzone accessibility", () => {
   })
 
   it("disabled dropzone has aria-disabled", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createDropzoneHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDropzoneHTML({ disabled: true })}</body>`)
     const dropzone = dom.window.document.querySelector("[role='button']")
     expect(dropzone?.getAttribute("aria-disabled")).toBe("true")
   })

@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { carouselClasses, carouselSlideClasses, carouselControlClasses, carouselIndicatorClasses } from "./carousel.classes.js"
+import {
+  carouselClasses,
+  carouselSlideClasses,
+  carouselControlClasses,
+  carouselIndicatorClasses,
+} from "./carousel.classes.js"
 import type { CarouselClassesOptions } from "./carousel.types.js"
 
 interface CarouselArgs extends CarouselClassesOptions {}

@@ -40,9 +40,7 @@ describe("fabClasses", () => {
       extended: true,
       disabled: true,
     })
-    expect(result).toBe(
-      "pm-fab pm-fab--lg pm-fab--bottom-left pm-fab--extended pm-fab--disabled",
-    )
+    expect(result).toBe("pm-fab pm-fab--lg pm-fab--bottom-left pm-fab--extended pm-fab--disabled")
   })
 })
 

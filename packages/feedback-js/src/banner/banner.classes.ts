@@ -27,12 +27,7 @@ export interface BannerClassesResult {
  * ```
  */
 export function bannerClasses(options: BannerClassesOptions = {}): BannerClassesResult {
-  const {
-    variant = "info",
-    sticky = false,
-    dismissible = false,
-    position = "top",
-  } = options
+  const { variant = "info", sticky = false, dismissible = false, position = "top" } = options
   const rootClasses = [BASE, `${BASE}--${variant}`]
 
   if (sticky) rootClasses.push(`${BASE}--sticky`)
@@ -56,12 +51,7 @@ export function bannerModuleClasses(
   classMap: Record<string, string>,
   options: BannerClassesOptions = {},
 ): BannerClassesResult {
-  const {
-    variant = "info",
-    sticky = false,
-    dismissible = false,
-    position = "top",
-  } = options
+  const { variant = "info", sticky = false, dismissible = false, position = "top" } = options
 
   const rootClasses = [classMap["pm-banner"], classMap[`pm-banner--${variant}`]]
 

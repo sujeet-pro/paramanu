@@ -35,9 +35,7 @@
     background-color: var(--pm-bg-muted);
   }
 
-  .pm-struct-list--selectable
-    .pm-struct-list__body
-    .pm-struct-list__row:focus-visible {
+  .pm-struct-list--selectable .pm-struct-list__body .pm-struct-list__row:focus-visible {
     outline: var(--pm-focus-ring-width) solid var(--pm-focus-ring);
     outline-offset: calc(-1 * var(--pm-focus-ring-width));
   }

@@ -48,10 +48,7 @@ export function embedModuleClasses(
 ): EmbedModuleClassesResult {
   const { ratio = "16/9", fullWidth = false } = options
 
-  const rootClasses = [
-    classMap[BASE],
-    classMap[`${BASE}--ratio-${ratioModifier(ratio)}`],
-  ]
+  const rootClasses = [classMap[BASE], classMap[`${BASE}--ratio-${ratioModifier(ratio)}`]]
 
   if (fullWidth) rootClasses.push(classMap[`${BASE}--full-width`])
 

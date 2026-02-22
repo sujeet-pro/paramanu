@@ -7,12 +7,7 @@ const BASE = "pm-fab"
  * Used by CDN and template consumers.
  */
 export function fabClasses(options: FabClassesOptions = {}): string {
-  const {
-    size = "md",
-    position = "bottom-right",
-    extended = false,
-    disabled = false,
-  } = options
+  const { size = "md", position = "bottom-right", extended = false, disabled = false } = options
   const classes = [BASE, `${BASE}--${size}`, `${BASE}--${position}`]
 
   if (extended) classes.push(`${BASE}--extended`)
@@ -29,18 +24,9 @@ export function fabModuleClasses(
   classMap: Record<string, string>,
   options: FabClassesOptions = {},
 ): string {
-  const {
-    size = "md",
-    position = "bottom-right",
-    extended = false,
-    disabled = false,
-  } = options
+  const { size = "md", position = "bottom-right", extended = false, disabled = false } = options
 
-  const classes = [
-    classMap["pm-fab"],
-    classMap[`pm-fab--${size}`],
-    classMap[`pm-fab--${position}`],
-  ]
+  const classes = [classMap["pm-fab"], classMap[`pm-fab--${size}`], classMap[`pm-fab--${position}`]]
 
   if (extended) classes.push(classMap["pm-fab--extended"])
   if (disabled) classes.push(classMap["pm-fab--disabled"])

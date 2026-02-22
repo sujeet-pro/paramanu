@@ -2,9 +2,7 @@ import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import { comboboxClasses } from "./combobox.classes.js"
 
-function createComboboxHTML(
-  options: Parameters<typeof comboboxClasses>[0] = {},
-): string {
+function createComboboxHTML(options: Parameters<typeof comboboxClasses>[0] = {}): string {
   const classes = comboboxClasses(options)
   const disabledAttr = options?.disabled ? " disabled" : ""
   const expandedAttr = options?.open ? 'aria-expanded="true"' : 'aria-expanded="false"'
@@ -56,17 +54,13 @@ describe("combobox accessibility", () => {
   })
 
   it("disabled combobox has disabled attribute on input", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createComboboxHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createComboboxHTML({ disabled: true })}</body>`)
     const input = dom.window.document.querySelector(".pm-combobox__input")
     expect(input?.hasAttribute("disabled")).toBe(true)
   })
 
   it("invalid combobox has aria-invalid", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createComboboxHTML({ invalid: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createComboboxHTML({ invalid: true })}</body>`)
     const input = dom.window.document.querySelector(".pm-combobox__input")
     expect(input?.getAttribute("aria-invalid")).toBe("true")
   })

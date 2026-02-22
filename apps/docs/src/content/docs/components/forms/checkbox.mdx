@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Checkbox component provides a toggle input with support for checked, unchecked, and indeterminate states.
@@ -38,11 +38,11 @@ The Checkbox component provides a toggle input with support for checked, uncheck
 
 ## Accessibility
 
-| Feature | Detail |
-|---|---|
+| Feature        | Detail                                   |
+| -------------- | ---------------------------------------- |
 | `aria-checked` | Set to `"mixed"` for indeterminate state |
-| `aria-invalid` | Applied when `invalid` is true |
-| Keyboard | Space toggles the checkbox |
+| `aria-invalid` | Applied when `invalid` is true           |
+| Keyboard       | Space toggles the checkbox               |
 
 ## Best Practices
 
@@ -54,23 +54,23 @@ The Checkbox component provides a toggle input with support for checked, uncheck
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Checkbox size |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `invalid` | `boolean` | `false` | Invalid state |
-| `checked` | `boolean` | `false` | Checked state |
-| `indeterminate` | `boolean` | `false` | Indeterminate state |
+| Prop            | Type                           | Default | Description         |
+| --------------- | ------------------------------ | ------- | ------------------- |
+| `size`          | `"xs" \| "sm" \| "md" \| "lg"` | `"md"`  | Checkbox size       |
+| `disabled`      | `boolean`                      | `false` | Disabled state      |
+| `invalid`       | `boolean`                      | `false` | Invalid state       |
+| `checked`       | `boolean`                      | `false` | Checked state       |
+| `indeterminate` | `boolean`                      | `false` | Indeterminate state |
 
 ## CSS Classes
 
-| Class | Description |
-|---|---|
-| `pm-checkbox` | Base class |
-| `pm-checkbox__input` | Hidden input |
-| `pm-checkbox__indicator` | Visual indicator |
-| `pm-checkbox__label` | Label text |
-| `pm-checkbox--checked` | Checked state |
+| Class                        | Description         |
+| ---------------------------- | ------------------- |
+| `pm-checkbox`                | Base class          |
+| `pm-checkbox__input`         | Hidden input        |
+| `pm-checkbox__indicator`     | Visual indicator    |
+| `pm-checkbox__label`         | Label text          |
+| `pm-checkbox--checked`       | Checked state       |
 | `pm-checkbox--indeterminate` | Indeterminate state |
 
 </TabItem>

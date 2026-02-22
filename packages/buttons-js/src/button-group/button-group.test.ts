@@ -8,15 +8,11 @@ describe("btnGroupClasses", () => {
   })
 
   it("applies horizontal orientation", () => {
-    expect(btnGroupClasses({ orientation: "horizontal" })).toContain(
-      "pm-btn-group--horizontal",
-    )
+    expect(btnGroupClasses({ orientation: "horizontal" })).toContain("pm-btn-group--horizontal")
   })
 
   it("applies vertical orientation", () => {
-    expect(btnGroupClasses({ orientation: "vertical" })).toContain(
-      "pm-btn-group--vertical",
-    )
+    expect(btnGroupClasses({ orientation: "vertical" })).toContain("pm-btn-group--vertical")
   })
 
   it("applies attached modifier", () => {

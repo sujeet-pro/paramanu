@@ -11,11 +11,7 @@ export function createAlertdialog(
   element: HTMLElement,
   options: CreateAlertdialogOptions = {},
 ): AlertdialogInstance {
-  const {
-    onClose,
-    initialFocus,
-    closeOnEscape = false,
-  } = options
+  const { onClose, initialFocus, closeOnEscape = false } = options
 
   let portal: PortalInstance | null = null
   let focusTrap: FocusTrapInstance | null = null

@@ -55,7 +55,9 @@
     background-color: var(--pm-bg);
     border: 1px solid var(--pm-neutral-hover);
     border-radius: var(--pm-radius-md);
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    box-shadow:
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
     display: none;
 
     .pm-dropdown--open > & {
@@ -99,7 +101,9 @@
 
   .pm-theme-antd .pm-dropdown__content {
     border-radius: 4px;
-    box-shadow: 0 3px 6px -4px rgb(0 0 0 / 0.12), 0 6px 16px 0 rgb(0 0 0 / 0.08);
+    box-shadow:
+      0 3px 6px -4px rgb(0 0 0 / 0.12),
+      0 6px 16px 0 rgb(0 0 0 / 0.08);
   }
 
   .pm-theme-material .pm-dropdown__trigger {

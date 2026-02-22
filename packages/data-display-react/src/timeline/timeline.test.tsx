@@ -13,14 +13,22 @@ afterEach(cleanup)
 
 describe("Timeline", () => {
   it("renders an ol element", () => {
-    render(<Timeline data-testid="timeline"><li>Item</li></Timeline>)
+    render(
+      <Timeline data-testid="timeline">
+        <li>Item</li>
+      </Timeline>,
+    )
     const tl = screen.getByTestId("timeline")
     expect(tl).toBeInTheDocument()
     expect(tl.tagName).toBe("OL")
   })
 
   it("applies default classes", () => {
-    render(<Timeline data-testid="timeline"><li>Item</li></Timeline>)
+    render(
+      <Timeline data-testid="timeline">
+        <li>Item</li>
+      </Timeline>,
+    )
     const tl = screen.getByTestId("timeline")
     expect(tl.className).toContain("pm-timeline")
     expect(tl.className).toContain("pm-timeline--vertical")
@@ -28,23 +36,39 @@ describe("Timeline", () => {
   })
 
   it("applies orientation class", () => {
-    render(<Timeline orientation="horizontal" data-testid="timeline"><li>Item</li></Timeline>)
+    render(
+      <Timeline orientation="horizontal" data-testid="timeline">
+        <li>Item</li>
+      </Timeline>,
+    )
     expect(screen.getByTestId("timeline").className).toContain("pm-timeline--horizontal")
   })
 
   it("applies align class", () => {
-    render(<Timeline align="alternate" data-testid="timeline"><li>Item</li></Timeline>)
+    render(
+      <Timeline align="alternate" data-testid="timeline">
+        <li>Item</li>
+      </Timeline>,
+    )
     expect(screen.getByTestId("timeline").className).toContain("pm-timeline--alternate")
   })
 
   it("forwards ref", () => {
     let tlRef: HTMLOListElement | null = null
-    render(<Timeline ref={(el) => (tlRef = el)}><li>Item</li></Timeline>)
+    render(
+      <Timeline ref={(el) => (tlRef = el)}>
+        <li>Item</li>
+      </Timeline>,
+    )
     expect(tlRef).toBeInstanceOf(HTMLOListElement)
   })
 
   it("merges custom className", () => {
-    render(<Timeline className="custom" data-testid="timeline"><li>Item</li></Timeline>)
+    render(
+      <Timeline className="custom" data-testid="timeline">
+        <li>Item</li>
+      </Timeline>,
+    )
     const tl = screen.getByTestId("timeline")
     expect(tl.className).toContain("pm-timeline")
     expect(tl.className).toContain("custom")
@@ -54,7 +78,9 @@ describe("Timeline", () => {
 describe("TimelineItem", () => {
   it("renders a li with item class", () => {
     render(
-      <ul><TimelineItem data-testid="item">Item</TimelineItem></ul>,
+      <ul>
+        <TimelineItem data-testid="item">Item</TimelineItem>
+      </ul>,
     )
     const item = screen.getByTestId("item")
     expect(item.tagName).toBe("LI")

@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Masonry arranges child elements into columns with varying heights, creating a Pinterest-style layout.
@@ -58,18 +58,18 @@ Masonry is a presentational layout. Ensure content order is logical in the DOM r
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `columns` | `2 \| 3 \| 4 \| 5 \| 6` | `3` | Number of columns |
-| `gap` | `SpacingScale` | -- | Gap between items |
+| Prop      | Type                    | Default | Description       |
+| --------- | ----------------------- | ------- | ----------------- |
+| `columns` | `2 \| 3 \| 4 \| 5 \| 6` | `3`     | Number of columns |
+| `gap`     | `SpacingScale`          | --      | Gap between items |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-masonry` | Container |
+| Class                  | Purpose      |
+| ---------------------- | ------------ |
+| `pm-masonry`           | Container    |
 | `pm-masonry--cols-{n}` | Column count |
-| `pm-masonry--gap-{n}` | Gap size |
+| `pm-masonry--gap-{n}`  | Gap size     |
 
 </TabItem>
 </Tabs>

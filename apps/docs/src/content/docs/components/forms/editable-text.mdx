@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Editable Text component displays text that can be clicked to switch into edit mode, allowing inline editing.
@@ -38,11 +38,11 @@ The Editable Text component displays text that can be clicked to switch into edi
 
 ## Accessibility
 
-| Feature | Detail |
-|---|---|
-| `role="group"` | Container groups display and edit states |
-| `aria-disabled` | Applied when `disabled` is true |
-| Keyboard | Enter confirms, Escape cancels edit |
+| Feature         | Detail                                   |
+| --------------- | ---------------------------------------- |
+| `role="group"`  | Container groups display and edit states |
+| `aria-disabled` | Applied when `disabled` is true          |
+| Keyboard        | Enter confirms, Escape cancels edit      |
 
 ## Best Practices
 
@@ -54,18 +54,18 @@ The Editable Text component displays text that can be clicked to switch into edi
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Text size |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `editing` | `boolean` | `false` | Whether in edit mode |
+| Prop       | Type                           | Default | Description          |
+| ---------- | ------------------------------ | ------- | -------------------- |
+| `size`     | `"xs" \| "sm" \| "md" \| "lg"` | `"md"`  | Text size            |
+| `disabled` | `boolean`                      | `false` | Disabled state       |
+| `editing`  | `boolean`                      | `false` | Whether in edit mode |
 
 ## CSS Classes
 
-| Class | Description |
-|---|---|
-| `pm-editable` | Base class |
-| `pm-editable--editing` | Editing state |
+| Class                   | Description    |
+| ----------------------- | -------------- |
+| `pm-editable`           | Base class     |
+| `pm-editable--editing`  | Editing state  |
 | `pm-editable--disabled` | Disabled state |
 
 </TabItem>

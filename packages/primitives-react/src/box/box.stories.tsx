@@ -13,7 +13,16 @@ const meta = {
     },
     display: {
       control: "select",
-      options: ["block", "inline-block", "inline", "flex", "inline-flex", "grid", "inline-grid", "none"],
+      options: [
+        "block",
+        "inline-block",
+        "inline",
+        "flex",
+        "inline-flex",
+        "grid",
+        "inline-grid",
+        "none",
+      ],
     },
     p: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"] },
     px: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"] },
@@ -82,7 +91,8 @@ export const OverflowHidden: Story = {
   args: { overflow: "hidden", p: "4" },
   render: (args) => (
     <Box {...args} style={{ border: "1px dashed #ccc", width: "200px", height: "80px" }}>
-      This is a long text that will overflow the container boundary and get clipped by overflow hidden.
+      This is a long text that will overflow the container boundary and get clipped by overflow
+      hidden.
     </Box>
   ),
 }

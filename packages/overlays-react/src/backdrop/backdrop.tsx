@@ -3,8 +3,7 @@ import { backdropClasses } from "@paramanu/overlays-js"
 import type { BackdropClassesOptions } from "@paramanu/overlays-js"
 
 export interface ReactBackdropProps
-  extends BackdropClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends BackdropClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   /** Click handler for the backdrop, typically used to close overlays. */
   onClick?: React.MouseEventHandler<HTMLDivElement>
   children?: React.ReactNode

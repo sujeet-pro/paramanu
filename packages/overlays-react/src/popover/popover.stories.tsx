@@ -9,7 +9,16 @@ const meta = {
   argTypes: {
     placement: {
       control: "select",
-      options: ["top", "bottom", "left", "right", "top-start", "top-end", "bottom-start", "bottom-end"],
+      options: [
+        "top",
+        "bottom",
+        "left",
+        "right",
+        "top-start",
+        "top-end",
+        "bottom-start",
+        "bottom-end",
+      ],
     },
     hasArrow: { control: "boolean" },
     open: { control: "boolean" },

@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Steps display progress through a sequence of numbered stages with visual indicators and connectors.
@@ -71,28 +71,28 @@ export default function App() {
 
 ## Steps Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+| Prop          | Type                         | Default        | Description      |
+| ------------- | ---------------------------- | -------------- | ---------------- |
+| `size`        | `"sm" \| "md" \| "lg"`       | `"md"`         | Size preset      |
 | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout direction |
 
 ## Step Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop     | Type                                     | Default        | Description |
+| -------- | ---------------------------------------- | -------------- | ----------- |
 | `status` | `"incomplete" \| "active" \| "complete"` | `"incomplete"` | Step status |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-steps` | Root element |
-| `pm-steps__step` | Step container |
-| `pm-steps__step--active` | Active step |
-| `pm-steps__step--complete` | Completed step |
-| `pm-steps__indicator` | Number indicator |
-| `pm-steps__connector` | Line between steps |
-| `pm-steps__content` | Label/description area |
+| Class                      | Description            |
+| -------------------------- | ---------------------- |
+| `pm-steps`                 | Root element           |
+| `pm-steps__step`           | Step container         |
+| `pm-steps__step--active`   | Active step            |
+| `pm-steps__step--complete` | Completed step         |
+| `pm-steps__indicator`      | Number indicator       |
+| `pm-steps__connector`      | Line between steps     |
+| `pm-steps__content`        | Label/description area |
 
 </TabItem>
 </Tabs>

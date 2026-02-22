@@ -3,8 +3,7 @@ import { aspectClasses } from "@paramanu/primitives-js"
 import type { AspectProps } from "@paramanu/primitives-js"
 
 export interface ReactAspectProps
-  extends AspectProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+  extends AspectProps, Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
   children?: React.ReactNode
 }
 

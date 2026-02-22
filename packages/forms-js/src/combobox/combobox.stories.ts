@@ -15,7 +15,9 @@ function createCombobox(args: ComboboxArgs): HTMLElement {
   input.setAttribute("aria-autocomplete", "list")
   input.setAttribute("aria-haspopup", "listbox")
   input.placeholder = args.placeholder || "Search..."
-  if (args.disabled) { input.disabled = true }
+  if (args.disabled) {
+    input.disabled = true
+  }
   if (args.invalid) input.setAttribute("aria-invalid", "true")
 
   const listbox = document.createElement("div")

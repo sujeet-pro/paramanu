@@ -33,9 +33,7 @@ describe("statHelpTextClasses", () => {
   })
 
   it("applies up trend", () => {
-    expect(statHelpTextClasses({ trend: "up" })).toBe(
-      "pm-stat__help-text pm-stat__help-text--up",
-    )
+    expect(statHelpTextClasses({ trend: "up" })).toBe("pm-stat__help-text pm-stat__help-text--up")
   })
 
   it("applies down trend", () => {

@@ -15,9 +15,15 @@
       align-self: stretch;
     }
 
-    &.pm-divider--solid { border-style: solid; }
-    &.pm-divider--dashed { border-style: dashed; }
-    &.pm-divider--dotted { border-style: dotted; }
+    &.pm-divider--solid {
+      border-style: solid;
+    }
+    &.pm-divider--dashed {
+      border-style: dashed;
+    }
+    &.pm-divider--dotted {
+      border-style: dotted;
+    }
 
     /* Divider with label */
     &.pm-divider--with-label {
@@ -49,25 +55,51 @@
     }
 
     &.pm-divider--label-start {
-      &::before { flex: 0 0 var(--pm-spacing-4); }
+      &::before {
+        flex: 0 0 var(--pm-spacing-4);
+      }
     }
 
     &.pm-divider--label-end {
-      &::after { flex: 0 0 var(--pm-spacing-4); }
+      &::after {
+        flex: 0 0 var(--pm-spacing-4);
+      }
     }
 
     /* Vertical margin */
-    &.pm-divider--my-0 { margin-block: var(--pm-spacing-0); }
-    &.pm-divider--my-1 { margin-block: var(--pm-spacing-1); }
-    &.pm-divider--my-2 { margin-block: var(--pm-spacing-2); }
-    &.pm-divider--my-3 { margin-block: var(--pm-spacing-3); }
-    &.pm-divider--my-4 { margin-block: var(--pm-spacing-4); }
-    &.pm-divider--my-5 { margin-block: var(--pm-spacing-5); }
-    &.pm-divider--my-6 { margin-block: var(--pm-spacing-6); }
-    &.pm-divider--my-8 { margin-block: var(--pm-spacing-8); }
-    &.pm-divider--my-10 { margin-block: var(--pm-spacing-10); }
-    &.pm-divider--my-12 { margin-block: var(--pm-spacing-12); }
-    &.pm-divider--my-16 { margin-block: var(--pm-spacing-16); }
+    &.pm-divider--my-0 {
+      margin-block: var(--pm-spacing-0);
+    }
+    &.pm-divider--my-1 {
+      margin-block: var(--pm-spacing-1);
+    }
+    &.pm-divider--my-2 {
+      margin-block: var(--pm-spacing-2);
+    }
+    &.pm-divider--my-3 {
+      margin-block: var(--pm-spacing-3);
+    }
+    &.pm-divider--my-4 {
+      margin-block: var(--pm-spacing-4);
+    }
+    &.pm-divider--my-5 {
+      margin-block: var(--pm-spacing-5);
+    }
+    &.pm-divider--my-6 {
+      margin-block: var(--pm-spacing-6);
+    }
+    &.pm-divider--my-8 {
+      margin-block: var(--pm-spacing-8);
+    }
+    &.pm-divider--my-10 {
+      margin-block: var(--pm-spacing-10);
+    }
+    &.pm-divider--my-12 {
+      margin-block: var(--pm-spacing-12);
+    }
+    &.pm-divider--my-16 {
+      margin-block: var(--pm-spacing-16);
+    }
   }
 
   /* Theme overrides */

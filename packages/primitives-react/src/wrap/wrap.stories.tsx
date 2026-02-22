@@ -9,7 +9,10 @@ const meta = {
   argTypes: {
     gap: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6", "8"] },
     align: { control: "select", options: ["start", "center", "end", "stretch", "baseline"] },
-    justify: { control: "select", options: ["start", "center", "end", "between", "around", "evenly"] },
+    justify: {
+      control: "select",
+      options: ["start", "center", "end", "between", "around", "evenly"],
+    },
     direction: { control: "select", options: ["row", "row-reverse"] },
   },
   args: {},

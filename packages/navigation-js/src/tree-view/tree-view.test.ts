@@ -63,15 +63,11 @@ describe("treeViewBranchClasses", () => {
   })
 
   it("applies expanded modifier", () => {
-    expect(treeViewBranchClasses({ expanded: true })).toContain(
-      "pm-tree__branch--expanded",
-    )
+    expect(treeViewBranchClasses({ expanded: true })).toContain("pm-tree__branch--expanded")
   })
 
   it("does not apply expanded when false", () => {
-    expect(treeViewBranchClasses({ expanded: false })).not.toContain(
-      "pm-tree__branch--expanded",
-    )
+    expect(treeViewBranchClasses({ expanded: false })).not.toContain("pm-tree__branch--expanded")
   })
 })
 
@@ -102,9 +98,7 @@ describe("treeItemClasses", () => {
   })
 
   it("does not apply selected when false", () => {
-    expect(treeItemClasses({ selected: false })).not.toContain(
-      "pm-tree__item--selected",
-    )
+    expect(treeItemClasses({ selected: false })).not.toContain("pm-tree__item--selected")
   })
 
   it("applies disabled modifier", () => {
@@ -112,9 +106,7 @@ describe("treeItemClasses", () => {
   })
 
   it("does not apply disabled when false", () => {
-    expect(treeItemClasses({ disabled: false })).not.toContain(
-      "pm-tree__item--disabled",
-    )
+    expect(treeItemClasses({ disabled: false })).not.toContain("pm-tree__item--disabled")
   })
 })
 
@@ -130,15 +122,11 @@ describe("treeItemModuleClasses", () => {
   })
 
   it("maps selected class", () => {
-    expect(treeItemModuleClasses(mockClassMap, { selected: true })).toContain(
-      "pm_abc_selected",
-    )
+    expect(treeItemModuleClasses(mockClassMap, { selected: true })).toContain("pm_abc_selected")
   })
 
   it("maps disabled class", () => {
-    expect(treeItemModuleClasses(mockClassMap, { disabled: true })).toContain(
-      "pm_abc_disabled",
-    )
+    expect(treeItemModuleClasses(mockClassMap, { disabled: true })).toContain("pm_abc_disabled")
   })
 })
 
@@ -165,9 +153,7 @@ describe("treeViewIndicatorClasses", () => {
   })
 
   it("applies expanded modifier", () => {
-    expect(treeViewIndicatorClasses({ expanded: true })).toContain(
-      "pm-tree__indicator--expanded",
-    )
+    expect(treeViewIndicatorClasses({ expanded: true })).toContain("pm-tree__indicator--expanded")
   })
 
   it("does not apply expanded when false", () => {

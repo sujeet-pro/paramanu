@@ -3,8 +3,7 @@ import { datepickerClasses } from "@paramanu/forms-js"
 import type { DatepickerProps } from "@paramanu/forms-js"
 
 export interface ReactDatepickerProps
-  extends DatepickerProps,
-    Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
+  extends DatepickerProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   children?: React.ReactNode
 }
 

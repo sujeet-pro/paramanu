@@ -5,10 +5,7 @@
 
   /* Variants */
   .pm-mark--default {
-    background-color: light-dark(
-      oklch(from yellow l c h / 0.35),
-      oklch(from yellow l c h / 0.25)
-    );
+    background-color: light-dark(oklch(from yellow l c h / 0.35), oklch(from yellow l c h / 0.25));
     padding: 0.0625em 0.125em;
     border-radius: var(--pm-radius-sm);
   }

@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Radio component provides single-selection radio buttons, typically used within a RadioGroup.
@@ -38,11 +38,11 @@ The Radio component provides single-selection radio buttons, typically used with
 
 ## Accessibility
 
-| Feature | Detail |
-|---|---|
+| Feature             | Detail                               |
+| ------------------- | ------------------------------------ |
 | `role="radiogroup"` | Group container uses radiogroup role |
-| `aria-invalid` | Applied when `invalid` is true |
-| Keyboard | Arrow keys navigate between radios |
+| `aria-invalid`      | Applied when `invalid` is true       |
+| Keyboard            | Arrow keys navigate between radios   |
 
 ## Best Practices
 
@@ -54,30 +54,30 @@ The Radio component provides single-selection radio buttons, typically used with
 
 ## Radio Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Radio size |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `invalid` | `boolean` | `false` | Invalid state |
-| `checked` | `boolean` | `false` | Checked state |
-| `name` | `string` | - | Group name |
-| `value` | `string` | - | Radio value |
+| Prop       | Type                           | Default | Description    |
+| ---------- | ------------------------------ | ------- | -------------- |
+| `size`     | `"xs" \| "sm" \| "md" \| "lg"` | `"md"`  | Radio size     |
+| `disabled` | `boolean`                      | `false` | Disabled state |
+| `invalid`  | `boolean`                      | `false` | Invalid state  |
+| `checked`  | `boolean`                      | `false` | Checked state  |
+| `name`     | `string`                       | -       | Group name     |
+| `value`    | `string`                       | -       | Radio value    |
 
 ## RadioGroup Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `orientation` | `"horizontal" \| "vertical"` | `"vertical"` | Layout direction |
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Group size |
+| Prop          | Type                           | Default      | Description      |
+| ------------- | ------------------------------ | ------------ | ---------------- |
+| `orientation` | `"horizontal" \| "vertical"`   | `"vertical"` | Layout direction |
+| `size`        | `"xs" \| "sm" \| "md" \| "lg"` | `"md"`       | Group size       |
 
 ## CSS Classes
 
-| Class | Description |
-|---|---|
-| `pm-radio` | Base radio class |
-| `pm-radio-group` | Group container |
+| Class                        | Description       |
+| ---------------------------- | ----------------- |
+| `pm-radio`                   | Base radio class  |
+| `pm-radio-group`             | Group container   |
 | `pm-radio-group--horizontal` | Horizontal layout |
-| `pm-radio-group--vertical` | Vertical layout |
+| `pm-radio-group--vertical`   | Vertical layout   |
 
 </TabItem>
 </Tabs>

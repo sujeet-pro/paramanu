@@ -1,10 +1,7 @@
 import { addons } from "storybook/internal/manager-api"
 import { themes } from "storybook/internal/theming"
 import { GLOBALS_UPDATED } from "storybook/internal/core-events"
-import {
-  defaultConfig,
-  type TagBadgeParameters,
-} from "storybook-addon-tag-badges/manager-helpers"
+import { defaultConfig, type TagBadgeParameters } from "storybook-addon-tag-badges/manager-helpers"
 
 const PARAMANU_VERSION = "0.1.0-alpha.0"
 

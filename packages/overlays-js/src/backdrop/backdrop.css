@@ -3,10 +3,7 @@
     position: fixed;
     inset: 0;
     z-index: var(--pm-overlay-z, 1000);
-    background-color: light-dark(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.7)
-    );
+    background-color: light-dark(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
     opacity: 0;
     transition: opacity var(--pm-transition-normal, 200ms) ease-in-out;
 
@@ -24,10 +21,7 @@
     }
 
     &.pm-backdrop--blur {
-      background-color: light-dark(
-        rgba(0, 0, 0, 0.3),
-        rgba(0, 0, 0, 0.5)
-      );
+      background-color: light-dark(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
       backdrop-filter: blur(4px);
     }
 

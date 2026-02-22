@@ -15,7 +15,10 @@ function createSelect(args: SelectArgs): HTMLElement {
   trigger.setAttribute("aria-expanded", String(args.open || false))
   trigger.setAttribute("aria-haspopup", "listbox")
   trigger.textContent = args.placeholder || "Select..."
-  if (args.disabled) { trigger.disabled = true; trigger.setAttribute("aria-disabled", "true") }
+  if (args.disabled) {
+    trigger.disabled = true
+    trigger.setAttribute("aria-disabled", "true")
+  }
   if (args.invalid) trigger.setAttribute("aria-invalid", "true")
 
   const listbox = document.createElement("div")

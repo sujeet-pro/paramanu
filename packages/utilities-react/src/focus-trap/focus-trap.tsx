@@ -78,8 +78,7 @@ export function useFocusTrap<T extends HTMLElement = HTMLDivElement>(
  * Props for the `FocusTrap` React component.
  */
 export interface ReactFocusTrapProps
-  extends UseFocusTrapOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends UseFocusTrapOptions, React.HTMLAttributes<HTMLDivElement> {
   /** Content to render within the focus trap container. */
   children?: React.ReactNode
 }

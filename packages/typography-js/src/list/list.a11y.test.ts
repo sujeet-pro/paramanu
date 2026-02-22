@@ -5,9 +5,7 @@ import { listClasses } from "./list.classes.js"
 describe("list accessibility", () => {
   it("unordered list renders as ul element", () => {
     const classes = listClasses({ type: "unordered" })
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><ul class="${classes}"><li>Item</li></ul></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><ul class="${classes}"><li>Item</li></ul></body>`)
     const el = dom.window.document.querySelector("ul")
     expect(el).not.toBeNull()
     expect(el?.tagName).toBe("UL")
@@ -15,9 +13,7 @@ describe("list accessibility", () => {
 
   it("ordered list renders as ol element", () => {
     const classes = listClasses({ type: "ordered" })
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><ol class="${classes}"><li>Item</li></ol></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><ol class="${classes}"><li>Item</li></ol></body>`)
     const el = dom.window.document.querySelector("ol")
     expect(el).not.toBeNull()
     expect(el?.tagName).toBe("OL")
@@ -36,9 +32,7 @@ describe("list accessibility", () => {
 
   it("ul has implicit list role", () => {
     const classes = listClasses()
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body><ul class="${classes}"><li>Item</li></ul></body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body><ul class="${classes}"><li>Item</li></ul></body>`)
     const el = dom.window.document.querySelector("ul")
     expect(el?.tagName).toBe("UL")
   })

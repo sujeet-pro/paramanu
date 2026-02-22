@@ -2,9 +2,7 @@ import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import { cascaderClasses } from "./cascader.classes.js"
 
-function createCascaderHTML(
-  options: Parameters<typeof cascaderClasses>[0] = {},
-): string {
+function createCascaderHTML(options: Parameters<typeof cascaderClasses>[0] = {}): string {
   const classes = cascaderClasses(options)
   const disabledAttr = options?.disabled ? ' aria-disabled="true" tabindex="-1"' : ""
   const expandedAttr = options?.open ? 'aria-expanded="true"' : 'aria-expanded="false"'
@@ -39,7 +37,7 @@ describe("cascader accessibility", () => {
 
   it("columns have role listbox with aria-label", () => {
     const dom = new JSDOM(`<!DOCTYPE html><body>${createCascaderHTML()}</body>`)
-    const columns = dom.window.document.querySelectorAll('.pm-cascader__column')
+    const columns = dom.window.document.querySelectorAll(".pm-cascader__column")
     expect(columns[0]?.getAttribute("role")).toBe("listbox")
     expect(columns[0]?.getAttribute("aria-label")).toBe("Level 1")
     expect(columns[1]?.getAttribute("aria-label")).toBe("Level 2")
@@ -64,17 +62,13 @@ describe("cascader accessibility", () => {
   })
 
   it("disabled cascader has aria-disabled on trigger", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createCascaderHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createCascaderHTML({ disabled: true })}</body>`)
     const trigger = dom.window.document.querySelector(".pm-cascader__trigger")
     expect(trigger?.getAttribute("aria-disabled")).toBe("true")
   })
 
   it("invalid cascader has aria-invalid on trigger", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createCascaderHTML({ invalid: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createCascaderHTML({ invalid: true })}</body>`)
     const trigger = dom.window.document.querySelector(".pm-cascader__trigger")
     expect(trigger?.getAttribute("aria-invalid")).toBe("true")
   })

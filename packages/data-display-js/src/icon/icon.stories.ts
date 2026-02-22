@@ -16,7 +16,8 @@ function createIcon(args: IconArgs): HTMLElement {
   } else {
     span.setAttribute("aria-hidden", "true")
   }
-  span.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" /></svg>'
+  span.innerHTML =
+    '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" /></svg>'
   return span
 }
 

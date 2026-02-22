@@ -4,18 +4,56 @@
     --pm-float-offset: 0px;
   }
 
-  .pm-float--offset-0 { --pm-float-offset: var(--pm-spacing-0); }
-  .pm-float--offset-1 { --pm-float-offset: var(--pm-spacing-1); }
-  .pm-float--offset-2 { --pm-float-offset: var(--pm-spacing-2); }
-  .pm-float--offset-3 { --pm-float-offset: var(--pm-spacing-3); }
-  .pm-float--offset-4 { --pm-float-offset: var(--pm-spacing-4); }
+  .pm-float--offset-0 {
+    --pm-float-offset: var(--pm-spacing-0);
+  }
+  .pm-float--offset-1 {
+    --pm-float-offset: var(--pm-spacing-1);
+  }
+  .pm-float--offset-2 {
+    --pm-float-offset: var(--pm-spacing-2);
+  }
+  .pm-float--offset-3 {
+    --pm-float-offset: var(--pm-spacing-3);
+  }
+  .pm-float--offset-4 {
+    --pm-float-offset: var(--pm-spacing-4);
+  }
 
-  .pm-float--top-start { top: var(--pm-float-offset); inset-inline-start: var(--pm-float-offset); }
-  .pm-float--top-center { top: var(--pm-float-offset); left: 50%; transform: translateX(-50%); }
-  .pm-float--top-end { top: var(--pm-float-offset); inset-inline-end: var(--pm-float-offset); }
-  .pm-float--middle-start { top: 50%; inset-inline-start: var(--pm-float-offset); transform: translateY(-50%); }
-  .pm-float--middle-end { top: 50%; inset-inline-end: var(--pm-float-offset); transform: translateY(-50%); }
-  .pm-float--bottom-start { bottom: var(--pm-float-offset); inset-inline-start: var(--pm-float-offset); }
-  .pm-float--bottom-center { bottom: var(--pm-float-offset); left: 50%; transform: translateX(-50%); }
-  .pm-float--bottom-end { bottom: var(--pm-float-offset); inset-inline-end: var(--pm-float-offset); }
+  .pm-float--top-start {
+    top: var(--pm-float-offset);
+    inset-inline-start: var(--pm-float-offset);
+  }
+  .pm-float--top-center {
+    top: var(--pm-float-offset);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .pm-float--top-end {
+    top: var(--pm-float-offset);
+    inset-inline-end: var(--pm-float-offset);
+  }
+  .pm-float--middle-start {
+    top: 50%;
+    inset-inline-start: var(--pm-float-offset);
+    transform: translateY(-50%);
+  }
+  .pm-float--middle-end {
+    top: 50%;
+    inset-inline-end: var(--pm-float-offset);
+    transform: translateY(-50%);
+  }
+  .pm-float--bottom-start {
+    bottom: var(--pm-float-offset);
+    inset-inline-start: var(--pm-float-offset);
+  }
+  .pm-float--bottom-center {
+    bottom: var(--pm-float-offset);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .pm-float--bottom-end {
+    bottom: var(--pm-float-offset);
+    inset-inline-end: var(--pm-float-offset);
+  }
 }

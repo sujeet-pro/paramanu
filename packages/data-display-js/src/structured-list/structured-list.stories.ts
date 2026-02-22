@@ -25,7 +25,10 @@ function createStructList(args: StructListClassesOptions): HTMLElement {
 
   const body = document.createElement("div")
   body.className = cls.body
-  for (const [n, v] of [["CPU", "85%"], ["Memory", "4.2 GB"]]) {
+  for (const [n, v] of [
+    ["CPU", "85%"],
+    ["Memory", "4.2 GB"],
+  ]) {
     const row = document.createElement("div")
     row.className = cls.row
     row.setAttribute("role", "row")

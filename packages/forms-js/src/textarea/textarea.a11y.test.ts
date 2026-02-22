@@ -10,7 +10,7 @@ function createTextareaHTML(
   const disabledAttr = options?.disabled ? ' disabled aria-disabled="true"' : ""
   const invalidAttr = options?.invalid ? ' aria-invalid="true"' : ""
   const readOnlyAttr = options?.readOnly ? " readonly" : ""
-  const rows = " rows=\"4\""
+  const rows = ' rows="4"'
   return `<textarea class="${classes}"${rows}${disabledAttr}${invalidAttr}${readOnlyAttr}${attrs ? " " + attrs : ""}></textarea>`
 }
 
@@ -29,26 +29,20 @@ describe("textarea accessibility", () => {
   })
 
   it("disabled textarea has disabled attribute and aria-disabled", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createTextareaHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createTextareaHTML({ disabled: true })}</body>`)
     const textarea = dom.window.document.querySelector("textarea")
     expect(textarea?.hasAttribute("disabled")).toBe(true)
     expect(textarea?.getAttribute("aria-disabled")).toBe("true")
   })
 
   it("invalid textarea has aria-invalid", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createTextareaHTML({ invalid: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createTextareaHTML({ invalid: true })}</body>`)
     const textarea = dom.window.document.querySelector("textarea")
     expect(textarea?.getAttribute("aria-invalid")).toBe("true")
   })
 
   it("read-only textarea has readonly attribute", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createTextareaHTML({ readOnly: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createTextareaHTML({ readOnly: true })}</body>`)
     const textarea = dom.window.document.querySelector("textarea")
     expect(textarea?.hasAttribute("readonly")).toBe(true)
   })

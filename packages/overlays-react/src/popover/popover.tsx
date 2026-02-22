@@ -3,8 +3,7 @@ import { popoverClasses, popoverArrowClasses } from "@paramanu/overlays-js"
 import type { PopoverClassesOptions } from "@paramanu/overlays-js"
 
 export interface ReactPopoverProps
-  extends PopoverClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends PopoverClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   open?: boolean
   onClose?: () => void
   children?: React.ReactNode

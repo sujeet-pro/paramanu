@@ -43,7 +43,11 @@ describe("Code", () => {
   })
 
   it("applies size class for block", () => {
-    const { container } = render(<Code block size="lg">large block</Code>)
+    const { container } = render(
+      <Code block size="lg">
+        large block
+      </Code>,
+    )
     const pre = container.querySelector("pre")
     expect(pre!.className).toContain("pm-code-block--size-lg")
   })

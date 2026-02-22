@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
 import { inlineMsgClasses } from "./inline-message.classes.js"
-import type { InlineMsgClassesOptions, InlineMsgVariant, InlineMsgSize } from "./inline-message.types.js"
+import type {
+  InlineMsgClassesOptions,
+  InlineMsgVariant,
+  InlineMsgSize,
+} from "./inline-message.types.js"
 
 interface InlineMsgArgs extends InlineMsgClassesOptions {
   text: string

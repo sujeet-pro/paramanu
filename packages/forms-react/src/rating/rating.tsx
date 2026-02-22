@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { ratingClasses } from "@paramanu/forms-js"
 import type { RatingProps } from "@paramanu/forms-js"
 
-export interface ReactRatingProps
-  extends RatingProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactRatingProps extends RatingProps, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

@@ -87,7 +87,8 @@
     transform: translateX(4px);
   }
 
-  .pm-popover--has-arrow {}
+  .pm-popover--has-arrow {
+  }
 
   @media (prefers-reduced-motion: reduce) {
     .pm-popover {

@@ -1,12 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { expect } from "storybook/test"
-import {
-  Empty,
-  EmptyIcon,
-  EmptyHeading,
-  EmptyDescription,
-  EmptyActions,
-} from "./empty-state.js"
+import { Empty, EmptyIcon, EmptyHeading, EmptyDescription, EmptyActions } from "./empty-state.js"
 
 const meta = {
   title: "Data Display/Empty State",

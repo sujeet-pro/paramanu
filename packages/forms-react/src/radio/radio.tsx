@@ -3,8 +3,7 @@ import { radioClasses, radioGroupClasses } from "@paramanu/forms-js"
 import type { RadioProps, RadioGroupProps } from "@paramanu/forms-js"
 
 export interface ReactRadioProps
-  extends RadioProps,
-    Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type" | "value"> {
+  extends RadioProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type" | "value"> {
   children?: React.ReactNode
 }
 
@@ -35,8 +34,7 @@ export const Radio = forwardRef<HTMLInputElement, ReactRadioProps>(function Radi
 })
 
 export interface ReactRadioGroupProps
-  extends RadioGroupProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
+  extends RadioGroupProps, Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
   children?: React.ReactNode
 }
 

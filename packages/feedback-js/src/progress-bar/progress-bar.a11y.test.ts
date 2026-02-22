@@ -8,35 +8,26 @@ function createProgressHTML(
   options: ProgressClassesOptions = {},
 ): string {
   const classes = progressClasses(options)
-  const valueAttrs =
-    value !== null
-      ? ` aria-valuenow="${value}"`
-      : ""
+  const valueAttrs = value !== null ? ` aria-valuenow="${value}"` : ""
 
   return `<div class="${classes.root}" role="progressbar"${valueAttrs} aria-valuemin="0" aria-valuemax="100"><div class="${classes.track}"><div class="${classes.fill}"></div></div></div>`
 }
 
 describe("progress bar accessibility", () => {
   it("has role=progressbar", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createProgressHTML()}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createProgressHTML()}</body>`)
     const el = dom.window.document.querySelector(".pm-progress")
     expect(el?.getAttribute("role")).toBe("progressbar")
   })
 
   it("has aria-valuenow attribute", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createProgressHTML(50)}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createProgressHTML(50)}</body>`)
     const el = dom.window.document.querySelector(".pm-progress")
     expect(el?.getAttribute("aria-valuenow")).toBe("50")
   })
 
   it("has aria-valuemin and aria-valuemax", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createProgressHTML(50)}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createProgressHTML(50)}</body>`)
     const el = dom.window.document.querySelector(".pm-progress")
     expect(el?.getAttribute("aria-valuemin")).toBe("0")
     expect(el?.getAttribute("aria-valuemax")).toBe("100")

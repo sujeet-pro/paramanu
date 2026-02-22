@@ -45,18 +45,14 @@ describe("password input accessibility", () => {
   })
 
   it("disabled input has disabled attribute and aria-disabled", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createPwdInputHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createPwdInputHTML({ disabled: true })}</body>`)
     const input = dom.window.document.querySelector("input")
     expect(input?.hasAttribute("disabled")).toBe(true)
     expect(input?.getAttribute("aria-disabled")).toBe("true")
   })
 
   it("invalid input has aria-invalid", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createPwdInputHTML({ invalid: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createPwdInputHTML({ invalid: true })}</body>`)
     const input = dom.window.document.querySelector("input")
     expect(input?.getAttribute("aria-invalid")).toBe("true")
   })

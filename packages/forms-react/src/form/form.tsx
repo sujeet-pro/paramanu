@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { formClasses } from "@paramanu/forms-js"
 import type { FormProps } from "@paramanu/forms-js"
 
-export interface ReactFormProps
-  extends FormProps,
-    React.FormHTMLAttributes<HTMLFormElement> {
+export interface ReactFormProps extends FormProps, React.FormHTMLAttributes<HTMLFormElement> {
   children?: React.ReactNode
 }
 

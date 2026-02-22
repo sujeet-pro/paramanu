@@ -19,7 +19,11 @@ export function stepsModuleClasses(
   options: StepsClassesOptions = {},
 ): string {
   const { size = "md", orientation = "horizontal" } = options
-  const classes = [classMap[BASE], classMap[`${BASE}--${size}`], classMap[`${BASE}--${orientation}`]]
+  const classes = [
+    classMap[BASE],
+    classMap[`${BASE}--${size}`],
+    classMap[`${BASE}--${orientation}`],
+  ]
   return classes.filter(Boolean).join(" ")
 }
 

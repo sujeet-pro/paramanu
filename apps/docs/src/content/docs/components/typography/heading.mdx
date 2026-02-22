@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Heading renders semantic h1-h6 elements with independent visual sizing. The level maps to a default size but can be overridden.
@@ -44,26 +44,26 @@ Heading renders the correct semantic `<h1>`-`<h6>` element based on `level`. Mai
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `level` | `1-6` | `2` | Semantic heading level |
-| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl"` | auto | Visual size |
-| `weight` | `"normal" \| "medium" \| "semibold" \| "bold"` | `"bold"` | Font weight |
-| `align` | `"left" \| "center" \| "right"` | -- | Text alignment |
-| `lineHeight` | `"tight" \| "normal" \| "relaxed"` | -- | Line height |
-| `truncate` | `boolean` | `false` | Truncation |
-| `color` | `"default" \| "muted" \| "dimmed" \| "primary" \| ...` | -- | Semantic color |
+| Prop         | Type                                                     | Default  | Description            |
+| ------------ | -------------------------------------------------------- | -------- | ---------------------- |
+| `level`      | `1-6`                                                    | `2`      | Semantic heading level |
+| `size`       | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl"` | auto     | Visual size            |
+| `weight`     | `"normal" \| "medium" \| "semibold" \| "bold"`           | `"bold"` | Font weight            |
+| `align`      | `"left" \| "center" \| "right"`                          | --       | Text alignment         |
+| `lineHeight` | `"tight" \| "normal" \| "relaxed"`                       | --       | Line height            |
+| `truncate`   | `boolean`                                                | `false`  | Truncation             |
+| `color`      | `"default" \| "muted" \| "dimmed" \| "primary" \| ...`   | --       | Semantic color         |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-heading` | Base |
-| `pm-heading--size-{s}` | Visual size |
+| Class                    | Purpose     |
+| ------------------------ | ----------- |
+| `pm-heading`             | Base        |
+| `pm-heading--size-{s}`   | Visual size |
 | `pm-heading--weight-{w}` | Font weight |
-| `pm-heading--align-{a}` | Alignment |
-| `pm-heading--color-{c}` | Color |
-| `pm-heading--truncate` | Truncation |
+| `pm-heading--align-{a}`  | Alignment   |
+| `pm-heading--color-{c}`  | Color       |
+| `pm-heading--truncate`   | Truncation  |
 
 </TabItem>
 </Tabs>

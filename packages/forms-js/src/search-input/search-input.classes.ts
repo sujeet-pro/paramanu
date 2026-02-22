@@ -6,8 +6,13 @@ const BASE = "pm-search"
  * Returns BEM class names for the search input wrapper (human-readable).
  */
 export function searchClasses(options: SearchClassesOptions = {}): string {
-  const { variant = "outline", size = "md", invalid = false, disabled = false, fullWidth = false } =
-    options
+  const {
+    variant = "outline",
+    size = "md",
+    invalid = false,
+    disabled = false,
+    fullWidth = false,
+  } = options
   const classes = [BASE, `${BASE}--${variant}`, `${BASE}--${size}`]
 
   if (invalid) classes.push(`${BASE}--invalid`)
@@ -24,8 +29,13 @@ export function searchModuleClasses(
   classMap: Record<string, string>,
   options: SearchClassesOptions = {},
 ): string {
-  const { variant = "outline", size = "md", invalid = false, disabled = false, fullWidth = false } =
-    options
+  const {
+    variant = "outline",
+    size = "md",
+    invalid = false,
+    disabled = false,
+    fullWidth = false,
+  } = options
 
   const classes = [
     classMap["pm-search"],

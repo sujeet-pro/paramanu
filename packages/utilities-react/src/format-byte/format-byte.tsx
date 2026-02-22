@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { formatByte } from "@paramanu/utilities-js"
 import type { FormatByteOptions } from "@paramanu/utilities-js"
 
-export interface ReactFormatByteProps
-  extends FormatByteOptions,
-    React.HTMLAttributes<HTMLElement> {
+export interface ReactFormatByteProps extends FormatByteOptions, React.HTMLAttributes<HTMLElement> {
   as?: React.ElementType
   value: number
 }

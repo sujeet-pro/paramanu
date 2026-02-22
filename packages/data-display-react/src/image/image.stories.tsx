@@ -23,7 +23,11 @@ export const Playground: Story = {
 }
 
 export const WithCaption: Story = {
-  args: { src: "https://picsum.photos/400/300", alt: "Landscape", caption: "A beautiful landscape" },
+  args: {
+    src: "https://picsum.photos/400/300",
+    alt: "Landscape",
+    caption: "A beautiful landscape",
+  },
 }
 
 export const Rounded: Story = {

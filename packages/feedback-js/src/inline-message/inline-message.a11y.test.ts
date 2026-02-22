@@ -14,9 +14,7 @@ function createInlineMsgHTML(
 
 describe("inline message accessibility", () => {
   it("has role=status for info variant", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createInlineMsgHTML("Info message")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createInlineMsgHTML("Info message")}</body>`)
     const el = dom.window.document.querySelector(".pm-inline-msg")
     expect(el?.getAttribute("role")).toBe("status")
   })

@@ -59,9 +59,15 @@ export const Invalid: Story = {
 export const Group: Story = {
   render: () => (
     <RadioGroup name="fruits">
-      <Radio name="fruits" value="apple">Apple</Radio>
-      <Radio name="fruits" value="banana">Banana</Radio>
-      <Radio name="fruits" value="cherry">Cherry</Radio>
+      <Radio name="fruits" value="apple">
+        Apple
+      </Radio>
+      <Radio name="fruits" value="banana">
+        Banana
+      </Radio>
+      <Radio name="fruits" value="cherry">
+        Cherry
+      </Radio>
     </RadioGroup>
   ),
 }
@@ -69,9 +75,15 @@ export const Group: Story = {
 export const HorizontalGroup: Story = {
   render: () => (
     <RadioGroup name="colors" orientation="horizontal">
-      <Radio name="colors" value="red">Red</Radio>
-      <Radio name="colors" value="blue">Blue</Radio>
-      <Radio name="colors" value="green">Green</Radio>
+      <Radio name="colors" value="red">
+        Red
+      </Radio>
+      <Radio name="colors" value="blue">
+        Blue
+      </Radio>
+      <Radio name="colors" value="green">
+        Green
+      </Radio>
     </RadioGroup>
   ),
 }
@@ -79,8 +91,12 @@ export const HorizontalGroup: Story = {
 export const ClickToSelect: Story = {
   render: () => (
     <RadioGroup name="select-test">
-      <Radio name="select-test" value="a">Option A</Radio>
-      <Radio name="select-test" value="b">Option B</Radio>
+      <Radio name="select-test" value="a">
+        Option A
+      </Radio>
+      <Radio name="select-test" value="b">
+        Option B
+      </Radio>
     </RadioGroup>
   ),
   play: async ({ canvasElement }) => {
@@ -94,8 +110,12 @@ export const ClickToSelect: Story = {
 export const KeyboardNavigation: Story = {
   render: () => (
     <RadioGroup name="kbd-test">
-      <Radio name="kbd-test" value="a">Option A</Radio>
-      <Radio name="kbd-test" value="b">Option B</Radio>
+      <Radio name="kbd-test" value="a">
+        Option A
+      </Radio>
+      <Radio name="kbd-test" value="b">
+        Option B
+      </Radio>
     </RadioGroup>
   ),
   play: async ({ canvasElement }) => {
@@ -108,8 +128,12 @@ export const KeyboardNavigation: Story = {
 export const Accessibility: Story = {
   render: () => (
     <RadioGroup name="a11y-test">
-      <Radio name="a11y-test" value="a">Option A</Radio>
-      <Radio name="a11y-test" value="b">Option B</Radio>
+      <Radio name="a11y-test" value="a">
+        Option A
+      </Radio>
+      <Radio name="a11y-test" value="b">
+        Option B
+      </Radio>
     </RadioGroup>
   ),
   play: async ({ canvasElement }) => {

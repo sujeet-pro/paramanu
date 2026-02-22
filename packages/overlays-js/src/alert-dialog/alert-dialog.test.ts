@@ -41,9 +41,7 @@ describe("alertdialogModuleClasses", () => {
   })
 
   it("maps variant classes correctly", () => {
-    expect(alertdialogModuleClasses(mockClassMap, { variant: "danger" })).toContain(
-      "pm_abc_danger",
-    )
+    expect(alertdialogModuleClasses(mockClassMap, { variant: "danger" })).toContain("pm_abc_danger")
     expect(alertdialogModuleClasses(mockClassMap, { variant: "warning" })).toContain(
       "pm_abc_warning",
     )

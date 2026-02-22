@@ -33,10 +33,7 @@ export function themeClasses(mode?: ThemeMode): string {
  * @param mode - Optional theme mode modifier
  * @returns Space-separated mapped class string
  */
-export function themeModuleClasses(
-  classMap: Record<string, string>,
-  mode?: ThemeMode,
-): string {
+export function themeModuleClasses(classMap: Record<string, string>, mode?: ThemeMode): string {
   const classes = [classMap["pm-theme"]]
   if (mode) classes.push(classMap[`pm-theme--${mode}`])
   return classes.filter(Boolean).join(" ")

@@ -8,9 +8,7 @@ import {
 } from "@paramanu/navigation-js"
 import type { NavbarClassesOptions, NavbarSectionClassesOptions } from "@paramanu/navigation-js"
 
-export interface ReactNavbarProps
-  extends NavbarClassesOptions,
-    React.HTMLAttributes<HTMLElement> {
+export interface ReactNavbarProps extends NavbarClassesOptions, React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode
 }
 
@@ -31,21 +29,21 @@ export interface ReactNavbarInnerProps extends React.HTMLAttributes<HTMLDivEleme
   children?: React.ReactNode
 }
 
-export const NavbarInner = forwardRef<HTMLDivElement, ReactNavbarInnerProps>(
-  function NavbarInner({ className, children, ...rest }, ref) {
-    const classes = navbarInnerClasses()
-    const combinedClassName = className ? `${classes} ${className}` : classes
-    return (
-      <div ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </div>
-    )
-  },
-)
+export const NavbarInner = forwardRef<HTMLDivElement, ReactNavbarInnerProps>(function NavbarInner(
+  { className, children, ...rest },
+  ref,
+) {
+  const classes = navbarInnerClasses()
+  const combinedClassName = className ? `${classes} ${className}` : classes
+  return (
+    <div ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </div>
+  )
+})
 
 export interface ReactNavbarSectionProps
-  extends NavbarSectionClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends NavbarSectionClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
@@ -65,20 +63,20 @@ export interface ReactNavbarBrandProps extends React.HTMLAttributes<HTMLDivEleme
   children?: React.ReactNode
 }
 
-export const NavbarBrand = forwardRef<HTMLDivElement, ReactNavbarBrandProps>(
-  function NavbarBrand({ className, children, ...rest }, ref) {
-    const classes = navbarBrandClasses()
-    const combinedClassName = className ? `${classes} ${className}` : classes
-    return (
-      <div ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </div>
-    )
-  },
-)
+export const NavbarBrand = forwardRef<HTMLDivElement, ReactNavbarBrandProps>(function NavbarBrand(
+  { className, children, ...rest },
+  ref,
+) {
+  const classes = navbarBrandClasses()
+  const combinedClassName = className ? `${classes} ${className}` : classes
+  return (
+    <div ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </div>
+  )
+})
 
-export interface ReactNavbarToggleProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ReactNavbarToggleProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
 }
 

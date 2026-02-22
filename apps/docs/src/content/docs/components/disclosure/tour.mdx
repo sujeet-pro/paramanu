@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Tour guides users through interface features with step-by-step popovers, overlays, and spotlight highlighting.
@@ -49,11 +49,11 @@ export default function App() {
 
 ## Accessibility
 
-| Key | Action |
-|-----|--------|
-| `Tab` | Move between tour controls |
-| `Escape` | Close the tour |
-| `Enter` | Advance to next step |
+| Key      | Action                     |
+| -------- | -------------------------- |
+| `Tab`    | Move between tour controls |
+| `Escape` | Close the tour             |
+| `Enter`  | Advance to next step       |
 
 - Tour steps use `role="dialog"`.
 - Overlay uses `aria-hidden="true"`.
@@ -70,34 +70,34 @@ export default function App() {
 
 ## Tour Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop   | Type      | Default | Description     |
+| ------ | --------- | ------- | --------------- |
 | `open` | `boolean` | `false` | Tour visibility |
 
 ## TourStep Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `placement` | `"top" \| "bottom" \| "left" \| "right" \| ...` | `"bottom"` | Step placement |
-| `active` | `boolean` | `false` | Active step |
-| `variant` | `"default" \| "primary"` | `"default"` | Visual variant |
+| Prop        | Type                                            | Default     | Description    |
+| ----------- | ----------------------------------------------- | ----------- | -------------- |
+| `placement` | `"top" \| "bottom" \| "left" \| "right" \| ...` | `"bottom"`  | Step placement |
+| `active`    | `boolean`                                       | `false`     | Active step    |
+| `variant`   | `"default" \| "primary"`                        | `"default"` | Visual variant |
 
 ## TourOverlay Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop      | Type      | Default | Description        |
+| --------- | --------- | ------- | ------------------ |
 | `visible` | `boolean` | `false` | Overlay visibility |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-tour` | Root element |
-| `pm-tour--open` | Open state |
-| `pm-tour__step` | Step popover |
-| `pm-tour__step--active` | Active step |
-| `pm-tour__overlay` | Background overlay |
-| `pm-tour__spotlight` | Target highlight |
+| Class                   | Description        |
+| ----------------------- | ------------------ |
+| `pm-tour`               | Root element       |
+| `pm-tour--open`         | Open state         |
+| `pm-tour__step`         | Step popover       |
+| `pm-tour__step--active` | Active step        |
+| `pm-tour__overlay`      | Background overlay |
+| `pm-tour__spotlight`    | Target highlight   |
 
 </TabItem>
 </Tabs>

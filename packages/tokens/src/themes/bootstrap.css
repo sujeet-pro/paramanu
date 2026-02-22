@@ -94,7 +94,9 @@
     --pm-shadow-lg: 0 1rem 3rem rgb(0 0 0 / 0.175);
 
     /* Font — Bootstrap system font stack */
-    --pm-font-family-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+    --pm-font-family-sans:
+      system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
+      "Liberation Sans", Arial, sans-serif;
     --pm-font-size-xs: 0.75rem;
     --pm-font-size-sm: 0.875rem;
     --pm-font-size-md: 1rem;

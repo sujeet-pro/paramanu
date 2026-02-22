@@ -26,13 +26,11 @@
 
   /* Position */
   .pm-sidebar--left {
-    border-inline-end: 1px solid
-      var(--pm-neutral-hover);
+    border-inline-end: 1px solid var(--pm-neutral-hover);
   }
 
   .pm-sidebar--right {
-    border-inline-start: 1px solid
-      var(--pm-neutral-hover);
+    border-inline-start: 1px solid var(--pm-neutral-hover);
   }
 
   /* Collapsed state */

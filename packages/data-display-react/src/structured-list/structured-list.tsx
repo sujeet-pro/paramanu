@@ -3,23 +3,23 @@ import { structListClasses } from "@paramanu/data-display-js"
 import type { StructListProps } from "@paramanu/data-display-js"
 
 export interface ReactStructListProps
-  extends StructListProps,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends StructListProps, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const StructList = forwardRef<HTMLDivElement, ReactStructListProps>(
-  function StructList({ size, selectable, bordered, className, children, ...rest }, ref) {
-    const classes = structListClasses({ size, selectable, bordered })
-    const combinedClassName = className ? `${classes.root} ${className}` : classes.root
+export const StructList = forwardRef<HTMLDivElement, ReactStructListProps>(function StructList(
+  { size, selectable, bordered, className, children, ...rest },
+  ref,
+) {
+  const classes = structListClasses({ size, selectable, bordered })
+  const combinedClassName = className ? `${classes.root} ${className}` : classes.root
 
-    return (
-      <div ref={ref} role="table" className={combinedClassName} {...rest}>
-        {children}
-      </div>
-    )
-  },
-)
+  return (
+    <div ref={ref} role="table" className={combinedClassName} {...rest}>
+      {children}
+    </div>
+  )
+})
 
 export interface ReactStructListHeadProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
@@ -93,16 +93,15 @@ export interface ReactStructListHeaderCellProps extends React.HTMLAttributes<HTM
   children?: React.ReactNode
 }
 
-export const StructListHeaderCell = forwardRef<
-  HTMLDivElement,
-  ReactStructListHeaderCellProps
->(function StructListHeaderCell({ className, children, ...rest }, ref) {
-  const classes = structListClasses()
-  const combinedClassName = className ? `${classes.headerCell} ${className}` : classes.headerCell
+export const StructListHeaderCell = forwardRef<HTMLDivElement, ReactStructListHeaderCellProps>(
+  function StructListHeaderCell({ className, children, ...rest }, ref) {
+    const classes = structListClasses()
+    const combinedClassName = className ? `${classes.headerCell} ${className}` : classes.headerCell
 
-  return (
-    <div ref={ref} role="columnheader" className={combinedClassName} {...rest}>
-      {children}
-    </div>
-  )
-})
+    return (
+      <div ref={ref} role="columnheader" className={combinedClassName} {...rest}>
+        {children}
+      </div>
+    )
+  },
+)

@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { datalistClasses } from "@paramanu/data-display-js"
 import type { DatalistProps } from "@paramanu/data-display-js"
 
-export interface ReactDatalistProps
-  extends DatalistProps,
-    React.HTMLAttributes<HTMLDListElement> {
+export interface ReactDatalistProps extends DatalistProps, React.HTMLAttributes<HTMLDListElement> {
   children?: React.ReactNode
 }
 
@@ -43,18 +41,19 @@ export interface ReactDatalistTermProps extends React.HTMLAttributes<HTMLElement
   children?: React.ReactNode
 }
 
-export const DatalistTerm = forwardRef<HTMLElement, ReactDatalistTermProps>(
-  function DatalistTerm({ className, children, ...rest }, ref) {
-    const classes = datalistClasses()
-    const combinedClassName = className ? `${classes.term} ${className}` : classes.term
+export const DatalistTerm = forwardRef<HTMLElement, ReactDatalistTermProps>(function DatalistTerm(
+  { className, children, ...rest },
+  ref,
+) {
+  const classes = datalistClasses()
+  const combinedClassName = className ? `${classes.term} ${className}` : classes.term
 
-    return (
-      <dt ref={ref} className={combinedClassName} {...rest}>
-        {children}
-      </dt>
-    )
-  },
-)
+  return (
+    <dt ref={ref} className={combinedClassName} {...rest}>
+      {children}
+    </dt>
+  )
+})
 
 export interface ReactDatalistDetailProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode

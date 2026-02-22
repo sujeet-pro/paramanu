@@ -3,8 +3,7 @@ import { masonryClasses } from "@paramanu/primitives-js"
 import type { MasonryProps } from "@paramanu/primitives-js"
 
 export interface ReactMasonryProps
-  extends MasonryProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+  extends MasonryProps, Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
   children?: React.ReactNode
 }
 

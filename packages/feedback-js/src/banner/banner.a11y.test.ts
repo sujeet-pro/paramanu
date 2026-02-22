@@ -3,10 +3,7 @@ import { JSDOM } from "jsdom"
 import { bannerClasses } from "./banner.classes.js"
 import type { BannerClassesOptions } from "./banner.types.js"
 
-function createBannerHTML(
-  text: string,
-  options: BannerClassesOptions = {},
-): string {
+function createBannerHTML(text: string, options: BannerClassesOptions = {}): string {
   const classes = bannerClasses(options)
   const closeBtn = options?.dismissible
     ? `<div class="${classes.close}"><button class="pm-close-btn pm-close-btn--sm" aria-label="Dismiss">\u00d7</button></div>`
@@ -55,9 +52,7 @@ describe("banner accessibility", () => {
   it("all variants have role=status", () => {
     const variants = ["info", "success", "warning", "danger"] as const
     for (const variant of variants) {
-      const dom = new JSDOM(
-        `<!DOCTYPE html><body>${createBannerHTML("Text", { variant })}</body>`,
-      )
+      const dom = new JSDOM(`<!DOCTYPE html><body>${createBannerHTML("Text", { variant })}</body>`)
       const el = dom.window.document.querySelector(".pm-banner")
       expect(el?.getAttribute("role")).toBe("status")
     }

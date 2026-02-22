@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs as DocTabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Tabs organize content into separate panels, with only one visible at a time.
@@ -53,13 +53,13 @@ Supports `"line"`, `"enclosed"`, and `"pill"` variants.
 
 ## Accessibility
 
-| Key | Action |
-|-----|--------|
+| Key                        | Action                         |
+| -------------------------- | ------------------------------ |
 | `ArrowRight` / `ArrowLeft` | Move between tabs (horizontal) |
-| `ArrowDown` / `ArrowUp` | Move between tabs (vertical) |
-| `Enter` / `Space` | Activate focused tab |
-| `Home` | Move to first tab |
-| `End` | Move to last tab |
+| `ArrowDown` / `ArrowUp`    | Move between tabs (vertical)   |
+| `Enter` / `Space`          | Activate focused tab           |
+| `Home`                     | Move to first tab              |
+| `End`                      | Move to last tab               |
 
 - Uses `role="tablist"`, `role="tab"`, and `role="tabpanel"`.
 - Active tab has `aria-selected="true"` and `tabIndex={0}`.
@@ -70,31 +70,31 @@ Supports `"line"`, `"enclosed"`, and `"pill"` variants.
 
 ## Tabs Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `"line" \| "enclosed" \| "pill"` | `"line"` | Visual variant |
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout direction |
-| `fitted` | `boolean` | `false` | Fill container width |
+| Prop          | Type                             | Default        | Description          |
+| ------------- | -------------------------------- | -------------- | -------------------- |
+| `variant`     | `"line" \| "enclosed" \| "pill"` | `"line"`       | Visual variant       |
+| `size`        | `"sm" \| "md" \| "lg"`           | `"md"`         | Size preset          |
+| `orientation` | `"horizontal" \| "vertical"`     | `"horizontal"` | Layout direction     |
+| `fitted`      | `boolean`                        | `false`        | Fill container width |
 
 ## Tab Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `active` | `boolean` | `false` | Selected state |
+| Prop       | Type      | Default | Description    |
+| ---------- | --------- | ------- | -------------- |
+| `active`   | `boolean` | `false` | Selected state |
 | `disabled` | `boolean` | `false` | Disabled state |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-tabs` | Root element |
-| `pm-tabs--pill` | Pill variant |
-| `pm-tabs--fitted` | Fitted layout |
-| `pm-tabs__list` | Tab list |
-| `pm-tabs__tab` | Individual tab |
-| `pm-tabs__tab--active` | Active tab |
-| `pm-tabs__panel` | Content panel |
+| Class                  | Description    |
+| ---------------------- | -------------- |
+| `pm-tabs`              | Root element   |
+| `pm-tabs--pill`        | Pill variant   |
+| `pm-tabs--fitted`      | Fitted layout  |
+| `pm-tabs__list`        | Tab list       |
+| `pm-tabs__tab`         | Individual tab |
+| `pm-tabs__tab--active` | Active tab     |
+| `pm-tabs__panel`       | Content panel  |
 
 </TabItem>
 </DocTabs>

@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Back to Top button provides a quick way to scroll to the top of the page, appearing after the user scrolls down.
@@ -49,21 +49,21 @@ export default function App() {
 
 ## Btt Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
-| `position` | `"bottom-right" \| "bottom-left" \| "bottom-center"` | `"bottom-right"` | Screen position |
-| `visible` | `boolean` | `true` | Visibility state |
+| Prop       | Type                                                 | Default          | Description      |
+| ---------- | ---------------------------------------------------- | ---------------- | ---------------- |
+| `size`     | `"sm" \| "md" \| "lg"`                               | `"md"`           | Size preset      |
+| `position` | `"bottom-right" \| "bottom-left" \| "bottom-center"` | `"bottom-right"` | Screen position  |
+| `visible`  | `boolean`                                            | `true`           | Visibility state |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-btt` | Root element |
-| `pm-btt--visible` | Visible state |
+| Class                  | Description           |
+| ---------------------- | --------------------- |
+| `pm-btt`               | Root element          |
+| `pm-btt--visible`      | Visible state         |
 | `pm-btt--bottom-right` | Bottom-right position |
-| `pm-btt--sm` | Small size |
-| `pm-btt--lg` | Large size |
+| `pm-btt--sm`           | Small size            |
+| `pm-btt--lg`           | Large size            |
 
 </TabItem>
 </Tabs>

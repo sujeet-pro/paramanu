@@ -21,7 +21,6 @@ function createDropdown(args: DropdownArgs): HTMLElement {
   const content = document.createElement("div")
   content.className = dropdownMenuContentClasses()
   content.setAttribute("role", "menu")
-
   ;["Item 1", "Item 2", "Item 3"].forEach((text) => {
     const item = document.createElement("div")
     item.setAttribute("role", "menuitem")

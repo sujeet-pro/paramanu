@@ -3,8 +3,7 @@ import { switchClasses } from "@paramanu/forms-js"
 import type { SwitchProps } from "@paramanu/forms-js"
 
 export interface ReactSwitchProps
-  extends SwitchProps,
-    Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type"> {
+  extends SwitchProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type"> {
   children?: React.ReactNode
 }
 

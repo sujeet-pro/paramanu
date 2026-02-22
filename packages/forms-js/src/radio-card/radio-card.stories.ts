@@ -37,7 +37,6 @@ function createCardGroup(): HTMLElement {
   const wrapper = document.createElement("div")
   wrapper.style.display = "flex"
   wrapper.style.gap = "1rem"
-
   ;["Basic", "Pro", "Enterprise"].forEach((plan) => {
     const card = createRadioCard({
       label: plan,

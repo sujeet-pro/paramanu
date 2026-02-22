@@ -8,9 +8,13 @@ function createCheckboxHTML(
   attrs: string = "",
 ): string {
   const classes = checkboxClasses(options)
-  const checkedAttr = options.checked ? ' checked' : ""
-  const disabledAttr = options.disabled ? ' disabled' : ""
-  const ariaChecked = options.indeterminate ? ' aria-checked="mixed"' : options.checked ? ' aria-checked="true"' : ""
+  const checkedAttr = options.checked ? " checked" : ""
+  const disabledAttr = options.disabled ? " disabled" : ""
+  const ariaChecked = options.indeterminate
+    ? ' aria-checked="mixed"'
+    : options.checked
+      ? ' aria-checked="true"'
+      : ""
   return `<label class="${classes}"><input type="checkbox" class="pm-checkbox__input"${checkedAttr}${disabledAttr}${ariaChecked}${attrs ? " " + attrs : ""} /><span class="pm-checkbox__indicator">&#10003;</span><span class="pm-checkbox__label">${label}</span></label>`
 }
 

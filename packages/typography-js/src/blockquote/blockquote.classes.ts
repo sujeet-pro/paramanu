@@ -3,13 +3,7 @@ import type { BlockquoteClassesOptions } from "./blockquote.types.js"
 const BASE = "pm-blockquote"
 
 export function blockquoteClasses(options: BlockquoteClassesOptions = {}): string {
-  const {
-    variant = "default",
-    size = "md",
-    color,
-    withCite = false,
-    withIcon = false,
-  } = options
+  const { variant = "default", size = "md", color, withCite = false, withIcon = false } = options
   const classes = [BASE, `${BASE}--${variant}`, `${BASE}--${size}`]
 
   if (color) classes.push(`${BASE}--color-${color}`)
@@ -23,13 +17,7 @@ export function blockquoteModuleClasses(
   classMap: Record<string, string>,
   options: BlockquoteClassesOptions = {},
 ): string {
-  const {
-    variant = "default",
-    size = "md",
-    color,
-    withCite = false,
-    withIcon = false,
-  } = options
+  const { variant = "default", size = "md", color, withCite = false, withIcon = false } = options
   const classes = [
     classMap["pm-blockquote"],
     classMap[`pm-blockquote--${variant}`],

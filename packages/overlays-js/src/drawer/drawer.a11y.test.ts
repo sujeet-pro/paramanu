@@ -46,25 +46,19 @@ describe("drawer accessibility", () => {
   })
 
   it("renders with start placement class", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createDrawerHTML({ placement: "start" })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDrawerHTML({ placement: "start" })}</body>`)
     const drawer = dom.window.document.querySelector(".pm-drawer")
     expect(drawer?.classList.contains("pm-drawer--start")).toBe(true)
   })
 
   it("renders with end placement class", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createDrawerHTML({ placement: "end" })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDrawerHTML({ placement: "end" })}</body>`)
     const drawer = dom.window.document.querySelector(".pm-drawer")
     expect(drawer?.classList.contains("pm-drawer--end")).toBe(true)
   })
 
   it("renders with top placement class", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createDrawerHTML({ placement: "top" })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDrawerHTML({ placement: "top" })}</body>`)
     const drawer = dom.window.document.querySelector(".pm-drawer")
     expect(drawer?.classList.contains("pm-drawer--top")).toBe(true)
   })

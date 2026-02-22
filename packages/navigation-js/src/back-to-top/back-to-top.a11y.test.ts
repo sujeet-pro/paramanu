@@ -2,10 +2,7 @@ import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import { bttClasses } from "./back-to-top.classes.js"
 
-function createBttHTML(
-  options: Parameters<typeof bttClasses>[0] = {},
-  attrs: string = "",
-): string {
+function createBttHTML(options: Parameters<typeof bttClasses>[0] = {}, attrs: string = ""): string {
   const classes = bttClasses(options)
   return `<button class="${classes}" aria-label="Back to top"${attrs ? " " + attrs : ""}>\u2191</button>`
 }

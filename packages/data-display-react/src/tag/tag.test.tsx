@@ -20,17 +20,29 @@ describe("Tag", () => {
   })
 
   it("applies variant class", () => {
-    render(<Tag variant="outline" data-testid="tag">Outline</Tag>)
+    render(
+      <Tag variant="outline" data-testid="tag">
+        Outline
+      </Tag>,
+    )
     expect(screen.getByTestId("tag").className).toContain("pm-tag--outline")
   })
 
   it("applies size class", () => {
-    render(<Tag size="lg" data-testid="tag">Large</Tag>)
+    render(
+      <Tag size="lg" data-testid="tag">
+        Large
+      </Tag>,
+    )
     expect(screen.getByTestId("tag").className).toContain("pm-tag--lg")
   })
 
   it("applies color class", () => {
-    render(<Tag color="success" data-testid="tag">Success</Tag>)
+    render(
+      <Tag color="success" data-testid="tag">
+        Success
+      </Tag>,
+    )
     expect(screen.getByTestId("tag").className).toContain("pm-tag--success")
   })
 
@@ -40,12 +52,20 @@ describe("Tag", () => {
   })
 
   it("applies interactive modifier", () => {
-    render(<Tag interactive data-testid="tag">Interactive</Tag>)
+    render(
+      <Tag interactive data-testid="tag">
+        Interactive
+      </Tag>,
+    )
     expect(screen.getByTestId("tag").className).toContain("pm-tag--interactive")
   })
 
   it("applies disabled modifier", () => {
-    render(<Tag disabled data-testid="tag">Disabled</Tag>)
+    render(
+      <Tag disabled data-testid="tag">
+        Disabled
+      </Tag>,
+    )
     expect(screen.getByTestId("tag").className).toContain("pm-tag--disabled")
   })
 
@@ -56,7 +76,11 @@ describe("Tag", () => {
   })
 
   it("merges custom className", () => {
-    render(<Tag className="custom" data-testid="tag">Custom</Tag>)
+    render(
+      <Tag className="custom" data-testid="tag">
+        Custom
+      </Tag>,
+    )
     const tag = screen.getByTestId("tag")
     expect(tag.className).toContain("pm-tag")
     expect(tag.className).toContain("custom")

@@ -3,8 +3,7 @@ import { fieldsetClasses } from "@paramanu/forms-js"
 import type { FieldsetProps } from "@paramanu/forms-js"
 
 export interface ReactFieldsetProps
-  extends FieldsetProps,
-    Omit<React.FieldsetHTMLAttributes<HTMLFieldSetElement>, "form"> {
+  extends FieldsetProps, Omit<React.FieldsetHTMLAttributes<HTMLFieldSetElement>, "form"> {
   children?: React.ReactNode
 }
 

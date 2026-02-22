@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { qrCodeClasses } from "@paramanu/data-display-js"
 import type { QrCodeProps } from "@paramanu/data-display-js"
 
-export interface ReactQrCodeProps
-  extends QrCodeProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactQrCodeProps extends QrCodeProps, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

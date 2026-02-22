@@ -108,25 +108,33 @@
     justify-self: center;
   }
 
-  .pm-timeline--vertical.pm-timeline--alternate .pm-timeline__item:nth-child(odd) .pm-timeline__content {
+  .pm-timeline--vertical.pm-timeline--alternate
+    .pm-timeline__item:nth-child(odd)
+    .pm-timeline__content {
     grid-column: 3;
     grid-row: 1 / -1;
     text-align: start;
   }
 
-  .pm-timeline--vertical.pm-timeline--alternate .pm-timeline__item:nth-child(odd) .pm-timeline__opposite {
+  .pm-timeline--vertical.pm-timeline--alternate
+    .pm-timeline__item:nth-child(odd)
+    .pm-timeline__opposite {
     grid-column: 1;
     grid-row: 1 / -1;
     text-align: end;
   }
 
-  .pm-timeline--vertical.pm-timeline--alternate .pm-timeline__item:nth-child(even) .pm-timeline__content {
+  .pm-timeline--vertical.pm-timeline--alternate
+    .pm-timeline__item:nth-child(even)
+    .pm-timeline__content {
     grid-column: 1;
     grid-row: 1 / -1;
     text-align: end;
   }
 
-  .pm-timeline--vertical.pm-timeline--alternate .pm-timeline__item:nth-child(even) .pm-timeline__opposite {
+  .pm-timeline--vertical.pm-timeline--alternate
+    .pm-timeline__item:nth-child(even)
+    .pm-timeline__opposite {
     grid-column: 3;
     grid-row: 1 / -1;
     text-align: start;
@@ -213,25 +221,33 @@
     align-self: center;
   }
 
-  .pm-timeline--horizontal.pm-timeline--alternate .pm-timeline__item:nth-child(odd) .pm-timeline__content {
+  .pm-timeline--horizontal.pm-timeline--alternate
+    .pm-timeline__item:nth-child(odd)
+    .pm-timeline__content {
     grid-column: 1 / -1;
     grid-row: 3;
     text-align: center;
   }
 
-  .pm-timeline--horizontal.pm-timeline--alternate .pm-timeline__item:nth-child(odd) .pm-timeline__opposite {
+  .pm-timeline--horizontal.pm-timeline--alternate
+    .pm-timeline__item:nth-child(odd)
+    .pm-timeline__opposite {
     grid-column: 1 / -1;
     grid-row: 1;
     text-align: center;
   }
 
-  .pm-timeline--horizontal.pm-timeline--alternate .pm-timeline__item:nth-child(even) .pm-timeline__content {
+  .pm-timeline--horizontal.pm-timeline--alternate
+    .pm-timeline__item:nth-child(even)
+    .pm-timeline__content {
     grid-column: 1 / -1;
     grid-row: 1;
     text-align: center;
   }
 
-  .pm-timeline--horizontal.pm-timeline--alternate .pm-timeline__item:nth-child(even) .pm-timeline__opposite {
+  .pm-timeline--horizontal.pm-timeline--alternate
+    .pm-timeline__item:nth-child(even)
+    .pm-timeline__opposite {
     grid-column: 1 / -1;
     grid-row: 3;
     text-align: center;

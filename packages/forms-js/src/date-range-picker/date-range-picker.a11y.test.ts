@@ -2,9 +2,7 @@ import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import { daterangeClasses } from "./date-range-picker.classes.js"
 
-function createDaterangeHTML(
-  options: Parameters<typeof daterangeClasses>[0] = {},
-): string {
+function createDaterangeHTML(options: Parameters<typeof daterangeClasses>[0] = {}): string {
   const classes = daterangeClasses(options)
   const disabledAttr = options?.disabled ? ' aria-disabled="true"' : ""
   const expandedAttr = options?.open ? 'aria-expanded="true"' : 'aria-expanded="false"'
@@ -26,9 +24,7 @@ describe("date range picker accessibility", () => {
   })
 
   it("trigger has aria-expanded", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createDaterangeHTML({ open: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDaterangeHTML({ open: true })}</body>`)
     const trigger = dom.window.document.querySelector(".pm-daterange__trigger")
     expect(trigger?.getAttribute("aria-expanded")).toBe("true")
   })
@@ -46,17 +42,13 @@ describe("date range picker accessibility", () => {
   })
 
   it("disabled trigger has aria-disabled", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createDaterangeHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDaterangeHTML({ disabled: true })}</body>`)
     const trigger = dom.window.document.querySelector(".pm-daterange__trigger")
     expect(trigger?.getAttribute("aria-disabled")).toBe("true")
   })
 
   it("invalid trigger has aria-invalid", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createDaterangeHTML({ invalid: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDaterangeHTML({ invalid: true })}</body>`)
     const trigger = dom.window.document.querySelector(".pm-daterange__trigger")
     expect(trigger?.getAttribute("aria-invalid")).toBe("true")
   })

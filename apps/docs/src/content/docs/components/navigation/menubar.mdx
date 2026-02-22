@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Menubar renders a horizontal bar of top-level menu items, following the WAI-ARIA menubar pattern.
@@ -45,13 +45,13 @@ export default function App() {
 
 ## Accessibility
 
-| Key | Action |
-|-----|--------|
-| `ArrowRight` | Move to next item |
-| `ArrowLeft` | Move to previous item |
+| Key               | Action                |
+| ----------------- | --------------------- |
+| `ArrowRight`      | Move to next item     |
+| `ArrowLeft`       | Move to previous item |
 | `Enter` / `Space` | Activate focused item |
-| `Home` | Move to first item |
-| `End` | Move to last item |
+| `Home`            | Move to first item    |
+| `End`             | Move to last item     |
 
 - Uses `role="menubar"` on the container and `role="menuitem"` on items.
 
@@ -60,19 +60,19 @@ export default function App() {
 
 ## MenubarItem Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `active` | `boolean` | `false` | Active/expanded state |
-| `disabled` | `boolean` | `false` | Disabled state |
+| Prop       | Type      | Default | Description           |
+| ---------- | --------- | ------- | --------------------- |
+| `active`   | `boolean` | `false` | Active/expanded state |
+| `disabled` | `boolean` | `false` | Disabled state        |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-menubar` | Root element |
-| `pm-menubar__item` | Menu item button |
-| `pm-menubar__item--active` | Active item |
-| `pm-menubar__item--disabled` | Disabled item |
+| Class                        | Description      |
+| ---------------------------- | ---------------- |
+| `pm-menubar`                 | Root element     |
+| `pm-menubar__item`           | Menu item button |
+| `pm-menubar__item--active`   | Active item      |
+| `pm-menubar__item--disabled` | Disabled item    |
 
 </TabItem>
 </Tabs>

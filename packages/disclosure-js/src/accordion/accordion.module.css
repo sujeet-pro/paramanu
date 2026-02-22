@@ -226,7 +226,9 @@
     background-color: var(--pm-bg-subtle);
   }
 
-  .pm-theme-bootstrap .pm-accordion .pm-accordion__trigger:hover:not(.pm-accordion__trigger--disabled) {
+  .pm-theme-bootstrap
+    .pm-accordion
+    .pm-accordion__trigger:hover:not(.pm-accordion__trigger--disabled) {
     background-color: var(--pm-bg-muted);
   }
 
@@ -234,7 +236,9 @@
     box-shadow: 0 0 12px rgba(59, 130, 246, 0.15);
   }
 
-  .pm-theme-dark-modern .pm-accordion .pm-accordion__trigger:hover:not(.pm-accordion__trigger--disabled) {
+  .pm-theme-dark-modern
+    .pm-accordion
+    .pm-accordion__trigger:hover:not(.pm-accordion__trigger--disabled) {
     background-color: var(--pm-bg-muted);
   }
 

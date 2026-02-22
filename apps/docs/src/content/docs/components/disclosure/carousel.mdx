@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Carousel displays content in a series of slides with navigation controls and indicator dots.
@@ -47,10 +47,10 @@ export default function App() {
 
 ## Accessibility
 
-| Key | Action |
-|-----|--------|
-| `ArrowLeft` | Previous slide |
-| `ArrowRight` | Next slide |
+| Key          | Action         |
+| ------------ | -------------- |
+| `ArrowLeft`  | Previous slide |
+| `ArrowRight` | Next slide     |
 
 - Root uses `role="region"` with `aria-roledescription="carousel"`.
 - Slides use `role="group"` with `aria-roledescription="slide"`.
@@ -67,35 +67,35 @@ export default function App() {
 
 ## Carousel Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop          | Type                         | Default        | Description      |
+| ------------- | ---------------------------- | -------------- | ---------------- |
 | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Scroll direction |
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
+| `size`        | `"sm" \| "md" \| "lg"`       | `"md"`         | Size preset      |
 
 ## CarouselSlide Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop     | Type      | Default | Description  |
+| -------- | --------- | ------- | ------------ |
 | `active` | `boolean` | `false` | Active slide |
-| `index` | `number` | - | Slide index |
-| `total` | `number` | - | Total slides |
+| `index`  | `number`  | -       | Slide index  |
+| `total`  | `number`  | -       | Total slides |
 
 ## CarouselControl Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `direction` | `"prev" \| "next"` | - | Navigation direction |
-| `disabled` | `boolean` | `false` | Disabled state |
+| Prop        | Type               | Default | Description          |
+| ----------- | ------------------ | ------- | -------------------- |
+| `direction` | `"prev" \| "next"` | -       | Navigation direction |
+| `disabled`  | `boolean`          | `false` | Disabled state       |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-carousel` | Root element |
-| `pm-carousel__slide` | Slide container |
-| `pm-carousel__slide--active` | Active slide |
-| `pm-carousel__control` | Navigation button |
-| `pm-carousel__indicator` | Dot indicator |
+| Class                        | Description       |
+| ---------------------------- | ----------------- |
+| `pm-carousel`                | Root element      |
+| `pm-carousel__slide`         | Slide container   |
+| `pm-carousel__slide--active` | Active slide      |
+| `pm-carousel__control`       | Navigation button |
+| `pm-carousel__indicator`     | Dot indicator     |
 
 </TabItem>
 </Tabs>

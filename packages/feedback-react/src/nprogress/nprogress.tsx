@@ -1,8 +1,10 @@
 import { forwardRef, useEffect, useRef, useState } from "react"
 import { nprogressClasses, createNProgress } from "@paramanu/feedback-js"
 
-export interface ReactNProgressProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+export interface ReactNProgressProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  "children"
+> {
   active?: boolean
   value?: number
 }

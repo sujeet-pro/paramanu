@@ -30,7 +30,9 @@
     transition-duration: var(--pm-transition-fast);
     transition-timing-function: ease-in-out;
 
-    &:hover:not(.pm-pagination__item--disabled):not(.pm-pagination__item--active):not(.pm-pagination__item--ellipsis) {
+    &:hover:not(.pm-pagination__item--disabled):not(.pm-pagination__item--active):not(
+        .pm-pagination__item--ellipsis
+      ) {
       background-color: var(--pm-bg-muted);
     }
 
@@ -115,7 +117,10 @@
     border-radius: 6px;
   }
 
-  .pm-theme-dark-modern .pm-pagination__item:hover:not(.pm-pagination__item--disabled):not(.pm-pagination__item--active) {
+  .pm-theme-dark-modern
+    .pm-pagination__item:hover:not(.pm-pagination__item--disabled):not(
+      .pm-pagination__item--active
+    ) {
     box-shadow: 0 0 8px light-dark(transparent, rgba(59, 130, 246, 0.2));
   }
 

@@ -18,13 +18,13 @@ Tier 3: Component Tokens      — Per-component theming surface (--pm-btn-bg, --
 
 ### Where Tokens Live
 
-| Tier | Location | Output |
-|---|---|---|
-| Primitive | `packages/tokens/src/tokens/primitive/*.json` | `@paramanu/tokens/css/primitives` |
-| Semantic | `packages/tokens/src/tokens/semantic/*.json` | `@paramanu/tokens/css/semantic` |
-| Combined | (built from both) | `@paramanu/tokens/css` |
-| Theme overrides | `packages/tokens/src/tokens/themes/<name>/*.json` | `@paramanu/tokens/css/themes/<name>` |
-| Component | `packages/<group>-js/src/<component>/<component>.css` | `@paramanu/<group>-js/css` |
+| Tier            | Location                                              | Output                               |
+| --------------- | ----------------------------------------------------- | ------------------------------------ |
+| Primitive       | `packages/tokens/src/tokens/primitive/*.json`         | `@paramanu/tokens/css/primitives`    |
+| Semantic        | `packages/tokens/src/tokens/semantic/*.json`          | `@paramanu/tokens/css/semantic`      |
+| Combined        | (built from both)                                     | `@paramanu/tokens/css`               |
+| Theme overrides | `packages/tokens/src/tokens/themes/<name>/*.json`     | `@paramanu/tokens/css/themes/<name>` |
+| Component       | `packages/<group>-js/src/<component>/<component>.css` | `@paramanu/<group>-js/css`           |
 
 ### Build Pipeline
 
@@ -148,75 +148,75 @@ Purpose-driven tokens that carry light AND dark values via `$extensions.pm.light
 
 **Backgrounds**
 
-| Token | Light | Dark | Usage |
-|---|---|---|---|
-| `--pm-bg` | neutral.0 | neutral.950 | Page/body background |
-| `--pm-bg-subtle` | neutral.50 | neutral.900 | Offset surface (sidebar, card hover) |
-| `--pm-bg-muted` | neutral.100 | neutral.800 | Code blocks, disabled inputs |
-| `--pm-bg-emphasis` | neutral.800 | neutral.100 | Tooltips, dark overlays |
-| `--pm-bg-inverse` | neutral.900 | neutral.50 | Inverse surface |
+| Token              | Light       | Dark        | Usage                                |
+| ------------------ | ----------- | ----------- | ------------------------------------ |
+| `--pm-bg`          | neutral.0   | neutral.950 | Page/body background                 |
+| `--pm-bg-subtle`   | neutral.50  | neutral.900 | Offset surface (sidebar, card hover) |
+| `--pm-bg-muted`    | neutral.100 | neutral.800 | Code blocks, disabled inputs         |
+| `--pm-bg-emphasis` | neutral.800 | neutral.100 | Tooltips, dark overlays              |
+| `--pm-bg-inverse`  | neutral.900 | neutral.50  | Inverse surface                      |
 
 **Foregrounds**
 
-| Token | Light | Dark | Usage |
-|---|---|---|---|
-| `--pm-fg` | neutral.900 | neutral.100 | Primary text |
-| `--pm-fg-muted` | neutral.600 | neutral.400 | Secondary text |
-| `--pm-fg-subtle` | neutral.400 | neutral.500 | Placeholders, hints |
-| `--pm-fg-emphasis` | neutral.950 | neutral.0 | High-emphasis text |
-| `--pm-fg-inverse` | neutral.0 | neutral.950 | Text on emphasis/inverse bg |
-| `--pm-fg-link` | primary.600 | primary.400 | Link text |
-| `--pm-fg-link-hover` | primary.700 | primary.300 | Link hover |
+| Token                | Light       | Dark        | Usage                       |
+| -------------------- | ----------- | ----------- | --------------------------- |
+| `--pm-fg`            | neutral.900 | neutral.100 | Primary text                |
+| `--pm-fg-muted`      | neutral.600 | neutral.400 | Secondary text              |
+| `--pm-fg-subtle`     | neutral.400 | neutral.500 | Placeholders, hints         |
+| `--pm-fg-emphasis`   | neutral.950 | neutral.0   | High-emphasis text          |
+| `--pm-fg-inverse`    | neutral.0   | neutral.950 | Text on emphasis/inverse bg |
+| `--pm-fg-link`       | primary.600 | primary.400 | Link text                   |
+| `--pm-fg-link-hover` | primary.700 | primary.300 | Link hover                  |
 
 **Borders**
 
-| Token | Light | Dark | Usage |
-|---|---|---|---|
-| `--pm-border` | neutral.300 | neutral.600 | Default border |
-| `--pm-border-muted` | neutral.200 | neutral.700 | Subtle dividers |
+| Token                  | Light       | Dark        | Usage                |
+| ---------------------- | ----------- | ----------- | -------------------- |
+| `--pm-border`          | neutral.300 | neutral.600 | Default border       |
+| `--pm-border-muted`    | neutral.200 | neutral.700 | Subtle dividers      |
 | `--pm-border-emphasis` | neutral.400 | neutral.500 | Focus/active borders |
 
 **Primary Interactive**
 
-| Token | Light | Dark | Usage |
-|---|---|---|---|
-| `--pm-primary` | primary.600 | primary.500 | Primary action bg |
-| `--pm-primary-hover` | primary.700 | primary.400 | Primary hover |
-| `--pm-primary-active` | primary.800 | primary.600 | Primary pressed |
-| `--pm-primary-fg` | neutral.0 | neutral.0 | Text on primary bg |
-| `--pm-primary-subtle` | primary.50 | primary.900 | Subtle primary bg |
-| `--pm-primary-subtle-hover` | primary.100 | primary.800 | Subtle primary hover |
-| `--pm-primary-border` | primary.500 | primary.400 | Primary-colored border |
+| Token                       | Light       | Dark        | Usage                  |
+| --------------------------- | ----------- | ----------- | ---------------------- |
+| `--pm-primary`              | primary.600 | primary.500 | Primary action bg      |
+| `--pm-primary-hover`        | primary.700 | primary.400 | Primary hover          |
+| `--pm-primary-active`       | primary.800 | primary.600 | Primary pressed        |
+| `--pm-primary-fg`           | neutral.0   | neutral.0   | Text on primary bg     |
+| `--pm-primary-subtle`       | primary.50  | primary.900 | Subtle primary bg      |
+| `--pm-primary-subtle-hover` | primary.100 | primary.800 | Subtle primary hover   |
+| `--pm-primary-border`       | primary.500 | primary.400 | Primary-colored border |
 
 **Neutral Interactive**
 
-| Token | Light | Dark | Usage |
-|---|---|---|---|
-| `--pm-neutral` | neutral.100 | neutral.800 | Secondary button bg |
-| `--pm-neutral-hover` | neutral.200 | neutral.700 | Neutral hover |
-| `--pm-neutral-active` | neutral.300 | neutral.600 | Neutral pressed |
-| `--pm-neutral-fg` | neutral.700 | neutral.200 | Text on neutral bg |
-| `--pm-neutral-subtle` | neutral.100 | neutral.800 | Ghost hover bg |
-| `--pm-neutral-subtle-hover` | neutral.200 | neutral.700 | Ghost active |
-| `--pm-neutral-border` | neutral.300 | neutral.600 | Secondary button border |
+| Token                       | Light       | Dark        | Usage                   |
+| --------------------------- | ----------- | ----------- | ----------------------- |
+| `--pm-neutral`              | neutral.100 | neutral.800 | Secondary button bg     |
+| `--pm-neutral-hover`        | neutral.200 | neutral.700 | Neutral hover           |
+| `--pm-neutral-active`       | neutral.300 | neutral.600 | Neutral pressed         |
+| `--pm-neutral-fg`           | neutral.700 | neutral.200 | Text on neutral bg      |
+| `--pm-neutral-subtle`       | neutral.100 | neutral.800 | Ghost hover bg          |
+| `--pm-neutral-subtle-hover` | neutral.200 | neutral.700 | Ghost active            |
+| `--pm-neutral-border`       | neutral.300 | neutral.600 | Secondary button border |
 
 **Status** (same pattern for danger, success, warning, info)
 
-| Token | Light | Dark | Usage |
-|---|---|---|---|
-| `--pm-{status}` | {s}.600 | {s}.500 | Solid status bg |
-| `--pm-{status}-hover` | {s}.700 | {s}.400 | Hover |
-| `--pm-{status}-active` | {s}.800 | {s}.600 | Pressed |
-| `--pm-{status}-fg` | neutral.0 | neutral.0 | Text on solid status bg |
-| `--pm-{status}-subtle` | {s}.50 | {s}.900 | Subtle status bg |
-| `--pm-{status}-subtle-fg` | {s}.800 | {s}.100 | Text on subtle bg |
-| `--pm-{status}-border` | {s}.200 | {s}.700 | Status border |
+| Token                     | Light     | Dark      | Usage                   |
+| ------------------------- | --------- | --------- | ----------------------- |
+| `--pm-{status}`           | {s}.600   | {s}.500   | Solid status bg         |
+| `--pm-{status}-hover`     | {s}.700   | {s}.400   | Hover                   |
+| `--pm-{status}-active`    | {s}.800   | {s}.600   | Pressed                 |
+| `--pm-{status}-fg`        | neutral.0 | neutral.0 | Text on solid status bg |
+| `--pm-{status}-subtle`    | {s}.50    | {s}.900   | Subtle status bg        |
+| `--pm-{status}-subtle-fg` | {s}.800   | {s}.100   | Text on subtle bg       |
+| `--pm-{status}-border`    | {s}.200   | {s}.700   | Status border           |
 
 **Focus & Overlay**
 
-| Token | Light | Dark | Usage |
-|---|---|---|---|
-| `--pm-focus-ring` | primary.500 | primary.400 | Focus ring color |
+| Token             | Light              | Dark               | Usage            |
+| ----------------- | ------------------ | ------------------ | ---------------- |
+| `--pm-focus-ring` | primary.500        | primary.400        | Focus ring color |
 | `--pm-overlay-bg` | `rgb(0 0 0 / 0.5)` | `rgb(0 0 0 / 0.7)` | Backdrop overlay |
 
 ---
@@ -322,29 +322,37 @@ Theme files override tokens inside a scoped class selector within `@layer pm.tok
 
 ### Pre-Built Themes
 
-| Theme Class | Description | Primary | Key Characteristics |
-|---|---|---|---|
-| *(none)* | Default minimalistic | Blue (#3b82f6) | System fonts, minimal shadows, generous whitespace |
-| `pm-theme-material` | Material Design 3 | Purple (#6750a4) | Rounded 12-28px, elevation shadows, Roboto |
-| `pm-theme-antd` | Ant Design | Blue (#1677ff) | 4-6px radius, compact density, specific shadow scale |
-| `pm-theme-bootstrap` | Bootstrap | Blue (#0d6efd) | 6-8px radius, distinctive shadows, pill-radius option |
-| `pm-theme-dark-modern` | Dark vibrant | Blue (#3b82f6) | Inverted neutrals, glow effects, dark surfaces |
-| `pm-theme-light-modern` | Clean refined | Blue (#3b82f6) | Elevated shadows, smooth transitions |
+| Theme Class             | Description          | Primary          | Key Characteristics                                   |
+| ----------------------- | -------------------- | ---------------- | ----------------------------------------------------- |
+| _(none)_                | Default minimalistic | Blue (#3b82f6)   | System fonts, minimal shadows, generous whitespace    |
+| `pm-theme-material`     | Material Design 3    | Purple (#6750a4) | Rounded 12-28px, elevation shadows, Roboto            |
+| `pm-theme-antd`         | Ant Design           | Blue (#1677ff)   | 4-6px radius, compact density, specific shadow scale  |
+| `pm-theme-bootstrap`    | Bootstrap            | Blue (#0d6efd)   | 6-8px radius, distinctive shadows, pill-radius option |
+| `pm-theme-dark-modern`  | Dark vibrant         | Blue (#3b82f6)   | Inverted neutrals, glow effects, dark surfaces        |
+| `pm-theme-light-modern` | Clean refined        | Blue (#3b82f6)   | Elevated shadows, smooth transitions                  |
 
 ### Theme Application
 
 ```html
 <!-- Default minimalistic (no class needed) -->
-<body>...</body>
+<body>
+  ...
+</body>
 
 <!-- Built-in theme -->
-<body class="pm-theme-material">...</body>
+<body class="pm-theme-material">
+  ...
+</body>
 
 <!-- Force dark mode -->
-<body class="pm-theme-material pm-dark">...</body>
+<body class="pm-theme-material pm-dark">
+  ...
+</body>
 
 <!-- Custom theme: override tokens -->
-<body class="my-custom-theme">...</body>
+<body class="my-custom-theme">
+  ...
+</body>
 ```
 
 ### Creating a Custom Theme
@@ -391,12 +399,20 @@ Override `--pm-*` tokens in a class selector:
 
 ```css
 /* In tokens.css — enables automatic detection */
-:root { color-scheme: light dark; }
+:root {
+  color-scheme: light dark;
+}
 
 /* Utility classes for manual override */
-.pm-light { color-scheme: light; }
-.pm-dark  { color-scheme: dark; }
-.pm-auto  { color-scheme: light dark; }
+.pm-light {
+  color-scheme: light;
+}
+.pm-dark {
+  color-scheme: dark;
+}
+.pm-auto {
+  color-scheme: light dark;
+}
 ```
 
 ### Rules for Components
@@ -452,10 +468,10 @@ Token CSS is NOT bundled into component CSS. Consumers must import both.
 ### Minimal Setup
 
 ```typescript
-import "@paramanu/tokens/css/layer-order"   // @layer order declaration (MUST be first)
-import "@paramanu/tokens/css/reset"          // CSS reset
-import "@paramanu/tokens/css"                // Primitives + semantics
-import "@paramanu/buttons-js/css"            // Component CSS
+import "@paramanu/tokens/css/layer-order" // @layer order declaration (MUST be first)
+import "@paramanu/tokens/css/reset" // CSS reset
+import "@paramanu/tokens/css" // Primitives + semantics
+import "@paramanu/buttons-js/css" // Component CSS
 ```
 
 ### With Themes
@@ -464,14 +480,14 @@ import "@paramanu/buttons-js/css"            // Component CSS
 import "@paramanu/tokens/css/layer-order"
 import "@paramanu/tokens/css/reset"
 import "@paramanu/tokens/css"
-import "@paramanu/tokens/css/themes"         // All themes (or import individually)
+import "@paramanu/tokens/css/themes" // All themes (or import individually)
 import "@paramanu/buttons-js/css"
 ```
 
 ### With @property (for smooth token transitions)
 
 ```typescript
-import "@paramanu/tokens/css/properties"     // @property declarations
+import "@paramanu/tokens/css/properties" // @property declarations
 import "@paramanu/tokens/css/layer-order"
 import "@paramanu/tokens/css/reset"
 import "@paramanu/tokens/css"
@@ -481,15 +497,15 @@ import "@paramanu/tokens/css"
 
 ```typescript
 import "@paramanu/tokens/css"
-import "@paramanu/buttons-js/css/button"           // Only button CSS
-import "@paramanu/buttons-js/css/icon-button"       // Only icon-button CSS
+import "@paramanu/buttons-js/css/button" // Only button CSS
+import "@paramanu/buttons-js/css/icon-button" // Only icon-button CSS
 ```
 
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.paramanu.dev/paramanu.css">
-<link rel="stylesheet" href="https://cdn.paramanu.dev/paramanu-theme-material.css">
+<link rel="stylesheet" href="https://cdn.paramanu.dev/paramanu.css" />
+<link rel="stylesheet" href="https://cdn.paramanu.dev/paramanu-theme-material.css" />
 <script src="https://cdn.paramanu.dev/paramanu.min.js"></script>
 ```
 
@@ -516,18 +532,18 @@ import "@paramanu/buttons-js/css"
 
 ### Switcher Options
 
-| Option | Theme Class | Color Scheme |
-|---|---|---|
-| Default (Light) | *(none)* | `light` |
-| Default (Dark) | *(none)* | `dark` |
-| Light Modern | `pm-theme-light-modern` | `light` |
-| Dark Modern | `pm-theme-dark-modern` | `dark` |
-| Material (Light) | `pm-theme-material` | `light` |
-| Material (Dark) | `pm-theme-material` | `dark` |
-| Ant Design (Light) | `pm-theme-antd` | `light` |
-| Ant Design (Dark) | `pm-theme-antd` | `dark` |
-| Bootstrap (Light) | `pm-theme-bootstrap` | `light` |
-| Bootstrap (Dark) | `pm-theme-bootstrap` | `dark` |
+| Option             | Theme Class             | Color Scheme |
+| ------------------ | ----------------------- | ------------ |
+| Default (Light)    | _(none)_                | `light`      |
+| Default (Dark)     | _(none)_                | `dark`       |
+| Light Modern       | `pm-theme-light-modern` | `light`      |
+| Dark Modern        | `pm-theme-dark-modern`  | `dark`       |
+| Material (Light)   | `pm-theme-material`     | `light`      |
+| Material (Dark)    | `pm-theme-material`     | `dark`       |
+| Ant Design (Light) | `pm-theme-antd`         | `light`      |
+| Ant Design (Dark)  | `pm-theme-antd`         | `dark`       |
+| Bootstrap (Light)  | `pm-theme-bootstrap`    | `light`      |
+| Bootstrap (Dark)   | `pm-theme-bootstrap`    | `dark`       |
 
 ### Theme Decorator
 
@@ -535,18 +551,20 @@ The decorator sets the theme class on `<html>` and overrides `color-scheme`:
 
 ```typescript
 const THEME_MAP = {
-  "default": { className: "", colorScheme: "light" },
+  default: { className: "", colorScheme: "light" },
   "default-dark": { className: "", colorScheme: "dark" },
-  "material": { className: "pm-theme-material", colorScheme: "light" },
+  material: { className: "pm-theme-material", colorScheme: "light" },
   "material-dark": { className: "pm-theme-material", colorScheme: "dark" },
   // ...
 }
 
 // Decorator applies theme class + color-scheme to <html>
-decorators: [(Story, context) => {
-  const theme = THEME_MAP[context.globals.theme]
-  document.documentElement.className = theme.className
-  document.documentElement.style.colorScheme = theme.colorScheme
-  return Story()
-}]
+decorators: [
+  (Story, context) => {
+    const theme = THEME_MAP[context.globals.theme]
+    document.documentElement.className = theme.className
+    document.documentElement.style.colorScheme = theme.colorScheme
+    return Story()
+  },
+]
 ```

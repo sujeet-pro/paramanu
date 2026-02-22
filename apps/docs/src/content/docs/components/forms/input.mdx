@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Input component provides a styled text input field with multiple visual variants, sizes, and states for form data entry.
@@ -52,12 +52,12 @@ The Input component provides a styled text input field with multiple visual vari
 
 ## Accessibility
 
-| Feature | Detail |
-|---|---|
+| Feature             | Detail                           |
+| ------------------- | -------------------------------- |
 | Keyboard navigation | Standard input keyboard behavior |
-| `aria-invalid` | Applied when `invalid` is true |
-| `aria-disabled` | Applied when `disabled` is true |
-| Focus ring | Visible via `:focus-visible` |
+| `aria-invalid`      | Applied when `invalid` is true   |
+| `aria-disabled`     | Applied when `disabled` is true  |
+| Focus ring          | Visible via `:focus-visible`     |
 
 ## Best Practices
 
@@ -70,30 +70,30 @@ The Input component provides a styled text input field with multiple visual vari
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Input size |
-| `invalid` | `boolean` | `false` | Invalid state |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `readOnly` | `boolean` | `false` | Read-only state |
-| `fullWidth` | `boolean` | `false` | Full-width layout |
+| Prop        | Type                                  | Default     | Description       |
+| ----------- | ------------------------------------- | ----------- | ----------------- |
+| `variant`   | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant    |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg"`        | `"md"`      | Input size        |
+| `invalid`   | `boolean`                             | `false`     | Invalid state     |
+| `disabled`  | `boolean`                             | `false`     | Disabled state    |
+| `readOnly`  | `boolean`                             | `false`     | Read-only state   |
+| `fullWidth` | `boolean`                             | `false`     | Full-width layout |
 
 ## CSS Classes
 
-| Class | Description |
-|---|---|
-| `pm-input` | Base class |
-| `pm-input--outline` | Outline variant |
-| `pm-input--filled` | Filled variant |
-| `pm-input--unstyled` | Unstyled variant |
-| `pm-input--xs` | Extra small size |
-| `pm-input--sm` | Small size |
-| `pm-input--md` | Medium size |
-| `pm-input--lg` | Large size |
-| `pm-input--invalid` | Invalid state |
-| `pm-input--disabled` | Disabled state |
-| `pm-input--read-only` | Read-only state |
+| Class                  | Description       |
+| ---------------------- | ----------------- |
+| `pm-input`             | Base class        |
+| `pm-input--outline`    | Outline variant   |
+| `pm-input--filled`     | Filled variant    |
+| `pm-input--unstyled`   | Unstyled variant  |
+| `pm-input--xs`         | Extra small size  |
+| `pm-input--sm`         | Small size        |
+| `pm-input--md`         | Medium size       |
+| `pm-input--lg`         | Large size        |
+| `pm-input--invalid`    | Invalid state     |
+| `pm-input--disabled`   | Disabled state    |
+| `pm-input--read-only`  | Read-only state   |
 | `pm-input--full-width` | Full-width layout |
 
 </TabItem>

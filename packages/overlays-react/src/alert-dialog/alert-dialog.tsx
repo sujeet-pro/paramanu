@@ -19,8 +19,7 @@ const AlertdialogContext = createContext<AlertdialogContextValue>({})
 export const useAlertdialogContext = () => useContext(AlertdialogContext)
 
 export interface ReactAlertdialogProps
-  extends AlertdialogClassesOptions,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
+  extends AlertdialogClassesOptions, Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
   /** Whether the alert dialog is open. @default false */
   open?: boolean
   /** Callback invoked when the alert dialog is closed. */
@@ -49,46 +48,44 @@ export interface ReactAlertdialogProps
  * </Alertdialog>
  * ```
  */
-export const Alertdialog = forwardRef<HTMLDivElement, ReactAlertdialogProps>(
-  function Alertdialog(
-    { open = false, onClose, closeOnEscape = false, variant, className, children, ...rest },
-    ref,
-  ) {
-    const uid = useId()
-    const titleId = `pm-alertdialog-title-${uid}`
-    const descriptionId = `pm-alertdialog-desc-${uid}`
+export const Alertdialog = forwardRef<HTMLDivElement, ReactAlertdialogProps>(function Alertdialog(
+  { open = false, onClose, closeOnEscape = false, variant, className, children, ...rest },
+  ref,
+) {
+  const uid = useId()
+  const titleId = `pm-alertdialog-title-${uid}`
+  const descriptionId = `pm-alertdialog-desc-${uid}`
 
-    const classes = alertdialogClasses({ variant })
-    const combinedClassName = className ? `${classes} ${className}` : classes
+  const classes = alertdialogClasses({ variant })
+  const combinedClassName = className ? `${classes} ${className}` : classes
 
-    useEffect(() => {
-      if (!open || !closeOnEscape) return
-      const handler = (e: KeyboardEvent) => {
-        if (e.key === "Escape") onClose?.()
-      }
-      document.addEventListener("keydown", handler)
-      return () => document.removeEventListener("keydown", handler)
-    }, [open, closeOnEscape, onClose])
+  useEffect(() => {
+    if (!open || !closeOnEscape) return
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose?.()
+    }
+    document.addEventListener("keydown", handler)
+    return () => document.removeEventListener("keydown", handler)
+  }, [open, closeOnEscape, onClose])
 
-    if (!open) return null
+  if (!open) return null
 
-    return (
-      <AlertdialogContext.Provider value={{ onClose, titleId, descriptionId }}>
-        <div
-          ref={ref}
-          role="alertdialog"
-          aria-modal="true"
-          aria-labelledby={rest["aria-label"] ? undefined : titleId}
-          aria-describedby={descriptionId}
-          className={combinedClassName}
-          {...rest}
-        >
-          {children}
-        </div>
-      </AlertdialogContext.Provider>
-    )
-  },
-)
+  return (
+    <AlertdialogContext.Provider value={{ onClose, titleId, descriptionId }}>
+      <div
+        ref={ref}
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby={rest["aria-label"] ? undefined : titleId}
+        aria-describedby={descriptionId}
+        className={combinedClassName}
+        {...rest}
+      >
+        {children}
+      </div>
+    </AlertdialogContext.Provider>
+  )
+})
 
 export interface ReactAlertdialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode

@@ -131,8 +131,8 @@
 
   /* Theme overrides: Ant Design */
   .pm-theme-antd .pm-heading {
-    --pm-heading-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-      Arial, sans-serif;
+    --pm-heading-font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --pm-heading-letter-spacing: 0;
 
     &.pm-heading--size-3xl {
@@ -181,8 +181,9 @@
 
   /* Theme overrides: Bootstrap */
   .pm-theme-bootstrap .pm-heading {
-    --pm-heading-font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-      "Noto Sans", "Liberation Sans", Arial, sans-serif;
+    --pm-heading-font-family:
+      system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
+      "Liberation Sans", Arial, sans-serif;
     --pm-heading-font-weight: 500;
     --pm-heading-line-height: 1.2;
     --pm-heading-letter-spacing: 0;

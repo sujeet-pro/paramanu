@@ -2,9 +2,7 @@ import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import { datepickerClasses } from "./date-picker.classes.js"
 
-function createDatepickerHTML(
-  options: Parameters<typeof datepickerClasses>[0] = {},
-): string {
+function createDatepickerHTML(options: Parameters<typeof datepickerClasses>[0] = {}): string {
   const classes = datepickerClasses(options)
   const disabledAttr = options?.disabled ? " disabled" : ""
   const invalidAttr = options?.invalid ? ' aria-invalid="true"' : ""
@@ -50,17 +48,13 @@ describe("date picker accessibility", () => {
   })
 
   it("disabled input has disabled attribute", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createDatepickerHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDatepickerHTML({ disabled: true })}</body>`)
     const input = dom.window.document.querySelector(".pm-datepicker__input")
     expect(input?.hasAttribute("disabled")).toBe(true)
   })
 
   it("invalid input has aria-invalid", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createDatepickerHTML({ invalid: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createDatepickerHTML({ invalid: true })}</body>`)
     const input = dom.window.document.querySelector(".pm-datepicker__input")
     expect(input?.getAttribute("aria-invalid")).toBe("true")
   })

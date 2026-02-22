@@ -32,7 +32,12 @@ export const AllVariants: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 16 }}>
       {(["primary", "success", "warning", "danger"] as const).map((variant) => (
-        <RingProgress key={variant} variant={variant} value={65} aria-label={`${variant} progress`} />
+        <RingProgress
+          key={variant}
+          variant={variant}
+          value={65}
+          aria-label={`${variant} progress`}
+        />
       ))}
     </div>
   ),

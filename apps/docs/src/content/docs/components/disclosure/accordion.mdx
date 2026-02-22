@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Accordion allows users to expand and collapse content sections, supporting single and multiple open modes.
@@ -52,13 +52,13 @@ export default function App() {
 
 ## Accessibility
 
-| Key | Action |
-|-----|--------|
+| Key               | Action                     |
+| ----------------- | -------------------------- |
 | `Enter` / `Space` | Toggle section open/closed |
-| `ArrowDown` | Move to next trigger |
-| `ArrowUp` | Move to previous trigger |
-| `Home` | Move to first trigger |
-| `End` | Move to last trigger |
+| `ArrowDown`       | Move to next trigger       |
+| `ArrowUp`         | Move to previous trigger   |
+| `Home`            | Move to first trigger      |
+| `End`             | Move to last trigger       |
 
 - Triggers use `aria-expanded` and `aria-controls`.
 - Content panels use `role="region"` and `aria-labelledby`.
@@ -68,33 +68,33 @@ export default function App() {
 
 ## Accordion Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `"default" \| "bordered" \| "separated" \| "filled"` | `"default"` | Visual variant |
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size preset |
-| `type` | `"single" \| "multiple"` | `"single"` | How many items open at once |
-| `collapsible` | `boolean` | `false` | Allow all items to close |
-| `value` | `string[]` | - | Controlled open items |
-| `defaultValue` | `string[]` | `[]` | Initial open items |
-| `onValueChange` | `(value: string[]) => void` | - | Change callback |
+| Prop            | Type                                                 | Default     | Description                 |
+| --------------- | ---------------------------------------------------- | ----------- | --------------------------- |
+| `variant`       | `"default" \| "bordered" \| "separated" \| "filled"` | `"default"` | Visual variant              |
+| `size`          | `"sm" \| "md" \| "lg"`                               | `"md"`      | Size preset                 |
+| `type`          | `"single" \| "multiple"`                             | `"single"`  | How many items open at once |
+| `collapsible`   | `boolean`                                            | `false`     | Allow all items to close    |
+| `value`         | `string[]`                                           | -           | Controlled open items       |
+| `defaultValue`  | `string[]`                                           | `[]`        | Initial open items          |
+| `onValueChange` | `(value: string[]) => void`                          | -           | Change callback             |
 
 ## AccordionItem Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Unique identifier |
-| `disabled` | `boolean` | `false` | Disabled state |
+| Prop       | Type      | Default | Description       |
+| ---------- | --------- | ------- | ----------------- |
+| `value`    | `string`  | -       | Unique identifier |
+| `disabled` | `boolean` | `false` | Disabled state    |
 
 ## CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| `pm-accordion` | Root element |
-| `pm-accordion__item` | Item container |
-| `pm-accordion__item--open` | Open item |
-| `pm-accordion__trigger` | Toggle button |
-| `pm-accordion__content` | Content panel |
-| `pm-accordion__icon` | Expand/collapse icon |
+| Class                      | Description          |
+| -------------------------- | -------------------- |
+| `pm-accordion`             | Root element         |
+| `pm-accordion__item`       | Item container       |
+| `pm-accordion__item--open` | Open item            |
+| `pm-accordion__trigger`    | Toggle button        |
+| `pm-accordion__content`    | Content panel        |
+| `pm-accordion__icon`       | Expand/collapse icon |
 
 </TabItem>
 </Tabs>

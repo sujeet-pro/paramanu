@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Spacer creates space between elements. Without a `size`, it grows to fill available flex space. With a `size`, it adds a fixed gap.
@@ -46,19 +46,19 @@ export default function App() {
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `SpacingScale` | -- | Fixed size. Without this, spacer grows. |
-| `axis` | `"horizontal" \| "vertical"` | -- | Direction |
+| Prop   | Type                         | Default | Description                             |
+| ------ | ---------------------------- | ------- | --------------------------------------- |
+| `size` | `SpacingScale`               | --      | Fixed size. Without this, spacer grows. |
+| `axis` | `"horizontal" \| "vertical"` | --      | Direction                               |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-spacer` | Base (flex: 1) |
-| `pm-spacer--size-{scale}` | Fixed size |
-| `pm-spacer--horizontal` | Horizontal |
-| `pm-spacer--vertical` | Vertical |
+| Class                     | Purpose        |
+| ------------------------- | -------------- |
+| `pm-spacer`               | Base (flex: 1) |
+| `pm-spacer--size-{scale}` | Fixed size     |
+| `pm-spacer--horizontal`   | Horizontal     |
+| `pm-spacer--vertical`     | Vertical       |
 
 </TabItem>
 </Tabs>

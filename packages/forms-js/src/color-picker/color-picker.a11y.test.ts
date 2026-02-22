@@ -2,9 +2,7 @@ import { describe, it, expect } from "vitest"
 import { JSDOM } from "jsdom"
 import { colorpickerClasses } from "./color-picker.classes.js"
 
-function createColorpickerHTML(
-  options: Parameters<typeof colorpickerClasses>[0] = {},
-): string {
+function createColorpickerHTML(options: Parameters<typeof colorpickerClasses>[0] = {}): string {
   const classes = colorpickerClasses(options)
   const disabledAttr = options?.disabled ? ' disabled aria-disabled="true"' : ""
   const expandedAttr = options?.open ? 'aria-expanded="true"' : 'aria-expanded="false"'

@@ -20,9 +20,7 @@ const BASE = "pm-struct-list"
  * // cls.headerCell => "pm-struct-list__header-cell"
  * ```
  */
-export function structListClasses(
-  options: StructListClassesOptions = {},
-): StructListClassesResult {
+export function structListClasses(options: StructListClassesOptions = {}): StructListClassesResult {
   const { size = "md", selectable = false, bordered = false } = options
 
   const rootClasses = [BASE, `${BASE}--${size}`]

@@ -11,17 +11,13 @@ function createLoadingHTML(options: LoadingClassesOptions = {}): string {
 
 describe("loading overlay accessibility", () => {
   it("hidden overlay has aria-hidden=true", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createLoadingHTML({ visible: false })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createLoadingHTML({ visible: false })}</body>`)
     const el = dom.window.document.querySelector(".pm-loading")
     expect(el?.getAttribute("aria-hidden")).toBe("true")
   })
 
   it("visible overlay has aria-hidden=false", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createLoadingHTML({ visible: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createLoadingHTML({ visible: true })}</body>`)
     const el = dom.window.document.querySelector(".pm-loading")
     expect(el?.getAttribute("aria-hidden")).toBe("false")
   })

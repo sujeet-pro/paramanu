@@ -52,9 +52,7 @@ export function setTheme(mode: ThemeMode, options: ThemeOptions = {}): void {
  * // => "dark" | "light" | "system"
  * ```
  */
-export function getTheme(
-  options: Pick<ThemeOptions, "storageKey"> = {},
-): ThemeMode {
+export function getTheme(options: Pick<ThemeOptions, "storageKey"> = {}): ThemeMode {
   const { storageKey = "pm-theme" } = options
 
   try {

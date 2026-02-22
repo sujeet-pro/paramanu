@@ -83,7 +83,9 @@ describe("PwdInput", () => {
   })
 
   it("passes through additional HTML attributes", () => {
-    render(<PwdInput data-testid="my-password" aria-label="Password" placeholder="Enter password" />)
+    render(
+      <PwdInput data-testid="my-password" aria-label="Password" placeholder="Enter password" />,
+    )
     const input = screen.getByTestId("my-password")
     expect(input).toHaveAttribute("placeholder", "Enter password")
   })

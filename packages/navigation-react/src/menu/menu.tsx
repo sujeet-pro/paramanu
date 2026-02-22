@@ -8,9 +8,7 @@ import {
 } from "@paramanu/navigation-js"
 import type { MenuClassesOptions, MenuItemClassesOptions } from "@paramanu/navigation-js"
 
-export interface ReactMenuProps
-  extends MenuClassesOptions,
-    React.HTMLAttributes<HTMLUListElement> {
+export interface ReactMenuProps extends MenuClassesOptions, React.HTMLAttributes<HTMLUListElement> {
   children?: React.ReactNode
 }
 
@@ -28,8 +26,7 @@ export const Menu = forwardRef<HTMLUListElement, ReactMenuProps>(function Menu(
 })
 
 export interface ReactMenuItemProps
-  extends MenuItemClassesOptions,
-    React.LiHTMLAttributes<HTMLLIElement> {
+  extends MenuItemClassesOptions, React.LiHTMLAttributes<HTMLLIElement> {
   children?: React.ReactNode
 }
 

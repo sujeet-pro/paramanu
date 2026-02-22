@@ -35,12 +35,7 @@ const meta = {
   tags: ["autodocs", "beta"],
   render: (args) => createMenubar(args as MenubarArgs),
   args: {
-    items: [
-      { text: "File" },
-      { text: "Edit" },
-      { text: "View" },
-      { text: "Help" },
-    ],
+    items: [{ text: "File" }, { text: "Edit" }, { text: "View" }, { text: "Help" }],
   },
 } satisfies Meta<MenubarArgs>
 
@@ -51,21 +46,13 @@ export const Playground: Story = {}
 
 export const WithActive: Story = {
   args: {
-    items: [
-      { text: "File", active: true },
-      { text: "Edit" },
-      { text: "View" },
-    ],
+    items: [{ text: "File", active: true }, { text: "Edit" }, { text: "View" }],
   },
 }
 
 export const WithDisabled: Story = {
   args: {
-    items: [
-      { text: "File" },
-      { text: "Edit", disabled: true },
-      { text: "View" },
-    ],
+    items: [{ text: "File" }, { text: "Edit", disabled: true }, { text: "View" }],
   },
 }
 

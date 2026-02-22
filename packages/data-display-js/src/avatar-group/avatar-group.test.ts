@@ -15,12 +15,8 @@ describe("avatarGrpClasses", () => {
   })
 
   it("applies spacing", () => {
-    expect(avatarGrpClasses({ spacing: "tight" }).root).toContain(
-      "pm-avatar-grp--spacing-tight",
-    )
-    expect(avatarGrpClasses({ spacing: "normal" }).root).toContain(
-      "pm-avatar-grp--spacing-normal",
-    )
+    expect(avatarGrpClasses({ spacing: "tight" }).root).toContain("pm-avatar-grp--spacing-tight")
+    expect(avatarGrpClasses({ spacing: "normal" }).root).toContain("pm-avatar-grp--spacing-normal")
   })
 })
 

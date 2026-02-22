@@ -140,7 +140,8 @@
   :root[data-theme="antd"] {
     & .pm-dialog__panel {
       border-radius: var(--pm-radius-md);
-      box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      box-shadow:
+        0 6px 16px 0 rgba(0, 0, 0, 0.08),
         0 3px 6px -4px rgba(0, 0, 0, 0.12),
         0 9px 28px 8px rgba(0, 0, 0, 0.05);
     }
@@ -191,7 +192,8 @@
     & .pm-dialog__panel {
       background-color: var(--pm-color-neutral-800);
       border: 1px solid var(--pm-color-neutral-700);
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.05),
         0 8px 24px rgba(0, 0, 0, 0.5);
     }
   }
@@ -199,7 +201,8 @@
   /* light-modern */
   :root[data-theme="light-modern"] {
     & .pm-dialog__panel {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05),
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.05),
         0 20px 40px rgba(0, 0, 0, 0.08);
       border: 1px solid var(--pm-color-neutral-200);
     }

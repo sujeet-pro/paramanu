@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { uploadClasses } from "@paramanu/forms-js"
 import type { UploadProps } from "@paramanu/forms-js"
 
-export interface ReactUploadProps
-  extends UploadProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactUploadProps extends UploadProps, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
@@ -16,12 +14,7 @@ export const Upload = forwardRef<HTMLDivElement, ReactUploadProps>(function Uplo
   const combinedClassName = className ? `${classes} ${className}` : classes
 
   return (
-    <div
-      ref={ref}
-      className={combinedClassName}
-      aria-disabled={disabled || undefined}
-      {...rest}
-    >
+    <div ref={ref} className={combinedClassName} aria-disabled={disabled || undefined} {...rest}>
       {children}
     </div>
   )

@@ -8,8 +8,7 @@ import {
 import type { SidebarClassesOptions, SidebarItemClassesOptions } from "@paramanu/navigation-js"
 
 export interface ReactSidebarProps
-  extends SidebarClassesOptions,
-    React.HTMLAttributes<HTMLElement> {
+  extends SidebarClassesOptions, React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode
 }
 
@@ -59,17 +58,15 @@ export const SidebarSectionLabel = forwardRef<HTMLDivElement, ReactSidebarSectio
 )
 
 export interface ReactSidebarItemProps
-  extends SidebarItemClassesOptions,
+  extends
+    SidebarItemClassesOptions,
     Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "children"> {
   children?: React.ReactNode
   as?: "a" | "button"
 }
 
 export const SidebarItem = forwardRef<HTMLAnchorElement | HTMLButtonElement, ReactSidebarItemProps>(
-  function SidebarItem(
-    { active, disabled, indent, as = "a", className, children, ...rest },
-    ref,
-  ) {
+  function SidebarItem({ active, disabled, indent, as = "a", className, children, ...rest }, ref) {
     const classes = sidebarItemClasses({ active, disabled, indent })
     const combinedClassName = className ? `${classes} ${className}` : classes
 

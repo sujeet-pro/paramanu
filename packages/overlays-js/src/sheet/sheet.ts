@@ -4,16 +4,8 @@ import { createPortal } from "@paramanu/utilities-js"
 import { createPresence } from "@paramanu/utilities-js"
 import { lockScroll, unlockScroll } from "../_internal/scroll-lock.js"
 
-export function createSheet(
-  element: HTMLElement,
-  options: CreateSheetOptions = {},
-): SheetInstance {
-  const {
-    onClose,
-    initialFocus,
-    closeOnBackdropClick = true,
-    closeOnEscape = true,
-  } = options
+export function createSheet(element: HTMLElement, options: CreateSheetOptions = {}): SheetInstance {
+  const { onClose, initialFocus, closeOnBackdropClick = true, closeOnEscape = true } = options
 
   let portal: ReturnType<typeof createPortal> | null = null
   let focusTrap: ReturnType<typeof createFocusTrap> | null = null

@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 The Native Select wraps the browser's native `<select>` element with consistent styling and a custom dropdown arrow.
@@ -31,31 +31,31 @@ The Native Select wraps the browser's native `<select>` element with consistent 
 
 ## Accessibility
 
-| Feature | Detail |
-|---|---|
+| Feature           | Detail                             |
+| ----------------- | ---------------------------------- |
 | Native `<select>` | Full browser accessibility support |
-| Arrow indicator | Decorative, `aria-hidden="true"` |
-| Keyboard | Standard select keyboard behavior |
+| Arrow indicator   | Decorative, `aria-hidden="true"`   |
+| Keyboard          | Standard select keyboard behavior  |
 
 </TabItem>
   <TabItem label="API">
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | Select size |
-| `invalid` | `boolean` | `false` | Invalid state |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `fullWidth` | `boolean` | `false` | Full-width layout |
+| Prop        | Type                                  | Default     | Description       |
+| ----------- | ------------------------------------- | ----------- | ----------------- |
+| `variant`   | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant    |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg"`        | `"md"`      | Select size       |
+| `invalid`   | `boolean`                             | `false`     | Invalid state     |
+| `disabled`  | `boolean`                             | `false`     | Disabled state    |
+| `fullWidth` | `boolean`                             | `false`     | Full-width layout |
 
 ## CSS Classes
 
-| Class | Description |
-|---|---|
-| `pm-native-sel` | Wrapper base class |
-| `pm-native-sel__field` | Native select element |
+| Class                  | Description            |
+| ---------------------- | ---------------------- |
+| `pm-native-sel`        | Wrapper base class     |
+| `pm-native-sel__field` | Native select element  |
 | `pm-native-sel__arrow` | Custom arrow indicator |
 
 </TabItem>

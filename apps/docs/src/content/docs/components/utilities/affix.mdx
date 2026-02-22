@@ -8,9 +8,9 @@ badge:
 
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 ## Overview
@@ -33,6 +33,7 @@ Affix applies `position: sticky` with configurable top/bottom offset using Param
     <Affix position="top">Sticky header</Affix>
     <Affix position="bottom" offset="4">Sticky footer</Affix>
     ```
+
 </TabItem>
 </Tabs>
 
@@ -45,7 +46,7 @@ Affix applies `position: sticky` with configurable top/bottom offset using Param
 
 ## API
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `position` | `"top" \| "bottom"` | `"top"` | Which edge to stick to |
-| `offset` | `SpacingScale` | - | Distance from the sticky edge |
+| Prop       | Type                | Default | Description                   |
+| ---------- | ------------------- | ------- | ----------------------------- |
+| `position` | `"top" \| "bottom"` | `"top"` | Which edge to stick to        |
+| `offset`   | `SpacingScale`      | -       | Distance from the sticky edge |

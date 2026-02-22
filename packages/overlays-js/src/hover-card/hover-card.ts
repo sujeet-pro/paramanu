@@ -9,12 +9,7 @@ export function createHovercard(
   card: HTMLElement,
   options: CreateHovercardOptions = {},
 ): HovercardInstance {
-  const {
-    placement = "bottom",
-    offset = 8,
-    openDelay = 200,
-    closeDelay = 300,
-  } = options
+  const { placement = "bottom", offset = 8, openDelay = 200, closeDelay = 300 } = options
 
   let presence: PresenceInstance | null = null
   let openTimeout: ReturnType<typeof setTimeout> | null = null

@@ -21,14 +21,10 @@ describe("CloseBtn", () => {
 
   it("applies size classes", () => {
     const { rerender } = render(<CloseBtn size="sm" />)
-    expect(screen.getByRole("button", { name: "Close" }).className).toContain(
-      "pm-close-btn--sm",
-    )
+    expect(screen.getByRole("button", { name: "Close" }).className).toContain("pm-close-btn--sm")
 
     rerender(<CloseBtn size="lg" />)
-    expect(screen.getByRole("button", { name: "Close" }).className).toContain(
-      "pm-close-btn--lg",
-    )
+    expect(screen.getByRole("button", { name: "Close" }).className).toContain("pm-close-btn--lg")
   })
 
   it("sets disabled attribute and aria-disabled", () => {

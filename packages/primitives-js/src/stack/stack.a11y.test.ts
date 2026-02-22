@@ -4,7 +4,9 @@ import { stackClasses } from "./stack.classes.js"
 
 describe("stack accessibility", () => {
   it("renders as a generic container element", () => {
-    const dom = new JSDOM(`<!DOCTYPE html><body><div class="${stackClasses()}">Content</div></body>`)
+    const dom = new JSDOM(
+      `<!DOCTYPE html><body><div class="${stackClasses()}">Content</div></body>`,
+    )
     const el = dom.window.document.querySelector("div")
     expect(el).not.toBeNull()
     expect(el?.textContent).toBe("Content")

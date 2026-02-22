@@ -86,7 +86,14 @@ export const AllVariants: Story = {
     container.style.gap = "8px"
     const variants: NotifVariant[] = ["info", "success", "warning", "danger", "neutral"]
     for (const variant of variants) {
-      container.appendChild(createNotif({ variant, title: variant, message: `${variant} notification.`, timestamp: "now" }))
+      container.appendChild(
+        createNotif({
+          variant,
+          title: variant,
+          message: `${variant} notification.`,
+          timestamp: "now",
+        }),
+      )
     }
     return container
   },

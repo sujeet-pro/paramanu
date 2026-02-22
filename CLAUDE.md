@@ -61,18 +61,18 @@ Level 3: overlays-js                                        (depends on Level 0-
 
 Cross-package dependencies (in addition to tokens):
 
-| Package | Dependencies |
-|---|---|
-| `primitives-js` | — |
-| `typography-js` | — |
-| `utilities-js` | — |
-| `buttons-js` | `primitives-js` |
-| `data-display-js` | `primitives-js`, `typography-js` |
-| `feedback-js` | `primitives-js`, `typography-js`, `buttons-js` |
-| `forms-js` | `primitives-js`, `typography-js`, `buttons-js` |
-| `navigation-js` | `primitives-js`, `typography-js`, `buttons-js` |
-| `disclosure-js` | `primitives-js`, `buttons-js` |
-| `overlays-js` | `primitives-js`, `typography-js`, `buttons-js`, `utilities-js` |
+| Package           | Dependencies                                                   |
+| ----------------- | -------------------------------------------------------------- |
+| `primitives-js`   | —                                                              |
+| `typography-js`   | —                                                              |
+| `utilities-js`    | —                                                              |
+| `buttons-js`      | `primitives-js`                                                |
+| `data-display-js` | `primitives-js`, `typography-js`                               |
+| `feedback-js`     | `primitives-js`, `typography-js`, `buttons-js`                 |
+| `forms-js`        | `primitives-js`, `typography-js`, `buttons-js`                 |
+| `navigation-js`   | `primitives-js`, `typography-js`, `buttons-js`                 |
+| `disclosure-js`   | `primitives-js`, `buttons-js`                                  |
+| `overlays-js`     | `primitives-js`, `typography-js`, `buttons-js`, `utilities-js` |
 
 ### Cross-Package Reuse Rules
 
@@ -91,6 +91,7 @@ When building a component, **always reuse existing components** from dependency 
 ### Adding a New Framework Adapter
 
 To add support for a new framework (e.g., Vue):
+
 1. Create `packages/<group>-vue/` following the same scaffold pattern as `-react` packages
 2. Depend on the corresponding `-js` package (e.g., `@paramanu/buttons-js`)
 3. Import class builders and types from the `-js` package
@@ -117,6 +118,7 @@ To add support for a new framework (e.g., Vue):
 ## Key Patterns
 
 ### JS Component Pattern (e.g., Button in `buttons-js`)
+
 1. `button.types.ts` - TypeScript interfaces for props and options
 2. `button.classes.ts` - `buttonClasses()` (BEM) + `buttonModuleClasses()` (CSS modules) functions
 3. `button.css` - Component styles using CSS nesting within `@layer pm.components`
@@ -125,16 +127,18 @@ To add support for a new framework (e.g., Vue):
 6. `button.a11y.test.ts` - Accessibility tests using jsdom
 
 ### React Component Pattern (e.g., Button in `buttons-react`)
+
 1. `button.tsx` - `forwardRef` component using `@paramanu/buttons-js` class builders
 2. `button.test.tsx` - Tests with @testing-library/react
 
 ### Import Patterns
+
 ```ts
 // Token CSS (must be imported separately — not bundled into component CSS)
-import "@paramanu/tokens/css/layer-order"   // @layer order (must be first)
-import "@paramanu/tokens/css/reset"          // CSS reset
-import "@paramanu/tokens/css"                // Primitives + semantics
-import "@paramanu/tokens/css/themes"         // All theme overrides (or import individually)
+import "@paramanu/tokens/css/layer-order" // @layer order (must be first)
+import "@paramanu/tokens/css/reset" // CSS reset
+import "@paramanu/tokens/css" // Primitives + semantics
+import "@paramanu/tokens/css/themes" // All theme overrides (or import individually)
 
 // JS package: import from the group's -js package
 import { buttonClasses } from "@paramanu/buttons-js"
@@ -144,9 +148,9 @@ import type { ButtonProps } from "@paramanu/buttons-js"
 import { Button } from "@paramanu/buttons-react"
 
 // CSS: import full package or per-component
-import "@paramanu/buttons-js/css"            // All button components
-import "@paramanu/buttons-js/css/button"     // Tree-shakeable: just button
-import "@paramanu/buttons-js/css/min"        // Minified bundle
+import "@paramanu/buttons-js/css" // All button components
+import "@paramanu/buttons-js/css/button" // Tree-shakeable: just button
+import "@paramanu/buttons-js/css/min" // Minified bundle
 
 // Cross-package: import class builders from dependency packages
 import { closeButtonClasses } from "@paramanu/buttons-js"
@@ -155,12 +159,14 @@ import { flexClasses } from "@paramanu/primitives-js"
 ```
 
 ### Token System (Three Tiers)
+
 - **Primitive tokens** (`@paramanu/tokens`): Raw values — color palettes, spacing, radii, typography, shadows, motion. Source: `packages/tokens/src/tokens/primitive/*.json` (DTCG format).
 - **Semantic tokens** (`@paramanu/tokens`): Purpose-driven — bg, fg, border, interactive states. Carry light/dark values via `$extensions.pm.lightDark` → output as `light-dark()`. Source: `packages/tokens/src/tokens/semantic/*.json`.
 - **Component tokens** (each `-js` package): Per-component theming surface — `--pm-btn-bg`, `--pm-alert-radius`. Defined in component CSS, reference semantic tokens for colors.
 - Component CSS must NEVER use `light-dark()` with primitive refs. All dark mode is handled by semantic tokens.
 
 ### Theming
+
 - All styling via CSS custom properties (`--pm-*`)
 - Default theme is minimalistic/typographic (no theme class needed)
 - Themes override primitive + semantic tokens via class selectors (e.g., `.pm-theme-material`)
@@ -170,6 +176,7 @@ import { flexClasses } from "@paramanu/primitives-js"
 - Color scheme utilities: `.pm-light`, `.pm-dark`, `.pm-auto`
 
 ### Accessibility
+
 - WCAG 2.2 AA compliance required
 - Semantic HTML elements (use `<button>`, `<nav>`, `<dialog>`, etc.)
 - `aria-disabled` alongside `disabled` attribute

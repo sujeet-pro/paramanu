@@ -3,8 +3,7 @@ import { bleedClasses } from "@paramanu/primitives-js"
 import type { BleedProps } from "@paramanu/primitives-js"
 
 export interface ReactBleedProps
-  extends BleedProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+  extends BleedProps, Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
   children?: React.ReactNode
 }
 

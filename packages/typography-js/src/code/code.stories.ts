@@ -25,7 +25,10 @@ const meta = {
     block: { control: "boolean" },
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
     variant: { control: "select", options: ["default", "outline"] },
-    color: { control: "select", options: ["neutral", "primary", "danger", "success", "warning", "info"] },
+    color: {
+      control: "select",
+      options: ["neutral", "primary", "danger", "success", "warning", "info"],
+    },
     withLineNumbers: { control: "boolean" },
     withCopyBtn: { control: "boolean" },
   },

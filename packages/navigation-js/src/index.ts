@@ -124,20 +124,11 @@ export {
   dropdownMenuContentClasses,
   dropdownMenuContentModuleClasses,
 } from "./dropdown-menu/dropdown-menu.classes.js"
-export type {
-  DropdownSize,
-  DropdownClassesOptions,
-} from "./dropdown-menu/dropdown-menu.types.js"
+export type { DropdownSize, DropdownClassesOptions } from "./dropdown-menu/dropdown-menu.types.js"
 
 // Context Menu
-export {
-  ctxMenuClasses,
-  ctxMenuModuleClasses,
-} from "./context-menu/context-menu.classes.js"
-export type {
-  CtxMenuSize,
-  CtxMenuClassesOptions,
-} from "./context-menu/context-menu.types.js"
+export { ctxMenuClasses, ctxMenuModuleClasses } from "./context-menu/context-menu.classes.js"
+export type { CtxMenuSize, CtxMenuClassesOptions } from "./context-menu/context-menu.types.js"
 
 // Navbar
 export {

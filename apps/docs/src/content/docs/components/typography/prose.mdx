@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Prose applies consistent typographic styling to nested HTML content such as headings, paragraphs, lists, and code blocks.
@@ -54,21 +54,21 @@ Use `as="article"` for standalone content. Prose applies readable line heights a
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `as` | `"div" \| "article" \| "section"` | `"div"` | HTML element |
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Base font size scale |
-| `color` | `"default" \| "muted"` | -- | Color scheme |
-| `trimMargins` | `boolean` | `false` | Remove first/last child margins |
+| Prop          | Type                              | Default | Description                     |
+| ------------- | --------------------------------- | ------- | ------------------------------- |
+| `as`          | `"div" \| "article" \| "section"` | `"div"` | HTML element                    |
+| `size`        | `"sm" \| "md" \| "lg"`            | `"md"`  | Base font size scale            |
+| `color`       | `"default" \| "muted"`            | --      | Color scheme                    |
+| `trimMargins` | `boolean`                         | `false` | Remove first/last child margins |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-prose` | Base |
-| `pm-prose--{size}` | Size |
+| Class                 | Purpose      |
+| --------------------- | ------------ |
+| `pm-prose`            | Base         |
+| `pm-prose--{size}`    | Size         |
 | `pm-prose--color-{c}` | Color scheme |
-| `pm-prose--trim` | Trim margins |
+| `pm-prose--trim`      | Trim margins |
 
 </TabItem>
 </Tabs>

@@ -36,7 +36,6 @@ function createTree(args: TreeArgs): HTMLElement {
   const group = document.createElement("ul")
   group.className = treeViewGroupClasses()
   group.setAttribute("role", "group")
-
   ;["index.ts", "utils.ts"].forEach((text) => {
     const item = document.createElement("li")
     item.className = treeItemClasses()

@@ -19,7 +19,7 @@ function createTabsHTML(
   const panels = tabs
     .map((tab) => {
       const cls = tabPanelClasses()
-      const hidden = tab.active ? "" : ' hidden'
+      const hidden = tab.active ? "" : " hidden"
       return `<div role="tabpanel" class="${cls}" id="panel-${tab.id}" aria-labelledby="tab-${tab.id}"${hidden}>Content for ${tab.label}</div>`
     })
     .join("")

@@ -79,7 +79,13 @@ describe("Form", () => {
   it("passes onSubmit handler", () => {
     let submitted = false
     render(
-      <Form onSubmit={(e) => { e.preventDefault(); submitted = true }} data-testid="frm">
+      <Form
+        onSubmit={(e) => {
+          e.preventDefault()
+          submitted = true
+        }}
+        data-testid="frm"
+      >
         <button type="submit">Submit</button>
       </Form>,
     )

@@ -20,27 +20,47 @@ describe("Card", () => {
   })
 
   it("applies variant class", () => {
-    render(<Card variant="outline" data-testid="card">Content</Card>)
+    render(
+      <Card variant="outline" data-testid="card">
+        Content
+      </Card>,
+    )
     expect(screen.getByTestId("card").className).toContain("pm-card--outline")
   })
 
   it("applies size class", () => {
-    render(<Card size="lg" data-testid="card">Content</Card>)
+    render(
+      <Card size="lg" data-testid="card">
+        Content
+      </Card>,
+    )
     expect(screen.getByTestId("card").className).toContain("pm-card--lg")
   })
 
   it("applies interactive modifier", () => {
-    render(<Card interactive data-testid="card">Content</Card>)
+    render(
+      <Card interactive data-testid="card">
+        Content
+      </Card>,
+    )
     expect(screen.getByTestId("card").className).toContain("pm-card--interactive")
   })
 
   it("applies fullWidth modifier", () => {
-    render(<Card fullWidth data-testid="card">Content</Card>)
+    render(
+      <Card fullWidth data-testid="card">
+        Content
+      </Card>,
+    )
     expect(screen.getByTestId("card").className).toContain("pm-card--full-width")
   })
 
   it("applies horizontal modifier", () => {
-    render(<Card horizontal data-testid="card">Content</Card>)
+    render(
+      <Card horizontal data-testid="card">
+        Content
+      </Card>,
+    )
     expect(screen.getByTestId("card").className).toContain("pm-card--horizontal")
   })
 
@@ -51,7 +71,11 @@ describe("Card", () => {
   })
 
   it("merges custom className", () => {
-    render(<Card className="custom" data-testid="card">Content</Card>)
+    render(
+      <Card className="custom" data-testid="card">
+        Content
+      </Card>,
+    )
     const card = screen.getByTestId("card")
     expect(card.className).toContain("pm-card")
     expect(card.className).toContain("custom")
@@ -98,7 +122,11 @@ describe("CardMedia", () => {
   })
 
   it("applies position modifier", () => {
-    render(<CardMedia position="bottom" data-testid="media">Media</CardMedia>)
+    render(
+      <CardMedia position="bottom" data-testid="media">
+        Media
+      </CardMedia>,
+    )
     expect(screen.getByTestId("media").className).toContain("pm-card__media--bottom")
   })
 })

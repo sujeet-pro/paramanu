@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Alert displays a prominent feedback message to the user with contextual color variants and optional dismiss functionality.
@@ -100,29 +100,29 @@ export default function App() {
 
 Extends all native `<div>` HTML attributes.
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `"info" \| "success" \| "warning" \| "danger"` | `"info"` | Status variant |
-| `alertStyle` | `"subtle" \| "solid" \| "outline"` | `"subtle"` | Visual style |
-| `dismissible` | `boolean` | `false` | Show close button |
-| `icon` | `ReactNode` | -- | Custom icon element |
-| `title` | `ReactNode` | -- | Alert title |
-| `description` | `ReactNode` | -- | Alert description |
-| `onClose` | `() => void` | -- | Close callback |
+| Prop          | Type                                           | Default    | Description         |
+| ------------- | ---------------------------------------------- | ---------- | ------------------- |
+| `variant`     | `"info" \| "success" \| "warning" \| "danger"` | `"info"`   | Status variant      |
+| `alertStyle`  | `"subtle" \| "solid" \| "outline"`             | `"subtle"` | Visual style        |
+| `dismissible` | `boolean`                                      | `false`    | Show close button   |
+| `icon`        | `ReactNode`                                    | --         | Custom icon element |
+| `title`       | `ReactNode`                                    | --         | Alert title         |
+| `description` | `ReactNode`                                    | --         | Alert description   |
+| `onClose`     | `() => void`                                   | --         | Close callback      |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-alert` | Base styles |
-| `pm-alert--info/success/warning/danger` | Variant colors |
-| `pm-alert--subtle/solid/outline` | Visual style |
-| `pm-alert--dismissible` | With close button |
-| `pm-alert__icon` | Icon container |
-| `pm-alert__content` | Content wrapper |
-| `pm-alert__title` | Title text |
-| `pm-alert__description` | Description text |
-| `pm-alert__close` | Close button |
+| Class                                   | Purpose           |
+| --------------------------------------- | ----------------- |
+| `pm-alert`                              | Base styles       |
+| `pm-alert--info/success/warning/danger` | Variant colors    |
+| `pm-alert--subtle/solid/outline`        | Visual style      |
+| `pm-alert--dismissible`                 | With close button |
+| `pm-alert__icon`                        | Icon container    |
+| `pm-alert__content`                     | Content wrapper   |
+| `pm-alert__title`                       | Title text        |
+| `pm-alert__description`                 | Description text  |
+| `pm-alert__close`                       | Close button      |
 
 </TabItem>
 </Tabs>

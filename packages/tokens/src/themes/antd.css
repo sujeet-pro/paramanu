@@ -74,12 +74,19 @@
     --pm-radius-xl: 8px;
 
     /* Shadows — Ant Design shadow scale */
-    --pm-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03), 0 1px 6px -1px rgb(0 0 0 / 0.02), 0 2px 4px 0 rgb(0 0 0 / 0.02);
-    --pm-shadow-md: 0 6px 16px 0 rgb(0 0 0 / 0.08), 0 3px 6px -4px rgb(0 0 0 / 0.12), 0 9px 28px 8px rgb(0 0 0 / 0.05);
-    --pm-shadow-lg: 0 6px 16px 0 rgb(0 0 0 / 0.08), 0 3px 6px -4px rgb(0 0 0 / 0.12), 0 9px 28px 8px rgb(0 0 0 / 0.05);
+    --pm-shadow-sm:
+      0 1px 2px 0 rgb(0 0 0 / 0.03), 0 1px 6px -1px rgb(0 0 0 / 0.02), 0 2px 4px 0 rgb(0 0 0 / 0.02);
+    --pm-shadow-md:
+      0 6px 16px 0 rgb(0 0 0 / 0.08), 0 3px 6px -4px rgb(0 0 0 / 0.12),
+      0 9px 28px 8px rgb(0 0 0 / 0.05);
+    --pm-shadow-lg:
+      0 6px 16px 0 rgb(0 0 0 / 0.08), 0 3px 6px -4px rgb(0 0 0 / 0.12),
+      0 9px 28px 8px rgb(0 0 0 / 0.05);
 
     /* Font — Ant Design font stack */
-    --pm-font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    --pm-font-family-sans:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+      sans-serif;
     --pm-font-size-xs: 12px;
     --pm-font-size-sm: 14px;
     --pm-font-size-md: 14px;

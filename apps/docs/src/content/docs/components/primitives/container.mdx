@@ -9,9 +9,9 @@ badge:
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
 import ComponentPreview from "../../../../components/ComponentPreview.astro"
 
-
 <Aside type="caution" title="In Development">
-This component is currently in development. The API is not yet stable and may change in future releases.
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
 </Aside>
 
 Container centers content horizontally and constrains it to a maximum width. It supports named sizes and a fluid mode.
@@ -60,20 +60,20 @@ export default function App() {
 
 ## React Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "full"` | `"lg"` | Max width |
-| `fluid` | `boolean` | `false` | Full width, no max-width |
-| `px` | `SpacingScale` | -- | Horizontal padding |
-| `center` | `boolean` | `false` | Center content with flex |
+| Prop     | Type                                                      | Default | Description              |
+| -------- | --------------------------------------------------------- | ------- | ------------------------ |
+| `size`   | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "full"` | `"lg"`  | Max width                |
+| `fluid`  | `boolean`                                                 | `false` | Full width, no max-width |
+| `px`     | `SpacingScale`                                            | --      | Horizontal padding       |
+| `center` | `boolean`                                                 | `false` | Center content with flex |
 
 ## CSS Classes
 
-| Class | Purpose |
-|---|---|
-| `pm-container` | Base |
+| Class                  | Purpose        |
+| ---------------------- | -------------- |
+| `pm-container`         | Base           |
 | `pm-container--{size}` | Max width size |
-| `pm-container--fluid` | Full width |
+| `pm-container--fluid`  | Full width     |
 | `pm-container--center` | Center content |
 
 </TabItem>

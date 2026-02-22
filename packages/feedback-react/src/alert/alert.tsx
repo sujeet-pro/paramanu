@@ -3,8 +3,7 @@ import { alertClasses } from "@paramanu/feedback-js"
 import type { AlertClassesOptions } from "@paramanu/feedback-js"
 
 export interface ReactAlertProps
-  extends AlertClassesOptions,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
+  extends AlertClassesOptions, Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
   /** Icon rendered before the content. */
   icon?: React.ReactNode
   /** Alert title rendered above the description. */
@@ -49,12 +48,7 @@ export const Alert = forwardRef<HTMLDivElement, ReactAlertProps>(function Alert(
         {children}
       </div>
       {dismissible && onClose && (
-        <button
-          className={classes.close}
-          onClick={onClose}
-          aria-label="Close"
-          type="button"
-        >
+        <button className={classes.close} onClick={onClose} aria-label="Close" type="button">
           {"\u00d7"}
         </button>
       )}

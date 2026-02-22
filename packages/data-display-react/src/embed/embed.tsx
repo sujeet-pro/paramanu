@@ -3,8 +3,7 @@ import { embedClasses } from "@paramanu/data-display-js"
 import type { EmbedProps } from "@paramanu/data-display-js"
 
 export interface ReactEmbedProps
-  extends EmbedProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+  extends EmbedProps, Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
   src: string
   title: string
   children?: React.ReactNode

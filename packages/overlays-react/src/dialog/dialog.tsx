@@ -23,8 +23,7 @@ const DialogContext = createContext<DialogContextValue>({})
 export const useDialogContext = () => useContext(DialogContext)
 
 export interface ReactDialogProps
-  extends DialogClassesOptions,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
+  extends DialogClassesOptions, Omit<React.HTMLAttributes<HTMLDivElement>, "role"> {
   /** Whether the dialog is open. @default false */
   open?: boolean
   /** Callback invoked when the dialog requests to close. */
@@ -136,8 +135,7 @@ export const DialogHeader = forwardRef<HTMLDivElement, ReactDialogHeaderProps>(
 )
 
 export interface ReactDialogBodyProps
-  extends DialogBodyClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends DialogBodyClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

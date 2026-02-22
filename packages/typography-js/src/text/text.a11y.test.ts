@@ -20,9 +20,7 @@ describe("text accessibility", () => {
   })
 
   it("has readable text content", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createTextHTML("Some readable content")}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createTextHTML("Some readable content")}</body>`)
     const el = dom.window.document.querySelector("p")
     expect(el?.textContent).toBe("Some readable content")
   })

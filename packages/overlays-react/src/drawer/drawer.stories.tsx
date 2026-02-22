@@ -24,7 +24,9 @@ export const Playground: Story = {
       <DrawerHeader>Drawer Title</DrawerHeader>
       <DrawerBody>Drawer content goes here.</DrawerBody>
       <DrawerFooter>
-        <button type="button" onClick={args.onClose}>Close</button>
+        <button type="button" onClick={args.onClose}>
+          Close
+        </button>
       </DrawerFooter>
     </Drawer>
   ),

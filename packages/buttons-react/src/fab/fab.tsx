@@ -3,8 +3,7 @@ import { fabClasses } from "@paramanu/buttons-js"
 import type { FabProps } from "@paramanu/buttons-js"
 
 export interface ReactFabProps
-  extends FabProps,
-    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
+  extends FabProps, Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
   children?: React.ReactNode
 }
 

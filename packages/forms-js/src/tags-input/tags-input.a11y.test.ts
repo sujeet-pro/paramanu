@@ -45,25 +45,19 @@ describe("tags-input accessibility", () => {
   })
 
   it("disabled container has aria-disabled", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createTagsInputHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createTagsInputHTML({ disabled: true })}</body>`)
     const group = dom.window.document.querySelector("[role='group']")
     expect(group?.getAttribute("aria-disabled")).toBe("true")
   })
 
   it("disabled input has disabled attribute", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createTagsInputHTML({ disabled: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createTagsInputHTML({ disabled: true })}</body>`)
     const input = dom.window.document.querySelector("input")
     expect(input?.hasAttribute("disabled")).toBe(true)
   })
 
   it("invalid container has aria-invalid", () => {
-    const dom = new JSDOM(
-      `<!DOCTYPE html><body>${createTagsInputHTML({ invalid: true })}</body>`,
-    )
+    const dom = new JSDOM(`<!DOCTYPE html><body>${createTagsInputHTML({ invalid: true })}</body>`)
     const group = dom.window.document.querySelector("[role='group']")
     expect(group?.getAttribute("aria-invalid")).toBe("true")
   })

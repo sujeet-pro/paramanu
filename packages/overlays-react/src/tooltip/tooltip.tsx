@@ -3,8 +3,7 @@ import { tooltipClasses, tooltipArrowClasses } from "@paramanu/overlays-js"
 import type { TooltipClassesOptions } from "@paramanu/overlays-js"
 
 export interface ReactTooltipProps
-  extends TooltipClassesOptions,
-    React.HTMLAttributes<HTMLDivElement> {
+  extends TooltipClassesOptions, React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 

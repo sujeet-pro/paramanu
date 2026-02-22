@@ -2,9 +2,7 @@ import { forwardRef } from "react"
 import { centerClasses } from "@paramanu/primitives-js"
 import type { CenterProps } from "@paramanu/primitives-js"
 
-export interface ReactCenterProps
-  extends CenterProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface ReactCenterProps extends CenterProps, React.HTMLAttributes<HTMLDivElement> {
   /** Child elements. */
   children?: React.ReactNode
 }

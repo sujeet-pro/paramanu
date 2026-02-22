@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/html-vite"
-import { accordionClasses, accordionItemClasses, accordionTriggerClasses, accordionContentClasses, accordionIconClasses } from "./accordion.classes.js"
+import {
+  accordionClasses,
+  accordionItemClasses,
+  accordionTriggerClasses,
+  accordionContentClasses,
+  accordionIconClasses,
+} from "./accordion.classes.js"
 import type { AccordionClassesOptions } from "./accordion.types.js"
 
 interface AccordionArgs extends AccordionClassesOptions {}

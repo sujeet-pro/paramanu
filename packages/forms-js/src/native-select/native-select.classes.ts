@@ -6,8 +6,13 @@ const BASE = "pm-native-sel"
  * Returns BEM class names for the native select component (human-readable).
  */
 export function nativeSelClasses(options: NativeSelClassesOptions = {}): string {
-  const { variant = "outline", size = "md", invalid = false, disabled = false, fullWidth = false } =
-    options
+  const {
+    variant = "outline",
+    size = "md",
+    invalid = false,
+    disabled = false,
+    fullWidth = false,
+  } = options
   const classes = [BASE, `${BASE}--${variant}`, `${BASE}--${size}`]
 
   if (invalid) classes.push(`${BASE}--invalid`)
@@ -24,8 +29,13 @@ export function nativeSelModuleClasses(
   classMap: Record<string, string>,
   options: NativeSelClassesOptions = {},
 ): string {
-  const { variant = "outline", size = "md", invalid = false, disabled = false, fullWidth = false } =
-    options
+  const {
+    variant = "outline",
+    size = "md",
+    invalid = false,
+    disabled = false,
+    fullWidth = false,
+  } = options
 
   const classes = [
     classMap["pm-native-sel"],

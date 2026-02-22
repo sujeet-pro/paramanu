@@ -10,9 +10,15 @@ const meta = {
     placement: {
       control: "select",
       options: [
-        "top-start", "top-center", "top-end",
-        "middle-start", "middle-center", "middle-end",
-        "bottom-start", "bottom-center", "bottom-end",
+        "top-start",
+        "top-center",
+        "top-end",
+        "middle-start",
+        "middle-center",
+        "middle-end",
+        "bottom-start",
+        "bottom-center",
+        "bottom-end",
       ],
     },
     offset: { control: "select", options: ["0", "1", "2", "3", "4", "5", "6"] },
@@ -26,9 +32,29 @@ type Story = StoryObj<typeof meta>
 /** The default playground story. */
 export const Playground: Story = {
   render: (args) => (
-    <div style={{ position: "relative", width: "200px", height: "200px", border: "1px dashed #ccc", background: "#f8fafc" }}>
+    <div
+      style={{
+        position: "relative",
+        width: "200px",
+        height: "200px",
+        border: "1px dashed #ccc",
+        background: "#f8fafc",
+      }}
+    >
       <Float {...args}>
-        <div style={{ background: "#ef4444", color: "white", borderRadius: "50%", width: "24px", height: "24px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>
+        <div
+          style={{
+            background: "#ef4444",
+            color: "white",
+            borderRadius: "50%",
+            width: "24px",
+            height: "24px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "12px",
+          }}
+        >
           3
         </div>
       </Float>

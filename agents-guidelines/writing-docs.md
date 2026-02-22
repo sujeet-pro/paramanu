@@ -27,26 +27,36 @@ Every component MUST have documentation organized into **3 tabs**:
 Purpose: Show developers how to use the component with practical examples.
 
 Contents in order:
+
 1. **Overview** — 1-2 sentences describing what the component does and when to use it
 2. **Import** — All import methods:
-   ```mdx
+
+   ````mdx
    ### React
+
    ```tsx
    import { Button } from "@paramanu/buttons-react"
    ```
+   ````
 
    ### Vanilla JS
+
    ```ts
    import { buttonClasses } from "@paramanu/buttons-js"
    import "@paramanu/buttons-js/css"
    ```
 
    ### CDN
+
    ```html
-   <link rel="stylesheet" href="https://cdn.paramanu.dev/buttons.min.css">
+   <link rel="stylesheet" href="https://cdn.paramanu.dev/buttons.min.css" />
    <script type="module" src="https://cdn.paramanu.dev/buttons.min.js"></script>
    ```
+
    ```
+
+   ```
+
 3. **Basic Example** — Simplest usage with a live code playground
 4. **Variants** — Each variant with a code example and 1-sentence explanation of when to use it
 5. **Sizes** — All size options shown together
@@ -59,7 +69,9 @@ Contents in order:
 Contents in order:
 
 #### Accessibility Section
+
 1. **Keyboard Interactions** — Table of all keyboard shortcuts:
+
    ```
    | Key | Action |
    |-----|--------|
@@ -68,6 +80,7 @@ Contents in order:
    ```
 
 2. **ARIA Attributes Provided** — What the component handles:
+
    ```
    | Attribute | Source | Description |
    |-----------|--------|-------------|
@@ -76,6 +89,7 @@ Contents in order:
    ```
 
 3. **Consumer Responsibilities** — What the developer must add:
+
    ```
    - Provide `aria-label` for icon-only buttons
    - Ensure custom content meets 4.5:1 contrast ratio
@@ -85,6 +99,7 @@ Contents in order:
 4. **Screen Reader Behavior** — How screen readers announce the component
 
 #### Performance Section
+
 - When to memoize callbacks
 - Avoiding unnecessary re-renders
 - CSS containment recommendations
@@ -92,6 +107,7 @@ Contents in order:
 - Bundle size impact
 
 #### Design Section
+
 - Do's and Don'ts
 - Spacing and alignment recommendations
 - Responsive behavior
@@ -102,6 +118,7 @@ Contents in order:
 Contents in order:
 
 1. **Props Table** — MUST be auto-derived from TypeScript interfaces and JSDoc:
+
    ```
    | Prop | Type | Default | Description |
    |------|------|---------|-------------|
@@ -111,6 +128,7 @@ Contents in order:
    ```
 
 2. **CSS Custom Properties** — Overridable CSS variables:
+
    ```
    | Variable | Default | Description |
    |----------|---------|-------------|
@@ -119,6 +137,7 @@ Contents in order:
    ```
 
 3. **CSS Classes** — For vanilla/CDN consumers:
+
    ```
    | Class | Description |
    |-------|-------------|
@@ -163,6 +182,7 @@ export interface ButtonClassesOptions {
 ```
 
 These comments are extracted to populate:
+
 - **Description** column from the JSDoc comment body
 - **Default** column from `@default` tag
 - **Type** column from the TypeScript type

@@ -8,12 +8,7 @@ export function createDrawer(
   element: HTMLElement,
   options: CreateDrawerOptions = {},
 ): DrawerInstance {
-  const {
-    onClose,
-    initialFocus,
-    closeOnBackdropClick = true,
-    closeOnEscape = true,
-  } = options
+  const { onClose, initialFocus, closeOnBackdropClick = true, closeOnEscape = true } = options
 
   let portal: ReturnType<typeof createPortal> | null = null
   let focusTrap: ReturnType<typeof createFocusTrap> | null = null
