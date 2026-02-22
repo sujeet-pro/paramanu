@@ -31,7 +31,11 @@ export function rehypeBaseUrl({ base = "/" } = {}) {
       node.attributes
     ) {
       for (const attr of node.attributes) {
-        if (attr.type === "mdxJsxAttribute" && LINK_ATTRS.has(attr.name) && isInternalAbsolute(attr.value)) {
+        if (
+          attr.type === "mdxJsxAttribute" &&
+          LINK_ATTRS.has(attr.name) &&
+          isInternalAbsolute(attr.value)
+        ) {
           attr.value = prefix + attr.value
         }
       }

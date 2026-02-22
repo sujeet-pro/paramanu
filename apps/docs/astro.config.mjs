@@ -13,9 +13,7 @@ export default defineConfig({
   site: "https://projects.sujeet.pro",
   base,
   markdown: {
-    rehypePlugins: [
-      [rehypeBaseUrl, { base }],
-    ],
+    rehypePlugins: [[rehypeBaseUrl, { base }]],
   },
   integrations: [
     starlight({
