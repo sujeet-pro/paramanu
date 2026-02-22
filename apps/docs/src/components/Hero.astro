@@ -1,0 +1,28 @@
+---
+/**
+ * Custom Hero override that prepends BASE_URL to internal hero action links.
+ * This keeps frontmatter content free of base-path knowledge.
+ */
+import DefaultHero from "@astrojs/starlight/components/Hero.astro"
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "")
+
+function prefixLink(link: string) {
+  if (base && typeof link === "string" && link.startsWith("/") && !link.startsWith("//")) {
+    return base + link
+  }
+  return link
+}
+
+const entry = Astro.props.entry
+if (base && entry?.data?.hero?.actions) {
+  entry.data.hero.actions = entry.data.hero.actions.map(
+    (action: { link: string; [k: string]: unknown }) => ({
+      ...action,
+      link: prefixLink(action.link),
+    }),
+  )
+}
+---
+
+<DefaultHero {...Astro.props} />

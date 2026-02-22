@@ -2,13 +2,26 @@ import { defineConfig } from "astro/config"
 import starlight from "@astrojs/starlight"
 import react from "@astrojs/react"
 import { createRequire } from "node:module"
+import { rehypeBaseUrl } from "./src/plugins/rehype-base-url.mjs"
 
 const require = createRequire(import.meta.url)
 const { version } = require("../../package.json")
 
+const base = "/paramanu"
+
 export default defineConfig({
+  site: "https://projects.sujeet.pro",
+  base,
+  markdown: {
+    rehypePlugins: [
+      [rehypeBaseUrl, { base }],
+    ],
+  },
   integrations: [
     starlight({
+      components: {
+        Hero: "./src/components/Hero.astro",
+      },
       title: `Paramanu v${version}`,
       description: "A modern, accessible design system",
       social: {
