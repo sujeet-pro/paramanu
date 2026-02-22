@@ -4,6 +4,7 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     include: ["src/**/*.test.tsx"],
+    exclude: ["src/**/*.stories.test.tsx"],
     setupFiles: ["./vitest.setup.ts"],
   },
 })

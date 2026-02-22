@@ -30,7 +30,7 @@ describe("Accordion", () => {
     expect(screen.getByRole("button", { name: "Section 1" })).toBeInTheDocument()
     expect(screen.getByRole("button", { name: "Section 2" })).toBeInTheDocument()
     expect(screen.getByRole("button", { name: "Section 3" })).toBeInTheDocument()
-    expect(screen.getAllByRole("region")).toHaveLength(3)
+    expect(screen.getAllByRole("region", { hidden: true })).toHaveLength(3)
   })
 
   it("all items closed by default", () => {
@@ -55,7 +55,7 @@ describe("Accordion", () => {
 
   it("toggles single item (single mode)", async () => {
     const user = userEvent.setup()
-    renderAccordion()
+    renderAccordion({ collapsible: true })
 
     const trigger1 = screen.getByRole("button", { name: "Section 1" })
     const trigger2 = screen.getByRole("button", { name: "Section 2" })
@@ -68,7 +68,7 @@ describe("Accordion", () => {
     expect(trigger1).toHaveAttribute("aria-expanded", "false")
     expect(trigger2).toHaveAttribute("aria-expanded", "true")
 
-    // Clicking the same one closes it
+    // Clicking the same one closes it (collapsible mode)
     await user.click(trigger2)
     expect(trigger2).toHaveAttribute("aria-expanded", "false")
   })

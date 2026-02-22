@@ -45,19 +45,19 @@ describe("Notif", () => {
   it("renders close button when dismissible with onClose", () => {
     const onClose = vi.fn()
     render(<Notif dismissible onClose={onClose} title="Test" />)
-    expect(screen.getByLabelText("Close")).toBeInTheDocument()
+    expect(screen.getByLabelText("Dismiss notification")).toBeInTheDocument()
   })
 
   it("calls onClose when close button is clicked", () => {
     const onClose = vi.fn()
     render(<Notif dismissible onClose={onClose} title="Test" />)
-    fireEvent.click(screen.getByLabelText("Close"))
+    fireEvent.click(screen.getByLabelText("Dismiss notification"))
     expect(onClose).toHaveBeenCalledTimes(1)
   })
 
   it("does not render close button when not dismissible", () => {
     render(<Notif title="Test" />)
-    expect(screen.queryByLabelText("Close")).not.toBeInTheDocument()
+    expect(screen.queryByLabelText("Dismiss notification")).not.toBeInTheDocument()
   })
 
   it("does not render sub-elements when not provided", () => {

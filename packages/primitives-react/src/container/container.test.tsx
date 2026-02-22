@@ -5,11 +5,11 @@ import { Container } from "./container.js"
 afterEach(cleanup)
 
 describe("Container", () => {
-  it("renders with default md size", () => {
+  it("renders with default lg size", () => {
     render(<Container data-testid="container">Content</Container>)
     const container = screen.getByTestId("container")
     expect(container.className).toContain("pm-container")
-    expect(container.className).toContain("pm-container--md")
+    expect(container.className).toContain("pm-container--lg")
   })
 
   it("renders children", () => {

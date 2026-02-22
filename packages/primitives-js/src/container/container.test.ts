@@ -2,9 +2,9 @@ import { describe, it, expect } from "vitest"
 import { containerClasses, containerModuleClasses } from "./container.classes.js"
 
 describe("containerClasses", () => {
-  it("returns default classes (md)", () => {
+  it("returns default classes (lg)", () => {
     const result = containerClasses()
-    expect(result).toBe("pm-container pm-container--md")
+    expect(result).toBe("pm-container pm-container--lg")
   })
 
   it("applies size", () => {
@@ -36,7 +36,7 @@ describe("containerModuleClasses", () => {
 
   it("returns mapped default classes", () => {
     const result = containerModuleClasses(mockClassMap)
-    expect(result).toBe("pm_abc_container pm_abc_md")
+    expect(result).toBe("pm_abc_container pm_abc_lg")
   })
 
   it("maps size classes correctly", () => {

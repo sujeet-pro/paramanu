@@ -9,7 +9,7 @@ function createInlineMsgHTML(
   const classes = inlineMsgClasses(options)
   const variant = options?.variant ?? "info"
   const role = variant === "warning" || variant === "danger" ? "alert" : "status"
-  return `<div class="${classes}" role="${role}">${text}</div>`
+  return `<div class="${classes.root}" role="${role}">${text}</div>`
 }
 
 describe("inline message accessibility", () => {

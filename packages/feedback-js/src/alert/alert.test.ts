@@ -2,9 +2,9 @@ import { describe, it, expect } from "vitest"
 import { alertClasses, alertModuleClasses } from "./alert.classes.js"
 
 describe("alertClasses", () => {
-  it("returns default classes (info, not dismissible)", () => {
+  it("returns default classes (info, subtle, not dismissible)", () => {
     const result = alertClasses()
-    expect(result.root).toBe("pm-alert pm-alert--info")
+    expect(result.root).toBe("pm-alert pm-alert--info pm-alert--subtle")
     expect(result.icon).toBe("pm-alert__icon")
     expect(result.content).toBe("pm-alert__content")
     expect(result.title).toBe("pm-alert__title")
@@ -33,7 +33,7 @@ describe("alertClasses", () => {
       variant: "danger",
       dismissible: true,
     })
-    expect(result.root).toBe("pm-alert pm-alert--danger pm-alert--dismissible")
+    expect(result.root).toBe("pm-alert pm-alert--danger pm-alert--subtle pm-alert--dismissible")
   })
 
   it("returns all sub-element classes", () => {
@@ -54,6 +54,8 @@ describe("alertModuleClasses", () => {
     "pm-alert--success": "pm_abc_success",
     "pm-alert--warning": "pm_abc_warning",
     "pm-alert--danger": "pm_abc_danger",
+    "pm-alert--subtle": "pm_abc_subtle",
+    "pm-alert--filled": "pm_abc_filled",
     "pm-alert--dismissible": "pm_abc_dismissible",
     "pm-alert__icon": "pm_abc_icon",
     "pm-alert__content": "pm_abc_content",
@@ -64,7 +66,7 @@ describe("alertModuleClasses", () => {
 
   it("returns mapped default classes", () => {
     const result = alertModuleClasses(mockClassMap)
-    expect(result.root).toBe("pm_abc_alert pm_abc_info")
+    expect(result.root).toBe("pm_abc_alert pm_abc_info pm_abc_subtle")
     expect(result.icon).toBe("pm_abc_icon")
     expect(result.content).toBe("pm_abc_content")
     expect(result.title).toBe("pm_abc_title")

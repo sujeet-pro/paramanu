@@ -35,7 +35,7 @@ describe("Blockquote", () => {
   })
 
   it("passes through cite attribute", () => {
-    render(<Blockquote cite="https://example.com">Cited</Blockquote>)
+    render(<Blockquote citeUrl="https://example.com">Cited</Blockquote>)
     const el = screen.getByText("Cited")
     expect(el).toHaveAttribute("cite", "https://example.com")
   })

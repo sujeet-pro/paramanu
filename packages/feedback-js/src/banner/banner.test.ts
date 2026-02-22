@@ -2,9 +2,9 @@ import { describe, it, expect } from "vitest"
 import { bannerClasses, bannerModuleClasses } from "./banner.classes.js"
 
 describe("bannerClasses", () => {
-  it("returns default classes (info, not sticky, not dismissible)", () => {
+  it("returns default classes (info, not sticky, not dismissible, top)", () => {
     const result = bannerClasses()
-    expect(result.root).toBe("pm-banner pm-banner--info")
+    expect(result.root).toBe("pm-banner pm-banner--info pm-banner--top")
     expect(result.content).toBe("pm-banner__content")
     expect(result.close).toBe("pm-banner__close")
   })
@@ -37,7 +37,7 @@ describe("bannerClasses", () => {
       dismissible: true,
     })
     expect(result.root).toBe(
-      "pm-banner pm-banner--warning pm-banner--sticky pm-banner--dismissible",
+      "pm-banner pm-banner--warning pm-banner--sticky pm-banner--dismissible pm-banner--top",
     )
   })
 
@@ -58,13 +58,17 @@ describe("bannerModuleClasses", () => {
     "pm-banner--danger": "pm_abc_danger",
     "pm-banner--sticky": "pm_abc_sticky",
     "pm-banner--dismissible": "pm_abc_dismissible",
+    "pm-banner--top": "pm_abc_top",
+    "pm-banner--bottom": "pm_abc_bottom",
+    "pm-banner__icon": "pm_abc_icon",
     "pm-banner__content": "pm_abc_content",
+    "pm-banner__actions": "pm_abc_actions",
     "pm-banner__close": "pm_abc_close",
   }
 
   it("returns mapped default classes", () => {
     const result = bannerModuleClasses(mockClassMap)
-    expect(result.root).toBe("pm_abc_banner pm_abc_info")
+    expect(result.root).toBe("pm_abc_banner pm_abc_info pm_abc_top")
     expect(result.content).toBe("pm_abc_content")
     expect(result.close).toBe("pm_abc_close")
   })

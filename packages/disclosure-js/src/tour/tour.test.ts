@@ -52,7 +52,7 @@ describe("tourModuleClasses", () => {
 describe("tourStepClasses", () => {
   it("returns default classes (bottom placement, not active)", () => {
     const result = tourStepClasses()
-    expect(result).toBe("pm-tour__step pm-tour__step--bottom")
+    expect(result).toBe("pm-tour__step pm-tour__step--bottom pm-tour__step--default")
   })
 
   it("applies placement", () => {
@@ -69,7 +69,9 @@ describe("tourStepClasses", () => {
 
   it("combines placement and active", () => {
     const result = tourStepClasses({ placement: "top", active: true })
-    expect(result).toBe("pm-tour__step pm-tour__step--top pm-tour__step--active")
+    expect(result).toBe(
+      "pm-tour__step pm-tour__step--top pm-tour__step--default pm-tour__step--active",
+    )
   })
 
   it("always includes base class", () => {

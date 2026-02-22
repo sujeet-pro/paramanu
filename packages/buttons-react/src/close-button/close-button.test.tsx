@@ -5,11 +5,11 @@ import { CloseBtn } from "./close-button.js"
 afterEach(cleanup)
 
 describe("CloseBtn", () => {
-  it("renders with default multiplication sign content", () => {
+  it("renders with default SVG icon content", () => {
     render(<CloseBtn />)
     const button = screen.getByRole("button", { name: "Close" })
     expect(button).toBeInTheDocument()
-    expect(button.textContent).toBe("\u00d7")
+    expect(button.querySelector("svg")).toBeInTheDocument()
   })
 
   it("applies default classes", () => {
