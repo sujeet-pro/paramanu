@@ -1,0 +1,29 @@
+---
+title: "Select"
+description: "A custom dropdown select component with keyboard navigation and ARIA support."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Props
+
+| Prop        | Type                                  | Default     | Description       |
+| ----------- | ------------------------------------- | ----------- | ----------------- |
+| `variant`   | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant    |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg"`        | `"md"`      | Select size       |
+| `invalid`   | `boolean`                             | `false`     | Invalid state     |
+| `disabled`  | `boolean`                             | `false`     | Disabled state    |
+| `open`      | `boolean`                             | `false`     | Open state        |
+| `fullWidth` | `boolean`                             | `false`     | Full-width layout |
+
+## CSS Classes
+
+| Class                | Description       |
+| -------------------- | ----------------- |
+| `pm-select`          | Base class        |
+| `pm-select__trigger` | Trigger button    |
+| `pm-select__listbox` | Options container |
+| `pm-select--open`    | Open state        |

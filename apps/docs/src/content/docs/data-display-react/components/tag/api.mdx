@@ -1,0 +1,31 @@
+---
+title: "Tag"
+description: "A labeled element that can be removed, clicked, or disabled."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Props
+
+| Prop          | Type                                              | Default     | Description                                       |
+| ------------- | ------------------------------------------------- | ----------- | ------------------------------------------------- |
+| `variant`     | `"filled" \| "outline" \| "subtle"`               | `"filled"`  | Visual style                                      |
+| `size`        | `"sm" \| "md" \| "lg"`                            | `"md"`      | Controls padding and font size                    |
+| `color`       | `"primary" \| "neutral" \| "danger" \| "success"` | `"primary"` | Color palette                                     |
+| `removable`   | `boolean`                                         | `false`     | Shows remove button                               |
+| `interactive` | `boolean`                                         | `false`     | Enables hover/focus states                        |
+| `disabled`    | `boolean`                                         | `false`     | Disables interaction                              |
+| `onRemove`    | `() => void`                                      | -           | Called when remove button is clicked (React only) |
+
+## CSS Classes
+
+| Class               | Description           |
+| ------------------- | --------------------- |
+| `pm-tag`            | Base tag class        |
+| `pm-tag--{variant}` | Variant modifier      |
+| `pm-tag--{color}`   | Color modifier        |
+| `pm-tag--removable` | Removable state       |
+| `pm-tag__remove`    | Remove button element |

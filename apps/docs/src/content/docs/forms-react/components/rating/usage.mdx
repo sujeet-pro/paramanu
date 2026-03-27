@@ -1,0 +1,26 @@
+---
+title: "Rating"
+description: "A star-based input for selecting a rating value."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Rating"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Rating component provides a group of selectable icons for rating input.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-rating pm-rating--md" role="radiogroup" aria-label="Rating">...</div>`}
+  reactCode={`import { Rating } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Rating aria-label="Product rating" />\n}`}
+/>

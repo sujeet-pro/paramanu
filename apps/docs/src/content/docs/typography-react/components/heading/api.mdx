@@ -1,0 +1,32 @@
+---
+title: "Heading"
+description: "Semantic heading component (h1-h6) with configurable visual size, weight, and color."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+| Prop         | Type                                                     | Default  | Description            |
+| ------------ | -------------------------------------------------------- | -------- | ---------------------- |
+| `level`      | `1-6`                                                    | `2`      | Semantic heading level |
+| `size`       | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl"` | auto     | Visual size            |
+| `weight`     | `"normal" \| "medium" \| "semibold" \| "bold"`           | `"bold"` | Font weight            |
+| `align`      | `"left" \| "center" \| "right"`                          | --       | Text alignment         |
+| `lineHeight` | `"tight" \| "normal" \| "relaxed"`                       | --       | Line height            |
+| `truncate`   | `boolean`                                                | `false`  | Truncation             |
+| `color`      | `"default" \| "muted" \| "dimmed" \| "primary" \| ...`   | --       | Semantic color         |
+
+## CSS Classes
+
+| Class                    | Purpose     |
+| ------------------------ | ----------- |
+| `pm-heading`             | Base        |
+| `pm-heading--size-{s}`   | Visual size |
+| `pm-heading--weight-{w}` | Font weight |
+| `pm-heading--align-{a}`  | Alignment   |
+| `pm-heading--color-{c}`  | Color       |
+| `pm-heading--truncate`   | Truncation  |

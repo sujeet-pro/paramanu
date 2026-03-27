@@ -1,0 +1,40 @@
+---
+title: "Splitter"
+description: "A resizable split-pane layout with draggable handles for horizontal or vertical content division."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Splitter"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Splitter creates resizable panels with a draggable handle. Supports horizontal and vertical orientations.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-splitter pm-splitter--horizontal" style="height: 300px; border: 1px solid #e2e8f0;">
+  <div class="pm-splitter__panel" style="width: 50%;"><div style="padding: 16px;">Left</div></div>
+  <div class="pm-splitter__handle pm-splitter__handle--horizontal" role="separator" tabindex="0"></div>
+  <div class="pm-splitter__panel" style="width: 50%;"><div style="padding: 16px;">Right</div></div>
+</div>`}
+  reactCode={`import { Splitter, SplitterPanel, SplitterHandle } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Splitter style={{ height: 300 }}>
+      <SplitterPanel defaultSize={50}><div>Left</div></SplitterPanel>
+      <SplitterHandle />
+      <SplitterPanel defaultSize={50}><div>Right</div></SplitterPanel>
+    </Splitter>
+  )
+}`}
+/>

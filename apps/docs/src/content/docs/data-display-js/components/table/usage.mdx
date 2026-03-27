@@ -1,0 +1,62 @@
+---
+title: "Table"
+description: "A styled HTML table with variants, sizes, and features like striped rows and sticky headers."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Table"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Table wraps standard HTML table elements with styling for variants, sizes, hoverable rows, bordered cells, and sticky headers.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-table__container">
+  <table class="pm-table pm-table--simple pm-table--md pm-table--layout-auto">
+    <thead class="pm-table__head">
+      <tr class="pm-table__row">
+        <th class="pm-table__header-cell">Name</th>
+        <th class="pm-table__header-cell">Role</th>
+      </tr>
+    </thead>
+    <tbody class="pm-table__body">
+      <tr class="pm-table__row">
+        <td class="pm-table__cell">Alice</td>
+        <td class="pm-table__cell">Engineer</td>
+      </tr>
+    </tbody>
+  </table>
+</div>`}
+  reactCode={`import { Table, TableContainer, TableHead, TableBody, TableRow, TableHeaderCell, TableCell } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <TableContainer>
+      <Table variant="simple">
+        <TableHead>
+          <TableRow>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Role</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableCell>Alice</TableCell>
+            <TableCell>Engineer</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </TableContainer>
+  )
+}`}
+/>

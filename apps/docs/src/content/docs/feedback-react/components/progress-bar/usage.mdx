@@ -1,0 +1,57 @@
+---
+title: "Progress Bar"
+description: "Linear progress indicator with determinate and indeterminate modes."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Progress Bar"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Progress displays linear progress with support for determinate/indeterminate modes, striped patterns, and labels.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-progress pm-progress--md pm-progress--primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+  <div class="pm-progress__track">
+    <div class="pm-progress__fill" style="width: 60%;"></div>
+  </div>
+</div>`}
+  reactCode={`import { Progress } from "@paramanu/feedback-react"
+
+export default function App() {
+  return <Progress value={60} />
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; flex-direction: column; gap: 12px;">
+  <div class="pm-progress pm-progress--md pm-progress--primary" role="progressbar"><div class="pm-progress__track"><div class="pm-progress__fill" style="width: 65%;"></div></div></div>
+  <div class="pm-progress pm-progress--md pm-progress--success" role="progressbar"><div class="pm-progress__track"><div class="pm-progress__fill" style="width: 65%;"></div></div></div>
+  <div class="pm-progress pm-progress--md pm-progress--warning" role="progressbar"><div class="pm-progress__track"><div class="pm-progress__fill" style="width: 65%;"></div></div></div>
+  <div class="pm-progress pm-progress--md pm-progress--danger" role="progressbar"><div class="pm-progress__track"><div class="pm-progress__fill" style="width: 65%;"></div></div></div>
+</div>`}
+  reactCode={`import { Progress } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+      <Progress variant="primary" value={65} />
+      <Progress variant="success" value={65} />
+      <Progress variant="warning" value={65} />
+      <Progress variant="danger" value={65} />
+    </div>
+  )
+}`}
+/>

@@ -1,0 +1,61 @@
+---
+title: "Group"
+description: "A grouping layout for related elements like buttons, with optional attached borders and grow behavior."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Group"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Group arranges related elements together, supporting attached borders (for button groups), grow, and wrap.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-group pm-group--horizontal pm-group--gap-3" role="group">
+  <button type="button">Action 1</button>
+  <button type="button">Action 2</button>
+  <button type="button">Action 3</button>
+</div>`}
+  reactCode={`import { Group } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Group gap="3">
+      <button>Action 1</button>
+      <button>Action 2</button>
+      <button>Action 3</button>
+    </Group>
+  )
+}`}
+/>
+
+## Attached
+
+<ComponentPreview
+  htmlCode={`<div class="pm-group pm-group--horizontal pm-group--attached" role="group">
+  <button type="button">Left</button>
+  <button type="button">Center</button>
+  <button type="button">Right</button>
+</div>`}
+  reactCode={`import { Group } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Group attached>
+      <button>Left</button>
+      <button>Center</button>
+      <button>Right</button>
+    </Group>
+  )
+}`}
+/>

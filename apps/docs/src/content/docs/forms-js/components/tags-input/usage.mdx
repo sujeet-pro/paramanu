@@ -1,0 +1,26 @@
+---
+title: "Tags Input"
+description: "An input that allows adding and removing tags or tokens from a collection."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Tags Input"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Tags Input component provides a text field for adding and managing a collection of tags or tokens.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-tags-input pm-tags-input--outline pm-tags-input--md" role="group">\n  <span class="pm-tag">React</span>\n  <span class="pm-tag">Vue</span>\n  <input class="pm-input pm-input--outline pm-input--md" placeholder="Add tag..." />\n</div>`}
+  reactCode={`import { TagsInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <TagsInput>\n      <span className="pm-tag">React</span>\n      <span className="pm-tag">Vue</span>\n      <input placeholder="Add tag..." />\n    </TagsInput>\n  )\n}`}
+/>

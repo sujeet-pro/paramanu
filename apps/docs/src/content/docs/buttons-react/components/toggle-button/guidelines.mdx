@@ -1,0 +1,21 @@
+---
+title: "Toggle Btn"
+description: "A two-state toggle button (on/off) using aria-pressed for accessibility."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+- Uses `aria-pressed` to communicate toggle state to assistive technology
+- Label must remain the same regardless of pressed state (WAI-ARIA best practice)
+- Keyboard accessible with Enter and Space
+
+## Best Practices
+
+- Use for binary on/off actions (e.g., Bold, Italic, Mute)
+- Keep labels unchanged between states; the state is communicated via `aria-pressed`
+- Use ToggleGrp for mutually exclusive or multi-select groups

@@ -1,0 +1,42 @@
+---
+title: "Toggle Group"
+description: "A group of toggle buttons supporting single or multiple selection."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## ToggleGrp Props
+
+| Prop          | Type                                   | Default        | Description               |
+| ------------- | -------------------------------------- | -------------- | ------------------------- |
+| `type`        | `"single" \| "multiple"`               | `"single"`     | Selection mode            |
+| `orientation` | `"horizontal" \| "vertical"`           | `"horizontal"` | Layout direction          |
+| `size`        | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`         | Shared size for items     |
+| `attached`    | `boolean`                              | `false`        | Merge item borders        |
+| `fullWidth`   | `boolean`                              | `false`        | Stretch to container      |
+| `value`       | `string \| string[]`                   | --             | Current selection         |
+| `onChange`    | `(value) => void`                      | --             | Selection change callback |
+
+## ToggleGrpItem Props
+
+| Prop       | Type                     | Default     | Description             |
+| ---------- | ------------------------ | ----------- | ----------------------- |
+| `value`    | `string`                 | --          | Item value for tracking |
+| `variant`  | `"default" \| "outline"` | `"default"` | Visual style            |
+| `size`     | `ToggleGrpSize`          | Inherited   | Size override           |
+| `pressed`  | `boolean`                | Managed     | Toggle state            |
+| `disabled` | `boolean`                | `false`     | Disabled state          |
+
+## CSS Classes
+
+| Class                                | Purpose          |
+| ------------------------------------ | ---------------- |
+| `pm-toggle-grp`                      | Container base   |
+| `pm-toggle-grp--horizontal/vertical` | Layout direction |
+| `pm-toggle-grp--attached`            | Merged borders   |
+| `pm-toggle-grp__item`                | Item base        |
+| `pm-toggle-grp__item--pressed`       | Active item      |
+| `pm-toggle-grp__item--disabled`      | Disabled item    |

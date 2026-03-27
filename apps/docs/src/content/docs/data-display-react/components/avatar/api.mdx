@@ -1,0 +1,30 @@
+---
+title: "Avatar"
+description: "A visual representation of a user or entity with image, initials, or icon fallback."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Props
+
+| Prop      | Type                                              | Default     | Description                |
+| --------- | ------------------------------------------------- | ----------- | -------------------------- |
+| `size`    | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"`   | `"md"`      | Width, height, font size   |
+| `variant` | `"circle" \| "square"`                            | `"circle"`  | Shape                      |
+| `color`   | `"primary" \| "neutral" \| "danger" \| "success"` | `"primary"` | Fallback background color  |
+| `src`     | `string`                                          | -           | Img URL                    |
+| `alt`     | `string`                                          | -           | Img alt text               |
+| `name`    | `string`                                          | -           | Name for initials fallback |
+
+## CSS Classes
+
+| Class                  | Description       |
+| ---------------------- | ----------------- |
+| `pm-avatar`            | Base avatar class |
+| `pm-avatar--{size}`    | Size modifier     |
+| `pm-avatar--{variant}` | Shape modifier    |
+| `pm-avatar__image`     | Img element       |
+| `pm-avatar__fallback`  | Fallback element  |

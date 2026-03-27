@@ -1,0 +1,41 @@
+---
+title: "Btn"
+description: "A versatile button component with multiple variants, sizes, loading states, and icon support."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## CSS Classes
+
+| Class                | Purpose            |
+| -------------------- | ------------------ |
+| `pm-btn`             | Base button styles |
+| `pm-btn--primary`    | Primary variant    |
+| `pm-btn--secondary`  | Secondary variant  |
+| `pm-btn--danger`     | Danger variant     |
+| `pm-btn--ghost`      | Ghost variant      |
+| `pm-btn--outline`    | Outline variant    |
+| `pm-btn--link`       | Link variant       |
+| `pm-btn--xs`         | Extra small size   |
+| `pm-btn--sm`         | Small size         |
+| `pm-btn--md`         | Medium size        |
+| `pm-btn--lg`         | Large size         |
+| `pm-btn--xl`         | Extra large size   |
+| `pm-btn--disabled`   | Disabled state     |
+| `pm-btn--full-width` | Full width         |
+| `pm-btn--loading`    | Loading state      |
+| `pm-btn--active`     | Active state       |
+
+## CSS Custom Properties
+
+The button reads design tokens from `@paramanu/tokens`. Override at `:root` to customize:
+
+```css
+:root {
+  --pm-color-primary: #2563eb;
+  --pm-color-danger: #dc2626;
+}
+```

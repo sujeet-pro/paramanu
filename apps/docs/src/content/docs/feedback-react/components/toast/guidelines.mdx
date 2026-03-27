@@ -1,0 +1,21 @@
+---
+title: "Toast"
+description: "Brief, temporary notification that appears and auto-dismisses."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+- Uses `role="alert"` for warning/danger, `role="status"` for info/success
+- ToastContainer uses `aria-live="polite"` for screen reader announcements
+- Close button has `aria-label="Close"`
+
+## Best Practices
+
+- Use auto-dismiss (`duration`) for non-critical notifications
+- Keep toast messages brief and actionable
+- Position toasts consistently (top-right is most common)

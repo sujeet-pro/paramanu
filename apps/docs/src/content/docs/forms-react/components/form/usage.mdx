@@ -1,0 +1,26 @@
+---
+title: "Form"
+description: "A layout wrapper for organizing form controls with consistent spacing."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Form"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Form component provides layout and spacing for groups of form controls.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<form class="pm-form pm-form--vertical pm-form--gap-md">...</form>`}
+  reactCode={`import { Form } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Form layout="vertical">Form content</Form>\n}`}
+/>

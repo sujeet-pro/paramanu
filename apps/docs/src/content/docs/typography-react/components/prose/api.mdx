@@ -1,0 +1,27 @@
+---
+title: "Prose"
+description: "A container that applies typographic styles to child HTML elements for rich text content."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+| Prop          | Type                              | Default | Description                     |
+| ------------- | --------------------------------- | ------- | ------------------------------- |
+| `as`          | `"div" \| "article" \| "section"` | `"div"` | HTML element                    |
+| `size`        | `"sm" \| "md" \| "lg"`            | `"md"`  | Base font size scale            |
+| `color`       | `"default" \| "muted"`            | --      | Color scheme                    |
+| `trimMargins` | `boolean`                         | `false` | Remove first/last child margins |
+
+## CSS Classes
+
+| Class                 | Purpose      |
+| --------------------- | ------------ |
+| `pm-prose`            | Base         |
+| `pm-prose--{size}`    | Size         |
+| `pm-prose--color-{c}` | Color scheme |
+| `pm-prose--trim`      | Trim margins |

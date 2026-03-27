@@ -1,0 +1,41 @@
+---
+title: "Carousel"
+description: "A slideshow component for cycling through a series of content panels."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Carousel Props
+
+| Prop          | Type                         | Default        | Description      |
+| ------------- | ---------------------------- | -------------- | ---------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Scroll direction |
+| `size`        | `"sm" \| "md" \| "lg"`       | `"md"`         | Size preset      |
+
+## CarouselSlide Props
+
+| Prop     | Type      | Default | Description  |
+| -------- | --------- | ------- | ------------ |
+| `active` | `boolean` | `false` | Active slide |
+| `index`  | `number`  | -       | Slide index  |
+| `total`  | `number`  | -       | Total slides |
+
+## CarouselControl Props
+
+| Prop        | Type               | Default | Description          |
+| ----------- | ------------------ | ------- | -------------------- |
+| `direction` | `"prev" \| "next"` | -       | Navigation direction |
+| `disabled`  | `boolean`          | `false` | Disabled state       |
+
+## CSS Classes
+
+| Class                        | Description       |
+| ---------------------------- | ----------------- |
+| `pm-carousel`                | Root element      |
+| `pm-carousel__slide`         | Slide container   |
+| `pm-carousel__slide--active` | Active slide      |
+| `pm-carousel__control`       | Navigation button |
+| `pm-carousel__indicator`     | Dot indicator     |

@@ -1,0 +1,58 @@
+---
+title: "Toast"
+description: "Brief, temporary notification that appears and auto-dismisses."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Toast"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Toast displays a brief, temporary notification with optional auto-dismiss and manual close support.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-toast pm-toast--success" role="status">
+  <div class="pm-toast__content">
+    <div class="pm-toast__title">Saved</div>
+    <div class="pm-toast__message">Your changes have been saved.</div>
+  </div>
+</div>`}
+  reactCode={`import { Toast } from "@paramanu/feedback-react"
+
+export default function App() {
+  return <Toast variant="success" title="Saved" message="Your changes have been saved." />
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; flex-direction: column; gap: 8px;">
+  <div class="pm-toast pm-toast--info" role="status"><div class="pm-toast__content"><div class="pm-toast__title">Info</div></div></div>
+  <div class="pm-toast pm-toast--success" role="status"><div class="pm-toast__content"><div class="pm-toast__title">Success</div></div></div>
+  <div class="pm-toast pm-toast--warning" role="alert"><div class="pm-toast__content"><div class="pm-toast__title">Warning</div></div></div>
+  <div class="pm-toast pm-toast--danger" role="alert"><div class="pm-toast__content"><div class="pm-toast__title">Danger</div></div></div>
+</div>`}
+  reactCode={`import { Toast } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+      <Toast variant="info" title="Info" />
+      <Toast variant="success" title="Success" />
+      <Toast variant="warning" title="Warning" />
+      <Toast variant="danger" title="Danger" />
+    </div>
+  )
+}`}
+/>

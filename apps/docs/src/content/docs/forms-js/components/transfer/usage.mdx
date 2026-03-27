@@ -1,0 +1,26 @@
+---
+title: "Transfer"
+description: "A dual-list component for moving items between two panels."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Transfer"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Transfer component provides a dual-list interface for moving items between source and target panels.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-transfer pm-transfer--md" role="group" aria-label="Transfer">...</div>`}
+  reactCode={`import { Transfer } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Transfer>Transfer content</Transfer>\n}`}
+/>

@@ -1,0 +1,56 @@
+---
+title: "NProgress"
+description: "Slim progress bar at the top of the page for route transitions and async operations."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "NProgress"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+NProgress displays a slim, animated progress bar at the top of the page, commonly used for route transitions.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-nprogress pm-nprogress--active">
+  <div class="pm-nprogress__bar" style="width: 30%;">
+    <div class="pm-nprogress__peg"></div>
+  </div>
+</div>`}
+  reactCode={`import { NProgress, useNProgress } from "@paramanu/feedback-react"
+
+export default function App() {
+  const { nprogressProps, start, done } = useNProgress()
+  return (
+    <div>
+      <NProgress {...nprogressProps} />
+      <button onClick={start}>Start</button>
+      <button onClick={done}>Done</button>
+    </div>
+  )
+}`}
+/>
+
+## Controlled
+
+<ComponentPreview
+  htmlCode={`<div class="pm-nprogress pm-nprogress--active">
+  <div class="pm-nprogress__bar" style="width: 50%;">
+    <div class="pm-nprogress__peg"></div>
+  </div>
+</div>`}
+  reactCode={`import { NProgress } from "@paramanu/feedback-react"
+
+export default function App() {
+  return <NProgress active value={0.5} />
+}`}
+/>

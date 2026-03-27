@@ -1,0 +1,30 @@
+---
+title: "Clipboard"
+description: "A copy-to-clipboard button with visual feedback for the copied state."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Clipboard"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Clipboard provides a copy-to-clipboard button that shows visual feedback when the text has been copied.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button type="button" class="pm-clipboard pm-clipboard--md" aria-label="Copy to clipboard">Copy</button>`}
+  reactCode={`import { Clipboard } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Clipboard value="npm install @paramanu/data-display-react" />
+}`}
+/>

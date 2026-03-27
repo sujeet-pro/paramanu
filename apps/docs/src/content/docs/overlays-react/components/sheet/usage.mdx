@@ -1,0 +1,40 @@
+---
+title: "Sheet"
+description: "A bottom sheet overlay that slides up from the bottom of the viewport."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Sheet"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Sheet is a bottom panel overlay that slides up from the viewport bottom. Includes a drag handle for swipe-to-dismiss support.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-sheet pm-sheet--md" role="dialog">
+  <div class="pm-sheet__handle"></div>
+  <div class="pm-sheet__header">Sheet Title</div>
+  <div class="pm-sheet__body">Content here.</div>
+</div>`}
+  reactCode={`import { Sheet, SheetHandle, SheetHeader, SheetBody } from "@paramanu/overlays-react"
+
+export default function App() {
+  return (
+    <Sheet open onClose={() => {}}>
+      <SheetHandle />
+      <SheetHeader>Sheet Title</SheetHeader>
+      <SheetBody>Content here.</SheetBody>
+    </Sheet>
+  )
+}`}
+/>

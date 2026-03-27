@@ -1,0 +1,76 @@
+---
+title: "Alert"
+description: "Displays a prominent feedback message with variant colors, icons, and optional dismiss button."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Alert"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Alert displays a prominent feedback message to the user with contextual color variants and optional dismiss functionality.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-alert pm-alert--info pm-alert--subtle" role="status">
+  <div class="pm-alert__content">
+    <div class="pm-alert__title">Information</div>
+    <div class="pm-alert__description">This is an informational alert.</div>
+  </div>
+</div>`}
+  reactCode={`import { Alert } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <Alert variant="info" title="Information" description="This is an informational alert." />
+  )
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; flex-direction: column; gap: 8px;">
+  <div class="pm-alert pm-alert--info pm-alert--subtle" role="status"><div class="pm-alert__content"><div class="pm-alert__title">Info</div></div></div>
+  <div class="pm-alert pm-alert--success pm-alert--subtle" role="status"><div class="pm-alert__content"><div class="pm-alert__title">Success</div></div></div>
+  <div class="pm-alert pm-alert--warning pm-alert--subtle" role="alert"><div class="pm-alert__content"><div class="pm-alert__title">Warning</div></div></div>
+  <div class="pm-alert pm-alert--danger pm-alert--subtle" role="alert"><div class="pm-alert__content"><div class="pm-alert__title">Danger</div></div></div>
+</div>`}
+  reactCode={`import { Alert } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+      <Alert variant="info" title="Info" />
+      <Alert variant="success" title="Success" />
+      <Alert variant="warning" title="Warning" />
+      <Alert variant="danger" title="Danger" />
+    </div>
+  )
+}`}
+/>
+
+## Dismissible
+
+<ComponentPreview
+  htmlCode={`<div class="pm-alert pm-alert--info pm-alert--subtle pm-alert--dismissible" role="status">
+  <div class="pm-alert__content"><div class="pm-alert__title">Dismissible</div></div>
+  <button class="pm-alert__close" aria-label="Close">&times;</button>
+</div>`}
+  reactCode={`import { Alert } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <Alert variant="info" title="Dismissible" dismissible onClose={() => console.log("closed")} />
+  )
+}`}
+/>

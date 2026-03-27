@@ -1,0 +1,26 @@
+---
+title: "Wrap"
+description: "A layout component that wraps children into multiple rows with consistent gap and alignment."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+| Prop        | Type                     | Default | Description          |
+| ----------- | ------------------------ | ------- | -------------------- |
+| `gap`       | `SpacingScale`           | --      | Gap between items    |
+| `align`     | `FlexAlign`              | --      | Cross-axis alignment |
+| `justify`   | `FlexJustify`            | --      | Main-axis alignment  |
+| `direction` | `"row" \| "row-reverse"` | `"row"` | Wrap direction       |
+
+## CSS Classes
+
+| Class                  | Purpose           |
+| ---------------------- | ----------------- |
+| `pm-wrap`              | Base              |
+| `pm-wrap--gap-{scale}` | Gap               |
+| `pm-wrap--row-reverse` | Reverse direction |

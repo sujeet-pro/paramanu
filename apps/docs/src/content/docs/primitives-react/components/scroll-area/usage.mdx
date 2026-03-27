@@ -1,0 +1,36 @@
+---
+title: "Scroll Area"
+description: "A scrollable container with configurable scrollbar visibility, direction, and styling."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Scroll Area"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Scroll provides a scrollable region with customizable scrollbar visibility and thin/hidden scrollbar styles.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-scroll pm-scroll--vertical pm-scroll--scrollbar-auto" role="region" tabindex="0" aria-label="Content" style="height: 200px;">
+  <p>Long scrollable content...</p>
+</div>`}
+  reactCode={`import { Scroll } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Scroll style={{ height: 200 }} aria-label="Content">
+      <p>Long scrollable content...</p>
+    </Scroll>
+  )
+}`}
+/>

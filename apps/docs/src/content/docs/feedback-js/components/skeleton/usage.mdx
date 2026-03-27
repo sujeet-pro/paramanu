@@ -1,0 +1,51 @@
+---
+title: "Skeleton"
+description: "Placeholder loading state for content that is being loaded."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Skeleton"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Skeleton provides placeholder loading states with text, circular, and rectangular variants for content previews.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-skeleton pm-skeleton--text" aria-hidden="true" style="width: 60%;"></div>`}
+  reactCode={`import { Skeleton } from "@paramanu/feedback-react"
+
+export default function App() {
+  return <Skeleton variant="text" width="60%" />
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; flex-direction: column; gap: 16px;">
+  <div class="pm-skeleton pm-skeleton--text" aria-hidden="true" style="width: 60%;"></div>
+  <div class="pm-skeleton pm-skeleton--circular pm-skeleton--md" aria-hidden="true"></div>
+  <div class="pm-skeleton pm-skeleton--rectangular" aria-hidden="true" style="width: 200px; height: 100px;"></div>
+</div>`}
+  reactCode={`import { Skeleton } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <Skeleton variant="text" width="60%" />
+      <Skeleton variant="circular" size="md" />
+      <Skeleton variant="rectangular" width={200} height={100} />
+    </div>
+  )
+}`}
+/>

@@ -1,0 +1,26 @@
+---
+title: "Color Picker"
+description: "A color selection input with a swatch trigger and color palette popover."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Color Picker"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Color Picker provides a swatch button that opens a color palette for selection.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-colorpicker pm-colorpicker--md">\n  <button type="button" class="pm-colorpicker__swatch" aria-label="Choose color" style="background-color:#3b82f6"></button>\n</div>`}
+  reactCode={`import { Colorpicker } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Colorpicker />\n}`}
+/>

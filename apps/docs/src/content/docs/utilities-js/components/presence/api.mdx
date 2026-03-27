@@ -1,0 +1,18 @@
+---
+title: "Presence"
+description: "Manages mount/unmount animation lifecycle for enter and exit transitions."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## API
+
+| Prop        | Type         | Default | Description                           |
+| ----------- | ------------ | ------- | ------------------------------------- |
+| `present`   | `boolean`    | -       | Whether the element should be visible |
+| `duration`  | `number`     | `200`   | Transition duration in milliseconds   |
+| `onEntered` | `() => void` | -       | Callback when enter completes         |
+| `onExited`  | `() => void` | -       | Callback when exit completes          |

@@ -1,0 +1,30 @@
+---
+title: "Number Input"
+description: "A numeric input with increment and decrement stepper buttons for precise number entry."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Props
+
+| Prop       | Type                                  | Default     | Description    |
+| ---------- | ------------------------------------- | ----------- | -------------- |
+| `variant`  | `"outline" \| "filled" \| "unstyled"` | `"outline"` | Visual variant |
+| `size`     | `"xs" \| "sm" \| "md" \| "lg"`        | `"md"`      | Input size     |
+| `invalid`  | `boolean`                             | `false`     | Invalid state  |
+| `disabled` | `boolean`                             | `false`     | Disabled state |
+| `min`      | `number`                              | -           | Minimum value  |
+| `max`      | `number`                              | -           | Maximum value  |
+| `step`     | `number`                              | `1`         | Step increment |
+
+## CSS Classes
+
+| Class                     | Description        |
+| ------------------------- | ------------------ |
+| `pm-num-input`            | Wrapper base class |
+| `pm-num-input__stepper`   | Stepper container  |
+| `pm-num-input__increment` | Increment button   |
+| `pm-num-input__decrement` | Decrement button   |

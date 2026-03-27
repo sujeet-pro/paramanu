@@ -1,0 +1,32 @@
+---
+title: "Embed"
+description: "A responsive container for iframes with configurable aspect ratios."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Embed"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Embed provides a responsive container for iframes with configurable aspect ratios. The iframe is absolutely positioned to fill the container.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-embed pm-embed--16-9">
+  <iframe class="pm-embed__iframe" src="https://example.com" title="Example"></iframe>
+</div>`}
+  reactCode={`import { Embed } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Embed ratio="16/9" src="https://example.com" title="Example" />
+}`}
+/>

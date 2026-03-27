@@ -1,0 +1,30 @@
+---
+title: "Back to Top"
+description: "A fixed-position button that scrolls the page back to the top."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Back to Top"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Back to Top button provides a quick way to scroll to the top of the page, appearing after the user scrolls down.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button class="pm-btt pm-btt--md pm-btt--bottom-right pm-btt--visible" type="button" aria-label="Back to top">&uarr;</button>`}
+  reactCode={`import { Btt } from "@paramanu/navigation-react"
+
+export default function App() {
+  return <Btt visible />
+}`}
+/>

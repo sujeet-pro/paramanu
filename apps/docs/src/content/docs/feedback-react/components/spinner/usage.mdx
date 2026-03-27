@@ -1,0 +1,57 @@
+---
+title: "Spinner"
+description: "Animated loading spinner for indeterminate loading states."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Spinner"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Spinner displays an animated loading indicator with a visually hidden "Loading" label for accessibility.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-spinner pm-spinner--md pm-spinner--primary" role="status">
+  <span class="sr-only">Loading</span>
+</div>`}
+  reactCode={`import { Spinner } from "@paramanu/feedback-react"
+
+export default function App() {
+  return <Spinner />
+}`}
+/>
+
+## Sizes
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 16px; align-items: center;">
+  <div class="pm-spinner pm-spinner--xs pm-spinner--primary" role="status"></div>
+  <div class="pm-spinner pm-spinner--sm pm-spinner--primary" role="status"></div>
+  <div class="pm-spinner pm-spinner--md pm-spinner--primary" role="status"></div>
+  <div class="pm-spinner pm-spinner--lg pm-spinner--primary" role="status"></div>
+  <div class="pm-spinner pm-spinner--xl pm-spinner--primary" role="status"></div>
+</div>`}
+  reactCode={`import { Spinner } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+      <Spinner size="xs" />
+      <Spinner size="sm" />
+      <Spinner size="md" />
+      <Spinner size="lg" />
+      <Spinner size="xl" />
+    </div>
+  )
+}`}
+/>

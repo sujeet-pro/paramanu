@@ -1,0 +1,31 @@
+---
+title: "Group"
+description: "A grouping layout for related elements like buttons, with optional attached borders and grow behavior."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+| Prop          | Type                         | Default        | Description            |
+| ------------- | ---------------------------- | -------------- | ---------------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Direction              |
+| `gap`         | `SpacingScale`               | --             | Gap                    |
+| `attached`    | `boolean`                    | `false`        | No gap, shared borders |
+| `wrap`        | `boolean`                    | `false`        | Allow wrapping         |
+| `grow`        | `boolean`                    | `false`        | Children grow          |
+| `align`       | `FlexAlign`                  | --             | Align                  |
+| `justify`     | `FlexJustify`                | --             | Justify                |
+
+## CSS Classes
+
+| Class                  | Purpose    |
+| ---------------------- | ---------- |
+| `pm-group`             | Base       |
+| `pm-group--horizontal` | Horizontal |
+| `pm-group--vertical`   | Vertical   |
+| `pm-group--attached`   | Attached   |
+| `pm-group--grow`       | Grow       |

@@ -1,0 +1,38 @@
+---
+title: "Skip Nav Link"
+description: "A visually hidden link that becomes visible on focus, allowing keyboard users to skip navigation."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Skip Nav Link"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Skip Nav Link is an accessibility component that lets keyboard users bypass repetitive navigation to reach main content.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<a href="#main-content" class="pm-skip-link">Skip to main content</a>
+<nav><!-- navigation --></nav>
+<main id="main-content">Main content</main>`}
+  reactCode={`import { SkipLink } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <>
+      <SkipLink />
+      <nav>{/* navigation */}</nav>
+      <main id="main-content">Main content</main>
+    </>
+  )
+}`}
+/>

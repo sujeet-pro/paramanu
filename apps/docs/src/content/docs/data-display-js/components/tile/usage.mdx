@@ -1,0 +1,60 @@
+---
+title: "Tile"
+description: "An interactive, clickable card-like surface used for selection or navigation."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Tile"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Tiles are interactive, clickable surfaces rendered as buttons. Use them for selection grids, dashboard widgets, or navigation cards.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button type="button" class="pm-tile pm-tile--outline pm-tile--md">Select this option</button>`}
+  reactCode={`import { Tile } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Tile variant="outline">Select this option</Tile>
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<button type="button" class="pm-tile pm-tile--outline pm-tile--md">Outline</button>
+<button type="button" class="pm-tile pm-tile--filled pm-tile--md">Filled</button>
+<button type="button" class="pm-tile pm-tile--ghost pm-tile--md">Ghost</button>`}
+  reactCode={`import { Tile } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <>
+      <Tile variant="outline">Outline</Tile>
+      <Tile variant="filled">Filled</Tile>
+      <Tile variant="ghost">Ghost</Tile>
+    </>
+  )
+}`}
+/>
+
+## Selected State
+
+<ComponentPreview
+  htmlCode={`<button type="button" class="pm-tile pm-tile--outline pm-tile--md pm-tile--selected" aria-selected="true">Selected</button>`}
+  reactCode={`import { Tile } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Tile selected>Selected</Tile>
+}`}
+/>

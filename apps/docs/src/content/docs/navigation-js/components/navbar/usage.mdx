@@ -1,0 +1,92 @@
+---
+title: "Navbar"
+description: "A responsive navigation bar for site-wide navigation with brand, links, and toggle support."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Navbar"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Navbar component provides a horizontal navigation bar with support for brand elements, link sections, and a mobile toggle button.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<nav class="pm-navbar pm-navbar--default pm-navbar--static">
+  <div class="pm-navbar__inner">
+    <div class="pm-navbar__section pm-navbar__section--start">
+      <div class="pm-navbar__brand">Brand</div>
+    </div>
+    <div class="pm-navbar__section pm-navbar__section--end">
+      <a href="#">Link</a>
+    </div>
+  </div>
+</nav>`}
+  reactCode={`import { Navbar, NavbarInner, NavbarSection, NavbarBrand } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <Navbar>
+      <NavbarInner>
+        <NavbarSection align="start">
+          <NavbarBrand>Brand</NavbarBrand>
+        </NavbarSection>
+        <NavbarSection align="end">
+          <a href="#">Link</a>
+        </NavbarSection>
+      </NavbarInner>
+    </Navbar>
+  )
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<nav class="pm-navbar pm-navbar--floating pm-navbar--static">
+  <div class="pm-navbar__inner">
+    <div class="pm-navbar__section pm-navbar__section--start">
+      <div class="pm-navbar__brand">Floating</div>
+    </div>
+  </div>
+</nav>
+
+<nav class="pm-navbar pm-navbar--bordered pm-navbar--static">
+  <div class="pm-navbar__inner">
+    <div class="pm-navbar__section pm-navbar__section--start">
+      <div class="pm-navbar__brand">Bordered</div>
+    </div>
+  </div>
+</nav>`}
+  reactCode={`import { Navbar, NavbarInner, NavbarSection, NavbarBrand } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <>
+      <Navbar variant="floating">
+        <NavbarInner>
+          <NavbarSection align="start">
+            <NavbarBrand>Floating</NavbarBrand>
+          </NavbarSection>
+        </NavbarInner>
+      </Navbar>
+      <Navbar variant="bordered">
+        <NavbarInner>
+          <NavbarSection align="start">
+            <NavbarBrand>Bordered</NavbarBrand>
+          </NavbarSection>
+        </NavbarInner>
+      </Navbar>
+    </>
+  )
+}`}
+/>

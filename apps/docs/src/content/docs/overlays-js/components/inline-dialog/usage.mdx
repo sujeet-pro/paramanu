@@ -1,0 +1,47 @@
+---
+title: "Inline Dialog"
+description: "A dialog that appears inline near its trigger, without a backdrop overlay."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Inline Dialog"
+---
+
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+## Overview
+
+InlineDlg renders a dialog panel inline within the page flow, positioned near its trigger element. Unlike modal dialogs, it does not use a backdrop or trap focus.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```html
+    <button type="button">Edit</button>
+    <div class="pm-inline-dlg pm-inline-dlg--visible" role="dialog">
+      <div class="pm-inline-dlg__body">
+        <p>Edit your settings here.</p>
+      </div>
+    </div>
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { InlineDlg, InlineDlgBody } from "@paramanu/overlays-react"
+
+    <InlineDlg visible>
+      <InlineDlgBody>
+        <p>Edit your settings here.</p>
+      </InlineDlgBody>
+    </InlineDlg>
+    ```
+
+</TabItem>
+</Tabs>

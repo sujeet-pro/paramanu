@@ -1,0 +1,22 @@
+---
+title: "Search Input"
+description: "A search input field with a search icon and optional clear button for search queries."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+| Feature         | Detail                                   |
+| --------------- | ---------------------------------------- |
+| `role="search"` | Wrapper uses search landmark             |
+| `type="search"` | Input uses semantic search type          |
+| Clear button    | Labeled with `aria-label="Clear search"` |
+
+## Best Practices
+
+- Use `role="search"` on the wrapper for screen reader navigation.
+- Provide a clear button when the input has a value.

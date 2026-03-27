@@ -1,0 +1,78 @@
+---
+title: "Flex"
+description: "A flexbox layout component for arranging items in rows or columns with gap, alignment, and wrapping controls."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Flex"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Flex provides a convenient wrapper around CSS flexbox with props for direction, alignment, justification, wrapping, and gap.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-flex pm-flex--gap-4">
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 1</div>
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 2</div>
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 3</div>
+</div>`}
+  reactCode={`import { Flex } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Flex gap="4">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </Flex>
+  )
+}`}
+/>
+
+## Column Direction
+
+<ComponentPreview
+  htmlCode={`<div class="pm-flex pm-flex--col pm-flex--gap-4">
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 1</div>
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 2</div>
+</div>`}
+  reactCode={`import { Flex } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Flex direction="column" gap="4">
+      <div>Item 1</div>
+      <div>Item 2</div>
+    </Flex>
+  )
+}`}
+/>
+
+## Alignment
+
+<ComponentPreview
+  htmlCode={`<div class="pm-flex pm-flex--align-center pm-flex--justify-between pm-flex--gap-4">
+  <div style="background: #e2e8f0; padding: 8px 16px;">Start</div>
+  <div style="background: #e2e8f0; padding: 8px 16px;">End</div>
+</div>`}
+  reactCode={`import { Flex } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Flex align="center" justify="between" gap="4">
+      <div>Start</div>
+      <div>End</div>
+    </Flex>
+  )
+}`}
+/>

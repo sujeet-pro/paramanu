@@ -1,0 +1,33 @@
+---
+title: "Password Input"
+description: "A password input field with a toggle button to show or hide the entered value."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Password Input"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Password Input wraps a standard input with a visibility toggle, allowing users to reveal or conceal their password.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-pwd-input pm-pwd-input--outline pm-pwd-input--md">\n  <input class="pm-input pm-input--outline pm-input--md" type="password" placeholder="Enter password..." />\n  <button type="button" class="pm-pwd-input__toggle" aria-label="Show password">Show</button>\n</div>`}
+  reactCode={`import { PwdInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <PwdInput placeholder="Enter password..." />\n}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div class="pm-pwd-input pm-pwd-input--filled pm-pwd-input--md">\n  <input class="pm-input pm-input--filled pm-input--md" type="password" placeholder="Filled" />\n  <button type="button" class="pm-pwd-input__toggle" aria-label="Show password">Show</button>\n</div>`}
+  reactCode={`import { PwdInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <PwdInput variant="outline" placeholder="Outline" />\n      <PwdInput variant="filled" placeholder="Filled" />\n    </>\n  )\n}`}
+/>

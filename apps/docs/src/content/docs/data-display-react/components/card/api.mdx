@@ -1,0 +1,41 @@
+---
+title: "Card"
+description: "A container for grouping related content with optional header, body, footer, and media sections."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Props
+
+| Prop          | Type                                             | Default      | Description                      |
+| ------------- | ------------------------------------------------ | ------------ | -------------------------------- |
+| `variant`     | `"elevated" \| "outline" \| "filled" \| "ghost"` | `"elevated"` | Visual style variant             |
+| `size`        | `"sm" \| "md" \| "lg"`                           | `"md"`       | Controls internal padding        |
+| `interactive` | `boolean`                                        | `false`      | Enables hover/focus interactions |
+| `fullWidth`   | `boolean`                                        | `false`      | Stretches to fill parent width   |
+| `horizontal`  | `boolean`                                        | `false`      | Horizontal (row) layout          |
+
+## Sub-components
+
+- `CardHeader` - Header section
+- `CardBody` - Main content area
+- `CardFooter` - Footer section
+- `CardMedia` - Media container (accepts `position` prop)
+
+## CSS Classes
+
+| Class                  | Description         |
+| ---------------------- | ------------------- |
+| `pm-card`              | Base card class     |
+| `pm-card--{variant}`   | Variant modifier    |
+| `pm-card--{size}`      | Size modifier       |
+| `pm-card--interactive` | Interactive state   |
+| `pm-card--full-width`  | Full width modifier |
+| `pm-card--horizontal`  | Horizontal layout   |
+| `pm-card__header`      | Header element      |
+| `pm-card__body`        | Body element        |
+| `pm-card__footer`      | Footer element      |
+| `pm-card__media`       | Media element       |

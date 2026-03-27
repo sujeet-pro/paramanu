@@ -1,0 +1,36 @@
+---
+title: "Center"
+description: "A layout component that centers its child both horizontally and vertically using flexbox."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Center"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Center uses flexbox to center its child on both axes.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-center" style="height: 200px; border: 1px dashed #ccc;">
+  <div style="background: #e2e8f0; padding: 16px;">Centered</div>
+</div>`}
+  reactCode={`import { Center } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Center style={{ height: 200, border: "1px dashed #ccc" }}>
+      <div>Centered</div>
+    </Center>
+  )
+}`}
+/>

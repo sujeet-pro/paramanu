@@ -1,0 +1,21 @@
+---
+title: "Banner"
+description: "Full-width message banner for announcements at the top or bottom of the page."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+| Prop          | Type                                           | Default  | Description            |
+| ------------- | ---------------------------------------------- | -------- | ---------------------- |
+| `variant`     | `"info" \| "success" \| "warning" \| "danger"` | `"info"` | Color variant          |
+| `sticky`      | `boolean`                                      | `false`  | Stick to viewport edge |
+| `dismissible` | `boolean`                                      | `false`  | Show close button      |
+| `position`    | `"top" \| "bottom"`                            | `"top"`  | Viewport position      |
+| `icon`        | `ReactNode`                                    | --       | Icon element           |
+| `actions`     | `ReactNode`                                    | --       | Action buttons         |
+| `onClose`     | `() => void`                                   | --       | Dismiss callback       |

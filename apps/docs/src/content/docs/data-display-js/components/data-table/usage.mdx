@@ -1,0 +1,60 @@
+---
+title: "Data Table"
+description: "A feature-rich table with toolbar, sorting, pagination, and row selection."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Data Table"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Data Table extends the basic Table with toolbar, sorting headers, pagination, and row selection capabilities.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-datatable pm-datatable--simple pm-datatable--md">
+  <div class="pm-datatable__toolbar">Search</div>
+  <table class="pm-datatable__table">
+    <thead>
+      <tr class="pm-datatable__row">
+        <th class="pm-datatable__header-cell">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="pm-datatable__row">
+        <td class="pm-datatable__cell">Alice</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pm-datatable__pagination">Page 1</div>
+</div>`}
+  reactCode={`import { Datatable, DatatableToolbar, DatatableHeaderCell, DatatableRow, DatatableCell, DatatablePagination } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <Datatable>
+      <DatatableToolbar>Search</DatatableToolbar>
+      <table>
+        <thead>
+          <DatatableRow>
+            <DatatableHeaderCell sortable sortDirection="asc">Name</DatatableHeaderCell>
+          </DatatableRow>
+        </thead>
+        <tbody>
+          <DatatableRow><DatatableCell>Alice</DatatableCell></DatatableRow>
+        </tbody>
+      </table>
+      <DatatablePagination>Page 1</DatatablePagination>
+    </Datatable>
+  )
+}`}
+/>

@@ -1,0 +1,26 @@
+---
+title: "Radio Card"
+description: "A card-style radio button for visually rich single-select options."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Radio Card"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Radio Card renders a radio button inside a card layout for visually rich single-selection experiences.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<label class="pm-radio-card pm-radio-card--md">\n  <input type="radio" class="pm-radio-card__input" name="plan" value="basic" />\n  <div class="pm-radio-card__content">Basic</div>\n</label>\n<label class="pm-radio-card pm-radio-card--md">\n  <input type="radio" class="pm-radio-card__input" name="plan" value="pro" />\n  <div class="pm-radio-card__content">Pro</div>\n</label>`}
+  reactCode={`import { RadioCard } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <RadioCard name="plan" value="basic">Basic</RadioCard>\n      <RadioCard name="plan" value="pro">Pro</RadioCard>\n    </>\n  )\n}`}
+/>

@@ -1,0 +1,30 @@
+---
+title: "Code"
+description: "Inline and block code display with syntax highlighting support, line numbers, and copy button."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+| Prop              | Type                                                                     | Default     | Description                |
+| ----------------- | ------------------------------------------------------------------------ | ----------- | -------------------------- |
+| `block`           | `boolean`                                                                | `false`     | Block mode (`<pre><code>`) |
+| `size`            | `"xs" \| "sm" \| "md" \| "lg"`                                           | --          | Font size                  |
+| `variant`         | `"default" \| "outline"`                                                 | `"default"` | Visual variant             |
+| `color`           | `"neutral" \| "primary" \| "danger" \| "success" \| "warning" \| "info"` | --          | Color                      |
+| `withLineNumbers` | `boolean`                                                                | `false`     | Line numbers (block)       |
+| `withCopyBtn`     | `boolean`                                                                | `false`     | Copy button (block)        |
+| `language`        | `string`                                                                 | --          | Language hint              |
+
+## CSS Classes
+
+| Class                         | Purpose      |
+| ----------------------------- | ------------ |
+| `pm-code`                     | Inline code  |
+| `pm-code-block`               | Block code   |
+| `pm-code-block--line-numbers` | Line numbers |
+| `pm-code-block--copy`         | Copy button  |

@@ -1,0 +1,54 @@
+---
+title: "Tree View"
+description: "A hierarchical tree structure for navigating nested data like file systems."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Tree View"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Tree View displays hierarchical data with expandable/collapsible branches and selectable items.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<ul class="pm-tree pm-tree--md" role="tree">
+  <li class="pm-tree__branch pm-tree__branch--expanded" role="treeitem" aria-expanded="true">
+    <div class="pm-tree__item-content">
+      <span class="pm-tree__indicator pm-tree__indicator--expanded" aria-hidden="true"></span>
+      src
+    </div>
+    <ul class="pm-tree__group" role="group">
+      <li class="pm-tree__item" role="treeitem">index.ts</li>
+    </ul>
+  </li>
+  <li class="pm-tree__item" role="treeitem">README.md</li>
+</ul>`}
+  reactCode={`import { Tree, TreeBranch, TreeItem, TreeItemContent, TreeIndicator, TreeGroup } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <Tree>
+      <TreeBranch expanded>
+        <TreeItemContent>
+          <TreeIndicator expanded />
+          src
+        </TreeItemContent>
+        <TreeGroup>
+          <TreeItem>index.ts</TreeItem>
+        </TreeGroup>
+      </TreeBranch>
+      <TreeItem>README.md</TreeItem>
+    </Tree>
+  )
+}`}
+/>

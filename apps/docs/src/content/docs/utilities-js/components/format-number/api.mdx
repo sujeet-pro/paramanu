@@ -1,0 +1,20 @@
+---
+title: "Format Number"
+description: "Locale-aware number formatting using the Intl.NumberFormat API."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## API
+
+| Prop       | Type                                      | Default      | Description            |
+| ---------- | ----------------------------------------- | ------------ | ---------------------- |
+| `value`    | `number`                                  | -            | The number to format   |
+| `locale`   | `string`                                  | `"en-US"`    | BCP 47 language tag    |
+| `style`    | `"decimal" \| "currency" \| "percent"`    | `"decimal"`  | Formatting style       |
+| `currency` | `string`                                  | -            | ISO 4217 currency code |
+| `notation` | `"standard" \| "compact" \| "scientific"` | `"standard"` | Notation style         |
+| `as`       | `ElementType`                             | `"span"`     | HTML element to render |

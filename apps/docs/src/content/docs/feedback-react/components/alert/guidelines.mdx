@@ -1,0 +1,21 @@
+---
+title: "Alert"
+description: "Displays a prominent feedback message with variant colors, icons, and optional dismiss button."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+- Uses `role="alert"` for warning/danger variants (assertive announcements)
+- Uses `role="status"` for info/success variants (polite announcements)
+- Close button has `aria-label="Close"`
+
+## Best Practices
+
+- Use `info` for general information, `success` for confirmations, `warning` for caution, `danger` for errors
+- Provide both title and description for full context
+- Use `dismissible` for non-critical alerts users can close

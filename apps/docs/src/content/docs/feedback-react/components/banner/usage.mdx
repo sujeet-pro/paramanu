@@ -1,0 +1,55 @@
+---
+title: "Banner"
+description: "Full-width message banner for announcements at the top or bottom of the page."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Banner"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Banner displays a full-width message with optional icon, actions, and dismiss button. Can be sticky-positioned.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-banner pm-banner--info pm-banner--top" role="status">
+  <div class="pm-banner__content">This is a banner message.</div>
+</div>`}
+  reactCode={`import { Banner } from "@paramanu/feedback-react"
+
+export default function App() {
+  return <Banner variant="info">This is a banner message.</Banner>
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; flex-direction: column; gap: 8px;">
+  <div class="pm-banner pm-banner--info pm-banner--top" role="status"><div class="pm-banner__content">Info</div></div>
+  <div class="pm-banner pm-banner--success pm-banner--top" role="status"><div class="pm-banner__content">Success</div></div>
+  <div class="pm-banner pm-banner--warning pm-banner--top" role="status"><div class="pm-banner__content">Warning</div></div>
+  <div class="pm-banner pm-banner--danger pm-banner--top" role="status"><div class="pm-banner__content">Danger</div></div>
+</div>`}
+  reactCode={`import { Banner } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+      <Banner variant="info">Info</Banner>
+      <Banner variant="success">Success</Banner>
+      <Banner variant="warning">Warning</Banner>
+      <Banner variant="danger">Danger</Banner>
+    </div>
+  )
+}`}
+/>

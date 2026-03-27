@@ -1,0 +1,20 @@
+---
+title: "NProgress"
+description: "Slim progress bar at the top of the page for route transitions and async operations."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+- Uses `role="progressbar"` with `aria-valuenow`, `aria-valuemin`, `aria-valuemax`
+- Value expressed as 0-100 for screen readers
+
+## Best Practices
+
+- Use for page-level navigation transitions
+- Use `useNProgress` hook for automatic trickle behavior
+- Call `start()` on navigation begin and `done()` on completion

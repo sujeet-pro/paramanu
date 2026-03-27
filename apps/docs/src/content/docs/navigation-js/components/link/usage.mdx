@@ -1,0 +1,49 @@
+---
+title: "Link"
+description: "A styled anchor element for navigation between pages or external resources."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Link"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Link component provides styled anchor elements with variants for inline, subtle, and navigation links.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<a href="#" class="pm-link pm-link--default">Default Link</a>
+<a href="#" class="pm-link pm-link--subtle">Subtle Link</a>
+<a href="#" class="pm-link pm-link--nav">Nav Link</a>`}
+  reactCode={`import { Link } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <>
+      <Link href="#">Default Link</Link>
+      <Link href="#" variant="subtle">Subtle Link</Link>
+      <Link href="#" variant="nav">Nav Link</Link>
+    </>
+  )
+}`}
+/>
+
+## External Link
+
+<ComponentPreview
+  htmlCode={`<a href="https://example.com" class="pm-link pm-link--default pm-link--external" target="_blank" rel="noopener noreferrer">External</a>`}
+  reactCode={`import { Link } from "@paramanu/navigation-react"
+
+export default function App() {
+  return <Link href="https://example.com" external>External</Link>
+}`}
+/>

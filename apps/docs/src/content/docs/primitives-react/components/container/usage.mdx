@@ -1,0 +1,45 @@
+---
+title: "Container"
+description: "A centered, max-width container for constraining page content width."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Container"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Container centers content horizontally and constrains it to a maximum width. It supports named sizes and a fluid mode.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-container pm-container--lg">
+  <p>Content constrained to lg width</p>
+</div>`}
+  reactCode={`import { Container } from "@paramanu/primitives-react"
+
+export default function App() {
+  return <Container size="lg"><p>Content constrained to lg width</p></Container>
+}`}
+/>
+
+## Fluid
+
+<ComponentPreview
+  htmlCode={`<div class="pm-container pm-container--fluid">
+  <p>Full-width fluid container</p>
+</div>`}
+  reactCode={`import { Container } from "@paramanu/primitives-react"
+
+export default function App() {
+  return <Container fluid><p>Full-width fluid container</p></Container>
+}`}
+/>

@@ -1,0 +1,14 @@
+---
+title: "Locale Provider"
+description: "Manages the application locale for internationalization and number formatting."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+- Use BCP 47 language tags (e.g., `"en-US"`, `"de-DE"`, `"ja"`)
+- Sets the `lang` attribute on `document.documentElement` by default
+- FormatNumber and FormatByte inherit the locale from context
+- The `useLocale` hook provides read/write access to the current locale

@@ -1,0 +1,40 @@
+---
+title: "Collapsible"
+description: "A single expandable/collapsible section with trigger and content."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Collapsible"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Collapsible provides a single toggle to show or hide a content section with controlled and uncontrolled modes.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-collapsible pm-collapsible--md pm-collapsible--open">
+  <button class="pm-collapsible__trigger pm-collapsible__trigger--md pm-collapsible__trigger--open" type="button" aria-expanded="true" aria-controls="content">Toggle</button>
+  <div class="pm-collapsible__content pm-collapsible__content--md pm-collapsible__content--open" id="content" role="region">
+    <div class="pm-collapsible__content-inner">Collapsible content.</div>
+  </div>
+</div>`}
+  reactCode={`import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@paramanu/disclosure-react"
+
+export default function App() {
+  return (
+    <Collapsible defaultOpen>
+      <CollapsibleTrigger>Toggle</CollapsibleTrigger>
+      <CollapsibleContent>Collapsible content.</CollapsibleContent>
+    </Collapsible>
+  )
+}`}
+/>

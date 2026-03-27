@@ -1,0 +1,44 @@
+---
+title: "Tour"
+description: "A guided tour component that highlights UI elements with step-by-step popover instructions."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Tour"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Tour guides users through interface features with step-by-step popovers, overlays, and spotlight highlighting.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-tour pm-tour--open">
+  <div class="pm-tour__overlay pm-tour__overlay--visible" aria-hidden="true"></div>
+  <div class="pm-tour__step pm-tour__step--bottom pm-tour__step--default pm-tour__step--active" role="dialog">
+    <h3>Welcome!</h3>
+    <p>This is the first step.</p>
+  </div>
+</div>`}
+  reactCode={`import { Tour, TourStep, TourOverlay } from "@paramanu/disclosure-react"
+
+export default function App() {
+  return (
+    <Tour open>
+      <TourOverlay visible />
+      <TourStep placement="bottom" active>
+        <h3>Welcome!</h3>
+        <p>This is the first step.</p>
+      </TourStep>
+    </Tour>
+  )
+}`}
+/>

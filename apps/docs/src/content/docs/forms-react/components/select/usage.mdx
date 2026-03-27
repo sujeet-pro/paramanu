@@ -1,0 +1,26 @@
+---
+title: "Select"
+description: "A custom dropdown select component with keyboard navigation and ARIA support."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Select"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Select component provides a custom dropdown with a trigger button and a listbox of options.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-select pm-select--outline pm-select--md">\n  <button type="button" class="pm-select__trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox">Select...</button>\n  <div class="pm-select__listbox" role="listbox">\n    <div role="option">Apple</div>\n    <div role="option">Banana</div>\n  </div>\n</div>`}
+  reactCode={`import { Select } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <Select placeholder="Select...">\n      <div role="option">Apple</div>\n      <div role="option">Banana</div>\n    </Select>\n  )\n}`}
+/>

@@ -1,0 +1,26 @@
+---
+title: "Carousel"
+description: "A slideshow component for cycling through a series of content panels."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+| Key          | Action         |
+| ------------ | -------------- |
+| `ArrowLeft`  | Previous slide |
+| `ArrowRight` | Next slide     |
+
+- Root uses `role="region"` with `aria-roledescription="carousel"`.
+- Slides use `role="group"` with `aria-roledescription="slide"`.
+- Controls use descriptive `aria-label`.
+- Indicators use `role="tab"` with `aria-selected`.
+
+## Best Practices
+
+- Pause autoplay when the carousel has focus.
+- Provide both arrow controls and indicator dots.

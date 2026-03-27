@@ -1,0 +1,29 @@
+---
+title: "Toast"
+description: "Brief, temporary notification that appears and auto-dismisses."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Toast Props
+
+| Prop          | Type                                           | Default  | Description           |
+| ------------- | ---------------------------------------------- | -------- | --------------------- |
+| `variant`     | `"info" \| "success" \| "warning" \| "danger"` | `"info"` | Status variant        |
+| `dismissible` | `boolean`                                      | `false`  | Show close button     |
+| `entering`    | `boolean`                                      | `false`  | Enter animation state |
+| `exiting`     | `boolean`                                      | `false`  | Exit animation state  |
+| `icon`        | `ReactNode`                                    | --       | Custom icon           |
+| `title`       | `ReactNode`                                    | --       | Toast title           |
+| `message`     | `ReactNode`                                    | --       | Toast message         |
+| `duration`    | `number`                                       | --       | Auto-dismiss in ms    |
+| `onClose`     | `() => void`                                   | --       | Close callback        |
+
+## ToastContainer Props
+
+| Prop        | Type             | Default       | Description     |
+| ----------- | ---------------- | ------------- | --------------- |
+| `placement` | `ToastPlacement` | `"top-right"` | Screen position |

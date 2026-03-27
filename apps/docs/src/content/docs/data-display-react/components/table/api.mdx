@@ -1,0 +1,32 @@
+---
+title: "Table"
+description: "A styled HTML table with variants, sizes, and features like striped rows and sticky headers."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Props
+
+| Prop           | Type                    | Default    | Description                |
+| -------------- | ----------------------- | ---------- | -------------------------- |
+| `variant`      | `"simple" \| "striped"` | `"simple"` | Visual style               |
+| `size`         | `"sm" \| "md" \| "lg"`  | `"md"`     | Cell padding and font size |
+| `layout`       | `"auto" \| "fixed"`     | `"auto"`   | Column width algorithm     |
+| `hoverable`    | `boolean`               | `false`    | Row hover highlight        |
+| `bordered`     | `boolean`               | `false`    | Cell borders               |
+| `stickyHeader` | `boolean`               | `false`    | Sticky header row          |
+
+## CSS Classes
+
+| Class                   | Description        |
+| ----------------------- | ------------------ |
+| `pm-table`              | Base table class   |
+| `pm-table__container`   | Scrollable wrapper |
+| `pm-table__head`        | `<thead>` element  |
+| `pm-table__body`        | `<tbody>` element  |
+| `pm-table__row`         | `<tr>` element     |
+| `pm-table__header-cell` | `<th>` element     |
+| `pm-table__cell`        | `<td>` element     |

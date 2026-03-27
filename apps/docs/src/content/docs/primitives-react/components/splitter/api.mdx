@@ -1,0 +1,26 @@
+---
+title: "Splitter"
+description: "A resizable split-pane layout with draggable handles for horizontal or vertical content division."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props (Splitter)
+
+| Prop          | Type                         | Default        | Description      |
+| ------------- | ---------------------------- | -------------- | ---------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Split direction  |
+| `disabled`    | `boolean`                    | `false`        | Disable resizing |
+| `onResize`    | `(sizes: number[]) => void`  | --             | Resize callback  |
+
+## CSS Classes
+
+| Class                   | Purpose   |
+| ----------------------- | --------- |
+| `pm-splitter`           | Container |
+| `pm-splitter__panel`    | Panel     |
+| `pm-splitter__handle`   | Handle    |
+| `pm-splitter--disabled` | Disabled  |

@@ -1,0 +1,61 @@
+---
+title: "Stack"
+description: "A layout component for stacking items vertically or horizontally with gap and optional dividers."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Stack"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Stack arranges children in a vertical or horizontal direction with consistent spacing. HStack and VStack shorthands are also available.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-stack pm-stack--vertical pm-stack--gap-4">
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 1</div>
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 2</div>
+  <div style="background: #e2e8f0; padding: 8px 16px;">Item 3</div>
+</div>`}
+  reactCode={`import { Stack } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Stack gap="4">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </Stack>
+  )
+}`}
+/>
+
+## Horizontal
+
+<ComponentPreview
+  htmlCode={`<div class="pm-stack pm-stack--horizontal pm-stack--gap-4">
+  <div style="background: #e2e8f0; padding: 8px 16px;">A</div>
+  <div style="background: #e2e8f0; padding: 8px 16px;">B</div>
+  <div style="background: #e2e8f0; padding: 8px 16px;">C</div>
+</div>`}
+  reactCode={`import { HStack } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <HStack gap="4">
+      <div>A</div>
+      <div>B</div>
+      <div>C</div>
+    </HStack>
+  )
+}`}
+/>

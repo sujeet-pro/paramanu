@@ -1,0 +1,26 @@
+---
+title: "Combobox"
+description: "A searchable dropdown that combines a text input with a filterable list of options."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Combobox"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Combobox provides a text input that filters a dropdown list of suggestions as the user types.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-combobox pm-combobox--outline pm-combobox--md">\n  <input class="pm-combobox__input" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-haspopup="listbox" placeholder="Search..." />\n  <div class="pm-combobox__listbox" role="listbox">\n    <div role="option">Apple</div>\n    <div role="option">Banana</div>\n  </div>\n</div>`}
+  reactCode={`import { Combobox } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <Combobox placeholder="Search...">\n      <div role="option">Apple</div>\n      <div role="option">Banana</div>\n    </Combobox>\n  )\n}`}
+/>

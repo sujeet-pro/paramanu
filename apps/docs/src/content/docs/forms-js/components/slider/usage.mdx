@@ -1,0 +1,26 @@
+---
+title: "Slider"
+description: "A range input for selecting numeric values along a track."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Slider"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Slider provides a draggable thumb on a track for selecting numeric values.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-slider pm-slider--md pm-slider--horizontal" role="slider" aria-valuemin="0" aria-valuemax="100" tabindex="0"></div>`}
+  reactCode={`import { Slider } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Slider aria-label="Volume" />\n}`}
+/>

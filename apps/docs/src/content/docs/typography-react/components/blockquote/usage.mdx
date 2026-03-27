@@ -1,0 +1,36 @@
+---
+title: "Blockquote"
+description: "A styled blockquote for quotations with optional citation, accent color, and decorative icon."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Blockquote"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Blockquote displays quoted text with optional citation attribution. Supports default, accent, and filled variants.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<blockquote class="pm-blockquote pm-blockquote--default pm-blockquote--md">
+  Life is what happens when you are busy making other plans.
+</blockquote>`}
+  reactCode={`import { Blockquote } from "@paramanu/typography-react"
+
+export default function App() {
+  return (
+    <Blockquote cite="John Lennon">
+      Life is what happens when you are busy making other plans.
+    </Blockquote>
+  )
+}`}
+/>

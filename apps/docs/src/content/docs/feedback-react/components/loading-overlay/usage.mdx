@@ -1,0 +1,63 @@
+---
+title: "Loading Overlay"
+description: "Full-area overlay with backdrop for loading states over content sections."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Loading Overlay"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Loading covers a content area with a semi-transparent backdrop and centered loading indicator.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div style="position: relative; height: 200px;">
+  <p>Content underneath</p>
+  <div class="pm-loading pm-loading--visible">
+    <div class="pm-loading__backdrop"></div>
+    <div class="pm-loading__content">Loading...</div>
+  </div>
+</div>`}
+  reactCode={`import { Loading } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ position: "relative", height: 200 }}>
+      <p>Content underneath</p>
+      <Loading visible>Loading...</Loading>
+    </div>
+  )
+}`}
+/>
+
+## With Blur
+
+<ComponentPreview
+  htmlCode={`<div style="position: relative; height: 200px;">
+  <p>Content underneath</p>
+  <div class="pm-loading pm-loading--visible pm-loading--blur">
+    <div class="pm-loading__backdrop"></div>
+    <div class="pm-loading__content">Loading...</div>
+  </div>
+</div>`}
+  reactCode={`import { Loading } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ position: "relative", height: 200 }}>
+      <p>Content underneath</p>
+      <Loading visible blur>Loading...</Loading>
+    </div>
+  )
+}`}
+/>

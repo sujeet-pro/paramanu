@@ -1,0 +1,26 @@
+---
+title: "Date Picker"
+description: "A date input with a calendar popover for selecting dates."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Date Picker"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Date Picker provides a text input with a calendar popover for selecting dates.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-datepicker pm-datepicker--outline pm-datepicker--md">\n  <input type="text" class="pm-datepicker__input" role="combobox" aria-expanded="false" aria-haspopup="dialog" placeholder="Select date..." />\n  <span class="pm-datepicker__icon" aria-hidden="true">&#128197;</span>\n</div>`}
+  reactCode={`import { Datepicker } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Datepicker placeholder="Select date..." />\n}`}
+/>

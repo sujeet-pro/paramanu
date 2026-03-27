@@ -1,0 +1,37 @@
+---
+title: "Sidebar"
+description: "A vertical navigation panel for app-level or section-level navigation."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Sidebar Props
+
+| Prop        | Type                              | Default     | Description          |
+| ----------- | --------------------------------- | ----------- | -------------------- |
+| `width`     | `"narrow" \| "default" \| "wide"` | `"default"` | Width preset         |
+| `position`  | `"left" \| "right"`               | `"left"`    | Side of the viewport |
+| `collapsed` | `boolean`                         | `false`     | Collapsed state      |
+
+## SidebarItem Props
+
+| Prop       | Type               | Default | Description       |
+| ---------- | ------------------ | ------- | ----------------- |
+| `active`   | `boolean`          | `false` | Active state      |
+| `disabled` | `boolean`          | `false` | Disabled state    |
+| `indent`   | `0 \| 1 \| 2 \| 3` | `0`     | Indentation level |
+| `as`       | `"a" \| "button"`  | `"a"`   | Render element    |
+
+## CSS Classes
+
+| Class                       | Description       |
+| --------------------------- | ----------------- |
+| `pm-sidebar`                | Root element      |
+| `pm-sidebar--collapsed`     | Collapsed state   |
+| `pm-sidebar__section`       | Section container |
+| `pm-sidebar__section-label` | Section label     |
+| `pm-sidebar__item`          | Navigation item   |
+| `pm-sidebar__item--active`  | Active item       |

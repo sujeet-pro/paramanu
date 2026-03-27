@@ -1,0 +1,52 @@
+---
+title: "Steps"
+description: "A stepper component showing progress through a multi-step process."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Steps"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Steps display progress through a sequence of numbered stages with visual indicators and connectors.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-steps pm-steps--md pm-steps--horizontal" role="list" aria-label="Progress">
+  <div class="pm-steps__step pm-steps__step--complete">
+    <div class="pm-steps__indicator pm-steps__indicator--complete" aria-hidden="true">1</div>
+    <div class="pm-steps__content">Account</div>
+  </div>
+  <div class="pm-steps__connector pm-steps__connector--complete" role="presentation"></div>
+  <div class="pm-steps__step pm-steps__step--active" aria-current="step">
+    <div class="pm-steps__indicator pm-steps__indicator--active" aria-hidden="true">2</div>
+    <div class="pm-steps__content">Details</div>
+  </div>
+</div>`}
+  reactCode={`import { Steps, Step, StepIndicator, StepConnector, StepContent } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <Steps>
+      <Step status="complete">
+        <StepIndicator status="complete">1</StepIndicator>
+        <StepContent>Account</StepContent>
+      </Step>
+      <StepConnector status="complete" />
+      <Step status="active">
+        <StepIndicator status="active">2</StepIndicator>
+        <StepContent>Details</StepContent>
+      </Step>
+    </Steps>
+  )
+}`}
+/>

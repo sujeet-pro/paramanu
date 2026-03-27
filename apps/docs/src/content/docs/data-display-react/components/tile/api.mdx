@@ -1,0 +1,28 @@
+---
+title: "Tile"
+description: "An interactive, clickable card-like surface used for selection or navigation."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Props
+
+| Prop       | Type                               | Default     | Description                    |
+| ---------- | ---------------------------------- | ----------- | ------------------------------ |
+| `variant`  | `"outline" \| "filled" \| "ghost"` | `"outline"` | Visual style variant           |
+| `size`     | `"sm" \| "md" \| "lg"`             | `"md"`      | Controls padding and font size |
+| `selected` | `boolean`                          | `false`     | Selected/active state          |
+| `disabled` | `boolean`                          | `false`     | Disables interaction           |
+
+## CSS Classes
+
+| Class                | Description      |
+| -------------------- | ---------------- |
+| `pm-tile`            | Base tile class  |
+| `pm-tile--{variant}` | Variant modifier |
+| `pm-tile--{size}`    | Size modifier    |
+| `pm-tile--selected`  | Selected state   |
+| `pm-tile--disabled`  | Disabled state   |

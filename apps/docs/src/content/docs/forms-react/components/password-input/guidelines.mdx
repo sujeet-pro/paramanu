@@ -1,0 +1,22 @@
+---
+title: "Password Input"
+description: "A password input field with a toggle button to show or hide the entered value."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+| Feature        | Detail                                                           |
+| -------------- | ---------------------------------------------------------------- |
+| Toggle button  | `aria-label` updates between "Show password" and "Hide password" |
+| `aria-invalid` | Applied when `invalid` is true                                   |
+| Keyboard       | Toggle button is focusable via Tab                               |
+
+## Best Practices
+
+- Always pair with a label for the password field.
+- Use the visibility toggle to help users verify their input.

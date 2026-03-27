@@ -1,0 +1,26 @@
+---
+title: "Label"
+description: "A text label for form controls with required indicator support."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Label"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Label component provides accessible text labels for form controls.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<label class="pm-label pm-label--md">Email address</label>`}
+  reactCode={`import { Label } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Label htmlFor="email">Email address</Label>\n}`}
+/>

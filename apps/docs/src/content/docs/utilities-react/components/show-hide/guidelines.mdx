@@ -1,0 +1,14 @@
+---
+title: "Show Hide"
+description: "A CSS-driven visibility toggle that preserves DOM state."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+- Use when you need to preserve internal state while hiding content
+- Use conditional rendering (`{show && <Child />}`) when you want to fully unmount
+- `pm-show` uses `display: revert` to preserve the element's original display type
+- `pm-hide` uses `display: none`

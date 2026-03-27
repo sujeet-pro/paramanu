@@ -1,0 +1,40 @@
+---
+title: "List"
+description: "An ordered or unordered list component with configurable style type, spacing, and unstyled option."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "List"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+List renders ordered or unordered lists with configurable marker style, spacing, and an unstyled option.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<ul class="pm-list pm-list--unordered pm-list--spacing-md">
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+</ul>`}
+  reactCode={`import { List } from "@paramanu/typography-react"
+
+export default function App() {
+  return (
+    <List>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item</li>
+    </List>
+  )
+}`}
+/>

@@ -1,0 +1,19 @@
+---
+title: "Box"
+description: "A foundational layout primitive that controls display, padding, margin, overflow, and position via CSS utility classes."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+Box renders a `<div>` by default which has no semantic meaning. Use the `as` prop to render a semantically appropriate element when needed (e.g., `section`, `article`).
+
+## Best Practices
+
+- Use Box as a generic wrapper when no more specific primitive (Flex, Stack, Grid) fits.
+- Prefer spacing props (`p`, `px`, `py`, `m`, `mx`, `my`) over custom CSS for consistent spacing.
+- Use the `as` prop to render semantic HTML elements where appropriate.

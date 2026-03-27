@@ -1,0 +1,89 @@
+---
+title: "Box"
+description: "A foundational layout primitive that controls display, padding, margin, overflow, and position via CSS utility classes."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Box"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Box is the most basic layout building block. It maps common CSS layout properties to BEM modifier classes using the design token spacing scale.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-box pm-box--p-4" style="border: 1px dashed #ccc;">Box with padding</div>`}
+  reactCode={`import { Box } from "@paramanu/primitives-react"
+
+export default function App() {
+  return <Box p="4" style={{ border: "1px dashed #ccc" }}>Box with padding</Box>
+}`}
+/>
+
+## Padding
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 8px; flex-wrap: wrap;">
+  <div class="pm-box pm-box--p-2" style="border: 1px dashed #ccc;">p-2</div>
+  <div class="pm-box pm-box--p-4" style="border: 1px dashed #ccc;">p-4</div>
+  <div class="pm-box pm-box--p-6" style="border: 1px dashed #ccc;">p-6</div>
+</div>`}
+  reactCode={`import { Box } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+      <Box p="2" style={{ border: "1px dashed #ccc" }}>p-2</Box>
+      <Box p="4" style={{ border: "1px dashed #ccc" }}>p-4</Box>
+      <Box p="6" style={{ border: "1px dashed #ccc" }}>p-6</Box>
+    </div>
+  )
+}`}
+/>
+
+## Display
+
+<ComponentPreview
+  htmlCode={`<div class="pm-box pm-box--d-flex pm-box--p-4" style="border: 1px dashed #ccc; gap: 8px;">
+  <div style="background: #e2e8f0; padding: 8px;">Item 1</div>
+  <div style="background: #e2e8f0; padding: 8px;">Item 2</div>
+  <div style="background: #e2e8f0; padding: 8px;">Item 3</div>
+</div>`}
+  reactCode={`import { Box } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Box display="flex" p="4" style={{ border: "1px dashed #ccc", gap: "8px" }}>
+      <div style={{ background: "#e2e8f0", padding: "8px" }}>Item 1</div>
+      <div style={{ background: "#e2e8f0", padding: "8px" }}>Item 2</div>
+      <div style={{ background: "#e2e8f0", padding: "8px" }}>Item 3</div>
+    </Box>
+  )
+}`}
+/>
+
+## Overflow
+
+<ComponentPreview
+  htmlCode={`<div class="pm-box pm-box--p-4 pm-box--overflow-hidden" style="border: 1px dashed #ccc; width: 200px; height: 80px;">
+  This content will be clipped when it overflows.
+</div>`}
+  reactCode={`import { Box } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Box p="4" overflow="hidden" style={{ border: "1px dashed #ccc", width: 200, height: 80 }}>
+      This content will be clipped when it overflows.
+    </Box>
+  )
+}`}
+/>

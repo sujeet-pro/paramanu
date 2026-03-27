@@ -1,0 +1,58 @@
+---
+title: "Structured List"
+description: "A column-aligned list using display table layout for structured key-value data."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Structured List"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Structured List uses `display: table` for column alignment without a real `<table>` element. Useful for settings panels and configuration displays.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-struct-list pm-struct-list--md" role="table">
+  <div class="pm-struct-list__head">
+    <div class="pm-struct-list__row" role="row">
+      <div class="pm-struct-list__header-cell" role="columnheader">Name</div>
+      <div class="pm-struct-list__header-cell" role="columnheader">Value</div>
+    </div>
+  </div>
+  <div class="pm-struct-list__body">
+    <div class="pm-struct-list__row" role="row">
+      <div class="pm-struct-list__cell" role="cell">CPU</div>
+      <div class="pm-struct-list__cell" role="cell">85%</div>
+    </div>
+  </div>
+</div>`}
+  reactCode={`import { StructList, StructListHead, StructListBody, StructListRow, StructListCell, StructListHeaderCell } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <StructList>
+      <StructListHead>
+        <StructListRow>
+          <StructListHeaderCell>Name</StructListHeaderCell>
+          <StructListHeaderCell>Value</StructListHeaderCell>
+        </StructListRow>
+      </StructListHead>
+      <StructListBody>
+        <StructListRow>
+          <StructListCell>CPU</StructListCell>
+          <StructListCell>85%</StructListCell>
+        </StructListRow>
+      </StructListBody>
+    </StructList>
+  )
+}`}
+/>

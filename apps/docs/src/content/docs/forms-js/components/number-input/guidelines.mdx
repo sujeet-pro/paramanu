@@ -1,0 +1,22 @@
+---
+title: "Number Input"
+description: "A numeric input with increment and decrement stepper buttons for precise number entry."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+| Feature         | Detail                                              |
+| --------------- | --------------------------------------------------- |
+| Stepper buttons | Labeled with `aria-label` "Increment" / "Decrement" |
+| `aria-invalid`  | Applied when `invalid` is true                      |
+| Keyboard        | Arrow keys adjust the value within min/max bounds   |
+
+## Best Practices
+
+- Set `min` and `max` when the valid range is known.
+- Provide a visible label for the input.

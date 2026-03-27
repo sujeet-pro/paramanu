@@ -1,0 +1,14 @@
+---
+import Default from "@astrojs/starlight/components/MarkdownContent.astro"
+import PageTypeTabs from "./PageTypeTabs.astro"
+
+const pathname = Astro.url.pathname
+const isComponentPage = /-(js|react)\/components\//.test(pathname)
+---
+
+{isComponentPage && (
+  <div class="pm-component-page-header">
+    <PageTypeTabs />
+  </div>
+)}
+<Default {...Astro.props}><slot /></Default>

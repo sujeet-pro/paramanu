@@ -1,0 +1,30 @@
+---
+title: "Mark"
+description: "A mark component for annotating text with highlight, underline, circle, or filled styles."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Mark"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Mark annotates text with various visual styles: translucent highlight, underline, circle outline, or solid fill.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<p>This has a <mark class="pm-mark pm-mark--default">marked word</mark> in it.</p>`}
+  reactCode={`import { Mark } from "@paramanu/typography-react"
+
+export default function App() {
+  return <p>This has a <Mark>marked word</Mark> in it.</p>
+}`}
+/>

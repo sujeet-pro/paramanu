@@ -1,0 +1,29 @@
+---
+const pathname = Astro.url.pathname
+// Remove trailing slash and /paramanu base
+const path = pathname.replace(/\/$/, "").replace(/^\/paramanu/, "")
+const segments = path.split("/")
+// Last segment is the page type
+const activeTab = segments[segments.length - 1]
+// Base path is everything before the last segment
+const basePath = segments.slice(0, -1).join("/")
+
+const tabs = [
+  { label: "Usage", slug: "usage" },
+  { label: "Guidelines", slug: "guidelines" },
+  { label: "API", slug: "api" },
+  { label: "Research", slug: "research" },
+]
+---
+
+<nav class="pm-page-type-tabs" aria-label="Page sections">
+  {tabs.map((tab) => (
+    <a
+      href={`/paramanu${basePath}/${tab.slug}`}
+      class:list={[{ active: activeTab === tab.slug }]}
+      aria-current={activeTab === tab.slug ? "page" : undefined}
+    >
+      {tab.label}
+    </a>
+  ))}
+</nav>

@@ -1,0 +1,31 @@
+---
+title: "Close Btn"
+description: "A small dismiss button for alerts, dialogs, toasts, and other dismissible containers."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+Extends all native `<button>` HTML attributes.
+
+| Prop         | Type                           | Default   | Description          |
+| ------------ | ------------------------------ | --------- | -------------------- |
+| `size`       | `"xs" \| "sm" \| "md" \| "lg"` | `"md"`    | Size preset          |
+| `disabled`   | `boolean`                      | `false`   | Disabled state       |
+| `aria-label` | `string`                       | `"Close"` | Accessible label     |
+| `children`   | `ReactNode`                    | --        | Custom icon override |
+
+## CSS Classes
+
+| Class                    | Purpose          |
+| ------------------------ | ---------------- |
+| `pm-close-btn`           | Base styles      |
+| `pm-close-btn--xs`       | Extra small size |
+| `pm-close-btn--sm`       | Small size       |
+| `pm-close-btn--md`       | Medium size      |
+| `pm-close-btn--lg`       | Large size       |
+| `pm-close-btn--disabled` | Disabled state   |

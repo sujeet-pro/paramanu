@@ -3,7 +3,7 @@ title: Paramanu Design System
 description: The smallest building blocks for modern, accessible web interfaces — CSS-first, zero runtime, three ways to consume.
 template: splash
 hero:
-  tagline: The smallest building blocks for modern web interfaces. CSS-first, accessible by default, three ways to consume.
+  tagline: The smallest building blocks for modern web interfaces. CSS-first, accessible by default, framework-agnostic.
   actions:
     - text: Get Started
       link: /getting-started/installation/
@@ -14,7 +14,7 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid, Tabs, TabItem, LinkCard } from "@astrojs/starlight/components"
+import { Tabs, TabItem } from "@astrojs/starlight/components"
 
 <div class="pm-landing">
 
@@ -29,36 +29,131 @@ This design system carries the same idea: **the smallest, composable building bl
 </section>
 
 <section class="pm-section">
-
-## Why Paramanu?
-
-<CardGrid>
-  <Card title="CSS-First, Zero Runtime" icon="seti:css">
-    Built entirely on CSS custom properties and `@layer` cascade ordering. No JavaScript is needed
-    for styling — your buttons, inputs, and layouts work without a framework.
-  </Card>
-  <Card title="Three Consumption Modes" icon="puzzle">
-    Drop in via **CDN** with human-readable classes, use as **CSS Modules** in bundled apps for
-    scoped styles, or import **React components** with full type safety.
-  </Card>
-  <Card title="Accessible by Default" icon="heart">
-    Every component ships WCAG 2.2 AA compliant. Focus-visible indicators, semantic HTML, `aria`
-    attributes, and automated testing with axe-core — accessibility isn't an afterthought.
-  </Card>
-  <Card title="Modern CSS" icon="star">
-    CSS nesting, `light-dark()` for automatic dark mode, `@layer` for predictable cascade, container
-    queries, and `@scope` — built for how CSS works today.
-  </Card>
-</CardGrid>
-
+<div class="pm-stats">
+  <div class="pm-stat">
+    <span class="pm-stat-value">130+</span>
+    <span class="pm-stat-label">Components</span>
+  </div>
+  <div class="pm-stat">
+    <span class="pm-stat-value">5</span>
+    <span class="pm-stat-label">Built-in Themes</span>
+  </div>
+  <div class="pm-stat">
+    <span class="pm-stat-value">0 KB</span>
+    <span class="pm-stat-label">JS Runtime</span>
+  </div>
+  <div class="pm-stat">
+    <span class="pm-stat-value">AA</span>
+    <span class="pm-stat-label">WCAG 2.2</span>
+  </div>
+</div>
 </section>
 
 <section class="pm-section">
+<div class="pm-section-heading">
+
+## Why Paramanu?
+
+Built for teams that care about performance, accessibility, and developer experience.
+
+</div>
+
+<div class="pm-features">
+  <div class="pm-feature">
+    <div class="pm-feature-icon">&#x1f3a8;</div>
+    <h3>CSS-First, Zero Runtime</h3>
+    <p>Built entirely on CSS custom properties and <code>@layer</code> cascade ordering. No JavaScript needed for styling — your buttons, inputs, and layouts work without a framework.</p>
+  </div>
+  <div class="pm-feature">
+    <div class="pm-feature-icon">&#x1f9e9;</div>
+    <h3>Three Consumption Modes</h3>
+    <p>Drop in via <strong>CDN</strong> with human-readable classes, use as <strong>CSS Modules</strong> for scoped styles, or import <strong>React components</strong> with full type safety.</p>
+  </div>
+  <div class="pm-feature">
+    <div class="pm-feature-icon">&#x2665;</div>
+    <h3>Accessible by Default</h3>
+    <p>WCAG 2.2 AA compliant. Focus-visible indicators, semantic HTML, ARIA attributes, and automated axe-core testing baked in.</p>
+  </div>
+  <div class="pm-feature">
+    <div class="pm-feature-icon">&#x2728;</div>
+    <h3>Modern CSS</h3>
+    <p>CSS nesting, <code>light-dark()</code> for automatic dark mode, <code>@layer</code> for cascade control, container queries, and <code>@scope</code>.</p>
+  </div>
+  <div class="pm-feature">
+    <div class="pm-feature-icon">&#x1f3ad;</div>
+    <h3>5 Built-in Themes</h3>
+    <p>Material, Ant Design, Bootstrap, Dark Modern, and Light Modern. Swap a class name to re-skin your entire app instantly.</p>
+  </div>
+  <div class="pm-feature">
+    <div class="pm-feature-icon">&#x1f4e6;</div>
+    <h3>Tree-Shakeable</h3>
+    <p>Import only what you use. Each component group is a separate package — no monolithic bundles, no unused CSS.</p>
+  </div>
+</div>
+</section>
+
+<section class="pm-section">
+<div class="pm-section-heading">
+
+## Choose Your Framework
+
+Use Paramanu with vanilla JavaScript or React — same design tokens, same CSS, same components.
+
+</div>
+
+<div class="pm-fw-sections">
+  <div class="pm-fw-card">
+    <h3>JavaScript / CSS</h3>
+    <p>Framework-agnostic class builders and CSS. Works with any templating engine, SSR framework, or plain HTML.</p>
+    <ul>
+      <li>BEM class builder functions</li>
+      <li>CSS Modules support</li>
+      <li>Zero framework dependencies</li>
+      <li>Works with Astro, Svelte, Vue, htmx</li>
+    </ul>
+
+```html
+<link rel="stylesheet" href="@paramanu/buttons-js/css">
+
+<button class="pm-btn pm-btn--primary pm-btn--md">
+  Get Started
+</button>
+```
+
+  <a href="/getting-started/usage-templated/" class="pm-fw-cta secondary">JS Docs &rarr;</a>
+  </div>
+
+  <div class="pm-fw-card">
+    <h3>React</h3>
+    <p>Typed React components with full prop autocompletion, built on top of the JS class builders.</p>
+    <ul>
+      <li>forwardRef components</li>
+      <li>Full TypeScript support</li>
+      <li>Prop-driven variants and sizes</li>
+      <li>Works with Next.js, Remix, Vite</li>
+    </ul>
+
+```tsx
+import { Btn } from "@paramanu/buttons-react"
+
+export default function App() {
+  return <Btn variant="primary" size="md">Get Started</Btn>
+}
+```
+
+  <a href="/getting-started/usage-react/" class="pm-fw-cta primary">React Docs &rarr;</a>
+  </div>
+</div>
+</section>
+
+<section class="pm-section">
+<div class="pm-section-heading">
 
 ## Three Ways to Use
 
-Choose the integration that fits your project:
+</div>
 
+<div class="pm-consumption-tabs">
 <Tabs syncKey="consumption-mode">
   <TabItem label="CDN">
     Link the stylesheet and start using classes immediately. No build tools needed.
@@ -97,88 +192,49 @@ Choose the integration that fits your project:
 
   </TabItem>
 </Tabs>
-
+</div>
 </section>
 
 <section class="pm-section">
+<div class="pm-section-heading">
 
 ## Design Principles
 
-<CardGrid>
-  <Card title="Minimal by Design">
-    Every component does one thing well. No bloated bundles, no hidden dependencies, no surprise
-    side effects. Ship only what you use.
-  </Card>
-  <Card title="Composable">
-    Tokens feed into components, components combine into patterns. Override any layer without
-    fighting specificity wars.
-  </Card>
-  <Card title="Progressive Enhancement">
-    Starts with semantic HTML and CSS. Layer on JavaScript interactivity only when needed. Works
-    without JS, shines with it.
-  </Card>
-  <Card title="Themeable">
-    Swap design tokens at the root level to re-skin everything. Built-in `light-dark()` support
-    means dark mode with one CSS property.
-  </Card>
-</CardGrid>
+</div>
 
+<div class="pm-principles">
+  <div class="pm-principle">
+    <h3>Minimal by Design</h3>
+    <p>Every component does one thing well. No bloated bundles, no hidden dependencies, no surprise side effects.</p>
+  </div>
+  <div class="pm-principle">
+    <h3>Composable</h3>
+    <p>Tokens feed into components, components combine into patterns. Override any layer without fighting specificity wars.</p>
+  </div>
+  <div class="pm-principle">
+    <h3>Progressive Enhancement</h3>
+    <p>Starts with semantic HTML and CSS. Layer on JavaScript interactivity only when needed. Works without JS, shines with it.</p>
+  </div>
+  <div class="pm-principle">
+    <h3>Themeable</h3>
+    <p>Swap design tokens at the root level to re-skin everything. Built-in light-dark() support means dark mode with one CSS property.</p>
+  </div>
+</div>
 </section>
 
-<section class="pm-section pm-cta">
+<section class="pm-section">
+<div class="pm-cta-section">
 
-## Start Building
+## Start Building with Paramanu
 
-<CardGrid>
-  <LinkCard
-    title="Installation"
-    href="/getting-started/installation/"
-    description="Set up Paramanu in your project in under a minute."
-  />
-  <LinkCard
-    title="Btn Component"
-    href="/components/button/"
-    description="Explore the Btn — variants, sizes, accessibility, and live editor."
-  />
-  <LinkCard
-    title="Design Tokens"
-    href="/tokens/colors/"
-    description="Colors, spacing, and typography tokens that power every component."
-  />
-  <LinkCard
-    title="React Storybook"
-    href="/storybook/react/"
-    description="Interactive component playground with all variants and states."
-  />
-</CardGrid>
+Everything you need to build accessible, themeable, modern interfaces.
 
+<div class="pm-cta-links">
+  <a href="/getting-started/installation/" class="primary">Get Started</a>
+  <a href="/tokens/colors/" class="secondary">Design Tokens</a>
+  <a href="https://github.com/sujeet-pro/paramanu" class="secondary">GitHub</a>
+</div>
+</div>
 </section>
 
 </div>
-
-<style>{`
-  .pm-landing {
-    max-width: 65rem;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-
-  .pm-section {
-    margin-bottom: 3rem;
-  }
-
-  .pm-meaning {
-    text-align: center;
-    max-width: 48rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .pm-cta {
-    text-align: center;
-  }
-
-  .pm-cta h2 {
-    margin-bottom: 1.5rem;
-  }
-`}</style>

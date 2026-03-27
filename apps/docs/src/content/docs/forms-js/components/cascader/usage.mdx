@@ -1,0 +1,26 @@
+---
+title: "Cascader"
+description: "A multi-level dropdown for selecting options from a hierarchical tree."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Cascader"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Cascader provides a multi-level dropdown for selecting from hierarchical data.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-cascader pm-cascader--outline pm-cascader--md">\n  <button type="button" class="pm-cascader__trigger" role="combobox" aria-expanded="false">Select category...</button>\n</div>`}
+  reactCode={`import { Cascader } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Cascader />\n}`}
+/>

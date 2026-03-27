@@ -1,0 +1,34 @@
+---
+title: "Btn"
+description: "A versatile button component with multiple variants, sizes, loading states, and icon support."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+- Uses semantic `<button>` element by default
+- Focus-visible ring for keyboard navigation (WCAG 2.2 AA compliant)
+- Disabled buttons set both `aria-disabled="true"` and the `disabled` attribute
+- Loading buttons set `aria-busy="true"` and are automatically disabled
+- Supports `aria-label` for icon-only usage
+
+## Best Practices
+
+- **Use the right variant** for the action's importance: `primary` for the main action, `secondary` for alternatives, `danger` for destructive actions, `ghost`/`outline` for low-emphasis actions, and `link` for inline text actions.
+- **One primary button per section** to avoid competing calls to action.
+- **Use clear, concise labels** with action verbs like "Save", "Delete", "Submit".
+- **Indicate loading states** for async actions to prevent double-clicks.
+- **Always include a `type` attribute** in forms.
+
+## Do's and Don'ts
+
+| Do                                                  | Don't                                            |
+| --------------------------------------------------- | ------------------------------------------------ |
+| Use `variant="danger"` for destructive actions      | Style primary buttons red with custom CSS        |
+| Disable buttons when action is unavailable          | Hide buttons and confuse users                   |
+| Use `fullWidth` for mobile or single-action layouts | Use `fullWidth` for every button                 |
+| Provide `aria-label` when using icon-only buttons   | Leave icon-only buttons without accessible names |

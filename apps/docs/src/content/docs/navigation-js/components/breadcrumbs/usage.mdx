@@ -1,0 +1,46 @@
+---
+title: "Breadcrumb"
+description: "A wayfinding component showing the user's location within a hierarchical structure."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Breadcrumb"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Breadcrumb help users understand their location within a site hierarchy and navigate back to parent pages.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<nav class="pm-breadcrumb pm-breadcrumb--slash" aria-label="Breadcrumb">
+  <ol>
+    <li class="pm-breadcrumb__item"><a class="pm-breadcrumb__link" href="#">Home</a></li>
+    <li class="pm-breadcrumb__item pm-breadcrumb__item--active"><span aria-current="page">Page</span></li>
+  </ol>
+</nav>`}
+  reactCode={`import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem active>Page</BreadcrumbItem>
+    </Breadcrumb>
+  )
+}`}
+/>
+
+## Separator Styles
+
+Use `separator` to choose between `"slash"`, `"chevron"`, `"dot"`, or `"arrow"`.

@@ -1,0 +1,40 @@
+---
+title: "Stat"
+description: "A display component for key metrics with optional trend indicators."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Stat"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Stat displays key metrics with a label, value, and optional trend indicator. Useful for dashboards and summary views.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-stat pm-stat--md pm-stat--start">
+  <div class="pm-stat__label">Total Revenue</div>
+  <div class="pm-stat__value">$45,231</div>
+  <div class="pm-stat__help-text">+12.5% from last month</div>
+</div>`}
+  reactCode={`import { Stat, StatLabel, StatValue, StatHelpText } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <Stat>
+      <StatLabel>Total Revenue</StatLabel>
+      <StatValue>$45,231</StatValue>
+      <StatHelpText trend="up">+12.5% from last month</StatHelpText>
+    </Stat>
+  )
+}`}
+/>

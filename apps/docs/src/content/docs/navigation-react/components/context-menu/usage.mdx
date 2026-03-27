@@ -1,0 +1,40 @@
+---
+title: "Context Menu"
+description: "A right-click activated menu for contextual actions on elements."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Context Menu"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Context Menu appears on right-click and provides contextual actions for the target element.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-ctx-menu pm-ctx-menu--md pm-ctx-menu--open" role="menu">
+  <div role="menuitem">Cut</div>
+  <div role="menuitem">Copy</div>
+  <div role="menuitem">Paste</div>
+</div>`}
+  reactCode={`import { CtxMenu } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <CtxMenu open>
+      <div role="menuitem">Cut</div>
+      <div role="menuitem">Copy</div>
+      <div role="menuitem">Paste</div>
+    </CtxMenu>
+  )
+}`}
+/>

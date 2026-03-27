@@ -1,0 +1,51 @@
+---
+title: "Toggle Btn"
+description: "A two-state toggle button (on/off) using aria-pressed for accessibility."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Toggle Btn"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+A two-state button that toggles between pressed (on) and unpressed (off), using `aria-pressed` for accessibility.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button class="pm-toggle-btn pm-toggle-btn--default pm-toggle-btn--md" aria-pressed="false">Bold</button>`}
+  reactCode={`import { useState } from "react"
+import { ToggleBtn } from "@paramanu/buttons-react"
+
+export default function App() {
+  const [bold, setBold] = useState(false)
+  return <ToggleBtn pressed={bold} onChange={setBold}>Bold</ToggleBtn>
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 8px;">
+  <button class="pm-toggle-btn pm-toggle-btn--default pm-toggle-btn--md pm-toggle-btn--pressed" aria-pressed="true">Default</button>
+  <button class="pm-toggle-btn pm-toggle-btn--outline pm-toggle-btn--md pm-toggle-btn--pressed" aria-pressed="true">Outline</button>
+</div>`}
+  reactCode={`import { ToggleBtn } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "8px" }}>
+      <ToggleBtn variant="default" pressed>Default</ToggleBtn>
+      <ToggleBtn variant="outline" pressed>Outline</ToggleBtn>
+    </div>
+  )
+}`}
+/>

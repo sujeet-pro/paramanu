@@ -1,0 +1,40 @@
+---
+title: "Prose"
+description: "A container that applies typographic styles to child HTML elements for rich text content."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Prose"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Prose applies consistent typographic styling to nested HTML content such as headings, paragraphs, lists, and code blocks.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-prose pm-prose--md">
+  <h2>Article Title</h2>
+  <p>This content is styled by the prose container.</p>
+  <ul><li>First item</li><li>Second item</li></ul>
+</div>`}
+  reactCode={`import { Prose } from "@paramanu/typography-react"
+
+export default function App() {
+  return (
+    <Prose>
+      <h2>Article Title</h2>
+      <p>This content is styled by the prose container.</p>
+      <ul><li>First item</li><li>Second item</li></ul>
+    </Prose>
+  )
+}`}
+/>

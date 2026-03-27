@@ -1,0 +1,26 @@
+---
+title: "Date Range Picker"
+description: "A date range input for selecting start and end dates with a calendar popover."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Date Range Picker"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Date Range Picker allows users to select a start and end date range.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-daterange pm-daterange--outline pm-daterange--md">\n  <input type="text" placeholder="Start date" />\n  <span> - </span>\n  <input type="text" placeholder="End date" />\n</div>`}
+  reactCode={`import { Daterange } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Daterange />\n}`}
+/>

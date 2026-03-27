@@ -1,0 +1,40 @@
+---
+title: "Empty State"
+description: "A placeholder display for empty lists, search results, or views with no data."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Empty State"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Empty State displays a centered placeholder when a list or view has no content, with optional icon, heading, description, and action buttons.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-empty pm-empty--md">
+  <h3 class="pm-empty__heading">No items found</h3>
+  <p class="pm-empty__description">Get started by creating your first item.</p>
+  <div class="pm-empty__actions"><button type="button">Create Item</button></div>
+</div>`}
+  reactCode={`import { Empty, EmptyHeading, EmptyDescription, EmptyActions } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <Empty>
+      <EmptyHeading>No items found</EmptyHeading>
+      <EmptyDescription>Get started by creating your first item.</EmptyDescription>
+      <EmptyActions><button>Create Item</button></EmptyActions>
+    </Empty>
+  )
+}`}
+/>

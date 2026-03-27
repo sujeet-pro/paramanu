@@ -1,0 +1,41 @@
+---
+title: "App Shell"
+description: "A full-page application layout with header, sidebar, main content, and footer regions."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props (Shell)
+
+| Prop                      | Type               | Default   | Description                |
+| ------------------------- | ------------------ | --------- | -------------------------- |
+| `sidebarCollapsed`        | `boolean`          | --        | Controlled collapsed state |
+| `sidebarPosition`         | `"start" \| "end"` | `"start"` | Sidebar position           |
+| `defaultSidebarCollapsed` | `boolean`          | `false`   | Initial collapsed state    |
+
+## React Props (ShellHeader)
+
+| Prop     | Type      | Default | Description        |
+| -------- | --------- | ------- | ------------------ |
+| `sticky` | `boolean` | `false` | Sticky positioning |
+
+## React Props (ShellSidebar)
+
+| Prop        | Type                   | Default | Description              |
+| ----------- | ---------------------- | ------- | ------------------------ |
+| `width`     | `"sm" \| "md" \| "lg"` | `"md"`  | Sidebar width            |
+| `collapsed` | `boolean`              | --      | Override collapsed state |
+
+## CSS Classes
+
+| Class                         | Purpose           |
+| ----------------------------- | ----------------- |
+| `pm-shell`                    | Container         |
+| `pm-shell__header`            | Header            |
+| `pm-shell__sidebar`           | Sidebar           |
+| `pm-shell__main`              | Main content      |
+| `pm-shell__footer`            | Footer            |
+| `pm-shell--sidebar-collapsed` | Collapsed sidebar |

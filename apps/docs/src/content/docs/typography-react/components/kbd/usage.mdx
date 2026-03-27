@@ -1,0 +1,30 @@
+---
+title: "Kbd"
+description: "Keyboard key indicator for displaying keyboard shortcuts and key combinations."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Kbd"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Kbd renders a styled keyboard key indicator. Use it to display keyboard shortcuts and key combinations.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<p>Press <kbd class="pm-kbd pm-kbd--md">Ctrl</kbd> + <kbd class="pm-kbd pm-kbd--md">C</kbd> to copy.</p>`}
+  reactCode={`import { Kbd } from "@paramanu/typography-react"
+
+export default function App() {
+  return <p>Press <Kbd>Ctrl</Kbd> + <Kbd>C</Kbd> to copy.</p>
+}`}
+/>

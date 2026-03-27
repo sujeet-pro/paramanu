@@ -1,0 +1,24 @@
+---
+title: "Textarea"
+description: "A multi-line text input field with support for resize control, variants, and validation states."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+| Feature         | Detail                              |
+| --------------- | ----------------------------------- |
+| Keyboard        | Standard textarea keyboard behavior |
+| `aria-invalid`  | Applied when `invalid` is true      |
+| `aria-disabled` | Applied when `disabled` is true     |
+| Focus ring      | Visible via `:focus-visible`        |
+
+## Best Practices
+
+- Always pair with a visible `<label>` or `aria-label`.
+- Use `resize="none"` only when the layout requires fixed dimensions.
+- Set appropriate `rows` for expected content length.

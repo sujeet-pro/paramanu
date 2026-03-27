@@ -1,0 +1,52 @@
+---
+import Default from "@astrojs/starlight/components/Sidebar.astro"
+---
+
+<Default {...Astro.props}><slot /></Default>
+
+<script>
+  function fixSidebarActiveState() {
+    const path = window.location.pathname.replace(/\/$/, "").replace(/^\/paramanu/, "")
+    const match = path.match(/\/components\/([^/]+)/)
+    if (!match) return
+
+    const componentSlug = match[1]
+
+    const links = document.querySelectorAll("nav.sidebar a")
+    links.forEach((link) => {
+      const href = link.getAttribute("href") || ""
+      if (href.includes(`/components/${componentSlug}/`)) {
+        link.setAttribute("aria-current", "page")
+        link.setAttribute("data-current", "true")
+      }
+    })
+  }
+
+  function rewriteSidebarForFramework() {
+    const stored = localStorage.getItem("pm-framework") || "react"
+    const links = document.querySelectorAll("nav.sidebar a")
+    links.forEach((link) => {
+      const href = link.getAttribute("href")
+      if (!href) return
+      if (href.includes("-react/") || href.includes("-js/")) {
+        let newHref
+        if (stored === "js") {
+          newHref = href.replace(/-react\//, "-js/")
+        } else {
+          newHref = href.replace(/-js\//, "-react/")
+        }
+        if (newHref !== href) {
+          link.setAttribute("href", newHref)
+        }
+      }
+    })
+  }
+
+  function initSidebar() {
+    rewriteSidebarForFramework()
+    fixSidebarActiveState()
+  }
+
+  initSidebar()
+  document.addEventListener("astro:page-load", initSidebar)
+</script>

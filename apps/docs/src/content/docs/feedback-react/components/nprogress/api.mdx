@@ -1,0 +1,37 @@
+---
+title: "NProgress"
+description: "Slim progress bar at the top of the page for route transitions and async operations."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## NProgress Props
+
+| Prop     | Type      | Default | Description               |
+| -------- | --------- | ------- | ------------------------- |
+| `active` | `boolean` | `false` | Whether the bar is active |
+| `value`  | `number`  | `0`     | Progress value (0 to 1)   |
+
+## useNProgress Hook
+
+Returns an object with:
+
+| Property         | Type         | Description                    |
+| ---------------- | ------------ | ------------------------------ |
+| `start`          | `() => void` | Start the progress bar         |
+| `done`           | `() => void` | Complete and hide the bar      |
+| `value`          | `number`     | Current progress value         |
+| `active`         | `boolean`    | Whether active                 |
+| `nprogressProps` | `object`     | Props to spread onto NProgress |
+
+## CSS Classes
+
+| Class                  | Purpose                |
+| ---------------------- | ---------------------- |
+| `pm-nprogress`         | Container base         |
+| `pm-nprogress--active` | Active state           |
+| `pm-nprogress__bar`    | Progress bar           |
+| `pm-nprogress__peg`    | Glowing peg at bar end |

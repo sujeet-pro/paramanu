@@ -1,0 +1,27 @@
+---
+title: "Tour"
+description: "A guided tour component that highlights UI elements with step-by-step popover instructions."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+| Key      | Action                     |
+| -------- | -------------------------- |
+| `Tab`    | Move between tour controls |
+| `Escape` | Close the tour             |
+| `Enter`  | Advance to next step       |
+
+- Tour steps use `role="dialog"`.
+- Overlay uses `aria-hidden="true"`.
+- Focus should be trapped within the active step.
+
+## Best Practices
+
+- Keep tour steps concise and focused.
+- Limit tours to 5-7 steps maximum.
+- Provide a way to skip or close the tour at any point.

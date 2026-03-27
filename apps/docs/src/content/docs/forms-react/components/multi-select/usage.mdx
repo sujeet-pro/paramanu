@@ -1,0 +1,26 @@
+---
+title: "Multi Select"
+description: "A dropdown that allows selecting multiple items from a list of options."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Multi Select"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Multi Select component allows users to choose multiple values from a dropdown list.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-multi-sel pm-multi-sel--outline pm-multi-sel--md">\n  <div class="pm-multi-sel__trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0">Select items...</div>\n  <div class="pm-multi-sel__listbox" role="listbox" aria-multiselectable="true">\n    <div role="option">React</div>\n    <div role="option">Vue</div>\n  </div>\n</div>`}
+  reactCode={`import { MultiSel } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <MultiSel placeholder="Select items...">\n      <div role="option">React</div>\n      <div role="option">Vue</div>\n    </MultiSel>\n  )\n}`}
+/>

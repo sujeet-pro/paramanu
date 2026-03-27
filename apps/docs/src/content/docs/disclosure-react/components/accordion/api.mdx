@@ -1,0 +1,39 @@
+---
+title: "Accordion"
+description: "A vertically stacked set of interactive headings that each reveal a section of content."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accordion Props
+
+| Prop            | Type                                                 | Default     | Description                 |
+| --------------- | ---------------------------------------------------- | ----------- | --------------------------- |
+| `variant`       | `"default" \| "bordered" \| "separated" \| "filled"` | `"default"` | Visual variant              |
+| `size`          | `"sm" \| "md" \| "lg"`                               | `"md"`      | Size preset                 |
+| `type`          | `"single" \| "multiple"`                             | `"single"`  | How many items open at once |
+| `collapsible`   | `boolean`                                            | `false`     | Allow all items to close    |
+| `value`         | `string[]`                                           | -           | Controlled open items       |
+| `defaultValue`  | `string[]`                                           | `[]`        | Initial open items          |
+| `onValueChange` | `(value: string[]) => void`                          | -           | Change callback             |
+
+## AccordionItem Props
+
+| Prop       | Type      | Default | Description       |
+| ---------- | --------- | ------- | ----------------- |
+| `value`    | `string`  | -       | Unique identifier |
+| `disabled` | `boolean` | `false` | Disabled state    |
+
+## CSS Classes
+
+| Class                      | Description          |
+| -------------------------- | -------------------- |
+| `pm-accordion`             | Root element         |
+| `pm-accordion__item`       | Item container       |
+| `pm-accordion__item--open` | Open item            |
+| `pm-accordion__trigger`    | Toggle button        |
+| `pm-accordion__content`    | Content panel        |
+| `pm-accordion__icon`       | Expand/collapse icon |

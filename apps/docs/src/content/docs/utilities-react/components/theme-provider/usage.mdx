@@ -1,0 +1,47 @@
+---
+title: "Theme Provider"
+description: "Manages light/dark/system color scheme with localStorage persistence."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Theme Provider"
+---
+
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+## Overview
+
+Theme manages the application color scheme (light, dark, or system) by setting `data-pm-theme` on the document root and persisting the preference in `localStorage`. All Paramanu components use `light-dark()` CSS function for automatic adaptation.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```js
+    import { setTheme, getTheme } from "@paramanu/utilities-js"
+
+    setTheme("dark")
+    console.log(getTheme()) // "dark"
+    ```
+
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { Theme, useTheme } from "@paramanu/utilities-react"
+
+    <Theme defaultMode="system">
+      <App />
+    </Theme>
+
+    // Inside a component:
+    const { mode, setMode } = useTheme()
+    ```
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,41 @@
+---
+title: "Tooltip"
+description: "A small text label that appears on hover or focus to describe an element."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Tooltip"
+---
+
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+## Overview
+
+Tooltip provides a brief, informative message that appears when a user hovers over or focuses on an element. Follows WAI-ARIA tooltip pattern with `role="tooltip"`.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```html
+    <button aria-describedby="tip-1">Hover me</button>
+    <div id="tip-1" role="tooltip" class="pm-tooltip pm-tooltip--top">
+      Helpful description
+    </div>
+    ```
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { Tooltip } from "@paramanu/overlays-react"
+
+    <Tooltip placement="top">Helpful description</Tooltip>
+    ```
+
+</TabItem>
+</Tabs>

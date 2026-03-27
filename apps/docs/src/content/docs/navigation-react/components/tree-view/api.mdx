@@ -1,0 +1,40 @@
+---
+title: "Tree View"
+description: "A hierarchical tree structure for navigating nested data like file systems."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Tree Props
+
+| Prop   | Type           | Default | Description |
+| ------ | -------------- | ------- | ----------- |
+| `size` | `"sm" \| "md"` | `"md"`  | Size preset |
+
+## TreeItem Props
+
+| Prop       | Type      | Default | Description    |
+| ---------- | --------- | ------- | -------------- |
+| `selected` | `boolean` | `false` | Selected state |
+| `disabled` | `boolean` | `false` | Disabled state |
+
+## TreeBranch Props
+
+| Prop       | Type      | Default | Description    |
+| ---------- | --------- | ------- | -------------- |
+| `expanded` | `boolean` | `false` | Expanded state |
+
+## CSS Classes
+
+| Class                       | Description          |
+| --------------------------- | -------------------- |
+| `pm-tree`                   | Root element         |
+| `pm-tree__branch`           | Branch node          |
+| `pm-tree__branch--expanded` | Expanded branch      |
+| `pm-tree__item`             | Leaf item            |
+| `pm-tree__item--selected`   | Selected item        |
+| `pm-tree__group`            | Nested group         |
+| `pm-tree__indicator`        | Expand/collapse icon |

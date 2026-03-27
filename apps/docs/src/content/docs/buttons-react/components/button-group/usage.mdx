@@ -1,0 +1,82 @@
+---
+title: "Btn Group"
+description: "Groups multiple buttons with consistent spacing and optional attached styling."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Btn Group"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Groups related buttons together with consistent spacing, optional attached borders, and horizontal or vertical layout.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-btn-group pm-btn-group--horizontal" role="group" aria-label="Actions">
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Left</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Center</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Right</button>
+</div>`}
+  reactCode={`import { BtnGroup, Btn } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <BtnGroup aria-label="Actions">
+      <Btn variant="secondary">Left</Btn>
+      <Btn variant="secondary">Center</Btn>
+      <Btn variant="secondary">Right</Btn>
+    </BtnGroup>
+  )
+}`}
+/>
+
+## Attached
+
+<ComponentPreview
+  htmlCode={`<div class="pm-btn-group pm-btn-group--horizontal pm-btn-group--attached" role="group" aria-label="Actions">
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Left</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Center</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Right</button>
+</div>`}
+  reactCode={`import { BtnGroup, Btn } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <BtnGroup attached aria-label="Actions">
+      <Btn variant="secondary">Left</Btn>
+      <Btn variant="secondary">Center</Btn>
+      <Btn variant="secondary">Right</Btn>
+    </BtnGroup>
+  )
+}`}
+/>
+
+## Vertical
+
+<ComponentPreview
+  htmlCode={`<div class="pm-btn-group pm-btn-group--vertical" role="group" aria-label="Actions">
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Top</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Middle</button>
+  <button class="pm-btn pm-btn--secondary pm-btn--md">Bottom</button>
+</div>`}
+  reactCode={`import { BtnGroup, Btn } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <BtnGroup orientation="vertical" aria-label="Actions">
+      <Btn variant="secondary">Top</Btn>
+      <Btn variant="secondary">Middle</Btn>
+      <Btn variant="secondary">Bottom</Btn>
+    </BtnGroup>
+  )
+}`}
+/>

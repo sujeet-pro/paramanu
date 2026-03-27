@@ -1,0 +1,40 @@
+---
+title: "Textarea"
+description: "A multi-line text input field with support for resize control, variants, and validation states."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Textarea"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Textarea component provides a multi-line text input with configurable resize behavior, variants, and sizes.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<textarea class="pm-textarea pm-textarea--outline pm-textarea--md pm-textarea--resize-vertical" rows="3" placeholder="Enter text..."></textarea>`}
+  reactCode={`import { Textarea } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Textarea placeholder="Enter text..." rows={3} />\n}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<textarea class="pm-textarea pm-textarea--outline pm-textarea--md pm-textarea--resize-vertical" placeholder="Outline"></textarea>\n<textarea class="pm-textarea pm-textarea--filled pm-textarea--md pm-textarea--resize-vertical" placeholder="Filled"></textarea>`}
+  reactCode={`import { Textarea } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <Textarea variant="outline" placeholder="Outline" />\n      <Textarea variant="filled" placeholder="Filled" />\n      <Textarea variant="unstyled" placeholder="Unstyled" />\n    </>\n  )\n}`}
+/>
+
+## Resize Options
+
+<ComponentPreview
+  htmlCode={`<textarea class="pm-textarea pm-textarea--outline pm-textarea--md pm-textarea--resize-none" placeholder="No resize"></textarea>\n<textarea class="pm-textarea pm-textarea--outline pm-textarea--md pm-textarea--resize-vertical" placeholder="Vertical"></textarea>\n<textarea class="pm-textarea pm-textarea--outline pm-textarea--md pm-textarea--resize-both" placeholder="Both"></textarea>`}
+  reactCode={`import { Textarea } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <>\n      <Textarea resize="none" placeholder="No resize" />\n      <Textarea resize="vertical" placeholder="Vertical" />\n      <Textarea resize="both" placeholder="Both" />\n    </>\n  )\n}`}
+/>

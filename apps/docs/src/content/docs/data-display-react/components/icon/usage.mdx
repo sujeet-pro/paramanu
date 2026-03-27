@@ -1,0 +1,36 @@
+---
+title: "Icon"
+description: "A wrapper for SVG icons with size, color, and spin animation support."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Icon"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Icon is a container for SVG icons with consistent sizing, color inheritance, and optional spin animation. Supports accessible and decorative modes.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<span class="pm-icon pm-icon--md pm-icon--inherit" role="img" aria-label="Star">
+  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" /></svg>
+</span>`}
+  reactCode={`import { Icon } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <Icon label="Star">
+      <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" /></svg>
+    </Icon>
+  )
+}`}
+/>

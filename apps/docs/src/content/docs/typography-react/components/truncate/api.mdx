@@ -1,0 +1,26 @@
+---
+title: "Truncate"
+description: "A truncation component that clips overflowing text with ellipsis after a specified number of lines."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+| Prop       | Type                           | Default | Description             |
+| ---------- | ------------------------------ | ------- | ----------------------- |
+| `as`       | `"div" \| "span" \| "p"`       | `"div"` | HTML element            |
+| `lines`    | `1-6`                          | `1`     | Lines before truncation |
+| `position` | `"end" \| "start" \| "middle"` | `"end"` | Ellipsis position       |
+
+## CSS Classes
+
+| Class                    | Purpose         |
+| ------------------------ | --------------- |
+| `pm-truncate`            | Base            |
+| `pm-truncate--lines-{n}` | Line count      |
+| `pm-truncate--start`     | Start position  |
+| `pm-truncate--middle`    | Middle position |

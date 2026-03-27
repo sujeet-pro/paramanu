@@ -1,0 +1,50 @@
+---
+title: "Focus Trap"
+description: "Constrains keyboard focus within a container for accessible modal interactions."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Focus Trap"
+---
+
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+## Overview
+
+FocusTrap constrains keyboard Tab/Shift+Tab navigation within a container element. Essential for accessible modal dialogs, drawers, and other overlays that require focus management per WAI-ARIA dialog pattern.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```js
+    import { createFocusTrap } from "@paramanu/utilities-js"
+
+    const trap = createFocusTrap(dialogElement, {
+      onEscapeKey: () => closeDialog(),
+      returnFocusOnDeactivate: true,
+    })
+    trap.activate()
+    // Later: trap.deactivate()
+    ```
+
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { FocusTrap } from "@paramanu/utilities-react"
+
+    <FocusTrap active={isOpen} onEscapeKey={handleClose}>
+      <div role="dialog" aria-modal="true">
+        <button>Focusable</button>
+      </div>
+    </FocusTrap>
+    ```
+
+</TabItem>
+</Tabs>

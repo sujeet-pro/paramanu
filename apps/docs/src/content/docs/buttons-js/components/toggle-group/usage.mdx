@@ -1,0 +1,65 @@
+---
+title: "Toggle Group"
+description: "A group of toggle buttons supporting single or multiple selection."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Toggle Group"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+A group of toggle buttons where one or more can be active, supporting single-select and multi-select modes.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-toggle-grp pm-toggle-grp--horizontal pm-toggle-grp--md" role="group" aria-label="Alignment">
+  <button class="pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md" aria-pressed="false">Left</button>
+  <button class="pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md pm-toggle-grp__item--pressed" aria-pressed="true">Center</button>
+  <button class="pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md" aria-pressed="false">Right</button>
+</div>`}
+  reactCode={`import { useState } from "react"
+import { ToggleGrp, ToggleGrpItem } from "@paramanu/buttons-react"
+
+export default function App() {
+  const [value, setValue] = useState("center")
+  return (
+    <ToggleGrp type="single" value={value} onChange={setValue}>
+      <ToggleGrpItem value="left">Left</ToggleGrpItem>
+      <ToggleGrpItem value="center">Center</ToggleGrpItem>
+      <ToggleGrpItem value="right">Right</ToggleGrpItem>
+    </ToggleGrp>
+  )
+}`}
+/>
+
+## Multiple Selection
+
+<ComponentPreview
+  htmlCode={`<div class="pm-toggle-grp pm-toggle-grp--horizontal pm-toggle-grp--md" role="group" aria-label="Formatting" data-type="multiple">
+  <button class="pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md pm-toggle-grp__item--pressed" aria-pressed="true">B</button>
+  <button class="pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md" aria-pressed="false">I</button>
+  <button class="pm-toggle-grp__item pm-toggle-grp__item--default pm-toggle-grp__item--md" aria-pressed="false">U</button>
+</div>`}
+  reactCode={`import { useState } from "react"
+import { ToggleGrp, ToggleGrpItem } from "@paramanu/buttons-react"
+
+export default function App() {
+  const [value, setValue] = useState(["bold"])
+  return (
+    <ToggleGrp type="multiple" value={value} onChange={setValue}>
+      <ToggleGrpItem value="bold">B</ToggleGrpItem>
+      <ToggleGrpItem value="italic">I</ToggleGrpItem>
+      <ToggleGrpItem value="underline">U</ToggleGrpItem>
+    </ToggleGrp>
+  )
+}`}
+/>

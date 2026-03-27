@@ -1,0 +1,34 @@
+---
+title: "Steps"
+description: "A stepper component showing progress through a multi-step process."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Steps Props
+
+| Prop          | Type                         | Default        | Description      |
+| ------------- | ---------------------------- | -------------- | ---------------- |
+| `size`        | `"sm" \| "md" \| "lg"`       | `"md"`         | Size preset      |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout direction |
+
+## Step Props
+
+| Prop     | Type                                     | Default        | Description |
+| -------- | ---------------------------------------- | -------------- | ----------- |
+| `status` | `"incomplete" \| "active" \| "complete"` | `"incomplete"` | Step status |
+
+## CSS Classes
+
+| Class                      | Description            |
+| -------------------------- | ---------------------- |
+| `pm-steps`                 | Root element           |
+| `pm-steps__step`           | Step container         |
+| `pm-steps__step--active`   | Active step            |
+| `pm-steps__step--complete` | Completed step         |
+| `pm-steps__indicator`      | Number indicator       |
+| `pm-steps__connector`      | Line between steps     |
+| `pm-steps__content`        | Label/description area |

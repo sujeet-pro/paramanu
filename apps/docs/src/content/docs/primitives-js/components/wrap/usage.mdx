@@ -1,0 +1,40 @@
+---
+title: "Wrap"
+description: "A layout component that wraps children into multiple rows with consistent gap and alignment."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Wrap"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Wrap lays out children in a wrapping row with consistent gap. Useful for tag lists, chip groups, and responsive layouts.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-wrap pm-wrap--gap-3">
+  <span style="background: #e2e8f0; padding: 4px 12px; border-radius: 4px;">Tag 1</span>
+  <span style="background: #e2e8f0; padding: 4px 12px; border-radius: 4px;">Tag 2</span>
+  <span style="background: #e2e8f0; padding: 4px 12px; border-radius: 4px;">Tag 3</span>
+</div>`}
+  reactCode={`import { Wrap } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Wrap gap="3">
+      <span>Tag 1</span>
+      <span>Tag 2</span>
+      <span>Tag 3</span>
+    </Wrap>
+  )
+}`}
+/>

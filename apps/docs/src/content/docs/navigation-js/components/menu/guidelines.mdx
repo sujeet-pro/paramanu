@@ -1,0 +1,21 @@
+---
+title: "Menu"
+description: "A list of actions or options presented in a vertical layout."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+| Key         | Action                |
+| ----------- | --------------------- |
+| `ArrowDown` | Move to next item     |
+| `ArrowUp`   | Move to previous item |
+| `Enter`     | Activate focused item |
+| `Escape`    | Close menu            |
+
+- Uses `role="menu"` on the container and `role="menuitem"` on items.
+- Disabled items use `aria-disabled="true"`.

@@ -1,0 +1,22 @@
+---
+title: "Mentions"
+description: "A text input that supports @-mentioning users or entities from a suggestion list."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+| Feature         | Detail                                                 |
+| --------------- | ------------------------------------------------------ |
+| `aria-disabled` | Applied when `disabled` is true                        |
+| Keyboard        | Arrow keys navigate suggestions, Enter selects         |
+| Suggestion list | Should use `role="listbox"` with `role="option"` items |
+
+## Best Practices
+
+- Show a suggestion dropdown when the trigger character is typed.
+- Allow keyboard navigation through suggestions.

@@ -1,0 +1,21 @@
+---
+title: "Progress Bar"
+description: "Linear progress indicator with determinate and indeterminate modes."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+- Uses `role="progressbar"` with `aria-valuenow`, `aria-valuemin`, `aria-valuemax`
+- Indeterminate mode omits `aria-valuenow`
+- Provide `aria-label` for context
+
+## Best Practices
+
+- Use indeterminate mode when completion is unknown
+- Use striped + animated for active operations
+- Show labels for long-running operations

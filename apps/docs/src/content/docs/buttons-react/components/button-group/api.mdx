@@ -1,0 +1,30 @@
+---
+title: "Btn Group"
+description: "Groups multiple buttons with consistent spacing and optional attached styling."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+Extends all native `<div>` HTML attributes.
+
+| Prop          | Type                         | Default        | Description                |
+| ------------- | ---------------------------- | -------------- | -------------------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout direction           |
+| `attached`    | `boolean`                    | `false`        | Merge button borders       |
+| `fullWidth`   | `boolean`                    | `false`        | Stretch to container width |
+| `children`    | `ReactNode`                  | --             | Btn elements               |
+
+## CSS Classes
+
+| Class                      | Purpose           |
+| -------------------------- | ----------------- |
+| `pm-btn-group`             | Base styles       |
+| `pm-btn-group--horizontal` | Horizontal layout |
+| `pm-btn-group--vertical`   | Vertical layout   |
+| `pm-btn-group--attached`   | Merged borders    |
+| `pm-btn-group--full-width` | Full width        |

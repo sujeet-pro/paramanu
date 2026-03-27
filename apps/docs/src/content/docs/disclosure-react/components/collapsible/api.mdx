@@ -1,0 +1,29 @@
+---
+title: "Collapsible"
+description: "A single expandable/collapsible section with trigger and content."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Collapsible Props
+
+| Prop           | Type                      | Default | Description           |
+| -------------- | ------------------------- | ------- | --------------------- |
+| `open`         | `boolean`                 | -       | Controlled open state |
+| `defaultOpen`  | `boolean`                 | `false` | Initial open state    |
+| `onOpenChange` | `(open: boolean) => void` | -       | Change callback       |
+| `disabled`     | `boolean`                 | `false` | Disabled state        |
+| `size`         | `"sm" \| "md" \| "lg"`    | `"md"`  | Size preset           |
+
+## CSS Classes
+
+| Class                      | Description    |
+| -------------------------- | -------------- |
+| `pm-collapsible`           | Root element   |
+| `pm-collapsible--open`     | Open state     |
+| `pm-collapsible--disabled` | Disabled state |
+| `pm-collapsible__trigger`  | Toggle button  |
+| `pm-collapsible__content`  | Content panel  |

@@ -1,0 +1,21 @@
+---
+title: "Toggle Group"
+description: "A group of toggle buttons supporting single or multiple selection."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+- Uses `role="group"` with `aria-label`
+- Each item uses `aria-pressed` for toggle state
+- Keyboard accessible via tab + Enter/Space
+
+## Best Practices
+
+- Use `type="single"` for mutually exclusive options (e.g., text alignment)
+- Use `type="multiple"` for independent toggles (e.g., text formatting)
+- Always provide an `aria-label` for the group

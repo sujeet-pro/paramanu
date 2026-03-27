@@ -1,0 +1,22 @@
+---
+title: "Pin Input"
+description: "A group of single-character input fields for entering PIN codes or verification codes."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+| Feature        | Detail                                     |
+| -------------- | ------------------------------------------ |
+| `role="group"` | Container groups the inputs                |
+| `aria-label`   | Each input labeled with its digit position |
+| Keyboard       | Auto-advance focus on input                |
+
+## Best Practices
+
+- Label the group with a description of what the code is for.
+- Use `inputMode="numeric"` for mobile numeric keyboards.

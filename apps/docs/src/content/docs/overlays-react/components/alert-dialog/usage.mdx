@@ -1,0 +1,46 @@
+---
+title: "Alert Dialog"
+description: "A modal dialog that requires explicit user action to dismiss."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Alert Dialog"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Alert Dialog is a modal that requires explicit user action to dismiss. Unlike Dialog, it does not close on backdrop click. Uses `role="alertdialog"`.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-alertdialog pm-alertdialog--danger" role="alertdialog" aria-modal="true">
+  <div class="pm-alertdialog__header">Delete Item?</div>
+  <div class="pm-alertdialog__body">This action cannot be undone.</div>
+  <div class="pm-alertdialog__footer">
+    <button>Cancel</button>
+    <button>Delete</button>
+  </div>
+</div>`}
+  reactCode={`import { Alertdialog, AlertdialogHeader, AlertdialogBody, AlertdialogFooter } from "@paramanu/overlays-react"
+
+export default function App() {
+  return (
+    <Alertdialog open variant="danger" onClose={() => {}}>
+      <AlertdialogHeader>Delete Item?</AlertdialogHeader>
+      <AlertdialogBody>This action cannot be undone.</AlertdialogBody>
+      <AlertdialogFooter>
+        <button>Cancel</button>
+        <button>Delete</button>
+      </AlertdialogFooter>
+    </Alertdialog>
+  )
+}`}
+/>

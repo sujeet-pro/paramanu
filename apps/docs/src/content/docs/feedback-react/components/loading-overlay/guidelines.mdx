@@ -1,0 +1,20 @@
+---
+title: "Loading Overlay"
+description: "Full-area overlay with backdrop for loading states over content sections."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+- Uses `aria-hidden` to toggle visibility for assistive technology
+- Content inside the overlay should contain a loading indicator or text
+
+## Best Practices
+
+- Use on positioned containers (`position: relative`)
+- Toggle `visible` prop instead of mounting/unmounting for animations
+- Use blur effect sparingly to maintain performance

@@ -1,0 +1,40 @@
+---
+title: "Dialog"
+description: "A modal overlay with focus trapping, backdrop click, and escape key handling."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Dialog"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Dialog renders a modal overlay with `role="dialog"`, `aria-modal="true"`, focus trapping, backdrop click, and escape key handling.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-dialog pm-dialog--md" role="dialog" aria-modal="true">
+  <div class="pm-dialog__header">Dialog Title</div>
+  <div class="pm-dialog__body">Content here.</div>
+  <div class="pm-dialog__footer"><button>Close</button></div>
+</div>`}
+  reactCode={`import { Dialog, DialogHeader, DialogBody, DialogFooter } from "@paramanu/overlays-react"
+
+export default function App() {
+  return (
+    <Dialog open onClose={() => {}} size="md">
+      <DialogHeader>Dialog Title</DialogHeader>
+      <DialogBody>Content here.</DialogBody>
+      <DialogFooter><button>Close</button></DialogFooter>
+    </Dialog>
+  )
+}`}
+/>

@@ -1,0 +1,36 @@
+---
+title: "Code"
+description: "Inline and block code display with syntax highlighting support, line numbers, and copy button."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Code"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Code renders inline code snippets or block-level code with optional line numbers and copy button.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<p>Use <code class="pm-code">npm install</code> to install.</p>
+<pre class="pm-code-block"><code>const x = 42</code></pre>`}
+  reactCode={`import { Code } from "@paramanu/typography-react"
+
+export default function App() {
+  return (
+    <>
+      <p>Use <Code>npm install</Code> to install.</p>
+      <Code block>{"const x = 42"}</Code>
+    </>
+  )
+}`}
+/>

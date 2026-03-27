@@ -1,0 +1,33 @@
+---
+title: "FAB"
+description: "A floating action button for primary actions that hovers above the content."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+Extends all native `<button>` HTML attributes.
+
+| Prop       | Type                                                 | Default          | Description              |
+| ---------- | ---------------------------------------------------- | ---------------- | ------------------------ |
+| `size`     | `"sm" \| "md" \| "lg"`                               | `"md"`           | Size preset              |
+| `position` | `"bottom-right" \| "bottom-left" \| "bottom-center"` | `"bottom-right"` | Viewport position        |
+| `extended` | `boolean`                                            | `false`          | Extended style with text |
+| `disabled` | `boolean`                                            | `false`          | Disabled state           |
+| `children` | `ReactNode`                                          | --               | Icon and/or text content |
+
+## CSS Classes
+
+| Class                   | Purpose                |
+| ----------------------- | ---------------------- |
+| `pm-fab`                | Base styles            |
+| `pm-fab--sm/md/lg`      | Size modifiers         |
+| `pm-fab--bottom-right`  | Bottom-right position  |
+| `pm-fab--bottom-left`   | Bottom-left position   |
+| `pm-fab--bottom-center` | Bottom-center position |
+| `pm-fab--extended`      | Extended pill shape    |
+| `pm-fab--disabled`      | Disabled state         |

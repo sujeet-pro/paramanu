@@ -1,0 +1,47 @@
+---
+title: "Format Number"
+description: "Locale-aware number formatting using the Intl.NumberFormat API."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Format Number"
+---
+
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+## Overview
+
+FormatNumber provides locale-aware number formatting powered by the browser's `Intl.NumberFormat` API. Supports decimal, currency, percent, and compact notation styles.
+
+## Usage
+
+<Tabs>
+  <TabItem label="HTML">
+    ```js
+    import { formatNumber } from "@paramanu/utilities-js"
+
+    formatNumber(1234.56, { style: "currency", currency: "EUR", locale: "de-DE" })
+    // => "1.234,56 EUR"
+
+    formatNumber(1500000, { notation: "compact" })
+    // => "1.5M"
+    ```
+
+</TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { FormatNumber } from "@paramanu/utilities-react"
+
+    <FormatNumber value={1234.56} style="currency" currency="USD" />
+    <FormatNumber value={0.85} style="percent" />
+    <FormatNumber value={1500000} notation="compact" />
+    ```
+
+</TabItem>
+</Tabs>

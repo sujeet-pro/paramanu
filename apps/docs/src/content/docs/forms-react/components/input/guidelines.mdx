@@ -1,0 +1,24 @@
+---
+title: "Input"
+description: "A text input field for single-line data entry with support for variants, sizes, and validation states."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+| Feature             | Detail                           |
+| ------------------- | -------------------------------- |
+| Keyboard navigation | Standard input keyboard behavior |
+| `aria-invalid`      | Applied when `invalid` is true   |
+| `aria-disabled`     | Applied when `disabled` is true  |
+| Focus ring          | Visible via `:focus-visible`     |
+
+## Best Practices
+
+- Always pair inputs with a visible `<label>` or `aria-label`.
+- Use the `invalid` prop with an error message for validation feedback.
+- Prefer `readOnly` over `disabled` when the value should be copyable.

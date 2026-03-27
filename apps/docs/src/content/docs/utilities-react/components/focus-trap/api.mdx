@@ -1,0 +1,18 @@
+---
+title: "Focus Trap"
+description: "Constrains keyboard focus within a container for accessible modal interactions."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## API
+
+| Prop                      | Type                    | Default | Description                                  |
+| ------------------------- | ----------------------- | ------- | -------------------------------------------- |
+| `active`                  | `boolean`               | `true`  | Whether the focus trap is active             |
+| `initialFocus`            | `HTMLElement \| string` | -       | Element or selector to receive initial focus |
+| `returnFocusOnDeactivate` | `boolean`               | `true`  | Restore focus on deactivation                |
+| `onEscapeKey`             | `() => void`            | -       | Callback when Escape is pressed              |

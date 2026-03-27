@@ -1,0 +1,36 @@
+---
+title: "QR Code"
+description: "A styled container for QR code SVGs with configurable size presets."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "QR Code"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+QR Code provides a styled container and SVG wrapper for QR codes. The actual QR code generation is left to the consumer.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-qr-code pm-qr-code--md" role="img" aria-label="QR Code">
+  <svg class="pm-qr-code__svg" viewBox="0 0 100 100"><!-- QR code SVG --></svg>
+</div>`}
+  reactCode={`import { QrCode } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <QrCode size="md">
+      <svg viewBox="0 0 100 100">{/* QR code paths */}</svg>
+    </QrCode>
+  )
+}`}
+/>

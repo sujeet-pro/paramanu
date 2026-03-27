@@ -1,0 +1,23 @@
+---
+title: "Tree View"
+description: "A hierarchical tree structure for navigating nested data like file systems."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+| Key          | Action                              |
+| ------------ | ----------------------------------- |
+| `ArrowDown`  | Move to next visible item           |
+| `ArrowUp`    | Move to previous visible item       |
+| `ArrowRight` | Expand branch / move to first child |
+| `ArrowLeft`  | Collapse branch / move to parent    |
+| `Home`       | Move to first item                  |
+| `End`        | Move to last visible item           |
+
+- Uses `role="tree"`, `role="treeitem"`, and `role="group"`.
+- Branches use `aria-expanded`.

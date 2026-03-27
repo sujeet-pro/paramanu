@@ -1,0 +1,33 @@
+---
+title: "Switch"
+description: "A toggle switch for binary on/off settings with label placement options."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Switch"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Switch component provides a toggle control for binary on/off settings, using `role="switch"` for proper semantics.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<label class="pm-switch pm-switch--md pm-switch--label-end">\n  <input type="checkbox" role="switch" class="pm-switch__input" />\n  <span class="pm-switch__track"><span class="pm-switch__thumb"></span></span>\n  <span class="pm-switch__label">Dark mode</span>\n</label>`}
+  reactCode={`import { Switch } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Switch>Dark mode</Switch>\n}`}
+/>
+
+## Label Placement
+
+<ComponentPreview
+  htmlCode={`<label class="pm-switch pm-switch--md pm-switch--label-start">\n  <input type="checkbox" role="switch" class="pm-switch__input" />\n  <span class="pm-switch__track"><span class="pm-switch__thumb"></span></span>\n  <span class="pm-switch__label">Label start</span>\n</label>`}
+  reactCode={`import { Switch } from "@paramanu/forms-react"\n\nexport default function App() {\n  return <Switch labelPlacement="start">Label start</Switch>\n}`}
+/>

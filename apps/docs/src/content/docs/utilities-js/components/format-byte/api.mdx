@@ -1,0 +1,19 @@
+---
+title: "Format Byte"
+description: "Converts raw byte values into human-readable strings with appropriate unit suffixes."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## API
+
+| Prop       | Type              | Default   | Description              |
+| ---------- | ----------------- | --------- | ------------------------ |
+| `value`    | `number`          | -         | The byte value to format |
+| `locale`   | `string`          | `"en-US"` | BCP 47 language tag      |
+| `decimals` | `number`          | `2`       | Maximum decimal places   |
+| `unit`     | `"byte" \| "bit"` | `"byte"`  | Output unit system       |
+| `as`       | `ElementType`     | `"span"`  | HTML element to render   |

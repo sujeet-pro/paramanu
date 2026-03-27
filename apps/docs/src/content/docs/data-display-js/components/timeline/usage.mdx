@@ -1,0 +1,52 @@
+---
+title: "Timeline"
+description: "A chronological display of events with dots, connectors, and content areas."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Timeline"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Timeline displays a sequence of events with dot indicators, connectors, and content areas. Supports vertical/horizontal orientation and multiple alignment options.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<ol class="pm-timeline pm-timeline--vertical pm-timeline--start">
+  <li class="pm-timeline__item">
+    <span class="pm-timeline__dot"></span>
+    <span class="pm-timeline__connector"></span>
+    <div class="pm-timeline__content">First event</div>
+  </li>
+  <li class="pm-timeline__item">
+    <span class="pm-timeline__dot"></span>
+    <div class="pm-timeline__content">Second event</div>
+  </li>
+</ol>`}
+  reactCode={`import { Timeline, TimelineItem, TimelineDot, TimelineConnector, TimelineContent } from "@paramanu/data-display-react"
+
+export default function App() {
+  return (
+    <Timeline>
+      <TimelineItem>
+        <TimelineDot />
+        <TimelineConnector />
+        <TimelineContent>First event</TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineDot />
+        <TimelineContent>Second event</TimelineContent>
+      </TimelineItem>
+    </Timeline>
+  )
+}`}
+/>

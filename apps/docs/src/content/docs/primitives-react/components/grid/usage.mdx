@@ -1,0 +1,46 @@
+---
+title: "Grid"
+description: "A CSS grid layout component with controls for columns, rows, gap, alignment, and flow."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Grid"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Grid provides a declarative CSS grid container with props for columns, rows, gap, alignment, and auto-flow.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-grid pm-grid--cols-3 pm-grid--gap-4">
+  <div style="background: #e2e8f0; padding: 16px; text-align: center;">1</div>
+  <div style="background: #e2e8f0; padding: 16px; text-align: center;">2</div>
+  <div style="background: #e2e8f0; padding: 16px; text-align: center;">3</div>
+  <div style="background: #e2e8f0; padding: 16px; text-align: center;">4</div>
+  <div style="background: #e2e8f0; padding: 16px; text-align: center;">5</div>
+  <div style="background: #e2e8f0; padding: 16px; text-align: center;">6</div>
+</div>`}
+  reactCode={`import { Grid } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Grid columns={3} gap="4">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </Grid>
+  )
+}`}
+/>

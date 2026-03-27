@@ -1,0 +1,24 @@
+---
+title: "Progress Bar"
+description: "Linear progress indicator with determinate and indeterminate modes."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+| Prop            | Type                                              | Default     | Description         |
+| --------------- | ------------------------------------------------- | ----------- | ------------------- |
+| `size`          | `"xs" \| "sm" \| "md" \| "lg"`                    | `"md"`      | Track height        |
+| `variant`       | `"primary" \| "success" \| "warning" \| "danger"` | `"primary"` | Fill color          |
+| `value`         | `number`                                          | `0`         | Current value       |
+| `min`           | `number`                                          | `0`         | Minimum value       |
+| `max`           | `number`                                          | `100`       | Maximum value       |
+| `striped`       | `boolean`                                         | `false`     | Striped pattern     |
+| `animated`      | `boolean`                                         | `false`     | Animate stripes     |
+| `indeterminate` | `boolean`                                         | `false`     | Unknown progress    |
+| `showLabel`     | `boolean`                                         | `false`     | Show percentage     |
+| `formatLabel`   | `(pct) => string`                                 | --          | Custom label format |

@@ -1,0 +1,26 @@
+---
+title: "Pin Input"
+description: "A group of single-character input fields for entering PIN codes or verification codes."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Pin Input"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Pin Input component renders a group of individual character inputs for entering PINs, OTPs, or verification codes.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-pin-input pm-pin-input--md" role="group">\n  <input class="pm-input pm-input--outline pm-input--md" type="text" inputmode="numeric" maxlength="1" aria-label="Pin digit 1" style="width:3rem;text-align:center" />\n  <input class="pm-input pm-input--outline pm-input--md" type="text" inputmode="numeric" maxlength="1" aria-label="Pin digit 2" style="width:3rem;text-align:center" />\n  <input class="pm-input pm-input--outline pm-input--md" type="text" inputmode="numeric" maxlength="1" aria-label="Pin digit 3" style="width:3rem;text-align:center" />\n  <input class="pm-input pm-input--outline pm-input--md" type="text" inputmode="numeric" maxlength="1" aria-label="Pin digit 4" style="width:3rem;text-align:center" />\n</div>`}
+  reactCode={`import { PinInput } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <PinInput>\n      {[1, 2, 3, 4].map((i) => (\n        <input key={i} maxLength={1} inputMode="numeric" aria-label={\`Pin digit \${i}\`} />\n      ))}\n    </PinInput>\n  )\n}`}
+/>

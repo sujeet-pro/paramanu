@@ -1,0 +1,40 @@
+---
+title: "Tour"
+description: "A guided tour component that highlights UI elements with step-by-step popover instructions."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Tour Props
+
+| Prop   | Type      | Default | Description     |
+| ------ | --------- | ------- | --------------- |
+| `open` | `boolean` | `false` | Tour visibility |
+
+## TourStep Props
+
+| Prop        | Type                                            | Default     | Description    |
+| ----------- | ----------------------------------------------- | ----------- | -------------- |
+| `placement` | `"top" \| "bottom" \| "left" \| "right" \| ...` | `"bottom"`  | Step placement |
+| `active`    | `boolean`                                       | `false`     | Active step    |
+| `variant`   | `"default" \| "primary"`                        | `"default"` | Visual variant |
+
+## TourOverlay Props
+
+| Prop      | Type      | Default | Description        |
+| --------- | --------- | ------- | ------------------ |
+| `visible` | `boolean` | `false` | Overlay visibility |
+
+## CSS Classes
+
+| Class                   | Description        |
+| ----------------------- | ------------------ |
+| `pm-tour`               | Root element       |
+| `pm-tour--open`         | Open state         |
+| `pm-tour__step`         | Step popover       |
+| `pm-tour__step--active` | Active step        |
+| `pm-tour__overlay`      | Background overlay |
+| `pm-tour__spotlight`    | Target highlight   |

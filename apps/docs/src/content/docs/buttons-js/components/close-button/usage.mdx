@@ -1,0 +1,55 @@
+---
+title: "Close Btn"
+description: "A small dismiss button for alerts, dialogs, toasts, and other dismissible containers."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Close Btn"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+A compact dismiss button with a close icon, intended for use inside alerts, dialogs, toasts, and banners.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<button class="pm-close-btn pm-close-btn--md" aria-label="Close">
+  <svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+</button>`}
+  reactCode={`import { CloseBtn } from "@paramanu/buttons-react"
+
+export default function App() {
+  return <CloseBtn onClick={() => console.log("closed")} />
+}`}
+/>
+
+## Sizes
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; gap: 8px; align-items: center;">
+  <button class="pm-close-btn pm-close-btn--xs" aria-label="Close">x</button>
+  <button class="pm-close-btn pm-close-btn--sm" aria-label="Close">x</button>
+  <button class="pm-close-btn pm-close-btn--md" aria-label="Close">x</button>
+  <button class="pm-close-btn pm-close-btn--lg" aria-label="Close">x</button>
+</div>`}
+  reactCode={`import { CloseBtn } from "@paramanu/buttons-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+      <CloseBtn size="xs" />
+      <CloseBtn size="sm" />
+      <CloseBtn size="md" />
+      <CloseBtn size="lg" />
+    </div>
+  )
+}`}
+/>

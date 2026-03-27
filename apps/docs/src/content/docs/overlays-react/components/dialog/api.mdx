@@ -1,0 +1,21 @@
+---
+title: "Dialog"
+description: "A modal overlay with focus trapping, backdrop click, and escape key handling."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Props
+
+| Prop                   | Type                                             | Default     | Description                   |
+| ---------------------- | ------------------------------------------------ | ----------- | ----------------------------- |
+| `open`                 | `boolean`                                        | `false`     | Whether the dialog is visible |
+| `onClose`              | `() => void`                                     | -           | Close callback                |
+| `size`                 | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "full"` | `"md"`      | Panel max-width               |
+| `centered`             | `boolean`                                        | `false`     | Vertically center             |
+| `scrollBehavior`       | `"inside" \| "outside"`                          | `"outside"` | Scroll position               |
+| `closeOnBackdropClick` | `boolean`                                        | `true`      | Close on backdrop click       |
+| `closeOnEscape`        | `boolean`                                        | `true`      | Close on Escape key           |

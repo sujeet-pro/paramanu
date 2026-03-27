@@ -1,0 +1,33 @@
+---
+title: "Editable Text"
+description: "An inline text element that can be clicked to switch into an editing input field."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Editable Text"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Editable Text component displays text that can be clicked to switch into edit mode, allowing inline editing.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-editable pm-editable--md" role="group">\n  <span>Click to edit</span>\n</div>`}
+  reactCode={`import { Editable } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <Editable>\n      <span>Click to edit</span>\n    </Editable>\n  )\n}`}
+/>
+
+## Editing Mode
+
+<ComponentPreview
+  htmlCode={`<div class="pm-editable pm-editable--md pm-editable--editing" role="group">\n  <input class="pm-input pm-input--outline pm-input--md" value="Editing mode" />\n</div>`}
+  reactCode={`import { Editable } from "@paramanu/forms-react"\n\nexport default function App() {\n  return (\n    <Editable editing>\n      <input defaultValue="Editing mode" />\n    </Editable>\n  )\n}`}
+/>

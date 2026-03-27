@@ -1,0 +1,44 @@
+---
+title: "Sidebar"
+description: "A vertical navigation panel for app-level or section-level navigation."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Sidebar"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Sidebar provides vertical navigation with sections, labels, and indented items for hierarchical structures.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<nav class="pm-sidebar pm-sidebar--default pm-sidebar--left">
+  <div class="pm-sidebar__section">
+    <div class="pm-sidebar__section-label">Main</div>
+    <a href="#" class="pm-sidebar__item pm-sidebar__item--active" aria-current="page">Dashboard</a>
+    <a href="#" class="pm-sidebar__item">Settings</a>
+  </div>
+</nav>`}
+  reactCode={`import { Sidebar, SidebarSection, SidebarSectionLabel, SidebarItem } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <Sidebar>
+      <SidebarSection>
+        <SidebarSectionLabel>Main</SidebarSectionLabel>
+        <SidebarItem href="#" active>Dashboard</SidebarItem>
+        <SidebarItem href="#">Settings</SidebarItem>
+      </SidebarSection>
+    </Sidebar>
+  )
+}`}
+/>

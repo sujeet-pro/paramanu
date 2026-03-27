@@ -1,0 +1,27 @@
+---
+title: "Container"
+description: "A centered, max-width container for constraining page content width."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+| Prop     | Type                                                      | Default | Description              |
+| -------- | --------------------------------------------------------- | ------- | ------------------------ |
+| `size`   | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "full"` | `"lg"`  | Max width                |
+| `fluid`  | `boolean`                                                 | `false` | Full width, no max-width |
+| `px`     | `SpacingScale`                                            | --      | Horizontal padding       |
+| `center` | `boolean`                                                 | `false` | Center content with flex |
+
+## CSS Classes
+
+| Class                  | Purpose        |
+| ---------------------- | -------------- |
+| `pm-container`         | Base           |
+| `pm-container--{size}` | Max width size |
+| `pm-container--fluid`  | Full width     |
+| `pm-container--center` | Center content |

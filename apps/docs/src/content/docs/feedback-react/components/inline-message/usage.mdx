@@ -1,0 +1,55 @@
+---
+title: "Inline Message"
+description: "Compact feedback message for form fields and inline content areas."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Inline Message"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+InlineMsg displays compact feedback within forms or content areas, ideal for field validation hints.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-inline-msg pm-inline-msg--info pm-inline-msg--md" role="status">
+  <div class="pm-inline-msg__content">This field is required.</div>
+</div>`}
+  reactCode={`import { InlineMsg } from "@paramanu/feedback-react"
+
+export default function App() {
+  return <InlineMsg variant="info">This field is required.</InlineMsg>
+}`}
+/>
+
+## Variants
+
+<ComponentPreview
+  htmlCode={`<div style="display: flex; flex-direction: column; gap: 4px;">
+  <div class="pm-inline-msg pm-inline-msg--info pm-inline-msg--md" role="status"><div class="pm-inline-msg__content">Info</div></div>
+  <div class="pm-inline-msg pm-inline-msg--success pm-inline-msg--md" role="status"><div class="pm-inline-msg__content">Success</div></div>
+  <div class="pm-inline-msg pm-inline-msg--warning pm-inline-msg--md" role="alert"><div class="pm-inline-msg__content">Warning</div></div>
+  <div class="pm-inline-msg pm-inline-msg--danger pm-inline-msg--md" role="alert"><div class="pm-inline-msg__content">Danger</div></div>
+</div>`}
+  reactCode={`import { InlineMsg } from "@paramanu/feedback-react"
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+      <InlineMsg variant="info">Info</InlineMsg>
+      <InlineMsg variant="success">Success</InlineMsg>
+      <InlineMsg variant="warning">Warning</InlineMsg>
+      <InlineMsg variant="danger">Danger</InlineMsg>
+    </div>
+  )
+}`}
+/>

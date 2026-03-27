@@ -1,0 +1,14 @@
+---
+title: "Client Only"
+description: "Renders content only on the client side after React hydration."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+- Use to wrap components that depend on `window`, `document`, or `localStorage`
+- Provide a `fallback` for loading states during SSR
+- The `useIsClient()` hook provides the same functionality as a hook
+- Useful for wrapping Portals in SSR frameworks

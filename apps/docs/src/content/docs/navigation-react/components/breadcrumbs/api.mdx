@@ -1,0 +1,31 @@
+---
+title: "Breadcrumb"
+description: "A wayfinding component showing the user's location within a hierarchical structure."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Breadcrumb Props
+
+| Prop        | Type                                       | Default   | Description     |
+| ----------- | ------------------------------------------ | --------- | --------------- |
+| `separator` | `"slash" \| "chevron" \| "dot" \| "arrow"` | `"slash"` | Separator style |
+
+## BreadcrumbItem Props
+
+| Prop     | Type      | Default | Description  |
+| -------- | --------- | ------- | ------------ |
+| `active` | `boolean` | `false` | Current page |
+
+## CSS Classes
+
+| Class                         | Description         |
+| ----------------------------- | ------------------- |
+| `pm-breadcrumb`               | Root element        |
+| `pm-breadcrumb--chevron`      | Chevron separator   |
+| `pm-breadcrumb__item`         | Item element        |
+| `pm-breadcrumb__item--active` | Active/current item |
+| `pm-breadcrumb__link`         | Link element        |

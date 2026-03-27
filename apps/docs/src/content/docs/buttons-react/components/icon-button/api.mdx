@@ -1,0 +1,38 @@
+---
+title: "Icon Btn"
+description: "A square or circular button that renders only an icon with no visible text."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+Extends all native `<button>` HTML attributes.
+
+| Prop         | Type                                                           | Default      | Description      |
+| ------------ | -------------------------------------------------------------- | ------------ | ---------------- |
+| `variant`    | `"primary" \| "secondary" \| "danger" \| "ghost" \| "outline"` | `"primary"`  | Visual style     |
+| `size`       | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`                         | `"md"`       | Size preset      |
+| `shape`      | `"square" \| "circle"`                                         | `"square"`   | Btn shape        |
+| `disabled`   | `boolean`                                                      | `false`      | Disabled state   |
+| `loading`    | `boolean`                                                      | `false`      | Loading state    |
+| `active`     | `boolean`                                                      | `false`      | Active state     |
+| `aria-label` | `string`                                                       | **required** | Accessible label |
+| `children`   | `ReactNode`                                                    | --           | Icon element     |
+
+## CSS Classes
+
+| Class                       | Purpose           |
+| --------------------------- | ----------------- |
+| `pm-icon-btn`               | Base styles       |
+| `pm-icon-btn--primary`      | Primary variant   |
+| `pm-icon-btn--secondary`    | Secondary variant |
+| `pm-icon-btn--danger`       | Danger variant    |
+| `pm-icon-btn--ghost`        | Ghost variant     |
+| `pm-icon-btn--outline`      | Outline variant   |
+| `pm-icon-btn--square`       | Square shape      |
+| `pm-icon-btn--circle`       | Circle shape      |
+| `pm-icon-btn--xs` to `--xl` | Size modifiers    |

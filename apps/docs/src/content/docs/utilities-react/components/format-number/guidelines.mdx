@@ -1,0 +1,14 @@
+---
+title: "Format Number"
+description: "Locale-aware number formatting using the Intl.NumberFormat API."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+- Always specify a `currency` when using `style="currency"`
+- Use `notation="compact"` for large numbers in space-constrained UIs
+- The locale defaults to `"en-US"` but inherits from LocaleProvider context
+- Renders as a `<span>` by default; use the `as` prop to change the element

@@ -1,0 +1,24 @@
+---
+title: "Mark"
+description: "A mark component for annotating text with highlight, underline, circle, or filled styles."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## React Props
+
+| Prop      | Type                                                       | Default     | Description    |
+| --------- | ---------------------------------------------------------- | ----------- | -------------- |
+| `variant` | `"default" \| "underline" \| "circle" \| "filled"`         | `"default"` | Visual variant |
+| `color`   | `"yellow" \| "primary" \| "danger" \| "success" \| "info"` | --          | Color          |
+
+## CSS Classes
+
+| Class                | Purpose        |
+| -------------------- | -------------- |
+| `pm-mark`            | Base           |
+| `pm-mark--{variant}` | Visual variant |
+| `pm-mark--color-{c}` | Color          |

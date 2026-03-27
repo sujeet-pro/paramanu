@@ -1,0 +1,44 @@
+---
+title: "Menu"
+description: "A list of actions or options presented in a vertical layout."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Menu"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+The Menu component displays a vertical list of actions with support for groups, separators, and destructive items.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<ul class="pm-menu pm-menu--md" role="menu">
+  <li class="pm-menu__item" role="menuitem">Cut</li>
+  <li class="pm-menu__item" role="menuitem">Copy</li>
+  <li class="pm-menu__item" role="menuitem">Paste</li>
+  <li class="pm-menu__separator" role="separator"></li>
+  <li class="pm-menu__item pm-menu__item--destructive" role="menuitem">Delete</li>
+</ul>`}
+  reactCode={`import { Menu, MenuItem, MenuSeparator } from "@paramanu/navigation-react"
+
+export default function App() {
+  return (
+    <Menu>
+      <MenuItem>Cut</MenuItem>
+      <MenuItem>Copy</MenuItem>
+      <MenuItem>Paste</MenuItem>
+      <MenuSeparator />
+      <MenuItem destructive>Delete</MenuItem>
+    </Menu>
+  )
+}`}
+/>

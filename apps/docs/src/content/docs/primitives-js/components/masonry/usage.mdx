@@ -1,0 +1,44 @@
+---
+title: "Masonry"
+description: "A masonry grid layout that arranges items in columns with varying heights."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Masonry"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Masonry arranges child elements into columns with varying heights, creating a Pinterest-style layout.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-masonry pm-masonry--cols-3 pm-masonry--gap-4">
+  <div style="background: #e2e8f0; height: 120px;">1</div>
+  <div style="background: #e2e8f0; height: 200px;">2</div>
+  <div style="background: #e2e8f0; height: 160px;">3</div>
+  <div style="background: #e2e8f0; height: 80px;">4</div>
+  <div style="background: #e2e8f0; height: 240px;">5</div>
+  <div style="background: #e2e8f0; height: 100px;">6</div>
+</div>`}
+  reactCode={`import { Masonry } from "@paramanu/primitives-react"
+
+export default function App() {
+  const heights = [120, 200, 160, 80, 240, 100]
+  return (
+    <Masonry columns={3} gap="4">
+      {heights.map((h, i) => (
+        <div key={i} style={{ background: "#e2e8f0", height: h }}>{i + 1}</div>
+      ))}
+    </Masonry>
+  )
+}`}
+/>

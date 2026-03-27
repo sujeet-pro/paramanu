@@ -1,0 +1,25 @@
+---
+title: "Sidebar"
+description: "A vertical navigation panel for app-level or section-level navigation."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Accessibility
+
+| Key     | Action                   |
+| ------- | ------------------------ |
+| `Tab`   | Move focus between items |
+| `Enter` | Activate focused item    |
+
+- Uses `<nav>` for semantic navigation.
+- Active item uses `aria-current="page"`.
+- Disabled items use `aria-disabled="true"`.
+
+## Best Practices
+
+- Group related items into sections with descriptive labels.
+- Highlight the active page with the `active` prop.

@@ -1,0 +1,42 @@
+---
+title: "App Shell"
+description: "A full-page application layout with header, sidebar, main content, and footer regions."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "App Shell"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+App Shell provides a structured page layout with header, sidebar, main, and footer areas. Supports collapsible sidebars.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-shell pm-shell--sidebar-start" style="height: 400px; border: 1px solid #e2e8f0;">
+  <header class="pm-shell__header pm-shell__header--sticky" style="padding: 12px; background: #f8fafc;">Header</header>
+  <aside class="pm-shell__sidebar pm-shell__sidebar--md" style="padding: 12px; background: #f1f5f9;">Sidebar</aside>
+  <main class="pm-shell__main" style="padding: 12px;">Main Content</main>
+  <footer class="pm-shell__footer" style="padding: 12px; background: #f8fafc;">Footer</footer>
+</div>`}
+  reactCode={`import { Shell, ShellHeader, ShellSidebar, ShellMain, ShellFooter } from "@paramanu/primitives-react"
+
+export default function App() {
+  return (
+    <Shell style={{ height: 400 }}>
+      <ShellHeader sticky>Header</ShellHeader>
+      <ShellSidebar width="md">Sidebar</ShellSidebar>
+      <ShellMain>Main Content</ShellMain>
+      <ShellFooter>Footer</ShellFooter>
+    </Shell>
+  )
+}`}
+/>

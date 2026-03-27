@@ -1,0 +1,30 @@
+---
+title: "Switch"
+description: "A toggle switch for binary on/off settings with label placement options."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  hidden: true
+---
+
+## Props
+
+| Prop             | Type                           | Default | Description    |
+| ---------------- | ------------------------------ | ------- | -------------- |
+| `size`           | `"xs" \| "sm" \| "md" \| "lg"` | `"md"`  | Switch size    |
+| `disabled`       | `boolean`                      | `false` | Disabled state |
+| `checked`        | `boolean`                      | `false` | Checked state  |
+| `labelPlacement` | `"start" \| "end"`             | `"end"` | Label position |
+
+## CSS Classes
+
+| Class                    | Description         |
+| ------------------------ | ------------------- |
+| `pm-switch`              | Base class          |
+| `pm-switch__input`       | Hidden input        |
+| `pm-switch__track`       | Track element       |
+| `pm-switch__thumb`       | Thumb element       |
+| `pm-switch__label`       | Label text          |
+| `pm-switch--checked`     | Checked state       |
+| `pm-switch--label-start` | Label before switch |

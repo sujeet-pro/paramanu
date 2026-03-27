@@ -1,0 +1,32 @@
+---
+title: "Img"
+description: "A styled image component with object-fit, border radius, fallback, and caption support."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Img"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Img renders a styled `<figure>` with an `<img>` element, optional `<figcaption>`, fallback placeholder, and loading skeleton.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<figure class="pm-img pm-img--cover pm-img--radius-none">
+  <img class="pm-img__img" src="https://picsum.photos/400/300" alt="Sample" />
+</figure>`}
+  reactCode={`import { Img } from "@paramanu/data-display-react"
+
+export default function App() {
+  return <Img src="https://picsum.photos/400/300" alt="Sample" />
+}`}
+/>

@@ -1,0 +1,40 @@
+---
+title: "Drawer"
+description: "A slide-in panel from any edge of the viewport with header, body, and footer sections."
+badge:
+  text: In Development
+  variant: caution
+sidebar:
+  label: "Drawer"
+---
+
+import ComponentPreview from "../../../../../components/ComponentPreview.astro"
+import { Aside } from "@astrojs/starlight/components"
+
+<Aside type="caution" title="In Development">
+  This component is currently in development. The API is not yet stable and may change in future
+  releases.
+</Aside>
+
+Drawer is a panel that slides in from any edge of the viewport. Useful for navigation menus, filters, and detail panels.
+
+## Basic Usage
+
+<ComponentPreview
+  htmlCode={`<div class="pm-drawer pm-drawer--end pm-drawer--md" role="dialog" aria-modal="true">
+  <div class="pm-drawer__header">Drawer Title</div>
+  <div class="pm-drawer__body">Content here.</div>
+  <div class="pm-drawer__footer"><button>Close</button></div>
+</div>`}
+  reactCode={`import { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from "@paramanu/overlays-react"
+
+export default function App() {
+  return (
+    <Drawer open placement="end" onClose={() => {}}>
+      <DrawerHeader>Drawer Title</DrawerHeader>
+      <DrawerBody>Content here.</DrawerBody>
+      <DrawerFooter><button>Close</button></DrawerFooter>
+    </Drawer>
+  )
+}`}
+/>
